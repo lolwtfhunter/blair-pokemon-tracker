@@ -714,56 +714,68 @@
                 syncCode = code;
                 window.syncCode = code;
                 window.syncModal.remove();
+                
+                // RENDER CARDS IMMEDIATELY - Don't wait for Firebase
+                console.log('=== RENDERING CARDS IMMEDIATELY ===');
+                console.log('cardSets available:', Object.keys(cardSets));
+                
+                Object.keys(cardSets).forEach(setKey => {
+                    console.log('Rendering set:', setKey, 'with', cardSets[setKey].totalCards, 'cards');
+                    renderCards(setKey);
+                });
+                updateProgress();
+                console.log('=== CARDS RENDERED ===');
+                
+                // Now try to connect Firebase for syncing
                 initializeFirebaseSync();
             };
 
             // Remove the skipSync function - no longer needed
 
             function initializeFirebaseSync() {
-                if (!syncCode) return;
+                if (!syncCode) {
+                    console.warn('No sync code, skipping Firebase');
+                    return;
+                }
                 
+                console.log('=== STARTING FIREBASE SYNC ===');
                 window.syncCode = syncCode;
                 updateSyncStatus('Connecting...', 'syncing');
-                console.log('Initializing Firebase sync with code:', syncCode);
                 
-                // Create reference to this collection in Firebase
-                window.databaseRef = window.database.ref('collections/' + syncCode);
-                console.log('Firebase reference created:', window.databaseRef.toString());
-                
-                // Add connection timeout
-                const connectionTimeout = setTimeout(() => {
-                    console.warn('Firebase connection timeout - rendering cards anyway');
-                    // Render cards even if Firebase is slow
-                    Object.keys(cardSets).forEach(setKey => {
-                        renderCards(setKey);
-                    });
-                    updateProgress();
-                    updateSyncStatus('Offline Mode', 'error');
-                }, 5000); // 5 second timeout
-                
-                // Listen for changes from Firebase
-                window.databaseRef.on('value', (snapshot) => {
-                    clearTimeout(connectionTimeout); // Cancel timeout
-                    console.log('Firebase snapshot received');
+                try {
+                    // Create reference to this collection in Firebase
+                    window.databaseRef = window.database.ref('collections/' + syncCode);
+                    console.log('Firebase reference created');
                     
-                    if (window.isLoadingFromFirebase) return; // Prevent loops
+                    // Set a short timeout - cards are already rendered
+                    const connectionTimeout = setTimeout(() => {
+                        console.warn('Firebase connection taking too long, continuing without sync');
+                        updateSyncStatus('Offline', 'error');
+                    }, 3000); // 3 second timeout
                     
-                    const data = snapshot.val();
-                    console.log('Firebase data:', data ? 'exists' : 'empty');
-                    
-                    if (data) {
-                        window.isLoadingFromFirebase = true;
-                        collectionProgress = data;
-                        localStorage.setItem('pokemonVariantProgress', JSON.stringify(data));
+                    // Listen for changes from Firebase
+                    window.databaseRef.on('value', (snapshot) => {
+                        clearTimeout(connectionTimeout);
+                        console.log('Firebase connected!');
                         
-                        // Update UI
-                        Object.keys(cardSets).forEach(setKey => {
-                            renderCards(setKey);
-                        });
-                        updateProgress();
+                        if (window.isLoadingFromFirebase) return;
                         
-                        updateSyncStatus('Synced ✓', 'synced');
-                        window.isLoadingFromFirebase = false;
+                        const data = snapshot.val();
+                        console.log('Firebase data received:', data ? 'has data' : 'empty');
+                        
+                        if (data) {
+                            window.isLoadingFromFirebase = true;
+                            collectionProgress = data;
+                            localStorage.setItem('pokemonVariantProgress', JSON.stringify(data));
+                            
+                            // Re-render with saved progress
+                            Object.keys(cardSets).forEach(setKey => {
+                                renderCards(setKey);
+                            });
+                            updateProgress();
+                            
+                            updateSyncStatus('Synced ✓', 'synced');
+                            window.isLoadingFromFirebase = false;
                     } else {
                         // No data yet, render empty cards and upload current progress
                         console.log('No Firebase data found, rendering empty cards');

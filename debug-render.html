@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Card Render Debug</title>
+    <style>
+        body { background: #1a1a2e; color: #00ff88; font-family: monospace; padding: 20px; }
+        .card { background: #16213e; padding: 10px; margin: 5px; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <h1>Card Rendering Debug</h1>
+    <div id="status"></div>
+    <div id="cards"></div>
+
+    <script>
+        const status = document.getElementById('status');
+        const cardsDiv = document.getElementById('cards');
+        
+        status.innerHTML = '<p>Loading card-data.json...</p>';
+        
+        fetch('./card-data.json')
+            .then(response => response.json())
+            .then(data => {
+                status.innerHTML += '<p>✓ JSON loaded</p>';
+                status.innerHTML += `<p>Sets: ${Object.keys(data.sets).length}</p>`;
+                
+                // Try to render Journey Together
+                const set = data.sets['journey-together'];
+                status.innerHTML += `<p>Rendering ${set.totalCards} Journey Together cards...</p>`;
+                
+                for (let i = 1; i <= Math.min(10, set.totalCards); i++) {
+                    const card = document.createElement('div');
+                    card.className = 'card';
+                    card.innerHTML = `Card #${i}`;
+                    cardsDiv.appendChild(card);
+                }
+                
+                status.innerHTML += `<p>✓ Cards rendered!</p>`;
+            })
+            .catch(error => {
+                status.innerHTML += `<p style="color: red;">✗ Error: ${error.message}</p>`;
+            });
+    </script>
+</body>
+</html>
