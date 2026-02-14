@@ -1,0 +1,46 @@
+{
+  "version": "1.0.0",
+  "lastUpdated": "2026-02-14",
+  "sets": {
+    "journey-together": {
+      "name": "Journey Together",
+      "displayName": "⚡ Journey Together ⚡",
+      "totalCards": 190,
+      "hasPokeB allVariant": false,
+      "hasMasterBallVariant": false,
+      "releaseDate": "2025-03-28"
+    },
+    "destined-rivals": {
+      "name": "Destined Rivals",
+      "displayName": "Destined Rivals",
+      "totalCards": 244,
+      "hasPokeBallVariant": false,
+      "hasMasterBallVariant": false,
+      "releaseDate": "2025-05-30"
+    },
+    "prismatic-evolutions": {
+      "name": "Prismatic Evolutions",
+      "displayName": "Prismatic Evolutions",
+      "totalCards": 217,
+      "hasPokeBallVariant": true,
+      "hasMasterBallVariant": true,
+      "releaseDate": "2025-01-17"
+    },
+    "phantasmal-flames": {
+      "name": "Phantasmal Flames",
+      "displayName": "Phantasmal Flames",
+      "totalCards": 130,
+      "hasPokeBallVariant": false,
+      "hasMasterBallVariant": false,
+      "releaseDate": "2025-11-14"
+    },
+    "ascended-heroes": {
+      "name": "Ascended Heroes",
+      "displayName": "Ascended Heroes",
+      "totalCards": 295,
+      "hasPokeBallVariant": false,
+      "hasMasterBallVariant": false,
+      "releaseDate": "2026-01-30"
+    }
+  }
+}
