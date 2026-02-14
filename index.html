@@ -602,6 +602,9 @@
     </div>
 
     <script>
+        // IMMEDIATE TEST - runs before anything else
+        alert('JavaScript is loading!');
+        
         // Debug logging to screen for iOS
         window.debugLog = function(msg) {
             const panel = document.getElementById('debugPanel');
@@ -611,6 +614,12 @@
                 panel.scrollTop = panel.scrollHeight;
             }
         };
+        
+        // Test debug log immediately
+        setTimeout(() => {
+            window.debugLog('🚀 Script started!');
+            window.debugLog('Debug panel exists: ' + !!document.getElementById('debugPanel'));
+        }, 100);
         
         // Override console.log to also show on screen
         const originalLog = console.log;
