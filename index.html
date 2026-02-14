@@ -1,0 +1,1345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blair Master Set Tracker</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-database-compat.js"></script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #e63946;
+            --secondary: #ffcc00;
+            --bg-dark: #1a1a2e;
+            --bg-card: #16213e;
+            --text: #f1f1f1;
+            --text-dim: #a0a0a0;
+            --accent-blue: #4c9aff;
+            --accent-green: #00ff88;
+            --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text);
+            padding: 15px;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(230, 57, 70, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 90% 80%, rgba(76, 154, 255, 0.1) 0%, transparent 50%);
+        }
+
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+            padding: 25px 20px;
+            background: var(--gradient);
+            border-radius: 15px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+
+        .sync-status {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 6px 12px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 20px;
+            font-size: 0.7rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .sync-indicator {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #666;
+        }
+
+        .sync-indicator.synced {
+            background: var(--accent-green);
+            animation: pulse 2s infinite;
+        }
+
+        .sync-indicator.syncing {
+            background: var(--secondary);
+            animation: pulse 0.5s infinite;
+        }
+
+        .sync-indicator.error {
+            background: var(--primary);
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+            letter-spacing: -1px;
+        }
+
+        .subtitle {
+            font-size: 1rem;
+            opacity: 0.9;
+            font-weight: 500;
+        }
+
+        .controls {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: var(--bg-card);
+            border-radius: 12px;
+        }
+
+        .controls-row {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .set-selector {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 8px;
+            width: 100%;
+        }
+
+        .set-btn {
+            padding: 12px 16px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--text);
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .set-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .set-btn.active {
+            background: var(--primary);
+            border-color: var(--secondary);
+            box-shadow: 0 4px 15px rgba(230, 57, 70, 0.4);
+        }
+
+        .search-box {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            color: var(--text);
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        input[type="text"]::placeholder {
+            color: var(--text-dim);
+        }
+
+        .progress-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .progress-card {
+            background: var(--bg-card);
+            padding: 15px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .progress-card h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            margin-bottom: 10px;
+            color: var(--secondary);
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 24px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 8px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent-green), var(--accent-blue));
+            transition: width 0.5s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.8rem;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            color: var(--text-dim);
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+            gap: 6px;
+            margin-bottom: 30px;
+        }
+
+        .card-item {
+            background: var(--bg-card);
+            border-radius: 6px;
+            padding: 6px;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            position: relative;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+            border-color: var(--accent-blue);
+        }
+
+        .card-item.all-collected {
+            border-color: var(--accent-green);
+            background: linear-gradient(135deg, rgba(0, 255, 136, 0.1), rgba(76, 154, 255, 0.1));
+        }
+
+        .card-header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            margin-bottom: 5px;
+            text-align: center;
+        }
+
+        .card-img {
+            width: 55px;
+            height: 77px;
+            background: linear-gradient(135deg, #3b4cca 0%, #b13589 50%, #ffcc00 100%);
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            position: relative;
+            overflow: hidden;
+            flex-shrink: 0;
+            border: 2px solid #ffcc00;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.3);
+        }
+        
+        .card-img::after {
+            content: '';
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 5px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: none;
+        }
+        
+        .card-img.loading {
+            background: var(--gradient);
+        }
+
+        .card-img.loading::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, 
+                transparent 30%, 
+                rgba(255, 255, 255, 0.1) 50%, 
+                transparent 70%);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0%, 100% { transform: translateX(-100%) translateY(-100%); }
+            50% { transform: translateX(100%) translateY(100%); }
+        }
+
+        .card-info {
+            flex: 1;
+            min-width: 0;
+            width: 100%;
+        }
+
+        .card-number {
+            font-weight: 700;
+            color: var(--secondary);
+            font-size: 0.65rem;
+            margin-bottom: 2px;
+        }
+
+        .card-name {
+            font-weight: 600;
+            font-size: 0.7rem;
+            margin-bottom: 3px;
+            color: var(--text);
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            line-height: 1.1;
+            min-height: 1.5rem;
+        }
+
+        .rarity-badge {
+            display: inline-block;
+            padding: 1px 4px;
+            border-radius: 3px;
+            font-size: 0.5rem;
+            font-weight: 600;
+        }
+
+        .rarity-common { background: #6c757d; }
+        .rarity-uncommon { background: #28a745; }
+        .rarity-rare { background: #ffc107; }
+        .rarity-ex { background: var(--primary); }
+        .rarity-secret { background: var(--gradient); }
+        .rarity-trainer { background: #17a2b8; }
+
+        .variants-section {
+            margin-top: 4px;
+            padding-top: 4px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .variants-title {
+            font-size: 0.5rem;
+            font-weight: 600;
+            margin-bottom: 3px;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 0.2px;
+        }
+
+        .variant-checkboxes {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .variant-checkbox {
+            display: flex;
+            align-items: center;
+            gap: 3px;
+            padding: 2px 3px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 3px;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        .variant-checkbox:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .variant-checkbox.checked {
+            background: rgba(0, 255, 136, 0.15);
+            border: 1px solid var(--accent-green);
+        }
+
+        .variant-checkbox input[type="checkbox"] {
+            width: 12px;
+            height: 12px;
+            cursor: pointer;
+            accent-color: var(--accent-green);
+            flex-shrink: 0;
+        }
+
+        .variant-checkbox label {
+            flex: 1;
+            cursor: pointer;
+            font-size: 0.55rem;
+            user-select: none;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .variant-icon {
+            font-size: 0.65rem;
+            flex-shrink: 0;
+        }
+
+        /* Single variant style */
+        .single-variant {
+            padding: 3px 4px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 3px;
+            display: flex;
+            align-items: center;
+            gap: 3px;
+            cursor: pointer;
+        }
+
+        .single-variant:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .single-variant.checked {
+            background: rgba(0, 255, 136, 0.15);
+            border: 1px solid var(--accent-green);
+        }
+
+        .single-variant input[type="checkbox"] {
+            width: 14px;
+            height: 14px;
+            cursor: pointer;
+            accent-color: var(--accent-green);
+            flex-shrink: 0;
+        }
+
+        .single-variant label {
+            flex: 1;
+            cursor: pointer;
+            font-size: 0.6rem;
+            font-weight: 600;
+            user-select: none;
+        }
+
+        .set-section {
+            display: none;
+        }
+
+        .set-section.active {
+            display: block;
+        }
+
+        .export-btn {
+            padding: 10px 18px;
+            background: var(--accent-green);
+            color: var(--bg-dark);
+            border: none;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+        }
+
+        .export-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(0, 255, 136, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .controls {
+                flex-direction: column;
+            }
+
+            .card-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .card-header {
+                flex-direction: column;
+            }
+            
+            .card-img {
+                width: 50px;
+                height: 70px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .card-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .card-img {
+                width: 55px;
+                height: 77px;
+            }
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: var(--text-dim);
+            font-size: 0.75rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="sync-status">
+                <div class="sync-indicator" id="syncIndicator"></div>
+                <span id="syncStatus">Offline</span>
+                <button onclick="window.logoutSyncCode()" style="margin-left:10px;padding:4px 8px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:4px;color:#f1f1f1;font-size:0.7rem;cursor:pointer;" title="Change sync code">🔄</button>
+            </div>
+            <h1>⚡ Blair Master Set Tracker ⚡</h1>
+            <p class="subtitle">Track every variant of your Journey Together, Destined Rivals, Prismatic Evolutions, Phantasmal Flames & Ascended Heroes collections</p>
+        </header>
+
+        <div class="controls">
+            <div class="set-selector">
+                <button class="set-btn active" data-set="journey-together">Journey Together</button>
+                <button class="set-btn" data-set="destined-rivals">Destined Rivals</button>
+                <button class="set-btn" data-set="prismatic-evolutions">Prismatic Evolutions</button>
+                <button class="set-btn" data-set="phantasmal-flames">Phantasmal Flames</button>
+                <button class="set-btn" data-set="ascended-heroes">Ascended Heroes</button>
+            </div>
+            <div class="controls-row">
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="🔍 Search by name or number...">
+                </div>
+                <button class="export-btn" onclick="exportProgress()">📊 Export Progress</button>
+            </div>
+        </div>
+
+        <div class="progress-section" id="progressSection"></div>
+
+        <div id="journey-together" class="set-section active">
+            <div class="card-grid" id="journey-together-grid"></div>
+        </div>
+
+        <div id="destined-rivals" class="set-section">
+            <div class="card-grid" id="destined-rivals-grid"></div>
+        </div>
+
+        <div id="prismatic-evolutions" class="set-section">
+            <div class="card-grid" id="prismatic-evolutions-grid"></div>
+        </div>
+
+        <div id="phantasmal-flames" class="set-section">
+            <div class="card-grid" id="phantasmal-flames-grid"></div>
+        </div>
+
+        <div id="ascended-heroes" class="set-section">
+            <div class="card-grid" id="ascended-heroes-grid"></div>
+        </div>
+
+        <footer>
+            Made with ❤️ for Pokémon TCG collectors | Track each variant separately | Your progress saves automatically
+        </footer>
+    </div>
+
+    <script>
+        // Wait for Firebase SDK to load
+        window.addEventListener('load', function() {
+            // Firebase Configuration
+            const firebaseConfig = {
+                apiKey: "AIzaSyDUZwwGKYfRzvj13bKTkYecIH19ge8oWZw",
+                authDomain: "blair-pokemon-tracker.firebaseapp.com",
+                databaseURL: "https://blair-pokemon-tracker-default-rtdb.firebaseio.com",
+                projectId: "blair-pokemon-tracker",
+                storageBucket: "blair-pokemon-tracker.firebasestorage.app",
+                messagingSenderId: "169585887164",
+                appId: "1:169585887164:web:16d3ff0705153848df8db9"
+            };
+
+            // Initialize Firebase
+            try {
+                firebase.initializeApp(firebaseConfig);
+                window.database = firebase.database();
+                console.log('Firebase initialized successfully');
+            } catch (error) {
+                console.error('Firebase initialization error:', error);
+                alert('Error connecting to cloud sync. Please refresh the page.');
+                return;
+            }
+
+            // Sync Configuration
+            const SYNC_CODE_KEY = 'blair_sync_code';
+            const VALID_SYNC_CODE = 'Blair2024'; // The only valid code
+            let syncCode = localStorage.getItem(SYNC_CODE_KEY);
+            window.databaseRef = null;
+            window.isLoadingFromFirebase = false;
+
+            // Validate stored sync code
+            if (syncCode && syncCode !== VALID_SYNC_CODE) {
+                // Invalid code stored, clear it
+                localStorage.removeItem(SYNC_CODE_KEY);
+                syncCode = null;
+            }
+
+            // ALWAYS prompt for sync code if not set or invalid
+            if (!syncCode) {
+                showSyncCodePrompt();
+            } else {
+                initializeFirebaseSync();
+            }
+
+            function showSyncCodePrompt(errorMessage = '') {
+                // Remove existing modal if any
+                if (window.syncModal) {
+                    window.syncModal.remove();
+                }
+
+                const modal = document.createElement('div');
+                modal.style.cssText = 'position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.98);display:flex;align-items:center;justify-content:center;z-index:10000;padding:20px;';
+                modal.innerHTML = `
+                    <div style="background:#16213e;padding:30px;border-radius:15px;max-width:400px;width:100%;text-align:center;border:2px solid #ffcc00;">
+                        <h2 style="color:#ffcc00;margin-bottom:10px;font-family:'Poppins',sans-serif;">🔐 Access Required</h2>
+                        <p style="color:#f1f1f1;margin-bottom:20px;line-height:1.6;font-size:0.95rem;">This collection is private. Enter the family sync code to access.</p>
+                        ${errorMessage ? `<div style="background:rgba(255,0,0,0.2);border:1px solid #ff4444;border-radius:8px;padding:10px;margin-bottom:15px;"><p style="color:#ff6666;margin:0;font-size:0.9rem;">❌ ${errorMessage}</p></div>` : ''}
+                        <input type="password" id="syncCodeInput" placeholder="Enter sync code" style="width:100%;padding:12px;margin-bottom:15px;background:rgba(255,255,255,0.1);border:2px solid rgba(255,255,255,0.2);border-radius:8px;color:#f1f1f1;font-size:1rem;text-align:center;" autofocus>
+                        <button onclick="window.validateAndSaveSyncCode()" style="width:100%;padding:12px;background:#00ff88;color:#1a1a2e;border:none;border-radius:8px;font-weight:700;font-size:1rem;cursor:pointer;margin-bottom:10px;">Unlock Collection</button>
+                        <p style="color:#a0a0a0;font-size:0.75rem;margin-top:15px;">🔒 Only authorized users can access</p>
+                    </div>
+                `;
+                document.body.appendChild(modal);
+                window.syncModal = modal;
+
+                // Allow Enter key to submit
+                document.getElementById('syncCodeInput').addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        window.validateAndSaveSyncCode();
+                    }
+                });
+            }
+
+            window.validateAndSaveSyncCode = function() {
+                const code = document.getElementById('syncCodeInput').value.trim();
+                
+                if (!code) {
+                    showSyncCodePrompt('Please enter a sync code');
+                    return;
+                }
+
+                // Validate the code
+                if (code !== VALID_SYNC_CODE) {
+                    showSyncCodePrompt('Invalid sync code. Access denied.');
+                    // Clear the input
+                    setTimeout(() => {
+                        const input = document.getElementById('syncCodeInput');
+                        if (input) input.value = '';
+                    }, 100);
+                    return;
+                }
+
+                // Code is valid!
+                localStorage.setItem(SYNC_CODE_KEY, code);
+                syncCode = code;
+                window.syncCode = code;
+                window.syncModal.remove();
+                initializeFirebaseSync();
+            };
+
+            // Remove the skipSync function - no longer needed
+
+            function initializeFirebaseSync() {
+                if (!syncCode) return;
+                
+                window.syncCode = syncCode;
+                updateSyncStatus('Connecting...', 'syncing');
+                
+                // Create reference to this collection in Firebase
+                window.databaseRef = window.database.ref('collections/' + syncCode);
+                
+                // Listen for changes from Firebase
+                window.databaseRef.on('value', (snapshot) => {
+                    if (window.isLoadingFromFirebase) return; // Prevent loops
+                    
+                    const data = snapshot.val();
+                    if (data) {
+                        window.isLoadingFromFirebase = true;
+                        collectionProgress = data;
+                        localStorage.setItem('pokemonVariantProgress', JSON.stringify(data));
+                        
+                        // Update UI
+                        Object.keys(cardSets).forEach(setKey => {
+                            renderCards(setKey);
+                        });
+                        updateProgress();
+                        
+                        updateSyncStatus('Synced ✓', 'synced');
+                        window.isLoadingFromFirebase = false;
+                    } else {
+                        // No data yet, upload current progress
+                        saveToFirebase();
+                    }
+                }, (error) => {
+                    console.error('Firebase error:', error);
+                    updateSyncStatus('Sync Error', 'error');
+                });
+            }
+
+            window.saveToFirebase = function() {
+                if (!window.databaseRef || window.isLoadingFromFirebase) return;
+                
+                updateSyncStatus('Saving...', 'syncing');
+                
+                window.databaseRef.set(collectionProgress)
+                    .then(() => {
+                        updateSyncStatus('Synced ✓', 'synced');
+                    })
+                    .catch((error) => {
+                        console.error('Save error:', error);
+                        updateSyncStatus('Save Failed', 'error');
+                    });
+            };
+
+            function updateSyncStatus(text, state = 'synced') {
+                const statusEl = document.getElementById('syncStatus');
+                const indicatorEl = document.getElementById('syncIndicator');
+                if (statusEl) statusEl.textContent = text;
+                if (indicatorEl) {
+                    indicatorEl.className = `sync-indicator ${state}`;
+                }
+            }
+
+            window.updateSyncStatus = updateSyncStatus;
+
+            // Logout function to clear sync code and prompt again
+            window.logoutSyncCode = function() {
+                if (confirm('Are you sure you want to change the sync code? This will disconnect from the current collection.')) {
+                    // Clear stored sync code
+                    localStorage.removeItem(SYNC_CODE_KEY);
+                    
+                    // Disconnect from Firebase
+                    if (window.databaseRef) {
+                        window.databaseRef.off();
+                        window.databaseRef = null;
+                    }
+                    
+                    // Clear local data to prevent confusion
+                    localStorage.removeItem('pokemonVariantProgress');
+                    
+                    // Reload page to show sync code prompt
+                    location.reload();
+                }
+            };
+            
+            // IMPORTANT: Render cards after all Firebase setup is complete
+            // cardSets is already initialized with data at the top of the script
+            Object.keys(cardSets).forEach(setKey => {
+                renderCards(setKey);
+            });
+            updateProgress();
+        });
+
+        // Image cache
+        const imageCache = {};
+
+        // Card sets configuration - initialized with all 5 sets
+        let cardSets = {
+            'journey-together': {
+                name: 'Journey Together',
+                displayName: 'Journey Together',
+                totalCards: 190,
+                mainSet: 180,
+                setCode: 'sv09',
+                hasPokeBallVariant: false,
+                hasMasterBallVariant: false,
+                cards: Array.from({length: 190}, (_, i) => ({
+                    number: i + 1,
+                    name: `Card ${String(i + 1).padStart(3, '0')}`,
+                    rarity: 'common',
+                    type: 'pokemon'
+                }))
+            },
+            'destined-rivals': {
+                name: 'Destined Rivals',
+                displayName: 'Destined Rivals',
+                totalCards: 244,
+                mainSet: 182,
+                setCode: 'sv10',
+                hasPokeBallVariant: false,
+                hasMasterBallVariant: false,
+                cards: Array.from({length: 244}, (_, i) => ({
+                    number: i + 1,
+                    name: `Card ${String(i + 1).padStart(3, '0')}`,
+                    rarity: 'common',
+                    type: 'pokemon'
+                }))
+            },
+            'prismatic-evolutions': {
+                name: 'Prismatic Evolutions',
+                displayName: 'Prismatic Evolutions',
+                totalCards: 217,
+                mainSet: 131,
+                setCode: 'sv07',
+                hasPokeBallVariant: true,
+                hasMasterBallVariant: true,
+                cards: Array.from({length: 217}, (_, i) => ({
+                    number: i + 1,
+                    name: `Card ${String(i + 1).padStart(3, '0')}`,
+                    rarity: 'common',
+                    type: 'pokemon'
+                }))
+            },
+            'phantasmal-flames': {
+                name: 'Phantasmal Flames',
+                displayName: 'Phantasmal Flames',
+                totalCards: 130,
+                mainSet: 94,
+                setCode: 'sv06pt5',
+                hasPokeBallVariant: false,
+                hasMasterBallVariant: false,
+                cards: Array.from({length: 130}, (_, i) => ({
+                    number: i + 1,
+                    name: `Card ${String(i + 1).padStart(3, '0')}`,
+                    rarity: 'common',
+                    type: 'pokemon'
+                }))
+            },
+            'ascended-heroes': {
+                name: 'Ascended Heroes',
+                displayName: 'Ascended Heroes',
+                totalCards: 295,
+                mainSet: 217,
+                setCode: 'ascended',
+                hasPokeBallVariant: false,
+                hasMasterBallVariant: false,
+                cards: Array.from({length: 295}, (_, i) => ({
+                    number: i + 1,
+                    name: `Card ${String(i + 1).padStart(3, '0')}`,
+                    rarity: 'common',
+                    type: 'pokemon'
+                }))
+            }
+        };
+        let cardsDataLoaded = true; // Already loaded since it's inline
+
+        // Load card data from JSON file
+        async function loadCardData() {
+            try {
+                const response = await fetch('cards.json');
+                const data = await response.json();
+                
+                // Transform JSON data into cardSets format
+                for (const [setKey, setInfo] of Object.entries(data.sets)) {
+                    const totalCards = setInfo.totalCards;
+                    const cards = [];
+                    
+                    // Generate card objects with placeholder names
+                    for (let i = 1; i <= totalCards; i++) {
+                        cards.push({
+                            number: i,
+                            name: `Card ${String(i).padStart(3, '0')}`,
+                            rarity: i > (totalCards * 0.8) ? 'secret' : (i % 20 === 0 ? 'ex' : 'common')
+                        });
+                    }
+                    
+                    cardSets[setKey] = {
+                        name: setInfo.name,
+                        displayName: setInfo.displayName,
+                        totalCards: totalCards,
+                        hasPokeBallVariant: setInfo.hasPokeBallVariant,
+                        hasMasterBallVariant: setInfo.hasMasterBallVariant,
+                        cards: cards
+                    };
+                }
+                
+                cardsDataLoaded = true;
+                console.log('Card data loaded successfully');
+                
+                // Render all sets after data is loaded
+                Object.keys(cardSets).forEach(setKey => {
+                    renderCards(setKey);
+                });
+                updateProgress();
+                
+            } catch (error) {
+                console.error('Error loading card data:', error);
+                // Fallback to hardcoded data if JSON fails
+                initializeFallbackCardData();
+            }
+        }
+
+        // Fallback card data if JSON loading fails
+        function initializeFallbackCardData() {
+            cardSets = {
+                'journey-together': {
+                    name: 'Journey Together',
+                    displayName: 'Journey Together',
+                    totalCards: 190,
+                    hasPokeBallVariant: false,
+                    hasMasterBallVariant: false,
+                    cards: Array.from({length: 190}, (_, i) => ({
+                        number: i + 1,
+                        name: `Card ${String(i + 1).padStart(3, '0')}`,
+                        rarity: 'common'
+                    }))
+                },
+                'destined-rivals': {
+                    name: 'Destined Rivals',
+                    displayName: 'Destined Rivals',
+                    totalCards: 244,
+                    hasPokeBallVariant: false,
+                    hasMasterBallVariant: false,
+                    cards: Array.from({length: 244}, (_, i) => ({
+                        number: i + 1,
+                        name: `Card ${String(i + 1).padStart(3, '0')}`,
+                        rarity: 'common'
+                    }))
+                },
+                'prismatic-evolutions': {
+                    name: 'Prismatic Evolutions',
+                    displayName: 'Prismatic Evolutions',
+                    totalCards: 217,
+                    hasPokeBallVariant: true,
+                    hasMasterBallVariant: true,
+                    cards: Array.from({length: 217}, (_, i) => ({
+                        number: i + 1,
+                        name: `Card ${String(i + 1).padStart(3, '0')}`,
+                        rarity: 'common'
+                    }))
+                },
+                'phantasmal-flames': {
+                    name: 'Phantasmal Flames',
+                    displayName: 'Phantasmal Flames',
+                    totalCards: 130,
+                    hasPokeBallVariant: false,
+                    hasMasterBallVariant: false,
+                    cards: Array.from({length: 130}, (_, i) => ({
+                        number: i + 1,
+                        name: `Card ${String(i + 1).padStart(3, '0')}`,
+                        rarity: 'common'
+                    }))
+                },
+                'ascended-heroes': {
+                    name: 'Ascended Heroes',
+                    displayName: 'Ascended Heroes',
+                    totalCards: 295,
+                    hasPokeBallVariant: false,
+                    hasMasterBallVariant: false,
+                    cards: Array.from({length: 295}, (_, i) => ({
+                        number: i + 1,
+                        name: `Card ${String(i + 1).padStart(3, '0')}`,
+                        rarity: 'common'
+                    }))
+                }
+            };
+            
+            cardsDataLoaded = true;
+            Object.keys(cardSets).forEach(setKey => {
+                renderCards(setKey);
+            });
+            updateProgress();
+        }
+
+        // Start loading card data - MOVED to end of script after all functions are defined
+
+        // Function to determine variants based on set and card properties
+        const getVariants = (card, setKey) => {
+            const setData = cardSets[setKey];
+            
+            // Journey Together variant rules
+            if (setKey === 'journey-together') {
+                // EX cards and Secret Rares are single variant
+                if (card.rarity === 'ex' || card.rarity === 'secret') {
+                    return ['single'];
+                }
+                // All other cards (common, uncommon, rare, trainer) have Regular + Reverse Holo
+                return ['regular', 'reverse-holo'];
+            }
+            
+            // Prismatic Evolutions variant rules
+            if (setKey === 'prismatic-evolutions') {
+                // EX cards and Secret Rares are single variant
+                if (card.rarity === 'ex' || card.rarity === 'secret') {
+                    return ['single'];
+                }
+                // Trainer cards: Regular + Reverse Holo + Poké Ball (NO Master Ball)
+                if (card.type === 'trainer') {
+                    return ['regular', 'reverse-holo', 'pokeball'];
+                }
+                // Pokémon cards (common/uncommon/rare): Regular + Reverse Holo + Poké Ball + Master Ball
+                return ['regular', 'reverse-holo', 'pokeball', 'masterball'];
+            }
+            
+            // Default for other sets (Destined Rivals, Phantasmal Flames)
+            if (card.rarity === 'ex' || card.rarity === 'secret') {
+                return ['single'];
+            }
+            return ['regular', 'reverse-holo'];
+        };
+
+        const variantLabels = {
+            'single': { label: 'Collected', icon: '✓' },
+            'regular': { label: 'Regular', icon: '⚪' },
+            'reverse-holo': { label: 'Reverse Holo', icon: '✨' },
+            'holo': { label: 'Holo', icon: '💎' },
+            'pokeball': { label: 'Poké Ball', icon: '⚾' },
+            'masterball': { label: 'Master Ball', icon: '🔮' }
+        };
+
+        // Function to get multiple possible image URLs for a card
+        function getCardImageUrls(setCode, cardNumber) {
+            const num = String(cardNumber);
+            const paddedNum = num.padStart(3, '0');
+            
+            const setMappings = {
+                'sv09': { code: 'SV9', alt: 'sv9', name: 'journey-together' },
+                'sv08': { code: 'SV8', alt: 'sv8', name: 'destined-rivals' },
+                'sv07': { code: 'SV7', alt: 'sv7', name: 'prismatic-evolutions' },
+                'sv06pt5': { code: 'SV6pt5', alt: 'sv6pt5', name: 'phantasmal-flames' }
+            };
+            
+            const mapping = setMappings[setCode];
+            if (!mapping) return [];
+            
+            return [
+                // Limitlesstcg - most reliable for new sets
+                `https://limitlesstcg.nyc3.cdn.digitaloceanspaces.com/tpci/${mapping.code}/${mapping.code}_EN_${num}.png`,
+                // Pokemon TCG API
+                `https://images.pokemontcg.io/${mapping.alt}/${num}.png`,
+                // Alternative Pokemon TCG API with padding
+                `https://images.pokemontcg.io/${mapping.alt}/${paddedNum}.png`,
+                // Serebii backup
+                `https://www.serebii.net/card/${mapping.code.toLowerCase()}/${paddedNum}.jpg`
+            ];
+        }
+
+        // Load image with multiple source fallback
+        function loadCardImage(imgElement, setCode, cardNumber, cardName) {
+            const cacheKey = `${setCode}-${cardNumber}`;
+            
+            // Check cache first
+            if (imageCache[cacheKey]) {
+                imgElement.src = imageCache[cacheKey];
+                imgElement.style.display = 'block';
+                imgElement.parentElement.classList.remove('loading');
+                return;
+            }
+
+            const urls = getCardImageUrls(setCode, cardNumber);
+            let currentIndex = 0;
+
+            function tryNextUrl() {
+                if (currentIndex >= urls.length) {
+                    // All URLs failed - keep placeholder
+                    imgElement.parentElement.classList.remove('loading');
+                    return;
+                }
+
+                const testImage = new Image();
+                testImage.crossOrigin = 'anonymous';
+                
+                testImage.onload = function() {
+                    // Success! Use this URL
+                    imageCache[cacheKey] = urls[currentIndex];
+                    imgElement.src = urls[currentIndex];
+                    imgElement.style.display = 'block';
+                    imgElement.parentElement.classList.remove('loading');
+                };
+                
+                testImage.onerror = function() {
+                    // This URL failed, try next
+                    currentIndex++;
+                    tryNextUrl();
+                };
+                
+                testImage.src = urls[currentIndex];
+            }
+
+            tryNextUrl();
+        }
+
+
+        // Load saved progress
+        function loadProgress() {
+            const saved = localStorage.getItem('pokemonVariantProgress');
+            return saved ? JSON.parse(saved) : {};
+        }
+
+        // Save progress
+        function saveProgress(progress) {
+            localStorage.setItem('pokemonVariantProgress', JSON.stringify(progress));
+            collectionProgress = progress;
+            // Sync to Firebase if connected
+            if (window.syncCode && window.databaseRef && typeof window.saveToFirebase === 'function') {
+                window.saveToFirebase();
+            }
+        }
+
+        let collectionProgress = loadProgress();
+
+        // Initialize collection progress for each set
+        Object.keys(cardSets).forEach(setKey => {
+            if (!collectionProgress[setKey]) {
+                collectionProgress[setKey] = {};
+            }
+        });
+
+        // Update progress bars
+        function updateProgress() {
+            const progressSection = document.getElementById('progressSection');
+            progressSection.innerHTML = '';
+
+            Object.entries(cardSets).forEach(([setKey, setData]) => {
+                let totalVariants = 0;
+                let collectedVariants = 0;
+
+                setData.cards.forEach(card => {
+                    const variants = getVariants(card, setKey);
+                    totalVariants += variants.length;
+                    
+                    if (collectionProgress[setKey][card.number]) {
+                        collectedVariants += Object.values(collectionProgress[setKey][card.number]).filter(Boolean).length;
+                    }
+                });
+
+                const percentage = totalVariants > 0 ? Math.round((collectedVariants / totalVariants) * 100) : 0;
+
+                const progressCard = document.createElement('div');
+                progressCard.className = 'progress-card';
+                progressCard.innerHTML = `
+                    <h3>${setData.name}</h3>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: ${percentage}%">
+                            ${percentage}%
+                        </div>
+                    </div>
+                    <div class="stats">
+                        <span>${collectedVariants} / ${totalVariants} variants</span>
+                        <span>${totalVariants - collectedVariants} remaining</span>
+                    </div>
+                `;
+                progressSection.appendChild(progressCard);
+            });
+        }
+
+        // Render card grid
+        function renderCards(setKey) {
+            const gridId = setKey + '-grid';
+            const grid = document.getElementById(gridId);
+            if (!grid) {
+                console.error('Grid not found:', gridId);
+                return;
+            }
+
+            grid.innerHTML = '';
+            const setData = cardSets[setKey];
+            if (!setData) {
+                console.error('Set data not found:', setKey);
+                return;
+            }
+
+            setData.cards.forEach(card => {
+                const variants = getVariants(card, setKey);
+                const cardProgress = collectionProgress[setKey][card.number] || {};
+                const allCollected = variants.every(v => cardProgress[v]);
+                const isSingleVariant = variants.length === 1 && variants[0] === 'single';
+                
+                const isSecret = card.number > setData.mainSet;
+                const cardEl = document.createElement('div');
+                cardEl.className = `card-item ${allCollected ? 'all-collected' : ''}`;
+                
+                // Determine rarity badge class
+                const rarityClass = card.type === 'trainer' ? 'rarity-trainer' : `rarity-${card.rarity}`;
+                
+                // Generate variant checkboxes
+                let variantHTML = '';
+                if (isSingleVariant) {
+                    // Single checkbox for EX and Secret cards
+                    const isChecked = cardProgress['single'] || false;
+                    variantHTML = `
+                        <div class="single-variant ${isChecked ? 'checked' : ''}" onclick="event.stopPropagation()">
+                            <input type="checkbox" 
+                                id="${setKey}-${card.number}-single"
+                                ${isChecked ? 'checked' : ''} 
+                                onchange="toggleVariant('${setKey}', ${card.number}, 'single')">
+                            <label for="${setKey}-${card.number}-single}">
+                                ✓ Collected
+                            </label>
+                        </div>
+                    `;
+                } else {
+                    // Multiple variant checkboxes
+                    variantHTML = variants.map(variant => {
+                        const isChecked = cardProgress[variant] || false;
+                        const variantInfo = variantLabels[variant];
+                        return `
+                            <div class="variant-checkbox ${isChecked ? 'checked' : ''}" onclick="event.stopPropagation()">
+                                <input type="checkbox" 
+                                    id="${setKey}-${card.number}-${variant}"
+                                    ${isChecked ? 'checked' : ''} 
+                                    onchange="toggleVariant('${setKey}', ${card.number}, '${variant}')">
+                                <label for="${setKey}-${card.number}-${variant}">
+                                    <span class="variant-icon">${variantInfo.icon}</span>
+                                    ${variantInfo.label}
+                                </label>
+                            </div>
+                        `;
+                    }).join('');
+                }
+
+                cardEl.innerHTML = `
+                    <div class="card-header">
+                        <div class="card-img loading" id="img-${setKey}-${card.number}">
+                            <span style="position: relative; z-index: 1;">${isSecret ? '⭐' : '🎴'}</span>
+                        </div>
+                        <div class="card-info">
+                            <div class="card-number">#${String(card.number).padStart(3, '0')}${isSecret ? ` / ${setData.mainSet}` : ''}</div>
+                            <div class="card-name">${card.name}</div>
+                            <span class="rarity-badge ${rarityClass}">${card.type === 'trainer' ? 'TRAINER' : card.rarity.toUpperCase()}</span>
+                        </div>
+                    </div>
+                    <div class="variants-section">
+                        <div class="variants-title">${isSingleVariant ? 'STATUS:' : 'VARIANTS:'}</div>
+                        ${isSingleVariant ? variantHTML : '<div class="variant-checkboxes">' + variantHTML + '</div>'}
+                    </div>
+                `;
+                grid.appendChild(cardEl);
+                
+                // Load card image after adding to DOM
+                const imgContainer = document.getElementById(`img-${setKey}-${card.number}`);
+                if (imgContainer) {
+                    const img = document.createElement('img');
+                    imgContainer.appendChild(img);
+                    // Delay image loading slightly to improve initial render performance
+                    setTimeout(() => {
+                        loadCardImage(img, setData.setCode, card.number, card.name);
+                    }, 50);
+                }
+            });
+        }
+
+        // Toggle variant collection status
+        function toggleVariant(setKey, cardNumber, variant) {
+            if (!collectionProgress[setKey][cardNumber]) {
+                collectionProgress[setKey][cardNumber] = {};
+            }
+            collectionProgress[setKey][cardNumber][variant] = !collectionProgress[setKey][cardNumber][variant];
+            saveProgress(collectionProgress);
+            renderCards(setKey);
+            updateProgress();
+        }
+
+        // Set switching
+        document.querySelectorAll('.set-btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                const setKey = this.dataset.set;
+                
+                // Update button states
+                document.querySelectorAll('.set-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+
+                // Update visible sections
+                document.querySelectorAll('.set-section').forEach(section => {
+                    section.classList.remove('active');
+                });
+                const targetSection = document.getElementById(setKey);
+                if (targetSection) {
+                    targetSection.classList.add('active');
+                }
+            });
+        });
+
+        // Search functionality
+        document.getElementById('searchInput').addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase();
+            const activeSet = document.querySelector('.set-section.active');
+            const cards = activeSet.querySelectorAll('.card-item');
+
+            cards.forEach(card => {
+                const text = card.textContent.toLowerCase();
+                card.style.display = text.includes(searchTerm) ? '' : 'none';
+            });
+        });
+
+        // Export progress
+        function exportProgress() {
+            const report = [];
+            Object.entries(cardSets).forEach(([setKey, setData]) => {
+                let totalVariants = 0;
+                let collectedVariants = 0;
+
+                setData.cards.forEach(card => {
+                    const variants = getVariants(card, setKey);
+                    totalVariants += variants.length;
+                    
+                    if (collectionProgress[setKey][card.number]) {
+                        collectedVariants += Object.values(collectionProgress[setKey][card.number]).filter(Boolean).length;
+                    }
+                });
+
+                report.push(`${setData.name}: ${collectedVariants}/${totalVariants} variants (${Math.round(collectedVariants/totalVariants * 100)}%)`);
+            });
+            
+            alert(`📊 Collection Progress Report 📊\n\n${report.join('\n')}`);
+        }
+
+        // Card data initialization happens at the start of window.load event
+        // No need to call it here anymore
+    </script>
+</body>
+</html>
