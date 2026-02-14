@@ -555,6 +555,9 @@
             <p class="subtitle">Track every variant of your Journey Together, Destined Rivals, Prismatic Evolutions, Phantasmal Flames & Ascended Heroes collections</p>
         </header>
 
+        <!-- Debug Panel -->
+        <div id="debugPanel" style="background: rgba(0,0,0,0.95); color: #00ff88; padding: 12px; margin: 10px; border-radius: 8px; font-size: 10px; max-height: 200px; overflow-y: auto; font-family: monospace; border: 1px solid #00ff88;"></div>
+
         <div class="controls">
             <div class="set-selector">
                 <button class="set-btn active" data-set="journey-together">Journey Together</button>
@@ -599,6 +602,28 @@
     </div>
 
     <script>
+        // Debug logging to screen for iOS
+        window.debugLog = function(msg) {
+            const panel = document.getElementById('debugPanel');
+            if (panel) {
+                const time = new Date().toLocaleTimeString();
+                panel.innerHTML += `<div style="margin: 2px 0; padding: 2px;">${time}: ${msg}</div>`;
+                panel.scrollTop = panel.scrollHeight;
+            }
+        };
+        
+        // Override console.log to also show on screen
+        const originalLog = console.log;
+        const originalError = console.error;
+        console.log = function(...args) {
+            originalLog.apply(console, args);
+            window.debugLog('✓ ' + args.join(' '));
+        };
+        console.error = function(...args) {
+            originalError.apply(console, args);
+            window.debugLog('✗ ' + args.join(' '));
+        };
+        
         // Wait for Firebase SDK to load
         window.addEventListener('load', async function() {
             // Test if card-data.json is accessible
@@ -1128,19 +1153,37 @@
 
         // Render card grid
         function renderCards(setKey) {
+            console.log('renderCards called for:', setKey);
+            
             const gridId = setKey + '-grid';
             const grid = document.getElementById(gridId);
             if (!grid) {
-                console.error('Grid not found:', gridId);
+                console.error('Grid not found:', gridId, '- Available grids:', 
+                    Array.from(document.querySelectorAll('.card-grid')).map(g => g.id));
                 return;
+            }
+            
+            console.log('Grid found:', gridId, 'Current children:', grid.children.length);
             }
 
             grid.innerHTML = '';
+            console.log('Grid cleared for:', setKey);
+            
             const setData = cardSets[setKey];
             if (!setData) {
-                console.error('Set data not found:', setKey);
+                console.error('Set data not found:', setKey, 'Available sets:', Object.keys(cardSets));
                 return;
             }
+            
+            console.log('Set data found:', setData.name, 'with', setData.cards.length, 'cards');
+            
+            if (!setData.cards || setData.cards.length === 0) {
+                console.error('No cards in set data!');
+                return;
+            }
+
+            console.log('Starting to render', setData.cards.length, 'cards...');
+            let renderedCount = 0;
 
             setData.cards.forEach(card => {
                 const variants = getVariants(card, setKey);
@@ -1208,6 +1251,7 @@
                     </div>
                 `;
                 grid.appendChild(cardEl);
+                renderedCount++;
                 
                 // Load card image after adding to DOM
                 const imgContainer = document.getElementById(`img-${setKey}-${card.number}`);
@@ -1220,6 +1264,8 @@
                     }, 50);
                 }
             });
+            
+            console.log('✅ renderCards COMPLETE -', setKey, ':', renderedCount, 'cards rendered, grid.children.length =', grid.children.length);
         }
 
         // Toggle variant collection status
