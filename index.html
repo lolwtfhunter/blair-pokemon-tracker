@@ -7,6 +7,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     
     <!-- Firebase SDK -->
+    <!-- Our script FIRST - independent of Firebase -->
+    <script>
+        // IMMEDIATE TEST - runs before anything else
+        document.addEventListener('DOMContentLoaded', function() {
+            alert('DOM loaded! Script running!');
+        });
+    </script>
+    
+    <!-- Firebase SDK (loaded after our basic script) -->
     <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-database-compat.js"></script>
     
@@ -663,15 +672,20 @@
                 appId: "1:169585887164:web:16d3ff0705153848df8db9"
             };
 
-            // Initialize Firebase
+            // Initialize Firebase (optional - app works without it)
+            let firebaseAvailable = false;
             try {
-                firebase.initializeApp(firebaseConfig);
-                window.database = firebase.database();
-                console.log('Firebase initialized successfully');
+                if (typeof firebase !== 'undefined') {
+                    firebase.initializeApp(firebaseConfig);
+                    window.database = firebase.database();
+                    firebaseAvailable = true;
+                    console.log('Firebase initialized successfully');
+                } else {
+                    console.warn('Firebase SDK not loaded, running in offline mode');
+                }
             } catch (error) {
                 console.error('Firebase initialization error:', error);
-                alert('Error connecting to cloud sync. Please refresh the page.');
-                return;
+                console.log('Continuing in offline mode...');
             }
 
             // Sync Configuration
@@ -688,11 +702,24 @@
                 syncCode = null;
             }
 
-            // ALWAYS prompt for sync code if not set or invalid
-            if (!syncCode) {
-                showSyncCodePrompt();
+            // Only require sync code if Firebase is available
+            if (firebaseAvailable) {
+                // ALWAYS prompt for sync code if not set or invalid
+                if (!syncCode) {
+                    showSyncCodePrompt();
+                } else {
+                    initializeFirebaseSync();
+                }
             } else {
-                initializeFirebaseSync();
+                // No Firebase available - render cards without sync
+                console.log('=== OFFLINE MODE - NO FIREBASE ===');
+                console.log('Rendering all cards...');
+                Object.keys(cardSets).forEach(setKey => {
+                    console.log('Rendering:', setKey);
+                    renderCards(setKey);
+                });
+                updateProgress();
+                updateSyncStatus('Offline', 'error');
             }
 
             function showSyncCodePrompt(errorMessage = '') {
