@@ -2428,17 +2428,34 @@
             const modalVariantList = document.getElementById('modalVariantList');
 
             // Set card image
-            const apiImgUrl = getCardImageUrl(setKey, card.number, card.imageId);
-            const tcgdexImgUrl = getTcgdexImageUrl(setKey, card.number, card.imageId);
-            const localImgUrl = `Images/cards/${setKey}/${String(card.number).padStart(3, '0')}.png`;
-            const primarySrc = apiImgUrl || tcgdexImgUrl || localImgUrl;
-            modalImage.src = primarySrc;
+            let primarySrc;
+            if (setKey.startsWith('custom-')) {
+                // For custom sets, use the custom card image URL function
+                primarySrc = getCustomCardImageUrl(card);
+            } else {
+                // For regular sets, use the standard image URL logic
+                const apiImgUrl = getCardImageUrl(setKey, card.number, card.imageId);
+                const tcgdexImgUrl = getTcgdexImageUrl(setKey, card.number, card.imageId);
+                const localImgUrl = `Images/cards/${setKey}/${String(card.number).padStart(3, '0')}.png`;
+                primarySrc = apiImgUrl || tcgdexImgUrl || localImgUrl;
+            }
+            modalImage.src = primarySrc || '';
             modalImage.alt = card.name;
 
             // Set card details
             modalName.textContent = card.name;
-            const isSecret = card.number > setData.mainSet;
-            modalNumber.textContent = `#${String(card.number).padStart(3, '0')}${isSecret ? ` / ${setData.mainSet}` : ''}`;
+
+            // Display card number (use originalNumber for custom sets)
+            let displayNumber;
+            if (setKey.startsWith('custom-')) {
+                displayNumber = card.originalNumber ? card.originalNumber : String(card.number).padStart(3, '0');
+                modalNumber.textContent = `#${displayNumber}${card.region === 'JP' ? ' (JP)' : ''}`;
+            } else {
+                const isSecret = card.number > setData.mainSet;
+                displayNumber = String(card.number).padStart(3, '0');
+                modalNumber.textContent = `#${displayNumber}${isSecret ? ` / ${setData.mainSet}` : ''}`;
+            }
+
             modalSet.textContent = `Set: ${setName}`;
 
             // Set rarity badge
@@ -2465,18 +2482,36 @@
                 `;
                 modalVariantList.appendChild(variantItem);
             } else {
-                variants.forEach(variant => {
-                    const isChecked = cardProgress[variant] || false;
-                    const info = variantLabels[variant];
-                    const variantItem = document.createElement('div');
-                    variantItem.className = 'card-modal-variant-item' + (isChecked ? ' collected' : '');
-                    variantItem.innerHTML = `
-                        <input type="checkbox" class="card-modal-variant-checkbox" ${isChecked ? 'checked' : ''}
-                               onchange="toggleVariantFromModal('${setKey}', ${cardNumber}, '${variant}')">
-                        <label>${info.icon} ${info.label}</label>
-                    `;
-                    modalVariantList.appendChild(variantItem);
-                });
+                // Handle multiple variants
+                if (setKey.startsWith('custom-') && card.variants && card.variants.length > 0) {
+                    // Custom set with multiple variants
+                    card.variants.forEach(v => {
+                        const isChecked = cardProgress[v.rarity] || false;
+                        const displayNum = v.originalNumber ? ` #${v.originalNumber}` : '';
+                        const variantItem = document.createElement('div');
+                        variantItem.className = 'card-modal-variant-item' + (isChecked ? ' collected' : '');
+                        variantItem.innerHTML = `
+                            <input type="checkbox" class="card-modal-variant-checkbox" ${isChecked ? 'checked' : ''}
+                                   onchange="toggleVariantFromModal('${setKey}', ${cardNumber}, '${v.rarity}')">
+                            <label>${getRarityDisplay(v.rarity)}${displayNum}</label>
+                        `;
+                        modalVariantList.appendChild(variantItem);
+                    });
+                } else {
+                    // Regular set variants
+                    variants.forEach(variant => {
+                        const isChecked = cardProgress[variant] || false;
+                        const info = variantLabels[variant];
+                        const variantItem = document.createElement('div');
+                        variantItem.className = 'card-modal-variant-item' + (isChecked ? ' collected' : '');
+                        variantItem.innerHTML = `
+                            <input type="checkbox" class="card-modal-variant-checkbox" ${isChecked ? 'checked' : ''}
+                                   onchange="toggleVariantFromModal('${setKey}', ${cardNumber}, '${variant}')">
+                            <label>${info.icon} ${info.label}</label>
+                        `;
+                        modalVariantList.appendChild(variantItem);
+                    });
+                }
             }
 
             // Show modal
