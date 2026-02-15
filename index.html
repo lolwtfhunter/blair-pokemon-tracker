@@ -766,37 +766,71 @@
             'ascended-heroes': 'me2pt5'
         };
 
-        // Get card image URL from Pokemon TCG API
+        // TCGdex API set mapping: { series, setId } (for assets.tcgdex.net CDN)
+        const TCGDEX_SET_IDS = {
+            'prismatic-evolutions': { series: 'sv', set: 'sv08.5' },
+            'journey-together':     { series: 'sv', set: 'sv09' },
+            'destined-rivals':      { series: 'sv', set: 'sv10' },
+            'phantasmal-flames':    { series: 'me', set: 'me02' },
+            'ascended-heroes':      { series: 'me', set: 'me02.5' }
+        };
+
+        // Get card image URL from Pokemon TCG API (pokemontcg.io)
         function getCardImageUrl(setKey, cardNumber) {
             const apiSetId = TCG_API_SET_IDS[setKey];
             if (apiSetId) {
                 return `https://images.pokemontcg.io/${apiSetId}/${cardNumber}.png`;
             }
-            // Fallback to local path
-            return `Images/cards/${setKey}/${String(cardNumber).padStart(3, '0')}.png`;
+            return null;
         }
-        
+
+        // Get card image URL from TCGdex API (assets.tcgdex.net)
+        function getTcgdexImageUrl(setKey, cardNumber) {
+            const info = TCGDEX_SET_IDS[setKey];
+            if (info) {
+                return `https://assets.tcgdex.net/en/${info.series}/${info.set}/${cardNumber}/high.png`;
+            }
+            return null;
+        }
+
         // Handle card image load errors with cascading fallback:
-        // 1. Pokemon TCG API CDN -> 2. Local image -> 3. Generated placeholder
+        // 1. pokemontcg.io CDN -> 2. TCGdex CDN -> 3. Local image -> 4. Placeholder
         function handleImgError(img) {
+            const tcgdexSrc = img.getAttribute('data-tcgdex-src');
             const localSrc = img.getAttribute('data-local-src');
-            if (localSrc && img.src.indexOf('images.pokemontcg.io') !== -1) {
-                // API image failed, try local image
+
+            if (tcgdexSrc && img.src.indexOf('images.pokemontcg.io') !== -1) {
+                // pokemontcg.io failed, try TCGdex
                 img.onerror = function() {
-                    // Local also failed, show placeholder
-                    const name = img.getAttribute('data-card-name');
-                    const number = img.getAttribute('data-card-number');
-                    const rarity = img.getAttribute('data-card-rarity');
-                    img.parentElement.innerHTML = generatePlaceholder(name, number, rarity);
+                    // TCGdex also failed, try local
+                    if (localSrc) {
+                        img.onerror = function() {
+                            // All sources failed, show placeholder
+                            showPlaceholder(img);
+                        };
+                        img.src = localSrc;
+                    } else {
+                        showPlaceholder(img);
+                    }
+                };
+                img.src = tcgdexSrc;
+            } else if (localSrc && img.src.indexOf('assets.tcgdex.net') !== -1) {
+                // TCGdex failed, try local
+                img.onerror = function() {
+                    showPlaceholder(img);
                 };
                 img.src = localSrc;
             } else {
-                // Local image failed (or no API URL was used), show placeholder
-                const name = img.getAttribute('data-card-name');
-                const number = img.getAttribute('data-card-number');
-                const rarity = img.getAttribute('data-card-rarity');
-                img.parentElement.innerHTML = generatePlaceholder(name, number, rarity);
+                // Local or unknown source failed, show placeholder
+                showPlaceholder(img);
             }
+        }
+
+        function showPlaceholder(img) {
+            const name = img.getAttribute('data-card-name');
+            const number = img.getAttribute('data-card-number');
+            const rarity = img.getAttribute('data-card-rarity');
+            img.parentElement.innerHTML = generatePlaceholder(name, number, rarity);
         }
 
         // Generate a styled placeholder when no card image is available
@@ -1122,13 +1156,16 @@
                 }
                 
                 const apiImgUrl = getCardImageUrl(setKey, card.number);
+                const tcgdexImgUrl = getTcgdexImageUrl(setKey, card.number);
                 const localImgUrl = `Images/cards/${setKey}/${String(card.number).padStart(3, '0')}.png`;
+                const primarySrc = apiImgUrl || tcgdexImgUrl || localImgUrl;
 
                 cardEl.innerHTML = `
                     <div class="card-img-wrapper">
-                        <img src="${apiImgUrl}"
+                        <img src="${primarySrc}"
                              alt="${card.name.replace(/"/g, '&quot;')}"
                              loading="lazy"
+                             ${tcgdexImgUrl ? `data-tcgdex-src="${tcgdexImgUrl}"` : ''}
                              data-local-src="${localImgUrl}"
                              data-card-name="${card.name.replace(/"/g, '&quot;')}"
                              data-card-number="${card.number}"
