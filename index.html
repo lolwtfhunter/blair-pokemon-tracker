@@ -1074,8 +1074,30 @@
         
         .variant-checkbox label {
             font-size: 0.7rem;
+            flex: 1;
         }
-        
+
+        .variant-tcgplayer-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2px;
+            color: #888;
+            text-decoration: none;
+            transition: all 0.2s;
+            border-radius: 3px;
+            margin-left: auto;
+        }
+
+        .variant-tcgplayer-link:hover {
+            color: #4a9eff;
+            background: rgba(74, 158, 255, 0.1);
+        }
+
+        .variant-tcgplayer-link svg {
+            display: block;
+        }
+
         .single-variant {
             display: flex;
             align-items: center;
@@ -1486,18 +1508,34 @@
             return null;
         }
 
-        // Get TCGPlayer URL for a card
-        function getTCGPlayerUrl(cardName, setName, setCode) {
+        // Get TCGPlayer URL for a card with enhanced search parameters
+        function getTCGPlayerUrl(cardName, setName, setCode, cardNumber, variantType) {
             // Clean up the card name and set name for better search results
             const cleanCardName = cardName.trim();
             const cleanSetName = setName.trim();
 
-            // Build search query with card name and set name
-            const searchQuery = `${cleanCardName} ${cleanSetName}`;
+            // Build search query with card name, number, set name, and optional variant
+            let searchQuery = cleanCardName;
+
+            // Add card number if provided (format: "123/456" or just "123")
+            if (cardNumber) {
+                searchQuery += ` ${cardNumber}`;
+            }
+
+            // Add set name
+            searchQuery += ` ${cleanSetName}`;
+
+            // Add variant type if specified (e.g., "Holo", "Reverse Holo")
+            if (variantType && variantType !== 'single') {
+                const variantInfo = variantLabels[variantType];
+                if (variantInfo && variantInfo.searchTerm) {
+                    searchQuery += ` ${variantInfo.searchTerm}`;
+                }
+            }
+
             const encodedQuery = encodeURIComponent(searchQuery);
 
-            // TCGPlayer search URL format
-            // Using just card name + set name for better search results
+            // TCGPlayer search URL format with specific parameters
             return `https://www.tcgplayer.com/search/pokemon/product?q=${encodedQuery}&page=1`;
         }
 
@@ -1574,12 +1612,12 @@
 
         // Variant configurations
         const variantLabels = {
-            'single': { label: 'Collected', icon: '✓' },
-            'regular': { label: 'Regular', icon: '⚪' },
-            'holo': { label: 'Holo', icon: '💎' },
-            'reverse-holo': { label: 'Reverse Holo', icon: '✨' },
-            'pokeball': { label: 'Poké Ball', icon: '⚾' },
-            'masterball': { label: 'Master Ball', icon: '🔮' }
+            'single': { label: 'Collected', icon: '✓', searchTerm: '' },
+            'regular': { label: 'Regular', icon: '⚪', searchTerm: 'Normal' },
+            'holo': { label: 'Holo', icon: '💎', searchTerm: 'Holo' },
+            'reverse-holo': { label: 'Reverse Holo', icon: '✨', searchTerm: 'Reverse Holo' },
+            'pokeball': { label: 'Poké Ball', icon: '⚾', searchTerm: 'Pokeball' },
+            'masterball': { label: 'Master Ball', icon: '🔮', searchTerm: 'Masterball' }
         };
         
         // All possible rarities in Pokemon TCG (future-proof)
@@ -2002,25 +2040,39 @@
                 if (hasMultiVariants) {
                     if (card.variants && card.variants.length > 1) {
                         // Explicit variant data (WotC holo/non-holo pairs)
+                        const customCardNumber = card.originalNumber || null;
                         variantHTML = card.variants.map(v => {
                             const isChecked = cardProgress[v.rarity] || false;
                             const displayNum = v.originalNumber ? ` #${v.originalNumber}` : '';
+                            const variantTCGUrl = getTCGPlayerUrl(card.name, card.setOrigin || 'Pokemon', '', v.originalNumber || customCardNumber);
                             return `
                                 <div class="variant-checkbox ${isChecked ? 'checked' : ''}" onclick="toggleVariant('${csKey}', ${card.number}, '${v.rarity}')">
                                     <input type="checkbox" ${isChecked ? 'checked' : ''} onchange="event.stopPropagation(); toggleVariant('${csKey}', ${card.number}, '${v.rarity}')">
                                     <label>${getRarityDisplay(v.rarity)}${displayNum}</label>
+                                    <a href="${variantTCGUrl}" target="_blank" class="variant-tcgplayer-link" title="Search on TCGPlayer" onclick="event.stopPropagation();">
+                                        <svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor">
+                                            <path d="M19 19H5V5h7V3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/>
+                                        </svg>
+                                    </a>
                                 </div>
                             `;
                         }).join('');
                     } else {
                         // Computed variants (regular + reverse-holo, holo + reverse-holo, etc.)
+                        const customCardNumber = card.originalNumber || null;
                         variantHTML = variants.map(variant => {
                             const isChecked = cardProgress[variant] || false;
                             const info = variantLabels[variant];
+                            const variantTCGUrl = getTCGPlayerUrl(card.name, card.setOrigin || 'Pokemon', '', customCardNumber, variant);
                             return `
                                 <div class="variant-checkbox ${isChecked ? 'checked' : ''}" onclick="toggleVariant('${csKey}', ${card.number}, '${variant}')">
                                     <input type="checkbox" ${isChecked ? 'checked' : ''} onchange="event.stopPropagation(); toggleVariant('${csKey}', ${card.number}, '${variant}')">
                                     <label>${info.icon} ${info.label}</label>
+                                    <a href="${variantTCGUrl}" target="_blank" class="variant-tcgplayer-link" title="Search ${info.label} on TCGPlayer" onclick="event.stopPropagation();">
+                                        <svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor">
+                                            <path d="M19 19H5V5h7V3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/>
+                                        </svg>
+                                    </a>
                                 </div>
                             `;
                         }).join('');
@@ -2043,7 +2095,8 @@
                 const displayNumber = card.originalNumber ? card.originalNumber : String(card.number).padStart(3, '0');
 
                 // Generate TCGPlayer URL for custom cards using the setOrigin
-                const tcgplayerUrl = getTCGPlayerUrl(card.name, card.setOrigin || 'Pokemon', '');
+                const customCardNumber = card.originalNumber || null;
+                const tcgplayerUrl = getTCGPlayerUrl(card.name, card.setOrigin || 'Pokemon', '', customCardNumber);
 
                 cardEl.innerHTML = `
                     <div class="card-img-wrapper">
@@ -2365,10 +2418,16 @@
                     variantHTML = variants.map(variant => {
                         const isChecked = cardProgress[variant] || false;
                         const info = variantLabels[variant];
+                        const variantTCGUrl = getTCGPlayerUrl(card.name, setData.name, setData.setCode, formattedCardNumber, variant);
                         return `
                             <div class="variant-checkbox ${isChecked ? 'checked' : ''}" onclick="toggleVariant('${setKey}', ${card.number}, '${variant}')">
                                 <input type="checkbox" ${isChecked ? 'checked' : ''} onchange="event.stopPropagation(); toggleVariant('${setKey}', ${card.number}, '${variant}')">
                                 <label>${info.icon} ${info.label}</label>
+                                <a href="${variantTCGUrl}" target="_blank" class="variant-tcgplayer-link" title="Search ${info.label} on TCGPlayer" onclick="event.stopPropagation();">
+                                    <svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor">
+                                        <path d="M19 19H5V5h7V3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/>
+                                    </svg>
+                                </a>
                             </div>
                         `;
                     }).join('');
@@ -2379,7 +2438,9 @@
                 const tcgdexImgUrl = getTcgdexImageUrl(setKey, card.number, card.imageId);
                 const localImgUrl = `Images/cards/${setKey}/${String(card.number).padStart(3, '0')}.png`;
                 const primarySrc = apiImgUrl || tcgdexImgUrl || localImgUrl;
-                const tcgplayerUrl = getTCGPlayerUrl(card.name, setData.name, setData.setCode);
+                // Format card number for search (e.g., "184/182")
+                const formattedCardNumber = isSecret ? `${card.number}/${setData.mainSet}` : `${card.number}/${setData.totalCards}`;
+                const tcgplayerUrl = getTCGPlayerUrl(card.name, setData.name, setData.setCode, formattedCardNumber);
 
                 cardEl.innerHTML = `
                     <div class="card-img-wrapper">
@@ -2591,12 +2652,15 @@
             // Set TCGPlayer link
             if (setKey.startsWith('custom-')) {
                 // For custom sets, use the card's setOrigin
-                const tcgplayerUrl = getTCGPlayerUrl(card.name, card.setOrigin || 'Pokemon', '');
+                const customCardNumber = card.originalNumber || null;
+                const tcgplayerUrl = getTCGPlayerUrl(card.name, card.setOrigin || 'Pokemon', '', customCardNumber);
                 modalTCGPlayerLink.href = tcgplayerUrl;
                 modalTCGPlayerLink.style.display = 'inline-block';
             } else if (setData && setData.setCode) {
-                // For regular sets, use the setCode
-                const tcgplayerUrl = getTCGPlayerUrl(card.name, setName, setData.setCode);
+                // For regular sets, use the setCode with formatted card number
+                const isSecret = card.number > setData.mainSet;
+                const formattedCardNumber = isSecret ? `${card.number}/${setData.mainSet}` : `${card.number}/${setData.totalCards}`;
+                const tcgplayerUrl = getTCGPlayerUrl(card.name, setName, setData.setCode, formattedCardNumber);
                 modalTCGPlayerLink.href = tcgplayerUrl;
                 modalTCGPlayerLink.style.display = 'inline-block';
             } else {
