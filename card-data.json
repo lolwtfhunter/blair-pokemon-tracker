@@ -153,7 +153,7 @@
           "name": "Venusaur",
           "rarity": "rare",
           "type": "pokemon",
-          "imageId": "15_A1"
+          "imageId": "15_A"
         },
         "29": {
           "name": "Imposter Professor Oak",
@@ -171,13 +171,13 @@
           "name": "Here Comes Team Rocket!",
           "rarity": "rare",
           "type": "trainer",
-          "imageId": "15_A2"
+          "imageId": "15_B"
         },
         "32": {
           "name": "Rocket's Zapdos",
           "rarity": "rare",
           "type": "pokemon",
-          "imageId": "15_A3"
+          "imageId": "15_C"
         },
         "33": {
           "name": "_____'s Pikachu",
@@ -231,7 +231,7 @@
           "name": "Claydol",
           "rarity": "rare",
           "type": "pokemon",
-          "imageId": "15_A4"
+          "imageId": "15_D"
         },
         "42": {
           "name": "Luxray GL Lv.X",
