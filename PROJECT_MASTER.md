@@ -457,6 +457,192 @@ The Pokemon TCG tab uses a two-level navigation system with explicit user contro
 - **Poké Ball:** `⚾ Poké Ball` (Prismatic Evolutions only)
 - **Master Ball:** `🔮 Master Ball` (Prismatic Evolutions Pokemon only)
 
+### **Design & UX Principles**
+
+These principles ensure consistency across all TCG implementations (Pokemon, Disney Lorcana, etc.) and create an engaging, premium user experience.
+
+#### **Block Selection Visual Design**
+
+**Purpose:** Block buttons are the primary navigation element. They must be visually distinctive, TCG-themed, and immediately communicate the era/block identity.
+
+**Core Principles:**
+1. **Always-Visible Gradients:** Block buttons should always display their unique gradient background (not just on hover). This creates instant visual distinction.
+2. **TCG-Themed Colors:** Choose gradient colors that reflect the TCG block's theme and era:
+   - Research the official colors/themes of the block
+   - Use 3-color gradients for depth and richness
+   - Ensure high contrast with white text
+3. **Premium Appearance:** Use shadows, borders, and effects to create a collectible card aesthetic
+4. **Consistent Interaction:** Hover, active, and inactive states should be visually clear
+
+**Current Pokemon TCG Block Gradients:**
+- **Scarlet & Violet (sv):**
+  - Gradient: `linear-gradient(135deg, #dc143c 0%, #8b008b 50%, #4b0082 100%)`
+  - Border: `#ff1493` (hot pink)
+  - Theme: Vibrant purple/violet and scarlet reflecting the newest generation
+
+- **Mega Evolution (me):**
+  - Gradient: `linear-gradient(135deg, #ff8c00 0%, #ff4500 50%, #ffd700 100%)`
+  - Border: `#ffa500` (orange)
+  - Theme: Energetic evolution energy with golden shimmer
+
+- **Sword & Shield (swsh):**
+  - Gradient: `linear-gradient(135deg, #1e90ff 0%, #4169e1 50%, #00bfff 100%)`
+  - Border: `#00d4ff` (bright cyan)
+  - Theme: Regal blue tones representing sword and shield
+
+**Styling Specifications:**
+```css
+.block-btn {
+    padding: 20px;
+    border: 3px solid;  /* Color defined per block */
+    border-radius: 16px;
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.block-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
+}
+
+.block-btn.active {
+    transform: scale(1.05);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+}
+```
+
+**When Adding New TCG Blocks:**
+1. Research the official color scheme of the block/era
+2. Create a 3-color gradient using those colors
+3. Choose a vibrant border color that complements the gradient
+4. Test readability with white text
+5. Ensure the gradient is visible without hover (always-on)
+
+#### **Helper Text Guidelines**
+
+**Purpose:** Provide contextual guidance to users at each navigation level without cluttering the interface.
+
+**Principles:**
+1. **Contextually Appropriate:** Text should match the current navigation level
+   - Block level: "Choose a block to view its sets"
+   - Set level: "Choose a set to view cards" or "Select a Set"
+2. **Sleek and Compact:** Keep text small, subtle, and unobtrusive
+   - Font size: 0.85rem
+   - Color: 50% opacity white
+   - Style: Italic for distinction
+3. **Consistent Placement:** Always centered above the relevant buttons
+4. **Brief and Clear:** Use imperative verbs (choose, select) for clarity
+
+**Helper Text Styling:**
+```css
+.helper-text {
+    text-align: center;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 16px;
+    font-style: italic;
+}
+```
+
+**Current Helper Text:**
+- **Pokemon TCG Block Selection:** "Choose a block to view its sets"
+- **Pokemon TCG Set Selection:** "Select a Set" (header)
+- **Custom Sets:** "Choose a set to view cards"
+
+#### **Chronological Ordering**
+
+**Purpose:** Enable quick access to the most recent sets for seamless collection updates.
+
+**Rule:** Always order blocks and sets chronologically with **newest first**.
+
+**Implementation:**
+```javascript
+// Block order array
+const blockOrder = ['sv', 'me', 'swsh']; // Newest → Oldest
+
+// Within each block, sets should also be newest → oldest
+// This is typically handled by release date sorting
+```
+
+**Benefits:**
+- Quick access to latest releases
+- Reduces scrolling/searching for active collectors
+- Intuitive "top = newest" mental model
+- Efficient collection management workflow
+
+**When Adding New Blocks:**
+- Insert new blocks at the beginning of the `blockOrder` array
+- Maintain reverse chronological order
+- Update block gradient CSS to follow the pattern (newest = most vibrant)
+
+#### **Set Selection Headers**
+
+**Purpose:** Provide clear visual separation between navigation levels.
+
+**Design Specifications:**
+```css
+.set-selection-header {
+    display: none;  /* Hidden until block selected */
+    margin-top: 24px;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.set-selection-title {
+    font-size: 1rem;
+    font-weight: 600;
+    opacity: 0.7;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+```
+
+**Behavior:**
+- Hidden by default
+- Appears with `.active` class when parent block is selected
+- Animates smoothly using `slideDown` animation
+- Provides clear visual marker of navigation state
+
+#### **Consistency Checklist for New TCGs**
+
+When implementing a new TCG (e.g., Disney Lorcana), ensure:
+
+**Visual Design:**
+- [ ] Block buttons have unique, always-visible gradients
+- [ ] Gradient colors reflect the TCG's official theme/branding
+- [ ] 3px borders with complementary colors
+- [ ] Border radius of 16px for modern card aesthetic
+- [ ] Box shadows for depth (4px base, 8px active)
+- [ ] Text shadow for readability on gradients
+
+**Helper Text:**
+- [ ] Helper text above block selection (if hierarchical)
+- [ ] Helper text or header above set selection
+- [ ] 0.85rem font size, 50% opacity, italic
+- [ ] Centered alignment
+- [ ] Contextually appropriate messaging
+
+**Navigation:**
+- [ ] Blocks ordered newest-first chronologically
+- [ ] Sets within blocks ordered newest-first
+- [ ] Clear visual hierarchy (blocks → sets → cards)
+- [ ] Set selection headers appear when block selected
+- [ ] Smooth animations (slideDown, scale, etc.)
+
+**Interaction:**
+- [ ] Hover effects: lift slightly, enhance shadow
+- [ ] Active state: scale 1.05x, dramatic shadow
+- [ ] Click active block to deselect
+- [ ] All states visually distinct
+
+**Accessibility:**
+- [ ] High contrast text on gradient backgrounds
+- [ ] Clear focus states for keyboard navigation
+- [ ] Sufficient color contrast (WCAG AA minimum)
+- [ ] Touch targets minimum 44px for mobile
+
 ---
 
 ## 🚀 DEPLOYMENT

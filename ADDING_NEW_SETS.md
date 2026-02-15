@@ -474,6 +474,139 @@ Follow the same JSON structure as Pokemon official sets, adapting fields as need
 
 Create new mapping objects for the new game's CDN sources.
 
+### Step 5: Design Block and Set UI Elements
+
+**IMPORTANT:** Maintain visual consistency with existing TCG implementations while creating unique, theme-appropriate designs.
+
+#### Block Button Gradients
+
+If using hierarchical navigation (blocks → sets → cards), create distinctive gradient backgrounds:
+
+1. **Research Official Colors:**
+   - Look up the official branding/colors for the new TCG
+   - Identify 2-3 primary colors from official materials
+   - Example: Disney Lorcana might use magical purples, golds, and teals
+
+2. **Create 3-Color Gradient:**
+   ```css
+   .block-btn.block-{code} {
+       background: linear-gradient(135deg, {color1} 0%, {color2} 50%, {color3} 100%);
+       border-color: {accent-color};
+   }
+   ```
+   - Use 135deg angle for consistency
+   - Choose vibrant, saturated colors
+   - Ensure white text is readable (use text-shadow if needed)
+
+3. **Gradient Examples from Pokemon TCG:**
+   ```css
+   /* Scarlet & Violet - Vibrant purple/red */
+   .block-btn.block-sv {
+       background: linear-gradient(135deg, #dc143c 0%, #8b008b 50%, #4b0082 100%);
+       border-color: #ff1493;
+   }
+
+   /* Mega Evolution - Energetic orange/gold */
+   .block-btn.block-me {
+       background: linear-gradient(135deg, #ff8c00 0%, #ff4500 50%, #ffd700 100%);
+       border-color: #ffa500;
+   }
+
+   /* Sword & Shield - Regal blue */
+   .block-btn.block-swsh {
+       background: linear-gradient(135deg, #1e90ff 0%, #4169e1 50%, #00bfff 100%);
+       border-color: #00d4ff;
+   }
+   ```
+
+4. **Design Requirements:**
+   - Gradient must be always visible (not just on hover)
+   - Border: 3px solid with complementary color
+   - Border radius: 16px
+   - Box shadow: `0 4px 12px rgba(0, 0, 0, 0.4)`
+   - Text shadow: `0 2px 4px rgba(0, 0, 0, 0.3)`
+
+#### Helper Text
+
+Add contextual guidance at each navigation level:
+
+1. **Block Selection Helper (if hierarchical):**
+   ```html
+   <div class="helper-text">Choose a [game] block to view sets</div>
+   ```
+
+2. **Set Selection Helper:**
+   ```html
+   <div class="helper-text">Choose a set to view cards</div>
+   ```
+   Or use a header:
+   ```html
+   <div class="set-selection-header">
+       <div class="set-selection-title">Select a Set</div>
+   </div>
+   ```
+
+3. **Helper Text Styling:**
+   ```css
+   .helper-text {
+       text-align: center;
+       font-size: 0.85rem;
+       color: rgba(255, 255, 255, 0.5);
+       margin-bottom: 16px;
+       font-style: italic;
+   }
+   ```
+
+#### Chronological Ordering
+
+Always order blocks and sets with **newest first**:
+
+```javascript
+// Example for Disney Lorcana
+const lorcanaBlockOrder = ['illumineer-quest', 'ursula-return', 'first-chapter']; // Newest → Oldest
+
+// Within each block, sort sets by release date (newest first)
+```
+
+**Benefits:**
+- Quick access to latest releases
+- Intuitive for active collectors
+- Reduces scrolling to find recent sets
+
+#### Interaction States
+
+Ensure consistent interaction patterns:
+
+```css
+/* Hover: Slight lift */
+.block-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
+}
+
+/* Active: Scale up with dramatic shadow */
+.block-btn.active {
+    transform: scale(1.05);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+}
+```
+
+#### Design Checklist
+
+Before committing UI changes for a new TCG:
+
+- [ ] Block buttons have unique, always-visible gradients
+- [ ] Gradient colors reflect the TCG's official branding
+- [ ] 3px borders with complementary accent colors
+- [ ] Helper text added at appropriate navigation levels
+- [ ] Blocks/sets ordered chronologically (newest first)
+- [ ] Hover and active states properly styled
+- [ ] Text is readable on gradient backgrounds
+- [ ] Mobile-responsive (test on small screens)
+- [ ] Animations smooth (slideDown for set reveal)
+
+**See Also:** `PROJECT_MASTER.md` → "Design & UX Principles" section for comprehensive guidelines.
+
 ---
 
 ## Testing Checklist

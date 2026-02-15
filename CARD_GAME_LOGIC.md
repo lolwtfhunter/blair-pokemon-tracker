@@ -481,9 +481,11 @@ Block codes are used for hierarchical navigation and styling:
 
 | Block Code | Block Name | Sets | Color Gradient |
 |------------|------------|------|----------------|
-| `swsh` | Sword & Shield | Celebrations | Blue |
-| `sv` | Scarlet & Violet | Surging Sparks, Prismatic Evolutions, Journey Together, Destined Rivals | Red/Purple |
-| `me` | Mega Evolution | Mega Evolution, Phantasmal Flames, Ascended Heroes | Orange/Gold |
+| `sv` | Scarlet & Violet | Surging Sparks, Prismatic Evolutions, Journey Together, Destined Rivals | Crimson/Magenta/Indigo |
+| `me` | Mega Evolution | Mega Evolution, Phantasmal Flames, Ascended Heroes | Dark Orange/Orange Red/Gold |
+| `swsh` | Sword & Shield | Celebrations | Dodger Blue/Royal Blue/Deep Sky Blue |
+
+**Note:** Blocks are listed in chronological order (newest first) as they appear in the UI.
 
 **Usage:**
 - **Hierarchical Navigation:** Sets are grouped by blockCode in the two-level UI
@@ -492,12 +494,87 @@ Block codes are used for hierarchical navigation and styling:
 - **CSS Styling:** `block-{blockCode}` classes apply distinctive color gradients
 - **Organizing Sets:** Groups sets by TCG era/generation/block
 - **Visual Distinction:** Each block has a unique color scheme in the UI
+- **Chronological Order:** Blocks ordered newest-first for quick access to recent releases
 
 **Hierarchical UI Behavior:**
 - Block buttons automatically aggregate progress from all sets with matching blockCode
 - Clicking a block reveals set buttons for that block only
 - Set logos load from `https://images.pokemontcg.io/{setCode}/logo.png`
 - New blocks are automatically created when a set with a new blockCode is added
+- Helper text appears above block selection: "Choose a block to view its sets"
+- Set selection header appears when block is selected: "Select a Set"
+
+### Block Visual Design Specifications
+
+Each block has a carefully designed gradient that reflects its TCG era and theme:
+
+#### Scarlet & Violet (sv)
+```css
+.block-btn.block-sv {
+    background: linear-gradient(135deg, #dc143c 0%, #8b008b 50%, #4b0082 100%);
+    border-color: #ff1493;
+}
+```
+- **Theme:** Vibrant purple/violet and scarlet reflecting the newest generation
+- **Colors:** Crimson → Dark Magenta → Indigo
+- **Border:** Hot Pink (#ff1493)
+- **Era:** 2023-present (newest)
+
+#### Mega Evolution (me)
+```css
+.block-btn.block-me {
+    background: linear-gradient(135deg, #ff8c00 0%, #ff4500 50%, #ffd700 100%);
+    border-color: #ffa500;
+}
+```
+- **Theme:** Energetic evolution power with golden shimmer
+- **Colors:** Dark Orange → Orange Red → Gold
+- **Border:** Orange (#ffa500)
+- **Era:** Custom sets (middle)
+
+#### Sword & Shield (swsh)
+```css
+.block-btn.block-swsh {
+    background: linear-gradient(135deg, #1e90ff 0%, #4169e1 50%, #00bfff 100%);
+    border-color: #00d4ff;
+}
+```
+- **Theme:** Regal blue tones representing sword and shield
+- **Colors:** Dodger Blue → Royal Blue → Deep Sky Blue
+- **Border:** Bright Cyan (#00d4ff)
+- **Era:** 2020-2022 (oldest)
+
+### Design Principles for New Blocks
+
+When adding a new block code:
+
+1. **Research Official Branding:**
+   - Identify official colors from TCG marketing materials
+   - Consider the block's theme, era, and visual identity
+   - Look at official set logos and packaging
+
+2. **Create 3-Color Gradient:**
+   - Use `linear-gradient(135deg, color1 0%, color2 50%, color3 100%)`
+   - Choose vibrant, saturated colors for visual impact
+   - Ensure high contrast with white text (use text-shadow if needed)
+   - Test readability on mobile devices
+
+3. **Select Complementary Border:**
+   - Choose a bright accent color that complements the gradient
+   - Border should be 3px solid
+   - Use high saturation for visual prominence
+
+4. **Maintain Consistency:**
+   - Follow existing pattern of always-visible gradients
+   - Apply same hover/active state transitions
+   - Ensure mobile responsiveness
+
+5. **Update Block Order:**
+   - Insert new blocks at the beginning of `blockOrder` array
+   - Maintain reverse chronological order (newest → oldest)
+   - Update this table to reflect the order
+
+**See Also:** `PROJECT_MASTER.md` → "Design & UX Principles" for comprehensive design guidelines.
 
 ---
 
