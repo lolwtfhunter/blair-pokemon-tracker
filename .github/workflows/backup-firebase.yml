@@ -1,63 +1,51 @@
 name: Backup Firebase Data
 
 on:
-schedule:
-# Runs every 6 hours (00:00, 06:00, 12:00, 18:00 UTC)
-- cron: ‘0 */6 * * *’
-workflow_dispatch: # Allow manual trigger from GitHub UI
+  schedule:
+    - cron: '0 */6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
-backup:
-runs-on: ubuntu-latest
-permissions:
-contents: write
+  backup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-```
-steps:
-  - name: Checkout repository
-    uses: actions/checkout@v4
+      - name: Fetch Firebase data
+        run: |
+          TIMESTAMP=$(date -u +"%Y-%m-%d_%H-%M-%S_UTC")
+          DATE_FOLDER=$(date -u +"%Y-%m")
 
-  - name: Fetch Firebase data
-    run: |
-      # Fetch current collection data from Firebase REST API
-      TIMESTAMP=$(date -u +"%Y-%m-%d_%H-%M-%S_UTC")
-      DATE_FOLDER=$(date -u +"%Y-%m")
-      
-      mkdir -p backups/${DATE_FOLDER}
-      
-      curl -s "https://blair-pokemon-tracker-default-rtdb.firebaseio.com/collections/Blair2024.json" \
-        -o backups/${DATE_FOLDER}/backup_${TIMESTAMP}.json
-      
-      # Also always save "latest" backup for easy access
-      cp backups/${DATE_FOLDER}/backup_${TIMESTAMP}.json backups/latest.json
-      
-      # Verify the backup is valid JSON and not empty/null
-      if [ ! -s backups/${DATE_FOLDER}/backup_${TIMESTAMP}.json ] || \
-         [ "$(cat backups/${DATE_FOLDER}/backup_${TIMESTAMP}.json)" = "null" ]; then
-        echo "⚠️ Backup is empty or null — Firebase may have no data. Skipping commit."
-        echo "SKIP_COMMIT=true" >> $GITHUB_ENV
-      else
-        SIZE=$(stat -c%s backups/${DATE_FOLDER}/backup_${TIMESTAMP}.json)
-        echo "✅ Backup created: ${SIZE} bytes"
-        echo "SKIP_COMMIT=false" >> $GITHUB_ENV
-        echo "BACKUP_FILE=backups/${DATE_FOLDER}/backup_${TIMESTAMP}.json" >> $GITHUB_ENV
-      fi
+          mkdir -p backups/${DATE_FOLDER}
 
-  - name: Cleanup old backups (keep last 30 days)
-    if: env.SKIP_COMMIT == 'false'
-    run: |
-      # Remove backup folders older than 30 days
-      find backups/ -name "*.json" -path "*/20*/*" -mtime +30 -delete 2>/dev/null || true
-      # Remove empty directories
-      find backups/ -type d -empty -delete 2>/dev/null || true
+          curl -s "https://blair-pokemon-tracker-default-rtdb.firebaseio.com/collections/Blair2024.json" \
+            -o backups/${DATE_FOLDER}/backup_${TIMESTAMP}.json
 
-  - name: Commit backup
-    if: env.SKIP_COMMIT == 'false'
-    run: |
-      git config user.name "Firebase Backup Bot"
-      git config user.email "backup-bot@users.noreply.github.com"
-      git add backups/
-      git diff --cached --quiet && echo "No changes to commit" || \
-        git commit -m "🔄 Auto-backup $(date -u +"%Y-%m-%d %H:%M UTC")" && \
-        git push
-```
+          cp backups/${DATE_FOLDER}/backup_${TIMESTAMP}.json backups/latest.json
+
+          CONTENT=$(cat backups/${DATE_FOLDER}/backup_${TIMESTAMP}.json)
+          if [ -z "$CONTENT" ] || [ "$CONTENT" = "null" ]; then
+            echo "Backup is empty or null. Skipping commit."
+            echo "SKIP_COMMIT=true" >> $GITHUB_ENV
+          else
+            echo "Backup created successfully."
+            echo "SKIP_COMMIT=false" >> $GITHUB_ENV
+          fi
+
+      - name: Cleanup old backups
+        if: env.SKIP_COMMIT == 'false'
+        run: |
+          find backups/ -name "*.json" -path "*/20*/*" -mtime +30 -delete 2>/dev/null || true
+          find backups/ -type d -empty -delete 2>/dev/null || true
+
+      - name: Commit backup
+        if: env.SKIP_COMMIT == 'false'
+        run: |
+          git config user.name "Firebase Backup Bot"
+          git config user.email "backup-bot@users.noreply.github.com"
+          git add backups/
+          git diff --cached --quiet && echo "No changes to commit" || (git commit -m "Auto-backup $(date -u +'%Y-%m-%d %H:%M UTC')" && git push)
