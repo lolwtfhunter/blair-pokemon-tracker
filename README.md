@@ -1,6 +1,6 @@
 # Blair TCG Set Tracker
 
-A mobile-friendly web app for tracking trading card collections. Currently supports Pokemon TCG sets with full variant tracking, cloud sync, card artwork, and advanced filtering. Custom sets and Disney Lorcana tabs are planned for future releases.
+A mobile-friendly web app for tracking trading card collections. Supports Pokemon TCG sets with full variant tracking, cloud sync, card artwork, and advanced filtering. Includes curated custom sets for tracking every card featuring a specific Pokemon across all eras, with Japanese-exclusive card support.
 
 **Live app:** Hosted via GitHub Pages — just open `index.html` in any browser.
 
@@ -11,10 +11,10 @@ A mobile-friendly web app for tracking trading card collections. Currently suppo
 The app has three top-level tabs:
 
 - **Pokemon** — Full set tracking with variant checkboxes, progress bars, and card images
-- **Custom Sets** — Curated cross-set collections:
-  - "It's Pikachu!" — All 362 Pichu/Pikachu/Raichu cards ever printed (including JP exclusives)
-  - "Psyduck" — All 38 Psyduck cards ever printed
-  - "Togepi" — All 17 Togepi cards ever printed
+- **Custom Sets** — Curated cross-set collections with EN/JP subtabs:
+  - "It's Pikachu!" — All 371 Pichu/Pikachu/Raichu cards ever printed (including JP exclusives)
+  - "Psyduck" — All 42 Psyduck cards ever printed (including JP exclusives)
+  - "Togepi" — All 24 Togepi cards ever printed (including JP exclusives)
 - **Disney Lorcana** — Placeholder for Disney Lorcana card tracking (coming soon)
 
 ### Pokemon TCG
@@ -31,7 +31,7 @@ The app has three top-level tabs:
   | Phantasmal Flames | 130 | Mega Evolution | Nov 2025 |
   | Ascended Heroes | 295 | Mega Evolution | Jan 2026 |
 
-- **Variant tracking** — Check off each variant (Regular, Holo, Reverse Holo, Poke Ball, Master Ball) independently per card. EX, Ultra Rare, and other special rarities use a single "Collected" checkbox.
+- **Variant tracking** — Check off each variant (Regular, Holo, Reverse Holo, Poke Ball, Master Ball) independently per card. EX, Ultra Rare, and other special rarities use a single "Collected" checkbox. Custom set cards also get computed variants based on rarity, era, and set type (e.g., modern uncommons get Regular + Reverse Holo).
 - **Inline progress bars** — Each set button shows a progress bar and collected/total count directly inside it, so you can see completion at a glance without a separate section.
 - **Filter & search** — Filter cards by completion status (All/Incomplete/Complete) and search by card name or number. Filters and search work together for quick card location.
 - **Card detail modal** — Tap any card to open a full-detail view with a large image, complete card information, and the ability to toggle variants directly in the modal.
@@ -92,10 +92,12 @@ See [`Images/README.md`](Images/README.md) for details on adding local card imag
 
 ## Card Data
 
-All card data lives in `card-data.json`. Each set contains:
+All card data lives in `card-data.json` (regular sets) and `custom-sets-data.json` (custom sets). Each regular set contains:
 - Card number, name, rarity, and type (pokemon/trainer/energy)
 - Set metadata (total cards, main set size, release date, block info)
 - Variant eligibility is determined automatically from rarity
+
+Custom set cards contain additional fields: `setOrigin`, `releaseDate`, `apiId`, `originalNumber`, and `region`. Variants for custom set cards are computed based on rarity, release date (pre/post-2002 reverse holo era), region (JP = single variant), and set type (promos, McDonald's, etc. = single variant). WotC-era holo/non-holo pairs use explicit variant arrays.
 
 ## Tech Stack
 

@@ -1847,10 +1847,56 @@
 
         // Get variant keys for a custom card
         function getCustomCardVariants(card) {
+            // Explicit variant arrays (WotC holo/non-holo pairs) take priority
             if (card.variants && card.variants.length > 0) {
                 return card.variants.map(v => v.rarity);
             }
-            return ['single'];
+
+            const rarity = card.rarity.toLowerCase();
+
+            // Japanese exclusive cards → single
+            if (card.region === 'JP') {
+                return ['single'];
+            }
+
+            // Single-variant rarities (promos, ultra rares, illustration rares, etc.)
+            if (SINGLE_VARIANT_RARITIES.includes(rarity)) {
+                return ['single'];
+            }
+
+            // Inherently holo rarities → single (non-holo versions are separate entries)
+            if (rarity === 'rare-holo' || rarity === 'rare-holo-gx') {
+                return ['single'];
+            }
+
+            // Energy cards → single
+            if (rarity === 'energy') {
+                return ['single'];
+            }
+
+            // Pre-reverse-holo era (before Expedition Base Set, June 2002)
+            if (card.releaseDate && card.releaseDate < '2002/06') {
+                return ['single'];
+            }
+
+            // Special sets/products that don't have reverse holos
+            const setOrigin = (card.setOrigin || '').toLowerCase();
+            if (setOrigin.includes('mcdonald') ||
+                setOrigin.includes('southern islands') ||
+                setOrigin.includes('pop series') ||
+                setOrigin.includes('best of') ||
+                setOrigin.includes('celebrations') ||
+                setOrigin.includes('black star')) {
+                return ['single'];
+            }
+
+            // Rare → holo + reverse-holo
+            if (rarity === 'rare') {
+                return ['holo', 'reverse-holo'];
+            }
+
+            // Common/Uncommon/Trainer → regular + reverse-holo
+            return ['regular', 'reverse-holo'];
         }
 
         // Get image URL for a specific variant of a custom card
@@ -1891,7 +1937,7 @@
             filteredCards.forEach(card => {
                 const cardProgress = collectionProgress[csKey][card.number] || {};
                 const variants = getCustomCardVariants(card);
-                const hasMultiVariants = card.variants && card.variants.length > 1;
+                const hasMultiVariants = variants.length > 1;
                 const allCollected = variants.every(v => cardProgress[v]);
                 const isSingleVariant = !hasMultiVariants;
 
@@ -1915,16 +1961,31 @@
                 // Build variant HTML
                 let variantHTML = '';
                 if (hasMultiVariants) {
-                    variantHTML = card.variants.map(v => {
-                        const isChecked = cardProgress[v.rarity] || false;
-                        const displayNum = v.originalNumber ? ` #${v.originalNumber}` : '';
-                        return `
-                            <div class="variant-checkbox ${isChecked ? 'checked' : ''}" onclick="toggleVariant('${csKey}', ${card.number}, '${v.rarity}')">
-                                <input type="checkbox" ${isChecked ? 'checked' : ''} onchange="event.stopPropagation(); toggleVariant('${csKey}', ${card.number}, '${v.rarity}')">
-                                <label>${getRarityDisplay(v.rarity)}${displayNum}</label>
-                            </div>
-                        `;
-                    }).join('');
+                    if (card.variants && card.variants.length > 1) {
+                        // Explicit variant data (WotC holo/non-holo pairs)
+                        variantHTML = card.variants.map(v => {
+                            const isChecked = cardProgress[v.rarity] || false;
+                            const displayNum = v.originalNumber ? ` #${v.originalNumber}` : '';
+                            return `
+                                <div class="variant-checkbox ${isChecked ? 'checked' : ''}" onclick="toggleVariant('${csKey}', ${card.number}, '${v.rarity}')">
+                                    <input type="checkbox" ${isChecked ? 'checked' : ''} onchange="event.stopPropagation(); toggleVariant('${csKey}', ${card.number}, '${v.rarity}')">
+                                    <label>${getRarityDisplay(v.rarity)}${displayNum}</label>
+                                </div>
+                            `;
+                        }).join('');
+                    } else {
+                        // Computed variants (regular + reverse-holo, holo + reverse-holo, etc.)
+                        variantHTML = variants.map(variant => {
+                            const isChecked = cardProgress[variant] || false;
+                            const info = variantLabels[variant];
+                            return `
+                                <div class="variant-checkbox ${isChecked ? 'checked' : ''}" onclick="toggleVariant('${csKey}', ${card.number}, '${variant}')">
+                                    <input type="checkbox" ${isChecked ? 'checked' : ''} onchange="event.stopPropagation(); toggleVariant('${csKey}', ${card.number}, '${variant}')">
+                                    <label>${info.icon} ${info.label}</label>
+                                </div>
+                            `;
+                        }).join('');
+                    }
                     variantHTML = '<div class="variant-checkboxes">' + variantHTML + '</div>';
                 } else {
                     const isChecked = cardProgress['single'] || false;
