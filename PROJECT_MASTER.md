@@ -220,15 +220,14 @@ Load saved progress from Firebase
   ↓
 Render block selection buttons with aggregate progress
   ↓
-Auto-select first block (Scarlet & Violet)
+User clicks a block → Set buttons appear with "Select a Set" header
   ↓
-Render set buttons for selected block
-  ↓
-Auto-select first set in block
-  ↓
-Render cards for selected set on-demand
+User clicks a set → Cards render on-demand for that set
   ↓
 Ready to use!
+
+Note: No auto-selection occurs. User must explicitly choose block and set.
+User can click active block again to deselect and return to block-only view.
 ```
 
 ### **2. Card Data Loading**
@@ -424,19 +423,32 @@ initializeFirebaseSync();
 11. **Export Button** - Generate progress report
 
 ### **Hierarchical Navigation**
-The Pokemon TCG tab uses a two-level navigation system:
-- **Level 1 (Block Selection):** Choose a block to view its sets. Each block button shows:
+The Pokemon TCG tab uses a two-level navigation system with explicit user control:
+
+- **Level 1 (Block Selection):** Click a block to reveal its sets. Each block button shows:
   - Block name (e.g., "Scarlet & Violet")
   - Number of sets in the block
   - Aggregate progress across all sets (variants collected/total)
   - Progress bar reflecting overall block completion
   - Distinctive color gradient (SV=red/purple, ME=orange/gold, SWSH=blue)
-- **Level 2 (Set Selection):** Select a set within the chosen block. Each set button shows:
-  - Official set logo from Pokemon TCG API
+  - Active state with border and shadow when selected
+  - Click active block again to deselect
+
+- **Level 2 (Set Selection):** Appears only when a block is selected. Shows "Select a Set" header and set buttons:
+  - Official set logo from Pokemon TCG API (gracefully hides if unavailable)
   - Set name and release date
   - Individual set progress (variants collected/total)
   - Progress bar reflecting set completion
   - Buttons display in a responsive grid (3-5 columns depending on screen size)
+  - Smooth slide-down animation when appearing
+
+**User Flow:**
+1. Page loads showing only block buttons
+2. Click block → Set buttons appear below with header
+3. Click set → Cards display
+4. Click block again → Returns to block-only view (deselects block, hides sets and cards)
+
+**Custom Sets:** Display as a flat list (no hierarchy) in their own tab.
 
 ### **Variant Display**
 - **Single Checkbox:** `✓ Collected` (EX/Secret rares)

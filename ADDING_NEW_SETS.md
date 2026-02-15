@@ -620,7 +620,8 @@ As of February 2026, the Pokemon TCG tab uses a two-level hierarchical navigatio
 
 ### Level 2: Set Selection
 
-- **What it is:** Grid of set buttons within the selected block
+- **What it is:** Grid of set buttons that appears only when a block is selected
+- **How it appears:** Click a block → "Select a Set" header and set buttons slide into view
 - **What they show:**
   - Official set logo (from `https://images.pokemontcg.io/{setCode}/logo.png`)
   - Set name (from `displayName` field in JSON)
@@ -628,14 +629,27 @@ As of February 2026, the Pokemon TCG tab uses a two-level hierarchical navigatio
   - Individual set progress (variants collected/total)
   - Visual progress bar
 
+**Important UI Behavior:**
+- No auto-selection occurs - user must click to navigate each level
+- Clicking an active block again deselects it and hides all child elements
+- Set buttons are hidden until a block is selected
+- Cards are hidden until a set is selected
+
 ### How New Sets Integrate
 
-When you add a new set:
+When you add a new **official set**:
 
 1. **Automatic block grouping:** The set is automatically grouped with other sets sharing the same `blockCode`
 2. **Block button updates:** If the block already exists, it updates to show the new set count and aggregate progress
 3. **New block creation:** If you use a new `blockCode`, a new block button is automatically created (though you may want to add CSS styling for the new block's color gradient)
 4. **Set logo display:** The set button will attempt to load the set logo from `https://images.pokemontcg.io/{setCode}/logo.png`. If unavailable, the logo image gracefully hides and only the set name displays.
+
+When you add a **custom set**:
+
+1. **No hierarchy:** Custom sets display as a flat list in the Custom Sets tab
+2. **No block codes needed:** Custom sets don't use `block` or `blockCode` fields
+3. **Direct access:** Set buttons appear immediately without needing to select a parent block
+4. **Same functionality:** Cards, progress, and all other features work identically to official sets
 
 ### Adding a New Block
 
@@ -660,6 +674,7 @@ If you're adding a set from a completely new TCG block (e.g., Sun & Moon):
 
 ## Version History
 
+- **v1.3** (2026-02-15): Updated hierarchical UI documentation to reflect improved user control model: removed auto-selection behavior, added block deselection capability, clarified that set buttons only appear when block is selected. Added notes about custom sets using flat list (no hierarchy).
 - **v1.2** (2026-02-15): Added "Understanding the Hierarchical UI" section documenting the new two-level block/set navigation system. Updated testing checklist to include block-level UI verification. Added block information notes to JSON structure documentation.
 - **v1.1** (2026-02-15): Added comprehensive "Reliable Data Sources" section with official Pokemon resources, research workflow, and data verification procedures. Emphasized using real data only after Mega Evolution set required correction from fictional to accurate card list.
 - **v1.0** (2026-02-15): Initial documentation created alongside Mega Evolution set addition and modular refactoring

@@ -32,10 +32,12 @@ The app has three top-level tabs:
   | Phantasmal Flames | 130 | Mega Evolution | Nov 2025 |
   | Ascended Heroes | 295 | Mega Evolution | Jan 2026 |
 
-- **Hierarchical block-based navigation** — Sets are organized in a scalable two-level interface:
+- **Hierarchical block-based navigation** — Official sets are organized in a scalable two-level interface:
   - **Level 1:** Block selection buttons (Scarlet & Violet, Mega Evolution, Sword & Shield) with aggregate progress for all sets in each block
-  - **Level 2:** Set selection grid showing individual sets within the chosen block, each with official set logos, progress bars, and release dates
-  - Provides better organization and scalability as new sets are added
+  - **Level 2:** Set selection grid appears when block is selected, showing individual sets with official set logos, progress bars, and release dates
+  - Blocks can be deselected by clicking again to return to clean slate view
+  - No auto-selection - user must explicitly choose block and set
+  - Custom sets display as a flat list (no hierarchy needed)
 - **Variant tracking** — Check off each variant (Regular, Holo, Reverse Holo, Poke Ball, Master Ball) independently per card. EX, Ultra Rare, and other special rarities use a single "Collected" checkbox. Custom set cards also get computed variants based on rarity, era, and set type (e.g., modern uncommons get Regular + Reverse Holo).
 - **Inline progress bars** — Each block and set button shows a progress bar and collected/total count directly inside it, so you can see completion at a glance without a separate section.
 - **Filter & search** — Filter cards by completion status (All/Incomplete/Complete) and search by card name or number. Filters and search work together for quick card location.
@@ -92,9 +94,16 @@ blair-pokemon-tracker/
 ## How It Works
 
 1. **Open the app** in a browser and enter the family sync code
-2. **Choose a tab** — Pokemon, Custom Sets, or Disney Lorcana
-3. **Select a block** — Choose from Scarlet & Violet, Mega Evolution, or Sword & Shield (each shows aggregate progress)
-4. **Select a set** from the grid of sets within the block (each shows its set logo and progress bar inline)
+2. **Choose a tab** — Pokemon TCG (hierarchical), Custom Sets (flat list), or Disney Lorcana (coming soon)
+3. **For Pokemon TCG:**
+   - **Select a block** — Click Scarlet & Violet, Mega Evolution, or Sword & Shield (shows aggregate progress)
+   - Set buttons appear with "Select a Set" header
+   - **Select a set** from the grid (shows set logo and progress bar)
+   - Cards display for the selected set
+   - Click block again to deselect and return to block-only view
+4. **For Custom Sets:**
+   - Set buttons display directly (no hierarchy)
+   - Click a set to view cards
 5. **Filter or search** to quickly find specific cards
 6. **Tap a card** to view full details in a modal with a large image
 7. **Check off variants** as you collect cards — progress saves automatically
