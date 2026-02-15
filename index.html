@@ -386,8 +386,7 @@
             height: 80px;
             object-fit: contain;
             border-radius: 6px;
-            background: rgba(255, 255, 255, 0.03);
-            padding: 8px;
+            /* No background or padding - cleaner appearance */
             position: absolute;
             top: 0;
             left: 0;
@@ -2267,8 +2266,21 @@
 
                     // Use TCG-specific logo and icon
                     if (tcgType.toLowerCase().includes('pokemon')) {
-                        logoUrl = './Images/pokemon/logo.png';
-                        logoIcon = '⚡'; // Pokemon lightning bolt
+                        // Use character-specific logos for custom Pokemon sets
+                        const characterLogoMap = {
+                            'its-pikachu': 'Images/header/pikachu.png',
+                            'psyduck': 'Images/header/psyduck.png',
+                            'togepi': 'Images/header/togepi.png'
+                        };
+                        logoUrl = characterLogoMap[setKey] || './Images/pokemon/logo.png';
+
+                        // Use character-specific emoji icons
+                        const characterIconMap = {
+                            'its-pikachu': '⚡',
+                            'psyduck': '🦆',
+                            'togepi': '🥚'
+                        };
+                        logoIcon = characterIconMap[setKey] || '⚡'; // Default Pokemon lightning bolt
                     } else if (tcgType.toLowerCase().includes('lorcana')) {
                         logoUrl = './Images/lorcana/logos/lorcana.png';
                         logoIcon = '🃏'; // Lorcana playing card
@@ -3244,7 +3256,10 @@
                 const logoUrl = `https://images.pokemontcg.io/${apiSetId}/logo.png`;
 
                 btn.innerHTML = `
-                    <img src="${logoUrl}" alt="${setData.displayName}" class="set-btn-logo" onerror="this.style.display='none'">
+                    <div class="set-btn-logo-wrapper">
+                        <img src="${logoUrl}" alt="${setData.displayName}" class="set-btn-logo" onerror="this.style.display='none'">
+                        <div class="set-btn-logo-fallback">⚡</div>
+                    </div>
                     <div class="set-btn-name">${setData.displayName}</div>
                     ${dateStr ? `<div class="set-release-date">${dateStr}</div>` : ''}
                     <div class="set-btn-stats">${progress.collected}/${progress.total} (${progress.percentage}%)</div>
