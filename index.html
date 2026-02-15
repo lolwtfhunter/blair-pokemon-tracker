@@ -2237,20 +2237,52 @@
                 btn.className = 'set-btn' + (setKey === currentCustomSet ? ' active' : '');
                 btn.setAttribute('data-custom-set-key', setKey);
 
+                // Determine TCG type from first card's setOrigin
+                let tcgType = 'Pokemon'; // default
+                let logoUrl = null;
+                if (setData.cards && setData.cards.length > 0) {
+                    tcgType = setData.cards[0].setOrigin || 'Pokemon';
+
+                    // Use TCG-specific logo
+                    if (tcgType.toLowerCase().includes('pokemon')) {
+                        // Use Pokemon logo - generic Pokemon TCG logo
+                        logoUrl = 'https://images.pokemontcg.io/base1/logo.png';
+                    } else if (tcgType.toLowerCase().includes('lorcana')) {
+                        logoUrl = 'https://cdn.dreamborn.ink/images/lorcana-logo.png';
+                    }
+                }
+
+                // Find earliest card date from cards if available
+                let earliestDate = null;
+                if (setData.cards && setData.cards.length > 0) {
+                    setData.cards.forEach(card => {
+                        if (card.releaseDate) {
+                            const cardDate = new Date(card.releaseDate);
+                            if (!earliestDate || cardDate < earliestDate) {
+                                earliestDate = cardDate;
+                            }
+                        }
+                    });
+                }
+
+                // Format date
+                let dateStr = '';
+                if (earliestDate) {
+                    dateStr = earliestDate.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
+                } else {
+                    // Fallback to showing card count
+                    dateStr = `${setData.totalCards} cards`;
+                }
+
                 const progress = getCustomSetProgress(setKey);
 
                 btn.innerHTML = `
-                    <div class="set-btn-left" style="flex:1;min-width:0;">
-                        <div style="display:flex;align-items:center;justify-content:space-between;">
-                            <span class="set-btn-name">${setData.displayName}</span>
-                            <div class="set-btn-right">
-                                <span class="set-btn-stats">${progress.collected}/${progress.total} (${progress.percentage}%)</span>
-                            </div>
-                        </div>
-                        <span class="set-release-date">${setData.totalCards} cards</span>
-                        <div class="set-btn-progress">
-                            <div class="set-btn-progress-fill" style="width: ${progress.percentage}%"></div>
-                        </div>
+                    ${logoUrl ? `<img src="${logoUrl}" alt="${tcgType}" class="set-btn-logo" onerror="this.style.display='none'">` : ''}
+                    <div class="set-btn-name">${setData.displayName}</div>
+                    <div class="set-release-date">${dateStr}</div>
+                    <div class="set-btn-stats">${progress.collected}/${progress.total} (${progress.percentage}%)</div>
+                    <div class="set-btn-progress">
+                        <div class="set-btn-progress-fill" style="width: ${progress.percentage}%"></div>
                     </div>
                 `;
                 btn.onclick = () => switchCustomSet(setKey);
@@ -2260,6 +2292,24 @@
 
         // Switch custom set
         function switchCustomSet(setKey) {
+            // If clicking the currently active set, deselect it (toggle off)
+            if (currentCustomSet === setKey) {
+                currentCustomSet = null;
+
+                // Deactivate all custom set buttons
+                document.querySelectorAll('#customSetButtons .set-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+
+                // Hide all custom set sections
+                document.querySelectorAll('#custom-sets-grids .set-section').forEach(section => {
+                    section.classList.remove('active');
+                });
+
+                return;
+            }
+
+            // Select the new set
             currentCustomSet = setKey;
 
             document.querySelectorAll('#customSetButtons .set-btn').forEach(btn => {
@@ -2665,12 +2715,19 @@
             // Build array of image URLs to try (in order of preference)
             const imageUrls = [];
 
-            // Tier 1: Dreamborn CDN (most reliable for Lorcana)
+            // Tier 1: Lorcast CDN (most reliable for Lorcana - serves AVIF format)
+            if (dreambornId) {
+                // Lorcast uses format: https://cards.lorcast.io/[dreambornId]/normal.avif
+                imageUrls.push(`https://cards.lorcast.io/${dreambornId}/normal.avif`);
+                imageUrls.push(`https://cards.lorcast.io/${dreambornId}/large.avif`);
+            }
+
+            // Tier 2: Dreamborn CDN
             if (dreambornId) {
                 imageUrls.push(`https://cdn.dreamborn.ink/images/en/cards/${dreambornId}`);
             }
 
-            // Tier 2: Lorcania CDN
+            // Tier 3: Lorcania CDN
             if (dreambornId) {
                 // Lorcania uses format like: https://lorcania.com/cards/1/1.webp
                 // Extract set number and card number from dreamborn ID (e.g., "001-001" -> set 1, card 1)
@@ -2683,7 +2740,7 @@
                 }
             }
 
-            // Tier 3: Direct card number fallback
+            // Tier 4: Direct card number fallback
             const paddedNumber = String(cardNumber).padStart(3, '0');
             imageUrls.push(`./Images/lorcana/${setKey}/${paddedNumber}.jpg`);
             imageUrls.push(`./Images/lorcana/${setKey}/${paddedNumber}.png`);
@@ -2700,10 +2757,14 @@
             const dreambornId = card.dreambornId || '';
             const paddedNumber = String(card.number).padStart(3, '0');
 
-            // Build fallback URLs
+            // Build fallback URLs (matching getLorcanaCardImageUrl)
             const fallbackUrls = [];
 
             if (dreambornId) {
+                // Lorcast CDN (primary - AVIF format)
+                fallbackUrls.push(`https://cards.lorcast.io/${dreambornId}/normal.avif`);
+                fallbackUrls.push(`https://cards.lorcast.io/${dreambornId}/large.avif`);
+
                 // Dreamborn CDN
                 fallbackUrls.push(`https://cdn.dreamborn.ink/images/en/cards/${dreambornId}`);
 
@@ -2748,18 +2809,27 @@
                 btn.className = 'set-btn' + (setKey === currentLorcanaSet ? ' active' : '');
                 btn.setAttribute('data-lorcana-set-key', setKey);
 
+                // Format release date
+                let dateStr = '';
+                if (setData.releaseDate) {
+                    const d = new Date(setData.releaseDate + 'T00:00:00');
+                    dateStr = d.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
+                }
+
+                // Calculate progress
                 const progress = getLorcanaSetProgress(setKey);
 
+                // Get Lorcana set logo - using a generic Lorcana logo for now
+                // You can customize this with set-specific logos if available
+                const logoUrl = `https://cdn.dreamborn.ink/images/lorcana-logo.png`;
+
                 btn.innerHTML = `
-                    <div class="set-btn-left" style="flex:1;min-width:0;">
-                        <div style="display:flex;align-items:center;justify-content:space-between;">
-                            <span class="set-btn-name">${setData.displayName}</span>
-                        </div>
-                        <div class="set-btn-meta">${setData.releaseDate ? new Date(setData.releaseDate).toLocaleDateString('en-US', {month: 'short', year: 'numeric'}) : ''}</div>
-                        <div class="set-btn-progress-bar">
-                            <div class="set-btn-progress-fill" style="width: ${progress.percentage}%;"></div>
-                        </div>
-                        <div class="set-btn-stats">${progress.collected}/${progress.total} (${progress.percentage}%)</div>
+                    <img src="${logoUrl}" alt="${setData.displayName}" class="set-btn-logo" onerror="this.style.display='none'">
+                    <div class="set-btn-name">${setData.displayName}</div>
+                    ${dateStr ? `<div class="set-release-date">${dateStr}</div>` : ''}
+                    <div class="set-btn-stats">${progress.collected}/${progress.total} (${progress.percentage}%)</div>
+                    <div class="set-btn-progress">
+                        <div class="set-btn-progress-fill" style="width: ${progress.percentage}%"></div>
                     </div>
                 `;
 
@@ -2770,6 +2840,24 @@
 
         // Switch active Lorcana set
         function switchLorcanaSet(setKey) {
+            // If clicking the currently active set, deselect it (toggle off)
+            if (currentLorcanaSet === setKey) {
+                currentLorcanaSet = null;
+
+                // Deactivate all Lorcana set buttons
+                document.querySelectorAll('.set-btn[data-lorcana-set-key]').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+
+                // Hide all Lorcana set sections
+                document.querySelectorAll('#lorcana-content .set-section').forEach(section => {
+                    section.classList.remove('active');
+                });
+
+                return;
+            }
+
+            // Select the new set
             currentLorcanaSet = setKey;
 
             // Update all Lorcana set buttons
@@ -3211,6 +3299,24 @@
 
         // Switch active set
         function switchSet(setKey) {
+            // If clicking the currently active set, deselect it (toggle off)
+            if (currentSet === setKey) {
+                currentSet = null;
+
+                // Deactivate all set buttons
+                document.querySelectorAll('.set-btn[data-set-key]').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+
+                // Hide all set sections
+                document.querySelectorAll('#pokemon-tcg-content .set-section').forEach(section => {
+                    section.classList.remove('active');
+                });
+
+                return;
+            }
+
+            // Select the new set
             currentSet = setKey;
 
             // Update all set buttons across all block containers
