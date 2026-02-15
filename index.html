@@ -2407,7 +2407,7 @@
                 setData = customCardSets[customKey];
                 card = setData ? setData.cards.find(c => c.number === cardNumber) : null;
                 variants = card ? getCustomCardVariants(card) : ['single'];
-                setName = setData ? setData.name : '';
+                setName = card && card.setOrigin ? card.setOrigin : (setData ? setData.name : '');
             } else {
                 setData = cardSets[setKey];
                 card = setData ? setData.cards.find(c => c.number === cardNumber) : null;
