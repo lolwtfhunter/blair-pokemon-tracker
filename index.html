@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blair Card Tracker</title>
+    <title>Blair TCG Set Tracker</title>
     
     <!-- Firebase SDK -->
     <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
@@ -1259,15 +1259,15 @@
                 <div class="header-sparkle"></div>
                 <div class="header-sparkle"></div>
             </div>
-            <h1>⚡ Blair Card Tracker ⚡</h1>
-            <p class="subtitle">Track your Pokemon TCG, custom sets, and Lorcana collections</p>
+            <h1>⚡ Blair TCG Set Tracker ⚡</h1>
+            <p class="subtitle">Track your Pokemon, custom sets, and Disney Lorcana collections</p>
         </header>
         
         <!-- Top-level tab navigation -->
         <div class="top-tabs">
-            <button class="top-tab active" onclick="switchTopTab('pokemon-tcg')">Pokemon TCG</button>
+            <button class="top-tab active" onclick="switchTopTab('pokemon-tcg')">Pokemon</button>
             <button class="top-tab" onclick="switchTopTab('custom-sets')">Custom Sets</button>
-            <button class="top-tab" onclick="switchTopTab('lorcana')">Lorcana</button>
+            <button class="top-tab" onclick="switchTopTab('lorcana')">Disney Lorcana</button>
         </div>
 
         <!-- Pokemon TCG tab content -->
@@ -1304,7 +1304,7 @@
                 <div class="card-grid" id="surging-sparks-grid"></div>
             </div>
 
-            <div id="prismatic-evolutions" class="set-section active">
+            <div id="prismatic-evolutions" class="set-section">
                 <div class="card-controls">
                     <div class="filter-buttons">
                         <button class="filter-btn active" onclick="filterCards('prismatic-evolutions', 'all')">All</button>
@@ -1389,7 +1389,7 @@
         <!-- Lorcana tab content -->
         <div id="lorcana-content" class="top-tab-content">
             <div class="placeholder-content">
-                <h2>Lorcana</h2>
+                <h2>Disney Lorcana</h2>
                 <p>Disney Lorcana card tracking will be available here.<br>Stay tuned for future updates!</p>
                 <span class="coming-soon-badge lorcana">Coming Soon</span>
             </div>
@@ -1402,7 +1402,7 @@
         let cardSets = {};
         let customCardSets = {};
         let collectionProgress = {};
-        let currentSet = 'prismatic-evolutions';
+        let currentSet = null; // No set selected by default
         let currentCustomSet = null;
         let customSetLangFilter = {}; // Per-set language filter: 'EN' or 'JP'
         let firebase_db = null;
@@ -1790,6 +1790,12 @@
             });
             const target = document.getElementById('custom-' + setKey);
             if (target) target.classList.add('active');
+
+            // Render cards if not already rendered
+            const grid = document.getElementById('custom-' + setKey + '-grid');
+            if (grid && grid.children.length === 0) {
+                renderCustomCards(setKey);
+            }
         }
 
         // Calculate progress for a custom set (respects language filter if set has mixed regions)
@@ -2160,17 +2166,23 @@
         // Switch active set
         function switchSet(setKey) {
             currentSet = setKey;
-            
+
             // Update buttons
             document.querySelectorAll('.set-btn').forEach((btn, idx) => {
                 btn.classList.toggle('active', Object.keys(cardSets)[idx] === setKey);
             });
-            
+
             // Update sections
             document.querySelectorAll('.set-section').forEach(section => {
                 section.classList.remove('active');
             });
             document.getElementById(setKey).classList.add('active');
+
+            // Render cards if not already rendered
+            const grid = document.getElementById(setKey + '-grid');
+            if (grid && grid.children.length === 0) {
+                renderCards(setKey);
+            }
         }
         
         
@@ -2802,25 +2814,16 @@
                     console.log('ERROR in updateSetButtonProgress: ' + e.message);
                 }
 
-                console.log('Rendering all cards initially...');
-                Object.keys(cardSets).forEach(setKey => {
-                    try {
-                        console.log(`Initial render: ${setKey}`);
-                        renderCards(setKey);
-                    } catch (e) {
-                        console.log(`ERROR rendering ${setKey}: ` + e.message);
-                    }
-                });
+                // Cards are now rendered on-demand when user selects a set
+                console.log('Card grids ready - cards will render when sets are selected');
 
-                // Render custom sets
-                console.log('Rendering custom sets...');
+                // Initialize custom set grids and buttons
+                console.log('Initializing custom sets...');
                 try {
                     initCustomSetGrids();
                     renderCustomSetButtons();
-                    Object.keys(customCardSets).forEach(setKey => {
-                        renderCustomCards(setKey);
-                    });
-                    console.log('✓ Custom sets rendered');
+                    // Custom set cards will render on-demand when user selects a set
+                    console.log('✓ Custom set grids and buttons ready');
                 } catch (e) {
                     console.log('ERROR in custom sets: ' + e.message);
                 }
