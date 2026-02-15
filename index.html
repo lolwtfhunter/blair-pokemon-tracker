@@ -1514,7 +1514,9 @@
             const cleanCardName = cardName.trim();
             const cleanSetName = setName.trim();
 
-            // Build search query with card name, number, set name, and optional variant
+            // Build search query with card name, number, and set name
+            // Note: Variant types (Holo/Reverse Holo) are not included in search
+            // because TCGPlayer has filters for these within the card details page
             let searchQuery = cleanCardName;
 
             // Add card number if provided (format: "123/456" or just "123")
@@ -1524,14 +1526,6 @@
 
             // Add set name
             searchQuery += ` ${cleanSetName}`;
-
-            // Add variant type if specified (e.g., "Holo", "Reverse Holo")
-            if (variantType && variantType !== 'single') {
-                const variantInfo = variantLabels[variantType];
-                if (variantInfo && variantInfo.searchTerm) {
-                    searchQuery += ` ${variantInfo.searchTerm}`;
-                }
-            }
 
             const encodedQuery = encodeURIComponent(searchQuery);
 
@@ -1612,12 +1606,12 @@
 
         // Variant configurations
         const variantLabels = {
-            'single': { label: 'Collected', icon: '✓', searchTerm: '' },
-            'regular': { label: 'Regular', icon: '⚪', searchTerm: 'Normal' },
-            'holo': { label: 'Holo', icon: '💎', searchTerm: 'Holo' },
-            'reverse-holo': { label: 'Reverse Holo', icon: '✨', searchTerm: 'Reverse Holo' },
-            'pokeball': { label: 'Poké Ball', icon: '⚾', searchTerm: 'Pokeball' },
-            'masterball': { label: 'Master Ball', icon: '🔮', searchTerm: 'Masterball' }
+            'single': { label: 'Collected', icon: '✓' },
+            'regular': { label: 'Regular', icon: '⚪' },
+            'holo': { label: 'Holo', icon: '💎' },
+            'reverse-holo': { label: 'Reverse Holo', icon: '✨' },
+            'pokeball': { label: 'Poké Ball', icon: '⚾' },
+            'masterball': { label: 'Master Ball', icon: '🔮' }
         };
         
         // All possible rarities in Pokemon TCG (future-proof)
