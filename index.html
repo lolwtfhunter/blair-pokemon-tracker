@@ -2248,7 +2248,8 @@
                         // Use Pokemon logo - generic Pokemon TCG logo
                         logoUrl = 'https://images.pokemontcg.io/base1/logo.png';
                     } else if (tcgType.toLowerCase().includes('lorcana')) {
-                        logoUrl = 'https://cdn.dreamborn.ink/images/lorcana-logo.png';
+                        // Lorcana logos not readily available, use local if provided
+                        logoUrl = `./Images/lorcana/logos/lorcana.png`;
                     }
                 }
 
@@ -2715,35 +2716,30 @@
             // Build array of image URLs to try (in order of preference)
             const imageUrls = [];
 
-            // Tier 1: Lorcast CDN (most reliable for Lorcana - serves AVIF format)
             if (dreambornId) {
-                // Lorcast uses format: https://cards.lorcast.io/[dreambornId]/normal.avif
-                imageUrls.push(`https://cards.lorcast.io/${dreambornId}/normal.avif`);
-                imageUrls.push(`https://cards.lorcast.io/${dreambornId}/large.avif`);
-            }
-
-            // Tier 2: Dreamborn CDN
-            if (dreambornId) {
-                imageUrls.push(`https://cdn.dreamborn.ink/images/en/cards/${dreambornId}`);
-            }
-
-            // Tier 3: Lorcania CDN
-            if (dreambornId) {
-                // Lorcania uses format like: https://lorcania.com/cards/1/1.webp
-                // Extract set number and card number from dreamborn ID (e.g., "001-001" -> set 1, card 1)
                 const parts = dreambornId.split('-');
-                if (parts.length >= 2) {
-                    const setNum = parseInt(parts[0]);
-                    const cardNum = parseInt(parts[1]);
+                const setNum = parts.length >= 2 ? parseInt(parts[0]) : null;
+                const cardNum = parts.length >= 2 ? parseInt(parts[1]) : null;
+
+                // Tier 1: Dreamborn CDN with various extensions
+                imageUrls.push(`https://cdn.dreamborn.ink/images/en/cards/${dreambornId}.webp`);
+                imageUrls.push(`https://cdn.dreamborn.ink/images/en/cards/${dreambornId}.png`);
+                imageUrls.push(`https://cdn.dreamborn.ink/images/en/cards/${dreambornId}.jpg`);
+                imageUrls.push(`https://cdn.dreamborn.ink/images/en/cards/${dreambornId}`);
+
+                // Tier 2: Lorcania CDN
+                if (setNum && cardNum) {
                     imageUrls.push(`https://lorcania.com/cards/${setNum}/${cardNum}.webp`);
                     imageUrls.push(`https://lorcania.com/cards/${setNum}/${cardNum}.jpg`);
+                    imageUrls.push(`https://lorcania.com/cards/${setNum}/${cardNum}.png`);
                 }
             }
 
-            // Tier 4: Direct card number fallback
+            // Tier 3: Direct card number fallback
             const paddedNumber = String(cardNumber).padStart(3, '0');
             imageUrls.push(`./Images/lorcana/${setKey}/${paddedNumber}.jpg`);
             imageUrls.push(`./Images/lorcana/${setKey}/${paddedNumber}.png`);
+            imageUrls.push(`./Images/lorcana/${setKey}/${paddedNumber}.webp`);
 
             // Return the first URL (browser will try fallbacks via onerror)
             return imageUrls.length > 0 ? imageUrls[0] : null;
@@ -2761,26 +2757,28 @@
             const fallbackUrls = [];
 
             if (dreambornId) {
-                // Lorcast CDN (primary - AVIF format)
-                fallbackUrls.push(`https://cards.lorcast.io/${dreambornId}/normal.avif`);
-                fallbackUrls.push(`https://cards.lorcast.io/${dreambornId}/large.avif`);
+                const parts = dreambornId.split('-');
+                const setNum = parts.length >= 2 ? parseInt(parts[0]) : null;
+                const cardNum = parts.length >= 2 ? parseInt(parts[1]) : null;
 
-                // Dreamborn CDN
+                // Dreamborn CDN with various extensions
+                fallbackUrls.push(`https://cdn.dreamborn.ink/images/en/cards/${dreambornId}.webp`);
+                fallbackUrls.push(`https://cdn.dreamborn.ink/images/en/cards/${dreambornId}.png`);
+                fallbackUrls.push(`https://cdn.dreamborn.ink/images/en/cards/${dreambornId}.jpg`);
                 fallbackUrls.push(`https://cdn.dreamborn.ink/images/en/cards/${dreambornId}`);
 
                 // Lorcania CDN
-                const parts = dreambornId.split('-');
-                if (parts.length >= 2) {
-                    const setNum = parseInt(parts[0]);
-                    const cardNum = parseInt(parts[1]);
+                if (setNum && cardNum) {
                     fallbackUrls.push(`https://lorcania.com/cards/${setNum}/${cardNum}.webp`);
                     fallbackUrls.push(`https://lorcania.com/cards/${setNum}/${cardNum}.jpg`);
+                    fallbackUrls.push(`https://lorcania.com/cards/${setNum}/${cardNum}.png`);
                 }
             }
 
             // Local fallbacks
             fallbackUrls.push(`./Images/lorcana/${setKey}/${paddedNumber}.jpg`);
             fallbackUrls.push(`./Images/lorcana/${setKey}/${paddedNumber}.png`);
+            fallbackUrls.push(`./Images/lorcana/${setKey}/${paddedNumber}.webp`);
 
             // Try next URL
             if (attemptIndex < fallbackUrls.length) {
@@ -2819,12 +2817,12 @@
                 // Calculate progress
                 const progress = getLorcanaSetProgress(setKey);
 
-                // Get Lorcana set logo - using a generic Lorcana logo for now
-                // You can customize this with set-specific logos if available
-                const logoUrl = `https://cdn.dreamborn.ink/images/lorcana-logo.png`;
+                // Lorcana logos are not readily available via CDN
+                // Users can add local logos in ./Images/lorcana/logos/ if desired
+                const localLogoUrl = `./Images/lorcana/logos/${setKey}.png`;
 
                 btn.innerHTML = `
-                    <img src="${logoUrl}" alt="${setData.displayName}" class="set-btn-logo" onerror="this.style.display='none'">
+                    <img src="${localLogoUrl}" alt="${setData.displayName}" class="set-btn-logo" onerror="this.style.display='none'">
                     <div class="set-btn-name">${setData.displayName}</div>
                     ${dateStr ? `<div class="set-release-date">${dateStr}</div>` : ''}
                     <div class="set-btn-stats">${progress.collected}/${progress.total} (${progress.percentage}%)</div>
