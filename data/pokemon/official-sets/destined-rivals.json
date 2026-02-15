@@ -1,0 +1,1243 @@
+{
+  "version": "3.0.0",
+  "lastUpdated": "2025-02-15",
+  "setKey": "destined-rivals",
+  "name": "Destined Rivals",
+  "displayName": "Destined Rivals",
+  "totalCards": 244,
+  "mainSet": 182,
+  "setCode": "sv10",
+  "hasPokeBallVariant": false,
+  "hasMasterBallVariant": false,
+  "cards": {
+    "1": {
+      "name": "Ethan's Pinsir",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "2": {
+      "name": "Yanma",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "3": {
+      "name": "Yanmega ex",
+      "rarity": "ex",
+      "type": "pokemon"
+    },
+    "4": {
+      "name": "Pineco",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "5": {
+      "name": "Shroomish",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "6": {
+      "name": "Breloom",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "7": {
+      "name": "Cynthia's Roselia",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "8": {
+      "name": "Cynthia's Roserade",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "9": {
+      "name": "Mow Rotom",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "10": {
+      "name": "Shaymin",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "11": {
+      "name": "Dwebble",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "12": {
+      "name": "Crustle",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "13": {
+      "name": "Fomantis",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "14": {
+      "name": "Lurantis",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "15": {
+      "name": "Team Rocket's Blipbug",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "16": {
+      "name": "Applin",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "17": {
+      "name": "Dipplin",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "18": {
+      "name": "Hydrapple",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "19": {
+      "name": "Team Rocket's Tarountula",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "20": {
+      "name": "Team Rocket's Spidops",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "21": {
+      "name": "Smoliv",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "22": {
+      "name": "Dolliv",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "23": {
+      "name": "Arboliva ex",
+      "rarity": "ex",
+      "type": "pokemon"
+    },
+    "24": {
+      "name": "Rellor",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "25": {
+      "name": "Rabsca ex",
+      "rarity": "ex",
+      "type": "pokemon"
+    },
+    "26": {
+      "name": "Teal Mask Ogerpon",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "27": {
+      "name": "Growlithe",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "28": {
+      "name": "Arcanine",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "29": {
+      "name": "Ponyta",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "30": {
+      "name": "Rapidash",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "31": {
+      "name": "Team Rocket's Moltres ex",
+      "rarity": "ex",
+      "type": "pokemon"
+    },
+    "32": {
+      "name": "Ethan's Cyndaquil",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "33": {
+      "name": "Ethan's Quilava",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "34": {
+      "name": "Ethan's Typhlosion",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "35": {
+      "name": "Ethan's Slugma",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "36": {
+      "name": "Ethan's Magcargo",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "37": {
+      "name": "Team Rocket's Houndour",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "38": {
+      "name": "Team Rocket's Houndoom",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "39": {
+      "name": "Ethan's Ho-Oh ex",
+      "rarity": "ex",
+      "type": "pokemon"
+    },
+    "40": {
+      "name": "Torchic",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "41": {
+      "name": "Combusken",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "42": {
+      "name": "Blaziken",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "43": {
+      "name": "Heat Rotom",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "44": {
+      "name": "Hearthflame Mask Ogerpon",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "45": {
+      "name": "Misty's Psyduck",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "46": {
+      "name": "Misty's Staryu",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "47": {
+      "name": "Misty's Starmie",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "48": {
+      "name": "Misty's Magikarp",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "49": {
+      "name": "Misty's Gyarados",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "50": {
+      "name": "Misty's Lapras",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "51": {
+      "name": "Team Rocket's Articuno",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "52": {
+      "name": "Cynthia's Feebas",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "53": {
+      "name": "Cynthia's Milotic",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "54": {
+      "name": "Clamperl",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "55": {
+      "name": "Huntail",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "56": {
+      "name": "Gorebyss",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "57": {
+      "name": "Buizel",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "58": {
+      "name": "Floatzel",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "59": {
+      "name": "Snover",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "60": {
+      "name": "Abomasnow",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "61": {
+      "name": "Wash Rotom",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "62": {
+      "name": "Arrokuda",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "63": {
+      "name": "Barraskewda",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "64": {
+      "name": "Cetoddle",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "65": {
+      "name": "Cetitan ex",
+      "rarity": "ex",
+      "type": "pokemon"
+    },
+    "66": {
+      "name": "Dondozo ex",
+      "rarity": "ex",
+      "type": "pokemon"
+    },
+    "67": {
+      "name": "Wellspring Mask Ogerpon",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "68": {
+      "name": "Electabuzz",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "69": {
+      "name": "Electivire ex",
+      "rarity": "ex",
+      "type": "pokemon"
+    },
+    "70": {
+      "name": "Team Rocket's Zapdos",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "71": {
+      "name": "Ethan's Pichu",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "72": {
+      "name": "Team Rocket's Mareep",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "73": {
+      "name": "Team Rocket's Flaaffy",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "74": {
+      "name": "Team Rocket's Ampharos",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "75": {
+      "name": "Electrike",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "76": {
+      "name": "Manectric",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "77": {
+      "name": "Rotom",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "78": {
+      "name": "Zeraora",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "79": {
+      "name": "Team Rocket's Drowzee",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "80": {
+      "name": "Team Rocket's Hypno",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "81": {
+      "name": "Team Rocket's Mewtwo ex",
+      "rarity": "ex",
+      "type": "pokemon"
+    },
+    "82": {
+      "name": "Team Rocket's Wobbuffet",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "83": {
+      "name": "Steven's Baltoy",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "84": {
+      "name": "Steven's Claydol",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "85": {
+      "name": "Team Rocket's Chingling",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "86": {
+      "name": "Steven's Carbink",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "87": {
+      "name": "Team Rocket's Mimikyu",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "88": {
+      "name": "Team Rocket's Dottler",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "89": {
+      "name": "Team Rocket's Orbeetle",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "90": {
+      "name": "Mankey",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "91": {
+      "name": "Primeape",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "92": {
+      "name": "Annihilape",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "93": {
+      "name": "Ethan's Sudowoodo",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "94": {
+      "name": "Team Rocket's Larvitar",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "95": {
+      "name": "Team Rocket's Pupitar",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "96": {
+      "name": "Team Rocket's Tyranitar",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "97": {
+      "name": "Nosepass",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "98": {
+      "name": "Probopass",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "99": {
+      "name": "Meditite",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "100": {
+      "name": "Medicham",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "101": {
+      "name": "Regirock ex",
+      "rarity": "ex",
+      "type": "pokemon"
+    },
+    "102": {
+      "name": "Cynthia's Gible",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "103": {
+      "name": "Cynthia's Gabite",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "104": {
+      "name": "Cynthia's Garchomp ex",
+      "rarity": "ex",
+      "type": "pokemon"
+    },
+    "105": {
+      "name": "Hippopotas",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "106": {
+      "name": "Hippowdon",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "107": {
+      "name": "Mudbray",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "108": {
+      "name": "Mudsdale",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "109": {
+      "name": "Arven's Toedscool",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "110": {
+      "name": "Arven's Toedscruel",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "111": {
+      "name": "Cornerstone Mask Ogerpon",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "112": {
+      "name": "Team Rocket's Ekans",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "113": {
+      "name": "Team Rocket's Arbok",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "114": {
+      "name": "Team Rocket's Nidoran\u2640",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "115": {
+      "name": "Team Rocket's Nidorina",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "116": {
+      "name": "Team Rocket's Nidoqueen",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "117": {
+      "name": "Team Rocket's Nidoran\u2642",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "118": {
+      "name": "Team Rocket's Nidorino",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "119": {
+      "name": "Team Rocket's Nidoking ex",
+      "rarity": "ex",
+      "type": "pokemon"
+    },
+    "120": {
+      "name": "Team Rocket's Zubat",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "121": {
+      "name": "Team Rocket's Golbat",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "122": {
+      "name": "Team Rocket's Crobat ex",
+      "rarity": "ex",
+      "type": "pokemon"
+    },
+    "123": {
+      "name": "Team Rocket's Grimer",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "124": {
+      "name": "Team Rocket's Muk",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "125": {
+      "name": "Team Rocket's Koffing",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "126": {
+      "name": "Team Rocket's Weezing",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "127": {
+      "name": "Team Rocket's Murkrow",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "128": {
+      "name": "Team Rocket's Sneasel",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "129": {
+      "name": "Cynthia's Spiritomb",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "130": {
+      "name": "Marnie's Purrloin",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "131": {
+      "name": "Marnie's Liepard",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "132": {
+      "name": "Marnie's Scraggy",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "133": {
+      "name": "Marnie's Scrafty",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "134": {
+      "name": "Marnie's Impidimp",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "135": {
+      "name": "Marnie's Morgrem",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "136": {
+      "name": "Marnie's Grimmsnarl ex",
+      "rarity": "ex",
+      "type": "pokemon"
+    },
+    "137": {
+      "name": "Marnie's Morpeko",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "138": {
+      "name": "Arven's Maschiff",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "139": {
+      "name": "Arven's Mabosstiff ex",
+      "rarity": "ex",
+      "type": "pokemon"
+    },
+    "140": {
+      "name": "Forretress",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "141": {
+      "name": "Skarmory",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "142": {
+      "name": "Steven's Skarmory",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "143": {
+      "name": "Steven's Beldum",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "144": {
+      "name": "Steven's Metang",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "145": {
+      "name": "Steven's Metagross ex",
+      "rarity": "ex",
+      "type": "pokemon"
+    },
+    "146": {
+      "name": "Zamazenta",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "147": {
+      "name": "Team Rocket's Rattata",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "148": {
+      "name": "Team Rocket's Raticate",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "149": {
+      "name": "Team Rocket's Meowth",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "150": {
+      "name": "Team Rocket's Persian ex",
+      "rarity": "ex",
+      "type": "pokemon"
+    },
+    "151": {
+      "name": "Kangaskhan",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "152": {
+      "name": "Tauros",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "153": {
+      "name": "Team Rocket's Porygon",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "154": {
+      "name": "Team Rocket's Porygon2",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "155": {
+      "name": "Team Rocket's Porygon-Z",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "156": {
+      "name": "Taillow",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "157": {
+      "name": "Swellow",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "158": {
+      "name": "Arven's Skwovet",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "159": {
+      "name": "Arven's Greedent",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "160": {
+      "name": "Squawkabilly",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "161": {
+      "name": "Arven's Sandwich",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "162": {
+      "name": "Cynthia's Power Weight",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "163": {
+      "name": "Emcee's Hype",
+      "rarity": "common",
+      "type": "trainer"
+    },
+    "164": {
+      "name": "Energy Recycler",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "165": {
+      "name": "Ethan's Adventure",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "166": {
+      "name": "Granite Cave",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "167": {
+      "name": "Judge",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "168": {
+      "name": "Sacred Ash",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "169": {
+      "name": "Spikemuth Gym",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "170": {
+      "name": "Team Rocket's Archer",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "171": {
+      "name": "Team Rocket's Ariana",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "172": {
+      "name": "Team Rocket's Bother-Bot",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "173": {
+      "name": "Team Rocket's Factory",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "174": {
+      "name": "Team Rocket's Giovanni",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "175": {
+      "name": "Team Rocket's Great Ball",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "176": {
+      "name": "Team Rocket's Petrel",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "177": {
+      "name": "Team Rocket's Proton",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "178": {
+      "name": "Team Rocket's Transceiver",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "179": {
+      "name": "Team Rocket's Venture Bomb",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "180": {
+      "name": "Team Rocket's Watchtower",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "181": {
+      "name": "TM Machine",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "182": {
+      "name": "Team Rocket's Energy",
+      "rarity": "uncommon",
+      "type": "energy"
+    },
+    "183": {
+      "name": "Yanma",
+      "rarity": "illustration-rare",
+      "type": "pokemon"
+    },
+    "184": {
+      "name": "Cynthia's Roserade",
+      "rarity": "illustration-rare",
+      "type": "pokemon"
+    },
+    "185": {
+      "name": "Shaymin",
+      "rarity": "illustration-rare",
+      "type": "pokemon"
+    },
+    "186": {
+      "name": "Crustle",
+      "rarity": "illustration-rare",
+      "type": "pokemon"
+    },
+    "187": {
+      "name": "Team Rocket's Spidops",
+      "rarity": "illustration-rare",
+      "type": "pokemon"
+    },
+    "188": {
+      "name": "Hydrapple",
+      "rarity": "illustration-rare",
+      "type": "pokemon"
+    },
+    "189": {
+      "name": "Rapidash",
+      "rarity": "illustration-rare",
+      "type": "pokemon"
+    },
+    "190": {
+      "name": "Ethan's Typhlosion",
+      "rarity": "illustration-rare",
+      "type": "pokemon"
+    },
+    "191": {
+      "name": "Team Rocket's Houndoom",
+      "rarity": "illustration-rare",
+      "type": "pokemon"
+    },
+    "192": {
+      "name": "Blaziken",
+      "rarity": "illustration-rare",
+      "type": "pokemon"
+    },
+    "193": {
+      "name": "Misty's Psyduck",
+      "rarity": "illustration-rare",
+      "type": "pokemon"
+    },
+    "194": {
+      "name": "Misty's Lapras",
+      "rarity": "illustration-rare",
+      "type": "pokemon"
+    },
+    "195": {
+      "name": "Clamperl",
+      "rarity": "illustration-rare",
+      "type": "pokemon"
+    },
+    "196": {
+      "name": "Electrike",
+      "rarity": "illustration-rare",
+      "type": "pokemon"
+    },
+    "197": {
+      "name": "Rotom",
+      "rarity": "illustration-rare",
+      "type": "pokemon"
+    },
+    "198": {
+      "name": "Team Rocket's Orbeetle",
+      "rarity": "illustration-rare",
+      "type": "pokemon"
+    },
+    "199": {
+      "name": "Team Rocket's Weezing",
+      "rarity": "illustration-rare",
+      "type": "pokemon"
+    },
+    "200": {
+      "name": "Team Rocket's Murkrow",
+      "rarity": "illustration-rare",
+      "type": "pokemon"
+    },
+    "201": {
+      "name": "Zamazenta",
+      "rarity": "illustration-rare",
+      "type": "pokemon"
+    },
+    "202": {
+      "name": "Team Rocket's Raticate",
+      "rarity": "illustration-rare",
+      "type": "pokemon"
+    },
+    "203": {
+      "name": "Team Rocket's Meowth",
+      "rarity": "illustration-rare",
+      "type": "pokemon"
+    },
+    "204": {
+      "name": "Kangaskhan",
+      "rarity": "illustration-rare",
+      "type": "pokemon"
+    },
+    "205": {
+      "name": "Arven's Greedent",
+      "rarity": "illustration-rare",
+      "type": "pokemon"
+    },
+    "206": {
+      "name": "Yanmega ex",
+      "rarity": "ultra-rare",
+      "type": "pokemon"
+    },
+    "207": {
+      "name": "Arboliva ex",
+      "rarity": "ultra-rare",
+      "type": "pokemon"
+    },
+    "208": {
+      "name": "Team Rocket's Moltres ex",
+      "rarity": "ultra-rare",
+      "type": "pokemon"
+    },
+    "209": {
+      "name": "Ethan's Ho-Oh ex",
+      "rarity": "ultra-rare",
+      "type": "pokemon"
+    },
+    "210": {
+      "name": "Cetitan ex",
+      "rarity": "ultra-rare",
+      "type": "pokemon"
+    },
+    "211": {
+      "name": "Dondozo ex",
+      "rarity": "ultra-rare",
+      "type": "pokemon"
+    },
+    "212": {
+      "name": "Electivire ex",
+      "rarity": "ultra-rare",
+      "type": "pokemon"
+    },
+    "213": {
+      "name": "Team Rocket's Mewtwo ex",
+      "rarity": "ultra-rare",
+      "type": "pokemon"
+    },
+    "214": {
+      "name": "Regirock ex",
+      "rarity": "ultra-rare",
+      "type": "pokemon"
+    },
+    "215": {
+      "name": "Cynthia's Garchomp ex",
+      "rarity": "ultra-rare",
+      "type": "pokemon"
+    },
+    "216": {
+      "name": "Team Rocket's Nidoking ex",
+      "rarity": "ultra-rare",
+      "type": "pokemon"
+    },
+    "217": {
+      "name": "Team Rocket's Crobat ex",
+      "rarity": "ultra-rare",
+      "type": "pokemon"
+    },
+    "218": {
+      "name": "Arven's Mabosstiff ex",
+      "rarity": "ultra-rare",
+      "type": "pokemon"
+    },
+    "219": {
+      "name": "Team Rocket's Persian ex",
+      "rarity": "ultra-rare",
+      "type": "pokemon"
+    },
+    "220": {
+      "name": "Emcee's Hype",
+      "rarity": "ultra-rare",
+      "type": "trainer"
+    },
+    "221": {
+      "name": "Ethan's Adventure",
+      "rarity": "ultra-rare",
+      "type": "trainer"
+    },
+    "222": {
+      "name": "Judge",
+      "rarity": "ultra-rare",
+      "type": "trainer"
+    },
+    "223": {
+      "name": "Team Rocket's Archer",
+      "rarity": "ultra-rare",
+      "type": "trainer"
+    },
+    "224": {
+      "name": "Team Rocket's Ariana",
+      "rarity": "ultra-rare",
+      "type": "trainer"
+    },
+    "225": {
+      "name": "Team Rocket's Giovanni",
+      "rarity": "ultra-rare",
+      "type": "trainer"
+    },
+    "226": {
+      "name": "Team Rocket's Petrel",
+      "rarity": "ultra-rare",
+      "type": "trainer"
+    },
+    "227": {
+      "name": "Team Rocket's Proton",
+      "rarity": "ultra-rare",
+      "type": "trainer"
+    },
+    "228": {
+      "name": "Yanmega ex",
+      "rarity": "special-illustration-rare",
+      "type": "pokemon"
+    },
+    "229": {
+      "name": "Team Rocket's Moltres ex",
+      "rarity": "special-illustration-rare",
+      "type": "pokemon"
+    },
+    "230": {
+      "name": "Ethan's Ho-Oh ex",
+      "rarity": "special-illustration-rare",
+      "type": "pokemon"
+    },
+    "231": {
+      "name": "Team Rocket's Mewtwo ex",
+      "rarity": "special-illustration-rare",
+      "type": "pokemon"
+    },
+    "232": {
+      "name": "Cynthia's Garchomp ex",
+      "rarity": "special-illustration-rare",
+      "type": "pokemon"
+    },
+    "233": {
+      "name": "Team Rocket's Nidoking ex",
+      "rarity": "special-illustration-rare",
+      "type": "pokemon"
+    },
+    "234": {
+      "name": "Team Rocket's Crobat ex",
+      "rarity": "special-illustration-rare",
+      "type": "pokemon"
+    },
+    "235": {
+      "name": "Arven's Mabosstiff ex",
+      "rarity": "special-illustration-rare",
+      "type": "pokemon"
+    },
+    "236": {
+      "name": "Ethan's Adventure",
+      "rarity": "special-illustration-rare",
+      "type": "trainer"
+    },
+    "237": {
+      "name": "Team Rocket's Ariana",
+      "rarity": "special-illustration-rare",
+      "type": "trainer"
+    },
+    "238": {
+      "name": "Team Rocket's Giovanni",
+      "rarity": "special-illustration-rare",
+      "type": "trainer"
+    },
+    "239": {
+      "name": "Ethan's Ho-Oh ex",
+      "rarity": "hyper-rare",
+      "type": "pokemon"
+    },
+    "240": {
+      "name": "Team Rocket's Mewtwo ex",
+      "rarity": "hyper-rare",
+      "type": "pokemon"
+    },
+    "241": {
+      "name": "Cynthia's Garchomp ex",
+      "rarity": "hyper-rare",
+      "type": "pokemon"
+    },
+    "242": {
+      "name": "Team Rocket's Crobat ex",
+      "rarity": "hyper-rare",
+      "type": "pokemon"
+    },
+    "243": {
+      "name": "Jamming Tower",
+      "rarity": "hyper-rare",
+      "type": "trainer"
+    },
+    "244": {
+      "name": "Levincia",
+      "rarity": "hyper-rare",
+      "type": "trainer"
+    }
+  },
+  "exCards": {},
+  "trainerRange": [
+    160,
+    182
+  ],
+  "energyCards": {},
+  "releaseDate": "2025-05-30",
+  "block": "Scarlet & Violet",
+  "blockCode": "sv"
+}

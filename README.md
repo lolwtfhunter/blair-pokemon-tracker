@@ -19,7 +19,7 @@ The app has three top-level tabs:
 
 ### Pokemon TCG
 
-- **7 supported sets** spanning Sword & Shield, Scarlet & Violet, and Mega Evolution blocks:
+- **8 supported sets** spanning Sword & Shield, Scarlet & Violet, and Mega Evolution blocks:
 
   | Set | Cards | Block | Release |
   |-----|-------|-------|---------|
@@ -28,6 +28,7 @@ The app has three top-level tabs:
   | Prismatic Evolutions | 180 | Scarlet & Violet | Jan 2025 |
   | Journey Together | 190 | Scarlet & Violet | Mar 2025 |
   | Destined Rivals | 244 | Scarlet & Violet | May 2025 |
+  | Mega Evolution | 188 | Mega Evolution | Sep 2025 |
   | Phantasmal Flames | 130 | Mega Evolution | Nov 2025 |
   | Ascended Heroes | 295 | Mega Evolution | Jan 2026 |
 
@@ -47,8 +48,23 @@ The app has three top-level tabs:
 ```
 blair-pokemon-tracker/
 ├── index.html              Main app (single-page, self-contained)
-├── card-data.json          Card database (names, rarities, types for all sets)
-├── custom-sets-data.json   Custom set definitions (cross-set collections)
+├── data/                   Modular card data (organized by TCG and set)
+│   ├── pokemon/
+│   │   ├── official-sets/  Official Pokemon TCG sets (JSON per set)
+│   │   │   ├── celebrations.json
+│   │   │   ├── mega-evolution.json
+│   │   │   ├── phantasmal-flames.json
+│   │   │   ├── ascended-heroes.json
+│   │   │   ├── surging-sparks.json
+│   │   │   ├── prismatic-evolutions.json
+│   │   │   ├── journey-together.json
+│   │   │   └── destined-rivals.json
+│   │   └── custom-sets/    Custom curated Pokemon sets
+│   │       ├── its-pikachu.json
+│   │       ├── psyduck.json
+│   │       └── togepi.json
+│   └── lorcana/            Disney Lorcana sets (future)
+│       └── sets/
 ├── restore.html            Backup restore utility
 ├── test.html               Test page
 ├── test-card-data.html     Card data validation page
@@ -56,6 +72,7 @@ blair-pokemon-tracker/
 │   ├── header/             Header banner images (Pikachu, Psyduck, etc.)
 │   └── cards/              Local card images organized by set (optional)
 │       ├── celebrations/
+│       ├── mega-evolution/
 │       ├── surging-sparks/
 │       ├── prismatic-evolutions/
 │       ├── journey-together/
@@ -92,12 +109,17 @@ See [`Images/README.md`](Images/README.md) for details on adding local card imag
 
 ## Card Data
 
-All card data lives in `card-data.json` (regular sets) and `custom-sets-data.json` (custom sets). Each regular set contains:
-- Card number, name, rarity, and type (pokemon/trainer/energy)
-- Set metadata (total cards, main set size, release date, block info)
-- Variant eligibility is determined automatically from rarity
+Card data is organized in a modular structure under `data/pokemon/`:
+- **Official sets** (`data/pokemon/official-sets/`): Each set is a separate JSON file containing card metadata (number, name, rarity, type), set info (total cards, main set size, release date, block), and variant configuration
+- **Custom sets** (`data/pokemon/custom-sets/`): Cross-era collections with additional fields like `setOrigin`, `releaseDate`, `apiId`, `originalNumber`, and `region`
 
-Custom set cards contain additional fields: `setOrigin`, `releaseDate`, `apiId`, `originalNumber`, and `region`. Variants for custom set cards are computed based on rarity, release date (pre/post-2002 reverse holo era), region (JP = single variant), and set type (promos, McDonald's, etc. = single variant). WotC-era holo/non-holo pairs use explicit variant arrays.
+Variant eligibility is determined automatically from rarity. Custom set cards compute variants based on rarity, release date (pre/post-2002 reverse holo era), region (JP = single variant), and set type (promos, McDonald's, etc. = single variant). WotC-era holo/non-holo pairs use explicit variant arrays.
+
+**Benefits of modular structure:**
+- Faster load times (only loads data for selected sets)
+- Easier to add new TCGs (Lorcana, Magic, etc.)
+- Better organization and maintainability
+- Supports future scaling
 
 ## Tech Stack
 

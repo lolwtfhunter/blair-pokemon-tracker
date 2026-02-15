@@ -1695,53 +1695,73 @@
             return ['regular', 'reverse-holo'];
         }
         
-        // Load card data from JSON
+        // Official Pokemon TCG sets to load (in order)
+        const OFFICIAL_SETS = [
+            'celebrations',
+            'mega-evolution',
+            'phantasmal-flames',
+            'ascended-heroes',
+            'surging-sparks',
+            'prismatic-evolutions',
+            'journey-together',
+            'destined-rivals'
+        ];
+
+        // Load card data from modular JSON files
         async function loadCardData() {
-            console.log('Loading card-data.json...');
+            console.log('Loading official Pokemon TCG sets...');
             try {
-                const response = await fetch('./card-data.json');
-                const data = await response.json();
-                
-                console.log(`JSON loaded: ${Object.keys(data.sets).length} sets`);
-                
-                // Build cardSets from JSON - NEW structure with card objects
-                for (const [setKey, setInfo] of Object.entries(data.sets)) {
-                    const cards = [];
-                    
-                    // Convert cards object to array
-                    if (setInfo.cards && typeof setInfo.cards === 'object') {
-                        for (const [cardNum, cardData] of Object.entries(setInfo.cards)) {
-                            const cardObj = {
-                                number: parseInt(cardNum),
-                                name: cardData.name,
-                                rarity: cardData.rarity,
-                                type: cardData.type || 'pokemon'
-                            };
-                            if (cardData.imageId) cardObj.imageId = cardData.imageId;
-                            cards.push(cardObj);
+                let loadedCount = 0;
+
+                // Load each set individually
+                for (const setKey of OFFICIAL_SETS) {
+                    try {
+                        const response = await fetch(`./data/pokemon/official-sets/${setKey}.json`);
+                        if (!response.ok) {
+                            console.warn(`Set ${setKey} not found, skipping`);
+                            continue;
                         }
+                        const setInfo = await response.json();
+                        const cards = [];
+
+                        // Convert cards object to array
+                        if (setInfo.cards && typeof setInfo.cards === 'object') {
+                            for (const [cardNum, cardData] of Object.entries(setInfo.cards)) {
+                                const cardObj = {
+                                    number: parseInt(cardNum),
+                                    name: cardData.name,
+                                    rarity: cardData.rarity,
+                                    type: cardData.type || 'pokemon'
+                                };
+                                if (cardData.imageId) cardObj.imageId = cardData.imageId;
+                                cards.push(cardObj);
+                            }
+                        }
+
+                        cardSets[setKey] = {
+                            name: setInfo.name,
+                            displayName: setInfo.displayName,
+                            totalCards: setInfo.totalCards,
+                            mainSet: setInfo.mainSet,
+                            setCode: setInfo.setCode,
+                            releaseDate: setInfo.releaseDate || '',
+                            block: setInfo.block || '',
+                            blockCode: setInfo.blockCode || '',
+                            hasPokeBallVariant: setInfo.hasPokeBallVariant,
+                            hasMasterBallVariant: setInfo.hasMasterBallVariant,
+                            singleVariantOnly: setInfo.singleVariantOnly || false,
+                            cards: cards
+                        };
+
+                        console.log(`✓ ${setKey}: ${cards.length} cards`);
+                        loadedCount++;
+                    } catch (setError) {
+                        console.error(`Error loading ${setKey}:`, setError);
                     }
-                    
-                    cardSets[setKey] = {
-                        name: setInfo.name,
-                        displayName: setInfo.displayName,
-                        totalCards: setInfo.totalCards,
-                        mainSet: setInfo.mainSet,
-                        setCode: setInfo.setCode,
-                        releaseDate: setInfo.releaseDate || '',
-                        block: setInfo.block || '',
-                        blockCode: setInfo.blockCode || '',
-                        hasPokeBallVariant: setInfo.hasPokeBallVariant,
-                        hasMasterBallVariant: setInfo.hasMasterBallVariant,
-                        singleVariantOnly: setInfo.singleVariantOnly || false,
-                        cards: cards
-                    };
-                    
-                    console.log(`${setKey}: ${cards.length} cards`);
                 }
-                
-                console.log('✓ Card data loaded');
-                return true;
+
+                console.log(`✓ Loaded ${loadedCount} official sets`);
+                return loadedCount > 0;
             } catch (error) {
                 console.log('ERROR: ' + error.message);
                 console.error('Error loading card data:', error);
@@ -1750,57 +1770,69 @@
             }
         }
         
-        // Load custom sets data from JSON
+        // Custom sets to load
+        const CUSTOM_SETS = [
+            'its-pikachu',
+            'psyduck',
+            'togepi'
+        ];
+
+        // Load custom sets data from modular JSON files
         async function loadCustomSetsData() {
-            console.log('Loading custom-sets-data.json...');
+            console.log('Loading custom Pokemon sets...');
             try {
-                const response = await fetch('./custom-sets-data.json');
-                if (!response.ok) {
-                    console.log('No custom-sets-data.json found, skipping');
-                    return true;
-                }
-                const data = await response.json();
+                let loadedCount = 0;
 
-                console.log(`Custom sets JSON loaded: ${Object.keys(data.customSets).length} sets`);
-
-                for (const [setKey, setInfo] of Object.entries(data.customSets)) {
-                    const cards = [];
-
-                    if (setInfo.cards && typeof setInfo.cards === 'object') {
-                        for (const [cardNum, cardData] of Object.entries(setInfo.cards)) {
-                            const cardObj = {
-                                number: parseInt(cardNum),
-                                name: cardData.name,
-                                rarity: cardData.rarity,
-                                type: cardData.type || 'pokemon',
-                                setOrigin: cardData.setOrigin || '',
-                                apiId: cardData.apiId || '',
-                                releaseDate: cardData.releaseDate || '',
-                                originalNumber: cardData.originalNumber || '',
-                                region: cardData.region || ''
-                            };
-                            // Parse variants array if present (merged cards with multiple rarities)
-                            if (cardData.variants && Array.isArray(cardData.variants)) {
-                                cardObj.variants = cardData.variants;
-                            }
-                            cards.push(cardObj);
+                // Load each custom set individually
+                for (const setKey of CUSTOM_SETS) {
+                    try {
+                        const response = await fetch(`./data/pokemon/custom-sets/${setKey}.json`);
+                        if (!response.ok) {
+                            console.warn(`Custom set ${setKey} not found, skipping`);
+                            continue;
                         }
+                        const setInfo = await response.json();
+                        const cards = [];
+
+                        if (setInfo.cards && typeof setInfo.cards === 'object') {
+                            for (const [cardNum, cardData] of Object.entries(setInfo.cards)) {
+                                const cardObj = {
+                                    number: parseInt(cardNum),
+                                    name: cardData.name,
+                                    rarity: cardData.rarity,
+                                    type: cardData.type || 'pokemon',
+                                    setOrigin: cardData.setOrigin || '',
+                                    apiId: cardData.apiId || '',
+                                    releaseDate: cardData.releaseDate || '',
+                                    originalNumber: cardData.originalNumber || '',
+                                    region: cardData.region || ''
+                                };
+                                // Parse variants array if present (merged cards with multiple rarities)
+                                if (cardData.variants && Array.isArray(cardData.variants)) {
+                                    cardObj.variants = cardData.variants;
+                                }
+                                cards.push(cardObj);
+                            }
+                        }
+
+                        customCardSets[setKey] = {
+                            name: setInfo.name,
+                            displayName: setInfo.displayName,
+                            description: setInfo.description || '',
+                            totalCards: setInfo.totalCards,
+                            singleVariantOnly: setInfo.singleVariantOnly !== false,
+                            cards: cards
+                        };
+
+                        console.log(`✓ Custom set ${setKey}: ${cards.length} cards`);
+                        loadedCount++;
+                    } catch (setError) {
+                        console.error(`Error loading custom set ${setKey}:`, setError);
                     }
-
-                    customCardSets[setKey] = {
-                        name: setInfo.name,
-                        displayName: setInfo.displayName,
-                        description: setInfo.description || '',
-                        totalCards: setInfo.totalCards,
-                        singleVariantOnly: setInfo.singleVariantOnly !== false,
-                        cards: cards
-                    };
-
-                    console.log(`Custom set ${setKey}: ${cards.length} cards`);
                 }
 
-                console.log('✓ Custom sets data loaded');
-                return true;
+                console.log(`✓ Loaded ${loadedCount} custom sets`);
+                return true; // Non-fatal, app continues even if no custom sets loaded
             } catch (error) {
                 console.log('Custom sets load error: ' + error.message);
                 return true; // Non-fatal, app continues without custom sets

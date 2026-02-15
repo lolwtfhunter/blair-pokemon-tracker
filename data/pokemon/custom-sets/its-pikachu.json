@@ -1,0 +1,3516 @@
+{
+  "version": "1.1.0",
+  "lastUpdated": "2026-02-15",
+  "setKey": "its-pikachu",
+  "name": "It's Pikachu!",
+  "displayName": "It's Pikachu!",
+  "description": "Every Pichu, Pikachu, and Raichu card ever printed in the Pokemon TCG, including Japanese exclusives",
+  "totalCards": 371,
+  "pokemon": [
+    "Pichu",
+    "Pikachu",
+    "Raichu"
+  ],
+  "cards": {
+    "1": {
+      "name": "Pikachu (CoroCoro Promo)",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "CoroCoro Comic Promo (JP, 1996)",
+      "originalNumber": "",
+      "releaseDate": "1996/10/15",
+      "apiId": "",
+      "region": "JP"
+    },
+    "2": {
+      "name": "Pikachu (Intro Pack)",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "Intro Pack (JP, 1996)",
+      "originalNumber": "",
+      "releaseDate": "1996/10/20",
+      "apiId": "",
+      "region": "JP"
+    },
+    "3": {
+      "name": "Pikachu (Toyota Campaign)",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "Toyota Auto Campaign (JP, 1997)",
+      "originalNumber": "",
+      "releaseDate": "1997/10/01",
+      "apiId": "",
+      "region": "JP"
+    },
+    "4": {
+      "name": "Pikachu (Meiji Chocolate Promo)",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "Meiji Chocolate Campaign (JP, 1998)",
+      "originalNumber": "",
+      "releaseDate": "1998/03/01",
+      "apiId": "",
+      "region": "JP"
+    },
+    "5": {
+      "name": "Pikachu (ANA Airlines Promo)",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "ANA Airlines Promo (JP, 1998)",
+      "originalNumber": "",
+      "releaseDate": "1998/07/01",
+      "apiId": "",
+      "region": "JP"
+    },
+    "6": {
+      "name": "Pikachu (Vending Machine Series 1)",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "Vending Machine Cards (JP, 1998)",
+      "originalNumber": "",
+      "releaseDate": "1998/11/01",
+      "apiId": "",
+      "region": "JP"
+    },
+    "7": {
+      "name": "Raichu (Vending Machine Series)",
+      "rarity": "uncommon",
+      "type": "pokemon",
+      "setOrigin": "Vending Machine Cards (JP, 1998)",
+      "originalNumber": "",
+      "releaseDate": "1998/11/01",
+      "apiId": "",
+      "region": "JP"
+    },
+    "8": {
+      "name": "Pikachu (Birthday Pikachu)",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "All Card Calendar Promo (JP, 1998)",
+      "originalNumber": "",
+      "releaseDate": "1998/11/05",
+      "apiId": "",
+      "region": "JP"
+    },
+    "9": {
+      "name": "Pikachu (Vending Machine Series 3)",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "Vending Machine Cards (JP, 1998)",
+      "originalNumber": "",
+      "releaseDate": "1998/12/01",
+      "apiId": "",
+      "region": "JP"
+    },
+    "10": {
+      "name": "Pikachu (CoroCoro Glossy)",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "CoroCoro Comics Grey Star Promo (JP, 1999)",
+      "originalNumber": "",
+      "releaseDate": "1999/01/01",
+      "apiId": "",
+      "region": "JP"
+    },
+    "11": {
+      "name": "Pichu (Tropical Present)",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "Pokemon Fan Club Promo (JP, 1999)",
+      "originalNumber": "",
+      "releaseDate": "1999/01/01",
+      "apiId": "",
+      "region": "JP"
+    },
+    "12": {
+      "name": "Raichu",
+      "rarity": "rare-holo",
+      "type": "pokemon",
+      "setOrigin": "Base (base1)",
+      "originalNumber": "14",
+      "releaseDate": "1999/01/09",
+      "apiId": "base1-14"
+    },
+    "13": {
+      "name": "Pikachu",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "Base (base1)",
+      "originalNumber": "58",
+      "releaseDate": "1999/01/09",
+      "apiId": "base1-58"
+    },
+    "14": {
+      "name": "Pikachu (Pok\u00e9mon Center Tokyo)",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "Pokemon Center Tokyo Promo (JP, 1999)",
+      "originalNumber": "",
+      "releaseDate": "1999/04/25",
+      "apiId": "",
+      "region": "JP"
+    },
+    "15": {
+      "name": "Pikachu",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "Jungle (base2)",
+      "originalNumber": "60",
+      "releaseDate": "1999/06/16",
+      "apiId": "base2-60"
+    },
+    "16": {
+      "name": "Pikachu (Pok\u00e9mon Stamp Rally)",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "JR Stamp Rally (JP, 1999)",
+      "originalNumber": "",
+      "releaseDate": "1999/07/01",
+      "apiId": "",
+      "region": "JP"
+    },
+    "17": {
+      "name": "Pikachu (Quick Starter Gift)",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "Quick Starter Gift (JP, 1999)",
+      "originalNumber": "",
+      "releaseDate": "1999/07/01",
+      "apiId": "",
+      "region": "JP"
+    },
+    "18": {
+      "name": "Pikachu",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "Wizards Black Star Promos (basep)",
+      "originalNumber": "1",
+      "releaseDate": "1999/07/01",
+      "apiId": "basep-1"
+    },
+    "19": {
+      "name": "Pikachu",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "Wizards Black Star Promos (basep)",
+      "originalNumber": "4",
+      "releaseDate": "1999/07/01",
+      "apiId": "basep-4"
+    },
+    "20": {
+      "name": "_____'s Pikachu",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "Wizards Black Star Promos (basep)",
+      "originalNumber": "24",
+      "releaseDate": "1999/07/01",
+      "apiId": "basep-24"
+    },
+    "21": {
+      "name": "Flying Pikachu",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "Wizards Black Star Promos (basep)",
+      "originalNumber": "25",
+      "releaseDate": "1999/07/01",
+      "apiId": "basep-25"
+    },
+    "22": {
+      "name": "Pikachu",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "Wizards Black Star Promos (basep)",
+      "originalNumber": "26",
+      "releaseDate": "1999/07/01",
+      "apiId": "basep-26"
+    },
+    "23": {
+      "name": "Pikachu",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "Wizards Black Star Promos (basep)",
+      "originalNumber": "27",
+      "releaseDate": "1999/07/01",
+      "apiId": "basep-27"
+    },
+    "24": {
+      "name": "Surfing Pikachu",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "Wizards Black Star Promos (basep)",
+      "originalNumber": "28",
+      "releaseDate": "1999/07/01",
+      "apiId": "basep-28"
+    },
+    "25": {
+      "name": "Pichu",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "Wizards Black Star Promos (basep)",
+      "originalNumber": "35",
+      "releaseDate": "1999/07/01",
+      "apiId": "basep-35"
+    },
+    "26": {
+      "name": "Pikachu (Movie 2000 Promo)",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "Revelation Lugia Movie (JP, 1999)",
+      "originalNumber": "",
+      "releaseDate": "1999/07/17",
+      "apiId": "",
+      "region": "JP"
+    },
+    "27": {
+      "name": "Raichu",
+      "rarity": "rare-holo",
+      "type": "pokemon",
+      "setOrigin": "Fossil (base3)",
+      "originalNumber": "14",
+      "releaseDate": "1999/10/10",
+      "apiId": "base3-14",
+      "variants": [
+        {
+          "rarity": "rare-holo",
+          "apiId": "base3-14",
+          "originalNumber": "14"
+        },
+        {
+          "rarity": "rare",
+          "apiId": "base3-29",
+          "originalNumber": "29"
+        }
+      ]
+    },
+    "28": {
+      "name": "Raichu",
+      "rarity": "rare-holo",
+      "type": "pokemon",
+      "setOrigin": "Base Set 2 (base4)",
+      "originalNumber": "16",
+      "releaseDate": "2000/02/24",
+      "apiId": "base4-16"
+    },
+    "29": {
+      "name": "Pikachu",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "Base Set 2 (base4)",
+      "originalNumber": "87",
+      "releaseDate": "2000/02/24",
+      "apiId": "base4-87"
+    },
+    "30": {
+      "name": "Dark Raichu",
+      "rarity": "secret",
+      "type": "pokemon",
+      "setOrigin": "Team Rocket (base5)",
+      "originalNumber": "83",
+      "releaseDate": "2000/04/24",
+      "apiId": "base5-83"
+    },
+    "31": {
+      "name": "Pichu (Premium File 2)",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "Premium File 2 - Entei Movie (JP, 2000)",
+      "originalNumber": "",
+      "releaseDate": "2000/07/08",
+      "apiId": "",
+      "region": "JP"
+    },
+    "32": {
+      "name": "Pichu & Pikachu (CoroCoro Jumbo)",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "Bessatsu CoroCoro Comic Special (JP, 2000)",
+      "originalNumber": "",
+      "releaseDate": "2000/08/01",
+      "apiId": "",
+      "region": "JP"
+    },
+    "33": {
+      "name": "Lt. Surge's Raichu",
+      "rarity": "rare",
+      "type": "pokemon",
+      "setOrigin": "Gym Heroes (gym1)",
+      "originalNumber": "28",
+      "releaseDate": "2000/08/14",
+      "apiId": "gym1-28"
+    },
+    "34": {
+      "name": "Lt. Surge's Pikachu",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "Gym Heroes (gym1)",
+      "originalNumber": "81",
+      "releaseDate": "2000/08/14",
+      "apiId": "gym1-81"
+    },
+    "35": {
+      "name": "Lt. Surge's Raichu",
+      "rarity": "rare-holo",
+      "type": "pokemon",
+      "setOrigin": "Gym Challenge (gym2)",
+      "originalNumber": "11",
+      "releaseDate": "2000/10/16",
+      "apiId": "gym2-11"
+    },
+    "36": {
+      "name": "Lt. Surge's Pikachu",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "Gym Challenge (gym2)",
+      "originalNumber": "84",
+      "releaseDate": "2000/10/16",
+      "apiId": "gym2-84"
+    },
+    "37": {
+      "name": "Pichu",
+      "rarity": "rare-holo",
+      "type": "pokemon",
+      "setOrigin": "Neo Genesis (neo1)",
+      "originalNumber": "12",
+      "releaseDate": "2000/12/16",
+      "apiId": "neo1-12"
+    },
+    "38": {
+      "name": "Pikachu",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "Neo Genesis (neo1)",
+      "originalNumber": "70",
+      "releaseDate": "2000/12/16",
+      "apiId": "neo1-70"
+    },
+    "39": {
+      "name": "Raichu",
+      "rarity": "rare",
+      "type": "pokemon",
+      "setOrigin": "Neo Revelation (neo3)",
+      "originalNumber": "21",
+      "releaseDate": "2001/09/21",
+      "apiId": "neo3-21"
+    },
+    "40": {
+      "name": "Pikachu (Web Series)",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "Web (JP, 2001)",
+      "originalNumber": "",
+      "releaseDate": "2001/09/28",
+      "apiId": "",
+      "region": "JP"
+    },
+    "41": {
+      "name": "Pikachu (McDonald's Japan 2002 Holo)",
+      "rarity": "rare-holo",
+      "type": "pokemon",
+      "setOrigin": "McDonald's Japan Holo Promo (JP, 2002)",
+      "originalNumber": "",
+      "releaseDate": "2002/01/01",
+      "apiId": "",
+      "region": "JP"
+    },
+    "42": {
+      "name": "Shining Raichu",
+      "rarity": "secret",
+      "type": "pokemon",
+      "setOrigin": "Neo Destiny (neo4)",
+      "originalNumber": "111",
+      "releaseDate": "2002/02/28",
+      "apiId": "neo4-111"
+    },
+    "43": {
+      "name": "Dark Raichu",
+      "rarity": "rare-holo",
+      "type": "pokemon",
+      "setOrigin": "Legendary Collection (base6)",
+      "originalNumber": "7",
+      "releaseDate": "2002/05/24",
+      "apiId": "base6-7"
+    },
+    "44": {
+      "name": "Pikachu",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "Legendary Collection (base6)",
+      "originalNumber": "86",
+      "releaseDate": "2002/05/24",
+      "apiId": "base6-86"
+    },
+    "45": {
+      "name": "Pikachu (McDonald's Japan 2002)",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "McDonald's Japan Promo (JP, 2002)",
+      "originalNumber": "",
+      "releaseDate": "2002/07/01",
+      "apiId": "",
+      "region": "JP"
+    },
+    "46": {
+      "name": "Pichu Bros.",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "028/P - Pokemon Heroes Movie (JP, 2002)",
+      "originalNumber": "",
+      "releaseDate": "2002/07/13",
+      "apiId": "",
+      "region": "JP"
+    },
+    "47": {
+      "name": "Pichu (JR Rally 2002 Adventure)",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "JR Rally 2002 (JP, Shinjuku Station)",
+      "originalNumber": "",
+      "releaseDate": "2002/08/03",
+      "apiId": "",
+      "region": "JP"
+    },
+    "48": {
+      "name": "Pichu",
+      "rarity": "rare-holo",
+      "type": "pokemon",
+      "setOrigin": "Expedition Base Set (ecard1)",
+      "originalNumber": "22",
+      "releaseDate": "2002/09/15",
+      "apiId": "ecard1-22",
+      "variants": [
+        {
+          "rarity": "rare-holo",
+          "apiId": "ecard1-22",
+          "originalNumber": "22"
+        },
+        {
+          "rarity": "rare",
+          "apiId": "ecard1-58",
+          "originalNumber": "58"
+        }
+      ]
+    },
+    "49": {
+      "name": "Raichu",
+      "rarity": "rare-holo",
+      "type": "pokemon",
+      "setOrigin": "Expedition Base Set (ecard1)",
+      "originalNumber": "25",
+      "releaseDate": "2002/09/15",
+      "apiId": "ecard1-25",
+      "variants": [
+        {
+          "rarity": "rare-holo",
+          "apiId": "ecard1-25",
+          "originalNumber": "25"
+        },
+        {
+          "rarity": "rare",
+          "apiId": "ecard1-61",
+          "originalNumber": "61"
+        }
+      ]
+    },
+    "50": {
+      "name": "Pikachu",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "Expedition Base Set (ecard1)",
+      "originalNumber": "124",
+      "releaseDate": "2002/09/15",
+      "apiId": "ecard1-124"
+    },
+    "51": {
+      "name": "Raichu",
+      "rarity": "rare-holo",
+      "type": "pokemon",
+      "setOrigin": "Skyridge (ecard3)",
+      "originalNumber": "H25",
+      "releaseDate": "2003/05/12",
+      "apiId": "ecard3-H25",
+      "variants": [
+        {
+          "rarity": "rare-holo",
+          "apiId": "ecard3-H25",
+          "originalNumber": "H25"
+        },
+        {
+          "rarity": "rare",
+          "apiId": "ecard3-27",
+          "originalNumber": "27"
+        }
+      ]
+    },
+    "52": {
+      "name": "Pikachu",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "Skyridge (ecard3)",
+      "originalNumber": "84",
+      "releaseDate": "2003/05/12",
+      "apiId": "ecard3-84"
+    },
+    "53": {
+      "name": "Pichu",
+      "rarity": "rare",
+      "type": "pokemon",
+      "setOrigin": "Sandstorm (ex2)",
+      "originalNumber": "20",
+      "releaseDate": "2003/09/18",
+      "apiId": "ex2-20"
+    },
+    "54": {
+      "name": "Pikachu",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "Sandstorm (ex2)",
+      "originalNumber": "72",
+      "releaseDate": "2003/09/18",
+      "apiId": "ex2-72"
+    },
+    "55": {
+      "name": "Raichu ex",
+      "rarity": "ex",
+      "type": "pokemon",
+      "setOrigin": "Sandstorm (ex2)",
+      "originalNumber": "98",
+      "releaseDate": "2003/09/18",
+      "apiId": "ex2-98"
+    },
+    "56": {
+      "name": "Pikachu",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "Nintendo Black Star Promos (np)",
+      "originalNumber": "12",
+      "releaseDate": "2003/10/01",
+      "apiId": "np-12"
+    },
+    "57": {
+      "name": "Pikachu \u03b4",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "Nintendo Black Star Promos (np)",
+      "originalNumber": "35",
+      "releaseDate": "2003/10/01",
+      "apiId": "np-35"
+    },
+    "58": {
+      "name": "Pikachu (PCG-P Promo)",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "PCG-P Promotional (JP, 2004)",
+      "originalNumber": "",
+      "releaseDate": "2004/01/01",
+      "apiId": "",
+      "region": "JP"
+    },
+    "59": {
+      "name": "Raichu",
+      "rarity": "rare",
+      "type": "pokemon",
+      "setOrigin": "Team Magma vs Team Aqua (ex4)",
+      "originalNumber": "13",
+      "releaseDate": "2004/03/01",
+      "apiId": "ex4-13"
+    },
+    "60": {
+      "name": "Pikachu",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "Team Magma vs Team Aqua (ex4)",
+      "originalNumber": "43",
+      "releaseDate": "2004/03/01",
+      "apiId": "ex4-43"
+    },
+    "61": {
+      "name": "Pikachu",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "EX Trainer Kit Latios (tk1b)",
+      "originalNumber": "6",
+      "releaseDate": "2004/06/01",
+      "apiId": "tk1b-6"
+    },
+    "62": {
+      "name": "Pikachu (Movie 7 Promo)",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "Destiny Deoxys Movie (JP, 2004)",
+      "originalNumber": "",
+      "releaseDate": "2004/07/17",
+      "apiId": "",
+      "region": "JP"
+    },
+    "63": {
+      "name": "Raichu",
+      "rarity": "rare-holo",
+      "type": "pokemon",
+      "setOrigin": "FireRed & LeafGreen (ex6)",
+      "originalNumber": "12",
+      "releaseDate": "2004/09/01",
+      "apiId": "ex6-12"
+    },
+    "64": {
+      "name": "Pikachu",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "FireRed & LeafGreen (ex6)",
+      "originalNumber": "74",
+      "releaseDate": "2004/09/01",
+      "apiId": "ex6-74"
+    },
+    "65": {
+      "name": "Pichu",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "Emerald (ex9)",
+      "originalNumber": "59",
+      "releaseDate": "2005/05/01",
+      "apiId": "ex9-59"
+    },
+    "66": {
+      "name": "Pikachu",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "Emerald (ex9)",
+      "originalNumber": "60",
+      "releaseDate": "2005/05/01",
+      "apiId": "ex9-60"
+    },
+    "67": {
+      "name": "Raichu ex",
+      "rarity": "ex",
+      "type": "pokemon",
+      "setOrigin": "Emerald (ex9)",
+      "originalNumber": "97",
+      "releaseDate": "2005/05/01",
+      "apiId": "ex9-97"
+    },
+    "68": {
+      "name": "Pikachu (Movie 8 Promo)",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "Lucario Movie (JP, 2005)",
+      "originalNumber": "",
+      "releaseDate": "2005/07/16",
+      "apiId": "",
+      "region": "JP"
+    },
+    "69": {
+      "name": "Pikachu",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "POP Series 2 (pop2)",
+      "originalNumber": "16",
+      "releaseDate": "2005/08/01",
+      "apiId": "pop2-16"
+    },
+    "70": {
+      "name": "Pikachu \u03b4",
+      "rarity": "secret",
+      "type": "pokemon",
+      "setOrigin": "Legend Maker (ex12)",
+      "originalNumber": "93",
+      "releaseDate": "2006/02/01",
+      "apiId": "ex12-93"
+    },
+    "71": {
+      "name": "Pichu Bros.",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "POP Series 3 (pop3)",
+      "originalNumber": "16",
+      "releaseDate": "2006/04/01",
+      "apiId": "pop3-16"
+    },
+    "72": {
+      "name": "Raichu \u03b4",
+      "rarity": "rare-holo",
+      "type": "pokemon",
+      "setOrigin": "Holon Phantoms (ex13)",
+      "originalNumber": "15",
+      "releaseDate": "2006/05/01",
+      "apiId": "ex13-15"
+    },
+    "73": {
+      "name": "Raichu",
+      "rarity": "uncommon",
+      "type": "pokemon",
+      "setOrigin": "Holon Phantoms (ex13)",
+      "originalNumber": "51",
+      "releaseDate": "2006/05/01",
+      "apiId": "ex13-51"
+    },
+    "74": {
+      "name": "Pichu \u03b4",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "Holon Phantoms (ex13)",
+      "originalNumber": "76",
+      "releaseDate": "2006/05/01",
+      "apiId": "ex13-76"
+    },
+    "75": {
+      "name": "Pikachu",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "Holon Phantoms (ex13)",
+      "originalNumber": "78",
+      "releaseDate": "2006/05/01",
+      "apiId": "ex13-78"
+    },
+    "76": {
+      "name": "Pikachu \u03b4",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "Holon Phantoms (ex13)",
+      "originalNumber": "79",
+      "releaseDate": "2006/05/01",
+      "apiId": "ex13-79"
+    },
+    "77": {
+      "name": "Pikachu \u2605",
+      "rarity": "ex",
+      "type": "pokemon",
+      "setOrigin": "Holon Phantoms (ex13)",
+      "originalNumber": "104",
+      "releaseDate": "2006/05/01",
+      "apiId": "ex13-104"
+    },
+    "78": {
+      "name": "Pikachu",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "POP Series 4 (pop4)",
+      "originalNumber": "13",
+      "releaseDate": "2006/08/01",
+      "apiId": "pop4-13"
+    },
+    "79": {
+      "name": "Pikachu (10th Anniversary Promo)",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "10th Anniversary (JP, 2006)",
+      "originalNumber": "",
+      "releaseDate": "2006/10/01",
+      "apiId": "",
+      "region": "JP"
+    },
+    "80": {
+      "name": "Raichu",
+      "rarity": "rare-holo",
+      "type": "pokemon",
+      "setOrigin": "Power Keepers (ex16)",
+      "originalNumber": "12",
+      "releaseDate": "2007/02/02",
+      "apiId": "ex16-12"
+    },
+    "81": {
+      "name": "Pichu",
+      "rarity": "rare",
+      "type": "pokemon",
+      "setOrigin": "Power Keepers (ex16)",
+      "originalNumber": "21",
+      "releaseDate": "2007/02/02",
+      "apiId": "ex16-21"
+    },
+    "82": {
+      "name": "Pikachu",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "Power Keepers (ex16)",
+      "originalNumber": "57",
+      "releaseDate": "2007/02/02",
+      "apiId": "ex16-57"
+    },
+    "83": {
+      "name": "Pikachu",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "POP Series 5 (pop5)",
+      "originalNumber": "12",
+      "releaseDate": "2007/03/01",
+      "apiId": "pop5-12"
+    },
+    "84": {
+      "name": "Pikachu \u03b4",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "POP Series 5 (pop5)",
+      "originalNumber": "13",
+      "releaseDate": "2007/03/01",
+      "apiId": "pop5-13"
+    },
+    "85": {
+      "name": "Pikachu",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "DP Black Star Promos (dpp)",
+      "originalNumber": "DP16",
+      "releaseDate": "2007/05/01",
+      "apiId": "dpp-DP16"
+    },
+    "86": {
+      "name": "Raichu",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "DP Black Star Promos (dpp)",
+      "originalNumber": "DP21",
+      "releaseDate": "2007/05/01",
+      "apiId": "dpp-DP21"
+    },
+    "87": {
+      "name": "Pikachu (Movie 10 Promo)",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "Darkrai Movie (JP, 2007)",
+      "originalNumber": "",
+      "releaseDate": "2007/07/14",
+      "apiId": "",
+      "region": "JP"
+    },
+    "88": {
+      "name": "Pichu (Pok\u00e9mon Pal City)",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "Pokemon Fiesta 2007 (JP)",
+      "originalNumber": "",
+      "releaseDate": "2007/07/15",
+      "apiId": "",
+      "region": "JP"
+    },
+    "89": {
+      "name": "Pikachu (Pok\u00e9mon Pal City)",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "Pokemon Fiesta 2007 (JP)",
+      "originalNumber": "",
+      "releaseDate": "2007/07/15",
+      "apiId": "",
+      "region": "JP"
+    },
+    "90": {
+      "name": "Raichu",
+      "rarity": "rare-holo",
+      "type": "pokemon",
+      "setOrigin": "Mysterious Treasures (dp2)",
+      "originalNumber": "15",
+      "releaseDate": "2007/08/01",
+      "apiId": "dp2-15"
+    },
+    "91": {
+      "name": "Pichu",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "Mysterious Treasures (dp2)",
+      "originalNumber": "93",
+      "releaseDate": "2007/08/01",
+      "apiId": "dp2-93"
+    },
+    "92": {
+      "name": "Pikachu",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "Mysterious Treasures (dp2)",
+      "originalNumber": "94",
+      "releaseDate": "2007/08/01",
+      "apiId": "dp2-94"
+    },
+    "93": {
+      "name": "Pikachu",
+      "rarity": "uncommon",
+      "type": "pokemon",
+      "setOrigin": "POP Series 6 (pop6)",
+      "originalNumber": "9",
+      "releaseDate": "2007/09/01",
+      "apiId": "pop6-9"
+    },
+    "94": {
+      "name": "Pikachu (PC 10th Anniv. Tokyo)",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "DP-P Promo 098 (JP, 2008)",
+      "originalNumber": "",
+      "releaseDate": "2008/01/01",
+      "apiId": "",
+      "region": "JP"
+    },
+    "95": {
+      "name": "Pikachu (PC 10th Anniv. Yokohama)",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "DP-P Promo 099 (JP, 2008)",
+      "originalNumber": "",
+      "releaseDate": "2008/01/01",
+      "apiId": "",
+      "region": "JP"
+    },
+    "96": {
+      "name": "Pikachu (PC 10th Anniv. Osaka)",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "DP-P Promo 100 (JP, 2008)",
+      "originalNumber": "",
+      "releaseDate": "2008/01/01",
+      "apiId": "",
+      "region": "JP"
+    },
+    "97": {
+      "name": "Pikachu (PC 10th Anniv. Nagoya)",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "DP-P Promo 101 (JP, 2008)",
+      "originalNumber": "",
+      "releaseDate": "2008/01/01",
+      "apiId": "",
+      "region": "JP"
+    },
+    "98": {
+      "name": "Pichu (DP-P 112)",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "DP-P Promo 112 (JP)",
+      "originalNumber": "",
+      "releaseDate": "2008/01/01",
+      "apiId": "",
+      "region": "JP"
+    },
+    "99": {
+      "name": "Raichu",
+      "rarity": "uncommon",
+      "type": "pokemon",
+      "setOrigin": "Majestic Dawn (dp5)",
+      "originalNumber": "45",
+      "releaseDate": "2008/05/01",
+      "apiId": "dp5-45"
+    },
+    "100": {
+      "name": "Pikachu",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "Majestic Dawn (dp5)",
+      "originalNumber": "70",
+      "releaseDate": "2008/05/01",
+      "apiId": "dp5-70"
+    },
+    "101": {
+      "name": "Pikachu (Movie 11 Promo)",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "Giratina Movie (JP, 2008)",
+      "originalNumber": "",
+      "releaseDate": "2008/07/19",
+      "apiId": "",
+      "region": "JP"
+    },
+    "102": {
+      "name": "Raichu",
+      "rarity": "rare-holo",
+      "type": "pokemon",
+      "setOrigin": "Stormfront (dp7)",
+      "originalNumber": "8",
+      "releaseDate": "2008/11/01",
+      "apiId": "dp7-8"
+    },
+    "103": {
+      "name": "Pichu",
+      "rarity": "uncommon",
+      "type": "pokemon",
+      "setOrigin": "Stormfront (dp7)",
+      "originalNumber": "45",
+      "releaseDate": "2008/11/01",
+      "apiId": "dp7-45"
+    },
+    "104": {
+      "name": "Pikachu",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "Stormfront (dp7)",
+      "originalNumber": "70",
+      "releaseDate": "2008/11/01",
+      "apiId": "dp7-70"
+    },
+    "105": {
+      "name": "Raichu LV.X",
+      "rarity": "ex",
+      "type": "pokemon",
+      "setOrigin": "Stormfront (dp7)",
+      "originalNumber": "99",
+      "releaseDate": "2008/11/01",
+      "apiId": "dp7-99"
+    },
+    "106": {
+      "name": "Pichu (Card Design Contest)",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "Card Design Contest Winners (JP, 2009)",
+      "originalNumber": "",
+      "releaseDate": "2009/01/01",
+      "apiId": "",
+      "region": "JP"
+    },
+    "107": {
+      "name": "Raichu",
+      "rarity": "rare",
+      "type": "pokemon",
+      "setOrigin": "POP Series 9 (pop9)",
+      "originalNumber": "3",
+      "releaseDate": "2009/03/01",
+      "apiId": "pop9-3"
+    },
+    "108": {
+      "name": "Pichu",
+      "rarity": "uncommon",
+      "type": "pokemon",
+      "setOrigin": "POP Series 9 (pop9)",
+      "originalNumber": "11",
+      "releaseDate": "2009/03/01",
+      "apiId": "pop9-11"
+    },
+    "109": {
+      "name": "Pikachu",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "POP Series 9 (pop9)",
+      "originalNumber": "15",
+      "releaseDate": "2009/03/01",
+      "apiId": "pop9-15"
+    },
+    "110": {
+      "name": "Raichu GL",
+      "rarity": "rare",
+      "type": "pokemon",
+      "setOrigin": "Rising Rivals (pl2)",
+      "originalNumber": "31",
+      "releaseDate": "2009/05/16",
+      "apiId": "pl2-31"
+    },
+    "111": {
+      "name": "Pikachu",
+      "rarity": "secret",
+      "type": "pokemon",
+      "setOrigin": "Rising Rivals (pl2)",
+      "originalNumber": "112",
+      "releaseDate": "2009/05/16",
+      "apiId": "pl2-112"
+    },
+    "112": {
+      "name": "Flying Pikachu",
+      "rarity": "secret",
+      "type": "pokemon",
+      "setOrigin": "Rising Rivals (pl2)",
+      "originalNumber": "113",
+      "releaseDate": "2009/05/16",
+      "apiId": "pl2-113"
+    },
+    "113": {
+      "name": "Surfing Pikachu",
+      "rarity": "secret",
+      "type": "pokemon",
+      "setOrigin": "Rising Rivals (pl2)",
+      "originalNumber": "114",
+      "releaseDate": "2009/05/16",
+      "apiId": "pl2-114"
+    },
+    "114": {
+      "name": "Pikachu M Lv.X",
+      "rarity": "ex",
+      "type": "pokemon",
+      "setOrigin": "DPt-P Promo (JP, 2009)",
+      "originalNumber": "",
+      "releaseDate": "2009/07/01",
+      "apiId": "",
+      "region": "JP"
+    },
+    "115": {
+      "name": "Pichu (Michina Temple)",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "DPt-P Promo 044 (JP, 2009)",
+      "originalNumber": "",
+      "releaseDate": "2009/07/18",
+      "apiId": "",
+      "region": "JP"
+    },
+    "116": {
+      "name": "Raichu",
+      "rarity": "uncommon",
+      "type": "pokemon",
+      "setOrigin": "Supreme Victors (pl3)",
+      "originalNumber": "77",
+      "releaseDate": "2009/08/19",
+      "apiId": "pl3-77"
+    },
+    "117": {
+      "name": "Pikachu",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "Supreme Victors (pl3)",
+      "originalNumber": "120",
+      "releaseDate": "2009/08/19",
+      "apiId": "pl3-120"
+    },
+    "118": {
+      "name": "Pichu",
+      "rarity": "rare",
+      "type": "pokemon",
+      "setOrigin": "Arceus (pl4)",
+      "originalNumber": "25",
+      "releaseDate": "2009/11/04",
+      "apiId": "pl4-25"
+    },
+    "119": {
+      "name": "Raichu",
+      "rarity": "rare",
+      "type": "pokemon",
+      "setOrigin": "Arceus (pl4)",
+      "originalNumber": "27",
+      "releaseDate": "2009/11/04",
+      "apiId": "pl4-27"
+    },
+    "120": {
+      "name": "Pikachu",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "Arceus (pl4)",
+      "originalNumber": "71",
+      "releaseDate": "2009/11/04",
+      "apiId": "pl4-71"
+    },
+    "121": {
+      "name": "Pikachu",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "Pok\u00e9mon Rumble (ru1)",
+      "originalNumber": "7",
+      "releaseDate": "2009/12/02",
+      "apiId": "ru1-7"
+    },
+    "122": {
+      "name": "Pikachu",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "HGSS Black Star Promos (hsp)",
+      "originalNumber": "HGSS03",
+      "releaseDate": "2010/02/10",
+      "apiId": "hsp-HGSS03"
+    },
+    "123": {
+      "name": "Raichu",
+      "rarity": "rare-holo",
+      "type": "pokemon",
+      "setOrigin": "HeartGold & SoulSilver (hgss1)",
+      "originalNumber": "10",
+      "releaseDate": "2010/02/10",
+      "apiId": "hgss1-10"
+    },
+    "124": {
+      "name": "Pichu",
+      "rarity": "rare",
+      "type": "pokemon",
+      "setOrigin": "HeartGold & SoulSilver (hgss1)",
+      "originalNumber": "28",
+      "releaseDate": "2010/02/10",
+      "apiId": "hgss1-28"
+    },
+    "125": {
+      "name": "Pikachu",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "HeartGold & SoulSilver (hgss1)",
+      "originalNumber": "78",
+      "releaseDate": "2010/02/10",
+      "apiId": "hgss1-78"
+    },
+    "126": {
+      "name": "Raichu",
+      "rarity": "uncommon",
+      "type": "pokemon",
+      "setOrigin": "HS\u2014Undaunted (hgss3)",
+      "originalNumber": "33",
+      "releaseDate": "2010/08/18",
+      "apiId": "hgss3-33"
+    },
+    "127": {
+      "name": "Pikachu",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "HS\u2014Undaunted (hgss3)",
+      "originalNumber": "61",
+      "releaseDate": "2010/08/18",
+      "apiId": "hgss3-61"
+    },
+    "128": {
+      "name": "Raichu",
+      "rarity": "ex",
+      "type": "pokemon",
+      "setOrigin": "HS\u2014Undaunted (hgss3)",
+      "originalNumber": "83",
+      "releaseDate": "2010/08/18",
+      "apiId": "hgss3-83"
+    },
+    "129": {
+      "name": "Pikachu",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "BW Black Star Promos (bwp)",
+      "originalNumber": "BW54",
+      "releaseDate": "2011/03/01",
+      "apiId": "bwp-BW54"
+    },
+    "130": {
+      "name": "Pikachu",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "BW Black Star Promos (bwp)",
+      "originalNumber": "BW77",
+      "releaseDate": "2011/03/01",
+      "apiId": "bwp-BW77"
+    },
+    "131": {
+      "name": "Raichu",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "BW Black Star Promos (bwp)",
+      "originalNumber": "BW78",
+      "releaseDate": "2011/03/01",
+      "apiId": "bwp-BW78"
+    },
+    "132": {
+      "name": "Pikachu",
+      "rarity": "secret",
+      "type": "pokemon",
+      "setOrigin": "Black & White (bw1)",
+      "originalNumber": "115",
+      "releaseDate": "2011/04/25",
+      "apiId": "bw1-115"
+    },
+    "133": {
+      "name": "Pikachu (Summer Carnival Jumbo)",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "BW-P Tokyo Tower Event (JP, 2011)",
+      "originalNumber": "",
+      "releaseDate": "2011/07/23",
+      "apiId": "",
+      "region": "JP"
+    },
+    "134": {
+      "name": "Pikachu (BW-P Promo)",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "BW-P Promotional (JP, 2011)",
+      "originalNumber": "",
+      "releaseDate": "2011/09/01",
+      "apiId": "",
+      "region": "JP"
+    },
+    "135": {
+      "name": "Pikachu",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "Next Destinies (bw4)",
+      "originalNumber": "39",
+      "releaseDate": "2012/02/08",
+      "apiId": "bw4-39"
+    },
+    "136": {
+      "name": "Raichu",
+      "rarity": "uncommon",
+      "type": "pokemon",
+      "setOrigin": "Next Destinies (bw4)",
+      "originalNumber": "40",
+      "releaseDate": "2012/02/08",
+      "apiId": "bw4-40"
+    },
+    "137": {
+      "name": "Pikachu",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "Boundaries Crossed (bw7)",
+      "originalNumber": "50",
+      "releaseDate": "2012/11/07",
+      "apiId": "bw7-50"
+    },
+    "138": {
+      "name": "Pikachu (PC Nagoya Reopening)",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "BW-P PC Nagoya Promo (JP, 2013)",
+      "originalNumber": "",
+      "releaseDate": "2013/03/20",
+      "apiId": "",
+      "region": "JP"
+    },
+    "139": {
+      "name": "Pikachu (Pok\u00e9mon Center 15th Anniversary)",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "PC 15th Anniversary (JP, 2013)",
+      "originalNumber": "",
+      "releaseDate": "2013/04/01",
+      "apiId": "",
+      "region": "JP"
+    },
+    "140": {
+      "name": "Pikachu",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "XY Black Star Promos (xyp)",
+      "originalNumber": "XY89",
+      "releaseDate": "2013/10/12",
+      "apiId": "xyp-XY89"
+    },
+    "141": {
+      "name": "Pikachu",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "XY Black Star Promos (xyp)",
+      "originalNumber": "XY95",
+      "releaseDate": "2013/10/12",
+      "apiId": "xyp-XY95"
+    },
+    "142": {
+      "name": "Pikachu",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "XY Black Star Promos (xyp)",
+      "originalNumber": "XY202",
+      "releaseDate": "2013/10/12",
+      "apiId": "xyp-XY202"
+    },
+    "143": {
+      "name": "Pikachu-EX",
+      "rarity": "ex",
+      "type": "pokemon",
+      "setOrigin": "XY Black Star Promos (xyp)",
+      "originalNumber": "XY84",
+      "releaseDate": "2013/10/12",
+      "apiId": "xyp-XY84"
+    },
+    "144": {
+      "name": "Pikachu-EX",
+      "rarity": "ex",
+      "type": "pokemon",
+      "setOrigin": "XY Black Star Promos (xyp)",
+      "originalNumber": "XY124",
+      "releaseDate": "2013/10/12",
+      "apiId": "xyp-XY124"
+    },
+    "145": {
+      "name": "Pikachu-EX",
+      "rarity": "ex",
+      "type": "pokemon",
+      "setOrigin": "XY Black Star Promos (xyp)",
+      "originalNumber": "XY174",
+      "releaseDate": "2013/10/12",
+      "apiId": "xyp-XY174"
+    },
+    "146": {
+      "name": "Pikachu",
+      "rarity": "uncommon",
+      "type": "pokemon",
+      "setOrigin": "Legendary Treasures (bw11)",
+      "originalNumber": "RC7",
+      "releaseDate": "2013/11/06",
+      "apiId": "bw11-RC7"
+    },
+    "147": {
+      "name": "Pikachu",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "XY (xy1)",
+      "originalNumber": "42",
+      "releaseDate": "2014/02/05",
+      "apiId": "xy1-42"
+    },
+    "148": {
+      "name": "Raichu",
+      "rarity": "rare-holo",
+      "type": "pokemon",
+      "setOrigin": "XY (xy1)",
+      "originalNumber": "43",
+      "releaseDate": "2014/02/05",
+      "apiId": "xy1-43"
+    },
+    "149": {
+      "name": "Pikachu",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "McDonald's Collection 2014 (mcd14)",
+      "originalNumber": "5",
+      "releaseDate": "2014/05/23",
+      "apiId": "mcd14-5"
+    },
+    "150": {
+      "name": "Team Japan's Pikachu",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "XY-P Promo 050 (JP, 2014)",
+      "originalNumber": "",
+      "releaseDate": "2014/06/01",
+      "apiId": "",
+      "region": "JP"
+    },
+    "151": {
+      "name": "Pikachu (Outbreak! Promo)",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "XY-P Promo 068 (JP, 2014)",
+      "originalNumber": "",
+      "releaseDate": "2014/08/01",
+      "apiId": "",
+      "region": "JP"
+    },
+    "152": {
+      "name": "Pikachu",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "Furious Fists (xy3)",
+      "originalNumber": "27",
+      "releaseDate": "2014/08/13",
+      "apiId": "xy3-27"
+    },
+    "153": {
+      "name": "Raichu",
+      "rarity": "uncommon",
+      "type": "pokemon",
+      "setOrigin": "Furious Fists (xy3)",
+      "originalNumber": "28",
+      "releaseDate": "2014/08/13",
+      "apiId": "xy3-28"
+    },
+    "154": {
+      "name": "Pikachu (Battle Festa 2014)",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "XY-P Promo 090 (JP, 2014)",
+      "originalNumber": "",
+      "releaseDate": "2014/11/01",
+      "apiId": "",
+      "region": "JP"
+    },
+    "155": {
+      "name": "Mega Tokyo's Pikachu",
+      "rarity": "ex",
+      "type": "pokemon",
+      "setOrigin": "XY-P Promo 098 (JP, 2014)",
+      "originalNumber": "",
+      "releaseDate": "2014/12/01",
+      "apiId": "",
+      "region": "JP"
+    },
+    "156": {
+      "name": "Cosplay Pikachu",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "XY-P Promo 099 (JP, 2014)",
+      "originalNumber": "",
+      "releaseDate": "2014/12/01",
+      "apiId": "",
+      "region": "JP"
+    },
+    "157": {
+      "name": "Pikachu (POKEMON with YOU Wagon Tohoku)",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "XY-P Unnumbered (JP, 2015)",
+      "originalNumber": "",
+      "releaseDate": "2015/01/01",
+      "apiId": "",
+      "region": "JP"
+    },
+    "158": {
+      "name": "Pikachu",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "Roaring Skies (xy6)",
+      "originalNumber": "20",
+      "releaseDate": "2015/05/06",
+      "apiId": "xy6-20"
+    },
+    "159": {
+      "name": "Pikachu (Battle Festa 2015)",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "XY-P Promo 175 (JP, 2015)",
+      "originalNumber": "",
+      "releaseDate": "2015/06/01",
+      "apiId": "",
+      "region": "JP"
+    },
+    "160": {
+      "name": "Mega Tokyo's Pikachu (2nd Print)",
+      "rarity": "ex",
+      "type": "pokemon",
+      "setOrigin": "XY-P Promo 204 (JP, 2015)",
+      "originalNumber": "",
+      "releaseDate": "2015/06/01",
+      "apiId": "",
+      "region": "JP"
+    },
+    "161": {
+      "name": "Pikachu",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "BREAKthrough (xy8)",
+      "originalNumber": "48",
+      "releaseDate": "2015/11/04",
+      "apiId": "xy8-48"
+    },
+    "162": {
+      "name": "Raichu",
+      "rarity": "rare",
+      "type": "pokemon",
+      "setOrigin": "BREAKthrough (xy8)",
+      "originalNumber": "49",
+      "releaseDate": "2015/11/04",
+      "apiId": "xy8-49"
+    },
+    "163": {
+      "name": "Raichu BREAK",
+      "rarity": "ex",
+      "type": "pokemon",
+      "setOrigin": "BREAKthrough (xy8)",
+      "originalNumber": "50",
+      "releaseDate": "2015/11/04",
+      "apiId": "xy8-50"
+    },
+    "164": {
+      "name": "Pikachu",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "McDonald's Collection 2015 (mcd15)",
+      "originalNumber": "6",
+      "releaseDate": "2015/11/27",
+      "apiId": "mcd15-6"
+    },
+    "165": {
+      "name": "Poncho-Wearing Pikachu (Mega Campaign)",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "XY-P Promo 203 (JP, 2015)",
+      "originalNumber": "",
+      "releaseDate": "2015/12/01",
+      "apiId": "",
+      "region": "JP"
+    },
+    "166": {
+      "name": "Poncho-Wearing Pikachu (Mega Charizard X)",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "XY-P Promo 207 (JP, 2016)",
+      "originalNumber": "",
+      "releaseDate": "2016/01/01",
+      "apiId": "",
+      "region": "JP"
+    },
+    "167": {
+      "name": "Poncho-Wearing Pikachu (Mega Charizard Y)",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "XY-P Promo 208 (JP, 2016)",
+      "originalNumber": "",
+      "releaseDate": "2016/01/01",
+      "apiId": "",
+      "region": "JP"
+    },
+    "168": {
+      "name": "Pikachu",
+      "rarity": "ex",
+      "type": "pokemon",
+      "setOrigin": "Generations (g1)",
+      "originalNumber": "RC29",
+      "releaseDate": "2016/02/22",
+      "apiId": "g1-RC29"
+    },
+    "169": {
+      "name": "Raichu",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "Generations (g1)",
+      "originalNumber": "RC9",
+      "releaseDate": "2016/02/22",
+      "apiId": "g1-RC9"
+    },
+    "170": {
+      "name": "Pikachu",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "Generations (g1)",
+      "originalNumber": "26",
+      "releaseDate": "2016/02/22",
+      "apiId": "g1-26"
+    },
+    "171": {
+      "name": "Raichu",
+      "rarity": "rare-holo",
+      "type": "pokemon",
+      "setOrigin": "Generations (g1)",
+      "originalNumber": "27",
+      "releaseDate": "2016/02/22",
+      "apiId": "g1-27"
+    },
+    "172": {
+      "name": "Okuge-Sama & Maiko-han Pikachu",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "XY-P Promo 221 (JP, 2016)",
+      "originalNumber": "",
+      "releaseDate": "2016/03/01",
+      "apiId": "",
+      "region": "JP"
+    },
+    "173": {
+      "name": "Poncho-Wearing Pikachu (Rayquaza)",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "XY-P Promo 230 (JP, 2016)",
+      "originalNumber": "",
+      "releaseDate": "2016/06/01",
+      "apiId": "",
+      "region": "JP"
+    },
+    "174": {
+      "name": "Poncho-Wearing Pikachu (Skytree Town)",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "XY-P Promo 231 (JP, 2016)",
+      "originalNumber": "",
+      "releaseDate": "2016/07/06",
+      "apiId": "",
+      "region": "JP"
+    },
+    "175": {
+      "name": "Poncho-Wearing Pikachu (Shiny Rayquaza)",
+      "rarity": "secret",
+      "type": "pokemon",
+      "setOrigin": "XY-P Promo 231 FA (JP, 2016)",
+      "originalNumber": "",
+      "releaseDate": "2016/07/06",
+      "apiId": "",
+      "region": "JP"
+    },
+    "176": {
+      "name": "Pikachu",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "McDonald's Collection 2016 (mcd16)",
+      "originalNumber": "6",
+      "releaseDate": "2016/08/19",
+      "apiId": "mcd16-6"
+    },
+    "177": {
+      "name": "Poncho-Wearing Pikachu (Magikarp)",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "XY-P Promo 274 (JP, 2016)",
+      "originalNumber": "",
+      "releaseDate": "2016/09/01",
+      "apiId": "",
+      "region": "JP"
+    },
+    "178": {
+      "name": "Poncho-Wearing Pikachu (Gyarados)",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "XY-P Promo 275 (JP, 2016)",
+      "originalNumber": "",
+      "releaseDate": "2016/09/01",
+      "apiId": "",
+      "region": "JP"
+    },
+    "179": {
+      "name": "Mario Pikachu",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "XY-P Promo 293 (JP, 2016)",
+      "originalNumber": "",
+      "releaseDate": "2016/10/29",
+      "apiId": "",
+      "region": "JP"
+    },
+    "180": {
+      "name": "Mario Pikachu (Full Art)",
+      "rarity": "secret",
+      "type": "pokemon",
+      "setOrigin": "XY-P Promo 294 (JP, 2016)",
+      "originalNumber": "",
+      "releaseDate": "2016/10/29",
+      "apiId": "",
+      "region": "JP"
+    },
+    "181": {
+      "name": "Luigi Pikachu",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "XY-P Promo 295 (JP, 2016)",
+      "originalNumber": "",
+      "releaseDate": "2016/10/29",
+      "apiId": "",
+      "region": "JP"
+    },
+    "182": {
+      "name": "Luigi Pikachu (Full Art)",
+      "rarity": "secret",
+      "type": "pokemon",
+      "setOrigin": "XY-P Promo 296 (JP, 2016)",
+      "originalNumber": "",
+      "releaseDate": "2016/10/29",
+      "apiId": "",
+      "region": "JP"
+    },
+    "183": {
+      "name": "Pikachu (20th Anniversary Festa)",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "XY-P Promo 279 (JP, 2016)",
+      "originalNumber": "",
+      "releaseDate": "2016/11/01",
+      "apiId": "",
+      "region": "JP"
+    },
+    "184": {
+      "name": "Pikachu",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "Evolutions (xy12)",
+      "originalNumber": "35",
+      "releaseDate": "2016/11/02",
+      "apiId": "xy12-35"
+    },
+    "185": {
+      "name": "Raichu",
+      "rarity": "rare-holo",
+      "type": "pokemon",
+      "setOrigin": "Evolutions (xy12)",
+      "originalNumber": "36",
+      "releaseDate": "2016/11/02",
+      "apiId": "xy12-36"
+    },
+    "186": {
+      "name": "Flying Pikachu",
+      "rarity": "secret",
+      "type": "pokemon",
+      "setOrigin": "Evolutions (xy12)",
+      "originalNumber": "110",
+      "releaseDate": "2016/11/02",
+      "apiId": "xy12-110"
+    },
+    "187": {
+      "name": "Surfing Pikachu",
+      "rarity": "secret",
+      "type": "pokemon",
+      "setOrigin": "Evolutions (xy12)",
+      "originalNumber": "111",
+      "releaseDate": "2016/11/02",
+      "apiId": "xy12-111"
+    },
+    "188": {
+      "name": "Sapporo's Pikachu",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "SM-P Promo 005 (JP, 2016)",
+      "originalNumber": "",
+      "releaseDate": "2016/12/01",
+      "apiId": "",
+      "region": "JP"
+    },
+    "189": {
+      "name": "Pretend Boss Pikachu (Team Skull)",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "SM-P Promo 013 (JP, 2016)",
+      "originalNumber": "",
+      "releaseDate": "2016/12/01",
+      "apiId": "",
+      "region": "JP"
+    },
+    "190": {
+      "name": "Alolan Raichu",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "SM Black Star Promos (smp)",
+      "originalNumber": "SM65",
+      "releaseDate": "2017/02/03",
+      "apiId": "smp-SM65"
+    },
+    "191": {
+      "name": "Alolan Raichu",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "SM Black Star Promos (smp)",
+      "originalNumber": "SM72",
+      "releaseDate": "2017/02/03",
+      "apiId": "smp-SM72"
+    },
+    "192": {
+      "name": "Ash's Pikachu",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "SM Black Star Promos (smp)",
+      "originalNumber": "SM108",
+      "releaseDate": "2017/02/03",
+      "apiId": "smp-SM108"
+    },
+    "193": {
+      "name": "Ash's Pikachu",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "SM Black Star Promos (smp)",
+      "originalNumber": "SM109",
+      "releaseDate": "2017/02/03",
+      "apiId": "smp-SM109"
+    },
+    "194": {
+      "name": "Ash's Pikachu",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "SM Black Star Promos (smp)",
+      "originalNumber": "SM110",
+      "releaseDate": "2017/02/03",
+      "apiId": "smp-SM110"
+    },
+    "195": {
+      "name": "Ash's Pikachu",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "SM Black Star Promos (smp)",
+      "originalNumber": "SM111",
+      "releaseDate": "2017/02/03",
+      "apiId": "smp-SM111"
+    },
+    "196": {
+      "name": "Ash's Pikachu",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "SM Black Star Promos (smp)",
+      "originalNumber": "SM112",
+      "releaseDate": "2017/02/03",
+      "apiId": "smp-SM112"
+    },
+    "197": {
+      "name": "Ash's Pikachu",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "SM Black Star Promos (smp)",
+      "originalNumber": "SM113",
+      "releaseDate": "2017/02/03",
+      "apiId": "smp-SM113"
+    },
+    "198": {
+      "name": "Ash's Pikachu",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "SM Black Star Promos (smp)",
+      "originalNumber": "SM114",
+      "releaseDate": "2017/02/03",
+      "apiId": "smp-SM114"
+    },
+    "199": {
+      "name": "Detective Pikachu",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "SM Black Star Promos (smp)",
+      "originalNumber": "SM170",
+      "releaseDate": "2017/02/03",
+      "apiId": "smp-SM170"
+    },
+    "200": {
+      "name": "Detective Pikachu",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "SM Black Star Promos (smp)",
+      "originalNumber": "SM190",
+      "releaseDate": "2017/02/03",
+      "apiId": "smp-SM190"
+    },
+    "201": {
+      "name": "Detective Pikachu",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "SM Black Star Promos (smp)",
+      "originalNumber": "SM194",
+      "releaseDate": "2017/02/03",
+      "apiId": "smp-SM194"
+    },
+    "202": {
+      "name": "Pikachu",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "SM Black Star Promos (smp)",
+      "originalNumber": "SM04",
+      "releaseDate": "2017/02/03",
+      "apiId": "smp-SM04"
+    },
+    "203": {
+      "name": "Pikachu",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "SM Black Star Promos (smp)",
+      "originalNumber": "SM76",
+      "releaseDate": "2017/02/03",
+      "apiId": "smp-SM76"
+    },
+    "204": {
+      "name": "Pikachu",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "SM Black Star Promos (smp)",
+      "originalNumber": "SM81",
+      "releaseDate": "2017/02/03",
+      "apiId": "smp-SM81"
+    },
+    "205": {
+      "name": "Pikachu",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "SM Black Star Promos (smp)",
+      "originalNumber": "SM86",
+      "releaseDate": "2017/02/03",
+      "apiId": "smp-SM86"
+    },
+    "206": {
+      "name": "Pikachu",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "SM Black Star Promos (smp)",
+      "originalNumber": "SM98",
+      "releaseDate": "2017/02/03",
+      "apiId": "smp-SM98"
+    },
+    "207": {
+      "name": "Pikachu",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "SM Black Star Promos (smp)",
+      "originalNumber": "SM157",
+      "releaseDate": "2017/02/03",
+      "apiId": "smp-SM157"
+    },
+    "208": {
+      "name": "Pikachu",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "SM Black Star Promos (smp)",
+      "originalNumber": "SM162",
+      "releaseDate": "2017/02/03",
+      "apiId": "smp-SM162"
+    },
+    "209": {
+      "name": "Pikachu",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "SM Black Star Promos (smp)",
+      "originalNumber": "SM183",
+      "releaseDate": "2017/02/03",
+      "apiId": "smp-SM183"
+    },
+    "210": {
+      "name": "Pikachu",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "SM Black Star Promos (smp)",
+      "originalNumber": "SM206",
+      "releaseDate": "2017/02/03",
+      "apiId": "smp-SM206"
+    },
+    "211": {
+      "name": "Pikachu",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "SM Black Star Promos (smp)",
+      "originalNumber": "SM227",
+      "releaseDate": "2017/02/03",
+      "apiId": "smp-SM227"
+    },
+    "212": {
+      "name": "Pikachu",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "SM Black Star Promos (smp)",
+      "originalNumber": "SM234",
+      "releaseDate": "2017/02/03",
+      "apiId": "smp-SM234"
+    },
+    "213": {
+      "name": "Pikachu & Zekrom-GX",
+      "rarity": "ex",
+      "type": "pokemon",
+      "setOrigin": "SM Black Star Promos (smp)",
+      "originalNumber": "SM168",
+      "releaseDate": "2017/02/03",
+      "apiId": "smp-SM168"
+    },
+    "214": {
+      "name": "Pikachu & Zekrom-GX",
+      "rarity": "ex",
+      "type": "pokemon",
+      "setOrigin": "SM Black Star Promos (smp)",
+      "originalNumber": "SM248",
+      "releaseDate": "2017/02/03",
+      "apiId": "smp-SM248"
+    },
+    "215": {
+      "name": "Pikachu-GX",
+      "rarity": "ex",
+      "type": "pokemon",
+      "setOrigin": "SM Black Star Promos (smp)",
+      "originalNumber": "SM232",
+      "releaseDate": "2017/02/03",
+      "apiId": "smp-SM232"
+    },
+    "216": {
+      "name": "Raichu-GX",
+      "rarity": "ex",
+      "type": "pokemon",
+      "setOrigin": "SM Black Star Promos (smp)",
+      "originalNumber": "SM90",
+      "releaseDate": "2017/02/03",
+      "apiId": "smp-SM90"
+    },
+    "217": {
+      "name": "Raichu-GX",
+      "rarity": "ex",
+      "type": "pokemon",
+      "setOrigin": "SM Black Star Promos (smp)",
+      "originalNumber": "SM213",
+      "releaseDate": "2017/02/03",
+      "apiId": "smp-SM213"
+    },
+    "218": {
+      "name": "Easter's Pikachu",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "SM-P Promo 055 (JP, 2017)",
+      "originalNumber": "",
+      "releaseDate": "2017/03/18",
+      "apiId": "",
+      "region": "JP"
+    },
+    "219": {
+      "name": "Poncho-Wearing Pikachu (Vulpix)",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "SM-P Promo 038 (JP, 2017)",
+      "originalNumber": "",
+      "releaseDate": "2017/04/01",
+      "apiId": "",
+      "region": "JP"
+    },
+    "220": {
+      "name": "Pikachu (Battle Festa 2017)",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "SM-P Promo 061 (JP, 2017)",
+      "originalNumber": "",
+      "releaseDate": "2017/05/01",
+      "apiId": "",
+      "region": "JP"
+    },
+    "221": {
+      "name": "Pikachu (Champion's League 2017)",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "SM-P Promo 068 (JP, 2017)",
+      "originalNumber": "",
+      "releaseDate": "2017/06/01",
+      "apiId": "",
+      "region": "JP"
+    },
+    "222": {
+      "name": "Alolan Raichu (Card Gym Pack 2)",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "SM-P Promo 100 (JP, 2017)",
+      "originalNumber": "",
+      "releaseDate": "2017/08/01",
+      "apiId": "",
+      "region": "JP"
+    },
+    "223": {
+      "name": "Pikachu",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "Burning Shadows (sm3)",
+      "originalNumber": "40",
+      "releaseDate": "2017/08/05",
+      "apiId": "sm3-40"
+    },
+    "224": {
+      "name": "Raichu",
+      "rarity": "rare-holo",
+      "type": "pokemon",
+      "setOrigin": "Burning Shadows (sm3)",
+      "originalNumber": "41",
+      "releaseDate": "2017/08/05",
+      "apiId": "sm3-41"
+    },
+    "225": {
+      "name": "Pikachu",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "Shining Legends (sm35)",
+      "originalNumber": "28",
+      "releaseDate": "2017/10/06",
+      "apiId": "sm35-28"
+    },
+    "226": {
+      "name": "Raichu-GX",
+      "rarity": "ex",
+      "type": "pokemon",
+      "setOrigin": "Shining Legends (sm35)",
+      "originalNumber": "29",
+      "releaseDate": "2017/10/06",
+      "apiId": "sm35-29"
+    },
+    "227": {
+      "name": "Raichu-GX",
+      "rarity": "ex",
+      "type": "pokemon",
+      "setOrigin": "Shining Legends (sm35)",
+      "originalNumber": "75",
+      "releaseDate": "2017/10/06",
+      "apiId": "sm35-75"
+    },
+    "228": {
+      "name": "Pikachu",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "Crimson Invasion (sm4)",
+      "originalNumber": "30",
+      "releaseDate": "2017/11/03",
+      "apiId": "sm4-30"
+    },
+    "229": {
+      "name": "Alolan Raichu",
+      "rarity": "rare-holo",
+      "type": "pokemon",
+      "setOrigin": "Crimson Invasion (sm4)",
+      "originalNumber": "31",
+      "releaseDate": "2017/11/03",
+      "apiId": "sm4-31"
+    },
+    "230": {
+      "name": "Pikachu",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "McDonald's Collection 2017 (mcd17)",
+      "originalNumber": "5",
+      "releaseDate": "2017/11/07",
+      "apiId": "mcd17-5"
+    },
+    "231": {
+      "name": "Alolan Raichu (Card Gym Pack 5)",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "SM-P Promo 157 (JP, 2017)",
+      "originalNumber": "",
+      "releaseDate": "2017/12/01",
+      "apiId": "",
+      "region": "JP"
+    },
+    "232": {
+      "name": "Pretend Boss Pikachu (Giovanni)",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "SM-P Promo 191 (JP, 2018)",
+      "originalNumber": "",
+      "releaseDate": "2018/01/20",
+      "apiId": "",
+      "region": "JP"
+    },
+    "233": {
+      "name": "Pretend Boss Pikachu (Archie)",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "SM-P Promo 192 (JP, 2018)",
+      "originalNumber": "",
+      "releaseDate": "2018/01/20",
+      "apiId": "",
+      "region": "JP"
+    },
+    "234": {
+      "name": "Pretend Boss Pikachu (Maxie)",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "SM-P Promo 193 (JP, 2018)",
+      "originalNumber": "",
+      "releaseDate": "2018/01/20",
+      "apiId": "",
+      "region": "JP"
+    },
+    "235": {
+      "name": "Pretend Boss Pikachu (Cyrus)",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "SM-P Promo 194 (JP, 2018)",
+      "originalNumber": "",
+      "releaseDate": "2018/01/20",
+      "apiId": "",
+      "region": "JP"
+    },
+    "236": {
+      "name": "Pretend Boss Pikachu (Ghetsis)",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "SM-P Promo 195 (JP, 2018)",
+      "originalNumber": "",
+      "releaseDate": "2018/01/20",
+      "apiId": "",
+      "region": "JP"
+    },
+    "237": {
+      "name": "Pretend Boss Pikachu (Lysandre)",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "SM-P Promo 196 (JP, 2018)",
+      "originalNumber": "",
+      "releaseDate": "2018/01/20",
+      "apiId": "",
+      "region": "JP"
+    },
+    "238": {
+      "name": "Pretend Boss Pikachu (Guzma)",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "SM-P Promo 197 (JP, 2018)",
+      "originalNumber": "",
+      "releaseDate": "2018/01/20",
+      "apiId": "",
+      "region": "JP"
+    },
+    "239": {
+      "name": "Pikachu (Friendly Shop)",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "SM-P Promo 200 (JP, 2018)",
+      "originalNumber": "",
+      "releaseDate": "2018/03/01",
+      "apiId": "",
+      "region": "JP"
+    },
+    "240": {
+      "name": "Firefighter Pikachu",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "SM-P Promo 209 (JP, 2018)",
+      "originalNumber": "",
+      "releaseDate": "2018/03/01",
+      "apiId": "",
+      "region": "JP"
+    },
+    "241": {
+      "name": "Cherry Blossom Afro Pikachu",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "SM-P Promo 211 (JP, 2018)",
+      "originalNumber": "",
+      "releaseDate": "2018/03/01",
+      "apiId": "",
+      "region": "JP"
+    },
+    "242": {
+      "name": "Pikachu (Card Gym Promo 4)",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "SM-P Promo 214 (JP, 2018)",
+      "originalNumber": "",
+      "releaseDate": "2018/04/01",
+      "apiId": "",
+      "region": "JP"
+    },
+    "243": {
+      "name": "Pikachu (Pok\u00e9mon Center 20th Anniversary)",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "SM-P Promo 224 (JP, 2018)",
+      "originalNumber": "",
+      "releaseDate": "2018/06/01",
+      "apiId": "",
+      "region": "JP"
+    },
+    "244": {
+      "name": "Pikachu (Yokohama Sailor)",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "SM-P Promo 282 (JP, 2018)",
+      "originalNumber": "",
+      "releaseDate": "2018/08/01",
+      "apiId": "",
+      "region": "JP"
+    },
+    "245": {
+      "name": "Pikachu (Yokohama Ship)",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "SM-P Promo 283 (JP, 2018)",
+      "originalNumber": "",
+      "releaseDate": "2018/08/01",
+      "apiId": "",
+      "region": "JP"
+    },
+    "246": {
+      "name": "Red's Pikachu",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "SM-P Promo 270 (JP, 2018)",
+      "originalNumber": "",
+      "releaseDate": "2018/09/01",
+      "apiId": "",
+      "region": "JP"
+    },
+    "247": {
+      "name": "Pikachu",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "McDonald's Collection 2018 (mcd18)",
+      "originalNumber": "4",
+      "releaseDate": "2018/10/16",
+      "apiId": "mcd18-4"
+    },
+    "248": {
+      "name": "Pikachu (Munch Scream)",
+      "rarity": "secret",
+      "type": "pokemon",
+      "setOrigin": "SM-P Promo 288 (JP, 2018)",
+      "originalNumber": "",
+      "releaseDate": "2018/12/10",
+      "apiId": "",
+      "region": "JP"
+    },
+    "249": {
+      "name": "Pikachu & Zekrom-GX",
+      "rarity": "ex",
+      "type": "pokemon",
+      "setOrigin": "Team Up (sm9)",
+      "originalNumber": "33",
+      "releaseDate": "2019/02/01",
+      "apiId": "sm9-33"
+    },
+    "250": {
+      "name": "Pikachu & Zekrom-GX",
+      "rarity": "ex",
+      "type": "pokemon",
+      "setOrigin": "Team Up (sm9)",
+      "originalNumber": "162",
+      "releaseDate": "2019/02/01",
+      "apiId": "sm9-162"
+    },
+    "251": {
+      "name": "Pikachu & Zekrom-GX",
+      "rarity": "ex",
+      "type": "pokemon",
+      "setOrigin": "Team Up (sm9)",
+      "originalNumber": "184",
+      "releaseDate": "2019/02/01",
+      "apiId": "sm9-184"
+    },
+    "252": {
+      "name": "Pikachu (Kyoto Tea Party)",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "SM-P Promo 325 (JP, 2019)",
+      "originalNumber": "",
+      "releaseDate": "2019/03/01",
+      "apiId": "",
+      "region": "JP"
+    },
+    "253": {
+      "name": "Detective Pikachu",
+      "rarity": "rare",
+      "type": "pokemon",
+      "setOrigin": "Detective Pikachu (det1)",
+      "originalNumber": "10",
+      "releaseDate": "2019/04/05",
+      "apiId": "det1-10"
+    },
+    "254": {
+      "name": "Detective Pikachu (Movie Pack)",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "SM-P Promo 338 (JP, 2019)",
+      "originalNumber": "",
+      "releaseDate": "2019/04/26",
+      "apiId": "",
+      "region": "JP"
+    },
+    "255": {
+      "name": "Pikachu",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "Unbroken Bonds (sm10)",
+      "originalNumber": "54",
+      "releaseDate": "2019/05/03",
+      "apiId": "sm10-54"
+    },
+    "256": {
+      "name": "Raichu",
+      "rarity": "rare",
+      "type": "pokemon",
+      "setOrigin": "Unbroken Bonds (sm10)",
+      "originalNumber": "55",
+      "releaseDate": "2019/05/03",
+      "apiId": "sm10-55"
+    },
+    "257": {
+      "name": "Surfing Pikachu (Playing in the Sea)",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "SM-P Promo 329 (JP, 2019)",
+      "originalNumber": "",
+      "releaseDate": "2019/07/01",
+      "apiId": "",
+      "region": "JP"
+    },
+    "258": {
+      "name": "Playing in the Sea Pikachu",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "SM-P Promo 392 (JP, 2019)",
+      "originalNumber": "",
+      "releaseDate": "2019/08/01",
+      "apiId": "",
+      "region": "JP"
+    },
+    "259": {
+      "name": "Raichu & Alolan Raichu-GX",
+      "rarity": "ex",
+      "type": "pokemon",
+      "setOrigin": "Unified Minds (sm11)",
+      "originalNumber": "54",
+      "releaseDate": "2019/08/02",
+      "apiId": "sm11-54"
+    },
+    "260": {
+      "name": "Pikachu",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "Unified Minds (sm11)",
+      "originalNumber": "55",
+      "releaseDate": "2019/08/02",
+      "apiId": "sm11-55"
+    },
+    "261": {
+      "name": "Pikachu",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "Unified Minds (sm11)",
+      "originalNumber": "56",
+      "releaseDate": "2019/08/02",
+      "apiId": "sm11-56"
+    },
+    "262": {
+      "name": "Alolan Raichu",
+      "rarity": "rare-holo",
+      "type": "pokemon",
+      "setOrigin": "Unified Minds (sm11)",
+      "originalNumber": "57",
+      "releaseDate": "2019/08/02",
+      "apiId": "sm11-57"
+    },
+    "263": {
+      "name": "Raichu & Alolan Raichu-GX",
+      "rarity": "ex",
+      "type": "pokemon",
+      "setOrigin": "Unified Minds (sm11)",
+      "originalNumber": "220",
+      "releaseDate": "2019/08/02",
+      "apiId": "sm11-220"
+    },
+    "264": {
+      "name": "Raichu & Alolan Raichu-GX",
+      "rarity": "ex",
+      "type": "pokemon",
+      "setOrigin": "Unified Minds (sm11)",
+      "originalNumber": "221",
+      "releaseDate": "2019/08/02",
+      "apiId": "sm11-221"
+    },
+    "265": {
+      "name": "Raichu & Alolan Raichu-GX",
+      "rarity": "ex",
+      "type": "pokemon",
+      "setOrigin": "Unified Minds (sm11)",
+      "originalNumber": "241",
+      "releaseDate": "2019/08/02",
+      "apiId": "sm11-241"
+    },
+    "266": {
+      "name": "Pikachu",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "Hidden Fates (sm115)",
+      "originalNumber": "19",
+      "releaseDate": "2019/08/23",
+      "apiId": "sm115-19"
+    },
+    "267": {
+      "name": "Raichu-GX",
+      "rarity": "ex",
+      "type": "pokemon",
+      "setOrigin": "Hidden Fates (sm115)",
+      "originalNumber": "20",
+      "releaseDate": "2019/08/23",
+      "apiId": "sm115-20"
+    },
+    "268": {
+      "name": "Pikachu (Card Gym Promo 7)",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "SM-P Promo 400 (JP, 2019)",
+      "originalNumber": "",
+      "releaseDate": "2019/10/01",
+      "apiId": "",
+      "region": "JP"
+    },
+    "269": {
+      "name": "Pikachu",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "McDonald's Collection 2019 (mcd19)",
+      "originalNumber": "6",
+      "releaseDate": "2019/10/15",
+      "apiId": "mcd19-6"
+    },
+    "270": {
+      "name": "Pikachu",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "Cosmic Eclipse (sm12)",
+      "originalNumber": "66",
+      "releaseDate": "2019/11/01",
+      "apiId": "sm12-66"
+    },
+    "271": {
+      "name": "Raichu",
+      "rarity": "rare",
+      "type": "pokemon",
+      "setOrigin": "Cosmic Eclipse (sm12)",
+      "originalNumber": "67",
+      "releaseDate": "2019/11/01",
+      "apiId": "sm12-67"
+    },
+    "272": {
+      "name": "Pikachu",
+      "rarity": "secret",
+      "type": "pokemon",
+      "setOrigin": "Cosmic Eclipse (sm12)",
+      "originalNumber": "241",
+      "releaseDate": "2019/11/01",
+      "apiId": "sm12-241"
+    },
+    "273": {
+      "name": "Pikachu",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "SWSH Black Star Promos (swshp)",
+      "originalNumber": "SWSH020",
+      "releaseDate": "2019/11/15",
+      "apiId": "swshp-SWSH020"
+    },
+    "274": {
+      "name": "Pikachu",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "SWSH Black Star Promos (swshp)",
+      "originalNumber": "SWSH039",
+      "releaseDate": "2019/11/15",
+      "apiId": "swshp-SWSH039"
+    },
+    "275": {
+      "name": "Pikachu",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "SWSH Black Star Promos (swshp)",
+      "originalNumber": "SWSH153",
+      "releaseDate": "2019/11/15",
+      "apiId": "swshp-SWSH153"
+    },
+    "276": {
+      "name": "Pikachu",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "SWSH Black Star Promos (swshp)",
+      "originalNumber": "SWSH234",
+      "releaseDate": "2019/11/15",
+      "apiId": "swshp-SWSH234"
+    },
+    "277": {
+      "name": "Pikachu V",
+      "rarity": "ex",
+      "type": "pokemon",
+      "setOrigin": "SWSH Black Star Promos (swshp)",
+      "originalNumber": "SWSH061",
+      "releaseDate": "2019/11/15",
+      "apiId": "swshp-SWSH061"
+    },
+    "278": {
+      "name": "Pikachu V",
+      "rarity": "ex",
+      "type": "pokemon",
+      "setOrigin": "SWSH Black Star Promos (swshp)",
+      "originalNumber": "SWSH063",
+      "releaseDate": "2019/11/15",
+      "apiId": "swshp-SWSH063"
+    },
+    "279": {
+      "name": "Pikachu V",
+      "rarity": "ex",
+      "type": "pokemon",
+      "setOrigin": "SWSH Black Star Promos (swshp)",
+      "originalNumber": "SWSH143",
+      "releaseDate": "2019/11/15",
+      "apiId": "swshp-SWSH143"
+    },
+    "280": {
+      "name": "Pikachu V",
+      "rarity": "ex",
+      "type": "pokemon",
+      "setOrigin": "SWSH Black Star Promos (swshp)",
+      "originalNumber": "SWSH145",
+      "releaseDate": "2019/11/15",
+      "apiId": "swshp-SWSH145"
+    },
+    "281": {
+      "name": "Pikachu V",
+      "rarity": "ex",
+      "type": "pokemon",
+      "setOrigin": "SWSH Black Star Promos (swshp)",
+      "originalNumber": "SWSH198",
+      "releaseDate": "2019/11/15",
+      "apiId": "swshp-SWSH198"
+    },
+    "282": {
+      "name": "Pikachu V",
+      "rarity": "ex",
+      "type": "pokemon",
+      "setOrigin": "SWSH Black Star Promos (swshp)",
+      "originalNumber": "SWSH285",
+      "releaseDate": "2019/11/15",
+      "apiId": "swshp-SWSH285"
+    },
+    "283": {
+      "name": "Pikachu V-UNION",
+      "rarity": "ex",
+      "type": "pokemon",
+      "setOrigin": "SWSH Black Star Promos (swshp)",
+      "originalNumber": "SWSH139",
+      "releaseDate": "2019/11/15",
+      "apiId": "swshp-SWSH139"
+    },
+    "284": {
+      "name": "Pikachu V-UNION",
+      "rarity": "ex",
+      "type": "pokemon",
+      "setOrigin": "SWSH Black Star Promos (swshp)",
+      "originalNumber": "SWSH140",
+      "releaseDate": "2019/11/15",
+      "apiId": "swshp-SWSH140"
+    },
+    "285": {
+      "name": "Pikachu V-UNION",
+      "rarity": "ex",
+      "type": "pokemon",
+      "setOrigin": "SWSH Black Star Promos (swshp)",
+      "originalNumber": "SWSH141",
+      "releaseDate": "2019/11/15",
+      "apiId": "swshp-SWSH141"
+    },
+    "286": {
+      "name": "Pikachu V-UNION",
+      "rarity": "ex",
+      "type": "pokemon",
+      "setOrigin": "SWSH Black Star Promos (swshp)",
+      "originalNumber": "SWSH142",
+      "releaseDate": "2019/11/15",
+      "apiId": "swshp-SWSH142"
+    },
+    "287": {
+      "name": "Pikachu VMAX",
+      "rarity": "ex",
+      "type": "pokemon",
+      "setOrigin": "SWSH Black Star Promos (swshp)",
+      "originalNumber": "SWSH062",
+      "releaseDate": "2019/11/15",
+      "apiId": "swshp-SWSH062"
+    },
+    "288": {
+      "name": "Pikachu VMAX",
+      "rarity": "ex",
+      "type": "pokemon",
+      "setOrigin": "SWSH Black Star Promos (swshp)",
+      "originalNumber": "SWSH286",
+      "releaseDate": "2019/11/15",
+      "apiId": "swshp-SWSH286"
+    },
+    "289": {
+      "name": "Special Delivery Pikachu",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "SWSH Black Star Promos (swshp)",
+      "originalNumber": "SWSH074",
+      "releaseDate": "2019/11/15",
+      "apiId": "swshp-SWSH074"
+    },
+    "290": {
+      "name": "Shibuya's Pikachu",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "S-P Promo 002 (JP, 2019)",
+      "originalNumber": "",
+      "releaseDate": "2019/11/22",
+      "apiId": "",
+      "region": "JP"
+    },
+    "291": {
+      "name": "Pikachu",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "Sword & Shield (swsh1)",
+      "originalNumber": "65",
+      "releaseDate": "2020/02/07",
+      "apiId": "swsh1-65"
+    },
+    "292": {
+      "name": "Raichu",
+      "rarity": "rare",
+      "type": "pokemon",
+      "setOrigin": "Sword & Shield (swsh1)",
+      "originalNumber": "66",
+      "releaseDate": "2020/02/07",
+      "apiId": "swsh1-66"
+    },
+    "293": {
+      "name": "Detective Pikachu",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "S-P Promo 099 (JP, 2020)",
+      "originalNumber": "",
+      "releaseDate": "2020/06/13",
+      "apiId": "",
+      "region": "JP"
+    },
+    "294": {
+      "name": "Pikachu on the Ball",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "Pok\u00e9mon Futsal Collection (fut20)",
+      "originalNumber": "1",
+      "releaseDate": "2020/09/11",
+      "apiId": "fut20-1"
+    },
+    "295": {
+      "name": "Pikachu V",
+      "rarity": "ex",
+      "type": "pokemon",
+      "setOrigin": "Vivid Voltage (swsh4)",
+      "originalNumber": "43",
+      "releaseDate": "2020/11/13",
+      "apiId": "swsh4-43"
+    },
+    "296": {
+      "name": "Pikachu VMAX",
+      "rarity": "ex",
+      "type": "pokemon",
+      "setOrigin": "Vivid Voltage (swsh4)",
+      "originalNumber": "44",
+      "releaseDate": "2020/11/13",
+      "apiId": "swsh4-44"
+    },
+    "297": {
+      "name": "Pikachu V",
+      "rarity": "ex",
+      "type": "pokemon",
+      "setOrigin": "Vivid Voltage (swsh4)",
+      "originalNumber": "170",
+      "releaseDate": "2020/11/13",
+      "apiId": "swsh4-170"
+    },
+    "298": {
+      "name": "Pikachu VMAX",
+      "rarity": "ex",
+      "type": "pokemon",
+      "setOrigin": "Vivid Voltage (swsh4)",
+      "originalNumber": "188",
+      "releaseDate": "2020/11/13",
+      "apiId": "swsh4-188"
+    },
+    "299": {
+      "name": "Kanazawa's Pikachu",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "S-P Promo 144 (JP, 2020)",
+      "originalNumber": "",
+      "releaseDate": "2020/11/20",
+      "apiId": "",
+      "region": "JP"
+    },
+    "300": {
+      "name": "Kanazawa's Pikachu (Kanazawa Box)",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "S-P Promo 147 (JP, 2020)",
+      "originalNumber": "",
+      "releaseDate": "2020/11/20",
+      "apiId": "",
+      "region": "JP"
+    },
+    "301": {
+      "name": "Pikachu (PikaPika Campaign - sowsow)",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "S-P Promo 124 (JP, 2020)",
+      "originalNumber": "",
+      "releaseDate": "2020/12/01",
+      "apiId": "",
+      "region": "JP"
+    },
+    "302": {
+      "name": "Pikachu (PikaPika Campaign - nagimiso)",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "S-P Promo 125 (JP, 2020)",
+      "originalNumber": "",
+      "releaseDate": "2020/12/01",
+      "apiId": "",
+      "region": "JP"
+    },
+    "303": {
+      "name": "Pikachu (PikaPika Campaign - Naoyo Kimura)",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "S-P Promo 126 (JP, 2020)",
+      "originalNumber": "",
+      "releaseDate": "2020/12/01",
+      "apiId": "",
+      "region": "JP"
+    },
+    "304": {
+      "name": "Pikachu (Swallowed Up / Movie Coco)",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "S-P Promo 105 (JP, 2020)",
+      "originalNumber": "",
+      "releaseDate": "2020/12/25",
+      "apiId": "",
+      "region": "JP"
+    },
+    "305": {
+      "name": "Pikachu (Lawson V Start)",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "S-P Promo 132 (JP, 2021)",
+      "originalNumber": "",
+      "releaseDate": "2021/01/01",
+      "apiId": "",
+      "region": "JP"
+    },
+    "306": {
+      "name": "Pikachu",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "McDonald's Collection 2021 (mcd21)",
+      "originalNumber": "25",
+      "releaseDate": "2021/02/09",
+      "apiId": "mcd21-25"
+    },
+    "307": {
+      "name": "Pikachu (Stamp Box - Beauty Looking Back)",
+      "rarity": "secret",
+      "type": "pokemon",
+      "setOrigin": "S-P Promo 227 (JP, 2021)",
+      "originalNumber": "",
+      "releaseDate": "2021/08/25",
+      "apiId": "",
+      "region": "JP"
+    },
+    "308": {
+      "name": "Pikachu",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "Evolving Skies (swsh7)",
+      "originalNumber": "49",
+      "releaseDate": "2021/08/27",
+      "apiId": "swsh7-49"
+    },
+    "309": {
+      "name": "Raichu",
+      "rarity": "rare-holo",
+      "type": "pokemon",
+      "setOrigin": "Evolving Skies (swsh7)",
+      "originalNumber": "50",
+      "releaseDate": "2021/08/27",
+      "apiId": "swsh7-50"
+    },
+    "310": {
+      "name": "Pikachu",
+      "rarity": "rare-holo",
+      "type": "pokemon",
+      "setOrigin": "Celebrations (cel25)",
+      "originalNumber": "5",
+      "releaseDate": "2021/10/08",
+      "apiId": "cel25-5"
+    },
+    "311": {
+      "name": "Flying Pikachu V",
+      "rarity": "ex",
+      "type": "pokemon",
+      "setOrigin": "Celebrations (cel25)",
+      "originalNumber": "6",
+      "releaseDate": "2021/10/08",
+      "apiId": "cel25-6"
+    },
+    "312": {
+      "name": "Flying Pikachu VMAX",
+      "rarity": "ex",
+      "type": "pokemon",
+      "setOrigin": "Celebrations (cel25)",
+      "originalNumber": "7",
+      "releaseDate": "2021/10/08",
+      "apiId": "cel25-7"
+    },
+    "313": {
+      "name": "Surfing Pikachu V",
+      "rarity": "ex",
+      "type": "pokemon",
+      "setOrigin": "Celebrations (cel25)",
+      "originalNumber": "8",
+      "releaseDate": "2021/10/08",
+      "apiId": "cel25-8"
+    },
+    "314": {
+      "name": "Surfing Pikachu VMAX",
+      "rarity": "ex",
+      "type": "pokemon",
+      "setOrigin": "Celebrations (cel25)",
+      "originalNumber": "9",
+      "releaseDate": "2021/10/08",
+      "apiId": "cel25-9"
+    },
+    "315": {
+      "name": "_____'s Pikachu",
+      "rarity": "secret",
+      "type": "pokemon",
+      "setOrigin": "Celebrations: Classic Collection (cel25c)",
+      "originalNumber": "24",
+      "releaseDate": "2021/10/08",
+      "apiId": "cel25c-24_A"
+    },
+    "316": {
+      "name": "Pikachu V",
+      "rarity": "ex",
+      "type": "pokemon",
+      "setOrigin": "Fusion Strike (swsh8)",
+      "originalNumber": "86",
+      "releaseDate": "2021/11/12",
+      "apiId": "swsh8-86"
+    },
+    "317": {
+      "name": "Mischievous Pichu",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "S-P Promo (JP, 2022)",
+      "originalNumber": "",
+      "releaseDate": "2022/01/01",
+      "apiId": "",
+      "region": "JP"
+    },
+    "318": {
+      "name": "Pikachu VMAX (CoroCoro)",
+      "rarity": "ex",
+      "type": "pokemon",
+      "setOrigin": "S-P Promo 265 (JP, 2022)",
+      "originalNumber": "",
+      "releaseDate": "2022/02/01",
+      "apiId": "",
+      "region": "JP"
+    },
+    "319": {
+      "name": "Raichu V",
+      "rarity": "ex",
+      "type": "pokemon",
+      "setOrigin": "Brilliant Stars (swsh9)",
+      "originalNumber": "45",
+      "releaseDate": "2022/02/25",
+      "apiId": "swsh9-45"
+    },
+    "320": {
+      "name": "Pikachu V",
+      "rarity": "ex",
+      "type": "pokemon",
+      "setOrigin": "Brilliant Stars (swsh9)",
+      "originalNumber": "157",
+      "releaseDate": "2022/02/25",
+      "apiId": "swsh9-157"
+    },
+    "321": {
+      "name": "Raichu V",
+      "rarity": "ex",
+      "type": "pokemon",
+      "setOrigin": "Brilliant Stars (swsh9)",
+      "originalNumber": "158",
+      "releaseDate": "2022/02/25",
+      "apiId": "swsh9-158"
+    },
+    "322": {
+      "name": "Pikachu (Precious Collector Box)",
+      "rarity": "secret",
+      "type": "pokemon",
+      "setOrigin": "S-P Promo 323 (JP, 2022)",
+      "originalNumber": "",
+      "releaseDate": "2022/06/01",
+      "apiId": "",
+      "region": "JP"
+    },
+    "323": {
+      "name": "Pikachu",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "Pok\u00e9mon GO (pgo)",
+      "originalNumber": "27",
+      "releaseDate": "2022/07/01",
+      "apiId": "pgo-27"
+    },
+    "324": {
+      "name": "Pikachu",
+      "rarity": "rare-holo",
+      "type": "pokemon",
+      "setOrigin": "Pok\u00e9mon GO (pgo)",
+      "originalNumber": "28",
+      "releaseDate": "2022/07/01",
+      "apiId": "pgo-28"
+    },
+    "325": {
+      "name": "Pikachu",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "McDonald's Collection 2022 (mcd22)",
+      "originalNumber": "7",
+      "releaseDate": "2022/08/03",
+      "apiId": "mcd22-7"
+    },
+    "326": {
+      "name": "Pikachu",
+      "rarity": "secret",
+      "type": "pokemon",
+      "setOrigin": "Lost Origin Trainer Gallery (swsh11tg)",
+      "originalNumber": "TG05",
+      "releaseDate": "2022/09/09",
+      "apiId": "swsh11tg-TG05"
+    },
+    "327": {
+      "name": "Pikachu V",
+      "rarity": "ex",
+      "type": "pokemon",
+      "setOrigin": "Lost Origin Trainer Gallery (swsh11tg)",
+      "originalNumber": "TG16",
+      "releaseDate": "2022/09/09",
+      "apiId": "swsh11tg-TG16"
+    },
+    "328": {
+      "name": "Pikachu VMAX",
+      "rarity": "ex",
+      "type": "pokemon",
+      "setOrigin": "Lost Origin Trainer Gallery (swsh11tg)",
+      "originalNumber": "TG17",
+      "releaseDate": "2022/09/09",
+      "apiId": "swsh11tg-TG17"
+    },
+    "329": {
+      "name": "Pikachu VMAX",
+      "rarity": "ex",
+      "type": "pokemon",
+      "setOrigin": "Lost Origin Trainer Gallery (swsh11tg)",
+      "originalNumber": "TG29",
+      "releaseDate": "2022/09/09",
+      "apiId": "swsh11tg-TG29"
+    },
+    "330": {
+      "name": "Pikachu",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "Lost Origin (swsh11)",
+      "originalNumber": "52",
+      "releaseDate": "2022/09/09",
+      "apiId": "swsh11-52"
+    },
+    "331": {
+      "name": "Raichu",
+      "rarity": "rare",
+      "type": "pokemon",
+      "setOrigin": "Lost Origin (swsh11)",
+      "originalNumber": "53",
+      "releaseDate": "2022/09/09",
+      "apiId": "swsh11-53"
+    },
+    "332": {
+      "name": "Pikachu",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "Silver Tempest (swsh12)",
+      "originalNumber": "49",
+      "releaseDate": "2022/11/11",
+      "apiId": "swsh12-49"
+    },
+    "333": {
+      "name": "Raichu",
+      "rarity": "uncommon",
+      "type": "pokemon",
+      "setOrigin": "Silver Tempest (swsh12)",
+      "originalNumber": "50",
+      "releaseDate": "2022/11/11",
+      "apiId": "swsh12-50"
+    },
+    "334": {
+      "name": "Pikachu (SV Launch Promo)",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "SV-P Promo 001 (JP, 2022)",
+      "originalNumber": "",
+      "releaseDate": "2022/11/18",
+      "apiId": "",
+      "region": "JP"
+    },
+    "335": {
+      "name": "Pikachu",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "Scarlet & Violet Black Star Promos (svp)",
+      "originalNumber": "27",
+      "releaseDate": "2023/01/01",
+      "apiId": "svp-27"
+    },
+    "336": {
+      "name": "Pikachu with Grey Felt Hat",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "Scarlet & Violet Black Star Promos (svp)",
+      "originalNumber": "85",
+      "releaseDate": "2023/01/01",
+      "apiId": "svp-85"
+    },
+    "337": {
+      "name": "Pikachu",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "Scarlet & Violet Black Star Promos (svp)",
+      "originalNumber": "88",
+      "releaseDate": "2023/01/01",
+      "apiId": "svp-88"
+    },
+    "338": {
+      "name": "Pikachu",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "Scarlet & Violet Black Star Promos (svp)",
+      "originalNumber": "101",
+      "releaseDate": "2023/01/01",
+      "apiId": "svp-101"
+    },
+    "339": {
+      "name": "Pikachu ex",
+      "rarity": "ex",
+      "type": "pokemon",
+      "setOrigin": "Scarlet & Violet Black Star Promos (svp)",
+      "originalNumber": "106",
+      "releaseDate": "2023/01/01",
+      "apiId": "svp-106"
+    },
+    "340": {
+      "name": "Pikachu",
+      "rarity": "secret",
+      "type": "pokemon",
+      "setOrigin": "Crown Zenith Galarian Gallery (swsh12pt5gg)",
+      "originalNumber": "GG30",
+      "releaseDate": "2023/01/20",
+      "apiId": "swsh12pt5gg-GG30"
+    },
+    "341": {
+      "name": "Pikachu",
+      "rarity": "secret",
+      "type": "pokemon",
+      "setOrigin": "Crown Zenith (swsh12pt5)",
+      "originalNumber": "160",
+      "releaseDate": "2023/01/20",
+      "apiId": "swsh12pt5-160"
+    },
+    "342": {
+      "name": "Pikachu",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "Paldea Evolved (sv2)",
+      "originalNumber": "62",
+      "releaseDate": "2023/06/09",
+      "apiId": "sv2-62"
+    },
+    "343": {
+      "name": "Pikachu ex",
+      "rarity": "ex",
+      "type": "pokemon",
+      "setOrigin": "Paldea Evolved (sv2)",
+      "originalNumber": "63",
+      "releaseDate": "2023/06/09",
+      "apiId": "sv2-63"
+    },
+    "344": {
+      "name": "Raichu",
+      "rarity": "uncommon",
+      "type": "pokemon",
+      "setOrigin": "Paldea Evolved (sv2)",
+      "originalNumber": "64",
+      "releaseDate": "2023/06/09",
+      "apiId": "sv2-64"
+    },
+    "345": {
+      "name": "Raichu",
+      "rarity": "secret",
+      "type": "pokemon",
+      "setOrigin": "Paldea Evolved (sv2)",
+      "originalNumber": "211",
+      "releaseDate": "2023/06/09",
+      "apiId": "sv2-211"
+    },
+    "346": {
+      "name": "Pikachu (Card Gym SV Promo)",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "SV-P Promo 098 (JP, 2023)",
+      "originalNumber": "",
+      "releaseDate": "2023/09/01",
+      "apiId": "",
+      "region": "JP"
+    },
+    "347": {
+      "name": "Pikachu",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "151 (sv3pt5)",
+      "originalNumber": "25",
+      "releaseDate": "2023/09/22",
+      "apiId": "sv3pt5-25"
+    },
+    "348": {
+      "name": "Raichu",
+      "rarity": "rare",
+      "type": "pokemon",
+      "setOrigin": "151 (sv3pt5)",
+      "originalNumber": "26",
+      "releaseDate": "2023/09/22",
+      "apiId": "sv3pt5-26"
+    },
+    "349": {
+      "name": "Pikachu",
+      "rarity": "secret",
+      "type": "pokemon",
+      "setOrigin": "151 (sv3pt5)",
+      "originalNumber": "173",
+      "releaseDate": "2023/09/22",
+      "apiId": "sv3pt5-173"
+    },
+    "350": {
+      "name": "Pikachu",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "Paldean Fates (sv4pt5)",
+      "originalNumber": "18",
+      "releaseDate": "2024/01/26",
+      "apiId": "sv4pt5-18"
+    },
+    "351": {
+      "name": "Raichu",
+      "rarity": "rare",
+      "type": "pokemon",
+      "setOrigin": "Paldean Fates (sv4pt5)",
+      "originalNumber": "19",
+      "releaseDate": "2024/01/26",
+      "apiId": "sv4pt5-19"
+    },
+    "352": {
+      "name": "Pikachu",
+      "rarity": "secret",
+      "type": "pokemon",
+      "setOrigin": "Paldean Fates (sv4pt5)",
+      "originalNumber": "131",
+      "releaseDate": "2024/01/26",
+      "apiId": "sv4pt5-131"
+    },
+    "353": {
+      "name": "Raichu",
+      "rarity": "secret",
+      "type": "pokemon",
+      "setOrigin": "Paldean Fates (sv4pt5)",
+      "originalNumber": "132",
+      "releaseDate": "2024/01/26",
+      "apiId": "sv4pt5-132"
+    },
+    "354": {
+      "name": "Pikachu",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "Temporal Forces (sv5)",
+      "originalNumber": "51",
+      "releaseDate": "2024/03/22",
+      "apiId": "sv5-51"
+    },
+    "355": {
+      "name": "Raichu",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "Temporal Forces (sv5)",
+      "originalNumber": "52",
+      "releaseDate": "2024/03/22",
+      "apiId": "sv5-52"
+    },
+    "356": {
+      "name": "Pikachu (Pok\u00e9mon Center Hiroshima)",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "SV-P Promo 261 (JP, 2024)",
+      "originalNumber": "",
+      "releaseDate": "2024/06/01",
+      "apiId": "",
+      "region": "JP"
+    },
+    "357": {
+      "name": "Pikachu ex",
+      "rarity": "ex",
+      "type": "pokemon",
+      "setOrigin": "Surging Sparks (sv8)",
+      "originalNumber": "57",
+      "releaseDate": "2024/11/08",
+      "apiId": "sv8-57"
+    },
+    "358": {
+      "name": "Pikachu ex",
+      "rarity": "ex",
+      "type": "pokemon",
+      "setOrigin": "Surging Sparks (sv8)",
+      "originalNumber": "219",
+      "releaseDate": "2024/11/08",
+      "apiId": "sv8-219"
+    },
+    "359": {
+      "name": "Pikachu ex",
+      "rarity": "ex",
+      "type": "pokemon",
+      "setOrigin": "Surging Sparks (sv8)",
+      "originalNumber": "238",
+      "releaseDate": "2024/11/08",
+      "apiId": "sv8-238"
+    },
+    "360": {
+      "name": "Pikachu ex",
+      "rarity": "ex",
+      "type": "pokemon",
+      "setOrigin": "Surging Sparks (sv8)",
+      "originalNumber": "247",
+      "releaseDate": "2024/11/08",
+      "apiId": "sv8-247"
+    },
+    "361": {
+      "name": "Pikachu ex",
+      "rarity": "ex",
+      "type": "pokemon",
+      "setOrigin": "Prismatic Evolutions (sv8pt5)",
+      "originalNumber": "28",
+      "releaseDate": "2025/01/17",
+      "apiId": "sv8pt5-28"
+    },
+    "362": {
+      "name": "Pikachu ex",
+      "rarity": "ex",
+      "type": "pokemon",
+      "setOrigin": "Prismatic Evolutions (sv8pt5)",
+      "originalNumber": "179",
+      "releaseDate": "2025/01/17",
+      "apiId": "sv8pt5-179"
+    },
+    "363": {
+      "name": "Ethan's Pichu",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "Destined Rivals (sv10)",
+      "originalNumber": "71",
+      "releaseDate": "2025/05/30",
+      "apiId": "sv10-71"
+    },
+    "364": {
+      "name": "Fukuoka's Pikachu",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "SV-P Promo 289 (JP, 2025)",
+      "originalNumber": "",
+      "releaseDate": "2025/06/01",
+      "apiId": "",
+      "region": "JP"
+    },
+    "365": {
+      "name": "Tohoku's Pikachu",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "SV-P Promo 260 (JP, 2025)",
+      "originalNumber": "",
+      "releaseDate": "2025/06/12",
+      "apiId": "",
+      "region": "JP"
+    },
+    "366": {
+      "name": "Pikachu (McDonald's Japan 2025)",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "M-P Promo 020 (JP, 2025)",
+      "originalNumber": "",
+      "releaseDate": "2025/08/01",
+      "apiId": "",
+      "region": "JP"
+    },
+    "367": {
+      "name": "Pikachu",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "Ascended Heroes (me2pt5)",
+      "originalNumber": "55",
+      "releaseDate": "2026/01/30",
+      "apiId": "me2pt5-55"
+    },
+    "368": {
+      "name": "Raichu",
+      "rarity": "uncommon",
+      "type": "pokemon",
+      "setOrigin": "Ascended Heroes (me2pt5)",
+      "originalNumber": "56",
+      "releaseDate": "2026/01/30",
+      "apiId": "me2pt5-56"
+    },
+    "369": {
+      "name": "Pikachu ex",
+      "rarity": "ex",
+      "type": "pokemon",
+      "setOrigin": "Ascended Heroes (me2pt5)",
+      "originalNumber": "57",
+      "releaseDate": "2026/01/30",
+      "apiId": "me2pt5-57"
+    },
+    "370": {
+      "name": "Pikachu ex",
+      "rarity": "ex",
+      "type": "pokemon",
+      "setOrigin": "Ascended Heroes (me2pt5)",
+      "originalNumber": "276",
+      "releaseDate": "2026/01/30",
+      "apiId": "me2pt5-276"
+    },
+    "371": {
+      "name": "Pikachu ex",
+      "rarity": "ex",
+      "type": "pokemon",
+      "setOrigin": "Ascended Heroes (me2pt5)",
+      "originalNumber": "277",
+      "releaseDate": "2026/01/30",
+      "apiId": "me2pt5-277"
+    }
+  },
+  "singleVariantOnly": true
+}

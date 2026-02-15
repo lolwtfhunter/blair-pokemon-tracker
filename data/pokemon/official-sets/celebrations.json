@@ -1,0 +1,306 @@
+{
+  "version": "3.0.0",
+  "lastUpdated": "2025-02-15",
+  "setKey": "celebrations",
+  "name": "Celebrations",
+  "displayName": "Celebrations",
+  "totalCards": 50,
+  "mainSet": 25,
+  "setCode": "cel25",
+  "hasPokeBallVariant": false,
+  "hasMasterBallVariant": false,
+  "singleVariantOnly": true,
+  "cards": {
+    "1": {
+      "name": "Ho-Oh",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "2": {
+      "name": "Reshiram",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "3": {
+      "name": "Kyogre",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "4": {
+      "name": "Palkia",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "5": {
+      "name": "Pikachu",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "6": {
+      "name": "Flying Pikachu V",
+      "rarity": "ex",
+      "type": "pokemon"
+    },
+    "7": {
+      "name": "Flying Pikachu VMAX",
+      "rarity": "ex",
+      "type": "pokemon"
+    },
+    "8": {
+      "name": "Surfing Pikachu V",
+      "rarity": "ex",
+      "type": "pokemon"
+    },
+    "9": {
+      "name": "Surfing Pikachu VMAX",
+      "rarity": "ex",
+      "type": "pokemon"
+    },
+    "10": {
+      "name": "Zekrom",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "11": {
+      "name": "Mew",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "12": {
+      "name": "Xerneas",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "13": {
+      "name": "Cosmog",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "14": {
+      "name": "Cosmoem",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "15": {
+      "name": "Lunala",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "16": {
+      "name": "Zacian V",
+      "rarity": "ex",
+      "type": "pokemon"
+    },
+    "17": {
+      "name": "Groudon",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "18": {
+      "name": "Zamazenta V",
+      "rarity": "ex",
+      "type": "pokemon"
+    },
+    "19": {
+      "name": "Yveltal",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "20": {
+      "name": "Dialga",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "21": {
+      "name": "Solgaleo",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "22": {
+      "name": "Lugia",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "23": {
+      "name": "Professor's Research",
+      "rarity": "rare",
+      "type": "trainer"
+    },
+    "24": {
+      "name": "Professor's Research (Full Art)",
+      "rarity": "ultra-rare",
+      "type": "trainer"
+    },
+    "25": {
+      "name": "Mew (Gold)",
+      "rarity": "hyper-rare",
+      "type": "pokemon"
+    },
+    "26": {
+      "name": "Blastoise",
+      "rarity": "rare",
+      "type": "pokemon",
+      "imageId": "2_A"
+    },
+    "27": {
+      "name": "Charizard",
+      "rarity": "rare",
+      "type": "pokemon",
+      "imageId": "4_A"
+    },
+    "28": {
+      "name": "Venusaur",
+      "rarity": "rare",
+      "type": "pokemon",
+      "imageId": "15_A"
+    },
+    "29": {
+      "name": "Imposter Professor Oak",
+      "rarity": "rare",
+      "type": "trainer",
+      "imageId": "73_A"
+    },
+    "30": {
+      "name": "Dark Gyarados",
+      "rarity": "rare",
+      "type": "pokemon",
+      "imageId": "8_A"
+    },
+    "31": {
+      "name": "Here Comes Team Rocket!",
+      "rarity": "rare",
+      "type": "trainer",
+      "imageId": "15_B"
+    },
+    "32": {
+      "name": "Rocket's Zapdos",
+      "rarity": "rare",
+      "type": "pokemon",
+      "imageId": "15_C"
+    },
+    "33": {
+      "name": "_____'s Pikachu",
+      "rarity": "rare",
+      "type": "pokemon",
+      "imageId": "24_A"
+    },
+    "34": {
+      "name": "Cleffa",
+      "rarity": "rare",
+      "type": "pokemon",
+      "imageId": "20_A"
+    },
+    "35": {
+      "name": "Shining Magikarp",
+      "rarity": "rare",
+      "type": "pokemon",
+      "imageId": "66_A"
+    },
+    "36": {
+      "name": "Team Magma's Groudon",
+      "rarity": "rare",
+      "type": "pokemon",
+      "imageId": "9_A"
+    },
+    "37": {
+      "name": "Rocket's Admin.",
+      "rarity": "rare",
+      "type": "trainer",
+      "imageId": "86_A"
+    },
+    "38": {
+      "name": "Mew ex",
+      "rarity": "rare",
+      "type": "pokemon",
+      "imageId": "88_A"
+    },
+    "39": {
+      "name": "Gardevoir ex \u03b4",
+      "rarity": "rare",
+      "type": "pokemon",
+      "imageId": "93_A"
+    },
+    "40": {
+      "name": "Umbreon \u2605",
+      "rarity": "rare",
+      "type": "pokemon",
+      "imageId": "17_A"
+    },
+    "41": {
+      "name": "Claydol",
+      "rarity": "rare",
+      "type": "pokemon",
+      "imageId": "15_D"
+    },
+    "42": {
+      "name": "Luxray GL Lv.X",
+      "rarity": "rare",
+      "type": "pokemon",
+      "imageId": "109_A"
+    },
+    "43": {
+      "name": "Garchomp C Lv.X",
+      "rarity": "rare",
+      "type": "pokemon",
+      "imageId": "145_A"
+    },
+    "44": {
+      "name": "Donphan Prime",
+      "rarity": "rare",
+      "type": "pokemon",
+      "imageId": "107_A"
+    },
+    "45": {
+      "name": "Reshiram (Full Art)",
+      "rarity": "rare",
+      "type": "pokemon",
+      "imageId": "113_A"
+    },
+    "46": {
+      "name": "Zekrom (Full Art)",
+      "rarity": "rare",
+      "type": "pokemon",
+      "imageId": "114_A"
+    },
+    "47": {
+      "name": "Mewtwo EX",
+      "rarity": "rare",
+      "type": "pokemon",
+      "imageId": "54_A"
+    },
+    "48": {
+      "name": "Xerneas EX",
+      "rarity": "rare",
+      "type": "pokemon",
+      "imageId": "97_A"
+    },
+    "49": {
+      "name": "M Rayquaza EX",
+      "rarity": "rare",
+      "type": "pokemon",
+      "imageId": "76_A"
+    },
+    "50": {
+      "name": "Tapu Lele GX",
+      "rarity": "rare",
+      "type": "pokemon",
+      "imageId": "60_A"
+    }
+  },
+  "exCards": {
+    "6": "Flying Pikachu V",
+    "7": "Flying Pikachu VMAX",
+    "8": "Surfing Pikachu V",
+    "9": "Surfing Pikachu VMAX",
+    "16": "Zacian V",
+    "18": "Zamazenta V"
+  },
+  "trainerRange": [
+    23,
+    24
+  ],
+  "energyCards": {},
+  "releaseDate": "2021-10-08",
+  "block": "Sword & Shield",
+  "blockCode": "swsh"
+}

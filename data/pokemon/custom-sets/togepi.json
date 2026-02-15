@@ -1,0 +1,234 @@
+{
+  "version": "1.1.0",
+  "lastUpdated": "2026-02-15",
+  "setKey": "togepi",
+  "name": "Togepi",
+  "displayName": "Togepi",
+  "description": "Every Togepi card ever printed in the Pokemon TCG, including Japanese exclusives",
+  "totalCards": 24,
+  "pokemon": [
+    "Togepi"
+  ],
+  "cards": {
+    "1": {
+      "name": "Togepi (Meiji Promo)",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "Meiji Chocolate Promo (JP, 1999)",
+      "originalNumber": "",
+      "releaseDate": "1999/01/01",
+      "apiId": "",
+      "region": "JP"
+    },
+    "2": {
+      "name": "Togepi",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "Wizards Black Star Promos (basep)",
+      "originalNumber": "30",
+      "releaseDate": "1999/07/01",
+      "apiId": "basep-30"
+    },
+    "3": {
+      "name": "Togepi (Meiji Gold Series)",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "Meiji Chocolate Gold Series (JP, 2000)",
+      "originalNumber": "",
+      "releaseDate": "2000/01/01",
+      "apiId": "",
+      "region": "JP"
+    },
+    "4": {
+      "name": "Togepi",
+      "rarity": "uncommon",
+      "type": "pokemon",
+      "setOrigin": "Neo Genesis (neo1)",
+      "originalNumber": "51",
+      "releaseDate": "2000/12/16",
+      "apiId": "neo1-51"
+    },
+    "5": {
+      "name": "Togepi",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "Southern Islands (si1)",
+      "originalNumber": "4",
+      "releaseDate": "2001/07/31",
+      "apiId": "si1-4"
+    },
+    "6": {
+      "name": "Togepi",
+      "rarity": "uncommon",
+      "type": "pokemon",
+      "setOrigin": "Neo Destiny (neo4)",
+      "originalNumber": "56",
+      "releaseDate": "2002/02/28",
+      "apiId": "neo4-56"
+    },
+    "7": {
+      "name": "Togepi (McDonald's Japan)",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "McDonald's Japan Promo (JP, 2002)",
+      "originalNumber": "035",
+      "releaseDate": "2002/05/25",
+      "apiId": "",
+      "region": "JP"
+    },
+    "8": {
+      "name": "Togepi",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "Aquapolis (ecard2)",
+      "originalNumber": "114",
+      "releaseDate": "2003/01/15",
+      "apiId": "ecard2-114"
+    },
+    "9": {
+      "name": "Togepi",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "EX Hidden Legends (ex5)",
+      "originalNumber": "78",
+      "releaseDate": "2004/06/01",
+      "apiId": "ex5-78"
+    },
+    "10": {
+      "name": "Togepi",
+      "rarity": "uncommon",
+      "type": "pokemon",
+      "setOrigin": "EX Team Rocket Returns (ex7)",
+      "originalNumber": "50",
+      "releaseDate": "2004/11/01",
+      "apiId": "ex7-50"
+    },
+    "11": {
+      "name": "Togepi \u03b4",
+      "rarity": "uncommon",
+      "type": "pokemon",
+      "setOrigin": "EX Dragon Frontiers (ex15)",
+      "originalNumber": "41",
+      "releaseDate": "2006/11/01",
+      "apiId": "ex15-41"
+    },
+    "12": {
+      "name": "Togepi",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "Great Encounters (dp4)",
+      "originalNumber": "88",
+      "releaseDate": "2008/02/01",
+      "apiId": "dp4-88"
+    },
+    "13": {
+      "name": "Togepi",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "Undaunted (hgss3)",
+      "originalNumber": "70",
+      "releaseDate": "2010/08/18",
+      "apiId": "hgss3-70"
+    },
+    "14": {
+      "name": "Togepi",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "Boundaries Crossed (bw7)",
+      "originalNumber": "110",
+      "releaseDate": "2012/11/07",
+      "apiId": "bw7-110"
+    },
+    "15": {
+      "name": "Togepi",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "Plasma Storm (bw8)",
+      "originalNumber": "102",
+      "releaseDate": "2013/02/06",
+      "apiId": "bw8-102"
+    },
+    "16": {
+      "name": "Togepi",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "Roaring Skies (xy6)",
+      "originalNumber": "43",
+      "releaseDate": "2015/05/06",
+      "apiId": "xy6-43"
+    },
+    "17": {
+      "name": "Togepi",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "McDonald's Collection 2016 (mcd16)",
+      "originalNumber": "9",
+      "releaseDate": "2016/08/19",
+      "apiId": "mcd16-9"
+    },
+    "18": {
+      "name": "Togepi",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "Unbroken Bonds (sm10)",
+      "originalNumber": "136",
+      "releaseDate": "2019/05/03",
+      "apiId": "sm10-136"
+    },
+    "19": {
+      "name": "Togepi & Cleffa & Igglybuff-GX",
+      "rarity": "rare-holo-gx",
+      "type": "pokemon",
+      "setOrigin": "Cosmic Eclipse (sm12)",
+      "originalNumber": "143",
+      "releaseDate": "2019/11/01",
+      "apiId": "sm12-143"
+    },
+    "20": {
+      "name": "Togepi & Cleffa & Igglybuff-GX",
+      "rarity": "ultra-rare",
+      "type": "pokemon",
+      "setOrigin": "Cosmic Eclipse (sm12)",
+      "originalNumber": "143a",
+      "releaseDate": "2019/11/01",
+      "apiId": "sm12-143a"
+    },
+    "21": {
+      "name": "Togepi",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "Astral Radiance (swsh10)",
+      "originalNumber": "55",
+      "releaseDate": "2022/05/27",
+      "apiId": "swsh10-55"
+    },
+    "22": {
+      "name": "Togepi",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "Obsidian Flames (sv3)",
+      "originalNumber": "83",
+      "releaseDate": "2023/08/11",
+      "apiId": "sv3-83"
+    },
+    "23": {
+      "name": "Togepi",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "Surging Sparks (sv8)",
+      "originalNumber": "70",
+      "releaseDate": "2024/11/08",
+      "apiId": "sv8-70"
+    },
+    "24": {
+      "name": "Togepi",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "Ascended Heroes (me2pt5)",
+      "originalNumber": "80",
+      "releaseDate": "2026/01/30",
+      "apiId": "me2pt5-80"
+    }
+  },
+  "singleVariantOnly": true
+}

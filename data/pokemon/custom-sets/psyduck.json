@@ -1,0 +1,396 @@
+{
+  "version": "1.1.0",
+  "lastUpdated": "2026-02-15",
+  "setKey": "psyduck",
+  "name": "Psyduck",
+  "displayName": "Psyduck",
+  "description": "Every Psyduck card ever printed in the Pokemon TCG, including Japanese exclusives",
+  "totalCards": 42,
+  "pokemon": [
+    "Psyduck"
+  ],
+  "cards": {
+    "1": {
+      "name": "Psyduck",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "Wizards Black Star Promos (basep)",
+      "originalNumber": "20",
+      "releaseDate": "1999/07/01",
+      "apiId": "basep-20"
+    },
+    "2": {
+      "name": "Psyduck",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "Fossil (base3)",
+      "originalNumber": "53",
+      "releaseDate": "1999/10/10",
+      "apiId": "base3-53"
+    },
+    "3": {
+      "name": "Psyduck",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "Team Rocket (base5)",
+      "originalNumber": "65",
+      "releaseDate": "2000/04/24",
+      "apiId": "base5-65"
+    },
+    "4": {
+      "name": "Misty's Psyduck",
+      "rarity": "uncommon",
+      "type": "pokemon",
+      "setOrigin": "Gym Heroes (gym1)",
+      "originalNumber": "54",
+      "releaseDate": "2000/08/14",
+      "apiId": "gym1-54"
+    },
+    "5": {
+      "name": "Misty's Psyduck",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "Gym Challenge (gym2)",
+      "originalNumber": "90",
+      "releaseDate": "2000/10/16",
+      "apiId": "gym2-90"
+    },
+    "6": {
+      "name": "Sabrina's Psyduck",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "Gym Challenge (gym2)",
+      "originalNumber": "99",
+      "releaseDate": "2000/10/16",
+      "apiId": "gym2-99"
+    },
+    "7": {
+      "name": "Psyduck",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "Neo Destiny (neo4)",
+      "originalNumber": "79",
+      "releaseDate": "2002/02/28",
+      "apiId": "neo4-79"
+    },
+    "8": {
+      "name": "Psyduck",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "Legendary Collection (base6)",
+      "originalNumber": "88",
+      "releaseDate": "2002/05/24",
+      "apiId": "base6-88"
+    },
+    "9": {
+      "name": "Psyduck",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "Aquapolis (ecard2)",
+      "originalNumber": "104",
+      "releaseDate": "2003/01/15",
+      "apiId": "ecard2-104"
+    },
+    "10": {
+      "name": "Psyduck",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "Sandstorm (ex2)",
+      "originalNumber": "73",
+      "releaseDate": "2003/09/18",
+      "apiId": "ex2-73"
+    },
+    "11": {
+      "name": "Psyduck",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "Team Magma vs Team Aqua (ex4)",
+      "originalNumber": "44",
+      "releaseDate": "2004/03/01",
+      "apiId": "ex4-44"
+    },
+    "12": {
+      "name": "Psyduck",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "Team Rocket Returns (ex7)",
+      "originalNumber": "70",
+      "releaseDate": "2004/11/01",
+      "apiId": "ex7-70"
+    },
+    "13": {
+      "name": "Psyduck \u03b4",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "Holon Phantoms (ex13)",
+      "originalNumber": "81",
+      "releaseDate": "2006/05/01",
+      "apiId": "ex13-81"
+    },
+    "14": {
+      "name": "Psyduck",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "Secret Wonders (dp3)",
+      "originalNumber": "100",
+      "releaseDate": "2007/11/01",
+      "apiId": "dp3-100"
+    },
+    "15": {
+      "name": "Psyduck",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "Platinum (pl1)",
+      "originalNumber": "87",
+      "releaseDate": "2009/02/11",
+      "apiId": "pl1-87"
+    },
+    "16": {
+      "name": "Psyduck",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "HS\u2014Triumphant (hgss4)",
+      "originalNumber": "74",
+      "releaseDate": "2010/11/03",
+      "apiId": "hgss4-74"
+    },
+    "17": {
+      "name": "Psyduck",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "Boundaries Crossed (bw7)",
+      "originalNumber": "32",
+      "releaseDate": "2012/11/07",
+      "apiId": "bw7-32"
+    },
+    "18": {
+      "name": "Psyduck",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "Boundaries Crossed (bw7)",
+      "originalNumber": "33",
+      "releaseDate": "2012/11/07",
+      "apiId": "bw7-33"
+    },
+    "19": {
+      "name": "Psyduck",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "BREAKpoint (xy9)",
+      "originalNumber": "16",
+      "releaseDate": "2016/02/03",
+      "apiId": "xy9-16"
+    },
+    "20": {
+      "name": "Psyduck (Pokekyun Promo)",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "Pokekyun Collection XY-P Promo (JP, 2016)",
+      "originalNumber": "",
+      "releaseDate": "2016/05/01",
+      "apiId": "",
+      "region": "JP"
+    },
+    "21": {
+      "name": "Psyduck",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "SM Black Star Promos (smp)",
+      "originalNumber": "SM199",
+      "releaseDate": "2017/02/03",
+      "apiId": "smp-SM199"
+    },
+    "22": {
+      "name": "Psyduck",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "Sun & Moon (sm1)",
+      "originalNumber": "28",
+      "releaseDate": "2017/02/03",
+      "apiId": "sm1-28"
+    },
+    "23": {
+      "name": "Psyduck (Family Card Game)",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "Family Pokemon Card Game (JP, SML)",
+      "originalNumber": "013",
+      "releaseDate": "2017/06/16",
+      "apiId": "",
+      "region": "JP"
+    },
+    "24": {
+      "name": "Psyduck",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "McDonald's Collection 2018 (mcd18)",
+      "originalNumber": "2",
+      "releaseDate": "2018/10/16",
+      "apiId": "mcd18-2"
+    },
+    "25": {
+      "name": "Psyduck (Munch: The Scream)",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "SM-P Promotional Cards (JP, 2018)",
+      "originalNumber": "286",
+      "releaseDate": "2018/11/02",
+      "apiId": "",
+      "region": "JP"
+    },
+    "26": {
+      "name": "Psyduck",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "Team Up (sm9)",
+      "originalNumber": "26",
+      "releaseDate": "2019/02/01",
+      "apiId": "sm9-26"
+    },
+    "27": {
+      "name": "Psyduck",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "Detective Pikachu (det1)",
+      "originalNumber": "7",
+      "releaseDate": "2019/04/05",
+      "apiId": "det1-7"
+    },
+    "28": {
+      "name": "Slowpoke & Psyduck-GX",
+      "rarity": "rare-holo-gx",
+      "type": "pokemon",
+      "setOrigin": "Unified Minds (sm11)",
+      "originalNumber": "35",
+      "releaseDate": "2019/08/02",
+      "apiId": "sm11-35"
+    },
+    "29": {
+      "name": "Slowpoke & Psyduck-GX",
+      "rarity": "ultra-rare",
+      "type": "pokemon",
+      "setOrigin": "Unified Minds (sm11)",
+      "originalNumber": "217",
+      "releaseDate": "2019/08/02",
+      "apiId": "sm11-217"
+    },
+    "30": {
+      "name": "Slowpoke & Psyduck-GX",
+      "rarity": "ultra-rare",
+      "type": "pokemon",
+      "setOrigin": "Unified Minds (sm11)",
+      "originalNumber": "218",
+      "releaseDate": "2019/08/02",
+      "apiId": "sm11-218"
+    },
+    "31": {
+      "name": "Slowpoke & Psyduck-GX",
+      "rarity": "hyper-rare",
+      "type": "pokemon",
+      "setOrigin": "Unified Minds (sm11)",
+      "originalNumber": "239",
+      "releaseDate": "2019/08/02",
+      "apiId": "sm11-239"
+    },
+    "32": {
+      "name": "Psyduck",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "Hidden Fates (sm115)",
+      "originalNumber": "11",
+      "releaseDate": "2019/08/23",
+      "apiId": "sm115-11"
+    },
+    "33": {
+      "name": "Psyduck",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "Cosmic Eclipse (sm12)",
+      "originalNumber": "40",
+      "releaseDate": "2019/11/01",
+      "apiId": "sm12-40"
+    },
+    "34": {
+      "name": "Psyduck",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "Evolving Skies (swsh7)",
+      "originalNumber": "24",
+      "releaseDate": "2021/08/27",
+      "apiId": "swsh7-24"
+    },
+    "35": {
+      "name": "Psyduck",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "Astral Radiance (swsh10)",
+      "originalNumber": "28",
+      "releaseDate": "2022/05/27",
+      "apiId": "swsh10-28"
+    },
+    "36": {
+      "name": "Psyduck",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "151 (sv3pt5)",
+      "originalNumber": "54",
+      "releaseDate": "2023/09/22",
+      "apiId": "sv3pt5-54"
+    },
+    "37": {
+      "name": "Psyduck",
+      "rarity": "illustration-rare",
+      "type": "pokemon",
+      "setOrigin": "151 (sv3pt5)",
+      "originalNumber": "175",
+      "releaseDate": "2023/09/22",
+      "apiId": "sv3pt5-175"
+    },
+    "38": {
+      "name": "Misty's Psyduck",
+      "rarity": "uncommon",
+      "type": "pokemon",
+      "setOrigin": "Destined Rivals (sv10)",
+      "originalNumber": "45",
+      "releaseDate": "2025/05/30",
+      "apiId": "sv10-45"
+    },
+    "39": {
+      "name": "Misty's Psyduck",
+      "rarity": "illustration-rare",
+      "type": "pokemon",
+      "setOrigin": "Destined Rivals (sv10)",
+      "originalNumber": "193",
+      "releaseDate": "2025/05/30",
+      "apiId": "sv10-193"
+    },
+    "40": {
+      "name": "Psyduck",
+      "rarity": "promo",
+      "type": "pokemon",
+      "setOrigin": "MEP Black Star Promos (mep)",
+      "originalNumber": "7",
+      "releaseDate": "2025/09/26",
+      "apiId": "mep-7"
+    },
+    "41": {
+      "name": "Psyduck",
+      "rarity": "common",
+      "type": "pokemon",
+      "setOrigin": "Ascended Heroes (me2pt5)",
+      "originalNumber": "39",
+      "releaseDate": "2026/01/30",
+      "apiId": "me2pt5-39"
+    },
+    "42": {
+      "name": "Psyduck",
+      "rarity": "illustration-rare",
+      "type": "pokemon",
+      "setOrigin": "Ascended Heroes (me2pt5)",
+      "originalNumber": "226",
+      "releaseDate": "2026/01/30",
+      "apiId": "me2pt5-226"
+    }
+  },
+  "singleVariantOnly": true
+}

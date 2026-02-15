@@ -9,11 +9,12 @@
 
 ## 📋 PROJECT OVERVIEW
 
-A web-based Pokemon TCG collection tracker for tracking 1,341+ cards across 7 regular sets and 3 custom sets with real-time cloud sync between devices. Built for Blair and family to track their master set collection with proper variant tracking (Regular, Reverse Holo, Poké Ball, Master Ball).
+A web-based Pokemon TCG collection tracker for tracking 1,500+ cards across 8 regular sets and 3 custom sets with real-time cloud sync between devices. Built for Blair and family to track their master set collection with proper variant tracking (Regular, Reverse Holo, Poké Ball, Master Ball).
 
 ### **Core Features**
-- ✅ Track 1,341 cards across 7 Pokemon TCG sets
+- ✅ Track 1,529 cards across 8 Pokemon TCG sets (including new Mega Evolution set)
 - ✅ 3 custom curated sets (437 cards across Pikachu, Psyduck, and Togepi)
+- ✅ Modular data structure for better performance and scalability
 - ✅ Japanese-exclusive card tracking with JP badges and EN/JP subtabs
 - ✅ Variant tracking per card (Regular, Reverse Holo, Poké Ball, Master Ball)
 - ✅ Real-time sync between devices via Firebase
@@ -31,13 +32,13 @@ A web-based Pokemon TCG collection tracker for tracking 1,341+ cards across 7 re
 ## 🗂️ PROJECT FILES
 
 ### **Required Files (Must Upload to GitHub)**
-1. **index.html** (~45KB) - Main application
-2. **card-data.json** (~123KB) - Card metadata and rarity rules for 7 main sets
-3. **custom-sets-data.json** (~130KB) - Custom curated sets (Pikachu, Psyduck, Togepi)
+1. **index.html** (~127KB) - Main application
+2. **data/pokemon/official-sets/** - Modular card data for 8 official Pokemon TCG sets
+3. **data/pokemon/custom-sets/** - Modular custom curated sets (Pikachu, Psyduck, Togepi)
 
 ### **File Locations**
 - Repository: https://github.com/lolwtfhunter/blair-pokemon-tracker
-- Both files must be in repository **root directory**
+- Data files are organized in `data/pokemon/` directory structure for better scalability
 
 ---
 
@@ -88,9 +89,17 @@ A web-based Pokemon TCG collection tracker for tracking 1,341+ cards across 7 re
 - Secret rares: Cards 192-252
 - Variants: Regular + Reverse Holo (EX/Secrets = single checkbox)
 
+### **Set 8: Mega Evolution (188 cards)**
+- Main set: Cards 1-132
+- Secret rares: Cards 133-188
+- 10 Mega Evolution ex cards (Mega Venusaur ex, Mega Charizard ex, Mega Blastoise ex, etc.)
+- Release date: September 26, 2025
+- Block: Mega Evolution
+- Variants: Regular + Reverse Holo (EX/Secrets = single checkbox)
+
 ### **Total Regular Collection**
-- 1,341 total cards across 7 sets
-- ~2,500+ total variants to track
+- 1,529 total cards across 8 sets
+- ~2,800+ total variants to track
 
 ### **Custom Sets**
 
@@ -133,7 +142,7 @@ User opens URL
   ↓
 index.html loads
   ↓
-Load card-data.json → Build cardSets
+Load modular set data from data/pokemon/ directory
   ↓
 Show sync code prompt (if not stored)
   ↓
@@ -143,32 +152,39 @@ Validate code → Connect to Firebase
   ↓
 Load saved progress from Firebase
   ↓
-Render all 1,076 cards with variants
+Render all 1,529 cards with variants
   ↓
 Ready to use!
 ```
 
 ### **2. Card Data Loading**
 ```javascript
-// Located in card-data.json
-{
-  "journey-together": {
-    "totalCards": 190,
-    "mainSet": 159,
-    "exCards": [11, 24, 30, ...],
-    "secretRareStart": 160,
-    "trainerCards": [142, 143, ...],
-    "hasPokeBallVariant": false,
-    "hasMasterBallVariant": false
-  }
+// Modular structure: data/pokemon/official-sets/{set-key}.json
+// Each set is loaded individually for better performance
+
+const OFFICIAL_SETS = [
+  'celebrations', 'mega-evolution', 'phantasmal-flames',
+  'ascended-heroes', 'surging-sparks', 'prismatic-evolutions',
+  'journey-together', 'destined-rivals'
+];
+
+// Load each set file
+for (const setKey of OFFICIAL_SETS) {
+  const response = await fetch(`./data/pokemon/official-sets/${setKey}.json`);
+  const setInfo = await response.json();
+  // Process set data...
 }
 
-// JavaScript builds cards dynamically
-for (cardNumber 1 to totalCards) {
-  if (cardNumber in exCards) → rarity = 'ex'
-  else if (cardNumber >= secretRareStart) → rarity = 'secret'
-  else if (cardNumber in trainerCards) → rarity = 'trainer'
-  else → rarity = 'common'
+// Each set file contains full card details:
+{
+  "setKey": "mega-evolution",
+  "totalCards": 188,
+  "mainSet": 132,
+  "cards": {
+    "1": {"name": "Bulbasaur", "rarity": "common", "type": "pokemon"},
+    "3": {"name": "Mega Venusaur ex", "rarity": "ex", "type": "pokemon"},
+    ...
+  }
 }
 ```
 
