@@ -143,7 +143,7 @@
           "apiId": "base1-14"
         },
         "14": {
-          "name": "Pikachu (Pok\u00e9mon Center Tokyo)",
+          "name": "Pikachu (Pokémon Center Tokyo)",
           "rarity": "promo",
           "type": "pokemon",
           "setOrigin": "Pokemon Center Tokyo Promo (JP, 1999)",
@@ -162,7 +162,7 @@
           "apiId": "base2-60"
         },
         "16": {
-          "name": "Pikachu (Pok\u00e9mon Stamp Rally)",
+          "name": "Pikachu (Pokémon Stamp Rally)",
           "rarity": "promo",
           "type": "pokemon",
           "setOrigin": "JR Stamp Rally (JP, 1999)",
@@ -589,7 +589,7 @@
           "apiId": "np-12"
         },
         "57": {
-          "name": "Pikachu \u03b4",
+          "name": "Pikachu δ",
           "rarity": "promo",
           "type": "pokemon",
           "setOrigin": "Nintendo Black Star Promos (np)",
@@ -709,7 +709,7 @@
           "apiId": "pop2-16"
         },
         "70": {
-          "name": "Pikachu \u03b4",
+          "name": "Pikachu δ",
           "rarity": "secret",
           "type": "pokemon",
           "setOrigin": "Legend Maker (ex12)",
@@ -727,7 +727,7 @@
           "apiId": "pop3-16"
         },
         "72": {
-          "name": "Pichu \u03b4",
+          "name": "Pichu δ",
           "rarity": "common",
           "type": "pokemon",
           "setOrigin": "Holon Phantoms (ex13)",
@@ -745,7 +745,7 @@
           "apiId": "ex13-78"
         },
         "74": {
-          "name": "Pikachu \u03b4",
+          "name": "Pikachu δ",
           "rarity": "common",
           "type": "pokemon",
           "setOrigin": "Holon Phantoms (ex13)",
@@ -754,7 +754,7 @@
           "apiId": "ex13-79"
         },
         "75": {
-          "name": "Pikachu \u2605",
+          "name": "Pikachu ★",
           "rarity": "ex",
           "type": "pokemon",
           "setOrigin": "Holon Phantoms (ex13)",
@@ -772,7 +772,7 @@
           "apiId": "ex13-51"
         },
         "77": {
-          "name": "Raichu \u03b4",
+          "name": "Raichu δ",
           "rarity": "rare-holo",
           "type": "pokemon",
           "setOrigin": "Holon Phantoms (ex13)",
@@ -836,7 +836,7 @@
           "apiId": "pop5-12"
         },
         "84": {
-          "name": "Pikachu \u03b4",
+          "name": "Pikachu δ",
           "rarity": "common",
           "type": "pokemon",
           "setOrigin": "POP Series 5 (pop5)",
@@ -873,7 +873,7 @@
           "region": "JP"
         },
         "88": {
-          "name": "Pichu (Pok\u00e9mon Pal City)",
+          "name": "Pichu (Pokémon Pal City)",
           "rarity": "promo",
           "type": "pokemon",
           "setOrigin": "Pokemon Fiesta 2007 (JP)",
@@ -883,7 +883,7 @@
           "region": "JP"
         },
         "89": {
-          "name": "Pikachu (Pok\u00e9mon Pal City)",
+          "name": "Pikachu (Pokémon Pal City)",
           "rarity": "promo",
           "type": "pokemon",
           "setOrigin": "Pokemon Fiesta 2007 (JP)",
@@ -1184,7 +1184,7 @@
           "name": "Pikachu",
           "rarity": "promo",
           "type": "pokemon",
-          "setOrigin": "Pok\u00e9mon Rumble (ru1)",
+          "setOrigin": "Pokémon Rumble (ru1)",
           "originalNumber": "7",
           "releaseDate": "2009/12/02",
           "apiId": "ru1-7"
@@ -1229,7 +1229,7 @@
           "name": "Pikachu",
           "rarity": "common",
           "type": "pokemon",
-          "setOrigin": "HS\u2014Undaunted (hgss3)",
+          "setOrigin": "HS—Undaunted (hgss3)",
           "originalNumber": "61",
           "releaseDate": "2010/08/18",
           "apiId": "hgss3-61"
@@ -1238,7 +1238,7 @@
           "name": "Raichu",
           "rarity": "uncommon",
           "type": "pokemon",
-          "setOrigin": "HS\u2014Undaunted (hgss3)",
+          "setOrigin": "HS—Undaunted (hgss3)",
           "originalNumber": "33",
           "releaseDate": "2010/08/18",
           "apiId": "hgss3-33",
@@ -1349,7 +1349,7 @@
           "region": "JP"
         },
         "138": {
-          "name": "Pikachu (Pok\u00e9mon Center 15th Anniversary)",
+          "name": "Pikachu (Pokémon Center 15th Anniversary)",
           "rarity": "promo",
           "type": "pokemon",
           "setOrigin": "PC 15th Anniversary (JP, 2013)",
@@ -2333,7 +2333,7 @@
           "region": "JP"
         },
         "240": {
-          "name": "Pikachu (Pok\u00e9mon Center 20th Anniversary)",
+          "name": "Pikachu (Pokémon Center 20th Anniversary)",
           "rarity": "promo",
           "type": "pokemon",
           "setOrigin": "SM-P Promo 224 (JP, 2018)",
@@ -2810,7 +2810,7 @@
           "name": "Pikachu on the Ball",
           "rarity": "promo",
           "type": "pokemon",
-          "setOrigin": "Pok\u00e9mon Futsal Collection (fut20)",
+          "setOrigin": "Pokémon Futsal Collection (fut20)",
           "originalNumber": "1",
           "releaseDate": "2020/09/11",
           "apiId": "fut20-1"
@@ -3082,7 +3082,7 @@
           "name": "Pikachu",
           "rarity": "common",
           "type": "pokemon",
-          "setOrigin": "Pok\u00e9mon GO (pgo)",
+          "setOrigin": "Pokémon GO (pgo)",
           "originalNumber": "27",
           "releaseDate": "2022/07/01",
           "apiId": "pgo-27",
@@ -3393,7 +3393,7 @@
           "apiId": "sv5-52"
         },
         "347": {
-          "name": "Pikachu (Pok\u00e9mon Center Hiroshima)",
+          "name": "Pikachu (Pokémon Center Hiroshima)",
           "rarity": "promo",
           "type": "pokemon",
           "setOrigin": "SV-P Promo 261 (JP, 2024)",
@@ -3545,9 +3545,9 @@
     "psyduck": {
       "name": "Psyduck",
       "displayName": "Psyduck",
-      "description": "Every Psyduck card ever printed in the Pokemon TCG",
-      "totalCards": 38,
-      "singleVariantOnly": true,
+      "description": "Every Psyduck card ever printed in the Pokemon TCG, including Japanese exclusives",
+      "totalCards": 36,
+      "singleVariantOnly": false,
       "pokemon": [
         "Psyduck"
       ],
@@ -3724,6 +3724,16 @@
           "apiId": "xy9-16"
         },
         "20": {
+          "name": "Psyduck (Pokekyun Promo)",
+          "rarity": "promo",
+          "type": "pokemon",
+          "setOrigin": "Pokekyun Collection XY-P Promo (JP, 2016)",
+          "originalNumber": "",
+          "releaseDate": "2016/05/01",
+          "apiId": "",
+          "region": "JP"
+        },
+        "21": {
           "name": "Psyduck",
           "rarity": "promo",
           "type": "pokemon",
@@ -3732,7 +3742,7 @@
           "releaseDate": "2017/02/03",
           "apiId": "smp-SM199"
         },
-        "21": {
+        "22": {
           "name": "Psyduck",
           "rarity": "common",
           "type": "pokemon",
@@ -3741,7 +3751,17 @@
           "releaseDate": "2017/02/03",
           "apiId": "sm1-28"
         },
-        "22": {
+        "23": {
+          "name": "Psyduck (Family Card Game)",
+          "rarity": "common",
+          "type": "pokemon",
+          "setOrigin": "Family Pokemon Card Game (JP, SML)",
+          "originalNumber": "013",
+          "releaseDate": "2017/06/16",
+          "apiId": "",
+          "region": "JP"
+        },
+        "24": {
           "name": "Psyduck",
           "rarity": "common",
           "type": "pokemon",
@@ -3750,7 +3770,17 @@
           "releaseDate": "2018/10/16",
           "apiId": "mcd18-2"
         },
-        "23": {
+        "25": {
+          "name": "Psyduck (Munch: The Scream)",
+          "rarity": "promo",
+          "type": "pokemon",
+          "setOrigin": "SM-P Promotional Cards (JP, 2018)",
+          "originalNumber": "286",
+          "releaseDate": "2018/11/02",
+          "apiId": "",
+          "region": "JP"
+        },
+        "26": {
           "name": "Psyduck",
           "rarity": "common",
           "type": "pokemon",
@@ -3759,7 +3789,7 @@
           "releaseDate": "2019/02/01",
           "apiId": "sm9-26"
         },
-        "24": {
+        "27": {
           "name": "Psyduck",
           "rarity": "common",
           "type": "pokemon",
@@ -3768,41 +3798,36 @@
           "releaseDate": "2019/04/05",
           "apiId": "det1-7"
         },
-        "25": {
+        "28": {
           "name": "Slowpoke & Psyduck-GX",
           "rarity": "rare-holo-gx",
           "type": "pokemon",
           "setOrigin": "Unified Minds (sm11)",
           "originalNumber": "35",
           "releaseDate": "2019/08/02",
-          "apiId": "sm11-35"
-        },
-        "26": {
-          "name": "Slowpoke & Psyduck-GX",
-          "rarity": "ultra-rare",
-          "type": "pokemon",
-          "setOrigin": "Unified Minds (sm11)",
-          "originalNumber": "217",
-          "releaseDate": "2019/08/02",
-          "apiId": "sm11-217"
-        },
-        "27": {
-          "name": "Slowpoke & Psyduck-GX",
-          "rarity": "ultra-rare",
-          "type": "pokemon",
-          "setOrigin": "Unified Minds (sm11)",
-          "originalNumber": "218",
-          "releaseDate": "2019/08/02",
-          "apiId": "sm11-218"
-        },
-        "28": {
-          "name": "Slowpoke & Psyduck-GX",
-          "rarity": "hyper-rare",
-          "type": "pokemon",
-          "setOrigin": "Unified Minds (sm11)",
-          "originalNumber": "239",
-          "releaseDate": "2019/08/02",
-          "apiId": "sm11-239"
+          "apiId": "sm11-35",
+          "variants": [
+            {
+              "rarity": "rare-holo-gx",
+              "apiId": "sm11-35",
+              "originalNumber": "35"
+            },
+            {
+              "rarity": "ultra-rare",
+              "apiId": "sm11-217",
+              "originalNumber": "217"
+            },
+            {
+              "rarity": "ultra-rare-alt",
+              "apiId": "sm11-218",
+              "originalNumber": "218"
+            },
+            {
+              "rarity": "hyper-rare",
+              "apiId": "sm11-239",
+              "originalNumber": "239"
+            }
+          ]
         },
         "29": {
           "name": "Psyduck",
@@ -3847,61 +3872,79 @@
           "setOrigin": "151 (sv3pt5)",
           "originalNumber": "54",
           "releaseDate": "2023/09/22",
-          "apiId": "sv3pt5-54"
+          "apiId": "sv3pt5-54",
+          "variants": [
+            {
+              "rarity": "common",
+              "apiId": "sv3pt5-54",
+              "originalNumber": "54"
+            },
+            {
+              "rarity": "illustration-rare",
+              "apiId": "sv3pt5-175",
+              "originalNumber": "175"
+            }
+          ]
         },
         "34": {
-          "name": "Psyduck",
-          "rarity": "illustration-rare",
-          "type": "pokemon",
-          "setOrigin": "151 (sv3pt5)",
-          "originalNumber": "175",
-          "releaseDate": "2023/09/22",
-          "apiId": "sv3pt5-175"
-        },
-        "35": {
           "name": "Misty's Psyduck",
           "rarity": "uncommon",
           "type": "pokemon",
           "setOrigin": "Destined Rivals (sv10)",
           "originalNumber": "45",
           "releaseDate": "2025/05/30",
-          "apiId": "sv10-45"
+          "apiId": "sv10-45",
+          "variants": [
+            {
+              "rarity": "uncommon",
+              "apiId": "sv10-45",
+              "originalNumber": "45"
+            },
+            {
+              "rarity": "illustration-rare",
+              "apiId": "sv10-193",
+              "originalNumber": "193"
+            }
+          ]
+        },
+        "35": {
+          "name": "Psyduck",
+          "rarity": "promo",
+          "type": "pokemon",
+          "setOrigin": "MEP Black Star Promos (mep)",
+          "originalNumber": "7",
+          "releaseDate": "2025/09/26",
+          "apiId": "mep-7"
         },
         "36": {
-          "name": "Misty's Psyduck",
-          "rarity": "illustration-rare",
-          "type": "pokemon",
-          "setOrigin": "Destined Rivals (sv10)",
-          "originalNumber": "193",
-          "releaseDate": "2025/05/30",
-          "apiId": "sv10-193"
-        },
-        "37": {
           "name": "Psyduck",
           "rarity": "common",
           "type": "pokemon",
           "setOrigin": "Ascended Heroes (me2pt5)",
           "originalNumber": "39",
           "releaseDate": "2026/01/30",
-          "apiId": "me2pt5-39"
-        },
-        "38": {
-          "name": "Psyduck",
-          "rarity": "illustration-rare",
-          "type": "pokemon",
-          "setOrigin": "Ascended Heroes (me2pt5)",
-          "originalNumber": "226",
-          "releaseDate": "2026/01/30",
-          "apiId": "me2pt5-226"
+          "apiId": "me2pt5-39",
+          "variants": [
+            {
+              "rarity": "common",
+              "apiId": "me2pt5-39",
+              "originalNumber": "39"
+            },
+            {
+              "rarity": "illustration-rare",
+              "apiId": "me2pt5-226",
+              "originalNumber": "226"
+            }
+          ]
         }
       }
     },
     "togepi": {
       "name": "Togepi",
       "displayName": "Togepi",
-      "description": "Every Togepi card ever printed in the Pokemon TCG",
-      "totalCards": 17,
-      "singleVariantOnly": true,
+      "description": "Every Togepi card ever printed in the Pokemon TCG, including Japanese exclusives",
+      "totalCards": 23,
+      "singleVariantOnly": false,
       "pokemon": [
         "Togepi"
       ],
@@ -3916,6 +3959,16 @@
           "apiId": "basep-30"
         },
         "2": {
+          "name": "Togepi (Meiji Promo)",
+          "rarity": "promo",
+          "type": "pokemon",
+          "setOrigin": "Meiji Chocolate Promo (JP, 1999)",
+          "originalNumber": "",
+          "releaseDate": "1999/01/01",
+          "apiId": "",
+          "region": "JP"
+        },
+        "3": {
           "name": "Togepi",
           "rarity": "uncommon",
           "type": "pokemon",
@@ -3924,7 +3977,17 @@
           "releaseDate": "2000/12/16",
           "apiId": "neo1-51"
         },
-        "3": {
+        "4": {
+          "name": "Togepi (Meiji Gold Series)",
+          "rarity": "promo",
+          "type": "pokemon",
+          "setOrigin": "Meiji Chocolate Gold Series (JP, 2000)",
+          "originalNumber": "",
+          "releaseDate": "2000/01/01",
+          "apiId": "",
+          "region": "JP"
+        },
+        "5": {
           "name": "Togepi",
           "rarity": "common",
           "type": "pokemon",
@@ -3933,7 +3996,26 @@
           "releaseDate": "2001/07/31",
           "apiId": "si1-4"
         },
-        "4": {
+        "6": {
+          "name": "Togepi",
+          "rarity": "uncommon",
+          "type": "pokemon",
+          "setOrigin": "Neo Destiny (neo4)",
+          "originalNumber": "56",
+          "releaseDate": "2002/02/28",
+          "apiId": "neo4-56"
+        },
+        "7": {
+          "name": "Togepi (McDonald's Japan)",
+          "rarity": "promo",
+          "type": "pokemon",
+          "setOrigin": "McDonald's Japan Promo (JP, 2002)",
+          "originalNumber": "035",
+          "releaseDate": "2002/05/25",
+          "apiId": "",
+          "region": "JP"
+        },
+        "8": {
           "name": "Togepi",
           "rarity": "common",
           "type": "pokemon",
@@ -3942,7 +4024,7 @@
           "releaseDate": "2003/01/15",
           "apiId": "ecard2-114"
         },
-        "5": {
+        "9": {
           "name": "Togepi",
           "rarity": "common",
           "type": "pokemon",
@@ -3951,7 +4033,7 @@
           "releaseDate": "2004/06/01",
           "apiId": "ex5-78"
         },
-        "6": {
+        "10": {
           "name": "Togepi",
           "rarity": "uncommon",
           "type": "pokemon",
@@ -3960,7 +4042,7 @@
           "releaseDate": "2004/11/01",
           "apiId": "ex7-50"
         },
-        "7": {
+        "11": {
           "name": "Togepi δ",
           "rarity": "uncommon",
           "type": "pokemon",
@@ -3969,7 +4051,7 @@
           "releaseDate": "2006/11/01",
           "apiId": "ex15-41"
         },
-        "8": {
+        "12": {
           "name": "Togepi",
           "rarity": "common",
           "type": "pokemon",
@@ -3978,7 +4060,7 @@
           "releaseDate": "2008/02/01",
           "apiId": "dp4-88"
         },
-        "9": {
+        "13": {
           "name": "Togepi",
           "rarity": "common",
           "type": "pokemon",
@@ -3987,7 +4069,7 @@
           "releaseDate": "2010/08/18",
           "apiId": "hgss3-70"
         },
-        "10": {
+        "14": {
           "name": "Togepi",
           "rarity": "common",
           "type": "pokemon",
@@ -3996,7 +4078,7 @@
           "releaseDate": "2012/11/07",
           "apiId": "bw7-110"
         },
-        "11": {
+        "15": {
           "name": "Togepi",
           "rarity": "common",
           "type": "pokemon",
@@ -4005,7 +4087,7 @@
           "releaseDate": "2013/02/06",
           "apiId": "bw8-102"
         },
-        "12": {
+        "16": {
           "name": "Togepi",
           "rarity": "common",
           "type": "pokemon",
@@ -4014,7 +4096,16 @@
           "releaseDate": "2015/05/06",
           "apiId": "xy6-43"
         },
-        "13": {
+        "17": {
+          "name": "Togepi",
+          "rarity": "promo",
+          "type": "pokemon",
+          "setOrigin": "McDonald's Collection 2016 (mcd16)",
+          "originalNumber": "9",
+          "releaseDate": "2016/08/19",
+          "apiId": "mcd16-9"
+        },
+        "18": {
           "name": "Togepi",
           "rarity": "common",
           "type": "pokemon",
@@ -4023,16 +4114,28 @@
           "releaseDate": "2019/05/03",
           "apiId": "sm10-136"
         },
-        "14": {
-          "name": "Togepi",
-          "rarity": "common",
+        "19": {
+          "name": "Togepi & Cleffa & Igglybuff-GX",
+          "rarity": "rare-holo-gx",
           "type": "pokemon",
-          "setOrigin": "Brilliant Stars (swsh9)",
-          "originalNumber": "73",
-          "releaseDate": "2022/02/25",
-          "apiId": "swsh9-73"
+          "setOrigin": "Cosmic Eclipse (sm12)",
+          "originalNumber": "143",
+          "releaseDate": "2019/11/01",
+          "apiId": "sm12-143",
+          "variants": [
+            {
+              "rarity": "rare-holo-gx",
+              "apiId": "sm12-143",
+              "originalNumber": "143"
+            },
+            {
+              "rarity": "ultra-rare",
+              "apiId": "sm12-143a",
+              "originalNumber": "143a"
+            }
+          ]
         },
-        "15": {
+        "20": {
           "name": "Togepi",
           "rarity": "common",
           "type": "pokemon",
@@ -4041,7 +4144,7 @@
           "releaseDate": "2022/05/27",
           "apiId": "swsh10-55"
         },
-        "16": {
+        "21": {
           "name": "Togepi",
           "rarity": "common",
           "type": "pokemon",
@@ -4050,7 +4153,7 @@
           "releaseDate": "2023/08/11",
           "apiId": "sv3-83"
         },
-        "17": {
+        "22": {
           "name": "Togepi",
           "rarity": "common",
           "type": "pokemon",
@@ -4058,6 +4161,15 @@
           "originalNumber": "70",
           "releaseDate": "2024/11/08",
           "apiId": "sv8-70"
+        },
+        "23": {
+          "name": "Togepi",
+          "rarity": "common",
+          "type": "pokemon",
+          "setOrigin": "Ascended Heroes (me2pt5)",
+          "originalNumber": "80",
+          "releaseDate": "2026/01/30",
+          "apiId": "me2pt5-80"
         }
       }
     }

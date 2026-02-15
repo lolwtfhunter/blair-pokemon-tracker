@@ -890,8 +890,11 @@
         .rarity-special-illustration-rare { 
             background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); 
         }
-        .rarity-ultra-rare { 
-            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); 
+        .rarity-ultra-rare, .rarity-ultra-rare-alt {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+        .rarity-rare-holo-gx {
+            background: linear-gradient(135deg, #00d2ff 0%, #3a7bd5 100%);
         }
         .rarity-hyper-rare { 
             background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); 
@@ -1568,6 +1571,8 @@
             'shiny-rare': 'SHINY',
             'promo': 'PROMO',
             'rare-holo': 'RARE HOLO',
+            'rare-holo-gx': 'HOLO GX',
+            'ultra-rare-alt': 'ALT ART UR',
             'trainer': 'TRAINER',
             'energy': 'ENERGY'
         };
@@ -1711,7 +1716,7 @@
                         displayName: setInfo.displayName,
                         description: setInfo.description || '',
                         totalCards: setInfo.totalCards,
-                        singleVariantOnly: setInfo.singleVariantOnly || true,
+                        singleVariantOnly: setInfo.singleVariantOnly !== false,
                         cards: cards
                     };
 
