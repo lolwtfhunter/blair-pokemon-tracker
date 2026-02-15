@@ -756,7 +756,80 @@
         
         const SYNC_CODE = 'Blair2024';
         const SYNC_CODE_KEY = 'blair_sync_code';
+
+        // Pokemon TCG API set ID mapping (for card images from pokemontcg.io CDN)
+        const TCG_API_SET_IDS = {
+            'prismatic-evolutions': 'sv8pt5',
+            'journey-together': 'sv9',
+            'destined-rivals': 'sv10',
+            'phantasmal-flames': 'me2',
+            'ascended-heroes': 'me2pt5'
+        };
+
+        // Get card image URL from Pokemon TCG API
+        function getCardImageUrl(setKey, cardNumber) {
+            const apiSetId = TCG_API_SET_IDS[setKey];
+            if (apiSetId) {
+                return `https://images.pokemontcg.io/${apiSetId}/${cardNumber}.png`;
+            }
+            // Fallback to local path
+            return `Images/cards/${setKey}/${String(cardNumber).padStart(3, '0')}.png`;
+        }
         
+        // Handle card image load errors with cascading fallback:
+        // 1. Pokemon TCG API CDN -> 2. Local image -> 3. Generated placeholder
+        function handleImgError(img) {
+            const localSrc = img.getAttribute('data-local-src');
+            if (localSrc && img.src.indexOf('images.pokemontcg.io') !== -1) {
+                // API image failed, try local image
+                img.onerror = function() {
+                    // Local also failed, show placeholder
+                    const name = img.getAttribute('data-card-name');
+                    const number = img.getAttribute('data-card-number');
+                    const rarity = img.getAttribute('data-card-rarity');
+                    img.parentElement.innerHTML = generatePlaceholder(name, number, rarity);
+                };
+                img.src = localSrc;
+            } else {
+                // Local image failed (or no API URL was used), show placeholder
+                const name = img.getAttribute('data-card-name');
+                const number = img.getAttribute('data-card-number');
+                const rarity = img.getAttribute('data-card-rarity');
+                img.parentElement.innerHTML = generatePlaceholder(name, number, rarity);
+            }
+        }
+
+        // Generate a styled placeholder when no card image is available
+        function generatePlaceholder(name, number, rarity) {
+            const num = String(number).padStart(3, '0');
+            const colors = {
+                'common': '#888',
+                'uncommon': '#4a9eff',
+                'rare': '#9d4aff',
+                'ex': '#ff6b6b',
+                'illustration-rare': '#764ba2',
+                'special-illustration-rare': '#f5576c',
+                'ultra-rare': '#00f2fe',
+                'hyper-rare': '#fee140',
+                'double-rare': '#fed6e3',
+                'secret': '#ffd700',
+                'ace-spec': '#ffd700',
+                'trainer': '#ff9500',
+                'energy': '#48c774'
+            };
+            const color = colors[rarity] || '#888';
+            const escapedName = name.replace(/'/g, '&#39;').replace(/"/g, '&quot;');
+            return `<div class="card-img-placeholder" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;width:100%;height:100%;background:rgba(255,255,255,0.03);border:1px dashed rgba(255,255,255,0.15);border-radius:6px;">
+                <svg width="32" height="32" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="opacity:0.4">
+                    <circle cx="50" cy="50" r="45" fill="none" stroke="${color}" stroke-width="4"/>
+                    <path d="M5 50 H95" stroke="${color}" stroke-width="4"/>
+                    <circle cx="50" cy="50" r="12" fill="none" stroke="${color}" stroke-width="4"/>
+                </svg>
+                <span style="font-size:0.7rem;opacity:0.5;font-weight:600">#${num}</span>
+                <span style="font-size:0.55rem;opacity:0.3;text-align:center;padding:0 4px;line-height:1.2">${escapedName}</span>
+            </div>`;
+        }
+
         // Variant configurations
         const variantLabels = {
             'single': { label: 'Collected', icon: '✓' },
@@ -1048,12 +1121,19 @@
                     variantHTML = '<div class="variant-checkboxes">' + variantHTML + '</div>';
                 }
                 
+                const apiImgUrl = getCardImageUrl(setKey, card.number);
+                const localImgUrl = `Images/cards/${setKey}/${String(card.number).padStart(3, '0')}.png`;
+
                 cardEl.innerHTML = `
                     <div class="card-img-wrapper">
-                        <img src="Images/cards/${setKey}/${String(card.number).padStart(3, '0')}.png"
-                             alt="${card.name}"
+                        <img src="${apiImgUrl}"
+                             alt="${card.name.replace(/"/g, '&quot;')}"
                              loading="lazy"
-                             onerror="this.parentElement.innerHTML='<div class=\'card-img-placeholder\'>No Image</div>'">
+                             data-local-src="${localImgUrl}"
+                             data-card-name="${card.name.replace(/"/g, '&quot;')}"
+                             data-card-number="${card.number}"
+                             data-card-rarity="${card.rarity}"
+                             onerror="handleImgError(this)">
                     </div>
                     <div class="card-header">
                         <div class="card-info">
