@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Blair TCG Tracker</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #1a1a4e 0%, #2d1b69 50%, #1a3a5c 100%);
+            color: #f1f1f1;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: #ffd700;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #64b5f6;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        h2 {
+            font-size: 1.3rem;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            color: #ffd700;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding-bottom: 8px;
+        }
+
+        p {
+            margin-bottom: 15px;
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        strong {
+            color: #fff;
+        }
+
+        ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 8px;
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        a {
+            color: #64b5f6;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-right: 8px;
+            margin-bottom: 8px;
+        }
+
+        .badge-feature {
+            background: rgba(100, 181, 246, 0.2);
+            color: #64b5f6;
+        }
+
+        .footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            text-align: center;
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            h2 {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">← Back to Tracker</a>
+
+        <h1>About Blair TCG Tracker</h1>
+        <p style="font-style: italic; color: rgba(255, 255, 255, 0.7);">A mobile-friendly web app for tracking trading card collections</p>
+
+        <h2>What is This?</h2>
+        <p>
+            Blair TCG Tracker is a <strong>free, open-source collection management tool</strong> for trading card game enthusiasts. It helps you track which cards you own, manage variants (regular, holo, reverse holo, etc.), and monitor your collection progress across multiple sets.
+        </p>
+
+        <h2>Key Features</h2>
+        <div>
+            <span class="badge badge-feature">Hierarchical Navigation</span>
+            <span class="badge badge-feature">Variant Tracking</span>
+            <span class="badge badge-feature">Cloud Sync</span>
+            <span class="badge badge-feature">Offline Support</span>
+            <span class="badge badge-feature">Progress Bars</span>
+            <span class="badge badge-feature">Card Search</span>
+            <span class="badge badge-feature">Mobile Friendly</span>
+        </div>
+
+        <h2>Supported Games</h2>
+        <ul>
+            <li><strong>Pokémon TCG</strong> - 8 official sets spanning Sword & Shield, Scarlet & Violet, and Mega Evolution blocks</li>
+            <li><strong>Custom Pokémon Sets</strong> - Cross-era collections (e.g., all Pikachu cards, all Psyduck cards)</li>
+            <li><strong>Disney Lorcana</strong> - Coming soon</li>
+        </ul>
+
+        <h2>How It Works</h2>
+        <p>
+            The tracker uses a two-level hierarchical navigation for official sets:
+        </p>
+        <ol style="margin-left: 20px; margin-bottom: 15px;">
+            <li><strong>Select a Block</strong> - Choose from Scarlet & Violet, Mega Evolution, or Sword & Shield</li>
+            <li><strong>Select a Set</strong> - View sets within that block with official logos and progress</li>
+            <li><strong>Track Cards</strong> - Check off variants as you collect them</li>
+        </ol>
+        <p>
+            Custom sets display as a flat list for quick access. All progress automatically syncs across your devices via Firebase (optional).
+        </p>
+
+        <h2>Technical Details</h2>
+        <ul>
+            <li><strong>Frontend:</strong> Vanilla HTML/CSS/JavaScript (no frameworks)</li>
+            <li><strong>Database:</strong> Firebase Realtime Database (cloud sync)</li>
+            <li><strong>Storage:</strong> localStorage (offline persistence)</li>
+            <li><strong>Images:</strong> Pokémon TCG API and TCGdex CDN</li>
+            <li><strong>Hosting:</strong> GitHub Pages</li>
+        </ul>
+
+        <h2>Data & Privacy</h2>
+        <p>
+            Your collection data is stored locally in your browser using localStorage. If you enable cloud sync:
+        </p>
+        <ul>
+            <li>Data syncs to Firebase Realtime Database</li>
+            <li>Protected by a family sync code</li>
+            <li>No personal information collected</li>
+            <li>No analytics or tracking</li>
+            <li>No data sold to third parties</li>
+        </ul>
+
+        <h2>Open Source</h2>
+        <p>
+            This project is open source and available on GitHub. Contributions, bug reports, and feature requests are welcome!
+        </p>
+        <p>
+            <a href="https://github.com/lolwtfhunter/blair-pokemon-tracker" target="_blank" rel="noopener">View on GitHub →</a>
+        </p>
+
+        <h2>Documentation</h2>
+        <p>
+            For developers and contributors:
+        </p>
+        <ul>
+            <li><a href="https://github.com/lolwtfhunter/blair-pokemon-tracker/blob/main/README.md" target="_blank" rel="noopener">README</a> - Project overview</li>
+            <li><a href="https://github.com/lolwtfhunter/blair-pokemon-tracker/blob/main/ADDING_NEW_SETS.md" target="_blank" rel="noopener">Adding New Sets</a> - Step-by-step guide</li>
+            <li><a href="https://github.com/lolwtfhunter/blair-pokemon-tracker/blob/main/CARD_GAME_LOGIC.md" target="_blank" rel="noopener">Card Game Logic</a> - Technical reference</li>
+            <li><a href="https://github.com/lolwtfhunter/blair-pokemon-tracker/blob/main/PROJECT_MASTER.md" target="_blank" rel="noopener">Project Master</a> - Detailed documentation</li>
+        </ul>
+
+        <h2>Credits</h2>
+        <p>
+            Card data and images sourced from:
+        </p>
+        <ul>
+            <li><a href="https://pokemontcg.io/" target="_blank" rel="noopener">Pokémon TCG API</a></li>
+            <li><a href="https://tcgdex.net/" target="_blank" rel="noopener">TCGdex</a></li>
+            <li>Official Pokémon Company resources</li>
+        </ul>
+
+        <div class="footer">
+            <p>Built with ❤️ for TCG collectors</p>
+            <p><a href="index.html">Return to Tracker</a> · <a href="legal.html">Legal</a></p>
+        </div>
+    </div>
+</body>
+</html>
