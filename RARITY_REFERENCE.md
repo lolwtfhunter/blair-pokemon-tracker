@@ -13,6 +13,8 @@
 | **secret** | Single | Cards numbered beyond set (e.g., 160/159) |
 | **trainer** | Regular + Reverse Holo | Trainer cards |
 | **energy** | Regular + Reverse Holo | Special energy cards |
+| **rare-holo** | Single | Inherently holo rare cards (WotC/e-card era) |
+| **rare-holo-gx** | Single | GX holo cards (Sun & Moon era) |
 
 ### 🔮 Future-Proof Rarities (Ready to Use)
 
@@ -64,6 +66,7 @@ These rarities are already coded into the tracker and will automatically work wi
 
 ### Supported Rarity Values:
 - `common`, `uncommon`, `rare`
+- `rare-holo`, `rare-holo-gx`
 - `ex`, `secret`
 - `illustration-rare`, `special-illustration-rare`
 - `ultra-rare`, `hyper-rare`, `double-rare`
@@ -122,6 +125,35 @@ The Journey Together set has proper secret rare classifications:
 | #186-190 | Hyper Rare | 5 | Rainbow trainers, Gold Spiky Energy |
 
 **Each type has unique gradient styling in the UI!**
+
+---
+
+## Custom Set Variant Rules
+
+Custom set cards use computed variants based on multiple factors (via `getCustomCardVariants`):
+
+### Single Variant (one "Collected" checkbox)
+| Condition | Reason |
+|-----------|--------|
+| Explicit `card.variants` array | WotC holo/non-holo pairs (uses those variant keys) |
+| `region === 'JP'` | Japanese exclusives don't track reverse holos |
+| `SINGLE_VARIANT_RARITIES` | Promos, ultra rares, illustration rares, etc. |
+| `rare-holo` / `rare-holo-gx` | Inherently holo (non-holo is separate entry) |
+| `energy` | Basic energies |
+| `releaseDate < '2002/06'` | Pre-reverse-holo era (before Expedition Base Set) |
+| Set origin contains: McDonald's, Southern Islands, POP Series, Best Of, Celebrations, Black Star | Special sets without reverse holos |
+
+### Multi-Variant
+| Rarity | Variants | Example |
+|--------|----------|---------|
+| `rare` (2002+, main set) | Holo + Reverse Holo | Butterfree from EX Ruby & Sapphire |
+| `common` / `uncommon` (2002+, main set) | Regular + Reverse Holo | Misty's Psyduck from Destined Rivals |
+
+### Key Differences from Regular Sets
+- Custom sets span all eras (1996-2026), so release date gating is essential
+- Cards from special products (McDonald's, promo boxes) are always single variant
+- JP-exclusive cards are always single variant
+- WotC holo/non-holo pairs use explicit `variants` arrays in the data
 
 ---
 

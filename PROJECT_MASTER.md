@@ -1,6 +1,6 @@
 # Blair Pokemon Master Set Tracker - Project Master Document
 
-**Version:** 3.1.1
+**Version:** 3.2.0
 **Last Updated:** February 15, 2026
 **Live URL:** https://lolwtfhunter.github.io/blair-pokemon-tracker/
 **Sync Code:** Blair2024
@@ -9,12 +9,12 @@
 
 ## 📋 PROJECT OVERVIEW
 
-A web-based Pokemon TCG collection tracker for tracking 1,076 cards across 5 sets with real-time cloud sync between devices. Built for Blair and family to track their master set collection with proper variant tracking (Regular, Reverse Holo, Poké Ball, Master Ball).
+A web-based Pokemon TCG collection tracker for tracking 1,341+ cards across 7 regular sets and 3 custom sets with real-time cloud sync between devices. Built for Blair and family to track their master set collection with proper variant tracking (Regular, Reverse Holo, Poké Ball, Master Ball).
 
 ### **Core Features**
-- ✅ Track 1,076 cards across 5 Pokemon TCG sets
-- ✅ Custom curated sets (e.g., "It's Pikachu!" - 375 cards)
-- ✅ Japanese-exclusive card tracking with JP badges
+- ✅ Track 1,341 cards across 7 Pokemon TCG sets
+- ✅ 3 custom curated sets (437 cards across Pikachu, Psyduck, and Togepi)
+- ✅ Japanese-exclusive card tracking with JP badges and EN/JP subtabs
 - ✅ Variant tracking per card (Regular, Reverse Holo, Poké Ball, Master Ball)
 - ✅ Real-time sync between devices via Firebase
 - ✅ Password-protected with sync code
@@ -31,9 +31,9 @@ A web-based Pokemon TCG collection tracker for tracking 1,076 cards across 5 set
 ## 🗂️ PROJECT FILES
 
 ### **Required Files (Must Upload to GitHub)**
-1. **index.html** (~40KB) - Main application
-2. **card-data.json** (~123KB) - Card metadata and rarity rules for 5 main sets
-3. **custom-sets-data.json** (~95KB) - Custom curated sets (e.g., "It's Pikachu!")
+1. **index.html** (~45KB) - Main application
+2. **card-data.json** (~123KB) - Card metadata and rarity rules for 7 main sets
+3. **custom-sets-data.json** (~130KB) - Custom curated sets (Pikachu, Psyduck, Togepi)
 
 ### **File Locations**
 - Repository: https://github.com/lolwtfhunter/blair-pokemon-tracker
@@ -78,9 +78,29 @@ A web-based Pokemon TCG collection tracker for tracking 1,076 cards across 5 set
 - Secret rares: Cards 218-295
 - Variants: Regular + Reverse Holo (EX/Secrets = single checkbox)
 
-### **Total Collection**
-- 1,076 total cards
+### **Set 6: Celebrations (50 cards)**
+- Main set: Cards 1-25
+- Classic Collection: Cards 26-50
+- All single variant (singleVariantOnly: true)
+
+### **Set 7: Surging Sparks (252 cards)**
+- Main set: Cards 1-191
+- Secret rares: Cards 192-252
+- Variants: Regular + Reverse Holo (EX/Secrets = single checkbox)
+
+### **Total Regular Collection**
+- 1,341 total cards across 7 sets
 - ~2,500+ total variants to track
+
+### **Custom Sets**
+
+| Set | Pokemon | Cards | Date Range | Features |
+|-----|---------|-------|------------|----------|
+| It's Pikachu! | Pichu, Pikachu, Raichu | 371 | 1996-2026 | JP exclusives, WotC holo/non-holo variant pairs |
+| Psyduck | Psyduck | 42 | 1999-2026 | JP exclusives, TAG TEAM GX, Delta Species |
+| Togepi | Togepi | 24 | 1999-2026 | JP exclusives, Delta Species |
+
+**Total Custom Set Cards**: 437 cards across 3 sets
 
 ---
 
@@ -153,25 +173,29 @@ for (cardNumber 1 to totalCards) {
 ```
 
 ### **3. Variant Determination**
+
+**Regular Sets** (`getVariants`):
 ```javascript
 function getVariants(card, setKey) {
-  // EX and Secret Rares
-  if (card.rarity === 'ex' || card.rarity === 'secret') {
-    return ['single']; // One checkbox: "Collected"
-  }
-  
-  // Prismatic Evolutions - Pokemon
-  if (setKey === 'prismatic-evolutions' && card.type === 'pokemon') {
-    return ['regular', 'reverse-holo', 'pokeball', 'masterball'];
-  }
-  
-  // Prismatic Evolutions - Trainers
-  if (setKey === 'prismatic-evolutions' && card.type === 'trainer') {
-    return ['regular', 'reverse-holo', 'pokeball'];
-  }
-  
-  // Default for all other cards
-  return ['regular', 'reverse-holo'];
+  if (setData.singleVariantOnly) return ['single'];  // e.g. Celebrations
+  if (SINGLE_VARIANT_RARITIES.includes(rarity)) return ['single'];
+  if (rarity === 'rare') return ['holo', 'reverse-holo'];
+  // Prismatic Evolutions special cases for pokeball/masterball...
+  return ['regular', 'reverse-holo'];  // common, uncommon, trainer, energy
+}
+```
+
+**Custom Sets** (`getCustomCardVariants`):
+```javascript
+function getCustomCardVariants(card) {
+  if (card.variants) return card.variants.map(v => v.rarity);  // Explicit pairs
+  if (card.region === 'JP') return ['single'];
+  if (SINGLE_VARIANT_RARITIES.includes(rarity)) return ['single'];
+  if (rarity === 'rare-holo' || 'rare-holo-gx' || 'energy') return ['single'];
+  if (releaseDate < '2002/06') return ['single'];  // Pre-reverse-holo era
+  if (setOrigin matches special sets) return ['single'];  // McDonald's, etc.
+  if (rarity === 'rare') return ['holo', 'reverse-holo'];
+  return ['regular', 'reverse-holo'];  // common, uncommon default
 }
 ```
 
@@ -394,11 +418,12 @@ initializeFirebaseSync();
 
 ## 📝 KNOWN LIMITATIONS
 
-1. **Card Names:** Currently shows "#001", "#002" instead of real names
-2. **Card Images:** No card images (placeholder icons only)
+1. ~~**Card Names:** Currently shows "#001", "#002" instead of real names~~ **RESOLVED** - All cards now have real names
+2. ~~**Card Images:** No card images (placeholder icons only)~~ **RESOLVED** - Images load from Pokemon TCG API CDN
 3. **Manual EX Lists:** EX cards must be manually listed in JSON
 4. **No Card Details:** No HP, attacks, or card text
 5. **Single User Auth:** One sync code for all family members
+6. **JP Card Images:** No free CDN exists for Japanese-exclusive promo card images; these show styled placeholders
 
 ---
 
@@ -441,12 +466,14 @@ initializeFirebaseSync();
 
 ## 📊 PROJECT STATISTICS
 
-- **Total Cards:** 1,076
-- **Total Variants:** ~2,500+
-- **Total Sets:** 5
-- **Code Lines:** ~1,300 (index.html)
-- **Data Size:** 3.6KB (card-data.json)
-- **App Size:** 47KB (index.html)
+- **Regular Set Cards:** 1,341
+- **Custom Set Cards:** 437 (371 Pikachu + 42 Psyduck + 24 Togepi)
+- **Total Cards:** 1,778
+- **Total Variants:** ~3,000+
+- **Regular Sets:** 7
+- **Custom Sets:** 3
+- **App Size:** ~45KB (index.html)
+- **Card Data:** ~123KB (card-data.json) + ~130KB (custom-sets-data.json)
 - **Dependencies:** Firebase SDK only (loaded via CDN)
 
 ---
@@ -457,7 +484,10 @@ initializeFirebaseSync();
 Loads card-data.json and builds cardSets object with proper rarities.
 
 ### **getVariants(card, setKey)**
-Determines which variant checkboxes to show based on card rarity and set.
+Determines which variant checkboxes to show based on card rarity and set (regular sets only).
+
+### **getCustomCardVariants(card)**
+Computes variant checkboxes for custom set cards based on rarity, release date, region, and set origin. Returns computed variants like `['regular', 'reverse-holo']` for modern commons/uncommons, `['holo', 'reverse-holo']` for rares, or `['single']` for promos, JP exclusives, pre-2002 cards, and high-rarity cards. Explicit variant arrays (WotC holo/non-holo pairs) take priority over computed variants.
 
 ### **toggleVariant(setKey, cardNumber, variant)**
 Updates collection progress and syncs to Firebase when checkbox clicked.
@@ -478,6 +508,9 @@ Displays fullscreen modal requiring valid sync code entry.
 
 ## 📅 VERSION HISTORY
 
+- **v3.2.0** (Feb 15, 2026) - Computed variant logic for custom sets, card data fixes, variant rule corrections
+- **v3.1.1** (Feb 15, 2026) - Added Psyduck and Togepi custom sets (55 new cards)
+- **v3.1.0** (Feb 15, 2026) - UX improvements: Filter/search controls, card detail modal, lazy loading, updated branding
 - **v3.0.0** (Feb 15, 2026) - "It's Pikachu!" custom set: 375 cards (263 EN + 112 JP-exclusive)
 - **v2.0.0** (Feb 14, 2026) - Card data system with proper rarity detection
 - **v1.5.0** (Feb 14, 2026) - Mandatory sync code authentication
@@ -490,7 +523,7 @@ Displays fullscreen modal requiring valid sync code entry.
 **Live URL:** https://lolwtfhunter.github.io/blair-pokemon-tracker/  
 **Sync Code:** Blair2024  
 **Repository:** https://github.com/lolwtfhunter/blair-pokemon-tracker  
-**Files to Upload:** index.html + card-data.json  
+**Files to Upload:** index.html + card-data.json + custom-sets-data.json  
 **Firebase Project:** blair-pokemon-tracker  
 
 **Logout:** Click 🔄 button  
@@ -2719,11 +2752,6 @@ Both sets automatically integrate with existing custom set infrastructure:
 ### **Version History Update**
 
 - **v3.1.1** (Feb 15, 2026) - Added Psyduck and Togepi custom sets (55 new cards)
-- **v3.1.0** (Feb 15, 2026) - UX improvements: Filter/search controls, card detail modal, lazy loading, updated branding
-- **v3.0.0** (Feb 15, 2026) - "It's Pikachu!" custom set: 375 cards (263 EN + 112 JP-exclusive)
-- **v2.0.0** (Feb 14, 2026) - Card data system with proper rarity detection
-- **v1.5.0** (Feb 14, 2026) - Mandatory sync code authentication
-- **v1.0.0** (Feb 14, 2026) - Initial release with Firebase sync
 
 ### **Testing Completed**
 
@@ -2738,4 +2766,126 @@ Both sets automatically integrate with existing custom set infrastructure:
 ✅ Card detail modal opens for both sets
 ✅ Progress tracking calculates correctly
 ✅ No evolution cards (Golduck/Togetic/Togekiss) included
+
+
+---
+
+## 📅 SESSION: February 15, 2026 - Custom Set Data Corrections & Computed Variant Logic
+
+### **Context**
+Multiple rounds of corrections and improvements to custom set data accuracy, variant merging rules, card name verification, and variant computation logic for custom sets.
+
+### **Major Updates**
+
+#### 1. Psyduck & Togepi Sets: Missing Cards and JP Exclusives
+
+**Research via Pokemon TCG API and web sources** identified missing cards and Japanese exclusives:
+
+**Psyduck** (38 → 42 cards):
+- Added 1 missing EN card: `mep-7` (Mega Evolution Promo)
+- Added 3 JP exclusives: Pokekyun Collection, Family Card Game, Munch "The Scream" collaboration
+- Set now includes `region: "JP"` field for Japanese-exclusive cards
+- EN/JP subtab toggle automatically enabled
+
+**Togepi** (17 → 24 cards):
+- Removed incorrect card: `swsh9-73` (was actually Nosepass, not Togepi)
+- Added 4 missing EN cards: `neo4-56`, `mcd16-9`, `sm12-143/143a`, `me2pt5-80`
+- Added 3 JP exclusives: Meiji Promo, Meiji Reverse Holo, McDonald's Japan
+- EN/JP subtab toggle automatically enabled
+
+#### 2. Variant Merging Rule Correction
+
+**User clarified** the correct variant merging rules:
+- Each unique card number in a set is a **separate entry** in the custom set
+- Only true holo/non-holo variants of the **same card** (same art, same number) should be merged
+- This applies primarily to WotC and e-card era cards where the same card was printed in both holo and non-holo versions
+
+**Changes made:**
+- **Pikachu set**: 362 → 371 cards (9 incorrectly merged cards split back out)
+- **Psyduck set**: Un-merged all variant arrays (4 groups split)
+- **Togepi set**: Un-merged 1 variant group
+- Only 4 valid variant pairs remain in Pikachu set (WotC/e-card holo/non-holo pairs)
+- Removed `ultra-rare-alt` rarity workaround (no longer needed)
+
+#### 3. Destined Rivals Card Name Fixes
+
+Cards #233-238 had incorrect names from pre-release/placeholder data:
+
+| # | Was (incorrect) | Now (correct) |
+|---|-----------------|---------------|
+| 233 | Team Rocket's Crobat ex | Team Rocket's Nidoking ex |
+| 234 | Marnie's Grimmsnarl ex | Team Rocket's Crobat ex |
+| 235 | Steven's Metagross ex | Arven's Mabosstiff ex |
+| 236 | Arven | Ethan's Adventure |
+| 237 | Cynthia | Team Rocket's Ariana |
+| 238 | Ethan | Team Rocket's Giovanni |
+
+Fixed directly in `card-data.json`.
+
+#### 4. Card Modal Set Name Display Fix
+
+**Issue:** When viewing a custom set card's detail modal, the "Set:" field showed the custom collection name (e.g., "Psyduck") instead of the card's origin set name (e.g., "Destined Rivals (sv10)").
+
+**Fix:** Changed modal logic to check `card.setOrigin` first:
+```javascript
+setName = card && card.setOrigin ? card.setOrigin : (setData ? setData.name : '');
+```
+
+#### 5. Computed Variant Logic for Custom Set Cards
+
+**Issue:** All custom set cards without explicit `variants` arrays showed a single "Collected" checkbox, even modern cards that should have Regular + Reverse Holo variants.
+
+**Example:** Misty's Psyduck #45 from Destined Rivals (uncommon, 2025) should show Regular + Reverse Holo, but only showed a single checkbox.
+
+**Solution:** Rewrote `getCustomCardVariants(card)` to compute variants based on card properties:
+
+| Condition | Variants |
+|-----------|----------|
+| Explicit `card.variants` array | Uses those (WotC holo/non-holo pairs) |
+| Japanese (`region: "JP"`) | Single |
+| `SINGLE_VARIANT_RARITIES` list | Single |
+| `rare-holo`, `rare-holo-gx` | Single |
+| `energy` | Single |
+| Pre-June 2002 (`releaseDate < 2002/06`) | Single |
+| Special sets (McDonald's, Celebrations, POP Series, Black Star, Southern Islands, Best Of) | Single |
+| `rare` rarity | Holo + Reverse Holo |
+| Common/Uncommon (default) | Regular + Reverse Holo |
+
+**Also updated `renderCustomCards()`:**
+- `hasMultiVariants` now checks computed `variants.length > 1` instead of `card.variants` data array
+- Multi-variant rendering uses `variantLabels` (with icons) for computed variants
+- Explicit variant data (WotC holo/non-holo pairs) continues to use `card.variants` objects
+
+**Modal code** required no changes — already had a fallback path using `variantLabels` for non-explicit variants.
+
+#### 6. New Rarity Types
+
+Added support for two additional rarity types used in custom sets:
+- `rare-holo` — Holo rare cards (inherently holo, displayed as "RARE HOLO")
+- `rare-holo-gx` — GX holo cards (displayed as "HOLO GX")
+
+Both are treated as single-variant (the non-holo version is a separate card entry).
+
+#### 7. singleVariantOnly Loading Bug Fix
+
+**Bug:** `setInfo.singleVariantOnly || true` always evaluates to `true` (since `false || true === true`).
+**Fix:** Changed to `setInfo.singleVariantOnly !== false`.
+
+### **Files Modified**
+
+| File | Changes |
+|------|---------|
+| `index.html` | `getCustomCardVariants()` rewrite, `renderCustomCards()` update, modal set name fix, new rarity CSS/display names, singleVariantOnly bug fix |
+| `custom-sets-data.json` | Psyduck expanded to 42 cards, Togepi expanded to 24 cards, Pikachu expanded to 371 cards, JP cards added, invalid variants un-merged |
+| `card-data.json` | Destined Rivals cards #233-238 name corrections |
+
+### **Custom Sets Summary (Updated)**
+
+| Set | Cards | EN | JP | Variant Pairs |
+|-----|-------|----|----|---------------|
+| It's Pikachu! | 371 | 259 | 112 | 4 (WotC holo/non-holo) |
+| Psyduck | 42 | 39 | 3 | 0 |
+| Togepi | 24 | 21 | 3 | 0 |
+
+**Total Custom Set Cards**: 437
 
