@@ -1257,6 +1257,86 @@
                 padding: 6px 32px 6px 10px;
             }
         }
+
+        /* Footer Styles */
+        .app-footer {
+            background: linear-gradient(135deg, #1a1a4e 0%, #2d1b69 50%, #1a3a5c 100%);
+            color: rgba(255, 255, 255, 0.8);
+            padding: 30px 20px 20px;
+            margin-top: 40px;
+            border-top: 2px solid rgba(255, 215, 0, 0.2);
+            font-size: 0.85rem;
+            line-height: 1.6;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-section {
+            margin-bottom: 20px;
+        }
+
+        .footer-title {
+            color: #ffd700;
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .footer-disclaimer {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.8rem;
+            line-height: 1.5;
+            margin-bottom: 12px;
+        }
+
+        .footer-trademark {
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.6);
+            margin-top: 8px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 8px;
+        }
+
+        .footer-link {
+            color: #64b5f6;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-link:hover {
+            color: #ffd700;
+            text-decoration: underline;
+        }
+
+        .footer-credit {
+            text-align: center;
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.75rem;
+        }
+
+        @media (max-width: 768px) {
+            .app-footer {
+                padding: 25px 15px 15px;
+                font-size: 0.8rem;
+            }
+            .footer-links {
+                flex-direction: column;
+                gap: 8px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -3155,5 +3235,51 @@
             </div>
         </div>
     </div>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-title">Disclaimer</div>
+                <div class="footer-disclaimer">
+                    This is an unofficial, fan-made collection tracking tool. This application is not affiliated with, endorsed by, or sponsored by The Pokémon Company International, Nintendo, Game Freak, Creatures Inc., or The Walt Disney Company.
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <div class="footer-title">Intellectual Property</div>
+                <div class="footer-disclaimer">
+                    <strong>Pokémon:</strong> Pokémon and all related marks and logos are trademarks of Nintendo, Creatures Inc., GAME FREAK inc., and The Pokémon Company. © 1995-2026 Nintendo/Creatures Inc./GAME FREAK inc.
+                    <div class="footer-trademark">TM, ®, and character names are trademarks of The Pokémon Company.</div>
+                </div>
+                <div class="footer-disclaimer">
+                    <strong>Disney Lorcana:</strong> Disney Lorcana © Disney. All Disney characters and properties: © Disney.
+                </div>
+                <div class="footer-disclaimer">
+                    All card images, artwork, and game elements are the property of their respective owners. This tracker displays publicly available card information for personal collection management purposes only.
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <div class="footer-title">Fair Use & Non-Commercial</div>
+                <div class="footer-disclaimer">
+                    This application is provided free of charge for personal, non-commercial use only. No card images, artwork, or copyrighted materials are being sold or distributed. Card images are loaded from official CDN sources or user-provided local files.
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <div class="footer-title">Official Resources</div>
+                <div class="footer-links">
+                    <a href="https://www.pokemon.com/us/pokemon-tcg/" target="_blank" class="footer-link" rel="noopener">Official Pokémon TCG</a>
+                    <a href="https://www.disneylorcana.com/" target="_blank" class="footer-link" rel="noopener">Disney Lorcana Official Site</a>
+                    <a href="https://pokemontcg.io/" target="_blank" class="footer-link" rel="noopener">Pokémon TCG API</a>
+                </div>
+            </div>
+
+            <div class="footer-credit">
+                Blair TCG Tracker | Built for personal collection management | Not for commercial use
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
