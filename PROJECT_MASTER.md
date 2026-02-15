@@ -40,6 +40,72 @@ A web-based Pokemon TCG collection tracker for tracking 1,500+ cards across 8 re
 - Repository: https://github.com/lolwtfhunter/blair-pokemon-tracker
 - Data files are organized in `data/pokemon/` directory structure for better scalability
 
+### **Reference Documentation**
+
+The project includes comprehensive reference documents for development and maintenance:
+
+#### **ADDING_NEW_SETS.md**
+**When to use:**
+- Adding a new official Pokemon TCG set to the tracker
+- Adding a new custom cross-set collection
+- Adding support for a new card game (Disney Lorcana, Magic: The Gathering, etc.)
+- Troubleshooting issues with set display, images, or variants
+- Need step-by-step instructions for the complete set addition workflow
+
+**What it contains:**
+- Step-by-step instructions for adding official and custom sets
+- Complete checklists to ensure nothing is missed
+- Code snippets and templates for all required changes
+- Testing procedures and validation steps
+- Common issues and troubleshooting solutions
+- Quick reference table of file locations
+
+**Use this when:** You need to add new content to the tracker or debug existing sets.
+
+#### **CARD_GAME_LOGIC.md**
+**When to use:**
+- Understanding how variants are calculated for different card types
+- Determining correct rarity codes for new cards
+- Setting up image URL mappings for new sets
+- Understanding the JSON schema for set data files
+- Implementing search/filter functionality
+- Configuring TCGPlayer links
+- Need to understand the rules and logic behind card game implementation
+
+**What it contains:**
+- Complete JSON schema documentation for official and custom sets
+- All valid rarity types with descriptions
+- Comprehensive variant logic rules and decision trees
+- Image URL mapping system (4-tier fallback)
+- Search and filtering implementation details
+- TCGPlayer URL generation logic
+- Block codes and their usage
+- Real-world examples of different set configurations
+
+**Use this when:** You need to understand how the system works internally or make decisions about card/set configuration.
+
+#### **Best Practices**
+
+1. **Before adding a new set:**
+   - Read ADDING_NEW_SETS.md completely
+   - Reference CARD_GAME_LOGIC.md for rarity/variant rules
+   - Follow the checklist in ADDING_NEW_SETS.md
+
+2. **When encountering issues:**
+   - Check "Common Issues & Troubleshooting" in ADDING_NEW_SETS.md
+   - Verify your data matches the schema in CARD_GAME_LOGIC.md
+   - Validate variant logic against the decision trees
+
+3. **When planning new features:**
+   - Review CARD_GAME_LOGIC.md to understand existing patterns
+   - Consider how changes affect variant calculation and image loading
+   - Update both documents if you make structural changes
+
+4. **Keep documentation current:**
+   - When adding new rarities, update CARD_GAME_LOGIC.md
+   - When changing the workflow, update ADDING_NEW_SETS.md
+   - Update version history in both documents
+
 ---
 
 ## 🎴 CARD SETS & DATA
