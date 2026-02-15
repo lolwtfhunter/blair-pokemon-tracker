@@ -2404,7 +2404,10 @@
                 };
 
                 const rarityClass = card.type === 'trainer' ? 'rarity-trainer' : `rarity-${card.rarity}`;
-                
+
+                // Format card number for search (e.g., "184/182") - needed for variant TCGPlayer links
+                const formattedCardNumber = isSecret ? `${card.number}/${setData.mainSet}` : `${card.number}/${setData.totalCards}`;
+
                 let variantHTML = '';
                 if (isSingleVariant) {
                     const isChecked = cardProgress['single'] || false;
@@ -2438,8 +2441,6 @@
                 const tcgdexImgUrl = getTcgdexImageUrl(setKey, card.number, card.imageId);
                 const localImgUrl = `Images/cards/${setKey}/${String(card.number).padStart(3, '0')}.png`;
                 const primarySrc = apiImgUrl || tcgdexImgUrl || localImgUrl;
-                // Format card number for search (e.g., "184/182")
-                const formattedCardNumber = isSecret ? `${card.number}/${setData.mainSet}` : `${card.number}/${setData.totalCards}`;
                 const tcgplayerUrl = getTCGPlayerUrl(card.name, setData.name, setData.setCode, formattedCardNumber);
 
                 cardEl.innerHTML = `
