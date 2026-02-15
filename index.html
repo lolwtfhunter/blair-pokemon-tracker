@@ -1338,6 +1338,21 @@
                 <div class="card-grid" id="celebrations-grid"></div>
             </div>
 
+            <div id="mega-evolution" class="set-section">
+                <div class="card-controls">
+                    <div class="filter-buttons">
+                        <button class="filter-btn active" onclick="filterCards('mega-evolution', 'all')">All</button>
+                        <button class="filter-btn" onclick="filterCards('mega-evolution', 'incomplete')">Incomplete</button>
+                        <button class="filter-btn" onclick="filterCards('mega-evolution', 'complete')">Complete</button>
+                    </div>
+                    <div class="search-container">
+                        <input type="text" class="search-input" placeholder="Search cards..." oninput="searchCards('mega-evolution', this.value)" data-set="mega-evolution">
+                        <button class="search-clear" onclick="clearSearch('mega-evolution')">×</button>
+                    </div>
+                </div>
+                <div class="card-grid" id="mega-evolution-grid"></div>
+            </div>
+
             <div id="surging-sparks" class="set-section">
                 <div class="card-controls">
                     <div class="filter-buttons">
