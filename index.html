@@ -842,12 +842,36 @@
         
         .card-header {
             display: flex;
-            flex-direction: column;
-            gap: 4px;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 8px;
         }
-        
+
         .card-info {
             flex: 1;
+        }
+
+        .tcgplayer-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4px;
+            background: #2563eb;
+            color: white;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: background 0.2s ease;
+            flex-shrink: 0;
+        }
+
+        .tcgplayer-link:hover {
+            background: #1d4ed8;
+        }
+
+        .tcgplayer-link svg {
+            width: 16px;
+            height: 16px;
         }
         
         .card-number {
@@ -1462,6 +1486,18 @@
             return null;
         }
 
+        // Get TCGPlayer URL for a card
+        function getTCGPlayerUrl(cardName, setName, setCode) {
+            // Encode the card name and set code for URL
+            const encodedCardName = encodeURIComponent(cardName);
+            const encodedSetCode = setCode ? encodeURIComponent(setCode) : '';
+            const encodedSetName = encodeURIComponent(setName);
+
+            // TCGPlayer search URL format
+            // Using the search functionality to find the card
+            return `https://www.tcgplayer.com/search/pokemon/product?productLineName=pokemon&q=${encodedCardName}${encodedSetCode ? '+' + encodedSetCode : ''}&view=grid`;
+        }
+
         // Handle card image load errors with cascading fallback:
         // 1. pokemontcg.io CDN -> 2. TCGdex CDN -> 3. Local image -> 4. Placeholder
         function handleImgError(img) {
@@ -2003,6 +2039,9 @@
                 // Display originalNumber from the set instead of the sequential custom set number
                 const displayNumber = card.originalNumber ? card.originalNumber : String(card.number).padStart(3, '0');
 
+                // Generate TCGPlayer URL for custom cards using the setOrigin
+                const tcgplayerUrl = getTCGPlayerUrl(card.name, card.setOrigin || 'Pokemon', '');
+
                 cardEl.innerHTML = `
                     <div class="card-img-wrapper">
                         <img src="${imgUrl || ''}"
@@ -2019,6 +2058,11 @@
                             <div class="card-name">${card.name}</div>
                             <span class="rarity-badge ${rarityClass}">${getRarityDisplay(card.rarity)}</span>
                         </div>
+                        <a href="${tcgplayerUrl}" target="_blank" class="tcgplayer-link" title="View on TCGPlayer" onclick="event.stopPropagation();">
+                            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                                <path d="M19 19H5V5h7V3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/>
+                            </svg>
+                        </a>
                     </div>
                     <div class="card-origin">${card.setOrigin}</div>
                     <div class="variants-section">
@@ -2329,6 +2373,7 @@
                 const tcgdexImgUrl = getTcgdexImageUrl(setKey, card.number, card.imageId);
                 const localImgUrl = `Images/cards/${setKey}/${String(card.number).padStart(3, '0')}.png`;
                 const primarySrc = apiImgUrl || tcgdexImgUrl || localImgUrl;
+                const tcgplayerUrl = getTCGPlayerUrl(card.name, setData.name, setData.setCode);
 
                 cardEl.innerHTML = `
                     <div class="card-img-wrapper">
@@ -2348,6 +2393,11 @@
                             <div class="card-name">${card.name}</div>
                             <span class="rarity-badge ${rarityClass}">${card.type === 'trainer' ? 'TRAINER' : getRarityDisplay(card.rarity)}</span>
                         </div>
+                        <a href="${tcgplayerUrl}" target="_blank" class="tcgplayer-link" title="View on TCGPlayer" onclick="event.stopPropagation();">
+                            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                                <path d="M19 19H5V5h7V3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/>
+                            </svg>
+                        </a>
                     </div>
                     <div class="variants-section">
                         <div class="variants-title">${isSingleVariant ? 'STATUS:' : 'VARIANTS:'}</div>
@@ -2489,6 +2539,7 @@
             const modalNumber = document.getElementById('modalCardNumber');
             const modalSet = document.getElementById('modalCardSet');
             const modalRarity = document.getElementById('modalCardRarity');
+            const modalTCGPlayerLink = document.getElementById('modalTCGPlayerLink');
             const modalVariantsTitle = document.getElementById('modalVariantsTitle');
             const modalVariantList = document.getElementById('modalVariantList');
 
@@ -2527,6 +2578,22 @@
             const rarityClass = card.type === 'trainer' ? 'rarity-trainer' : `rarity-${card.rarity}`;
             modalRarity.className = 'card-modal-rarity ' + rarityClass;
             modalRarity.textContent = card.type === 'trainer' ? 'TRAINER' : getRarityDisplay(card.rarity);
+
+            // Set TCGPlayer link
+            if (setKey.startsWith('custom-')) {
+                // For custom sets, use the card's setOrigin
+                const tcgplayerUrl = getTCGPlayerUrl(card.name, card.setOrigin || 'Pokemon', '');
+                modalTCGPlayerLink.href = tcgplayerUrl;
+                modalTCGPlayerLink.style.display = 'inline-block';
+            } else if (setData && setData.setCode) {
+                // For regular sets, use the setCode
+                const tcgplayerUrl = getTCGPlayerUrl(card.name, setName, setData.setCode);
+                modalTCGPlayerLink.href = tcgplayerUrl;
+                modalTCGPlayerLink.style.display = 'inline-block';
+            } else {
+                // Hide link if no set information is available
+                modalTCGPlayerLink.style.display = 'none';
+            }
 
             // Set variants
             const isSingleVariant = variants.length === 1 && variants[0] === 'single';
@@ -2959,6 +3026,9 @@
                         <div class="card-modal-number" id="modalCardNumber"></div>
                         <div class="card-modal-set" id="modalCardSet"></div>
                         <div class="card-modal-rarity" id="modalCardRarity"></div>
+                        <a id="modalTCGPlayerLink" href="#" target="_blank" class="tcgplayer-modal-link" style="display: inline-block; margin-top: 8px; padding: 6px 12px; background: #2563eb; color: white; text-decoration: none; border-radius: 4px; font-size: 14px;">
+                            View on TCGPlayer
+                        </a>
                     </div>
                     <div class="card-modal-variants">
                         <div class="card-modal-variants-title" id="modalVariantsTitle">Variants:</div>
