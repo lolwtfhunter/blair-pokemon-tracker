@@ -1,6 +1,6 @@
-# Blair Pokemon Master Set Tracker - Project Master Document
+# Blair TCG Collection Tracker - Project Master Document
 
-**Version:** 3.2.0
+**Version:** 4.0.0
 **Last Updated:** February 15, 2026
 **Live URL:** https://lolwtfhunter.github.io/blair-pokemon-tracker/
 **Sync Code:** Blair2024
@@ -9,36 +9,47 @@
 
 ## 📋 PROJECT OVERVIEW
 
-A web-based Pokemon TCG collection tracker for tracking 1,500+ cards across 8 regular sets and 3 custom sets with real-time cloud sync between devices. Built for Blair and family to track their master set collection with proper variant tracking (Regular, Reverse Holo, Poké Ball, Master Ball).
+A web-based multi-TCG collection tracker for tracking 2,000+ cards across **Pokemon TCG** and **Disney Lorcana** with real-time cloud sync between devices. Built for Blair and family to track their master set collection with proper variant tracking, card images from multiple CDN sources, and advanced filtering.
+
+### **Supported Trading Card Games**
+- ✅ **Pokemon TCG** - 8 official sets + 3 custom curated sets (1,529 cards)
+- ✅ **Disney Lorcana** - 2 sets (408 cards)
 
 ### **Core Features**
-- ✅ Track 1,529 cards across 8 Pokemon TCG sets (including new Mega Evolution set)
-- ✅ 3 custom curated sets (437 cards across Pikachu, Psyduck, and Togepi)
+- ✅ Track 1,937+ cards across multiple TCGs
+  - Pokemon: 1,529 cards (8 official sets + 3 custom sets)
+  - Lorcana: 408 cards (2 sets)
 - ✅ Modular data structure for better performance and scalability
-- ✅ Japanese-exclusive card tracking with JP badges and EN/JP subtabs
-- ✅ Variant tracking per card (Regular, Reverse Holo, Poké Ball, Master Ball)
-- ✅ Real-time sync between devices via Firebase
+- ✅ Japanese-exclusive Pokemon card tracking with JP badges and EN/JP subtabs
+- ✅ Variant tracking per card:
+  - Pokemon: Regular, Reverse Holo, Holo, Poké Ball, Master Ball
+  - Lorcana: Single "Collected" checkbox (foil variants handled differently)
+- ✅ Real-time sync between devices via Firebase (all TCGs sync together)
 - ✅ Password-protected with sync code
 - ✅ Mobile-optimized responsive design
-- ✅ Progress tracking and statistics
+- ✅ Progress tracking and statistics per set and per block
 - ✅ Persistent storage (survives page refresh)
 - ✅ Filter cards (All/Incomplete/Complete)
 - ✅ Search cards by name or number
 - ✅ Card detail modal with large images
 - ✅ Lazy loading for performance
+- ✅ Multi-CDN image sources with automatic fallback:
+  - Pokemon: Pokemon TCG API → TCGdex → Local → Placeholder
+  - Lorcana: Dreamborn → Lorcania → Local → Placeholder
 
 ---
 
 ## 🗂️ PROJECT FILES
 
 ### **Required Files (Must Upload to GitHub)**
-1. **index.html** (~127KB) - Main application
+1. **index.html** (~140KB) - Main application
 2. **data/pokemon/official-sets/** - Modular card data for 8 official Pokemon TCG sets
 3. **data/pokemon/custom-sets/** - Modular custom curated sets (Pikachu, Psyduck, Togepi)
+4. **data/lorcana/sets/** - Modular card data for Disney Lorcana sets
 
 ### **File Locations**
 - Repository: https://github.com/lolwtfhunter/blair-pokemon-tracker
-- Data files are organized in `data/pokemon/` directory structure for better scalability
+- Data files are organized by TCG in `data/` directory for better scalability and multi-game support
 
 ### **Reference Documentation**
 
@@ -163,9 +174,10 @@ The project includes comprehensive reference documents for development and maint
 - Block: Mega Evolution
 - Variants: Regular + Reverse Holo (EX/Secrets = single checkbox)
 
-### **Total Regular Collection**
-- 1,529 total cards across 8 sets
-- ~2,800+ total variants to track
+### **Total Pokemon Collection**
+- 1,529 total Pokemon cards across 8 official sets
+- 437 total Pokemon cards across 3 custom sets
+- ~2,800+ total variants to track (Pokemon only)
 
 ### **Custom Sets**
 
@@ -176,6 +188,26 @@ The project includes comprehensive reference documents for development and maint
 | Togepi | Togepi | 24 | 1999-2026 | JP exclusives, Delta Species |
 
 **Total Custom Set Cards**: 437 cards across 3 sets
+
+---
+
+### **Disney Lorcana Sets**
+
+| Set | Cards | Release | Set Code | Features |
+|-----|-------|---------|----------|----------|
+| The First Chapter | 204 | Aug 2023 | tfc | Set 1, features Disney characters from Frozen, Aladdin, The Lion King, etc. |
+| Whispers in the Well | 204 | Nov 2025 | whi | Set 10, features characters from Zootopia and other Disney franchises |
+
+**Total Lorcana Cards**: 408 cards across 2 sets
+
+**Lorcana Image Sources:**
+- Primary: Dreamborn CDN (`https://cdn.dreamborn.ink/images/en/cards/{dreambornId}`)
+- Secondary: Lorcania CDN (`https://lorcania.com/cards/{setNum}/{cardNum}.webp`)
+- Tertiary: Local images fallback
+
+**Lorcana Tracking Model:**
+- Single "Collected" checkbox per card (simplified vs Pokemon's multi-variant system)
+- Future updates may add foil/non-foil tracking if requested
 
 ---
 

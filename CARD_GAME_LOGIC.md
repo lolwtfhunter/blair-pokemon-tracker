@@ -1,12 +1,19 @@
 # Card Game Logic & Rules Reference
 
-This document defines the structure, rules, and logic for how card games (primarily Pokemon TCG) are implemented in the Blair TCG Tracker.
+This document defines the structure, rules, and logic for how card games are implemented in the Blair TCG Tracker.
+
+**Supported TCGs:**
+- Pokemon TCG (Primary)
+- Disney Lorcana (Added Feb 2026)
 
 ---
 
 ## Table of Contents
 
 1. [Set Structure](#set-structure)
+   - [Pokemon TCG Set Schema](#official-pokemon-tcg-set-schema)
+   - [Custom Pokemon Set Schema](#custom-pokemon-set-schema)
+   - [Disney Lorcana Set Schema](#disney-lorcana-set-schema)
 2. [Rarity Types](#rarity-types)
 3. [Card Types](#card-types)
 4. [Variant Logic](#variant-logic)
@@ -91,9 +98,51 @@ All sets follow a standardized JSON structure with required and optional fields.
 }
 ```
 
+### Disney Lorcana Set Schema
+
+```json
+{
+  "version": "1.0.0",              // Required: Data format version
+  "lastUpdated": "YYYY-MM-DD",     // Required: Last update date
+  "setKey": "string",              // Required: Unique lowercase-hyphenated identifier
+  "name": "string",                // Required: Official set name
+  "displayName": "string",         // Required: Display name
+  "totalCards": number,            // Required: Total cards in set
+  "mainSet": number,               // Required: Main set size (typically same as totalCards for Lorcana)
+  "setCode": "string",             // Required: Set code (e.g., "tfc", "whi")
+  "releaseDate": "YYYY-MM-DD",     // Required: Official release date
+  "block": "string",               // Required: Block name (e.g., "Disney Lorcana")
+  "blockCode": "string",           // Required: Block code (e.g., "lorcana")
+  "hasPokeBallVariant": false,     // Required: Always false for Lorcana
+  "hasMasterBallVariant": false,   // Required: Always false for Lorcana
+  "singleVariantOnly": false,      // Required: false (single checkbox handled in code)
+  "cards": {                       // Required: Card data object
+    "1": {
+      "name": "string",            // Required: Full card name with subtitle (e.g., "Ariel - On Human Legs")
+      "rarity": "string",          // Required: Rarity code (see Lorcana Rarity Types)
+      "type": "string",            // Required: Card type (character/action/item/location)
+      "dreambornId": "string"      // Required: Dreamborn ID for image CDN (e.g., "001-001")
+    }
+    // ... more cards
+  }
+}
+```
+
+**Key Differences from Pokemon:**
+- **dreambornId field**: Required for Lorcana to map to Dreamborn CDN images
+- **Card names**: Include subtitle (e.g., "Ariel - On Human Legs" not just "Ariel")
+- **No variant flags**: hasPokeBallVariant and hasMasterBallVariant always false
+- **Simplified tracking**: Single "Collected" checkbox per card
+- **Different card types**: character, action, item, location (instead of pokemon, trainer, energy)
+- **Different rarities**: common, uncommon, rare, super-rare, legendary, enchanted, etc.
+
+**See Also:** [LORCANA_VARIANTS.md](LORCANA_VARIANTS.md) for comprehensive Lorcana variant and rarity information.
+
 ---
 
 ## Rarity Types
+
+### Pokemon TCG Rarities
 
 All valid rarity codes and their meanings:
 
@@ -133,9 +182,35 @@ These rarities always use a single "Collected" checkbox:
 | `amazing-rare` | AMAZING RARE | Amazing Rare cards |
 | `radiant-rare` | RADIANT RARE | Radiant Rare cards |
 
+### Disney Lorcana Rarities
+
+Lorcana uses a different rarity system than Pokemon:
+
+| Rarity Code | Display Name | Description |
+|-------------|--------------|-------------|
+| `common` | common | Common cards |
+| `uncommon` | uncommon | Uncommon cards |
+| `rare` | rare | Rare cards |
+| `super-rare` | super-rare | Super Rare cards |
+| `legendary` | legendary | Legendary cards |
+| `enchanted` | enchanted | Enchanted cards (highest rarity, foil art variants) |
+| `special` | special | Special promotional cards |
+| `promo` | promo | Promotional cards |
+
+**Note:** Lorcana rarities are displayed as-is without uppercase transformation. All Lorcana cards use a single "Collected" checkbox regardless of rarity.
+
+**See Also:** [LORCANA_VARIANTS.md](LORCANA_VARIANTS.md) for detailed information on:
+- Foil vs. non-foil variants
+- Enchanted card characteristics and numbering
+- Pull rates and rarity distribution
+- Epic and Iconic variants (Set 10+)
+- Current simplified tracking vs. potential full variant tracking
+
 ---
 
 ## Card Types
+
+### Pokemon TCG
 
 Three primary card types:
 
@@ -144,6 +219,17 @@ Three primary card types:
 | `pokemon` | Pokemon cards | Pikachu, Charizard ex |
 | `trainer` | Trainer cards | Professor's Research, Ultra Ball |
 | `energy` | Energy cards | Fire Energy, Double Colorless Energy |
+
+### Disney Lorcana
+
+Four primary card types:
+
+| Type Code | Description | Example |
+|-----------|-------------|---------|
+| `character` | Character cards | Ariel - On Human Legs, Mickey Mouse - Brave Little Tailor |
+| `action` | Action cards | Be Prepared, Hakuna Matata |
+| `item` | Item cards | Fishbone Quill, Magic Broom |
+| `location` | Location cards | Snuggly Duckling, Hundred Acre Wood |
 
 **Usage:**
 - Determines card styling and icon display
@@ -353,6 +439,38 @@ if (card.apiId) {
     return `https://images.pokemontcg.io/${setId}/${num}.png`;
 }
 ```
+
+---
+
+## Lorcana Image URL Mapping
+
+Disney Lorcana uses a 3-tier fallback system:
+
+### 1. Dreamborn CDN (Primary)
+```
+https://cdn.dreamborn.ink/images/en/cards/{dreambornId}
+```
+
+- Requires `dreambornId` field in card data
+- Format: `{setCode}-{cardNumber}` (e.g., `001-001`, `010-050`)
+
+### 2. Lorcania CDN (Secondary)
+```
+https://lorcania.com/cards/{setNum}/{cardNum}.webp
+```
+
+- Extracted from `dreambornId` by parsing set and card numbers
+- Provides both `.webp` and `.jpg` formats
+
+### 3. Local Images (Tertiary)
+```
+./Images/lorcana/{setKey}/{cardNumber}.jpg
+```
+
+- Fallback for offline/custom hosting
+
+### 4. Placeholder (Fallback)
+- Generated SVG when all sources fail
 
 ---
 
