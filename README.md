@@ -10,9 +10,12 @@ A mobile-friendly web app for tracking trading card collections. Currently suppo
 
 The app has three top-level tabs:
 
-- **Pokemon TCG** — Full set tracking with variant checkboxes, progress bars, and card images
-- **Custom Sets** — Curated cross-set collections (e.g., "It's Pikachu!" — all 263 Pichu/Pikachu/Raichu cards ever printed)
-- **Lorcana** — Placeholder for Disney Lorcana card tracking (coming soon)
+- **Pokemon** — Full set tracking with variant checkboxes, progress bars, and card images
+- **Custom Sets** — Curated cross-set collections:
+  - "It's Pikachu!" — All 362 Pichu/Pikachu/Raichu cards ever printed (including JP exclusives)
+  - "Psyduck" — All 38 Psyduck cards ever printed
+  - "Togepi" — All 17 Togepi cards ever printed
+- **Disney Lorcana** — Placeholder for Disney Lorcana card tracking (coming soon)
 
 ### Pokemon TCG
 
