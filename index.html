@@ -2715,12 +2715,19 @@
             // Build array of image URLs to try (in order of preference)
             const imageUrls = [];
 
-            // Tier 1: Dreamborn CDN (most reliable for Lorcana)
+            // Tier 1: Lorcast CDN (most reliable for Lorcana - serves AVIF format)
+            if (dreambornId) {
+                // Lorcast uses format: https://cards.lorcast.io/[dreambornId]/normal.avif
+                imageUrls.push(`https://cards.lorcast.io/${dreambornId}/normal.avif`);
+                imageUrls.push(`https://cards.lorcast.io/${dreambornId}/large.avif`);
+            }
+
+            // Tier 2: Dreamborn CDN
             if (dreambornId) {
                 imageUrls.push(`https://cdn.dreamborn.ink/images/en/cards/${dreambornId}`);
             }
 
-            // Tier 2: Lorcania CDN
+            // Tier 3: Lorcania CDN
             if (dreambornId) {
                 // Lorcania uses format like: https://lorcania.com/cards/1/1.webp
                 // Extract set number and card number from dreamborn ID (e.g., "001-001" -> set 1, card 1)
@@ -2733,7 +2740,7 @@
                 }
             }
 
-            // Tier 3: Direct card number fallback
+            // Tier 4: Direct card number fallback
             const paddedNumber = String(cardNumber).padStart(3, '0');
             imageUrls.push(`./Images/lorcana/${setKey}/${paddedNumber}.jpg`);
             imageUrls.push(`./Images/lorcana/${setKey}/${paddedNumber}.png`);
@@ -2750,10 +2757,14 @@
             const dreambornId = card.dreambornId || '';
             const paddedNumber = String(card.number).padStart(3, '0');
 
-            // Build fallback URLs
+            // Build fallback URLs (matching getLorcanaCardImageUrl)
             const fallbackUrls = [];
 
             if (dreambornId) {
+                // Lorcast CDN (primary - AVIF format)
+                fallbackUrls.push(`https://cards.lorcast.io/${dreambornId}/normal.avif`);
+                fallbackUrls.push(`https://cards.lorcast.io/${dreambornId}/large.avif`);
+
                 // Dreamborn CDN
                 fallbackUrls.push(`https://cdn.dreamborn.ink/images/en/cards/${dreambornId}`);
 
