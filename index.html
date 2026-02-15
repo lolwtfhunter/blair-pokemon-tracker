@@ -511,6 +511,7 @@
             font-size: 0.85rem;
             min-width: 0;
             overflow: hidden;
+            cursor: pointer;
         }
         
         .card-item:hover {
@@ -620,6 +621,191 @@
 
         .unlock-toast-btn.cancel:hover {
             background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Card Detail Modal */
+        .card-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 10000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .card-modal.visible {
+            display: flex;
+            opacity: 1;
+        }
+
+        .card-modal-content {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 16px;
+            max-width: 800px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5);
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+
+        .card-modal.visible .card-modal-content {
+            transform: scale(1);
+        }
+
+        .card-modal-close {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: #f1f1f1;
+            font-size: 1.5rem;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+            z-index: 10;
+        }
+
+        .card-modal-close:hover {
+            background: rgba(255, 68, 68, 0.8);
+            transform: rotate(90deg);
+        }
+
+        .card-modal-body {
+            display: flex;
+            gap: 24px;
+            padding: 24px;
+        }
+
+        .card-modal-image {
+            flex-shrink: 0;
+            width: 300px;
+        }
+
+        .card-modal-image img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .card-modal-details {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .card-modal-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #f1f1f1;
+            margin-bottom: 4px;
+        }
+
+        .card-modal-number {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.6);
+            font-weight: 600;
+        }
+
+        .card-modal-set {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.5);
+            margin-top: 4px;
+        }
+
+        .card-modal-rarity {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 8px;
+        }
+
+        .card-modal-variants {
+            margin-top: 8px;
+        }
+
+        .card-modal-variants-title {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.7);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+
+        .card-modal-variant-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .card-modal-variant-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 12px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.85rem;
+        }
+
+        .card-modal-variant-item.collected {
+            background: rgba(0, 255, 136, 0.1);
+            border-color: rgba(0, 255, 136, 0.3);
+        }
+
+        .card-modal-variant-checkbox {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+
+        /* Mobile responsive modal */
+        @media (max-width: 768px) {
+            .card-modal-body {
+                flex-direction: column;
+                padding: 16px;
+            }
+
+            .card-modal-image {
+                width: 100%;
+                max-width: 280px;
+                margin: 0 auto;
+            }
+
+            .card-modal-title {
+                font-size: 1.2rem;
+            }
+
+            .card-modal-close {
+                top: 12px;
+                right: 12px;
+                width: 32px;
+                height: 32px;
+                font-size: 1.2rem;
+            }
         }
 
         /* Card image support */
@@ -1702,6 +1888,17 @@
                 const cardEl = document.createElement('div');
                 cardEl.className = 'card-item' + (allCollected ? ' all-collected' : '');
                 cardEl.setAttribute('data-completed', allCollected ? 'true' : 'false');
+                cardEl.style.cursor = 'pointer';
+                cardEl.onclick = function(e) {
+                    // Don't open modal if clicking on checkboxes or their containers
+                    if (e.target.tagName === 'INPUT' ||
+                        e.target.tagName === 'LABEL' ||
+                        e.target.closest('.variant-checkbox') ||
+                        e.target.closest('.single-variant')) {
+                        return;
+                    }
+                    openCardModal(csKey, card.number);
+                };
 
                 const rarityClass = `rarity-${card.rarity}`;
 
@@ -2014,6 +2211,17 @@
                 const cardEl = document.createElement('div');
                 cardEl.className = 'card-item' + (allCollected ? ' all-collected' : '');
                 cardEl.setAttribute('data-completed', allCollected ? 'true' : 'false');
+                cardEl.style.cursor = 'pointer';
+                cardEl.onclick = function(e) {
+                    // Don't open modal if clicking on checkboxes or their containers
+                    if (e.target.tagName === 'INPUT' ||
+                        e.target.tagName === 'LABEL' ||
+                        e.target.closest('.variant-checkbox') ||
+                        e.target.closest('.single-variant')) {
+                        return;
+                    }
+                    openCardModal(setKey, card.number);
+                };
 
                 const rarityClass = card.type === 'trainer' ? 'rarity-trainer' : `rarity-${card.rarity}`;
                 
@@ -2176,6 +2384,123 @@
                 card.style.display = show ? '' : 'none';
             });
         }
+
+        // Card Detail Modal Functions
+        window.openCardModal = function(setKey, cardNumber) {
+            let setData, card, variants, setName;
+
+            // Get card data based on set type
+            if (setKey.startsWith('custom-')) {
+                const customKey = setKey.replace('custom-', '');
+                setData = customCardSets[customKey];
+                card = setData ? setData.cards.find(c => c.number === cardNumber) : null;
+                variants = card ? getCustomCardVariants(card) : ['single'];
+                setName = setData ? setData.name : '';
+            } else {
+                setData = cardSets[setKey];
+                card = setData ? setData.cards.find(c => c.number === cardNumber) : null;
+                variants = card ? getVariants(card, setKey) : [];
+                setName = setData ? setData.name : '';
+            }
+
+            if (!card) return;
+
+            // Get modal elements
+            const modal = document.getElementById('cardModal');
+            const modalImage = document.getElementById('modalCardImage');
+            const modalName = document.getElementById('modalCardName');
+            const modalNumber = document.getElementById('modalCardNumber');
+            const modalSet = document.getElementById('modalCardSet');
+            const modalRarity = document.getElementById('modalCardRarity');
+            const modalVariantsTitle = document.getElementById('modalVariantsTitle');
+            const modalVariantList = document.getElementById('modalVariantList');
+
+            // Set card image
+            const apiImgUrl = getCardImageUrl(setKey, card.number, card.imageId);
+            const tcgdexImgUrl = getTcgdexImageUrl(setKey, card.number, card.imageId);
+            const localImgUrl = `Images/cards/${setKey}/${String(card.number).padStart(3, '0')}.png`;
+            const primarySrc = apiImgUrl || tcgdexImgUrl || localImgUrl;
+            modalImage.src = primarySrc;
+            modalImage.alt = card.name;
+
+            // Set card details
+            modalName.textContent = card.name;
+            const isSecret = card.number > setData.mainSet;
+            modalNumber.textContent = `#${String(card.number).padStart(3, '0')}${isSecret ? ` / ${setData.mainSet}` : ''}`;
+            modalSet.textContent = `Set: ${setName}`;
+
+            // Set rarity badge
+            const rarityClass = card.type === 'trainer' ? 'rarity-trainer' : `rarity-${card.rarity}`;
+            modalRarity.className = 'card-modal-rarity ' + rarityClass;
+            modalRarity.textContent = card.type === 'trainer' ? 'TRAINER' : getRarityDisplay(card.rarity);
+
+            // Set variants
+            const isSingleVariant = variants.length === 1 && variants[0] === 'single';
+            modalVariantsTitle.textContent = isSingleVariant ? 'Collection Status:' : 'Variants:';
+
+            // Build variant list
+            const cardProgress = collectionProgress[setKey] ? collectionProgress[setKey][cardNumber] || {} : {};
+            modalVariantList.innerHTML = '';
+
+            if (isSingleVariant) {
+                const isChecked = cardProgress['single'] || false;
+                const variantItem = document.createElement('div');
+                variantItem.className = 'card-modal-variant-item' + (isChecked ? ' collected' : '');
+                variantItem.innerHTML = `
+                    <input type="checkbox" class="card-modal-variant-checkbox" ${isChecked ? 'checked' : ''}
+                           onchange="toggleVariantFromModal('${setKey}', ${cardNumber}, 'single')">
+                    <label>✓ Collected</label>
+                `;
+                modalVariantList.appendChild(variantItem);
+            } else {
+                variants.forEach(variant => {
+                    const isChecked = cardProgress[variant] || false;
+                    const info = variantLabels[variant];
+                    const variantItem = document.createElement('div');
+                    variantItem.className = 'card-modal-variant-item' + (isChecked ? ' collected' : '');
+                    variantItem.innerHTML = `
+                        <input type="checkbox" class="card-modal-variant-checkbox" ${isChecked ? 'checked' : ''}
+                               onchange="toggleVariantFromModal('${setKey}', ${cardNumber}, '${variant}')">
+                        <label>${info.icon} ${info.label}</label>
+                    `;
+                    modalVariantList.appendChild(variantItem);
+                });
+            }
+
+            // Show modal
+            modal.classList.add('visible');
+        };
+
+        window.closeCardModal = function() {
+            const modal = document.getElementById('cardModal');
+            modal.classList.remove('visible');
+        };
+
+        // Toggle variant from modal
+        window.toggleVariantFromModal = function(setKey, cardNumber, variant) {
+            // Use the existing toggleVariant function
+            toggleVariant(setKey, cardNumber, variant);
+
+            // Update the modal display after a brief delay to allow re-render
+            setTimeout(() => {
+                openCardModal(setKey, cardNumber);
+            }, 50);
+        };
+
+        // Close modal when clicking outside
+        document.addEventListener('click', function(e) {
+            const modal = document.getElementById('cardModal');
+            if (e.target === modal) {
+                closeCardModal();
+            }
+        });
+
+        // Close modal with ESC key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeCardModal();
+            }
+        });
 
         // Toggle variant (with soft-lock protection for completed cards)
         window.toggleVariant = function(setKey, cardNumber, variant) {
@@ -2516,5 +2841,29 @@
             }
         });
     </script>
+
+    <!-- Card Detail Modal -->
+    <div id="cardModal" class="card-modal">
+        <div class="card-modal-content">
+            <button class="card-modal-close" onclick="closeCardModal()">×</button>
+            <div class="card-modal-body">
+                <div class="card-modal-image">
+                    <img id="modalCardImage" src="" alt="">
+                </div>
+                <div class="card-modal-details">
+                    <div>
+                        <div class="card-modal-title" id="modalCardName"></div>
+                        <div class="card-modal-number" id="modalCardNumber"></div>
+                        <div class="card-modal-set" id="modalCardSet"></div>
+                        <div class="card-modal-rarity" id="modalCardRarity"></div>
+                    </div>
+                    <div class="card-modal-variants">
+                        <div class="card-modal-variants-title" id="modalVariantsTitle">Variants:</div>
+                        <div class="card-modal-variant-list" id="modalVariantList"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
