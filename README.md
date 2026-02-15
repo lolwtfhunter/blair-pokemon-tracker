@@ -129,3 +129,12 @@ Variant eligibility is determined automatically from rarity. Custom set cards co
 - **Images:** Pokemon TCG API CDN (pokemontcg.io), TCGdex CDN (tcgdex.net)
 - **Hosting:** GitHub Pages
 - **CI/CD:** GitHub Actions (automated Firebase backups)
+
+## Developer Documentation
+
+For contributors and maintainers:
+
+- **[ADDING_NEW_SETS.md](ADDING_NEW_SETS.md)** - Step-by-step guide for adding new sets to the tracker
+- **[CARD_GAME_LOGIC.md](CARD_GAME_LOGIC.md)** - Comprehensive reference for card game rules, rarities, variants, and logic
+- **[PROJECT_MASTER.md](PROJECT_MASTER.md)** - Detailed project documentation and architecture
+- **[RARITY_REFERENCE.md](RARITY_REFERENCE.md)** - Quick reference for rarity types and variant rules
