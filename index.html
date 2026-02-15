@@ -584,32 +584,37 @@
             return `https://images.pokemontcg.io/${setData.imageSetCode}/${cardNumber}.png`;
         }
         
-        // Get fallback image URL by searching for Pokemon name
-        function getFallbackImageUrl(pokemonName) {
-            // Clean the name - remove "ex", trainer names, etc.
-            let cleanName = pokemonName.toLowerCase()
-                .replace(/\sex$/, '')  // Remove " ex"
-                .replace(/^(iono's|lillie's|brock's|hop's|n's)\s+/i, '')  // Remove trainer names
-                .replace(/[^a-z]/g, '');  // Remove special chars
-            
-            // Common Pokemon TCG API search pattern
-            // This will attempt to find ANY card with this Pokemon
-            // Format: Use a common set like base or sv1 as fallback
-            return `https://images.pokemontcg.io/sv1/${cleanName}.png`;
-        }
-        
         // Handle image load errors with smart fallback
-        window.handleImageError = function(img, cardName, isSecret) {
+        window.handleImageError = function(img, setKey, cardNumber) {
             if (img.dataset.fallbackAttempted) {
                 // Already tried fallback, show placeholder
+                const isSecret = img.dataset.isSecret === 'true';
                 img.parentElement.innerHTML = `<div class="placeholder">${isSecret ? '⭐' : '🎴'}</div>`;
                 return;
             }
             
             // Try fallback: search for Pokemon by name
             img.dataset.fallbackAttempted = 'true';
-            const fallbackUrl = getFallbackImageUrl(cardName);
-            img.src = fallbackUrl;
+            
+            // Get card name from cardSets
+            const setData = cardSets[setKey];
+            if (!setData) {
+                img.parentElement.innerHTML = `<div class="placeholder">🎴</div>`;
+                return;
+            }
+            
+            const card = setData.cards.find(c => c.number === cardNumber);
+            if (!card) {
+                img.parentElement.innerHTML = `<div class="placeholder">🎴</div>`;
+                return;
+            }
+            
+            const cleanName = card.name.toLowerCase()
+                .replace(/\sex$/, '')
+                .replace(/^(iono's|lillie's|brock's|hop's|n's)\s+/i, '')
+                .replace(/[^a-z]/g, '');
+            
+            img.src = `https://images.pokemontcg.io/sv1/${cleanName}.png`;
         };
         
         // Determine variants for a card
@@ -821,7 +826,8 @@
                 const cardImageHTML = primaryImageUrl 
                     ? `<img src="${primaryImageUrl}" 
                             loading="lazy" 
-                            onerror="handleImageError(this, '${card.name.replace(/'/g, "\\'")}', ${isSecret})" 
+                            data-is-secret="${isSecret}"
+                            onerror="handleImageError(this, '${setKey}', ${card.number})" 
                             alt="${card.name}">`
                     : placeholder;
                 
