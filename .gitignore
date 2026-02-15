@@ -1,0 +1,30 @@
+# Card Images (large files, keep local only)
+Images/lorcana/first-chapter/*.jpg
+Images/lorcana/first-chapter/*.png
+Images/lorcana/first-chapter/*.webp
+Images/lorcana/whispers-in-the-well/*.jpg
+Images/lorcana/whispers-in-the-well/*.png
+Images/lorcana/whispers-in-the-well/*.webp
+Images/lorcana/logos/*.png
+Images/lorcana/logos/*.jpg
+
+# Keep README files
+!Images/lorcana/README.md
+!Images/lorcana/**/README.md
+
+# Node modules (if using Node.js)
+node_modules/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Temporary files
+*.tmp
+*.log
