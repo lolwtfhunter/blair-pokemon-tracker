@@ -662,6 +662,53 @@
             margin-left: 4px;
         }
 
+        /* Language sub-tab toggle for custom sets with mixed EN/JP cards */
+        .lang-toggle {
+            display: flex;
+            gap: 2px;
+            margin-bottom: 12px;
+            background: rgba(0, 0, 0, 0.25);
+            border-radius: 8px;
+            padding: 3px;
+            width: fit-content;
+        }
+
+        .lang-toggle-btn {
+            padding: 6px 16px;
+            border: none;
+            border-radius: 6px;
+            background: transparent;
+            color: rgba(241, 241, 241, 0.45);
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .lang-toggle-btn:hover {
+            color: rgba(241, 241, 241, 0.7);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .lang-toggle-btn.active {
+            background: rgba(255, 255, 255, 0.12);
+            color: #f1f1f1;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .lang-toggle-btn .lang-count {
+            font-size: 0.65rem;
+            opacity: 0.6;
+            font-weight: 400;
+        }
+
+        .lang-toggle-btn.active .lang-count {
+            opacity: 0.8;
+        }
+
         .card-origin {
             font-size: 0.6rem;
             opacity: 0.45;
@@ -980,6 +1027,7 @@
         let collectionProgress = {};
         let currentSet = 'prismatic-evolutions';
         let currentCustomSet = null;
+        let customSetLangFilter = {}; // Per-set language filter: 'EN' or 'JP'
         let firebase_db = null;
         let firebase_ref = null;
         
@@ -1363,7 +1411,7 @@
             if (target) target.classList.add('active');
         }
 
-        // Calculate progress for a custom set
+        // Calculate progress for a custom set (respects language filter if set has mixed regions)
         function getCustomSetProgress(setKey) {
             const setData = customCardSets[setKey];
             const csKey = 'custom-' + setKey;
@@ -1371,7 +1419,16 @@
             let collectedVariants = 0;
 
             if (setData && setData.cards) {
+                const hasMixed = customSetHasRegions(setKey);
+                const lang = getLangFilter(setKey);
+
                 setData.cards.forEach(card => {
+                    // If mixed, only count cards for the active language filter
+                    if (hasMixed) {
+                        const isJP = card.region === 'JP';
+                        if (lang === 'JP' && !isJP) return;
+                        if (lang === 'EN' && isJP) return;
+                    }
                     totalVariants += 1; // singleVariantOnly
                     const cardProgress = (collectionProgress[csKey] || {})[card.number] || {};
                     if (cardProgress['single']) collectedVariants++;
@@ -1408,7 +1465,14 @@
                 collectionProgress[csKey] = {};
             }
 
-            setData.cards.forEach(card => {
+            // Filter cards by language if the set has mixed regions
+            const hasMixed = customSetHasRegions(setKey);
+            const lang = getLangFilter(setKey);
+            const filteredCards = hasMixed
+                ? setData.cards.filter(card => lang === 'JP' ? card.region === 'JP' : card.region !== 'JP')
+                : setData.cards;
+
+            filteredCards.forEach(card => {
                 const cardProgress = collectionProgress[csKey][card.number] || {};
                 const isChecked = cardProgress['single'] || false;
 
@@ -1457,6 +1521,54 @@
             });
         }
 
+        // Check if a custom set has mixed EN/JP cards
+        function customSetHasRegions(setKey) {
+            const setData = customCardSets[setKey];
+            if (!setData) return false;
+            let hasEN = false, hasJP = false;
+            for (const card of setData.cards) {
+                if (card.region === 'JP') hasJP = true;
+                else hasEN = true;
+                if (hasEN && hasJP) return true;
+            }
+            return false;
+        }
+
+        // Get card counts per language for a custom set
+        function customSetRegionCounts(setKey) {
+            const setData = customCardSets[setKey];
+            if (!setData) return { en: 0, jp: 0 };
+            let en = 0, jp = 0;
+            setData.cards.forEach(card => {
+                if (card.region === 'JP') jp++;
+                else en++;
+            });
+            return { en, jp };
+        }
+
+        // Get current language filter for a custom set
+        function getLangFilter(setKey) {
+            return customSetLangFilter[setKey] || 'EN';
+        }
+
+        // Switch language filter for a custom set
+        function switchLangFilter(setKey, lang) {
+            customSetLangFilter[setKey] = lang;
+            renderCustomCards(setKey);
+            updateLangToggleUI(setKey);
+            updateCustomSetButtonProgress();
+        }
+
+        // Update language toggle button active states
+        function updateLangToggleUI(setKey) {
+            const container = document.getElementById('custom-' + setKey + '-lang-toggle');
+            if (!container) return;
+            const lang = getLangFilter(setKey);
+            container.querySelectorAll('.lang-toggle-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+            });
+        }
+
         // Create DOM elements for custom set grids
         function initCustomSetGrids() {
             const container = document.getElementById('custom-sets-grids');
@@ -1467,7 +1579,20 @@
                 const section = document.createElement('div');
                 section.id = 'custom-' + setKey;
                 section.className = 'set-section' + (setKey === currentCustomSet ? ' active' : '');
-                section.innerHTML = `<div class="card-grid" id="custom-${setKey}-grid"></div>`;
+
+                let langToggleHTML = '';
+                if (customSetHasRegions(setKey)) {
+                    const counts = customSetRegionCounts(setKey);
+                    const lang = getLangFilter(setKey);
+                    langToggleHTML = `
+                        <div class="lang-toggle" id="custom-${setKey}-lang-toggle">
+                            <button class="lang-toggle-btn ${lang === 'EN' ? 'active' : ''}" data-lang="EN" onclick="switchLangFilter('${setKey}', 'EN')">English <span class="lang-count">${counts.en}</span></button>
+                            <button class="lang-toggle-btn ${lang === 'JP' ? 'active' : ''}" data-lang="JP" onclick="switchLangFilter('${setKey}', 'JP')">Japanese <span class="lang-count">${counts.jp}</span></button>
+                        </div>
+                    `;
+                }
+
+                section.innerHTML = langToggleHTML + `<div class="card-grid" id="custom-${setKey}-grid"></div>`;
                 container.appendChild(section);
             });
         }
