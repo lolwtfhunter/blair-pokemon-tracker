@@ -1488,14 +1488,17 @@
 
         // Get TCGPlayer URL for a card
         function getTCGPlayerUrl(cardName, setName, setCode) {
-            // Encode the card name and set code for URL
-            const encodedCardName = encodeURIComponent(cardName);
-            const encodedSetCode = setCode ? encodeURIComponent(setCode) : '';
-            const encodedSetName = encodeURIComponent(setName);
+            // Clean up the card name and set name for better search results
+            const cleanCardName = cardName.trim();
+            const cleanSetName = setName.trim();
+
+            // Build search query with card name and set name
+            const searchQuery = `${cleanCardName} ${cleanSetName}`;
+            const encodedQuery = encodeURIComponent(searchQuery);
 
             // TCGPlayer search URL format
-            // Using the search functionality to find the card
-            return `https://www.tcgplayer.com/search/pokemon/product?productLineName=pokemon&q=${encodedCardName}${encodedSetCode ? '+' + encodedSetCode : ''}&view=grid`;
+            // Using just card name + set name for better search results
+            return `https://www.tcgplayer.com/search/pokemon/product?q=${encodedQuery}&page=1`;
         }
 
         // Handle card image load errors with cascading fallback:
