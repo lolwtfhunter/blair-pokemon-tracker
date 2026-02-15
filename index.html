@@ -735,26 +735,6 @@
         
         <div class="progress-section" id="progressSection"></div>
         
-        <div id="prismatic-evolutions" class="set-section active">
-            <div class="card-grid" id="prismatic-evolutions-grid"></div>
-        </div>
-        
-        <div id="journey-together" class="set-section">
-            <div class="card-grid" id="journey-together-grid"></div>
-        </div>
-        
-        <div id="destined-rivals" class="set-section">
-            <div class="card-grid" id="destined-rivals-grid"></div>
-        </div>
-        
-        <div id="phantasmal-flames" class="set-section">
-            <div class="card-grid" id="phantasmal-flames-grid"></div>
-        </div>
-        
-        <div id="ascended-heroes" class="set-section">
-            <div class="card-grid" id="ascended-heroes-grid"></div>
-        </div>
-
         <div id="celebrations" class="set-section">
             <div class="card-grid" id="celebrations-grid"></div>
         </div>
@@ -762,6 +742,27 @@
         <div id="surging-sparks" class="set-section">
             <div class="card-grid" id="surging-sparks-grid"></div>
         </div>
+
+        <div id="prismatic-evolutions" class="set-section active">
+            <div class="card-grid" id="prismatic-evolutions-grid"></div>
+        </div>
+
+        <div id="journey-together" class="set-section">
+            <div class="card-grid" id="journey-together-grid"></div>
+        </div>
+
+        <div id="destined-rivals" class="set-section">
+            <div class="card-grid" id="destined-rivals-grid"></div>
+        </div>
+
+        <div id="phantasmal-flames" class="set-section">
+            <div class="card-grid" id="phantasmal-flames-grid"></div>
+        </div>
+
+        <div id="ascended-heroes" class="set-section">
+            <div class="card-grid" id="ascended-heroes-grid"></div>
+        </div>
+
     </div>
 
     <script>
@@ -798,10 +799,10 @@
         };
 
         // Get card image URL from Pokemon TCG API (pokemontcg.io)
-        function getCardImageUrl(setKey, cardNumber) {
-            // Celebrations Classic Collection (cards 26-50) use separate API set
-            if (setKey === 'celebrations' && cardNumber > 25) {
-                return `https://images.pokemontcg.io/cel25c/${cardNumber - 25}.png`;
+        function getCardImageUrl(setKey, cardNumber, imageId) {
+            // Celebrations Classic Collection cards use cel25c with original set numbering
+            if (setKey === 'celebrations' && imageId) {
+                return `https://images.pokemontcg.io/cel25c/${imageId}.png`;
             }
             const apiSetId = TCG_API_SET_IDS[setKey];
             if (apiSetId) {
@@ -811,7 +812,11 @@
         }
 
         // Get card image URL from TCGdex API (assets.tcgdex.net)
-        function getTcgdexImageUrl(setKey, cardNumber) {
+        function getTcgdexImageUrl(setKey, cardNumber, imageId) {
+            // Celebrations Classic Collection uses cel25c with original numbering
+            if (setKey === 'celebrations' && imageId) {
+                return `https://assets.tcgdex.net/en/swsh/cel25c/${imageId}/high.png`;
+            }
             const info = TCGDEX_SET_IDS[setKey];
             if (info) {
                 return `https://assets.tcgdex.net/en/${info.series}/${info.set}/${cardNumber}/high.png`;
@@ -989,12 +994,14 @@
                     // Convert cards object to array
                     if (setInfo.cards && typeof setInfo.cards === 'object') {
                         for (const [cardNum, cardData] of Object.entries(setInfo.cards)) {
-                            cards.push({
+                            const cardObj = {
                                 number: parseInt(cardNum),
                                 name: cardData.name,
                                 rarity: cardData.rarity,
                                 type: cardData.type || 'pokemon'
-                            });
+                            };
+                            if (cardData.imageId) cardObj.imageId = cardData.imageId;
+                            cards.push(cardObj);
                         }
                     }
                     
@@ -1187,8 +1194,8 @@
                     variantHTML = '<div class="variant-checkboxes">' + variantHTML + '</div>';
                 }
                 
-                const apiImgUrl = getCardImageUrl(setKey, card.number);
-                const tcgdexImgUrl = getTcgdexImageUrl(setKey, card.number);
+                const apiImgUrl = getCardImageUrl(setKey, card.number, card.imageId);
+                const tcgdexImgUrl = getTcgdexImageUrl(setKey, card.number, card.imageId);
                 const localImgUrl = `Images/cards/${setKey}/${String(card.number).padStart(3, '0')}.png`;
                 const primarySrc = apiImgUrl || tcgdexImgUrl || localImgUrl;
 
