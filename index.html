@@ -461,40 +461,20 @@
                 const response = await fetch('./card-data.json');
                 const data = await response.json();
                 
-                // Build cardSets from JSON
+                // Build cardSets from JSON - NEW structure with card objects
                 for (const [setKey, setInfo] of Object.entries(data.sets)) {
                     const cards = [];
                     
-                    for (let i = 1; i <= setInfo.totalCards; i++) {
-                        const cardNumber = String(i);
-                        let cardName = `#${String(i).padStart(3, '0')}`;
-                        let rarity = 'common';
-                        let type = 'pokemon';
-                        
-                        // Check if EX card
-                        if (setInfo.exCards[cardNumber]) {
-                            cardName = setInfo.exCards[cardNumber];
-                            rarity = 'ex';
+                    // Convert cards object to array
+                    if (setInfo.cards && typeof setInfo.cards === 'object') {
+                        for (const [cardNum, cardData] of Object.entries(setInfo.cards)) {
+                            cards.push({
+                                number: parseInt(cardNum),
+                                name: cardData.name,
+                                rarity: cardData.rarity,
+                                type: cardData.type || 'pokemon'
+                            });
                         }
-                        // Check if energy
-                        else if (setInfo.energyCards && setInfo.energyCards[cardNumber]) {
-                            cardName = setInfo.energyCards[cardNumber];
-                            rarity = 'uncommon';
-                            type = 'energy';
-                        }
-                        // Check if trainer
-                        else if (setInfo.trainerRange && i >= setInfo.trainerRange[0] && i <= setInfo.trainerRange[1]) {
-                            cardName = `Trainer #${String(i).padStart(3, '0')}`;
-                            rarity = 'uncommon';
-                            type = 'trainer';
-                        }
-                        // Check if secret
-                        else if (i >= setInfo.secretRareStart) {
-                            cardName = `Secret #${String(i).padStart(3, '0')}`;
-                            rarity = 'secret';
-                        }
-                        
-                        cards.push({ number: i, name: cardName, rarity: rarity, type: type });
                     }
                     
                     cardSets[setKey] = {
@@ -727,6 +707,15 @@
             if (code === SYNC_CODE) {
                 localStorage.setItem(SYNC_CODE_KEY, code);
                 document.querySelector('.modal').remove();
+                
+                // Render cards immediately BEFORE Firebase
+                console.log('Rendering cards before Firebase connection...');
+                Object.keys(cardSets).forEach(setKey => {
+                    renderCards(setKey);
+                });
+                renderProgress();
+                
+                // Then initialize Firebase
                 initializeFirebase();
             } else {
                 document.getElementById('syncError').textContent = 'Invalid sync code. Please try again.';
@@ -762,7 +751,7 @@
                         collectionProgress = data;
                         localStorage.setItem('pokemonVariantProgress', JSON.stringify(data));
                         
-                        // Re-render all sets
+                        // Re-render all sets with synced data
                         Object.keys(cardSets).forEach(setKey => {
                             renderCards(setKey);
                         });
@@ -770,8 +759,15 @@
                         
                         updateSyncStatus('Synced ✓', 'synced');
                     } else {
-                        // No data yet, upload current progress
+                        // No data yet, upload current progress and render cards
                         firebase_ref.set(collectionProgress);
+                        
+                        // Ensure cards are rendered even if no Firebase data
+                        Object.keys(cardSets).forEach(setKey => {
+                            renderCards(setKey);
+                        });
+                        renderProgress();
+                        
                         updateSyncStatus('Synced ✓', 'synced');
                     }
                 });
@@ -779,6 +775,12 @@
             } catch (error) {
                 console.error('Firebase error:', error);
                 updateSyncStatus('Offline', 'error');
+                
+                // CRITICAL: Render cards even if Firebase fails
+                Object.keys(cardSets).forEach(setKey => {
+                    renderCards(setKey);
+                });
+                renderProgress();
             }
         }
         
