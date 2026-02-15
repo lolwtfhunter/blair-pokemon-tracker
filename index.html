@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blair Pokémon TCG Tracker</title>
+    <title>Blair Card Tracker</title>
     
     <!-- Firebase SDK -->
     <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
@@ -264,75 +264,133 @@
             color: #fff;
         }
         
-        .progress-block-badge {
-            display: inline-block;
-            font-size: 0.6rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            padding: 1px 6px;
-            border-radius: 6px;
-            margin-left: 8px;
-            vertical-align: middle;
-        }
-        
-        .progress-block-badge.block-sv {
-            background: linear-gradient(135deg, #e74c3c, #8e44ad);
-            color: #fff;
-        }
-        
-        .progress-block-badge.block-me {
-            background: linear-gradient(135deg, #f39c12, #e67e22);
-            color: #fff;
-        }
 
         .set-btn .block-badge.block-swsh {
             background: linear-gradient(135deg, #3498db, #2980b9);
             color: #fff;
         }
 
-        .progress-block-badge.block-swsh {
-            background: linear-gradient(135deg, #3498db, #2980b9);
+        /* Top-level tab bar */
+        .top-tabs {
+            display: flex;
+            gap: 4px;
+            margin-bottom: 16px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
+            padding: 4px;
+        }
+
+        .top-tab {
+            flex: 1;
+            padding: 12px 16px;
+            border: none;
+            border-radius: 10px;
+            background: transparent;
+            color: rgba(241, 241, 241, 0.5);
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-align: center;
+        }
+
+        .top-tab:hover {
+            color: rgba(241, 241, 241, 0.8);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .top-tab.active {
+            background: rgba(255, 255, 255, 0.12);
+            color: #f1f1f1;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .top-tab-content {
+            display: none;
+        }
+
+        .top-tab-content.active {
+            display: block;
+        }
+
+        .placeholder-content {
+            text-align: center;
+            padding: 60px 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 15px;
+            border: 1px dashed rgba(255, 255, 255, 0.1);
+        }
+
+        .placeholder-content h2 {
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+            opacity: 0.9;
+        }
+
+        .placeholder-content p {
+            font-size: 0.95rem;
+            opacity: 0.5;
+            line-height: 1.6;
+        }
+
+        .placeholder-content .coming-soon-badge {
+            display: inline-block;
+            padding: 6px 18px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 16px;
+        }
+
+        .coming-soon-badge.custom-sets {
+            background: linear-gradient(135deg, #667eea, #764ba2);
             color: #fff;
         }
-        
-        .progress-section {
-            margin-bottom: 20px;
+
+        .coming-soon-badge.lorcana {
+            background: linear-gradient(135deg, #f39c12, #e67e22);
+            color: #fff;
         }
-        
-        .progress-card {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 15px;
-            border-radius: 10px;
-            margin-bottom: 10px;
-        }
-        
-        .progress-title {
-            font-size: 1.1rem;
-            margin-bottom: 10px;
-            color: #00ff88;
-        }
-        
-        .progress-bar {
+
+        /* Inline progress bar in set buttons */
+        .set-btn-progress {
             width: 100%;
-            height: 8px;
+            height: 4px;
             background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
+            border-radius: 4px;
             overflow: hidden;
-            margin: 10px 0;
+            margin-top: 6px;
         }
-        
-        .progress-fill {
+
+        .set-btn-progress-fill {
             height: 100%;
             background: linear-gradient(90deg, #00ff88, #00d4ff);
             transition: width 0.3s;
+            border-radius: 4px;
         }
-        
-        .stats {
+
+        .set-btn.active .set-btn-progress {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .set-btn-right {
             display: flex;
-            justify-content: space-between;
-            font-size: 0.85rem;
-            opacity: 0.8;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 4px;
+            flex-shrink: 0;
+        }
+
+        .set-btn-stats {
+            font-size: 0.6rem;
+            opacity: 0.6;
+            white-space: nowrap;
+        }
+
+        .set-btn.active .set-btn-stats {
+            opacity: 0.85;
         }
         
         .set-section {
@@ -727,40 +785,66 @@
                 <div class="header-sparkle"></div>
                 <div class="header-sparkle"></div>
             </div>
-            <h1>⚡ Blair Pokémon TCG Tracker ⚡</h1>
-            <p class="subtitle">Track every variant across Scarlet & Violet and Mega Evolution sets</p>
+            <h1>⚡ Blair Card Tracker ⚡</h1>
+            <p class="subtitle">Track your Pokemon TCG, custom sets, and Lorcana collections</p>
         </header>
         
-        <div class="set-buttons" id="setButtons"></div>
-        
-        <div class="progress-section" id="progressSection"></div>
-        
-        <div id="celebrations" class="set-section">
-            <div class="card-grid" id="celebrations-grid"></div>
+        <!-- Top-level tab navigation -->
+        <div class="top-tabs">
+            <button class="top-tab active" onclick="switchTopTab('pokemon-tcg')">Pokemon TCG</button>
+            <button class="top-tab" onclick="switchTopTab('custom-sets')">Custom Sets</button>
+            <button class="top-tab" onclick="switchTopTab('lorcana')">Lorcana</button>
         </div>
 
-        <div id="surging-sparks" class="set-section">
-            <div class="card-grid" id="surging-sparks-grid"></div>
+        <!-- Pokemon TCG tab content -->
+        <div id="pokemon-tcg-content" class="top-tab-content active">
+            <div class="set-buttons" id="setButtons"></div>
+
+            <div id="celebrations" class="set-section">
+                <div class="card-grid" id="celebrations-grid"></div>
+            </div>
+
+            <div id="surging-sparks" class="set-section">
+                <div class="card-grid" id="surging-sparks-grid"></div>
+            </div>
+
+            <div id="prismatic-evolutions" class="set-section active">
+                <div class="card-grid" id="prismatic-evolutions-grid"></div>
+            </div>
+
+            <div id="journey-together" class="set-section">
+                <div class="card-grid" id="journey-together-grid"></div>
+            </div>
+
+            <div id="destined-rivals" class="set-section">
+                <div class="card-grid" id="destined-rivals-grid"></div>
+            </div>
+
+            <div id="phantasmal-flames" class="set-section">
+                <div class="card-grid" id="phantasmal-flames-grid"></div>
+            </div>
+
+            <div id="ascended-heroes" class="set-section">
+                <div class="card-grid" id="ascended-heroes-grid"></div>
+            </div>
         </div>
 
-        <div id="prismatic-evolutions" class="set-section active">
-            <div class="card-grid" id="prismatic-evolutions-grid"></div>
+        <!-- Custom Sets tab content -->
+        <div id="custom-sets-content" class="top-tab-content">
+            <div class="placeholder-content">
+                <h2>Custom Sets</h2>
+                <p>Add and track custom collections of Pokemon cards<br>that aren't part of the main sets.</p>
+                <span class="coming-soon-badge custom-sets">Coming Soon</span>
+            </div>
         </div>
 
-        <div id="journey-together" class="set-section">
-            <div class="card-grid" id="journey-together-grid"></div>
-        </div>
-
-        <div id="destined-rivals" class="set-section">
-            <div class="card-grid" id="destined-rivals-grid"></div>
-        </div>
-
-        <div id="phantasmal-flames" class="set-section">
-            <div class="card-grid" id="phantasmal-flames-grid"></div>
-        </div>
-
-        <div id="ascended-heroes" class="set-section">
-            <div class="card-grid" id="ascended-heroes-grid"></div>
+        <!-- Lorcana tab content -->
+        <div id="lorcana-content" class="top-tab-content">
+            <div class="placeholder-content">
+                <h2>Lorcana</h2>
+                <p>Disney Lorcana card tracking will be available here.<br>Stay tuned for future updates!</p>
+                <span class="coming-soon-badge lorcana">Coming Soon</span>
+            </div>
         </div>
 
     </div>
@@ -1046,35 +1130,92 @@
             }
         }
         
-        // Render set buttons
+        // Render set buttons with inline progress bars
         function renderSetButtons() {
             const container = document.getElementById('setButtons');
             container.innerHTML = '';
-            
+
             Object.keys(cardSets).forEach(setKey => {
                 const setData = cardSets[setKey];
                 const btn = document.createElement('button');
                 btn.className = 'set-btn' + (setKey === currentSet ? ' active' : '');
-                
+                btn.setAttribute('data-set-key', setKey);
+
                 // Format release date nicely
                 let dateStr = '';
                 if (setData.releaseDate) {
                     const d = new Date(setData.releaseDate + 'T00:00:00');
                     dateStr = d.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
                 }
-                
+
+                // Calculate progress for this set
+                const progress = getSetProgress(setKey);
+
                 btn.innerHTML = `
-                    <div class="set-btn-left">
-                        <span class="set-btn-name">${setData.displayName}</span>
+                    <div class="set-btn-left" style="flex:1;min-width:0;">
+                        <div style="display:flex;align-items:center;justify-content:space-between;">
+                            <span class="set-btn-name">${setData.displayName}</span>
+                            <div class="set-btn-right">
+                                ${setData.blockCode ? `<span class="block-badge block-${setData.blockCode}">${setData.block}</span>` : ''}
+                                <span class="set-btn-stats">${progress.collected}/${progress.total} (${progress.percentage}%)</span>
+                            </div>
+                        </div>
                         ${dateStr ? `<span class="set-release-date">${dateStr}</span>` : ''}
+                        <div class="set-btn-progress">
+                            <div class="set-btn-progress-fill" style="width: ${progress.percentage}%"></div>
+                        </div>
                     </div>
-                    ${setData.blockCode ? `<span class="block-badge block-${setData.blockCode}">${setData.block}</span>` : ''}
                 `;
                 btn.onclick = () => switchSet(setKey);
                 container.appendChild(btn);
             });
         }
+
+        // Calculate progress for a single set
+        function getSetProgress(setKey) {
+            const setData = cardSets[setKey];
+            let totalVariants = 0;
+            let collectedVariants = 0;
+
+            if (setData && setData.cards) {
+                setData.cards.forEach(card => {
+                    const variants = getVariants(card, setKey);
+                    totalVariants += variants.length;
+
+                    const cardProgress = (collectionProgress[setKey] || {})[card.number] || {};
+                    variants.forEach(variant => {
+                        if (cardProgress[variant]) collectedVariants++;
+                    });
+                });
+            }
+
+            const percentage = totalVariants > 0 ? (collectedVariants / totalVariants * 100).toFixed(1) : '0.0';
+            return { collected: collectedVariants, total: totalVariants, percentage };
+        }
+
+        // Update progress bars in set buttons without full re-render
+        function updateSetButtonProgress() {
+            document.querySelectorAll('.set-btn[data-set-key]').forEach(btn => {
+                const setKey = btn.getAttribute('data-set-key');
+                const progress = getSetProgress(setKey);
+                const fill = btn.querySelector('.set-btn-progress-fill');
+                const stats = btn.querySelector('.set-btn-stats');
+                if (fill) fill.style.width = progress.percentage + '%';
+                if (stats) stats.textContent = `${progress.collected}/${progress.total} (${progress.percentage}%)`;
+            });
+        }
         
+        // Switch top-level tabs
+        function switchTopTab(tabId) {
+            // Update tab buttons
+            document.querySelectorAll('.top-tab').forEach(tab => tab.classList.remove('active'));
+            document.querySelector(`.top-tab[onclick="switchTopTab('${tabId}')"]`).classList.add('active');
+
+            // Update tab content
+            document.querySelectorAll('.top-tab-content').forEach(content => content.classList.remove('active'));
+            document.getElementById(tabId + '-content').classList.add('active');
+        }
+
         // Switch active set
         function switchSet(setKey) {
             currentSet = setKey;
@@ -1091,46 +1232,6 @@
             document.getElementById(setKey).classList.add('active');
         }
         
-        // Render progress overview
-        function renderProgress() {
-            const container = document.getElementById('progressSection');
-            container.innerHTML = '';
-            
-            Object.keys(cardSets).forEach(setKey => {
-                const setData = cardSets[setKey];
-                let totalVariants = 0;
-                let collectedVariants = 0;
-                
-                setData.cards.forEach(card => {
-                    const variants = getVariants(card, setKey);
-                    totalVariants += variants.length;
-                    
-                    const cardProgress = collectionProgress[setKey][card.number] || {};
-                    variants.forEach(variant => {
-                        if (cardProgress[variant]) collectedVariants++;
-                    });
-                });
-                
-                const percentage = totalVariants > 0 ? (collectedVariants / totalVariants * 100).toFixed(1) : 0;
-                
-                const blockBadge = setData.blockCode ? 
-                    `<span class="progress-block-badge block-${setData.blockCode}">${setData.block}</span>` : '';
-                
-                const card = document.createElement('div');
-                card.className = 'progress-card';
-                card.innerHTML = `
-                    <div class="progress-title">${setData.displayName}${blockBadge}</div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: ${percentage}%"></div>
-                    </div>
-                    <div class="stats">
-                        <span>${collectedVariants} / ${totalVariants} variants collected (${percentage}%)</span>
-                        <span>${totalVariants - collectedVariants} remaining</span>
-                    </div>
-                `;
-                container.appendChild(card);
-            });
-        }
         
         // Render cards for a set
         function renderCards(setKey) {
@@ -1251,7 +1352,7 @@
             
             // Re-render
             renderCards(setKey);
-            renderProgress();
+            updateSetButtonProgress();
         };
         
         // Update sync status
@@ -1304,7 +1405,7 @@
                     console.log(`Calling renderCards(${setKey})`);
                     renderCards(setKey);
                 });
-                renderProgress();
+                updateSetButtonProgress();
                 
                 console.log('Starting Firebase...');
                 // Then initialize Firebase
@@ -1348,7 +1449,7 @@
                         Object.keys(cardSets).forEach(setKey => {
                             renderCards(setKey);
                         });
-                        renderProgress();
+                        updateSetButtonProgress();
                         
                         updateSyncStatus('Synced ✓', 'synced');
                     } else {
@@ -1359,7 +1460,7 @@
                         Object.keys(cardSets).forEach(setKey => {
                             renderCards(setKey);
                         });
-                        renderProgress();
+                        updateSetButtonProgress();
                         
                         updateSyncStatus('Synced ✓', 'synced');
                     }
@@ -1373,7 +1474,7 @@
                 Object.keys(cardSets).forEach(setKey => {
                     renderCards(setKey);
                 });
-                renderProgress();
+                updateSetButtonProgress();
             }
         }
         
@@ -1403,12 +1504,12 @@
                     console.log('ERROR in renderSetButtons: ' + e.message);
                 }
                 
-                console.log('Calling renderProgress...');
+                console.log('Calling updateSetButtonProgress...');
                 try {
-                    renderProgress();
+                    updateSetButtonProgress();
                     console.log('✓ Progress rendered');
                 } catch (e) {
-                    console.log('ERROR in renderProgress: ' + e.message);
+                    console.log('ERROR in updateSetButtonProgress: ' + e.message);
                 }
                 
                 console.log('Rendering all cards initially...');
