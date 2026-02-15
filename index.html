@@ -2077,6 +2077,9 @@
 
                 grid.appendChild(cardEl);
             });
+
+            // Reapply active filters and search after rendering
+            applyFiltersAndSearch(csKey);
         }
 
         // Check if a custom set has mixed EN/JP cards
@@ -2411,8 +2414,11 @@
                 
                 grid.appendChild(cardEl);
             });
-            
+
             console.log(`✓ Done: ${grid.children.length} cards in grid`);
+
+            // Reapply active filters and search after rendering
+            applyFiltersAndSearch(setKey);
         }
 
         // Store active filters and searches for each set
