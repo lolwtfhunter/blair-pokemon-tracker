@@ -501,6 +501,15 @@
             background: rgba(255, 255, 255, 0.9);
         }
 
+        /* Helper text for navigation guidance */
+        .helper-text {
+            text-align: center;
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.5);
+            margin-bottom: 16px;
+            font-style: italic;
+        }
+
         /* Set selection section header */
         .set-selection-header {
             display: none;
@@ -1520,6 +1529,7 @@
         <!-- Pokemon TCG tab content -->
         <div id="pokemon-tcg-content" class="top-tab-content active">
             <!-- Block selection -->
+            <div class="helper-text">Choose a block to view its sets</div>
             <div class="block-buttons" id="blockButtons"></div>
 
             <!-- Set selection for each block -->
@@ -1661,6 +1671,7 @@
 
         <!-- Custom Sets tab content -->
         <div id="custom-sets-content" class="top-tab-content">
+            <div class="helper-text">Choose a set to view cards</div>
             <div class="set-buttons" id="customSetButtons"></div>
             <div id="custom-sets-grids"></div>
         </div>
