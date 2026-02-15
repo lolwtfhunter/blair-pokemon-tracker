@@ -2692,6 +2692,47 @@
             return imageUrls.length > 0 ? imageUrls[0] : null;
         }
 
+        // Handle Lorcana image loading with multi-tier CDN fallback
+        function tryNextLorcanaImage(img, card, setKey, attemptIndex = 0) {
+            const setData = lorcanaCardSets[setKey];
+            if (!setData) return;
+
+            const dreambornId = card.dreambornId || '';
+            const paddedNumber = String(card.number).padStart(3, '0');
+
+            // Build fallback URLs
+            const fallbackUrls = [];
+
+            if (dreambornId) {
+                // Dreamborn CDN
+                fallbackUrls.push(`https://cdn.dreamborn.ink/images/en/cards/${dreambornId}`);
+
+                // Lorcania CDN
+                const parts = dreambornId.split('-');
+                if (parts.length >= 2) {
+                    const setNum = parseInt(parts[0]);
+                    const cardNum = parseInt(parts[1]);
+                    fallbackUrls.push(`https://lorcania.com/cards/${setNum}/${cardNum}.webp`);
+                    fallbackUrls.push(`https://lorcania.com/cards/${setNum}/${cardNum}.jpg`);
+                }
+            }
+
+            // Local fallbacks
+            fallbackUrls.push(`./Images/lorcana/${setKey}/${paddedNumber}.jpg`);
+            fallbackUrls.push(`./Images/lorcana/${setKey}/${paddedNumber}.png`);
+
+            // Try next URL
+            if (attemptIndex < fallbackUrls.length) {
+                img.src = fallbackUrls[attemptIndex];
+                img.onerror = function() {
+                    tryNextLorcanaImage(img, card, setKey, attemptIndex + 1);
+                };
+            } else {
+                // All URLs failed, show placeholder
+                showPlaceholder(img);
+            }
+        }
+
         // Render Lorcana set buttons
         function renderLorcanaSetButtons() {
             const container = document.getElementById('lorcanaSetButtons');
@@ -2778,7 +2819,6 @@
 
                 // Get image URL with CDN fallbacks
                 const imgUrl = getLorcanaCardImageUrl(card, setKey);
-                const placeholderFallback = `onerror="showPlaceholder(this)"`;
                 const displayNumber = String(card.number).padStart(3, '0');
 
                 cardEl.innerHTML = `
@@ -2789,7 +2829,10 @@
                              data-card-name="${card.name.replace(/"/g, '&quot;')}"
                              data-card-number="${displayNumber}"
                              data-card-rarity="${card.rarity}"
-                             ${placeholderFallback}>
+                             data-lorcana-card-number="${card.number}"
+                             data-lorcana-dreamborn-id="${card.dreambornId || ''}"
+                             data-lorcana-set-key="${setKey}"
+                             onerror="tryNextLorcanaImage(this, {number: ${card.number}, dreambornId: '${card.dreambornId || ''}'}, '${setKey}', 1)">
                     </div>
                     <div class="card-header">
                         <div class="card-info">
