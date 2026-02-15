@@ -737,23 +737,31 @@
         
         // Verify sync code
         window.verifySyncCode = function() {
+            debugOut('verifySyncCode called');
             const input = document.getElementById('syncCodeInput');
             const code = input.value.trim();
             
+            debugOut(`Code entered: "${code}"`);
+            debugOut(`Expected: "${SYNC_CODE}"`);
+            
             if (code === SYNC_CODE) {
+                debugOut('✓ Code valid!');
                 localStorage.setItem(SYNC_CODE_KEY, code);
                 document.querySelector('.modal').remove();
                 
                 // Render cards immediately BEFORE Firebase
-                console.log('Rendering cards before Firebase connection...');
+                debugOut('Rendering cards now...');
                 Object.keys(cardSets).forEach(setKey => {
+                    debugOut(`Calling renderCards(${setKey})`);
                     renderCards(setKey);
                 });
                 renderProgress();
                 
+                debugOut('Starting Firebase...');
                 // Then initialize Firebase
                 initializeFirebase();
             } else {
+                debugOut('✗ Invalid code');
                 document.getElementById('syncError').textContent = 'Invalid sync code. Please try again.';
                 input.value = '';
             }
@@ -822,25 +830,38 @@
         
         // Initialize app
         window.addEventListener('load', async function() {
+            debugOut('App loading...');
+            
             // Load card data
             const loaded = await loadCardData();
-            if (!loaded) return;
+            if (!loaded) {
+                debugOut('Failed to load data!');
+                return;
+            }
             
+            debugOut('Initializing progress...');
             // Initialize progress
             initializeProgress();
             
+            debugOut('Rendering UI...');
             // Render UI
             renderSetButtons();
             renderProgress();
+            
+            debugOut('Rendering all cards initially...');
             Object.keys(cardSets).forEach(setKey => {
+                debugOut(`Initial render: ${setKey}`);
                 renderCards(setKey);
             });
             
+            debugOut('Checking sync code...');
             // Check for sync code
             const savedCode = localStorage.getItem(SYNC_CODE_KEY);
             if (savedCode === SYNC_CODE) {
+                debugOut('Saved code found, initializing Firebase');
                 initializeFirebase();
             } else {
+                debugOut('No saved code, showing modal');
                 showSyncModal();
             }
         });
