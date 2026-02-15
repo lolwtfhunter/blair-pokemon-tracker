@@ -2183,7 +2183,8 @@
                                     number: parseInt(cardNum),
                                     name: cardData.name,
                                     rarity: cardData.rarity,
-                                    type: cardData.type || 'character'
+                                    type: cardData.type || 'character',
+                                    dreambornId: cardData.dreambornId || ''
                                 };
                                 if (cardData.imageId) cardObj.imageId = cardData.imageId;
                                 cards.push(cardObj);
@@ -2652,6 +2653,45 @@
         
         // ==================== LORCANA FUNCTIONS ====================
 
+        // Get image URL for Lorcana cards with multiple CDN fallbacks
+        function getLorcanaCardImageUrl(card, setKey) {
+            const setData = lorcanaCardSets[setKey];
+            if (!setData) return null;
+
+            const setCode = setData.setCode;
+            const cardNumber = card.number;
+            const dreambornId = card.dreambornId || '';
+
+            // Build array of image URLs to try (in order of preference)
+            const imageUrls = [];
+
+            // Tier 1: Dreamborn CDN (most reliable for Lorcana)
+            if (dreambornId) {
+                imageUrls.push(`https://cdn.dreamborn.ink/images/en/cards/${dreambornId}`);
+            }
+
+            // Tier 2: Lorcania CDN
+            if (dreambornId) {
+                // Lorcania uses format like: https://lorcania.com/cards/1/1.webp
+                // Extract set number and card number from dreamborn ID (e.g., "001-001" -> set 1, card 1)
+                const parts = dreambornId.split('-');
+                if (parts.length >= 2) {
+                    const setNum = parseInt(parts[0]);
+                    const cardNum = parseInt(parts[1]);
+                    imageUrls.push(`https://lorcania.com/cards/${setNum}/${cardNum}.webp`);
+                    imageUrls.push(`https://lorcania.com/cards/${setNum}/${cardNum}.jpg`);
+                }
+            }
+
+            // Tier 3: Direct card number fallback
+            const paddedNumber = String(cardNumber).padStart(3, '0');
+            imageUrls.push(`./Images/lorcana/${setKey}/${paddedNumber}.jpg`);
+            imageUrls.push(`./Images/lorcana/${setKey}/${paddedNumber}.png`);
+
+            // Return the first URL (browser will try fallbacks via onerror)
+            return imageUrls.length > 0 ? imageUrls[0] : null;
+        }
+
         // Render Lorcana set buttons
         function renderLorcanaSetButtons() {
             const container = document.getElementById('lorcanaSetButtons');
@@ -2736,13 +2776,14 @@
                     </div>
                 `;
 
-                // Placeholder image for now - can be updated with actual Lorcana image sources
+                // Get image URL with CDN fallbacks
+                const imgUrl = getLorcanaCardImageUrl(card, setKey);
                 const placeholderFallback = `onerror="showPlaceholder(this)"`;
                 const displayNumber = String(card.number).padStart(3, '0');
 
                 cardEl.innerHTML = `
                     <div class="card-img-wrapper">
-                        <img src=""
+                        <img src="${imgUrl || ''}"
                              alt="${card.name.replace(/"/g, '&quot;')}"
                              loading="lazy"
                              data-card-name="${card.name.replace(/"/g, '&quot;')}"

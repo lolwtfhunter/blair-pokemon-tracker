@@ -17,1022 +17,1226 @@
     "1": {
       "name": "Ariel - On Human Legs",
       "rarity": "uncommon",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-001"
     },
     "2": {
       "name": "Ariel - Spectacular Singer",
       "rarity": "super-rare",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-002"
     },
     "3": {
       "name": "Cinderella - Gentle and Kind",
       "rarity": "uncommon",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-003"
     },
     "4": {
       "name": "Goofy - Musketeer",
       "rarity": "uncommon",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-004"
     },
     "5": {
       "name": "Hades - King of Olympus",
       "rarity": "rare",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-005"
     },
     "6": {
       "name": "Hades - Lord of the Underworld",
       "rarity": "rare",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-006"
     },
     "7": {
       "name": "HeiHei - Boat Snack",
       "rarity": "common",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-007"
     },
     "8": {
       "name": "LeFou - Bumbler",
       "rarity": "uncommon",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-008"
     },
     "9": {
       "name": "Lilo - Making a Wish",
       "rarity": "rare",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-009"
     },
     "10": {
       "name": "Maximus - Palace Horse",
       "rarity": "super-rare",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-010"
     },
     "11": {
       "name": "Maximus - Relentless Pursuer",
       "rarity": "uncommon",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-011"
     },
     "12": {
       "name": "Mickey Mouse - True Friend",
       "rarity": "uncommon",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-012"
     },
     "13": {
       "name": "Minnie Mouse - Beloved Princess",
       "rarity": "common",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-013"
     },
     "14": {
       "name": "Moana - Of Motunui",
       "rarity": "rare",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-014"
     },
     "15": {
       "name": "Mr. Smee - Loyal First Mate",
       "rarity": "common",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-015"
     },
     "16": {
       "name": "Prince Phillip - Dragonslayer",
       "rarity": "uncommon",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-016"
     },
     "17": {
       "name": "Pumbaa - Friendly Warthog",
       "rarity": "common",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-017"
     },
     "18": {
       "name": "Rapunzel - Gifted with Healing",
       "rarity": "legendary",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-018"
     },
     "19": {
       "name": "Sebastian - Court Composer",
       "rarity": "common",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-019"
     },
     "20": {
       "name": "Simba - Protective Cub",
       "rarity": "common",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-020"
     },
     "21": {
       "name": "Stitch - Carefree Surfer",
       "rarity": "legendary",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-021"
     },
     "22": {
       "name": "Stitch - New Dog",
       "rarity": "common",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-022"
     },
     "23": {
       "name": "Stitch - Rock Star",
       "rarity": "super-rare",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-023"
     },
     "24": {
       "name": "Timon - Grub Rustler",
       "rarity": "common",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-024"
     },
     "25": {
       "name": "Be Our Guest",
       "rarity": "uncommon",
-      "type": "action"
+      "type": "action",
+      "dreambornId": "001-025"
     },
     "26": {
       "name": "Control Your Temper!",
       "rarity": "common",
-      "type": "action"
+      "type": "action",
+      "dreambornId": "001-026"
     },
     "27": {
       "name": "Hakuna Matata",
       "rarity": "common",
-      "type": "action"
+      "type": "action",
+      "dreambornId": "001-027"
     },
     "28": {
       "name": "Healing Glow",
       "rarity": "common",
-      "type": "action"
+      "type": "action",
+      "dreambornId": "001-028"
     },
     "29": {
       "name": "Just in Time",
       "rarity": "rare",
-      "type": "action"
+      "type": "action",
+      "dreambornId": "001-029"
     },
     "30": {
       "name": "Part of Your World",
       "rarity": "rare",
-      "type": "action"
+      "type": "action",
+      "dreambornId": "001-030"
     },
     "31": {
       "name": "You Have Forgotten Me",
       "rarity": "uncommon",
-      "type": "action"
+      "type": "action",
+      "dreambornId": "001-031"
     },
     "32": {
       "name": "Dinglehopper",
       "rarity": "common",
-      "type": "item"
+      "type": "item",
+      "dreambornId": "001-032"
     },
     "33": {
       "name": "Lantern",
       "rarity": "rare",
-      "type": "item"
+      "type": "item",
+      "dreambornId": "001-033"
     },
     "34": {
       "name": "Ursula’s Shell Necklace",
       "rarity": "rare",
-      "type": "item"
+      "type": "item",
+      "dreambornId": "001-034"
     },
     "35": {
       "name": "Anna - Heir to Arendelle",
       "rarity": "uncommon",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-035"
     },
     "36": {
       "name": "Archimedes - Highly Educated Owl",
       "rarity": "common",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-036"
     },
     "37": {
       "name": "Dr. Facilier - Agent Provocateur",
       "rarity": "rare",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-037"
     },
     "38": {
       "name": "Dr. Facilier - Charlatan",
       "rarity": "common",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-038"
     },
     "39": {
       "name": "Dr. Facilier - Remarkable Gentleman",
       "rarity": "rare",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-039"
     },
     "40": {
       "name": "Elsa - Queen Regent",
       "rarity": "common",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-040"
     },
     "41": {
       "name": "Elsa - Snow Queen",
       "rarity": "uncommon",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-041"
     },
     "42": {
       "name": "Elsa - Spirit of Winter",
       "rarity": "legendary",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-042"
     },
     "43": {
       "name": "Flotsam - Ursula’s Spy",
       "rarity": "rare",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-043"
     },
     "44": {
       "name": "Jafar - Keeper of Secrets",
       "rarity": "rare",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-044"
     },
     "45": {
       "name": "Jafar - Wicked Sorcerer",
       "rarity": "common",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-045"
     },
     "46": {
       "name": "Jetsam - Ursula’s Spy",
       "rarity": "common",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-046"
     },
     "47": {
       "name": "Magic Broom - Bucket Brigade",
       "rarity": "common",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-047"
     },
     "48": {
       "name": "Maleficent - Biding Her Time",
       "rarity": "rare",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-048"
     },
     "49": {
       "name": "Maleficent - Sorceress",
       "rarity": "common",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-049"
     },
     "50": {
       "name": "Marshmallow - Persistent Guardian",
       "rarity": "super-rare",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-050"
     },
     "51": {
       "name": "Mickey Mouse - Wayward Sorcerer",
       "rarity": "super-rare",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-051"
     },
     "52": {
       "name": "Olaf - Friendly Snowman",
       "rarity": "uncommon",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-052"
     },
     "53": {
       "name": "Pascal - Rapunzel’s Companion",
       "rarity": "uncommon",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-053"
     },
     "54": {
       "name": "Rafiki - Mysterious Sage",
       "rarity": "uncommon",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-054"
     },
     "55": {
       "name": "Sven - Official Ice Deliverer",
       "rarity": "uncommon",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-055"
     },
     "56": {
       "name": "The Queen - Wicked and Vain",
       "rarity": "super-rare",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-056"
     },
     "57": {
       "name": "The Wardrobe - Belle’s Confidant",
       "rarity": "common",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-057"
     },
     "58": {
       "name": "Tinker Bell - Peter Pan’s Ally",
       "rarity": "common",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-058"
     },
     "59": {
       "name": "Ursula - Power Hungry",
       "rarity": "legendary",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-059"
     },
     "60": {
       "name": "Yzma - Alchemist",
       "rarity": "common",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-060"
     },
     "61": {
       "name": "Zeus - God of Lightning",
       "rarity": "rare",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-061"
     },
     "62": {
       "name": "Befuddle",
       "rarity": "uncommon",
-      "type": "action"
+      "type": "action",
+      "dreambornId": "001-062"
     },
     "63": {
       "name": "Freeze",
       "rarity": "common",
-      "type": "action"
+      "type": "action",
+      "dreambornId": "001-063"
     },
     "64": {
       "name": "Friends on the Other Side",
       "rarity": "common",
-      "type": "action"
+      "type": "action",
+      "dreambornId": "001-064"
     },
     "65": {
       "name": "Reflection",
       "rarity": "uncommon",
-      "type": "action"
+      "type": "action",
+      "dreambornId": "001-065"
     },
     "66": {
       "name": "Magic Mirror",
       "rarity": "rare",
-      "type": "item"
+      "type": "item",
+      "dreambornId": "001-066"
     },
     "67": {
       "name": "Ursula’s Cauldron",
       "rarity": "uncommon",
-      "type": "item"
+      "type": "item",
+      "dreambornId": "001-067"
     },
     "68": {
       "name": "White Rabbit’s Pocket Watch",
       "rarity": "rare",
-      "type": "item"
+      "type": "item",
+      "dreambornId": "001-068"
     },
     "69": {
       "name": "Aladdin - Prince Ali",
       "rarity": "common",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-069"
     },
     "70": {
       "name": "Beast - Wolfsbane",
       "rarity": "legendary",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-070"
     },
     "71": {
       "name": "Cheshire Cat - Not All There",
       "rarity": "uncommon",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-071"
     },
     "72": {
       "name": "Cruella De Vil - Miserable as Usual",
       "rarity": "rare",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-072"
     },
     "73": {
       "name": "Duke of Weselton - Opportunistic Official",
       "rarity": "common",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-073"
     },
     "74": {
       "name": "Flynn Rider - Charming Rogue",
       "rarity": "uncommon",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-074"
     },
     "75": {
       "name": "Genie - On the Job",
       "rarity": "super-rare",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-075"
     },
     "76": {
       "name": "Genie - Powers Unleashed",
       "rarity": "rare",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-076"
     },
     "77": {
       "name": "Genie - The Ever Impressive",
       "rarity": "common",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-077"
     },
     "78": {
       "name": "Hans - Scheming Prince",
       "rarity": "rare",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-078"
     },
     "79": {
       "name": "Horace - No-Good Scoundrel",
       "rarity": "common",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-079"
     },
     "80": {
       "name": "Iago - Loud-Mouthed Parrot",
       "rarity": "rare",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-080"
     },
     "81": {
       "name": "Jasper - Common Crook",
       "rarity": "uncommon",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-081"
     },
     "82": {
       "name": "John Silver - Alien Pirate",
       "rarity": "legendary",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-082"
     },
     "83": {
       "name": "Jumba Jookiba - Renegade Scientist",
       "rarity": "uncommon",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-083"
     },
     "84": {
       "name": "Kuzco - Temperamental Emperor",
       "rarity": "rare",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-084"
     },
     "85": {
       "name": "Lady Tremaine - Wicked Stepmother",
       "rarity": "rare",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-085"
     },
     "86": {
       "name": "Mad Hatter - Gracious Host",
       "rarity": "uncommon",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-086"
     },
     "87": {
       "name": "Megara - Pulling the Strings",
       "rarity": "common",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-087"
     },
     "88": {
       "name": "Mickey Mouse - Artful Rogue",
       "rarity": "super-rare",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-088"
     },
     "89": {
       "name": "Mickey Mouse - Steamboat Pilot",
       "rarity": "common",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-089"
     },
     "90": {
       "name": "Mother Gothel - Selfish Manipulator",
       "rarity": "super-rare",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-090"
     },
     "91": {
       "name": "Peter Pan - Never Landing",
       "rarity": "common",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-091"
     },
     "92": {
       "name": "Tamatoa - Drab Little Crab",
       "rarity": "uncommon",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-092"
     },
     "93": {
       "name": "Tinker Bell - Most Helpful",
       "rarity": "common",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-093"
     },
     "94": {
       "name": "Do It Again!",
       "rarity": "rare",
-      "type": "action"
+      "type": "action",
+      "dreambornId": "001-094"
     },
     "95": {
       "name": "Mother Knows Best",
       "rarity": "uncommon",
-      "type": "action"
+      "type": "action",
+      "dreambornId": "001-095"
     },
     "96": {
       "name": "Stampede",
       "rarity": "common",
-      "type": "action"
+      "type": "action",
+      "dreambornId": "001-096"
     },
     "97": {
       "name": "Steal from the Rich",
       "rarity": "rare",
-      "type": "action"
+      "type": "action",
+      "dreambornId": "001-097"
     },
     "98": {
       "name": "Sudden Chill",
       "rarity": "common",
-      "type": "action"
+      "type": "action",
+      "dreambornId": "001-098"
     },
     "99": {
       "name": "The Beast is Mine!",
       "rarity": "uncommon",
-      "type": "action"
+      "type": "action",
+      "dreambornId": "001-099"
     },
     "100": {
       "name": "Vicious Betrayal",
       "rarity": "common",
-      "type": "action"
+      "type": "action",
+      "dreambornId": "001-100"
     },
     "101": {
       "name": "Dr. Facilier’s Cards",
       "rarity": "uncommon",
-      "type": "item"
+      "type": "item",
+      "dreambornId": "001-101"
     },
     "102": {
       "name": "Stolen Scimitar",
       "rarity": "common",
-      "type": "item"
+      "type": "item",
+      "dreambornId": "001-102"
     },
     "103": {
       "name": "Abu - Mischievous Monkey",
       "rarity": "common",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-103"
     },
     "104": {
       "name": "Aladdin - Heroic Outlaw",
       "rarity": "super-rare",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-104"
     },
     "105": {
       "name": "Aladdin - Street Rat",
       "rarity": "common",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-105"
     },
     "106": {
       "name": "Captain - Colonel’s Lieutenant",
       "rarity": "uncommon",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-106"
     },
     "107": {
       "name": "Captain Hook - Ruthless Pirate",
       "rarity": "rare",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-107"
     },
     "108": {
       "name": "Donald Duck - Boisterous Fowl",
       "rarity": "uncommon",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-108"
     },
     "109": {
       "name": "Elsa - Ice Surfer",
       "rarity": "common",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-109"
     },
     "110": {
       "name": "Gaston - Arrogant Hunter",
       "rarity": "common",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-110"
     },
     "111": {
       "name": "Goofy - Daredevil",
       "rarity": "common",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-111"
     },
     "112": {
       "name": "LeFou - Instigator",
       "rarity": "rare",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-112"
     },
     "113": {
       "name": "Maleficent - Monstrous Dragon",
       "rarity": "legendary",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-113"
     },
     "114": {
       "name": "Maui - Hero to All",
       "rarity": "rare",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-114"
     },
     "115": {
       "name": "Mickey Mouse - Brave Little Tailor",
       "rarity": "legendary",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-115"
     },
     "116": {
       "name": "Minnie Mouse - Always Classy",
       "rarity": "common",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-116"
     },
     "117": {
       "name": "Moana - Chosen by the Ocean",
       "rarity": "uncommon",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-117"
     },
     "118": {
       "name": "Mulan - Imperial Soldier",
       "rarity": "super-rare",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-118"
     },
     "119": {
       "name": "Peter Pan - Fearless Fighter",
       "rarity": "common",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-119"
     },
     "120": {
       "name": "Pongo - Ol’ Rascal",
       "rarity": "common",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-120"
     },
     "121": {
       "name": "Rapunzel - Letting Down Her Hair",
       "rarity": "uncommon",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-121"
     },
     "122": {
       "name": "Scar - Fiery Usurper",
       "rarity": "common",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-122"
     },
     "123": {
       "name": "Scar - Shameless Firebrand",
       "rarity": "rare",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-123"
     },
     "124": {
       "name": "Sergeant Tibbs - Courageous Cat",
       "rarity": "common",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-124"
     },
     "125": {
       "name": "Stitch - Abomination",
       "rarity": "rare",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-125"
     },
     "126": {
       "name": "Te Kā - The Burning One",
       "rarity": "super-rare",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-126"
     },
     "127": {
       "name": "Tigger - Wonderful Thing",
       "rarity": "uncommon",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-127"
     },
     "128": {
       "name": "Be Prepared",
       "rarity": "rare",
-      "type": "action"
+      "type": "action",
+      "dreambornId": "001-128"
     },
     "129": {
       "name": "Cut to the Chase",
       "rarity": "uncommon",
-      "type": "action"
+      "type": "action",
+      "dreambornId": "001-129"
     },
     "130": {
       "name": "Dragon Fire",
       "rarity": "uncommon",
-      "type": "action"
+      "type": "action",
+      "dreambornId": "001-130"
     },
     "131": {
       "name": "Fan the Flames",
       "rarity": "uncommon",
-      "type": "action"
+      "type": "action",
+      "dreambornId": "001-131"
     },
     "132": {
       "name": "He's Got a Sword!",
       "rarity": "common",
-      "type": "action"
+      "type": "action",
+      "dreambornId": "001-132"
     },
     "133": {
       "name": "Tangle",
       "rarity": "common",
-      "type": "action"
+      "type": "action",
+      "dreambornId": "001-133"
     },
     "134": {
       "name": "Poisoned Apple",
       "rarity": "rare",
-      "type": "item"
+      "type": "item",
+      "dreambornId": "001-134"
     },
     "135": {
       "name": "Shield of Virtue",
       "rarity": "uncommon",
-      "type": "item"
+      "type": "item",
+      "dreambornId": "001-135"
     },
     "136": {
       "name": "Sword of Truth",
       "rarity": "rare",
-      "type": "item"
+      "type": "item",
+      "dreambornId": "001-136"
     },
     "137": {
       "name": "Ariel - Whoseit Collector",
       "rarity": "rare",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-137"
     },
     "138": {
       "name": "Aurora - Briar Rose",
       "rarity": "common",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-138"
     },
     "139": {
       "name": "Aurora - Dreaming Guardian",
       "rarity": "super-rare",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-139"
     },
     "140": {
       "name": "Aurora - Regal Princess",
       "rarity": "uncommon",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-140"
     },
     "141": {
       "name": "Belle - Inventive Engineer",
       "rarity": "uncommon",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-141"
     },
     "142": {
       "name": "Belle - Strange but Special",
       "rarity": "legendary",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-142"
     },
     "143": {
       "name": "Chief Tui - Respected Leader",
       "rarity": "uncommon",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-143"
     },
     "144": {
       "name": "Donald Duck - Strutting His Stuff",
       "rarity": "common",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-144"
     },
     "145": {
       "name": "Flounder - Voice of Reason",
       "rarity": "common",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-145"
     },
     "146": {
       "name": "Gramma Tala - Storyteller",
       "rarity": "uncommon",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-146"
     },
     "147": {
       "name": "Hades - Infernal Schemer",
       "rarity": "legendary",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-147"
     },
     "148": {
       "name": "Jasmine - Disguised",
       "rarity": "common",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-148"
     },
     "149": {
       "name": "Jasmine - Queen of Agrabah",
       "rarity": "rare",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-149"
     },
     "150": {
       "name": "Maleficent - Sinister Visitor",
       "rarity": "common",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-150"
     },
     "151": {
       "name": "Maleficent - Uninvited",
       "rarity": "rare",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-151"
     },
     "152": {
       "name": "Maurice - World-Famous Inventor",
       "rarity": "rare",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-152"
     },
     "153": {
       "name": "Merlin - Self-Appointed Mentor",
       "rarity": "common",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-153"
     },
     "154": {
       "name": "Mickey Mouse - Detective",
       "rarity": "common",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-154"
     },
     "155": {
       "name": "Mufasa - King of the Pride Lands",
       "rarity": "common",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-155"
     },
     "156": {
       "name": "Philoctetes - Trainer of Heroes",
       "rarity": "common",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-156"
     },
     "157": {
       "name": "Robin Hood - Unrivaled Archer",
       "rarity": "super-rare",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-157"
     },
     "158": {
       "name": "Scar - Mastermind",
       "rarity": "rare",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-158"
     },
     "159": {
       "name": "Tamatoa - So Shiny!",
       "rarity": "super-rare",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-159"
     },
     "160": {
       "name": "Triton - The Sea King",
       "rarity": "uncommon",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-160"
     },
     "161": {
       "name": "Develop Your Brain",
       "rarity": "common",
-      "type": "action"
+      "type": "action",
+      "dreambornId": "001-161"
     },
     "162": {
       "name": "If it’s Not Baroque",
       "rarity": "rare",
-      "type": "action"
+      "type": "action",
+      "dreambornId": "001-162"
     },
     "163": {
       "name": "Let It Go",
       "rarity": "rare",
-      "type": "action"
+      "type": "action",
+      "dreambornId": "001-163"
     },
     "164": {
       "name": "One Jump Ahead",
       "rarity": "uncommon",
-      "type": "action"
+      "type": "action",
+      "dreambornId": "001-164"
     },
     "165": {
       "name": "Work Together",
       "rarity": "common",
-      "type": "action"
+      "type": "action",
+      "dreambornId": "001-165"
     },
     "166": {
       "name": "Coconut Basket",
       "rarity": "uncommon",
-      "type": "item"
+      "type": "item",
+      "dreambornId": "001-166"
     },
     "167": {
       "name": "Eye of the Fates",
       "rarity": "uncommon",
-      "type": "item"
+      "type": "item",
+      "dreambornId": "001-167"
     },
     "168": {
       "name": "Fishbone Quill",
       "rarity": "rare",
-      "type": "item"
+      "type": "item",
+      "dreambornId": "001-168"
     },
     "169": {
       "name": "Magic Golden Flower",
       "rarity": "common",
-      "type": "item"
+      "type": "item",
+      "dreambornId": "001-169"
     },
     "170": {
       "name": "Scepter of Arendelle",
       "rarity": "uncommon",
-      "type": "item"
+      "type": "item",
+      "dreambornId": "001-170"
     },
     "171": {
       "name": "Aladdin - Cornered Swordsman",
       "rarity": "common",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-171"
     },
     "172": {
       "name": "Beast - Hardheaded",
       "rarity": "uncommon",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-172"
     },
     "173": {
       "name": "Captain Hook - Captain of the Jolly Roger",
       "rarity": "rare",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-173"
     },
     "174": {
       "name": "Captain Hook - Forceful Duelist",
       "rarity": "common",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-174"
     },
     "175": {
       "name": "Captain Hook - Thinking a Happy Thought",
       "rarity": "rare",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-175"
     },
     "176": {
       "name": "Cerberus - Three-Headed Dog",
       "rarity": "common",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-176"
     },
     "177": {
       "name": "Donald Duck - Musketeer",
       "rarity": "uncommon",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-177"
     },
     "178": {
       "name": "Gantu - Galactic Federation Captain",
       "rarity": "legendary",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-178"
     },
     "179": {
       "name": "Goons - Maleficent’s Underlings",
       "rarity": "common",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-179"
     },
     "180": {
       "name": "Hans - Thirteenth in Line",
       "rarity": "super-rare",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-180"
     },
     "181": {
       "name": "Hercules - True Hero",
       "rarity": "common",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-181"
     },
     "182": {
       "name": "Kristoff - Official Ice Master",
       "rarity": "common",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-182"
     },
     "183": {
       "name": "Kronk - Right-Hand Man",
       "rarity": "uncommon",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-183"
     },
     "184": {
       "name": "Lilo - Galactic Hero",
       "rarity": "uncommon",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-184"
     },
     "185": {
       "name": "Maui - Demigod",
       "rarity": "rare",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-185"
     },
     "186": {
       "name": "Mickey Mouse - Musketeer",
       "rarity": "rare",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-186"
     },
     "187": {
       "name": "Prince Eric - Dashing and Brave",
       "rarity": "common",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-187"
     },
     "188": {
       "name": "Simba - Future King",
       "rarity": "common",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-188"
     },
     "189": {
       "name": "Simba - Returned King",
       "rarity": "rare",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-189"
     },
     "190": {
       "name": "Simba - Rightful Heir",
       "rarity": "uncommon",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-190"
     },
     "191": {
       "name": "Starkey - Hook’s Henchman",
       "rarity": "uncommon",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-191"
     },
     "192": {
       "name": "Te Kā - Heartless",
       "rarity": "legendary",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-192"
     },
     "193": {
       "name": "Tinker Bell - Giant Fairy",
       "rarity": "super-rare",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-193"
     },
     "194": {
       "name": "Tinker Bell - Tiny Tactician",
       "rarity": "common",
-      "type": "character"
+      "type": "character",
+      "dreambornId": "001-194"
     },
     "195": {
       "name": "A Whole New World",
       "rarity": "super-rare",
-      "type": "action"
+      "type": "action",
+      "dreambornId": "001-195"
     },
     "196": {
       "name": "Break",
       "rarity": "common",
-      "type": "action"
+      "type": "action",
+      "dreambornId": "001-196"
     },
     "197": {
       "name": "Fire the Cannons!",
       "rarity": "common",
-      "type": "action"
+      "type": "action",
+      "dreambornId": "001-197"
     },
     "198": {
       "name": "Grab Your Sword",
       "rarity": "rare",
-      "type": "action"
+      "type": "action",
+      "dreambornId": "001-198"
     },
     "199": {
       "name": "Ransack",
       "rarity": "uncommon",
-      "type": "action"
+      "type": "action",
+      "dreambornId": "001-199"
     },
     "200": {
       "name": "Smash",
       "rarity": "uncommon",
-      "type": "action"
+      "type": "action",
+      "dreambornId": "001-200"
     },
     "201": {
       "name": "Beast’s Mirror",
       "rarity": "common",
-      "type": "item"
+      "type": "item",
+      "dreambornId": "001-201"
     },
     "202": {
       "name": "Frying Pan",
       "rarity": "uncommon",
-      "type": "item"
+      "type": "item",
+      "dreambornId": "001-202"
     },
     "203": {
       "name": "Musketeer Tabard",
       "rarity": "rare",
-      "type": "item"
+      "type": "item",
+      "dreambornId": "001-203"
     },
     "204": {
       "name": "Plasma Blaster",
       "rarity": "rare",
-      "type": "item"
+      "type": "item",
+      "dreambornId": "001-204"
     }
   }
 }
