@@ -819,34 +819,34 @@
     "prismatic-evolutions": {
       "name": "Prismatic Evolutions",
       "displayName": "Prismatic Evolutions",
-      "totalCards": 217,
+      "totalCards": 180,
       "mainSet": 131,
       "setCode": "sv8.5",
       "hasPokeBallVariant": true,
       "hasMasterBallVariant": true,
       "cards": {
         "1": {
-          "name": "Card #001",
+          "name": "Exeggcute",
           "rarity": "common",
           "type": "pokemon"
         },
         "2": {
-          "name": "Card #002",
-          "rarity": "rare",
+          "name": "Exeggutor",
+          "rarity": "uncommon",
           "type": "pokemon"
         },
         "3": {
-          "name": "Card #003",
-          "rarity": "rare",
+          "name": "Pinsir",
+          "rarity": "common",
           "type": "pokemon"
         },
         "4": {
-          "name": "Card #004",
+          "name": "Budew",
           "rarity": "common",
           "type": "pokemon"
         },
         "5": {
-          "name": "Card #005",
+          "name": "Leafeon",
           "rarity": "rare",
           "type": "pokemon"
         },
@@ -856,23 +856,23 @@
           "type": "pokemon"
         },
         "7": {
-          "name": "Card #007",
+          "name": "Cottonee",
           "rarity": "common",
           "type": "pokemon"
         },
         "8": {
-          "name": "Card #008",
+          "name": "Whimsicott",
           "rarity": "rare",
           "type": "pokemon"
         },
         "9": {
-          "name": "Card #009",
+          "name": "Applin",
           "rarity": "common",
           "type": "pokemon"
         },
         "10": {
-          "name": "Card #010",
-          "rarity": "rare",
+          "name": "Dipplin",
+          "rarity": "uncommon",
           "type": "pokemon"
         },
         "11": {
@@ -886,7 +886,7 @@
           "type": "pokemon"
         },
         "13": {
-          "name": "Card #013",
+          "name": "Flareon",
           "rarity": "rare",
           "type": "pokemon"
         },
@@ -896,13 +896,13 @@
           "type": "pokemon"
         },
         "15": {
-          "name": "Card #015",
+          "name": "Litleo",
           "rarity": "common",
           "type": "pokemon"
         },
         "16": {
-          "name": "Card #016",
-          "rarity": "rare",
+          "name": "Pyroar",
+          "rarity": "uncommon",
           "type": "pokemon"
         },
         "17": {
@@ -911,1003 +911,818 @@
           "type": "pokemon"
         },
         "18": {
-          "name": "Card #018",
+          "name": "Slowpoke",
           "rarity": "common",
           "type": "pokemon"
         },
         "19": {
-          "name": "Card #019",
-          "rarity": "rare",
+          "name": "Slowking",
+          "rarity": "uncommon",
           "type": "pokemon"
         },
         "20": {
-          "name": "Card #020",
+          "name": "Goldeen",
           "rarity": "common",
           "type": "pokemon"
         },
         "21": {
-          "name": "Card #021",
-          "rarity": "rare",
+          "name": "Seaking",
+          "rarity": "uncommon",
           "type": "pokemon"
         },
         "22": {
+          "name": "Vaporeon",
+          "rarity": "rare",
+          "type": "pokemon"
+        },
+        "23": {
           "name": "Vaporeon ex",
           "rarity": "ex",
           "type": "pokemon"
         },
-        "23": {
-          "name": "Card #023",
-          "rarity": "common",
-          "type": "pokemon"
-        },
         "24": {
-          "name": "Card #024",
-          "rarity": "rare",
+          "name": "Suicune",
+          "rarity": "uncommon",
           "type": "pokemon"
         },
         "25": {
-          "name": "Card #025",
-          "rarity": "common",
+          "name": "Glaceon",
+          "rarity": "rare",
           "type": "pokemon"
         },
         "26": {
-          "name": "Card #026",
-          "rarity": "rare",
-          "type": "pokemon"
-        },
-        "27": {
-          "name": "Card #027",
-          "rarity": "rare",
-          "type": "pokemon"
-        },
-        "28": {
-          "name": "Wellspring Mask Ogerpon ex",
-          "rarity": "ex",
-          "type": "pokemon"
-        },
-        "29": {
-          "name": "Card #029",
-          "rarity": "common",
-          "type": "pokemon"
-        },
-        "30": {
-          "name": "Card #030",
-          "rarity": "rare",
-          "type": "pokemon"
-        },
-        "31": {
-          "name": "Card #031",
-          "rarity": "rare",
-          "type": "pokemon"
-        },
-        "32": {
-          "name": "Jolteon ex",
-          "rarity": "ex",
-          "type": "pokemon"
-        },
-        "33": {
-          "name": "Card #033",
-          "rarity": "common",
-          "type": "pokemon"
-        },
-        "34": {
-          "name": "Card #034",
-          "rarity": "common",
-          "type": "pokemon"
-        },
-        "35": {
-          "name": "Card #035",
-          "rarity": "rare",
-          "type": "pokemon"
-        },
-        "36": {
-          "name": "Card #036",
-          "rarity": "rare",
-          "type": "pokemon"
-        },
-        "37": {
-          "name": "Espeon ex",
-          "rarity": "ex",
-          "type": "pokemon"
-        },
-        "38": {
-          "name": "Card #038",
-          "rarity": "common",
-          "type": "pokemon"
-        },
-        "39": {
-          "name": "Cornerstone Mask Ogerpon ex",
-          "rarity": "ex",
-          "type": "pokemon"
-        },
-        "40": {
-          "name": "Card #040",
-          "rarity": "rare",
-          "type": "pokemon"
-        },
-        "41": {
-          "name": "Card #041",
-          "rarity": "rare",
-          "type": "pokemon"
-        },
-        "42": {
-          "name": "Umbreon ex",
-          "rarity": "ex",
-          "type": "pokemon"
-        },
-        "43": {
-          "name": "Card #043",
-          "rarity": "common",
-          "type": "pokemon"
-        },
-        "44": {
-          "name": "Card #044",
-          "rarity": "rare",
-          "type": "pokemon"
-        },
-        "45": {
-          "name": "Card #045",
-          "rarity": "common",
-          "type": "pokemon"
-        },
-        "46": {
-          "name": "Card #046",
-          "rarity": "rare",
-          "type": "pokemon"
-        },
-        "47": {
-          "name": "Card #047",
-          "rarity": "rare",
-          "type": "pokemon"
-        },
-        "48": {
           "name": "Glaceon ex",
           "rarity": "ex",
           "type": "pokemon"
         },
-        "49": {
-          "name": "Card #049",
+        "27": {
+          "name": "Wellspring Mask Ogerpon ex",
+          "rarity": "ex",
+          "type": "pokemon"
+        },
+        "28": {
+          "name": "Pikachu ex",
+          "rarity": "ex",
+          "type": "pokemon"
+        },
+        "29": {
+          "name": "Jolteon",
+          "rarity": "rare",
+          "type": "pokemon"
+        },
+        "30": {
+          "name": "Jolteon ex",
+          "rarity": "ex",
+          "type": "pokemon"
+        },
+        "31": {
+          "name": "Iron Hands ex",
+          "rarity": "ex",
+          "type": "pokemon"
+        },
+        "32": {
+          "name": "Iron Thorns ex",
+          "rarity": "ex",
+          "type": "pokemon"
+        },
+        "33": {
+          "name": "Espeon",
+          "rarity": "rare",
+          "type": "pokemon"
+        },
+        "34": {
+          "name": "Espeon ex",
+          "rarity": "ex",
+          "type": "pokemon"
+        },
+        "35": {
+          "name": "Duskull",
           "rarity": "common",
           "type": "pokemon"
         },
-        "50": {
-          "name": "Card #050",
+        "36": {
+          "name": "Dusclops",
+          "rarity": "common",
+          "type": "pokemon"
+        },
+        "37": {
+          "name": "Dusknoir",
           "rarity": "rare",
           "type": "pokemon"
         },
-        "51": {
-          "name": "Card #051",
+        "38": {
+          "name": "Spritzee",
+          "rarity": "common",
+          "type": "pokemon"
+        },
+        "39": {
+          "name": "Aromatisse",
+          "rarity": "common",
+          "type": "pokemon"
+        },
+        "40": {
+          "name": "Sylveon",
           "rarity": "rare",
           "type": "pokemon"
         },
-        "52": {
+        "41": {
           "name": "Sylveon ex",
           "rarity": "ex",
           "type": "pokemon"
         },
-        "53": {
-          "name": "Card #053",
+        "42": {
+          "name": "Scream Tail",
+          "rarity": "uncommon",
+          "type": "pokemon"
+        },
+        "43": {
+          "name": "Flutter Mane",
           "rarity": "rare",
           "type": "pokemon"
         },
-        "54": {
-          "name": "Eevee ex",
-          "rarity": "ex",
+        "44": {
+          "name": "Munkidori",
+          "rarity": "rare",
           "type": "pokemon"
         },
-        "55": {
-          "name": "Card #055",
+        "45": {
+          "name": "Fezandipiti",
+          "rarity": "rare",
+          "type": "pokemon"
+        },
+        "46": {
+          "name": "Iron Boulder",
+          "rarity": "rare",
+          "type": "pokemon"
+        },
+        "47": {
+          "name": "Larvitar",
           "rarity": "common",
           "type": "pokemon"
         },
-        "56": {
-          "name": "Card #056",
-          "rarity": "rare",
-          "type": "pokemon"
-        },
-        "57": {
-          "name": "Card #057",
-          "rarity": "rare",
-          "type": "pokemon"
-        },
-        "58": {
-          "name": "Wigglytuff ex",
-          "rarity": "ex",
-          "type": "pokemon"
-        },
-        "59": {
-          "name": "Card #059",
+        "48": {
+          "name": "Pupitar",
           "rarity": "common",
           "type": "pokemon"
         },
-        "60": {
-          "name": "Card #060",
+        "49": {
+          "name": "Groudon",
           "rarity": "rare",
           "type": "pokemon"
         },
-        "61": {
-          "name": "Card #061",
-          "rarity": "rare",
-          "type": "pokemon"
-        },
-        "62": {
-          "name": "Clefable ex",
-          "rarity": "ex",
-          "type": "pokemon"
-        },
-        "63": {
-          "name": "Card #063",
+        "50": {
+          "name": "Riolu",
           "rarity": "common",
           "type": "pokemon"
         },
-        "64": {
-          "name": "Card #064",
-          "rarity": "rare",
-          "type": "pokemon"
-        },
-        "65": {
-          "name": "Card #065",
-          "rarity": "common",
-          "type": "pokemon"
-        },
-        "66": {
-          "name": "Card #066",
-          "rarity": "rare",
-          "type": "pokemon"
-        },
-        "67": {
-          "name": "Card #067",
-          "rarity": "common",
-          "type": "pokemon"
-        },
-        "68": {
-          "name": "Card #068",
-          "rarity": "rare",
-          "type": "pokemon"
-        },
-        "69": {
-          "name": "Card #069",
-          "rarity": "rare",
-          "type": "pokemon"
-        },
-        "70": {
-          "name": "Pidgeot ex",
-          "rarity": "ex",
-          "type": "pokemon"
-        },
-        "71": {
-          "name": "Card #071",
-          "rarity": "rare",
-          "type": "pokemon"
-        },
-        "72": {
-          "name": "Card #072",
-          "rarity": "rare",
-          "type": "pokemon"
-        },
-        "73": {
-          "name": "Golem ex",
-          "rarity": "ex",
-          "type": "pokemon"
-        },
-        "74": {
-          "name": "Card #074",
-          "rarity": "common",
-          "type": "pokemon"
-        },
-        "75": {
-          "name": "Card #075",
-          "rarity": "rare",
-          "type": "pokemon"
-        },
-        "76": {
-          "name": "Hitmonchan ex",
-          "rarity": "ex",
-          "type": "pokemon"
-        },
-        "77": {
-          "name": "Card #077",
-          "rarity": "rare",
-          "type": "pokemon"
-        },
-        "78": {
-          "name": "Card #078",
-          "rarity": "rare",
-          "type": "pokemon"
-        },
-        "79": {
-          "name": "Card #079",
-          "rarity": "rare",
-          "type": "pokemon"
-        },
-        "80": {
-          "name": "Tyranitar ex",
-          "rarity": "ex",
-          "type": "pokemon"
-        },
-        "81": {
-          "name": "Card #081",
-          "rarity": "common",
-          "type": "pokemon"
-        },
-        "82": {
-          "name": "Card #082",
-          "rarity": "rare",
-          "type": "pokemon"
-        },
-        "83": {
-          "name": "Card #083",
-          "rarity": "rare",
-          "type": "pokemon"
-        },
-        "84": {
-          "name": "Aggron ex",
-          "rarity": "ex",
-          "type": "pokemon"
-        },
-        "85": {
-          "name": "Card #085",
-          "rarity": "rare",
-          "type": "pokemon"
-        },
-        "86": {
-          "name": "Card #086",
-          "rarity": "rare",
-          "type": "pokemon"
-        },
-        "87": {
-          "name": "Card #087",
-          "rarity": "rare",
-          "type": "pokemon"
-        },
-        "88": {
+        "51": {
           "name": "Lucario ex",
           "rarity": "ex",
           "type": "pokemon"
         },
-        "89": {
-          "name": "Card #089",
+        "52": {
+          "name": "Hippopotas",
+          "rarity": "common",
+          "type": "pokemon"
+        },
+        "53": {
+          "name": "Hippowdon",
+          "rarity": "common",
+          "type": "pokemon"
+        },
+        "54": {
+          "name": "Bloodmoon Ursaluna",
           "rarity": "rare",
+          "type": "pokemon"
+        },
+        "55": {
+          "name": "Great Tusk",
+          "rarity": "uncommon",
+          "type": "pokemon"
+        },
+        "56": {
+          "name": "Sandy Shocks ex",
+          "rarity": "ex",
+          "type": "pokemon"
+        },
+        "57": {
+          "name": "Okidogi",
+          "rarity": "rare",
+          "type": "pokemon"
+        },
+        "58": {
+          "name": "Cornerstone Mask Ogerpon ex",
+          "rarity": "ex",
+          "type": "pokemon"
+        },
+        "59": {
+          "name": "Umbreon",
+          "rarity": "rare",
+          "type": "pokemon"
+        },
+        "60": {
+          "name": "Umbreon ex",
+          "rarity": "ex",
+          "type": "pokemon"
+        },
+        "61": {
+          "name": "Sneasel",
+          "rarity": "common",
+          "type": "pokemon"
+        },
+        "62": {
+          "name": "Houndour",
+          "rarity": "common",
+          "type": "pokemon"
+        },
+        "63": {
+          "name": "Houndoom",
+          "rarity": "common",
+          "type": "pokemon"
+        },
+        "64": {
+          "name": "Tyranitar ex",
+          "rarity": "ex",
+          "type": "pokemon"
+        },
+        "65": {
+          "name": "Roaring Moon",
+          "rarity": "rare",
+          "type": "pokemon"
+        },
+        "66": {
+          "name": "Bronzor",
+          "rarity": "common",
+          "type": "pokemon"
+        },
+        "67": {
+          "name": "Bronzong",
+          "rarity": "uncommon",
+          "type": "pokemon"
+        },
+        "68": {
+          "name": "Heatran",
+          "rarity": "uncommon",
+          "type": "pokemon"
+        },
+        "69": {
+          "name": "Duraludon",
+          "rarity": "common",
+          "type": "pokemon"
+        },
+        "70": {
+          "name": "Archaludon",
+          "rarity": "rare",
+          "type": "pokemon"
+        },
+        "71": {
+          "name": "Dreepy",
+          "rarity": "common",
+          "type": "pokemon"
+        },
+        "72": {
+          "name": "Drakloak",
+          "rarity": "common",
+          "type": "pokemon"
+        },
+        "73": {
+          "name": "Dragapult ex",
+          "rarity": "ex",
+          "type": "pokemon"
+        },
+        "74": {
+          "name": "Eevee",
+          "rarity": "common",
+          "type": "pokemon"
+        },
+        "75": {
+          "name": "Eevee ex",
+          "rarity": "ex",
+          "type": "pokemon"
+        },
+        "76": {
+          "name": "Snorlax ex",
+          "rarity": "ex",
+          "type": "pokemon"
+        },
+        "77": {
+          "name": "Hoothoot",
+          "rarity": "common",
+          "type": "pokemon"
+        },
+        "78": {
+          "name": "Noctowl",
+          "rarity": "rare",
+          "type": "pokemon"
+        },
+        "79": {
+          "name": "Dunsparce",
+          "rarity": "common",
+          "type": "pokemon"
+        },
+        "80": {
+          "name": "Dudunsparce",
+          "rarity": "rare",
+          "type": "pokemon"
+        },
+        "81": {
+          "name": "Miltank",
+          "rarity": "common",
+          "type": "pokemon"
+        },
+        "82": {
+          "name": "Lugia ex",
+          "rarity": "ex",
+          "type": "pokemon"
+        },
+        "83": {
+          "name": "Buneary",
+          "rarity": "common",
+          "type": "pokemon"
+        },
+        "84": {
+          "name": "Lopunny",
+          "rarity": "common",
+          "type": "pokemon"
+        },
+        "85": {
+          "name": "Fan Rotom",
+          "rarity": "common",
+          "type": "pokemon"
+        },
+        "86": {
+          "name": "Regigigas",
+          "rarity": "uncommon",
+          "type": "pokemon"
+        },
+        "87": {
+          "name": "Shaymin",
+          "rarity": "uncommon",
+          "type": "pokemon"
+        },
+        "88": {
+          "name": "Furfrou",
+          "rarity": "common",
+          "type": "pokemon"
+        },
+        "89": {
+          "name": "Hawlucha",
+          "rarity": "uncommon",
           "type": "pokemon"
         },
         "90": {
-          "name": "Card #090",
-          "rarity": "rare",
+          "name": "Noibat",
+          "rarity": "common",
           "type": "pokemon"
         },
         "91": {
-          "name": "Dragonite ex",
+          "name": "Noivern ex",
           "rarity": "ex",
           "type": "pokemon"
         },
         "92": {
-          "name": "Trainer #092",
-          "rarity": "uncommon",
-          "type": "trainer"
+          "name": "Terapagos ex",
+          "rarity": "ex",
+          "type": "pokemon"
         },
         "93": {
-          "name": "Trainer #093",
-          "rarity": "uncommon",
+          "name": "Amarys",
+          "rarity": "common",
           "type": "trainer"
         },
         "94": {
-          "name": "Trainer #094",
+          "name": "Area Zero Underdepths",
           "rarity": "uncommon",
           "type": "trainer"
         },
         "95": {
-          "name": "Trainer #095",
+          "name": "Binding Mochi",
           "rarity": "uncommon",
           "type": "trainer"
         },
         "96": {
-          "name": "Trainer #096",
-          "rarity": "uncommon",
+          "name": "Black Belt's Training",
+          "rarity": "common",
           "type": "trainer"
         },
         "97": {
-          "name": "Trainer #097",
-          "rarity": "uncommon",
+          "name": "Black Belt's Training",
+          "rarity": "common",
           "type": "trainer"
         },
         "98": {
-          "name": "Trainer #098",
-          "rarity": "uncommon",
+          "name": "Black Belt's Training",
+          "rarity": "common",
           "type": "trainer"
         },
         "99": {
-          "name": "Trainer #099",
-          "rarity": "uncommon",
+          "name": "Black Belt's Training",
+          "rarity": "common",
           "type": "trainer"
         },
         "100": {
-          "name": "Trainer #100",
+          "name": "Briar",
           "rarity": "uncommon",
           "type": "trainer"
         },
         "101": {
-          "name": "Trainer #101",
+          "name": "Buddy-Buddy Poffin",
           "rarity": "uncommon",
           "type": "trainer"
         },
         "102": {
-          "name": "Trainer #102",
+          "name": "Bug Catching Set",
           "rarity": "uncommon",
           "type": "trainer"
         },
         "103": {
-          "name": "Trainer #103",
+          "name": "Carmine",
           "rarity": "uncommon",
           "type": "trainer"
         },
         "104": {
-          "name": "Trainer #104",
+          "name": "Ciphermaniac's Codebreaking",
           "rarity": "uncommon",
           "type": "trainer"
         },
         "105": {
-          "name": "Trainer #105",
+          "name": "Crispin",
           "rarity": "uncommon",
           "type": "trainer"
         },
         "106": {
-          "name": "Trainer #106",
+          "name": "Earthen Vessel",
           "rarity": "uncommon",
           "type": "trainer"
         },
         "107": {
-          "name": "Trainer #107",
+          "name": "Explorer's Guidance",
           "rarity": "uncommon",
           "type": "trainer"
         },
         "108": {
-          "name": "Trainer #108",
+          "name": "Festival Grounds",
           "rarity": "uncommon",
           "type": "trainer"
         },
         "109": {
-          "name": "Trainer #109",
-          "rarity": "uncommon",
+          "name": "Friends in Paldea",
+          "rarity": "common",
           "type": "trainer"
         },
         "110": {
-          "name": "Trainer #110",
+          "name": "Glass Trumpet",
           "rarity": "uncommon",
           "type": "trainer"
         },
         "111": {
-          "name": "Trainer #111",
-          "rarity": "uncommon",
+          "name": "Haban Berry",
+          "rarity": "common",
           "type": "trainer"
         },
         "112": {
-          "name": "Trainer #112",
+          "name": "Janine's Secret Art",
           "rarity": "uncommon",
           "type": "trainer"
         },
         "113": {
-          "name": "Trainer #113",
+          "name": "Kieran",
           "rarity": "uncommon",
           "type": "trainer"
         },
         "114": {
-          "name": "Trainer #114",
+          "name": "Lacey",
           "rarity": "uncommon",
           "type": "trainer"
         },
         "115": {
-          "name": "Trainer #115",
-          "rarity": "uncommon",
+          "name": "Larry's Skill",
+          "rarity": "common",
           "type": "trainer"
         },
         "116": {
-          "name": "Trainer #116",
-          "rarity": "uncommon",
+          "name": "Max Rod",
+          "rarity": "ace-spec",
           "type": "trainer"
         },
         "117": {
-          "name": "Trainer #117",
-          "rarity": "uncommon",
+          "name": "Maximum Belt",
+          "rarity": "ace-spec",
           "type": "trainer"
         },
         "118": {
-          "name": "Trainer #118",
+          "name": "Ogre's Mask",
           "rarity": "uncommon",
           "type": "trainer"
         },
         "119": {
-          "name": "Trainer #119",
-          "rarity": "uncommon",
+          "name": "Prime Catcher",
+          "rarity": "ace-spec",
           "type": "trainer"
         },
         "120": {
-          "name": "Trainer #120",
+          "name": "Professor Sada's Vitality",
           "rarity": "uncommon",
           "type": "trainer"
         },
         "121": {
-          "name": "Trainer #121",
+          "name": "Professor Turo's Scenario",
           "rarity": "uncommon",
           "type": "trainer"
         },
         "122": {
-          "name": "Trainer #122",
-          "rarity": "uncommon",
+          "name": "Professor's Research (Professor Oak)",
+          "rarity": "common",
           "type": "trainer"
         },
         "123": {
-          "name": "Trainer #123",
-          "rarity": "uncommon",
+          "name": "Professor's Research (Professor Elm)",
+          "rarity": "common",
           "type": "trainer"
         },
         "124": {
-          "name": "Trainer #124",
-          "rarity": "uncommon",
+          "name": "Professor's Research (Professor Rowan)",
+          "rarity": "common",
           "type": "trainer"
         },
         "125": {
-          "name": "Trainer #125",
-          "rarity": "uncommon",
+          "name": "Professor's Research (Professor Sycamore)",
+          "rarity": "common",
           "type": "trainer"
         },
         "126": {
-          "name": "Trainer #126",
+          "name": "Rescue Board",
           "rarity": "uncommon",
           "type": "trainer"
         },
         "127": {
-          "name": "Trainer #127",
-          "rarity": "uncommon",
+          "name": "Roto-Stick",
+          "rarity": "common",
           "type": "trainer"
         },
         "128": {
-          "name": "Trainer #128",
-          "rarity": "uncommon",
+          "name": "Scoop Up Cyclone",
+          "rarity": "ace-spec",
           "type": "trainer"
         },
         "129": {
-          "name": "Trainer #129",
-          "rarity": "uncommon",
+          "name": "Sparkling Crystal",
+          "rarity": "ace-spec",
           "type": "trainer"
         },
         "130": {
-          "name": "Trainer #130",
+          "name": "Techno Radar",
           "rarity": "uncommon",
           "type": "trainer"
         },
         "131": {
-          "name": "Trainer #131",
-          "rarity": "uncommon",
+          "name": "Treasure Tracker",
+          "rarity": "ace-spec",
           "type": "trainer"
         },
         "132": {
-          "name": "Secret #132",
-          "rarity": "secret",
-          "type": "pokemon"
+          "name": "Amarys",
+          "rarity": "ultra-rare",
+          "type": "trainer"
         },
         "133": {
-          "name": "Secret #133",
-          "rarity": "secret",
-          "type": "pokemon"
+          "name": "Atticus",
+          "rarity": "ultra-rare",
+          "type": "trainer"
         },
         "134": {
-          "name": "Secret #134",
-          "rarity": "secret",
-          "type": "pokemon"
+          "name": "Atticus",
+          "rarity": "ultra-rare",
+          "type": "trainer"
         },
         "135": {
-          "name": "Secret #135",
-          "rarity": "secret",
-          "type": "pokemon"
+          "name": "Brassius",
+          "rarity": "ultra-rare",
+          "type": "trainer"
         },
         "136": {
-          "name": "Secret #136",
-          "rarity": "secret",
-          "type": "pokemon"
+          "name": "Eri",
+          "rarity": "ultra-rare",
+          "type": "trainer"
         },
         "137": {
-          "name": "Secret #137",
-          "rarity": "secret",
-          "type": "pokemon"
+          "name": "Friends in Paldea",
+          "rarity": "ultra-rare",
+          "type": "trainer"
         },
         "138": {
-          "name": "Secret #138",
-          "rarity": "secret",
-          "type": "pokemon"
+          "name": "Giacomo",
+          "rarity": "ultra-rare",
+          "type": "trainer"
         },
         "139": {
-          "name": "Secret #139",
-          "rarity": "secret",
-          "type": "pokemon"
+          "name": "Larry's Skill",
+          "rarity": "ultra-rare",
+          "type": "trainer"
         },
         "140": {
-          "name": "Secret #140",
-          "rarity": "secret",
-          "type": "pokemon"
+          "name": "Mela",
+          "rarity": "ultra-rare",
+          "type": "trainer"
         },
         "141": {
-          "name": "Secret #141",
-          "rarity": "secret",
-          "type": "pokemon"
+          "name": "Ortega",
+          "rarity": "ultra-rare",
+          "type": "trainer"
         },
         "142": {
-          "name": "Secret #142",
-          "rarity": "secret",
-          "type": "pokemon"
+          "name": "Raifort",
+          "rarity": "ultra-rare",
+          "type": "trainer"
         },
         "143": {
-          "name": "Secret #143",
-          "rarity": "secret",
-          "type": "pokemon"
+          "name": "Tyme",
+          "rarity": "ultra-rare",
+          "type": "trainer"
         },
         "144": {
-          "name": "Secret #144",
-          "rarity": "secret",
+          "name": "Leafeon ex",
+          "rarity": "special-illustration-rare",
           "type": "pokemon"
         },
         "145": {
-          "name": "Secret #145",
-          "rarity": "secret",
+          "name": "Teal Mask Ogerpon ex",
+          "rarity": "special-illustration-rare",
           "type": "pokemon"
         },
         "146": {
-          "name": "Secret #146",
-          "rarity": "secret",
+          "name": "Flareon ex",
+          "rarity": "special-illustration-rare",
           "type": "pokemon"
         },
         "147": {
-          "name": "Secret #147",
-          "rarity": "secret",
+          "name": "Ceruledge ex",
+          "rarity": "special-illustration-rare",
           "type": "pokemon"
         },
         "148": {
-          "name": "Secret #148",
-          "rarity": "secret",
+          "name": "Hearthflame Mask Ogerpon ex",
+          "rarity": "special-illustration-rare",
           "type": "pokemon"
         },
         "149": {
-          "name": "Secret #149",
-          "rarity": "secret",
+          "name": "Vaporeon ex",
+          "rarity": "special-illustration-rare",
           "type": "pokemon"
         },
         "150": {
-          "name": "Secret #150",
-          "rarity": "secret",
+          "name": "Glaceon ex",
+          "rarity": "special-illustration-rare",
           "type": "pokemon"
         },
         "151": {
-          "name": "Secret #151",
-          "rarity": "secret",
+          "name": "Palafin ex",
+          "rarity": "special-illustration-rare",
           "type": "pokemon"
         },
         "152": {
-          "name": "Secret #152",
-          "rarity": "secret",
+          "name": "Wellspring Mask Ogerpon ex",
+          "rarity": "special-illustration-rare",
           "type": "pokemon"
         },
         "153": {
-          "name": "Secret #153",
-          "rarity": "secret",
+          "name": "Jolteon ex",
+          "rarity": "special-illustration-rare",
           "type": "pokemon"
         },
         "154": {
-          "name": "Secret #154",
-          "rarity": "secret",
+          "name": "Iron Hands ex",
+          "rarity": "special-illustration-rare",
           "type": "pokemon"
         },
         "155": {
-          "name": "Secret #155",
-          "rarity": "secret",
+          "name": "Espeon ex",
+          "rarity": "special-illustration-rare",
           "type": "pokemon"
         },
         "156": {
-          "name": "Secret #156",
-          "rarity": "secret",
+          "name": "Sylveon ex",
+          "rarity": "special-illustration-rare",
           "type": "pokemon"
         },
         "157": {
-          "name": "Secret #157",
-          "rarity": "secret",
+          "name": "Iron Valiant ex",
+          "rarity": "special-illustration-rare",
           "type": "pokemon"
         },
         "158": {
-          "name": "Secret #158",
-          "rarity": "secret",
+          "name": "Iron Crown ex",
+          "rarity": "special-illustration-rare",
           "type": "pokemon"
         },
         "159": {
-          "name": "Secret #159",
-          "rarity": "secret",
+          "name": "Sandy Shocks ex",
+          "rarity": "special-illustration-rare",
           "type": "pokemon"
         },
         "160": {
-          "name": "Secret #160",
-          "rarity": "secret",
+          "name": "Cornerstone Mask Ogerpon ex",
+          "rarity": "special-illustration-rare",
           "type": "pokemon"
         },
         "161": {
-          "name": "Secret #161",
-          "rarity": "secret",
+          "name": "Umbreon ex",
+          "rarity": "special-illustration-rare",
           "type": "pokemon"
         },
         "162": {
-          "name": "Secret #162",
-          "rarity": "secret",
+          "name": "Roaring Moon ex",
+          "rarity": "special-illustration-rare",
           "type": "pokemon"
         },
         "163": {
-          "name": "Secret #163",
-          "rarity": "secret",
+          "name": "Pecharunt ex",
+          "rarity": "special-illustration-rare",
           "type": "pokemon"
         },
         "164": {
-          "name": "Secret #164",
-          "rarity": "secret",
+          "name": "Gholdengo ex",
+          "rarity": "special-illustration-rare",
           "type": "pokemon"
         },
         "165": {
-          "name": "Secret #165",
-          "rarity": "secret",
+          "name": "Dragapult ex",
+          "rarity": "special-illustration-rare",
           "type": "pokemon"
         },
         "166": {
-          "name": "Secret #166",
-          "rarity": "secret",
+          "name": "Raging Bolt ex",
+          "rarity": "special-illustration-rare",
           "type": "pokemon"
         },
         "167": {
-          "name": "Secret #167",
-          "rarity": "secret",
+          "name": "Eevee ex",
+          "rarity": "special-illustration-rare",
           "type": "pokemon"
         },
         "168": {
-          "name": "Secret #168",
-          "rarity": "secret",
+          "name": "Bloodmoon Ursaluna ex",
+          "rarity": "special-illustration-rare",
           "type": "pokemon"
         },
         "169": {
-          "name": "Secret #169",
-          "rarity": "secret",
+          "name": "Terapagos ex",
+          "rarity": "special-illustration-rare",
           "type": "pokemon"
         },
         "170": {
-          "name": "Secret #170",
-          "rarity": "secret",
-          "type": "pokemon"
+          "name": "Amarys",
+          "rarity": "special-illustration-rare",
+          "type": "trainer"
         },
         "171": {
-          "name": "Secret #171",
-          "rarity": "secret",
-          "type": "pokemon"
+          "name": "Crispin",
+          "rarity": "special-illustration-rare",
+          "type": "trainer"
         },
         "172": {
-          "name": "Secret #172",
-          "rarity": "secret",
-          "type": "pokemon"
+          "name": "Drayton",
+          "rarity": "special-illustration-rare",
+          "type": "trainer"
         },
         "173": {
-          "name": "Secret #173",
-          "rarity": "secret",
-          "type": "pokemon"
+          "name": "Janine's Secret Art",
+          "rarity": "special-illustration-rare",
+          "type": "trainer"
         },
         "174": {
-          "name": "Secret #174",
-          "rarity": "secret",
-          "type": "pokemon"
+          "name": "Kieran",
+          "rarity": "special-illustration-rare",
+          "type": "trainer"
         },
         "175": {
-          "name": "Secret #175",
-          "rarity": "secret",
-          "type": "pokemon"
+          "name": "Lacey",
+          "rarity": "special-illustration-rare",
+          "type": "trainer"
         },
         "176": {
-          "name": "Secret #176",
-          "rarity": "secret",
+          "name": "Iron Leaves ex",
+          "rarity": "hyper-rare",
           "type": "pokemon"
         },
         "177": {
-          "name": "Secret #177",
-          "rarity": "secret",
+          "name": "Teal Mask Ogerpon ex",
+          "rarity": "hyper-rare",
           "type": "pokemon"
         },
         "178": {
-          "name": "Secret #178",
-          "rarity": "secret",
+          "name": "Walking Wake ex",
+          "rarity": "hyper-rare",
           "type": "pokemon"
         },
         "179": {
-          "name": "Secret #179",
-          "rarity": "secret",
+          "name": "Pikachu ex",
+          "rarity": "hyper-rare",
           "type": "pokemon"
         },
         "180": {
-          "name": "Secret #180",
-          "rarity": "secret",
-          "type": "pokemon"
-        },
-        "181": {
-          "name": "Secret #181",
-          "rarity": "secret",
-          "type": "pokemon"
-        },
-        "182": {
-          "name": "Secret #182",
-          "rarity": "secret",
-          "type": "pokemon"
-        },
-        "183": {
-          "name": "Secret #183",
-          "rarity": "secret",
-          "type": "pokemon"
-        },
-        "184": {
-          "name": "Secret #184",
-          "rarity": "secret",
-          "type": "pokemon"
-        },
-        "185": {
-          "name": "Secret #185",
-          "rarity": "secret",
-          "type": "pokemon"
-        },
-        "186": {
-          "name": "Secret #186",
-          "rarity": "secret",
-          "type": "pokemon"
-        },
-        "187": {
-          "name": "Secret #187",
-          "rarity": "secret",
-          "type": "pokemon"
-        },
-        "188": {
-          "name": "Secret #188",
-          "rarity": "secret",
-          "type": "pokemon"
-        },
-        "189": {
-          "name": "Secret #189",
-          "rarity": "secret",
-          "type": "pokemon"
-        },
-        "190": {
-          "name": "Secret #190",
-          "rarity": "secret",
-          "type": "pokemon"
-        },
-        "191": {
-          "name": "Secret #191",
-          "rarity": "secret",
-          "type": "pokemon"
-        },
-        "192": {
-          "name": "Secret #192",
-          "rarity": "secret",
-          "type": "pokemon"
-        },
-        "193": {
-          "name": "Secret #193",
-          "rarity": "secret",
-          "type": "pokemon"
-        },
-        "194": {
-          "name": "Secret #194",
-          "rarity": "secret",
-          "type": "pokemon"
-        },
-        "195": {
-          "name": "Secret #195",
-          "rarity": "secret",
-          "type": "pokemon"
-        },
-        "196": {
-          "name": "Secret #196",
-          "rarity": "secret",
-          "type": "pokemon"
-        },
-        "197": {
-          "name": "Secret #197",
-          "rarity": "secret",
-          "type": "pokemon"
-        },
-        "198": {
-          "name": "Secret #198",
-          "rarity": "secret",
-          "type": "pokemon"
-        },
-        "199": {
-          "name": "Secret #199",
-          "rarity": "secret",
-          "type": "pokemon"
-        },
-        "200": {
-          "name": "Secret #200",
-          "rarity": "secret",
-          "type": "pokemon"
-        },
-        "201": {
-          "name": "Secret #201",
-          "rarity": "secret",
-          "type": "pokemon"
-        },
-        "202": {
-          "name": "Secret #202",
-          "rarity": "secret",
-          "type": "pokemon"
-        },
-        "203": {
-          "name": "Secret #203",
-          "rarity": "secret",
-          "type": "pokemon"
-        },
-        "204": {
-          "name": "Secret #204",
-          "rarity": "secret",
-          "type": "pokemon"
-        },
-        "205": {
-          "name": "Secret #205",
-          "rarity": "secret",
-          "type": "pokemon"
-        },
-        "206": {
-          "name": "Secret #206",
-          "rarity": "secret",
-          "type": "pokemon"
-        },
-        "207": {
-          "name": "Secret #207",
-          "rarity": "secret",
-          "type": "pokemon"
-        },
-        "208": {
-          "name": "Secret #208",
-          "rarity": "secret",
-          "type": "pokemon"
-        },
-        "209": {
-          "name": "Secret #209",
-          "rarity": "secret",
-          "type": "pokemon"
-        },
-        "210": {
-          "name": "Secret #210",
-          "rarity": "secret",
-          "type": "pokemon"
-        },
-        "211": {
-          "name": "Secret #211",
-          "rarity": "secret",
-          "type": "pokemon"
-        },
-        "212": {
-          "name": "Secret #212",
-          "rarity": "secret",
-          "type": "pokemon"
-        },
-        "213": {
-          "name": "Secret #213",
-          "rarity": "secret",
-          "type": "pokemon"
-        },
-        "214": {
-          "name": "Secret #214",
-          "rarity": "secret",
-          "type": "pokemon"
-        },
-        "215": {
-          "name": "Secret #215",
-          "rarity": "secret",
-          "type": "pokemon"
-        },
-        "216": {
-          "name": "Secret #216",
-          "rarity": "secret",
-          "type": "pokemon"
-        },
-        "217": {
-          "name": "Secret #217",
-          "rarity": "secret",
+          "name": "Terapagos ex",
+          "rarity": "hyper-rare",
           "type": "pokemon"
         }
       },
@@ -2630,1224 +2445,1224 @@
       "hasMasterBallVariant": false,
       "cards": {
         "1": {
-          "name": "Card #001",
-          "rarity": "common",
+          "name": "Ethan's Pinsir",
+          "rarity": "uncommon",
           "type": "pokemon"
         },
         "2": {
-          "name": "Card #002",
+          "name": "Yanma",
           "rarity": "common",
           "type": "pokemon"
         },
         "3": {
-          "name": "Card #003",
-          "rarity": "common",
+          "name": "Yanmega ex",
+          "rarity": "ex",
           "type": "pokemon"
         },
         "4": {
-          "name": "Card #004",
+          "name": "Pineco",
           "rarity": "common",
           "type": "pokemon"
         },
         "5": {
-          "name": "Card #005",
+          "name": "Shroomish",
           "rarity": "common",
           "type": "pokemon"
         },
         "6": {
-          "name": "Card #006",
+          "name": "Breloom",
           "rarity": "common",
           "type": "pokemon"
         },
         "7": {
-          "name": "Card #007",
+          "name": "Cynthia's Roselia",
           "rarity": "common",
           "type": "pokemon"
         },
         "8": {
-          "name": "Card #008",
-          "rarity": "common",
+          "name": "Cynthia's Roserade",
+          "rarity": "rare",
           "type": "pokemon"
         },
         "9": {
-          "name": "Card #009",
+          "name": "Mow Rotom",
           "rarity": "common",
           "type": "pokemon"
         },
         "10": {
-          "name": "Card #010",
-          "rarity": "common",
+          "name": "Shaymin",
+          "rarity": "uncommon",
           "type": "pokemon"
         },
         "11": {
-          "name": "Card #011",
+          "name": "Dwebble",
           "rarity": "common",
           "type": "pokemon"
         },
         "12": {
-          "name": "Card #012",
-          "rarity": "common",
+          "name": "Crustle",
+          "rarity": "rare",
           "type": "pokemon"
         },
         "13": {
-          "name": "Card #013",
+          "name": "Fomantis",
           "rarity": "common",
           "type": "pokemon"
         },
         "14": {
-          "name": "Card #014",
-          "rarity": "common",
+          "name": "Lurantis",
+          "rarity": "uncommon",
           "type": "pokemon"
         },
         "15": {
-          "name": "Card #015",
+          "name": "Team Rocket's Blipbug",
           "rarity": "common",
           "type": "pokemon"
         },
         "16": {
-          "name": "Card #016",
+          "name": "Applin",
           "rarity": "common",
           "type": "pokemon"
         },
         "17": {
-          "name": "Card #017",
+          "name": "Dipplin",
           "rarity": "common",
           "type": "pokemon"
         },
         "18": {
-          "name": "Card #018",
-          "rarity": "common",
+          "name": "Hydrapple",
+          "rarity": "rare",
           "type": "pokemon"
         },
         "19": {
-          "name": "Card #019",
+          "name": "Team Rocket's Tarountula",
           "rarity": "common",
           "type": "pokemon"
         },
         "20": {
-          "name": "Card #020",
-          "rarity": "common",
+          "name": "Team Rocket's Spidops",
+          "rarity": "rare",
           "type": "pokemon"
         },
         "21": {
-          "name": "Card #021",
+          "name": "Smoliv",
           "rarity": "common",
           "type": "pokemon"
         },
         "22": {
-          "name": "Card #022",
+          "name": "Dolliv",
           "rarity": "common",
           "type": "pokemon"
         },
         "23": {
-          "name": "Card #023",
-          "rarity": "common",
+          "name": "Arboliva ex",
+          "rarity": "ex",
           "type": "pokemon"
         },
         "24": {
-          "name": "Card #024",
+          "name": "Rellor",
           "rarity": "common",
           "type": "pokemon"
         },
         "25": {
-          "name": "Card #025",
-          "rarity": "common",
+          "name": "Rabsca ex",
+          "rarity": "ex",
           "type": "pokemon"
         },
         "26": {
-          "name": "Card #026",
-          "rarity": "common",
+          "name": "Teal Mask Ogerpon",
+          "rarity": "uncommon",
           "type": "pokemon"
         },
         "27": {
-          "name": "Card #027",
+          "name": "Growlithe",
           "rarity": "common",
           "type": "pokemon"
         },
         "28": {
-          "name": "Card #028",
-          "rarity": "common",
+          "name": "Arcanine",
+          "rarity": "uncommon",
           "type": "pokemon"
         },
         "29": {
-          "name": "Card #029",
+          "name": "Ponyta",
           "rarity": "common",
           "type": "pokemon"
         },
         "30": {
-          "name": "Card #030",
-          "rarity": "common",
+          "name": "Rapidash",
+          "rarity": "uncommon",
           "type": "pokemon"
         },
         "31": {
-          "name": "Card #031",
-          "rarity": "common",
+          "name": "Team Rocket's Moltres ex",
+          "rarity": "ex",
           "type": "pokemon"
         },
         "32": {
-          "name": "Card #032",
+          "name": "Ethan's Cyndaquil",
           "rarity": "common",
           "type": "pokemon"
         },
         "33": {
-          "name": "Card #033",
+          "name": "Ethan's Quilava",
           "rarity": "common",
           "type": "pokemon"
         },
         "34": {
-          "name": "Card #034",
-          "rarity": "common",
+          "name": "Ethan's Typhlosion",
+          "rarity": "rare",
           "type": "pokemon"
         },
         "35": {
-          "name": "Card #035",
+          "name": "Ethan's Slugma",
           "rarity": "common",
           "type": "pokemon"
         },
         "36": {
-          "name": "Card #036",
-          "rarity": "common",
+          "name": "Ethan's Magcargo",
+          "rarity": "rare",
           "type": "pokemon"
         },
         "37": {
-          "name": "Card #037",
+          "name": "Team Rocket's Houndour",
           "rarity": "common",
           "type": "pokemon"
         },
         "38": {
-          "name": "Card #038",
-          "rarity": "common",
+          "name": "Team Rocket's Houndoom",
+          "rarity": "uncommon",
           "type": "pokemon"
         },
         "39": {
-          "name": "Card #039",
-          "rarity": "common",
+          "name": "Ethan's Ho-Oh ex",
+          "rarity": "ex",
           "type": "pokemon"
         },
         "40": {
-          "name": "Card #040",
+          "name": "Torchic",
           "rarity": "common",
           "type": "pokemon"
         },
         "41": {
-          "name": "Card #041",
+          "name": "Combusken",
           "rarity": "common",
           "type": "pokemon"
         },
         "42": {
-          "name": "Card #042",
-          "rarity": "common",
+          "name": "Blaziken",
+          "rarity": "rare",
           "type": "pokemon"
         },
         "43": {
-          "name": "Card #043",
+          "name": "Heat Rotom",
           "rarity": "common",
           "type": "pokemon"
         },
         "44": {
-          "name": "Card #044",
-          "rarity": "common",
+          "name": "Hearthflame Mask Ogerpon",
+          "rarity": "uncommon",
           "type": "pokemon"
         },
         "45": {
-          "name": "Card #045",
-          "rarity": "common",
+          "name": "Misty's Psyduck",
+          "rarity": "uncommon",
           "type": "pokemon"
         },
         "46": {
-          "name": "Card #046",
+          "name": "Misty's Staryu",
           "rarity": "common",
           "type": "pokemon"
         },
         "47": {
-          "name": "Card #047",
-          "rarity": "common",
+          "name": "Misty's Starmie",
+          "rarity": "uncommon",
           "type": "pokemon"
         },
         "48": {
-          "name": "Card #048",
+          "name": "Misty's Magikarp",
           "rarity": "common",
           "type": "pokemon"
         },
         "49": {
-          "name": "Card #049",
-          "rarity": "common",
+          "name": "Misty's Gyarados",
+          "rarity": "rare",
           "type": "pokemon"
         },
         "50": {
-          "name": "Card #050",
+          "name": "Misty's Lapras",
           "rarity": "common",
           "type": "pokemon"
         },
         "51": {
-          "name": "Card #051",
-          "rarity": "common",
+          "name": "Team Rocket's Articuno",
+          "rarity": "rare",
           "type": "pokemon"
         },
         "52": {
-          "name": "Card #052",
+          "name": "Cynthia's Feebas",
           "rarity": "common",
           "type": "pokemon"
         },
         "53": {
-          "name": "Card #053",
-          "rarity": "common",
+          "name": "Cynthia's Milotic",
+          "rarity": "uncommon",
           "type": "pokemon"
         },
         "54": {
-          "name": "Card #054",
+          "name": "Clamperl",
           "rarity": "common",
           "type": "pokemon"
         },
         "55": {
-          "name": "Card #055",
-          "rarity": "common",
+          "name": "Huntail",
+          "rarity": "uncommon",
           "type": "pokemon"
         },
         "56": {
-          "name": "Card #056",
-          "rarity": "common",
+          "name": "Gorebyss",
+          "rarity": "rare",
           "type": "pokemon"
         },
         "57": {
-          "name": "Card #057",
+          "name": "Buizel",
           "rarity": "common",
           "type": "pokemon"
         },
         "58": {
-          "name": "Card #058",
-          "rarity": "common",
+          "name": "Floatzel",
+          "rarity": "uncommon",
           "type": "pokemon"
         },
         "59": {
-          "name": "Card #059",
+          "name": "Snover",
           "rarity": "common",
           "type": "pokemon"
         },
         "60": {
-          "name": "Card #060",
-          "rarity": "common",
+          "name": "Abomasnow",
+          "rarity": "uncommon",
           "type": "pokemon"
         },
         "61": {
-          "name": "Card #061",
+          "name": "Wash Rotom",
           "rarity": "common",
           "type": "pokemon"
         },
         "62": {
-          "name": "Card #062",
+          "name": "Arrokuda",
           "rarity": "common",
           "type": "pokemon"
         },
         "63": {
-          "name": "Card #063",
-          "rarity": "common",
+          "name": "Barraskewda",
+          "rarity": "uncommon",
           "type": "pokemon"
         },
         "64": {
-          "name": "Card #064",
+          "name": "Cetoddle",
           "rarity": "common",
           "type": "pokemon"
         },
         "65": {
-          "name": "Card #065",
-          "rarity": "common",
+          "name": "Cetitan ex",
+          "rarity": "ex",
           "type": "pokemon"
         },
         "66": {
-          "name": "Card #066",
-          "rarity": "common",
+          "name": "Dondozo ex",
+          "rarity": "ex",
           "type": "pokemon"
         },
         "67": {
-          "name": "Card #067",
-          "rarity": "common",
+          "name": "Wellspring Mask Ogerpon",
+          "rarity": "uncommon",
           "type": "pokemon"
         },
         "68": {
-          "name": "Card #068",
+          "name": "Electabuzz",
           "rarity": "common",
           "type": "pokemon"
         },
         "69": {
-          "name": "Card #069",
-          "rarity": "common",
+          "name": "Electivire ex",
+          "rarity": "ex",
           "type": "pokemon"
         },
         "70": {
-          "name": "Card #070",
-          "rarity": "common",
+          "name": "Team Rocket's Zapdos",
+          "rarity": "rare",
           "type": "pokemon"
         },
         "71": {
-          "name": "Card #071",
+          "name": "Ethan's Pichu",
           "rarity": "common",
           "type": "pokemon"
         },
         "72": {
-          "name": "Card #072",
+          "name": "Team Rocket's Mareep",
           "rarity": "common",
           "type": "pokemon"
         },
         "73": {
-          "name": "Card #073",
+          "name": "Team Rocket's Flaaffy",
           "rarity": "common",
           "type": "pokemon"
         },
         "74": {
-          "name": "Card #074",
-          "rarity": "common",
+          "name": "Team Rocket's Ampharos",
+          "rarity": "uncommon",
           "type": "pokemon"
         },
         "75": {
-          "name": "Card #075",
+          "name": "Electrike",
           "rarity": "common",
           "type": "pokemon"
         },
         "76": {
-          "name": "Card #076",
-          "rarity": "common",
+          "name": "Manectric",
+          "rarity": "uncommon",
           "type": "pokemon"
         },
         "77": {
-          "name": "Card #077",
+          "name": "Rotom",
           "rarity": "common",
           "type": "pokemon"
         },
         "78": {
-          "name": "Card #078",
-          "rarity": "common",
+          "name": "Zeraora",
+          "rarity": "rare",
           "type": "pokemon"
         },
         "79": {
-          "name": "Card #079",
+          "name": "Team Rocket's Drowzee",
           "rarity": "common",
           "type": "pokemon"
         },
         "80": {
-          "name": "Card #080",
-          "rarity": "common",
+          "name": "Team Rocket's Hypno",
+          "rarity": "uncommon",
           "type": "pokemon"
         },
         "81": {
-          "name": "Card #081",
-          "rarity": "common",
+          "name": "Team Rocket's Mewtwo ex",
+          "rarity": "ex",
           "type": "pokemon"
         },
         "82": {
-          "name": "Card #082",
-          "rarity": "common",
+          "name": "Team Rocket's Wobbuffet",
+          "rarity": "rare",
           "type": "pokemon"
         },
         "83": {
-          "name": "Card #083",
+          "name": "Steven's Baltoy",
           "rarity": "common",
           "type": "pokemon"
         },
         "84": {
-          "name": "Card #084",
-          "rarity": "common",
+          "name": "Steven's Claydol",
+          "rarity": "uncommon",
           "type": "pokemon"
         },
         "85": {
-          "name": "Card #085",
+          "name": "Team Rocket's Chingling",
           "rarity": "common",
           "type": "pokemon"
         },
         "86": {
-          "name": "Card #086",
+          "name": "Steven's Carbink",
           "rarity": "common",
           "type": "pokemon"
         },
         "87": {
-          "name": "Card #087",
-          "rarity": "common",
+          "name": "Team Rocket's Mimikyu",
+          "rarity": "uncommon",
           "type": "pokemon"
         },
         "88": {
-          "name": "Card #088",
+          "name": "Team Rocket's Dottler",
           "rarity": "common",
           "type": "pokemon"
         },
         "89": {
-          "name": "Card #089",
-          "rarity": "common",
+          "name": "Team Rocket's Orbeetle",
+          "rarity": "uncommon",
           "type": "pokemon"
         },
         "90": {
-          "name": "Card #090",
+          "name": "Mankey",
           "rarity": "common",
           "type": "pokemon"
         },
         "91": {
-          "name": "Card #091",
+          "name": "Primeape",
           "rarity": "common",
           "type": "pokemon"
         },
         "92": {
-          "name": "Card #092",
-          "rarity": "common",
+          "name": "Annihilape",
+          "rarity": "rare",
           "type": "pokemon"
         },
         "93": {
-          "name": "Card #093",
+          "name": "Ethan's Sudowoodo",
           "rarity": "common",
           "type": "pokemon"
         },
         "94": {
-          "name": "Card #094",
+          "name": "Team Rocket's Larvitar",
           "rarity": "common",
           "type": "pokemon"
         },
         "95": {
-          "name": "Card #095",
+          "name": "Team Rocket's Pupitar",
           "rarity": "common",
           "type": "pokemon"
         },
         "96": {
-          "name": "Card #096",
-          "rarity": "common",
+          "name": "Team Rocket's Tyranitar",
+          "rarity": "rare",
           "type": "pokemon"
         },
         "97": {
-          "name": "Card #097",
+          "name": "Nosepass",
           "rarity": "common",
           "type": "pokemon"
         },
         "98": {
-          "name": "Card #098",
-          "rarity": "common",
+          "name": "Probopass",
+          "rarity": "uncommon",
           "type": "pokemon"
         },
         "99": {
-          "name": "Card #099",
+          "name": "Meditite",
           "rarity": "common",
           "type": "pokemon"
         },
         "100": {
-          "name": "Card #100",
-          "rarity": "common",
+          "name": "Medicham",
+          "rarity": "uncommon",
           "type": "pokemon"
         },
         "101": {
-          "name": "Card #101",
-          "rarity": "common",
+          "name": "Regirock ex",
+          "rarity": "ex",
           "type": "pokemon"
         },
         "102": {
-          "name": "Card #102",
+          "name": "Cynthia's Gible",
           "rarity": "common",
           "type": "pokemon"
         },
         "103": {
-          "name": "Card #103",
+          "name": "Cynthia's Gabite",
           "rarity": "common",
           "type": "pokemon"
         },
         "104": {
-          "name": "Card #104",
-          "rarity": "common",
+          "name": "Cynthia's Garchomp ex",
+          "rarity": "ex",
           "type": "pokemon"
         },
         "105": {
-          "name": "Card #105",
+          "name": "Hippopotas",
           "rarity": "common",
           "type": "pokemon"
         },
         "106": {
-          "name": "Card #106",
-          "rarity": "common",
+          "name": "Hippowdon",
+          "rarity": "uncommon",
           "type": "pokemon"
         },
         "107": {
-          "name": "Card #107",
+          "name": "Mudbray",
           "rarity": "common",
           "type": "pokemon"
         },
         "108": {
-          "name": "Card #108",
-          "rarity": "common",
+          "name": "Mudsdale",
+          "rarity": "uncommon",
           "type": "pokemon"
         },
         "109": {
-          "name": "Card #109",
+          "name": "Arven's Toedscool",
           "rarity": "common",
           "type": "pokemon"
         },
         "110": {
-          "name": "Card #110",
-          "rarity": "common",
+          "name": "Arven's Toedscruel",
+          "rarity": "uncommon",
           "type": "pokemon"
         },
         "111": {
-          "name": "Card #111",
-          "rarity": "common",
+          "name": "Cornerstone Mask Ogerpon",
+          "rarity": "uncommon",
           "type": "pokemon"
         },
         "112": {
-          "name": "Card #112",
+          "name": "Team Rocket's Ekans",
           "rarity": "common",
           "type": "pokemon"
         },
         "113": {
-          "name": "Card #113",
-          "rarity": "common",
+          "name": "Team Rocket's Arbok",
+          "rarity": "uncommon",
           "type": "pokemon"
         },
         "114": {
-          "name": "Card #114",
+          "name": "Team Rocket's Nidoran\u2640",
           "rarity": "common",
           "type": "pokemon"
         },
         "115": {
-          "name": "Card #115",
+          "name": "Team Rocket's Nidorina",
           "rarity": "common",
           "type": "pokemon"
         },
         "116": {
-          "name": "Card #116",
-          "rarity": "common",
+          "name": "Team Rocket's Nidoqueen",
+          "rarity": "uncommon",
           "type": "pokemon"
         },
         "117": {
-          "name": "Card #117",
+          "name": "Team Rocket's Nidoran\u2642",
           "rarity": "common",
           "type": "pokemon"
         },
         "118": {
-          "name": "Card #118",
+          "name": "Team Rocket's Nidorino",
           "rarity": "common",
           "type": "pokemon"
         },
         "119": {
-          "name": "Card #119",
-          "rarity": "common",
+          "name": "Team Rocket's Nidoking ex",
+          "rarity": "ex",
           "type": "pokemon"
         },
         "120": {
-          "name": "Card #120",
+          "name": "Team Rocket's Zubat",
           "rarity": "common",
           "type": "pokemon"
         },
         "121": {
-          "name": "Card #121",
-          "rarity": "common",
+          "name": "Team Rocket's Golbat",
+          "rarity": "uncommon",
           "type": "pokemon"
         },
         "122": {
-          "name": "Card #122",
-          "rarity": "common",
+          "name": "Team Rocket's Crobat ex",
+          "rarity": "ex",
           "type": "pokemon"
         },
         "123": {
-          "name": "Card #123",
+          "name": "Team Rocket's Grimer",
           "rarity": "common",
           "type": "pokemon"
         },
         "124": {
-          "name": "Card #124",
-          "rarity": "common",
+          "name": "Team Rocket's Muk",
+          "rarity": "uncommon",
           "type": "pokemon"
         },
         "125": {
-          "name": "Card #125",
+          "name": "Team Rocket's Koffing",
           "rarity": "common",
           "type": "pokemon"
         },
         "126": {
-          "name": "Card #126",
-          "rarity": "common",
+          "name": "Team Rocket's Weezing",
+          "rarity": "uncommon",
           "type": "pokemon"
         },
         "127": {
-          "name": "Card #127",
-          "rarity": "common",
+          "name": "Team Rocket's Murkrow",
+          "rarity": "uncommon",
           "type": "pokemon"
         },
         "128": {
-          "name": "Card #128",
-          "rarity": "common",
+          "name": "Team Rocket's Sneasel",
+          "rarity": "rare",
           "type": "pokemon"
         },
         "129": {
-          "name": "Card #129",
-          "rarity": "common",
+          "name": "Cynthia's Spiritomb",
+          "rarity": "uncommon",
           "type": "pokemon"
         },
         "130": {
-          "name": "Card #130",
+          "name": "Marnie's Purrloin",
           "rarity": "common",
           "type": "pokemon"
         },
         "131": {
-          "name": "Card #131",
-          "rarity": "common",
+          "name": "Marnie's Liepard",
+          "rarity": "uncommon",
           "type": "pokemon"
         },
         "132": {
-          "name": "Card #132",
+          "name": "Marnie's Scraggy",
           "rarity": "common",
           "type": "pokemon"
         },
         "133": {
-          "name": "Card #133",
-          "rarity": "common",
+          "name": "Marnie's Scrafty",
+          "rarity": "uncommon",
           "type": "pokemon"
         },
         "134": {
-          "name": "Card #134",
+          "name": "Marnie's Impidimp",
           "rarity": "common",
           "type": "pokemon"
         },
         "135": {
-          "name": "Card #135",
-          "rarity": "common",
+          "name": "Marnie's Morgrem",
+          "rarity": "uncommon",
           "type": "pokemon"
         },
         "136": {
-          "name": "Card #136",
-          "rarity": "common",
+          "name": "Marnie's Grimmsnarl ex",
+          "rarity": "ex",
           "type": "pokemon"
         },
         "137": {
-          "name": "Card #137",
+          "name": "Marnie's Morpeko",
           "rarity": "common",
           "type": "pokemon"
         },
         "138": {
-          "name": "Card #138",
+          "name": "Arven's Maschiff",
           "rarity": "common",
           "type": "pokemon"
         },
         "139": {
-          "name": "Card #139",
-          "rarity": "common",
+          "name": "Arven's Mabosstiff ex",
+          "rarity": "ex",
           "type": "pokemon"
         },
         "140": {
-          "name": "Card #140",
-          "rarity": "common",
+          "name": "Forretress",
+          "rarity": "uncommon",
           "type": "pokemon"
         },
         "141": {
-          "name": "Card #141",
+          "name": "Skarmory",
           "rarity": "common",
           "type": "pokemon"
         },
         "142": {
-          "name": "Card #142",
+          "name": "Steven's Skarmory",
           "rarity": "common",
           "type": "pokemon"
         },
         "143": {
-          "name": "Card #143",
+          "name": "Steven's Beldum",
           "rarity": "common",
           "type": "pokemon"
         },
         "144": {
-          "name": "Card #144",
-          "rarity": "common",
+          "name": "Steven's Metang",
+          "rarity": "uncommon",
           "type": "pokemon"
         },
         "145": {
-          "name": "Card #145",
-          "rarity": "common",
+          "name": "Steven's Metagross ex",
+          "rarity": "ex",
           "type": "pokemon"
         },
         "146": {
-          "name": "Card #146",
-          "rarity": "common",
+          "name": "Zamazenta",
+          "rarity": "rare",
           "type": "pokemon"
         },
         "147": {
-          "name": "Card #147",
+          "name": "Team Rocket's Rattata",
           "rarity": "common",
           "type": "pokemon"
         },
         "148": {
-          "name": "Card #148",
+          "name": "Team Rocket's Raticate",
           "rarity": "common",
           "type": "pokemon"
         },
         "149": {
-          "name": "Card #149",
+          "name": "Team Rocket's Meowth",
           "rarity": "common",
           "type": "pokemon"
         },
         "150": {
-          "name": "Card #150",
-          "rarity": "common",
+          "name": "Team Rocket's Persian ex",
+          "rarity": "ex",
           "type": "pokemon"
         },
         "151": {
-          "name": "Card #151",
+          "name": "Kangaskhan",
           "rarity": "common",
           "type": "pokemon"
         },
         "152": {
-          "name": "Card #152",
+          "name": "Tauros",
           "rarity": "common",
           "type": "pokemon"
         },
         "153": {
-          "name": "Card #153",
+          "name": "Team Rocket's Porygon",
           "rarity": "common",
           "type": "pokemon"
         },
         "154": {
-          "name": "Card #154",
+          "name": "Team Rocket's Porygon2",
           "rarity": "common",
           "type": "pokemon"
         },
         "155": {
-          "name": "Card #155",
-          "rarity": "common",
+          "name": "Team Rocket's Porygon-Z",
+          "rarity": "uncommon",
           "type": "pokemon"
         },
         "156": {
-          "name": "Card #156",
+          "name": "Taillow",
           "rarity": "common",
           "type": "pokemon"
         },
         "157": {
-          "name": "Card #157",
+          "name": "Swellow",
           "rarity": "common",
           "type": "pokemon"
         },
         "158": {
-          "name": "Card #158",
+          "name": "Arven's Skwovet",
           "rarity": "common",
           "type": "pokemon"
         },
         "159": {
-          "name": "Card #159",
-          "rarity": "common",
+          "name": "Arven's Greedent",
+          "rarity": "rare",
           "type": "pokemon"
         },
         "160": {
-          "name": "Trainer #160",
-          "rarity": "uncommon",
-          "type": "trainer"
+          "name": "Squawkabilly",
+          "rarity": "common",
+          "type": "pokemon"
         },
         "161": {
-          "name": "Trainer #161",
+          "name": "Arven's Sandwich",
           "rarity": "uncommon",
           "type": "trainer"
         },
         "162": {
-          "name": "Trainer #162",
+          "name": "Cynthia's Power Weight",
           "rarity": "uncommon",
           "type": "trainer"
         },
         "163": {
-          "name": "Trainer #163",
-          "rarity": "uncommon",
+          "name": "Emcee's Hype",
+          "rarity": "common",
           "type": "trainer"
         },
         "164": {
-          "name": "Trainer #164",
+          "name": "Energy Recycler",
           "rarity": "uncommon",
           "type": "trainer"
         },
         "165": {
-          "name": "Trainer #165",
+          "name": "Ethan's Adventure",
           "rarity": "uncommon",
           "type": "trainer"
         },
         "166": {
-          "name": "Trainer #166",
+          "name": "Granite Cave",
           "rarity": "uncommon",
           "type": "trainer"
         },
         "167": {
-          "name": "Trainer #167",
+          "name": "Judge",
           "rarity": "uncommon",
           "type": "trainer"
         },
         "168": {
-          "name": "Trainer #168",
+          "name": "Sacred Ash",
           "rarity": "uncommon",
           "type": "trainer"
         },
         "169": {
-          "name": "Trainer #169",
+          "name": "Spikemuth Gym",
           "rarity": "uncommon",
           "type": "trainer"
         },
         "170": {
-          "name": "Trainer #170",
+          "name": "Team Rocket's Archer",
           "rarity": "uncommon",
           "type": "trainer"
         },
         "171": {
-          "name": "Trainer #171",
+          "name": "Team Rocket's Ariana",
           "rarity": "uncommon",
           "type": "trainer"
         },
         "172": {
-          "name": "Trainer #172",
+          "name": "Team Rocket's Bother-Bot",
           "rarity": "uncommon",
           "type": "trainer"
         },
         "173": {
-          "name": "Trainer #173",
+          "name": "Team Rocket's Factory",
           "rarity": "uncommon",
           "type": "trainer"
         },
         "174": {
-          "name": "Trainer #174",
+          "name": "Team Rocket's Giovanni",
           "rarity": "uncommon",
           "type": "trainer"
         },
         "175": {
-          "name": "Trainer #175",
+          "name": "Team Rocket's Great Ball",
           "rarity": "uncommon",
           "type": "trainer"
         },
         "176": {
-          "name": "Trainer #176",
+          "name": "Team Rocket's Petrel",
           "rarity": "uncommon",
           "type": "trainer"
         },
         "177": {
-          "name": "Trainer #177",
+          "name": "Team Rocket's Proton",
           "rarity": "uncommon",
           "type": "trainer"
         },
         "178": {
-          "name": "Trainer #178",
+          "name": "Team Rocket's Transceiver",
           "rarity": "uncommon",
           "type": "trainer"
         },
         "179": {
-          "name": "Trainer #179",
+          "name": "Team Rocket's Venture Bomb",
           "rarity": "uncommon",
           "type": "trainer"
         },
         "180": {
-          "name": "Trainer #180",
+          "name": "Team Rocket's Watchtower",
           "rarity": "uncommon",
           "type": "trainer"
         },
         "181": {
-          "name": "Trainer #181",
+          "name": "TM Machine",
           "rarity": "uncommon",
           "type": "trainer"
         },
         "182": {
-          "name": "Trainer #182",
+          "name": "Team Rocket's Energy",
           "rarity": "uncommon",
-          "type": "trainer"
+          "type": "energy"
         },
         "183": {
-          "name": "Secret #183",
-          "rarity": "secret",
+          "name": "Yanma",
+          "rarity": "illustration-rare",
           "type": "pokemon"
         },
         "184": {
-          "name": "Secret #184",
-          "rarity": "secret",
+          "name": "Cynthia's Roserade",
+          "rarity": "illustration-rare",
           "type": "pokemon"
         },
         "185": {
-          "name": "Secret #185",
-          "rarity": "secret",
+          "name": "Shaymin",
+          "rarity": "illustration-rare",
           "type": "pokemon"
         },
         "186": {
-          "name": "Secret #186",
-          "rarity": "secret",
+          "name": "Crustle",
+          "rarity": "illustration-rare",
           "type": "pokemon"
         },
         "187": {
-          "name": "Secret #187",
-          "rarity": "secret",
+          "name": "Team Rocket's Spidops",
+          "rarity": "illustration-rare",
           "type": "pokemon"
         },
         "188": {
-          "name": "Secret #188",
-          "rarity": "secret",
+          "name": "Hydrapple",
+          "rarity": "illustration-rare",
           "type": "pokemon"
         },
         "189": {
-          "name": "Secret #189",
-          "rarity": "secret",
+          "name": "Rapidash",
+          "rarity": "illustration-rare",
           "type": "pokemon"
         },
         "190": {
-          "name": "Secret #190",
-          "rarity": "secret",
+          "name": "Ethan's Typhlosion",
+          "rarity": "illustration-rare",
           "type": "pokemon"
         },
         "191": {
-          "name": "Secret #191",
-          "rarity": "secret",
+          "name": "Team Rocket's Houndoom",
+          "rarity": "illustration-rare",
           "type": "pokemon"
         },
         "192": {
-          "name": "Secret #192",
-          "rarity": "secret",
+          "name": "Blaziken",
+          "rarity": "illustration-rare",
           "type": "pokemon"
         },
         "193": {
-          "name": "Secret #193",
-          "rarity": "secret",
+          "name": "Misty's Psyduck",
+          "rarity": "illustration-rare",
           "type": "pokemon"
         },
         "194": {
-          "name": "Secret #194",
-          "rarity": "secret",
+          "name": "Misty's Lapras",
+          "rarity": "illustration-rare",
           "type": "pokemon"
         },
         "195": {
-          "name": "Secret #195",
-          "rarity": "secret",
+          "name": "Clamperl",
+          "rarity": "illustration-rare",
           "type": "pokemon"
         },
         "196": {
-          "name": "Secret #196",
-          "rarity": "secret",
+          "name": "Electrike",
+          "rarity": "illustration-rare",
           "type": "pokemon"
         },
         "197": {
-          "name": "Secret #197",
-          "rarity": "secret",
+          "name": "Rotom",
+          "rarity": "illustration-rare",
           "type": "pokemon"
         },
         "198": {
-          "name": "Secret #198",
-          "rarity": "secret",
+          "name": "Team Rocket's Orbeetle",
+          "rarity": "illustration-rare",
           "type": "pokemon"
         },
         "199": {
-          "name": "Secret #199",
-          "rarity": "secret",
+          "name": "Team Rocket's Weezing",
+          "rarity": "illustration-rare",
           "type": "pokemon"
         },
         "200": {
-          "name": "Secret #200",
-          "rarity": "secret",
+          "name": "Team Rocket's Murkrow",
+          "rarity": "illustration-rare",
           "type": "pokemon"
         },
         "201": {
-          "name": "Secret #201",
-          "rarity": "secret",
+          "name": "Zamazenta",
+          "rarity": "illustration-rare",
           "type": "pokemon"
         },
         "202": {
-          "name": "Secret #202",
-          "rarity": "secret",
+          "name": "Team Rocket's Raticate",
+          "rarity": "illustration-rare",
           "type": "pokemon"
         },
         "203": {
-          "name": "Secret #203",
-          "rarity": "secret",
+          "name": "Team Rocket's Meowth",
+          "rarity": "illustration-rare",
           "type": "pokemon"
         },
         "204": {
-          "name": "Secret #204",
-          "rarity": "secret",
+          "name": "Kangaskhan",
+          "rarity": "illustration-rare",
           "type": "pokemon"
         },
         "205": {
-          "name": "Secret #205",
-          "rarity": "secret",
+          "name": "Arven's Greedent",
+          "rarity": "illustration-rare",
           "type": "pokemon"
         },
         "206": {
-          "name": "Secret #206",
-          "rarity": "secret",
+          "name": "Yanmega ex",
+          "rarity": "ultra-rare",
           "type": "pokemon"
         },
         "207": {
-          "name": "Secret #207",
-          "rarity": "secret",
+          "name": "Arboliva ex",
+          "rarity": "ultra-rare",
           "type": "pokemon"
         },
         "208": {
-          "name": "Secret #208",
-          "rarity": "secret",
+          "name": "Team Rocket's Moltres ex",
+          "rarity": "ultra-rare",
           "type": "pokemon"
         },
         "209": {
-          "name": "Secret #209",
-          "rarity": "secret",
+          "name": "Ethan's Ho-Oh ex",
+          "rarity": "ultra-rare",
           "type": "pokemon"
         },
         "210": {
-          "name": "Secret #210",
-          "rarity": "secret",
+          "name": "Cetitan ex",
+          "rarity": "ultra-rare",
           "type": "pokemon"
         },
         "211": {
-          "name": "Secret #211",
-          "rarity": "secret",
+          "name": "Dondozo ex",
+          "rarity": "ultra-rare",
           "type": "pokemon"
         },
         "212": {
-          "name": "Secret #212",
-          "rarity": "secret",
+          "name": "Electivire ex",
+          "rarity": "ultra-rare",
           "type": "pokemon"
         },
         "213": {
-          "name": "Secret #213",
-          "rarity": "secret",
+          "name": "Team Rocket's Mewtwo ex",
+          "rarity": "ultra-rare",
           "type": "pokemon"
         },
         "214": {
-          "name": "Secret #214",
-          "rarity": "secret",
+          "name": "Regirock ex",
+          "rarity": "ultra-rare",
           "type": "pokemon"
         },
         "215": {
-          "name": "Secret #215",
-          "rarity": "secret",
+          "name": "Cynthia's Garchomp ex",
+          "rarity": "ultra-rare",
           "type": "pokemon"
         },
         "216": {
-          "name": "Secret #216",
-          "rarity": "secret",
+          "name": "Team Rocket's Nidoking ex",
+          "rarity": "ultra-rare",
           "type": "pokemon"
         },
         "217": {
-          "name": "Secret #217",
-          "rarity": "secret",
+          "name": "Team Rocket's Crobat ex",
+          "rarity": "ultra-rare",
           "type": "pokemon"
         },
         "218": {
-          "name": "Secret #218",
-          "rarity": "secret",
+          "name": "Arven's Mabosstiff ex",
+          "rarity": "ultra-rare",
           "type": "pokemon"
         },
         "219": {
-          "name": "Secret #219",
-          "rarity": "secret",
+          "name": "Team Rocket's Persian ex",
+          "rarity": "ultra-rare",
           "type": "pokemon"
         },
         "220": {
-          "name": "Secret #220",
-          "rarity": "secret",
-          "type": "pokemon"
+          "name": "Emcee's Hype",
+          "rarity": "ultra-rare",
+          "type": "trainer"
         },
         "221": {
-          "name": "Secret #221",
-          "rarity": "secret",
-          "type": "pokemon"
+          "name": "Ethan's Adventure",
+          "rarity": "ultra-rare",
+          "type": "trainer"
         },
         "222": {
-          "name": "Secret #222",
-          "rarity": "secret",
-          "type": "pokemon"
+          "name": "Judge",
+          "rarity": "ultra-rare",
+          "type": "trainer"
         },
         "223": {
-          "name": "Secret #223",
-          "rarity": "secret",
-          "type": "pokemon"
+          "name": "Team Rocket's Archer",
+          "rarity": "ultra-rare",
+          "type": "trainer"
         },
         "224": {
-          "name": "Secret #224",
-          "rarity": "secret",
-          "type": "pokemon"
+          "name": "Team Rocket's Ariana",
+          "rarity": "ultra-rare",
+          "type": "trainer"
         },
         "225": {
-          "name": "Secret #225",
-          "rarity": "secret",
-          "type": "pokemon"
+          "name": "Team Rocket's Giovanni",
+          "rarity": "ultra-rare",
+          "type": "trainer"
         },
         "226": {
-          "name": "Secret #226",
-          "rarity": "secret",
-          "type": "pokemon"
+          "name": "Team Rocket's Petrel",
+          "rarity": "ultra-rare",
+          "type": "trainer"
         },
         "227": {
-          "name": "Secret #227",
-          "rarity": "secret",
-          "type": "pokemon"
+          "name": "Team Rocket's Proton",
+          "rarity": "ultra-rare",
+          "type": "trainer"
         },
         "228": {
-          "name": "Secret #228",
-          "rarity": "secret",
+          "name": "Yanmega ex",
+          "rarity": "special-illustration-rare",
           "type": "pokemon"
         },
         "229": {
-          "name": "Secret #229",
-          "rarity": "secret",
+          "name": "Team Rocket's Moltres ex",
+          "rarity": "special-illustration-rare",
           "type": "pokemon"
         },
         "230": {
-          "name": "Secret #230",
-          "rarity": "secret",
+          "name": "Ethan's Ho-Oh ex",
+          "rarity": "special-illustration-rare",
           "type": "pokemon"
         },
         "231": {
-          "name": "Secret #231",
-          "rarity": "secret",
+          "name": "Team Rocket's Mewtwo ex",
+          "rarity": "special-illustration-rare",
           "type": "pokemon"
         },
         "232": {
-          "name": "Secret #232",
-          "rarity": "secret",
+          "name": "Cynthia's Garchomp ex",
+          "rarity": "special-illustration-rare",
           "type": "pokemon"
         },
         "233": {
-          "name": "Secret #233",
-          "rarity": "secret",
+          "name": "Team Rocket's Crobat ex",
+          "rarity": "special-illustration-rare",
           "type": "pokemon"
         },
         "234": {
-          "name": "Secret #234",
-          "rarity": "secret",
+          "name": "Marnie's Grimmsnarl ex",
+          "rarity": "special-illustration-rare",
           "type": "pokemon"
         },
         "235": {
-          "name": "Secret #235",
-          "rarity": "secret",
+          "name": "Steven's Metagross ex",
+          "rarity": "special-illustration-rare",
           "type": "pokemon"
         },
         "236": {
-          "name": "Secret #236",
-          "rarity": "secret",
-          "type": "pokemon"
+          "name": "Arven",
+          "rarity": "special-illustration-rare",
+          "type": "trainer"
         },
         "237": {
-          "name": "Secret #237",
-          "rarity": "secret",
-          "type": "pokemon"
+          "name": "Cynthia",
+          "rarity": "special-illustration-rare",
+          "type": "trainer"
         },
         "238": {
-          "name": "Secret #238",
-          "rarity": "secret",
-          "type": "pokemon"
+          "name": "Ethan",
+          "rarity": "special-illustration-rare",
+          "type": "trainer"
         },
         "239": {
-          "name": "Secret #239",
-          "rarity": "secret",
+          "name": "Ethan's Ho-Oh ex",
+          "rarity": "hyper-rare",
           "type": "pokemon"
         },
         "240": {
-          "name": "Secret #240",
-          "rarity": "secret",
+          "name": "Team Rocket's Mewtwo ex",
+          "rarity": "hyper-rare",
           "type": "pokemon"
         },
         "241": {
-          "name": "Secret #241",
-          "rarity": "secret",
+          "name": "Cynthia's Garchomp ex",
+          "rarity": "hyper-rare",
           "type": "pokemon"
         },
         "242": {
-          "name": "Secret #242",
-          "rarity": "secret",
+          "name": "Team Rocket's Crobat ex",
+          "rarity": "hyper-rare",
           "type": "pokemon"
         },
         "243": {
-          "name": "Secret #243",
-          "rarity": "secret",
-          "type": "pokemon"
+          "name": "Jamming Tower",
+          "rarity": "hyper-rare",
+          "type": "trainer"
         },
         "244": {
-          "name": "Secret #244",
-          "rarity": "secret",
-          "type": "pokemon"
+          "name": "Levincia",
+          "rarity": "hyper-rare",
+          "type": "trainer"
         }
       },
       "exCards": {},
@@ -3867,1478 +3682,1478 @@
       "hasMasterBallVariant": false,
       "cards": {
         "1": {
-          "name": "Card #001",
+          "name": "Erika's Oddish",
           "rarity": "common",
           "type": "pokemon"
         },
         "2": {
-          "name": "Card #002",
-          "rarity": "common",
+          "name": "Erika's Gloom",
+          "rarity": "uncommon",
           "type": "pokemon"
         },
         "3": {
-          "name": "Card #003",
-          "rarity": "common",
+          "name": "Erika's Vileplume ex",
+          "rarity": "ex",
           "type": "pokemon"
         },
         "4": {
-          "name": "Card #004",
+          "name": "Erika's Bellsprout",
           "rarity": "common",
           "type": "pokemon"
         },
         "5": {
-          "name": "Card #005",
-          "rarity": "common",
+          "name": "Erika's Weepinbell",
+          "rarity": "uncommon",
           "type": "pokemon"
         },
         "6": {
-          "name": "Card #006",
-          "rarity": "common",
+          "name": "Erika's Victreebel",
+          "rarity": "rare",
           "type": "pokemon"
         },
         "7": {
-          "name": "Card #007",
+          "name": "Erika's Tangela",
           "rarity": "common",
           "type": "pokemon"
         },
         "8": {
-          "name": "Card #008",
+          "name": "Chikorita",
           "rarity": "common",
           "type": "pokemon"
         },
         "9": {
-          "name": "Card #009",
-          "rarity": "common",
+          "name": "Bayleef",
+          "rarity": "uncommon",
           "type": "pokemon"
         },
         "10": {
-          "name": "Card #010",
-          "rarity": "common",
+          "name": "Mega Meganium ex",
+          "rarity": "mega-ex",
           "type": "pokemon"
         },
         "11": {
-          "name": "Card #011",
+          "name": "Wurmple",
           "rarity": "common",
           "type": "pokemon"
         },
         "12": {
-          "name": "Card #012",
+          "name": "Silcoon",
           "rarity": "common",
           "type": "pokemon"
         },
         "13": {
-          "name": "Card #013",
-          "rarity": "common",
+          "name": "Beautifly",
+          "rarity": "uncommon",
           "type": "pokemon"
         },
         "14": {
-          "name": "Card #014",
+          "name": "Cascoon",
           "rarity": "common",
           "type": "pokemon"
         },
         "15": {
-          "name": "Card #015",
-          "rarity": "common",
+          "name": "Dustox",
+          "rarity": "uncommon",
           "type": "pokemon"
         },
         "16": {
-          "name": "Card #016",
+          "name": "Budew",
           "rarity": "common",
           "type": "pokemon"
         },
         "17": {
-          "name": "Card #017",
+          "name": "Grubbin",
           "rarity": "common",
           "type": "pokemon"
         },
         "18": {
-          "name": "Card #018",
+          "name": "Team Rocket's Tarountula",
           "rarity": "common",
           "type": "pokemon"
         },
         "19": {
-          "name": "Card #019",
-          "rarity": "common",
+          "name": "Team Rocket's Spidops",
+          "rarity": "rare",
           "type": "pokemon"
         },
         "20": {
-          "name": "Card #020",
+          "name": "Charmander",
           "rarity": "common",
           "type": "pokemon"
         },
         "21": {
-          "name": "Card #021",
-          "rarity": "common",
+          "name": "Charmeleon",
+          "rarity": "uncommon",
           "type": "pokemon"
         },
         "22": {
-          "name": "Card #022",
-          "rarity": "common",
+          "name": "Mega Charizard Y ex",
+          "rarity": "mega-ex",
           "type": "pokemon"
         },
         "23": {
-          "name": "Card #023",
+          "name": "Ethan's Slugma",
           "rarity": "common",
           "type": "pokemon"
         },
         "24": {
-          "name": "Card #024",
-          "rarity": "common",
+          "name": "Ethan's Magcargo",
+          "rarity": "rare",
           "type": "pokemon"
         },
         "25": {
-          "name": "Card #025",
-          "rarity": "common",
+          "name": "Entei",
+          "rarity": "rare",
           "type": "pokemon"
         },
         "26": {
-          "name": "Card #026",
-          "rarity": "common",
+          "name": "Ethan's Ho-Oh ex",
+          "rarity": "ex",
           "type": "pokemon"
         },
         "27": {
-          "name": "Card #027",
+          "name": "Numel",
           "rarity": "common",
           "type": "pokemon"
         },
         "28": {
-          "name": "Card #028",
-          "rarity": "common",
+          "name": "Camerupt",
+          "rarity": "uncommon",
           "type": "pokemon"
         },
         "29": {
-          "name": "Card #029",
+          "name": "Tepig",
           "rarity": "common",
           "type": "pokemon"
         },
         "30": {
-          "name": "Card #030",
-          "rarity": "common",
+          "name": "Pignite",
+          "rarity": "uncommon",
           "type": "pokemon"
         },
         "31": {
-          "name": "Card #031",
-          "rarity": "common",
+          "name": "Mega Emboar ex",
+          "rarity": "mega-ex",
           "type": "pokemon"
         },
         "32": {
-          "name": "Card #032",
+          "name": "N's Darumaka",
           "rarity": "common",
           "type": "pokemon"
         },
         "33": {
-          "name": "Card #033",
-          "rarity": "common",
+          "name": "N's Darmanitan",
+          "rarity": "uncommon",
           "type": "pokemon"
         },
         "34": {
-          "name": "Card #034",
+          "name": "Salandit",
           "rarity": "common",
           "type": "pokemon"
         },
         "35": {
-          "name": "Card #035",
-          "rarity": "common",
+          "name": "Salazzle",
+          "rarity": "uncommon",
           "type": "pokemon"
         },
         "36": {
-          "name": "Card #036",
+          "name": "Scorbunny",
           "rarity": "common",
           "type": "pokemon"
         },
         "37": {
-          "name": "Card #037",
+          "name": "Raboot",
           "rarity": "common",
           "type": "pokemon"
         },
         "38": {
-          "name": "Card #038",
-          "rarity": "common",
+          "name": "Cinderace ex",
+          "rarity": "ex",
           "type": "pokemon"
         },
         "39": {
-          "name": "Card #039",
+          "name": "Psyduck",
           "rarity": "common",
           "type": "pokemon"
         },
         "40": {
-          "name": "Card #040",
-          "rarity": "common",
+          "name": "Golduck",
+          "rarity": "uncommon",
           "type": "pokemon"
         },
         "41": {
-          "name": "Card #041",
+          "name": "Totodile",
           "rarity": "common",
           "type": "pokemon"
         },
         "42": {
-          "name": "Card #042",
-          "rarity": "common",
+          "name": "Croconaw",
+          "rarity": "uncommon",
           "type": "pokemon"
         },
         "43": {
-          "name": "Card #043",
-          "rarity": "common",
+          "name": "Mega Feraligatr ex",
+          "rarity": "mega-ex",
           "type": "pokemon"
         },
         "44": {
-          "name": "Card #044",
+          "name": "Sneasel",
           "rarity": "common",
           "type": "pokemon"
         },
         "45": {
-          "name": "Card #045",
-          "rarity": "common",
+          "name": "Weavile",
+          "rarity": "uncommon",
           "type": "pokemon"
         },
         "46": {
-          "name": "Card #046",
+          "name": "Snorunt",
           "rarity": "common",
           "type": "pokemon"
         },
         "47": {
-          "name": "Card #047",
-          "rarity": "common",
+          "name": "Mega Froslass ex",
+          "rarity": "mega-ex",
           "type": "pokemon"
         },
         "48": {
-          "name": "Card #048",
-          "rarity": "common",
+          "name": "Regice ex",
+          "rarity": "ex",
           "type": "pokemon"
         },
         "49": {
-          "name": "Card #049",
+          "name": "N's Vanillite",
           "rarity": "common",
           "type": "pokemon"
         },
         "50": {
-          "name": "Card #050",
+          "name": "N's Vanillish",
           "rarity": "common",
           "type": "pokemon"
         },
         "51": {
-          "name": "Card #051",
-          "rarity": "common",
+          "name": "N's Vanilluxe",
+          "rarity": "uncommon",
           "type": "pokemon"
         },
         "52": {
-          "name": "Card #052",
+          "name": "Snom",
           "rarity": "common",
           "type": "pokemon"
         },
         "53": {
-          "name": "Card #053",
-          "rarity": "common",
+          "name": "Frosmoth",
+          "rarity": "uncommon",
           "type": "pokemon"
         },
         "54": {
-          "name": "Card #054",
-          "rarity": "common",
+          "name": "Glastrier",
+          "rarity": "uncommon",
           "type": "pokemon"
         },
         "55": {
-          "name": "Card #055",
+          "name": "Pikachu",
           "rarity": "common",
           "type": "pokemon"
         },
         "56": {
-          "name": "Card #056",
-          "rarity": "common",
+          "name": "Raichu",
+          "rarity": "uncommon",
           "type": "pokemon"
         },
         "57": {
-          "name": "Card #057",
-          "rarity": "common",
+          "name": "Pikachu ex",
+          "rarity": "ex",
           "type": "pokemon"
         },
         "58": {
-          "name": "Card #058",
-          "rarity": "common",
+          "name": "Voltorb ex",
+          "rarity": "ex",
           "type": "pokemon"
         },
         "59": {
-          "name": "Card #059",
+          "name": "Tynamo",
           "rarity": "common",
           "type": "pokemon"
         },
         "60": {
-          "name": "Card #060",
-          "rarity": "common",
+          "name": "Eelektrik",
+          "rarity": "uncommon",
           "type": "pokemon"
         },
         "61": {
-          "name": "Card #061",
-          "rarity": "common",
+          "name": "Mega Eelektross ex",
+          "rarity": "mega-ex",
           "type": "pokemon"
         },
         "62": {
-          "name": "Card #062",
+          "name": "Stunfisk",
           "rarity": "common",
           "type": "pokemon"
         },
         "63": {
-          "name": "Card #063",
+          "name": "Helioptile",
           "rarity": "common",
           "type": "pokemon"
         },
         "64": {
-          "name": "Card #064",
-          "rarity": "common",
+          "name": "Heliolisk",
+          "rarity": "uncommon",
           "type": "pokemon"
         },
         "65": {
-          "name": "Card #065",
+          "name": "Charjabug",
           "rarity": "common",
           "type": "pokemon"
         },
         "66": {
-          "name": "Card #066",
-          "rarity": "common",
+          "name": "Vikavolt",
+          "rarity": "uncommon",
           "type": "pokemon"
         },
         "67": {
-          "name": "Card #067",
-          "rarity": "common",
+          "name": "Tapu Koko",
+          "rarity": "rare",
           "type": "pokemon"
         },
         "68": {
-          "name": "Card #068",
-          "rarity": "common",
+          "name": "Hop's Pincurchin ex",
+          "rarity": "ex",
           "type": "pokemon"
         },
         "69": {
-          "name": "Card #069",
+          "name": "Iono's Tadbulb",
           "rarity": "common",
           "type": "pokemon"
         },
         "70": {
-          "name": "Card #070",
-          "rarity": "common",
+          "name": "Iono's Bellibolt ex",
+          "rarity": "ex",
           "type": "pokemon"
         },
         "71": {
-          "name": "Card #071",
+          "name": "Iono's Wattrel",
           "rarity": "common",
           "type": "pokemon"
         },
         "72": {
-          "name": "Card #072",
-          "rarity": "common",
+          "name": "Iono's Kilowattrel",
+          "rarity": "rare",
           "type": "pokemon"
         },
         "73": {
-          "name": "Card #073",
-          "rarity": "common",
+          "name": "Miraidon ex",
+          "rarity": "ex",
           "type": "pokemon"
         },
         "74": {
-          "name": "Card #074",
+          "name": "Clefairy",
           "rarity": "common",
           "type": "pokemon"
         },
         "75": {
-          "name": "Card #075",
-          "rarity": "common",
+          "name": "Clefable",
+          "rarity": "uncommon",
           "type": "pokemon"
         },
         "76": {
-          "name": "Card #076",
-          "rarity": "common",
+          "name": "Lillie's Clefairy ex",
+          "rarity": "ex",
           "type": "pokemon"
         },
         "77": {
-          "name": "Card #077",
+          "name": "Team Rocket's Exeggcute",
           "rarity": "common",
           "type": "pokemon"
         },
         "78": {
-          "name": "Card #078",
-          "rarity": "common",
+          "name": "Team Rocket's Exeggutor",
+          "rarity": "rare",
           "type": "pokemon"
         },
         "79": {
-          "name": "Card #079",
-          "rarity": "common",
+          "name": "Team Rocket's Mewtwo ex",
+          "rarity": "ex",
           "type": "pokemon"
         },
         "80": {
-          "name": "Card #080",
+          "name": "Togepi",
           "rarity": "common",
           "type": "pokemon"
         },
         "81": {
-          "name": "Card #081",
+          "name": "Togetic",
           "rarity": "common",
           "type": "pokemon"
         },
         "82": {
-          "name": "Card #082",
-          "rarity": "common",
+          "name": "Togekiss",
+          "rarity": "rare",
           "type": "pokemon"
         },
         "83": {
-          "name": "Card #083",
+          "name": "Marill",
           "rarity": "common",
           "type": "pokemon"
         },
         "84": {
-          "name": "Card #084",
-          "rarity": "common",
+          "name": "Azumarill ex",
+          "rarity": "ex",
           "type": "pokemon"
         },
         "85": {
-          "name": "Card #085",
+          "name": "Misdreavus",
           "rarity": "common",
           "type": "pokemon"
         },
         "86": {
-          "name": "Card #086",
-          "rarity": "common",
+          "name": "Mismagius",
+          "rarity": "rare",
           "type": "pokemon"
         },
         "87": {
-          "name": "Card #087",
+          "name": "Ralts",
           "rarity": "common",
           "type": "pokemon"
         },
         "88": {
-          "name": "Card #088",
+          "name": "Kirlia",
           "rarity": "common",
           "type": "pokemon"
         },
         "89": {
-          "name": "Card #089",
-          "rarity": "common",
+          "name": "Mega Gardevoir ex",
+          "rarity": "mega-ex",
           "type": "pokemon"
         },
         "90": {
-          "name": "Card #090",
+          "name": "Shuppet",
           "rarity": "common",
           "type": "pokemon"
         },
         "91": {
-          "name": "Card #091",
-          "rarity": "common",
+          "name": "Banette",
+          "rarity": "uncommon",
           "type": "pokemon"
         },
         "92": {
-          "name": "Card #092",
+          "name": "Rotom",
           "rarity": "common",
           "type": "pokemon"
         },
         "93": {
-          "name": "Card #093",
+          "name": "Swirlix",
           "rarity": "common",
           "type": "pokemon"
         },
         "94": {
-          "name": "Card #094",
-          "rarity": "common",
+          "name": "Slurpuff",
+          "rarity": "uncommon",
           "type": "pokemon"
         },
         "95": {
-          "name": "Card #095",
+          "name": "Hop's Phantump",
           "rarity": "common",
           "type": "pokemon"
         },
         "96": {
-          "name": "Card #096",
-          "rarity": "common",
+          "name": "Hop's Trevenant",
+          "rarity": "rare",
           "type": "pokemon"
         },
         "97": {
-          "name": "Card #097",
-          "rarity": "common",
+          "name": "Team Rocket's Mimikyu",
+          "rarity": "uncommon",
           "type": "pokemon"
         },
         "98": {
-          "name": "Card #098",
-          "rarity": "common",
+          "name": "Spectrier",
+          "rarity": "rare",
           "type": "pokemon"
         },
         "99": {
-          "name": "Card #099",
-          "rarity": "common",
+          "name": "Munkidori",
+          "rarity": "rare",
           "type": "pokemon"
         },
         "100": {
-          "name": "Card #100",
+          "name": "Team Rocket's Diglett",
           "rarity": "common",
           "type": "pokemon"
         },
         "101": {
-          "name": "Card #101",
-          "rarity": "common",
+          "name": "Team Rocket's Dugtrio",
+          "rarity": "uncommon",
           "type": "pokemon"
         },
         "102": {
-          "name": "Card #102",
+          "name": "Hitmontop",
           "rarity": "common",
           "type": "pokemon"
         },
         "103": {
-          "name": "Card #103",
+          "name": "Meditite",
           "rarity": "common",
           "type": "pokemon"
         },
         "104": {
-          "name": "Card #104",
+          "name": "Medicham",
           "rarity": "common",
           "type": "pokemon"
         },
         "105": {
-          "name": "Card #105",
-          "rarity": "common",
+          "name": "Lunatone",
+          "rarity": "rare",
           "type": "pokemon"
         },
         "106": {
-          "name": "Card #106",
-          "rarity": "common",
+          "name": "Solrock",
+          "rarity": "uncommon",
           "type": "pokemon"
         },
         "107": {
-          "name": "Card #107",
-          "rarity": "common",
+          "name": "Regirock ex",
+          "rarity": "ex",
           "type": "pokemon"
         },
         "108": {
-          "name": "Card #108",
-          "rarity": "common",
+          "name": "Groudon",
+          "rarity": "rare",
           "type": "pokemon"
         },
         "109": {
-          "name": "Card #109",
+          "name": "Cynthia's Gible",
           "rarity": "common",
           "type": "pokemon"
         },
         "110": {
-          "name": "Card #110",
-          "rarity": "common",
+          "name": "Cynthia's Gabite",
+          "rarity": "uncommon",
           "type": "pokemon"
         },
         "111": {
-          "name": "Card #111",
-          "rarity": "common",
+          "name": "Cynthia's Garchomp ex",
+          "rarity": "ex",
           "type": "pokemon"
         },
         "112": {
-          "name": "Card #112",
+          "name": "Riolu",
           "rarity": "common",
           "type": "pokemon"
         },
         "113": {
-          "name": "Card #113",
-          "rarity": "common",
+          "name": "Mega Lucario ex",
+          "rarity": "mega-ex",
           "type": "pokemon"
         },
         "114": {
-          "name": "Card #114",
-          "rarity": "common",
+          "name": "Stunfisk ex",
+          "rarity": "ex",
           "type": "pokemon"
         },
         "115": {
-          "name": "Card #115",
+          "name": "Pancham",
           "rarity": "common",
           "type": "pokemon"
         },
         "116": {
-          "name": "Card #116",
-          "rarity": "common",
+          "name": "Mega Hawlucha ex",
+          "rarity": "mega-ex",
           "type": "pokemon"
         },
         "117": {
-          "name": "Card #117",
-          "rarity": "common",
+          "name": "Carbink",
+          "rarity": "uncommon",
           "type": "pokemon"
         },
         "118": {
-          "name": "Card #118",
+          "name": "Rolycoly",
           "rarity": "common",
           "type": "pokemon"
         },
         "119": {
-          "name": "Card #119",
+          "name": "Carkol",
           "rarity": "common",
           "type": "pokemon"
         },
         "120": {
-          "name": "Card #120",
-          "rarity": "common",
+          "name": "Coalossal",
+          "rarity": "rare",
           "type": "pokemon"
         },
         "121": {
-          "name": "Card #121",
-          "rarity": "common",
+          "name": "Koraidon ex",
+          "rarity": "ex",
           "type": "pokemon"
         },
         "122": {
-          "name": "Card #122",
-          "rarity": "common",
+          "name": "Okidogi",
+          "rarity": "rare",
           "type": "pokemon"
         },
         "123": {
-          "name": "Card #123",
+          "name": "Gastly",
           "rarity": "common",
           "type": "pokemon"
         },
         "124": {
-          "name": "Card #124",
-          "rarity": "common",
+          "name": "Haunter",
+          "rarity": "uncommon",
           "type": "pokemon"
         },
         "125": {
-          "name": "Card #125",
-          "rarity": "common",
+          "name": "Mega Gengar ex",
+          "rarity": "mega-ex",
           "type": "pokemon"
         },
         "126": {
-          "name": "Card #126",
+          "name": "Team Rocket's Murkrow",
           "rarity": "common",
           "type": "pokemon"
         },
         "127": {
-          "name": "Card #127",
-          "rarity": "common",
+          "name": "Team Rocket's Honchkrow",
+          "rarity": "rare",
           "type": "pokemon"
         },
         "128": {
-          "name": "Card #128",
+          "name": "Poochyena",
           "rarity": "common",
           "type": "pokemon"
         },
         "129": {
-          "name": "Card #129",
-          "rarity": "common",
+          "name": "Mightyena",
+          "rarity": "uncommon",
           "type": "pokemon"
         },
         "130": {
-          "name": "Card #130",
+          "name": "Galarian Zigzagoon",
           "rarity": "common",
           "type": "pokemon"
         },
         "131": {
-          "name": "Card #131",
+          "name": "Galarian Linoone",
           "rarity": "common",
           "type": "pokemon"
         },
         "132": {
-          "name": "Card #132",
-          "rarity": "common",
+          "name": "Galarian Obstagoon",
+          "rarity": "uncommon",
           "type": "pokemon"
         },
         "133": {
-          "name": "Card #133",
-          "rarity": "common",
+          "name": "Cynthia's Spiritomb",
+          "rarity": "uncommon",
           "type": "pokemon"
         },
         "134": {
-          "name": "Card #134",
+          "name": "Scraggy",
           "rarity": "common",
           "type": "pokemon"
         },
         "135": {
-          "name": "Card #135",
-          "rarity": "common",
+          "name": "Mega Scrafty ex",
+          "rarity": "mega-ex",
           "type": "pokemon"
         },
         "136": {
-          "name": "Card #136",
+          "name": "N's Zorua",
           "rarity": "common",
           "type": "pokemon"
         },
         "137": {
-          "name": "Card #137",
-          "rarity": "common",
+          "name": "N's Zoroark ex",
+          "rarity": "ex",
           "type": "pokemon"
         },
         "138": {
-          "name": "Card #138",
+          "name": "Vullaby",
           "rarity": "common",
           "type": "pokemon"
         },
         "139": {
-          "name": "Card #139",
-          "rarity": "common",
+          "name": "Mandibuzz ex",
+          "rarity": "ex",
           "type": "pokemon"
         },
         "140": {
-          "name": "Card #140",
-          "rarity": "common",
+          "name": "Pangoro",
+          "rarity": "uncommon",
           "type": "pokemon"
         },
         "141": {
-          "name": "Card #141",
-          "rarity": "common",
+          "name": "Hoopa",
+          "rarity": "rare",
           "type": "pokemon"
         },
         "142": {
-          "name": "Card #142",
-          "rarity": "common",
+          "name": "Fezandipiti ex",
+          "rarity": "ex",
           "type": "pokemon"
         },
         "143": {
-          "name": "Card #143",
-          "rarity": "common",
+          "name": "Pecharunt",
+          "rarity": "rare",
           "type": "pokemon"
         },
         "144": {
-          "name": "Card #144",
-          "rarity": "common",
+          "name": "Mawile",
+          "rarity": "uncommon",
           "type": "pokemon"
         },
         "145": {
-          "name": "Card #145",
-          "rarity": "common",
+          "name": "Registeel ex",
+          "rarity": "ex",
           "type": "pokemon"
         },
         "146": {
-          "name": "Card #146",
+          "name": "Pawniard",
           "rarity": "common",
           "type": "pokemon"
         },
         "147": {
-          "name": "Card #147",
+          "name": "Bisharp",
           "rarity": "common",
           "type": "pokemon"
         },
         "148": {
-          "name": "Card #148",
-          "rarity": "common",
+          "name": "Kingambit",
+          "rarity": "rare",
           "type": "pokemon"
         },
         "149": {
-          "name": "Card #149",
-          "rarity": "common",
+          "name": "Togedemaru ex",
+          "rarity": "ex",
           "type": "pokemon"
         },
         "150": {
-          "name": "Card #150",
+          "name": "Dratini",
           "rarity": "common",
           "type": "pokemon"
         },
         "151": {
-          "name": "Card #151",
-          "rarity": "common",
+          "name": "Dragonair",
+          "rarity": "uncommon",
           "type": "pokemon"
         },
         "152": {
-          "name": "Card #152",
-          "rarity": "common",
+          "name": "Mega Dragonite ex",
+          "rarity": "mega-ex",
           "type": "pokemon"
         },
         "153": {
-          "name": "Card #153",
-          "rarity": "common",
+          "name": "Rayquaza",
+          "rarity": "rare",
           "type": "pokemon"
         },
         "154": {
-          "name": "Card #154",
-          "rarity": "common",
+          "name": "N's Reshiram",
+          "rarity": "rare",
           "type": "pokemon"
         },
         "155": {
-          "name": "Card #155",
-          "rarity": "common",
+          "name": "N's Zekrom",
+          "rarity": "rare",
           "type": "pokemon"
         },
         "156": {
-          "name": "Card #156",
+          "name": "Noibat",
           "rarity": "common",
           "type": "pokemon"
         },
         "157": {
-          "name": "Card #157",
-          "rarity": "common",
+          "name": "Noivern",
+          "rarity": "uncommon",
           "type": "pokemon"
         },
         "158": {
-          "name": "Card #158",
+          "name": "Dreepy",
           "rarity": "common",
           "type": "pokemon"
         },
         "159": {
-          "name": "Card #159",
+          "name": "Drakloak",
           "rarity": "common",
           "type": "pokemon"
         },
         "160": {
-          "name": "Card #160",
-          "rarity": "common",
+          "name": "Dragapult ex",
+          "rarity": "ex",
           "type": "pokemon"
         },
         "161": {
-          "name": "Card #161",
+          "name": "Team Rocket's Meowth",
           "rarity": "common",
           "type": "pokemon"
         },
         "162": {
-          "name": "Card #162",
-          "rarity": "common",
+          "name": "Team Rocket's Kangaskhan ex",
+          "rarity": "ex",
           "type": "pokemon"
         },
         "163": {
-          "name": "Card #163",
+          "name": "Larry's Dunsparce",
           "rarity": "common",
           "type": "pokemon"
         },
         "164": {
-          "name": "Card #164",
-          "rarity": "common",
+          "name": "Larry's Dudunsparce ex",
+          "rarity": "ex",
           "type": "pokemon"
         },
         "165": {
-          "name": "Card #165",
+          "name": "Skitty",
           "rarity": "common",
           "type": "pokemon"
         },
         "166": {
-          "name": "Card #166",
-          "rarity": "common",
+          "name": "Delcatty",
+          "rarity": "uncommon",
           "type": "pokemon"
         },
         "167": {
-          "name": "Card #167",
-          "rarity": "common",
+          "name": "Zangoose ex",
+          "rarity": "ex",
           "type": "pokemon"
         },
         "168": {
-          "name": "Card #168",
+          "name": "Larry's Starly",
           "rarity": "common",
           "type": "pokemon"
         },
         "169": {
-          "name": "Card #169",
-          "rarity": "common",
+          "name": "Larry's Staravia",
+          "rarity": "uncommon",
           "type": "pokemon"
         },
         "170": {
-          "name": "Card #170",
-          "rarity": "common",
+          "name": "Larry's Staraptor",
+          "rarity": "rare",
           "type": "pokemon"
         },
         "171": {
-          "name": "Card #171",
+          "name": "Fan Rotom",
           "rarity": "common",
           "type": "pokemon"
         },
         "172": {
-          "name": "Card #172",
-          "rarity": "common",
+          "name": "Mega Audino ex",
+          "rarity": "mega-ex",
           "type": "pokemon"
         },
         "173": {
-          "name": "Card #173",
+          "name": "Larry's Rufflet",
           "rarity": "common",
           "type": "pokemon"
         },
         "174": {
-          "name": "Card #174",
-          "rarity": "common",
+          "name": "Larry's Braviary",
+          "rarity": "uncommon",
           "type": "pokemon"
         },
         "175": {
-          "name": "Card #175",
+          "name": "Larry's Komala",
           "rarity": "common",
           "type": "pokemon"
         },
         "176": {
-          "name": "Card #176",
-          "rarity": "common",
+          "name": "Drampa",
+          "rarity": "uncommon",
           "type": "pokemon"
         },
         "177": {
-          "name": "Card #177",
-          "rarity": "common",
+          "name": "Hop's Cramorant",
+          "rarity": "uncommon",
           "type": "pokemon"
         },
         "178": {
-          "name": "Card #178",
-          "rarity": "common",
+          "name": "Terapagos",
+          "rarity": "rare",
           "type": "pokemon"
         },
         "179": {
-          "name": "Card #179",
-          "rarity": "common",
+          "name": "Terapagos ex",
+          "rarity": "ex",
           "type": "pokemon"
         },
         "180": {
-          "name": "Trainer #180",
+          "name": "Acerola's Mischief",
           "rarity": "uncommon",
           "type": "trainer"
         },
         "181": {
-          "name": "Trainer #181",
+          "name": "Air Balloon",
           "rarity": "uncommon",
           "type": "trainer"
         },
         "182": {
-          "name": "Trainer #182",
+          "name": "Anthea & Concordia",
           "rarity": "uncommon",
           "type": "trainer"
         },
         "183": {
-          "name": "Trainer #183",
+          "name": "Boss's Orders (Corbeau)",
           "rarity": "uncommon",
           "type": "trainer"
         },
         "184": {
-          "name": "Trainer #184",
-          "rarity": "uncommon",
+          "name": "Buddy-Buddy Poffin",
+          "rarity": "common",
           "type": "trainer"
         },
         "185": {
-          "name": "Trainer #185",
+          "name": "Canari",
           "rarity": "uncommon",
           "type": "trainer"
         },
         "186": {
-          "name": "Trainer #186",
-          "rarity": "uncommon",
+          "name": "Counter Gain",
+          "rarity": "common",
           "type": "trainer"
         },
         "187": {
-          "name": "Trainer #187",
+          "name": "Fighting Gong",
           "rarity": "uncommon",
           "type": "trainer"
         },
         "188": {
-          "name": "Trainer #188",
+          "name": "Forest of Vitality",
           "rarity": "uncommon",
           "type": "trainer"
         },
         "189": {
-          "name": "Trainer #189",
-          "rarity": "uncommon",
+          "name": "Glass Trumpet",
+          "rarity": "common",
           "type": "trainer"
         },
         "190": {
-          "name": "Trainer #190",
+          "name": "Iris's Fighting Spirit",
           "rarity": "uncommon",
           "type": "trainer"
         },
         "191": {
-          "name": "Trainer #191",
+          "name": "Light Ball",
           "rarity": "uncommon",
           "type": "trainer"
         },
         "192": {
-          "name": "Trainer #192",
+          "name": "Lillie's Determination",
           "rarity": "uncommon",
           "type": "trainer"
         },
         "193": {
-          "name": "Trainer #193",
-          "rarity": "uncommon",
+          "name": "Mega Signal",
+          "rarity": "common",
           "type": "trainer"
         },
         "194": {
-          "name": "Trainer #194",
+          "name": "Mystery Garden",
           "rarity": "uncommon",
           "type": "trainer"
         },
         "195": {
-          "name": "Trainer #195",
+          "name": "N's PP Up",
           "rarity": "uncommon",
           "type": "trainer"
         },
         "196": {
-          "name": "Trainer #196",
-          "rarity": "uncommon",
+          "name": "Night Stretcher",
+          "rarity": "common",
           "type": "trainer"
         },
         "197": {
-          "name": "Trainer #197",
+          "name": "Nighttime Mine",
           "rarity": "uncommon",
           "type": "trainer"
         },
         "198": {
-          "name": "Trainer #198",
-          "rarity": "uncommon",
+          "name": "Pok\u00e9 Pad",
+          "rarity": "common",
           "type": "trainer"
         },
         "199": {
-          "name": "Trainer #199",
+          "name": "Premium Power Pro",
           "rarity": "uncommon",
           "type": "trainer"
         },
         "200": {
-          "name": "Trainer #200",
-          "rarity": "uncommon",
+          "name": "Surfer",
+          "rarity": "common",
           "type": "trainer"
         },
         "201": {
-          "name": "Trainer #201",
+          "name": "Team Rocket's Archer",
           "rarity": "uncommon",
           "type": "trainer"
         },
         "202": {
-          "name": "Trainer #202",
+          "name": "Team Rocket's Ariana",
           "rarity": "uncommon",
           "type": "trainer"
         },
         "203": {
-          "name": "Trainer #203",
+          "name": "Team Rocket's Factory",
           "rarity": "uncommon",
           "type": "trainer"
         },
         "204": {
-          "name": "Trainer #204",
+          "name": "Team Rocket's Giovanni",
           "rarity": "uncommon",
           "type": "trainer"
         },
         "205": {
-          "name": "Trainer #205",
+          "name": "Team Rocket's Great Ball",
           "rarity": "uncommon",
           "type": "trainer"
         },
         "206": {
-          "name": "Trainer #206",
+          "name": "Team Rocket's Hypnotizer",
           "rarity": "uncommon",
           "type": "trainer"
         },
         "207": {
-          "name": "Trainer #207",
+          "name": "Team Rocket's Petrel",
           "rarity": "uncommon",
           "type": "trainer"
         },
         "208": {
-          "name": "Trainer #208",
+          "name": "Team Rocket's Proton",
           "rarity": "uncommon",
           "type": "trainer"
         },
         "209": {
-          "name": "Trainer #209",
+          "name": "Team Rocket's Transceiver",
           "rarity": "uncommon",
           "type": "trainer"
         },
         "210": {
-          "name": "Trainer #210",
+          "name": "Team Rocket's Watchtower",
           "rarity": "uncommon",
           "type": "trainer"
         },
         "211": {
-          "name": "Trainer #211",
+          "name": "Thick Scale",
           "rarity": "uncommon",
           "type": "trainer"
         },
         "212": {
-          "name": "Trainer #212",
-          "rarity": "uncommon",
+          "name": "Tool Scrapper",
+          "rarity": "common",
           "type": "trainer"
         },
         "213": {
-          "name": "Trainer #213",
-          "rarity": "uncommon",
+          "name": "Ultra Ball",
+          "rarity": "common",
           "type": "trainer"
         },
         "214": {
-          "name": "Trainer #214",
+          "name": "Urbain",
           "rarity": "uncommon",
           "type": "trainer"
         },
         "215": {
-          "name": "Trainer #215",
-          "rarity": "uncommon",
+          "name": "Waitress",
+          "rarity": "common",
           "type": "trainer"
         },
         "216": {
-          "name": "Trainer #216",
+          "name": "Prism Energy",
           "rarity": "uncommon",
-          "type": "trainer"
+          "type": "energy"
         },
         "217": {
-          "name": "Trainer #217",
+          "name": "Team Rocket's Energy",
           "rarity": "uncommon",
-          "type": "trainer"
+          "type": "energy"
         },
         "218": {
-          "name": "Secret #218",
-          "rarity": "secret",
+          "name": "Erika's Tangela",
+          "rarity": "illustration-rare",
           "type": "pokemon"
         },
         "219": {
-          "name": "Secret #219",
-          "rarity": "secret",
+          "name": "Beautifly",
+          "rarity": "illustration-rare",
           "type": "pokemon"
         },
         "220": {
-          "name": "Secret #220",
-          "rarity": "secret",
+          "name": "Dustox",
+          "rarity": "illustration-rare",
           "type": "pokemon"
         },
         "221": {
-          "name": "Secret #221",
-          "rarity": "secret",
+          "name": "Budew",
+          "rarity": "illustration-rare",
           "type": "pokemon"
         },
         "222": {
-          "name": "Secret #222",
-          "rarity": "secret",
+          "name": "Ethan's Magcargo",
+          "rarity": "illustration-rare",
           "type": "pokemon"
         },
         "223": {
-          "name": "Secret #223",
-          "rarity": "secret",
+          "name": "Numel",
+          "rarity": "illustration-rare",
           "type": "pokemon"
         },
         "224": {
-          "name": "Secret #224",
-          "rarity": "secret",
+          "name": "Salazzle",
+          "rarity": "illustration-rare",
           "type": "pokemon"
         },
         "225": {
-          "name": "Secret #225",
-          "rarity": "secret",
+          "name": "Scorbunny",
+          "rarity": "illustration-rare",
           "type": "pokemon"
         },
         "226": {
-          "name": "Secret #226",
-          "rarity": "secret",
+          "name": "Psyduck",
+          "rarity": "illustration-rare",
           "type": "pokemon"
         },
         "227": {
-          "name": "Secret #227",
-          "rarity": "secret",
+          "name": "Snorunt",
+          "rarity": "illustration-rare",
           "type": "pokemon"
         },
         "228": {
-          "name": "Secret #228",
-          "rarity": "secret",
+          "name": "Weavile",
+          "rarity": "illustration-rare",
           "type": "pokemon"
         },
         "229": {
-          "name": "Secret #229",
-          "rarity": "secret",
+          "name": "Heliolisk",
+          "rarity": "illustration-rare",
           "type": "pokemon"
         },
         "230": {
-          "name": "Secret #230",
-          "rarity": "secret",
+          "name": "Vikavolt",
+          "rarity": "illustration-rare",
           "type": "pokemon"
         },
         "231": {
-          "name": "Secret #231",
-          "rarity": "secret",
+          "name": "Iono's Wattrel",
+          "rarity": "illustration-rare",
           "type": "pokemon"
         },
         "232": {
-          "name": "Secret #232",
-          "rarity": "secret",
+          "name": "Marill",
+          "rarity": "illustration-rare",
           "type": "pokemon"
         },
         "233": {
-          "name": "Secret #233",
-          "rarity": "secret",
+          "name": "Misdreavus",
+          "rarity": "illustration-rare",
           "type": "pokemon"
         },
         "234": {
-          "name": "Secret #234",
-          "rarity": "secret",
+          "name": "Banette",
+          "rarity": "illustration-rare",
           "type": "pokemon"
         },
         "235": {
-          "name": "Secret #235",
-          "rarity": "secret",
+          "name": "Togekiss",
+          "rarity": "illustration-rare",
           "type": "pokemon"
         },
         "236": {
-          "name": "Secret #236",
-          "rarity": "secret",
+          "name": "Slurpuff",
+          "rarity": "illustration-rare",
           "type": "pokemon"
         },
         "237": {
-          "name": "Secret #237",
-          "rarity": "secret",
+          "name": "Hop's Trevenant",
+          "rarity": "illustration-rare",
           "type": "pokemon"
         },
         "238": {
-          "name": "Secret #238",
-          "rarity": "secret",
+          "name": "Team Rocket's Mimikyu",
+          "rarity": "illustration-rare",
           "type": "pokemon"
         },
         "239": {
-          "name": "Secret #239",
-          "rarity": "secret",
+          "name": "Team Rocket's Dugtrio",
+          "rarity": "illustration-rare",
           "type": "pokemon"
         },
         "240": {
-          "name": "Secret #240",
-          "rarity": "secret",
+          "name": "Hitmontop",
+          "rarity": "illustration-rare",
           "type": "pokemon"
         },
         "241": {
-          "name": "Secret #241",
-          "rarity": "secret",
+          "name": "Medicham",
+          "rarity": "illustration-rare",
           "type": "pokemon"
         },
         "242": {
-          "name": "Secret #242",
-          "rarity": "secret",
+          "name": "Carbink",
+          "rarity": "illustration-rare",
           "type": "pokemon"
         },
         "243": {
-          "name": "Secret #243",
-          "rarity": "secret",
+          "name": "Mightyena",
+          "rarity": "illustration-rare",
           "type": "pokemon"
         },
         "244": {
-          "name": "Secret #244",
-          "rarity": "secret",
+          "name": "Cynthia's Spiritomb",
+          "rarity": "illustration-rare",
           "type": "pokemon"
         },
         "245": {
-          "name": "Secret #245",
-          "rarity": "secret",
+          "name": "Galarian Obstagoon",
+          "rarity": "illustration-rare",
           "type": "pokemon"
         },
         "246": {
-          "name": "Secret #246",
-          "rarity": "secret",
+          "name": "Mawile",
+          "rarity": "illustration-rare",
           "type": "pokemon"
         },
         "247": {
-          "name": "Secret #247",
-          "rarity": "secret",
+          "name": "Dreepy",
+          "rarity": "illustration-rare",
           "type": "pokemon"
         },
         "248": {
-          "name": "Secret #248",
-          "rarity": "secret",
+          "name": "Drakloak",
+          "rarity": "illustration-rare",
           "type": "pokemon"
         },
         "249": {
-          "name": "Secret #249",
-          "rarity": "secret",
+          "name": "Larry's Dunsparce",
+          "rarity": "illustration-rare",
           "type": "pokemon"
         },
         "250": {
-          "name": "Secret #250",
-          "rarity": "secret",
+          "name": "Delcatty",
+          "rarity": "illustration-rare",
           "type": "pokemon"
         },
         "251": {
-          "name": "Secret #251",
-          "rarity": "secret",
+          "name": "Mega Meganium ex",
+          "rarity": "ultra-rare",
           "type": "pokemon"
         },
         "252": {
-          "name": "Secret #252",
-          "rarity": "secret",
+          "name": "Mega Charizard Y ex",
+          "rarity": "ultra-rare",
           "type": "pokemon"
         },
         "253": {
-          "name": "Secret #253",
-          "rarity": "secret",
+          "name": "Mega Feraligatr ex",
+          "rarity": "ultra-rare",
           "type": "pokemon"
         },
         "254": {
-          "name": "Secret #254",
-          "rarity": "secret",
+          "name": "Mega Gardevoir ex",
+          "rarity": "ultra-rare",
           "type": "pokemon"
         },
         "255": {
-          "name": "Secret #255",
-          "rarity": "secret",
+          "name": "Mega Lucario ex",
+          "rarity": "ultra-rare",
           "type": "pokemon"
         },
         "256": {
-          "name": "Secret #256",
-          "rarity": "secret",
+          "name": "Mega Dragonite ex",
+          "rarity": "ultra-rare",
           "type": "pokemon"
         },
         "257": {
-          "name": "Secret #257",
-          "rarity": "secret",
+          "name": "Erika's Vileplume ex",
+          "rarity": "ultra-rare",
           "type": "pokemon"
         },
         "258": {
-          "name": "Secret #258",
-          "rarity": "secret",
+          "name": "Pikachu ex",
+          "rarity": "ultra-rare",
           "type": "pokemon"
         },
         "259": {
-          "name": "Secret #259",
-          "rarity": "secret",
+          "name": "Cynthia's Garchomp ex",
+          "rarity": "ultra-rare",
           "type": "pokemon"
         },
         "260": {
-          "name": "Secret #260",
-          "rarity": "secret",
+          "name": "Team Rocket's Mewtwo ex",
+          "rarity": "ultra-rare",
           "type": "pokemon"
         },
         "261": {
-          "name": "Secret #261",
-          "rarity": "secret",
-          "type": "pokemon"
+          "name": "Erika",
+          "rarity": "ultra-rare",
+          "type": "trainer"
         },
         "262": {
-          "name": "Secret #262",
-          "rarity": "secret",
-          "type": "pokemon"
+          "name": "Iris's Fighting Spirit",
+          "rarity": "ultra-rare",
+          "type": "trainer"
         },
         "263": {
-          "name": "Secret #263",
-          "rarity": "secret",
-          "type": "pokemon"
+          "name": "Lillie's Determination",
+          "rarity": "ultra-rare",
+          "type": "trainer"
         },
         "264": {
-          "name": "Secret #264",
-          "rarity": "secret",
-          "type": "pokemon"
+          "name": "N",
+          "rarity": "ultra-rare",
+          "type": "trainer"
         },
         "265": {
-          "name": "Secret #265",
-          "rarity": "secret",
+          "name": "Mega Meganium ex",
+          "rarity": "mega-attack-rare",
           "type": "pokemon"
         },
         "266": {
-          "name": "Secret #266",
-          "rarity": "secret",
+          "name": "Mega Emboar ex",
+          "rarity": "mega-attack-rare",
           "type": "pokemon"
         },
         "267": {
-          "name": "Secret #267",
-          "rarity": "secret",
+          "name": "Mega Feraligatr ex",
+          "rarity": "mega-attack-rare",
           "type": "pokemon"
         },
         "268": {
-          "name": "Secret #268",
-          "rarity": "secret",
+          "name": "Mega Gardevoir ex",
+          "rarity": "mega-attack-rare",
           "type": "pokemon"
         },
         "269": {
-          "name": "Secret #269",
-          "rarity": "secret",
+          "name": "Mega Lucario ex",
+          "rarity": "mega-attack-rare",
           "type": "pokemon"
         },
         "270": {
-          "name": "Secret #270",
-          "rarity": "secret",
+          "name": "Mega Gengar ex",
+          "rarity": "mega-attack-rare",
           "type": "pokemon"
         },
         "271": {
-          "name": "Secret #271",
-          "rarity": "secret",
+          "name": "Mega Dragonite ex",
+          "rarity": "mega-attack-rare",
           "type": "pokemon"
         },
         "272": {
-          "name": "Secret #272",
-          "rarity": "secret",
+          "name": "Erika's Vileplume ex",
+          "rarity": "special-illustration-rare",
           "type": "pokemon"
         },
         "273": {
-          "name": "Secret #273",
-          "rarity": "secret",
+          "name": "Mega Meganium ex",
+          "rarity": "special-illustration-rare",
           "type": "pokemon"
         },
         "274": {
-          "name": "Secret #274",
-          "rarity": "secret",
+          "name": "Mega Charizard Y ex",
+          "rarity": "special-illustration-rare",
           "type": "pokemon"
         },
         "275": {
-          "name": "Secret #275",
-          "rarity": "secret",
+          "name": "Ethan's Ho-Oh ex",
+          "rarity": "special-illustration-rare",
           "type": "pokemon"
         },
         "276": {
-          "name": "Secret #276",
-          "rarity": "secret",
+          "name": "Mega Feraligatr ex",
+          "rarity": "special-illustration-rare",
           "type": "pokemon"
         },
         "277": {
-          "name": "Secret #277",
-          "rarity": "secret",
+          "name": "Mega Froslass ex",
+          "rarity": "special-illustration-rare",
           "type": "pokemon"
         },
         "278": {
-          "name": "Secret #278",
-          "rarity": "secret",
+          "name": "Regice ex",
+          "rarity": "special-illustration-rare",
           "type": "pokemon"
         },
         "279": {
-          "name": "Secret #279",
-          "rarity": "secret",
+          "name": "Pikachu ex",
+          "rarity": "special-illustration-rare",
           "type": "pokemon"
         },
         "280": {
-          "name": "Secret #280",
-          "rarity": "secret",
+          "name": "Miraidon ex",
+          "rarity": "special-illustration-rare",
           "type": "pokemon"
         },
         "281": {
-          "name": "Secret #281",
-          "rarity": "secret",
+          "name": "Lillie's Clefairy ex",
+          "rarity": "special-illustration-rare",
           "type": "pokemon"
         },
         "282": {
-          "name": "Secret #282",
-          "rarity": "secret",
+          "name": "Team Rocket's Mewtwo ex",
+          "rarity": "special-illustration-rare",
           "type": "pokemon"
         },
         "283": {
-          "name": "Secret #283",
-          "rarity": "secret",
+          "name": "Mega Gardevoir ex",
+          "rarity": "special-illustration-rare",
           "type": "pokemon"
         },
         "284": {
-          "name": "Secret #284",
-          "rarity": "secret",
+          "name": "Regirock ex",
+          "rarity": "special-illustration-rare",
           "type": "pokemon"
         },
         "285": {
-          "name": "Secret #285",
-          "rarity": "secret",
+          "name": "Cynthia's Garchomp ex",
+          "rarity": "special-illustration-rare",
           "type": "pokemon"
         },
         "286": {
-          "name": "Secret #286",
-          "rarity": "secret",
+          "name": "Mega Lucario ex",
+          "rarity": "special-illustration-rare",
           "type": "pokemon"
         },
         "287": {
-          "name": "Secret #287",
-          "rarity": "secret",
+          "name": "Koraidon ex",
+          "rarity": "special-illustration-rare",
           "type": "pokemon"
         },
         "288": {
-          "name": "Secret #288",
-          "rarity": "secret",
+          "name": "Mega Gengar ex",
+          "rarity": "special-illustration-rare",
           "type": "pokemon"
         },
         "289": {
-          "name": "Secret #289",
-          "rarity": "secret",
+          "name": "N's Zoroark ex",
+          "rarity": "special-illustration-rare",
           "type": "pokemon"
         },
         "290": {
-          "name": "Secret #290",
-          "rarity": "secret",
+          "name": "Mega Dragonite ex",
+          "rarity": "special-illustration-rare",
           "type": "pokemon"
         },
         "291": {
-          "name": "Secret #291",
-          "rarity": "secret",
-          "type": "pokemon"
+          "name": "Canari",
+          "rarity": "special-illustration-rare",
+          "type": "trainer"
         },
         "292": {
-          "name": "Secret #292",
-          "rarity": "secret",
-          "type": "pokemon"
+          "name": "Iris's Fighting Spirit",
+          "rarity": "special-illustration-rare",
+          "type": "trainer"
         },
         "293": {
-          "name": "Secret #293",
-          "rarity": "secret",
-          "type": "pokemon"
+          "name": "Surfer",
+          "rarity": "special-illustration-rare",
+          "type": "trainer"
         },
         "294": {
-          "name": "Secret #294",
-          "rarity": "secret",
+          "name": "Mega Charizard Y ex",
+          "rarity": "mega-attack-rare",
           "type": "pokemon"
         },
         "295": {
-          "name": "Secret #295",
-          "rarity": "secret",
+          "name": "Mega Dragonite ex",
+          "rarity": "mega-attack-rare",
           "type": "pokemon"
         }
       },
