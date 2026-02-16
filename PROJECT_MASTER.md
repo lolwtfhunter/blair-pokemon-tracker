@@ -494,7 +494,7 @@ The Pokemon TCG tab uses a two-level navigation system with explicit user contro
 3. Click set → Cards display
 4. Click block again → Returns to block-only view (deselects block, hides sets and cards)
 
-**Custom Sets:** Display as a flat list (no hierarchy) in their own tab.
+**Custom Sets:** Display as a flat list (no hierarchy) in their own tab. No set is auto-selected on load — user must click a set button to view cards, consistent with all other tabs.
 
 ### **Variant Display**
 - **Single Checkbox:** `✓ Collected` (EX/Secret rares)

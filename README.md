@@ -37,7 +37,7 @@ The app has three top-level tabs:
   - **Level 2:** Set selection grid appears when block is selected, showing individual sets with official set logos, progress bars, and release dates
   - Blocks can be deselected by clicking again to return to clean slate view
   - No auto-selection - user must explicitly choose block and set
-  - Custom sets display as a flat list (no hierarchy needed)
+  - Custom sets display as a flat list (no hierarchy needed), also with no auto-selection
 - **Variant tracking** — Check off each variant (Regular, Holo, Reverse Holo, Poke Ball, Master Ball) independently per card. EX, Ultra Rare, and other special rarities use a single "Collected" checkbox. Custom set cards also get computed variants based on rarity, era, and set type (e.g., modern uncommons get Regular + Reverse Holo).
 - **Inline progress bars** — Each block and set button shows a progress bar and collected/total count directly inside it, so you can see completion at a glance without a separate section.
 - **Filter & search** — Filter cards by completion status (All/Incomplete/Complete), toggle rarity filter buttons to show specific rarities, and search by card name or number. All three filters work together for quick card location.

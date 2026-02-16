@@ -808,7 +808,8 @@ When you add a **custom set**:
 1. **No hierarchy:** Custom sets display as a flat list in the Custom Sets tab
 2. **No block codes needed:** Custom sets don't use `block` or `blockCode` fields
 3. **Direct access:** Set buttons appear immediately without needing to select a parent block
-4. **Same functionality:** Cards, progress, and all other features work identically to official sets
+4. **No auto-selection:** No set is pre-selected on page load — user must click a set button to view cards (consistent with all other tabs)
+5. **Same functionality:** Cards, progress, and all other features work identically to official sets
 
 ### Adding a New Block
 

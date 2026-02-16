@@ -9,9 +9,6 @@ function renderCustomSetButtons() {
     const setKeys = Object.keys(customCardSets);
     if (setKeys.length === 0) return;
 
-    // Default to first custom set if none selected
-    if (!currentCustomSet) currentCustomSet = setKeys[0];
-
     setKeys.forEach(setKey => {
         const setData = customCardSets[setKey];
         const btn = document.createElement('button');
