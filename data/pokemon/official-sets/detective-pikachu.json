@@ -1,0 +1,108 @@
+{
+  "version": "3.0.0",
+  "lastUpdated": "2026-02-16",
+  "setKey": "detective-pikachu",
+  "name": "Detective Pikachu",
+  "displayName": "Detective Pikachu",
+  "totalCards": 18,
+  "mainSet": 18,
+  "setCode": "det1",
+  "releaseDate": "2019-04-05",
+  "block": "Sun & Moon",
+  "blockCode": "sm",
+  "hasPokeBallVariant": false,
+  "hasMasterBallVariant": false,
+  "singleVariantOnly": true,
+  "cards": {
+    "1": {
+      "name": "Bulbasaur",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "2": {
+      "name": "Ludicolo",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "3": {
+      "name": "Morelull",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "4": {
+      "name": "Charmander",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "5": {
+      "name": "Charizard",
+      "rarity": "ultra-rare",
+      "type": "pokemon"
+    },
+    "6": {
+      "name": "Arcanine",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "7": {
+      "name": "Psyduck",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "8": {
+      "name": "Magikarp",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "9": {
+      "name": "Greninja",
+      "rarity": "ultra-rare",
+      "type": "pokemon"
+    },
+    "10": {
+      "name": "Detective Pikachu",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "11": {
+      "name": "Mr. Mime",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "12": {
+      "name": "Mewtwo",
+      "rarity": "ultra-rare",
+      "type": "pokemon"
+    },
+    "13": {
+      "name": "Machamp",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "14": {
+      "name": "Jigglypuff",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "15": {
+      "name": "Snubbull",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "16": {
+      "name": "Lickitung",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "17": {
+      "name": "Ditto",
+      "rarity": "ultra-rare",
+      "type": "pokemon"
+    },
+    "18": {
+      "name": "Slaking",
+      "rarity": "rare",
+      "type": "pokemon"
+    }
+  }
+}

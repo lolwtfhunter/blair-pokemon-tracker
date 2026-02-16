@@ -1,12 +1,15 @@
 {
+  "name": "Phantasmal Flames",
+  "setCode": "sv6.5",
+  "releaseDate": "2025-11-14",
+  "block": "Mega Evolution",
+  "blockCode": "me",
   "version": "3.0.0",
   "lastUpdated": "2025-02-15",
   "setKey": "phantasmal-flames",
-  "name": "Phantasmal Flames",
   "displayName": "Phantasmal Flames",
   "totalCards": 130,
   "mainSet": 94,
-  "setCode": "sv6.5",
   "hasPokeBallVariant": false,
   "hasMasterBallVariant": false,
   "cards": {
@@ -677,8 +680,5 @@
     85,
     94
   ],
-  "energyCards": {},
-  "releaseDate": "2025-11-14",
-  "block": "Mega Evolution",
-  "blockCode": "me"
+  "energyCards": {}
 }

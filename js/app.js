@@ -30,6 +30,16 @@ window.addEventListener('load', async function() {
 
         console.log('Rendering UI...');
 
+        // Dynamically create block containers and set grids from loaded data
+        console.log('Initializing Pokemon block containers and set grids...');
+        try {
+            initPokemonBlockContainers();
+            initPokemonSetGrids();
+            console.log('✓ Pokemon DOM initialized');
+        } catch (e) {
+            console.log('ERROR in Pokemon DOM init: ' + e.message);
+        }
+
         console.log('Calling renderSetButtons...');
         try {
             renderSetButtons();

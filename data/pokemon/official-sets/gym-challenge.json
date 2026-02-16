@@ -1,0 +1,678 @@
+{
+  "version": "3.0.0",
+  "lastUpdated": "2026-02-16",
+  "setKey": "gym-challenge",
+  "name": "Gym Challenge",
+  "displayName": "Gym Challenge",
+  "totalCards": 132,
+  "mainSet": 132,
+  "setCode": "gym2",
+  "releaseDate": "2000-10-16",
+  "block": "Gym",
+  "blockCode": "gym",
+  "hasPokeBallVariant": false,
+  "hasMasterBallVariant": false,
+  "hasFirstEdition": true,
+  "cards": {
+    "1": {
+      "name": "Blaine's Arcanine",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "2": {
+      "name": "Blaine's Charizard",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "3": {
+      "name": "Brock's Ninetales",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "4": {
+      "name": "Erika's Venusaur",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "5": {
+      "name": "Giovanni's Gyarados",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "6": {
+      "name": "Giovanni's Machamp",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "7": {
+      "name": "Giovanni's Nidoking",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "8": {
+      "name": "Giovanni's Persian",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "9": {
+      "name": "Koga's Beedrill",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "10": {
+      "name": "Koga's Ditto",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "11": {
+      "name": "Lt. Surge's Raichu",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "12": {
+      "name": "Misty's Golduck",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "13": {
+      "name": "Misty's Gyarados",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "14": {
+      "name": "Rocket's Mewtwo",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "15": {
+      "name": "Rocket's Zapdos",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "16": {
+      "name": "Sabrina's Alakazam",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "17": {
+      "name": "Blaine",
+      "rarity": "rare-holo",
+      "type": "trainer"
+    },
+    "18": {
+      "name": "Giovanni",
+      "rarity": "rare-holo",
+      "type": "trainer"
+    },
+    "19": {
+      "name": "Koga",
+      "rarity": "rare-holo",
+      "type": "trainer"
+    },
+    "20": {
+      "name": "Sabrina",
+      "rarity": "rare-holo",
+      "type": "trainer"
+    },
+    "21": {
+      "name": "Blaine's Ninetales",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "22": {
+      "name": "Brock's Dugtrio",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "23": {
+      "name": "Giovanni's Nidoqueen",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "24": {
+      "name": "Giovanni's Pinsir",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "25": {
+      "name": "Koga's Arbok",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "26": {
+      "name": "Koga's Muk",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "27": {
+      "name": "Koga's Pidgeotto",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "28": {
+      "name": "Lt. Surge's Jolteon",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "29": {
+      "name": "Sabrina's Gengar",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "30": {
+      "name": "Sabrina's Golduck",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "31": {
+      "name": "Blaine's Charmeleon",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "32": {
+      "name": "Blaine's Dodrio",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "33": {
+      "name": "Blaine's Rapidash",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "34": {
+      "name": "Brock's Graveler",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "35": {
+      "name": "Brock's Primeape",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "36": {
+      "name": "Brock's Sandslash",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "37": {
+      "name": "Brock's Vulpix",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "38": {
+      "name": "Erika's Bellsprout",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "39": {
+      "name": "Erika's Bulbasaur",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "40": {
+      "name": "Erika's Clefairy",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "41": {
+      "name": "Erika's Ivysaur",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "42": {
+      "name": "Giovanni's Machoke",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "43": {
+      "name": "Giovanni's Meowth",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "44": {
+      "name": "Giovanni's Nidorina",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "45": {
+      "name": "Giovanni's Nidorino",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "46": {
+      "name": "Koga's Golbat",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "47": {
+      "name": "Koga's Kakuna",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "48": {
+      "name": "Koga's Koffing",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "49": {
+      "name": "Koga's Pidgey",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "50": {
+      "name": "Koga's Weezing",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "51": {
+      "name": "Lt. Surge's Eevee",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "52": {
+      "name": "Lt. Surge's Electrode",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "53": {
+      "name": "Lt. Surge's Raticate",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "54": {
+      "name": "Misty's Dewgong",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "55": {
+      "name": "Sabrina's Haunter",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "56": {
+      "name": "Sabrina's Hypno",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "57": {
+      "name": "Sabrina's Jynx",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "58": {
+      "name": "Sabrina's Kadabra",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "59": {
+      "name": "Sabrina's Mr. Mime",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "60": {
+      "name": "Blaine's Charmander",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "61": {
+      "name": "Blaine's Doduo",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "62": {
+      "name": "Blaine's Growlithe",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "63": {
+      "name": "Blaine's Mankey",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "64": {
+      "name": "Blaine's Ponyta",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "65": {
+      "name": "Blaine's Rhyhorn",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "66": {
+      "name": "Blaine's Vulpix",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "67": {
+      "name": "Brock's Diglett",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "68": {
+      "name": "Brock's Geodude",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "69": {
+      "name": "Erika's Jigglypuff",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "70": {
+      "name": "Erika's Oddish",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "71": {
+      "name": "Erika's Paras",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "72": {
+      "name": "Giovanni's Machop",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "73": {
+      "name": "Giovanni's Magikarp",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "74": {
+      "name": "Giovanni's Meowth",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "75": {
+      "name": "Giovanni's Nidoran ♀",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "76": {
+      "name": "Giovanni's Nidoran ♂",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "77": {
+      "name": "Koga's Ekans",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "78": {
+      "name": "Koga's Grimer",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "79": {
+      "name": "Koga's Koffing",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "80": {
+      "name": "Koga's Pidgey",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "81": {
+      "name": "Koga's Tangela",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "82": {
+      "name": "Koga's Weedle",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "83": {
+      "name": "Koga's Zubat",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "84": {
+      "name": "Lt. Surge's Pikachu",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "85": {
+      "name": "Lt. Surge's Rattata",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "86": {
+      "name": "Lt. Surge's Voltorb",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "87": {
+      "name": "Misty's Horsea",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "88": {
+      "name": "Misty's Magikarp",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "89": {
+      "name": "Misty's Poliwag",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "90": {
+      "name": "Misty's Psyduck",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "91": {
+      "name": "Misty's Seel",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "92": {
+      "name": "Misty's Staryu",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "93": {
+      "name": "Sabrina's Abra",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "94": {
+      "name": "Sabrina's Abra",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "95": {
+      "name": "Sabrina's Drowzee",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "96": {
+      "name": "Sabrina's Gastly",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "97": {
+      "name": "Sabrina's Gastly",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "98": {
+      "name": "Sabrina's Porygon",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "99": {
+      "name": "Sabrina's Psyduck",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "100": {
+      "name": "Blaine",
+      "rarity": "rare",
+      "type": "trainer"
+    },
+    "101": {
+      "name": "Brock's Protection",
+      "rarity": "rare",
+      "type": "trainer"
+    },
+    "102": {
+      "name": "Chaos Gym",
+      "rarity": "rare",
+      "type": "trainer"
+    },
+    "103": {
+      "name": "Erika's Kindness",
+      "rarity": "rare",
+      "type": "trainer"
+    },
+    "104": {
+      "name": "Giovanni",
+      "rarity": "rare",
+      "type": "trainer"
+    },
+    "105": {
+      "name": "Giovanni's Last Resort",
+      "rarity": "rare",
+      "type": "trainer"
+    },
+    "106": {
+      "name": "Koga",
+      "rarity": "rare",
+      "type": "trainer"
+    },
+    "107": {
+      "name": "Lt. Surge's Secret Plan",
+      "rarity": "rare",
+      "type": "trainer"
+    },
+    "108": {
+      "name": "Misty's Wish",
+      "rarity": "rare",
+      "type": "trainer"
+    },
+    "109": {
+      "name": "Resistance Gym",
+      "rarity": "rare",
+      "type": "trainer"
+    },
+    "110": {
+      "name": "Sabrina",
+      "rarity": "rare",
+      "type": "trainer"
+    },
+    "111": {
+      "name": "Blaine's Quiz #2",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "112": {
+      "name": "Blaine's Quiz #3",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "113": {
+      "name": "Cinnabar City Gym",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "114": {
+      "name": "Fuchsia City Gym",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "115": {
+      "name": "Koga's Ninja Trick",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "116": {
+      "name": "Master Ball",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "117": {
+      "name": "Max Revive",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "118": {
+      "name": "Misty's Tears",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "119": {
+      "name": "Rocket's Minefield Gym",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "120": {
+      "name": "Rocket's Secret Experiment",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "121": {
+      "name": "Sabrina's Psychic Control",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "122": {
+      "name": "Saffron City Gym",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "123": {
+      "name": "Viridian City Gym",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "124": {
+      "name": "Fervor",
+      "rarity": "common",
+      "type": "trainer"
+    },
+    "125": {
+      "name": "Transparent Walls",
+      "rarity": "common",
+      "type": "trainer"
+    },
+    "126": {
+      "name": "Warp Point",
+      "rarity": "common",
+      "type": "trainer"
+    },
+    "127": {
+      "name": "Fighting Energy",
+      "rarity": "common",
+      "type": "energy"
+    },
+    "128": {
+      "name": "Fire Energy",
+      "rarity": "common",
+      "type": "energy"
+    },
+    "129": {
+      "name": "Grass Energy",
+      "rarity": "common",
+      "type": "energy"
+    },
+    "130": {
+      "name": "Lightning Energy",
+      "rarity": "common",
+      "type": "energy"
+    },
+    "131": {
+      "name": "Psychic Energy",
+      "rarity": "common",
+      "type": "energy"
+    },
+    "132": {
+      "name": "Water Energy",
+      "rarity": "common",
+      "type": "energy"
+    }
+  }
+}

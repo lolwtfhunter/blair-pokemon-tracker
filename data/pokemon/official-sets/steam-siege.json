@@ -1,0 +1,597 @@
+{
+  "version": "3.0.0",
+  "lastUpdated": "2026-02-16",
+  "setKey": "steam-siege",
+  "name": "Steam Siege",
+  "displayName": "Steam Siege",
+  "totalCards": 116,
+  "mainSet": 114,
+  "setCode": "xy11",
+  "releaseDate": "2016-08-03",
+  "block": "XY",
+  "blockCode": "xy",
+  "hasPokeBallVariant": false,
+  "hasMasterBallVariant": false,
+  "cards": {
+    "1": {
+      "name": "Tangela",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "2": {
+      "name": "Tangrowth",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "3": {
+      "name": "Hoppip",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "4": {
+      "name": "Skiploom",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "5": {
+      "name": "Jumpluff",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "6": {
+      "name": "Yanma",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "7": {
+      "name": "Yanmega",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "8": {
+      "name": "Yanmega BREAK",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "9": {
+      "name": "Seedot",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "10": {
+      "name": "Nuzleaf",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "11": {
+      "name": "Shiftry",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "12": {
+      "name": "Foongus",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "13": {
+      "name": "Amoonguss",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "14": {
+      "name": "Larvesta",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "15": {
+      "name": "Volcarona",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "16": {
+      "name": "Ponyta",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "17": {
+      "name": "Rapidash",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "18": {
+      "name": "Chimchar",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "19": {
+      "name": "Monferno",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "20": {
+      "name": "Infernape",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "21": {
+      "name": "Talonflame BREAK",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "22": {
+      "name": "Litleo",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "23": {
+      "name": "Pyroar",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "24": {
+      "name": "Pyroar BREAK",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "25": {
+      "name": "Volcanion",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "26": {
+      "name": "Volcanion-EX",
+      "rarity": "ex",
+      "type": "pokemon"
+    },
+    "27": {
+      "name": "Mantine",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "28": {
+      "name": "Shellos",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "29": {
+      "name": "Gastrodon",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "30": {
+      "name": "Oshawott",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "31": {
+      "name": "Dewott",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "32": {
+      "name": "Samurott",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "33": {
+      "name": "Clauncher",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "34": {
+      "name": "Clawitzer",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "35": {
+      "name": "Clawitzer BREAK",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "36": {
+      "name": "Bergmite",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "37": {
+      "name": "Avalugg",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "38": {
+      "name": "Mareep",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "39": {
+      "name": "Flaaffy",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "40": {
+      "name": "Ampharos",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "41": {
+      "name": "Joltik",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "42": {
+      "name": "Galvantula",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "43": {
+      "name": "Nidoran ♂",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "44": {
+      "name": "Nidorino",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "45": {
+      "name": "Nidoking",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "46": {
+      "name": "Drifloon",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "47": {
+      "name": "Drifblim",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "48": {
+      "name": "Litwick",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "49": {
+      "name": "Lampent",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "50": {
+      "name": "Chandelure",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "51": {
+      "name": "Hoopa",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "52": {
+      "name": "Mankey",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "53": {
+      "name": "Primeape",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "54": {
+      "name": "Nosepass",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "55": {
+      "name": "Probopass",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "56": {
+      "name": "Anorith",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "57": {
+      "name": "Armaldo",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "58": {
+      "name": "Croagunk",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "59": {
+      "name": "Toxicroak",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "60": {
+      "name": "Sneasel",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "61": {
+      "name": "Weavile",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "62": {
+      "name": "Spiritomb",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "63": {
+      "name": "Pawniard",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "64": {
+      "name": "Bisharp",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "65": {
+      "name": "Yveltal",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "66": {
+      "name": "Yveltal BREAK",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "67": {
+      "name": "Steelix-EX",
+      "rarity": "ex",
+      "type": "pokemon"
+    },
+    "68": {
+      "name": "M Steelix-EX",
+      "rarity": "ex",
+      "type": "pokemon"
+    },
+    "69": {
+      "name": "Shieldon",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "70": {
+      "name": "Bastiodon",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "71": {
+      "name": "Klink",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "72": {
+      "name": "Klang",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "73": {
+      "name": "Klinklang",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "74": {
+      "name": "Cobalion",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "75": {
+      "name": "Magearna-EX",
+      "rarity": "ex",
+      "type": "pokemon"
+    },
+    "76": {
+      "name": "Marill",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "77": {
+      "name": "Azumarill",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "78": {
+      "name": "Gardevoir-EX",
+      "rarity": "ex",
+      "type": "pokemon"
+    },
+    "79": {
+      "name": "M Gardevoir-EX",
+      "rarity": "ex",
+      "type": "pokemon"
+    },
+    "80": {
+      "name": "Klefki",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "81": {
+      "name": "Xerneas",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "82": {
+      "name": "Xerneas BREAK",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "83": {
+      "name": "Druddigon",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "84": {
+      "name": "Deino",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "85": {
+      "name": "Zweilous",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "86": {
+      "name": "Hydreigon",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "87": {
+      "name": "Hydreigon BREAK",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "88": {
+      "name": "Meowth",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "89": {
+      "name": "Persian",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "90": {
+      "name": "Aipom",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "91": {
+      "name": "Ambipom",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "92": {
+      "name": "Rufflet",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "93": {
+      "name": "Braviary",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "94": {
+      "name": "Fletchling",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "95": {
+      "name": "Fletchinder",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "96": {
+      "name": "Talonflame",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "97": {
+      "name": "Hawlucha",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "98": {
+      "name": "Armor Fossil Shieldon",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "99": {
+      "name": "Captivating Poké Puff",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "100": {
+      "name": "Claw Fossil Anorith",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "101": {
+      "name": "Gardevoir Spirit Link",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "102": {
+      "name": "Greedy Dice",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "103": {
+      "name": "Ninja Boy",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "104": {
+      "name": "Pokémon Ranger",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "105": {
+      "name": "Special Charge",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "106": {
+      "name": "Steelix Spirit Link",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "107": {
+      "name": "Volcanion-EX",
+      "rarity": "ultra-rare",
+      "type": "pokemon"
+    },
+    "108": {
+      "name": "Steelix-EX",
+      "rarity": "ultra-rare",
+      "type": "pokemon"
+    },
+    "109": {
+      "name": "M Steelix-EX",
+      "rarity": "ultra-rare",
+      "type": "pokemon"
+    },
+    "110": {
+      "name": "Magearna-EX",
+      "rarity": "ultra-rare",
+      "type": "pokemon"
+    },
+    "111": {
+      "name": "Gardevoir-EX",
+      "rarity": "ultra-rare",
+      "type": "pokemon"
+    },
+    "112": {
+      "name": "M Gardevoir-EX",
+      "rarity": "ultra-rare",
+      "type": "pokemon"
+    },
+    "113": {
+      "name": "Pokémon Ranger",
+      "rarity": "ultra-rare",
+      "type": "trainer"
+    },
+    "114": {
+      "name": "Professor Sycamore",
+      "rarity": "ultra-rare",
+      "type": "trainer"
+    },
+    "115": {
+      "name": "Volcanion-EX",
+      "rarity": "secret",
+      "type": "pokemon"
+    },
+    "116": {
+      "name": "Gardevoir-EX",
+      "rarity": "secret",
+      "type": "pokemon"
+    }
+  }
+}

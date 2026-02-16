@@ -1,0 +1,627 @@
+{
+  "version": "3.0.0",
+  "lastUpdated": "2026-02-16",
+  "setKey": "plasma-freeze",
+  "name": "Plasma Freeze",
+  "displayName": "Plasma Freeze",
+  "totalCards": 122,
+  "mainSet": 116,
+  "setCode": "bw9",
+  "releaseDate": "2013-05-08",
+  "block": "Black & White",
+  "blockCode": "bw",
+  "hasPokeBallVariant": false,
+  "hasMasterBallVariant": false,
+  "cards": {
+    "1": {
+      "name": "Weedle",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "2": {
+      "name": "Kakuna",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "3": {
+      "name": "Beedrill",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "4": {
+      "name": "Exeggcute",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "5": {
+      "name": "Exeggutor",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "6": {
+      "name": "Treecko",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "7": {
+      "name": "Grovyle",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "8": {
+      "name": "Sceptile",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "9": {
+      "name": "Cacnea",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "10": {
+      "name": "Cacturne",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "11": {
+      "name": "Leafeon",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "12": {
+      "name": "Flareon",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "13": {
+      "name": "Heatran-EX",
+      "rarity": "ex",
+      "type": "pokemon"
+    },
+    "14": {
+      "name": "Litwick",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "15": {
+      "name": "Lampent",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "16": {
+      "name": "Chandelure",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "17": {
+      "name": "Reshiram",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "18": {
+      "name": "Horsea",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "19": {
+      "name": "Seadra",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "20": {
+      "name": "Vaporeon",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "21": {
+      "name": "Wooper",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "22": {
+      "name": "Quagsire",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "23": {
+      "name": "Glaceon",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "24": {
+      "name": "Tympole",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "25": {
+      "name": "Palpitoad",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "26": {
+      "name": "Seismitoad",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "27": {
+      "name": "Vanillite",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "28": {
+      "name": "Vanillish",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "29": {
+      "name": "Vanilluxe",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "30": {
+      "name": "Cryogonal",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "31": {
+      "name": "Kyurem",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "32": {
+      "name": "Voltorb",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "33": {
+      "name": "Electrode",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "34": {
+      "name": "Jolteon",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "35": {
+      "name": "Chinchou",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "36": {
+      "name": "Lanturn",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "37": {
+      "name": "Pachirisu",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "38": {
+      "name": "Thundurus-EX",
+      "rarity": "ex",
+      "type": "pokemon"
+    },
+    "39": {
+      "name": "Zekrom",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "40": {
+      "name": "Nidoran ♀",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "41": {
+      "name": "Nidorina",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "42": {
+      "name": "Nidoqueen",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "43": {
+      "name": "Nidoran ♂",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "44": {
+      "name": "Nidorino",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "45": {
+      "name": "Grimer",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "46": {
+      "name": "Muk",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "47": {
+      "name": "Mr. Mime",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "48": {
+      "name": "Espeon",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "49": {
+      "name": "Sableye",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "50": {
+      "name": "Beldum",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "51": {
+      "name": "Metang",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "52": {
+      "name": "Metagross",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "53": {
+      "name": "Deoxys-EX",
+      "rarity": "ex",
+      "type": "pokemon"
+    },
+    "54": {
+      "name": "Yamask",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "55": {
+      "name": "Yamask",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "56": {
+      "name": "Cofagrigus",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "57": {
+      "name": "Cofagrigus",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "58": {
+      "name": "Nidoking",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "59": {
+      "name": "Mankey",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "60": {
+      "name": "Primeape",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "61": {
+      "name": "Onix",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "62": {
+      "name": "Makuhita",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "63": {
+      "name": "Hariyama",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "64": {
+      "name": "Umbreon",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "65": {
+      "name": "Sneasel",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "66": {
+      "name": "Weavile",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "67": {
+      "name": "Absol",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "68": {
+      "name": "Sandile",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "69": {
+      "name": "Krokorok",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "70": {
+      "name": "Krookodile",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "71": {
+      "name": "Pawniard",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "72": {
+      "name": "Pawniard",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "73": {
+      "name": "Bisharp",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "74": {
+      "name": "Bisharp",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "75": {
+      "name": "Deino",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "76": {
+      "name": "Deino",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "77": {
+      "name": "Zweilous",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "78": {
+      "name": "Hydreigon",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "79": {
+      "name": "Steelix",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "80": {
+      "name": "Mawile",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "81": {
+      "name": "Dratini",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "82": {
+      "name": "Dragonair",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "83": {
+      "name": "Dragonite",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "84": {
+      "name": "Kingdra",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "85": {
+      "name": "Latias-EX",
+      "rarity": "ex",
+      "type": "pokemon"
+    },
+    "86": {
+      "name": "Latios-EX",
+      "rarity": "ex",
+      "type": "pokemon"
+    },
+    "87": {
+      "name": "Rattata",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "88": {
+      "name": "Raticate",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "89": {
+      "name": "Eevee",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "90": {
+      "name": "Eevee",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "91": {
+      "name": "Hoothoot",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "92": {
+      "name": "Noctowl",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "93": {
+      "name": "Miltank",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "94": {
+      "name": "Kecleon",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "95": {
+      "name": "Starly",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "96": {
+      "name": "Staravia",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "97": {
+      "name": "Staraptor",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "98": {
+      "name": "Tornadus-EX",
+      "rarity": "ex",
+      "type": "pokemon"
+    },
+    "99": {
+      "name": "Float Stone",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "100": {
+      "name": "Frozen City",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "101": {
+      "name": "Ghetsis",
+      "rarity": "rare-holo",
+      "type": "trainer"
+    },
+    "102": {
+      "name": "Shadow Triad",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "103": {
+      "name": "Superior Energy Retrieval",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "104": {
+      "name": "Team Plasma Badge",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "105": {
+      "name": "Team Plasma Ball",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "106": {
+      "name": "Plasma Energy",
+      "rarity": "uncommon",
+      "type": "energy"
+    },
+    "107": {
+      "name": "Life Dew",
+      "rarity": "ace-spec",
+      "type": "trainer"
+    },
+    "108": {
+      "name": "Rock Guard",
+      "rarity": "ace-spec",
+      "type": "trainer"
+    },
+    "109": {
+      "name": "Heatran-EX",
+      "rarity": "ultra-rare",
+      "type": "pokemon"
+    },
+    "110": {
+      "name": "Thundurus-EX",
+      "rarity": "ultra-rare",
+      "type": "pokemon"
+    },
+    "111": {
+      "name": "Deoxys-EX",
+      "rarity": "ultra-rare",
+      "type": "pokemon"
+    },
+    "112": {
+      "name": "Latias-EX",
+      "rarity": "ultra-rare",
+      "type": "pokemon"
+    },
+    "113": {
+      "name": "Latios-EX",
+      "rarity": "ultra-rare",
+      "type": "pokemon"
+    },
+    "114": {
+      "name": "Tornadus-EX",
+      "rarity": "ultra-rare",
+      "type": "pokemon"
+    },
+    "115": {
+      "name": "Ghetsis",
+      "rarity": "ultra-rare",
+      "type": "trainer"
+    },
+    "116": {
+      "name": "Professor Juniper",
+      "rarity": "ultra-rare",
+      "type": "trainer"
+    },
+    "117": {
+      "name": "Empoleon",
+      "rarity": "secret",
+      "type": "pokemon"
+    },
+    "118": {
+      "name": "Sigilyph",
+      "rarity": "secret",
+      "type": "pokemon"
+    },
+    "119": {
+      "name": "Garbodor",
+      "rarity": "secret",
+      "type": "pokemon"
+    },
+    "120": {
+      "name": "Garchomp",
+      "rarity": "secret",
+      "type": "pokemon"
+    },
+    "121": {
+      "name": "Max Potion",
+      "rarity": "secret",
+      "type": "trainer"
+    },
+    "122": {
+      "name": "Ultra Ball",
+      "rarity": "secret",
+      "type": "trainer"
+    }
+  }
+}

@@ -1,12 +1,15 @@
 {
+  "name": "Destined Rivals",
+  "setCode": "sv10",
+  "releaseDate": "2025-05-30",
+  "block": "Scarlet & Violet",
+  "blockCode": "sv",
   "version": "3.0.0",
   "lastUpdated": "2025-02-15",
   "setKey": "destined-rivals",
-  "name": "Destined Rivals",
   "displayName": "Destined Rivals",
   "totalCards": 244,
   "mainSet": 182,
-  "setCode": "sv10",
   "hasPokeBallVariant": false,
   "hasMasterBallVariant": false,
   "cards": {
@@ -576,7 +579,7 @@
       "type": "pokemon"
     },
     "114": {
-      "name": "Team Rocket's Nidoran\u2640",
+      "name": "Team Rocket's Nidoran♀",
       "rarity": "common",
       "type": "pokemon"
     },
@@ -591,7 +594,7 @@
       "type": "pokemon"
     },
     "117": {
-      "name": "Team Rocket's Nidoran\u2642",
+      "name": "Team Rocket's Nidoran♂",
       "rarity": "common",
       "type": "pokemon"
     },
@@ -1236,8 +1239,5 @@
     160,
     182
   ],
-  "energyCards": {},
-  "releaseDate": "2025-05-30",
-  "block": "Scarlet & Violet",
-  "blockCode": "sv"
+  "energyCards": {}
 }

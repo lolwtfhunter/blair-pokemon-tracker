@@ -1,12 +1,15 @@
 {
+  "name": "Prismatic Evolutions",
+  "setCode": "sv8.5",
+  "releaseDate": "2025-01-17",
+  "block": "Scarlet & Violet",
+  "blockCode": "sv",
   "version": "3.0.0",
   "lastUpdated": "2025-02-15",
   "setKey": "prismatic-evolutions",
-  "name": "Prismatic Evolutions",
   "displayName": "Prismatic Evolutions",
   "totalCards": 180,
   "mainSet": 131,
-  "setCode": "sv8.5",
   "hasPokeBallVariant": true,
   "hasMasterBallVariant": true,
   "cards": {
@@ -940,8 +943,5 @@
     92,
     131
   ],
-  "energyCards": {},
-  "releaseDate": "2025-01-17",
-  "block": "Scarlet & Violet",
-  "blockCode": "sv"
+  "energyCards": {}
 }

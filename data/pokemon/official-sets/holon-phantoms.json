@@ -1,0 +1,572 @@
+{
+  "version": "3.0.0",
+  "lastUpdated": "2026-02-16",
+  "setKey": "holon-phantoms",
+  "name": "Holon Phantoms",
+  "displayName": "Holon Phantoms",
+  "totalCards": 111,
+  "mainSet": 110,
+  "setCode": "ex13",
+  "releaseDate": "2006-05-01",
+  "block": "EX",
+  "blockCode": "ex",
+  "hasPokeBallVariant": false,
+  "hasMasterBallVariant": false,
+  "cards": {
+    "1": {
+      "name": "Armaldo δ",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "2": {
+      "name": "Cradily δ",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "3": {
+      "name": "Deoxys δ",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "4": {
+      "name": "Deoxys δ",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "5": {
+      "name": "Deoxys δ",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "6": {
+      "name": "Deoxys δ",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "7": {
+      "name": "Flygon δ",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "8": {
+      "name": "Gyarados δ",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "9": {
+      "name": "Kabutops δ",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "10": {
+      "name": "Kingdra δ",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "11": {
+      "name": "Latias δ",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "12": {
+      "name": "Latios δ",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "13": {
+      "name": "Omastar δ",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "14": {
+      "name": "Pidgeot δ",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "15": {
+      "name": "Raichu δ",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "16": {
+      "name": "Rayquaza δ",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "17": {
+      "name": "Vileplume δ",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "18": {
+      "name": "Absol",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "19": {
+      "name": "Bellossom δ",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "20": {
+      "name": "Blaziken",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "21": {
+      "name": "Latias δ",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "22": {
+      "name": "Latios δ",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "23": {
+      "name": "Mawile",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "24": {
+      "name": "Mewtwo δ",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "25": {
+      "name": "Nosepass",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "26": {
+      "name": "Rayquaza δ",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "27": {
+      "name": "Regice",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "28": {
+      "name": "Regirock",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "29": {
+      "name": "Registeel",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "30": {
+      "name": "Relicanth",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "31": {
+      "name": "Sableye",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "32": {
+      "name": "Seviper",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "33": {
+      "name": "Torkoal",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "34": {
+      "name": "Zangoose",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "35": {
+      "name": "Aerodactyl δ",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "36": {
+      "name": "Camerupt",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "37": {
+      "name": "Chimecho δ",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "38": {
+      "name": "Claydol",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "39": {
+      "name": "Combusken",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "40": {
+      "name": "Donphan",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "41": {
+      "name": "Exeggutor δ",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "42": {
+      "name": "Gloom δ",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "43": {
+      "name": "Golduck δ",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "44": {
+      "name": "Holon's Castform",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "45": {
+      "name": "Lairon",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "46": {
+      "name": "Manectric",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "47": {
+      "name": "Masquerain",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "48": {
+      "name": "Persian δ",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "49": {
+      "name": "Pidgeotto δ",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "50": {
+      "name": "Primeape δ",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "51": {
+      "name": "Raichu",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "52": {
+      "name": "Seadra δ",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "53": {
+      "name": "Sharpedo δ",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "54": {
+      "name": "Vibrava δ",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "55": {
+      "name": "Whiscash",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "56": {
+      "name": "Wobbuffet",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "57": {
+      "name": "Anorith δ",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "58": {
+      "name": "Aron",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "59": {
+      "name": "Baltoy",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "60": {
+      "name": "Barboach",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "61": {
+      "name": "Carvanha δ",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "62": {
+      "name": "Corphish",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "63": {
+      "name": "Corphish",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "64": {
+      "name": "Electrike",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "65": {
+      "name": "Exeggcute δ",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "66": {
+      "name": "Horsea δ",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "67": {
+      "name": "Kabuto δ",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "68": {
+      "name": "Lileep δ",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "69": {
+      "name": "Magikarp δ",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "70": {
+      "name": "Mankey δ",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "71": {
+      "name": "Meowth δ",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "72": {
+      "name": "Numel",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "73": {
+      "name": "Oddish δ",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "74": {
+      "name": "Omanyte δ",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "75": {
+      "name": "Phanpy",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "76": {
+      "name": "Pichu δ",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "77": {
+      "name": "Pidgey δ",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "78": {
+      "name": "Pikachu",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "79": {
+      "name": "Pikachu δ",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "80": {
+      "name": "Poochyena",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "81": {
+      "name": "Psyduck δ",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "82": {
+      "name": "Surskit",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "83": {
+      "name": "Torchic",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "84": {
+      "name": "Trapinch δ",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "85": {
+      "name": "Holon Adventurer",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "86": {
+      "name": "Holon Fossil",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "87": {
+      "name": "Holon Lake",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "88": {
+      "name": "Mr. Stone's Project",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "89": {
+      "name": "Professor Cozmo's Discovery",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "90": {
+      "name": "Rare Candy",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "91": {
+      "name": "Claw Fossil",
+      "rarity": "common",
+      "type": "trainer"
+    },
+    "92": {
+      "name": "Mysterious Fossil",
+      "rarity": "common",
+      "type": "trainer"
+    },
+    "93": {
+      "name": "Root Fossil",
+      "rarity": "common",
+      "type": "trainer"
+    },
+    "94": {
+      "name": "Darkness Energy",
+      "rarity": "rare",
+      "type": "energy"
+    },
+    "95": {
+      "name": "Metal Energy",
+      "rarity": "rare",
+      "type": "energy"
+    },
+    "96": {
+      "name": "Multi Energy",
+      "rarity": "rare",
+      "type": "energy"
+    },
+    "97": {
+      "name": "Dark Metal Energy",
+      "rarity": "uncommon",
+      "type": "energy"
+    },
+    "98": {
+      "name": "δ Rainbow Energy",
+      "rarity": "uncommon",
+      "type": "energy"
+    },
+    "99": {
+      "name": "Crawdaunt ex",
+      "rarity": "ex",
+      "type": "pokemon"
+    },
+    "100": {
+      "name": "Mew ex",
+      "rarity": "ex",
+      "type": "pokemon"
+    },
+    "101": {
+      "name": "Mightyena ex",
+      "rarity": "ex",
+      "type": "pokemon"
+    },
+    "102": {
+      "name": "Gyarados ★ δ",
+      "rarity": "rare-holo-star",
+      "type": "pokemon"
+    },
+    "103": {
+      "name": "Mewtwo ★",
+      "rarity": "rare-holo-star",
+      "type": "pokemon"
+    },
+    "104": {
+      "name": "Pikachu ★",
+      "rarity": "rare-holo-star",
+      "type": "pokemon"
+    },
+    "105": {
+      "name": "Grass Energy",
+      "rarity": "rare-holo",
+      "type": "energy"
+    },
+    "106": {
+      "name": "Fire Energy",
+      "rarity": "rare-holo",
+      "type": "energy"
+    },
+    "107": {
+      "name": "Water Energy",
+      "rarity": "rare-holo",
+      "type": "energy"
+    },
+    "108": {
+      "name": "Lightning Energy",
+      "rarity": "rare-holo",
+      "type": "energy"
+    },
+    "109": {
+      "name": "Psychic Energy",
+      "rarity": "rare-holo",
+      "type": "energy"
+    },
+    "110": {
+      "name": "Fighting Energy",
+      "rarity": "rare-holo",
+      "type": "energy"
+    },
+    "111": {
+      "name": "Mew",
+      "rarity": "secret",
+      "type": "pokemon"
+    }
+  }
+}

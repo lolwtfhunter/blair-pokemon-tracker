@@ -1,0 +1,1097 @@
+{
+  "version": "3.0.0",
+  "lastUpdated": "2026-02-16",
+  "setKey": "astral-radiance",
+  "name": "Astral Radiance",
+  "displayName": "Astral Radiance",
+  "totalCards": 216,
+  "mainSet": 189,
+  "setCode": "swsh10",
+  "releaseDate": "2022-05-27",
+  "block": "Sword & Shield",
+  "blockCode": "swsh",
+  "hasPokeBallVariant": false,
+  "hasMasterBallVariant": false,
+  "cards": {
+    "1": {
+      "name": "Beedrill V",
+      "rarity": "ultra-rare",
+      "type": "pokemon"
+    },
+    "2": {
+      "name": "Hisuian Voltorb",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "3": {
+      "name": "Hisuian Electrode",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "4": {
+      "name": "Scyther",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "5": {
+      "name": "Scyther",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "6": {
+      "name": "Yanma",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "7": {
+      "name": "Yanmega",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "8": {
+      "name": "Heracross",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "9": {
+      "name": "Kricketot",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "10": {
+      "name": "Kricketune",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "11": {
+      "name": "Combee",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "12": {
+      "name": "Vespiquen",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "13": {
+      "name": "Leafeon",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "14": {
+      "name": "Shaymin",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "15": {
+      "name": "Petilil",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "16": {
+      "name": "Hisuian Lilligant",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "17": {
+      "name": "Hisuian Lilligant V",
+      "rarity": "ultra-rare",
+      "type": "pokemon"
+    },
+    "18": {
+      "name": "Hisuian Lilligant VSTAR",
+      "rarity": "ultra-rare",
+      "type": "pokemon"
+    },
+    "19": {
+      "name": "Rowlet",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "20": {
+      "name": "Dartrix",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "21": {
+      "name": "Ponyta",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "22": {
+      "name": "Rapidash",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "23": {
+      "name": "Cyndaquil",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "24": {
+      "name": "Quilava",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "25": {
+      "name": "Heatran V",
+      "rarity": "ultra-rare",
+      "type": "pokemon"
+    },
+    "26": {
+      "name": "Heatran VMAX",
+      "rarity": "ultra-rare",
+      "type": "pokemon"
+    },
+    "27": {
+      "name": "Radiant Heatran",
+      "rarity": "radiant",
+      "type": "pokemon"
+    },
+    "28": {
+      "name": "Psyduck",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "29": {
+      "name": "Golduck",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "30": {
+      "name": "Starmie V",
+      "rarity": "ultra-rare",
+      "type": "pokemon"
+    },
+    "31": {
+      "name": "Swinub",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "32": {
+      "name": "Piloswine",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "33": {
+      "name": "Mamoswine",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "34": {
+      "name": "Mantine",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "35": {
+      "name": "Barboach",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "36": {
+      "name": "Whiscash",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "37": {
+      "name": "Regice",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "38": {
+      "name": "Glaceon",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "39": {
+      "name": "Origin Forme Palkia V",
+      "rarity": "ultra-rare",
+      "type": "pokemon"
+    },
+    "40": {
+      "name": "Origin Forme Palkia VSTAR",
+      "rarity": "ultra-rare",
+      "type": "pokemon"
+    },
+    "41": {
+      "name": "Oshawott",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "42": {
+      "name": "Dewott",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "43": {
+      "name": "Hisuian Basculin",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "44": {
+      "name": "Hisuian Basculegion",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "45": {
+      "name": "Keldeo",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "46": {
+      "name": "Radiant Greninja",
+      "rarity": "radiant",
+      "type": "pokemon"
+    },
+    "47": {
+      "name": "Bergmite",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "48": {
+      "name": "Hisuian Avalugg",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "49": {
+      "name": "Galarian Mr. Rime V",
+      "rarity": "ultra-rare",
+      "type": "pokemon"
+    },
+    "50": {
+      "name": "Luxray V",
+      "rarity": "ultra-rare",
+      "type": "pokemon"
+    },
+    "51": {
+      "name": "Regieleki",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "52": {
+      "name": "Hisuian Typhlosion",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "53": {
+      "name": "Hisuian Typhlosion V",
+      "rarity": "ultra-rare",
+      "type": "pokemon"
+    },
+    "54": {
+      "name": "Hisuian Typhlosion VSTAR",
+      "rarity": "ultra-rare",
+      "type": "pokemon"
+    },
+    "55": {
+      "name": "Togepi",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "56": {
+      "name": "Togetic",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "57": {
+      "name": "Togekiss",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "58": {
+      "name": "Misdreavus",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "59": {
+      "name": "Mismagius",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "60": {
+      "name": "Ralts",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "61": {
+      "name": "Kirlia",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "62": {
+      "name": "Gallade",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "63": {
+      "name": "Drifloon",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "64": {
+      "name": "Drifblim",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "65": {
+      "name": "Uxie",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "66": {
+      "name": "Mesprit",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "67": {
+      "name": "Azelf",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "68": {
+      "name": "Diancie",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "69": {
+      "name": "Wyrdeer",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "70": {
+      "name": "Hisuian Growlithe",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "71": {
+      "name": "Hisuian Arcanine",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "72": {
+      "name": "Machamp V",
+      "rarity": "ultra-rare",
+      "type": "pokemon"
+    },
+    "73": {
+      "name": "Machamp VMAX",
+      "rarity": "ultra-rare",
+      "type": "pokemon"
+    },
+    "74": {
+      "name": "Sudowoodo",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "75": {
+      "name": "Regirock",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "76": {
+      "name": "Cranidos",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "77": {
+      "name": "Rampardos",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "78": {
+      "name": "Lucario V",
+      "rarity": "ultra-rare",
+      "type": "pokemon"
+    },
+    "79": {
+      "name": "Hippopotas",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "80": {
+      "name": "Hippowdon",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "81": {
+      "name": "Radiant Hawlucha",
+      "rarity": "radiant",
+      "type": "pokemon"
+    },
+    "82": {
+      "name": "Hisuian Decidueye",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "83": {
+      "name": "Hisuian Decidueye V",
+      "rarity": "ultra-rare",
+      "type": "pokemon"
+    },
+    "84": {
+      "name": "Hisuian Decidueye VSTAR",
+      "rarity": "ultra-rare",
+      "type": "pokemon"
+    },
+    "85": {
+      "name": "Kleavor",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "86": {
+      "name": "Kleavor",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "87": {
+      "name": "Kleavor V",
+      "rarity": "ultra-rare",
+      "type": "pokemon"
+    },
+    "88": {
+      "name": "Hisuian Qwilfish",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "89": {
+      "name": "Hisuian Qwilfish",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "90": {
+      "name": "Hisuian Overqwil",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "91": {
+      "name": "Hisuian Overqwil",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "92": {
+      "name": "Hisuian Sneasel",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "93": {
+      "name": "Hisuian Sneasler",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "94": {
+      "name": "Hisuian Sneasler V",
+      "rarity": "ultra-rare",
+      "type": "pokemon"
+    },
+    "95": {
+      "name": "Poochyena",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "96": {
+      "name": "Mightyena",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "97": {
+      "name": "Absol",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "98": {
+      "name": "Darkrai V",
+      "rarity": "ultra-rare",
+      "type": "pokemon"
+    },
+    "99": {
+      "name": "Darkrai VSTAR",
+      "rarity": "ultra-rare",
+      "type": "pokemon"
+    },
+    "100": {
+      "name": "Hisuian Samurott",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "101": {
+      "name": "Hisuian Samurott V",
+      "rarity": "ultra-rare",
+      "type": "pokemon"
+    },
+    "102": {
+      "name": "Hisuian Samurott VSTAR",
+      "rarity": "ultra-rare",
+      "type": "pokemon"
+    },
+    "103": {
+      "name": "Nickit",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "104": {
+      "name": "Thievul",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "105": {
+      "name": "Magnemite",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "106": {
+      "name": "Magneton",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "107": {
+      "name": "Magnezone",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "108": {
+      "name": "Registeel",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "109": {
+      "name": "Shieldon",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "110": {
+      "name": "Bastiodon",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "111": {
+      "name": "Bronzor",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "112": {
+      "name": "Bronzong",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "113": {
+      "name": "Origin Forme Dialga V",
+      "rarity": "ultra-rare",
+      "type": "pokemon"
+    },
+    "114": {
+      "name": "Origin Forme Dialga VSTAR",
+      "rarity": "ultra-rare",
+      "type": "pokemon"
+    },
+    "115": {
+      "name": "Pawniard",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "116": {
+      "name": "Bisharp",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "117": {
+      "name": "Garchomp V",
+      "rarity": "ultra-rare",
+      "type": "pokemon"
+    },
+    "118": {
+      "name": "Regidrago",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "119": {
+      "name": "Eevee",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "120": {
+      "name": "Hoothoot",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "121": {
+      "name": "Noctowl",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "122": {
+      "name": "Teddiursa",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "123": {
+      "name": "Ursaring",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "124": {
+      "name": "Ursaluna",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "125": {
+      "name": "Stantler",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "126": {
+      "name": "Miltank",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "127": {
+      "name": "Glameow",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "128": {
+      "name": "Purugly",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "129": {
+      "name": "Chatot",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "130": {
+      "name": "Regigigas",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "131": {
+      "name": "Rufflet",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "132": {
+      "name": "Hisuian Braviary",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "133": {
+      "name": "Oranguru V",
+      "rarity": "ultra-rare",
+      "type": "pokemon"
+    },
+    "134": {
+      "name": "Wyrdeer V",
+      "rarity": "ultra-rare",
+      "type": "pokemon"
+    },
+    "135": {
+      "name": "Adaman",
+      "rarity": "rare-holo",
+      "type": "trainer"
+    },
+    "136": {
+      "name": "Canceling Cologne",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "137": {
+      "name": "Choy",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "138": {
+      "name": "Cyllene",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "139": {
+      "name": "Dark Patch",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "140": {
+      "name": "Energy Loto",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "141": {
+      "name": "Feather Ball",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "142": {
+      "name": "Gapejaw Bog",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "143": {
+      "name": "Gardenia's Vigor",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "144": {
+      "name": "Grant",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "145": {
+      "name": "Gutsy Pickaxe",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "146": {
+      "name": "Hisuian Heavy Ball",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "147": {
+      "name": "Irida",
+      "rarity": "rare-holo",
+      "type": "trainer"
+    },
+    "148": {
+      "name": "Jubilife Village",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "149": {
+      "name": "Kamado",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "150": {
+      "name": "Roxanne",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "151": {
+      "name": "Spicy Seasoned Curry",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "152": {
+      "name": "Supereffective Glasses",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "153": {
+      "name": "Sweet Honey",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "154": {
+      "name": "Switch Cart",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "155": {
+      "name": "Temple of Sinnoh",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "156": {
+      "name": "Trekking Shoes",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "157": {
+      "name": "Unidentified Fossil",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "158": {
+      "name": "Wait and See Turbo",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "159": {
+      "name": "Zisu",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "160": {
+      "name": "Beedrill V",
+      "rarity": "ultra-rare",
+      "type": "pokemon"
+    },
+    "161": {
+      "name": "Beedrill V",
+      "rarity": "ultra-rare",
+      "type": "pokemon"
+    },
+    "162": {
+      "name": "Hisuian Lilligant V",
+      "rarity": "ultra-rare",
+      "type": "pokemon"
+    },
+    "163": {
+      "name": "Hisuian Lilligant V",
+      "rarity": "ultra-rare",
+      "type": "pokemon"
+    },
+    "164": {
+      "name": "Virizion V",
+      "rarity": "ultra-rare",
+      "type": "pokemon"
+    },
+    "165": {
+      "name": "Heatran V",
+      "rarity": "ultra-rare",
+      "type": "pokemon"
+    },
+    "166": {
+      "name": "Starmie V",
+      "rarity": "ultra-rare",
+      "type": "pokemon"
+    },
+    "167": {
+      "name": "Origin Forme Palkia V",
+      "rarity": "ultra-rare",
+      "type": "pokemon"
+    },
+    "168": {
+      "name": "Luxray V",
+      "rarity": "ultra-rare",
+      "type": "pokemon"
+    },
+    "169": {
+      "name": "Hisuian Typhlosion V",
+      "rarity": "ultra-rare",
+      "type": "pokemon"
+    },
+    "170": {
+      "name": "Jirachi V",
+      "rarity": "ultra-rare",
+      "type": "pokemon"
+    },
+    "171": {
+      "name": "Machamp V",
+      "rarity": "ultra-rare",
+      "type": "pokemon"
+    },
+    "172": {
+      "name": "Machamp V",
+      "rarity": "ultra-rare",
+      "type": "pokemon"
+    },
+    "173": {
+      "name": "Hisuian Decidueye V",
+      "rarity": "ultra-rare",
+      "type": "pokemon"
+    },
+    "174": {
+      "name": "Hisuian Sneasler V",
+      "rarity": "ultra-rare",
+      "type": "pokemon"
+    },
+    "175": {
+      "name": "Hisuian Sneasler V",
+      "rarity": "ultra-rare",
+      "type": "pokemon"
+    },
+    "176": {
+      "name": "Hisuian Samurott V",
+      "rarity": "ultra-rare",
+      "type": "pokemon"
+    },
+    "177": {
+      "name": "Origin Forme Dialga V",
+      "rarity": "ultra-rare",
+      "type": "pokemon"
+    },
+    "178": {
+      "name": "Garchomp V",
+      "rarity": "ultra-rare",
+      "type": "pokemon"
+    },
+    "179": {
+      "name": "Oranguru V",
+      "rarity": "ultra-rare",
+      "type": "pokemon"
+    },
+    "180": {
+      "name": "Wyrdeer V",
+      "rarity": "ultra-rare",
+      "type": "pokemon"
+    },
+    "181": {
+      "name": "Adaman",
+      "rarity": "ultra-rare",
+      "type": "trainer"
+    },
+    "182": {
+      "name": "Choy",
+      "rarity": "ultra-rare",
+      "type": "trainer"
+    },
+    "183": {
+      "name": "Cyllene",
+      "rarity": "ultra-rare",
+      "type": "trainer"
+    },
+    "184": {
+      "name": "Gardenia's Vigor",
+      "rarity": "ultra-rare",
+      "type": "trainer"
+    },
+    "185": {
+      "name": "Grant",
+      "rarity": "ultra-rare",
+      "type": "trainer"
+    },
+    "186": {
+      "name": "Irida",
+      "rarity": "ultra-rare",
+      "type": "trainer"
+    },
+    "187": {
+      "name": "Kamado",
+      "rarity": "ultra-rare",
+      "type": "trainer"
+    },
+    "188": {
+      "name": "Roxanne",
+      "rarity": "ultra-rare",
+      "type": "trainer"
+    },
+    "189": {
+      "name": "Zisu",
+      "rarity": "ultra-rare",
+      "type": "trainer"
+    },
+    "190": {
+      "name": "Hisuian Lilligant VSTAR",
+      "rarity": "hyper-rare",
+      "type": "pokemon"
+    },
+    "191": {
+      "name": "Heatran VMAX",
+      "rarity": "hyper-rare",
+      "type": "pokemon"
+    },
+    "192": {
+      "name": "Origin Forme Palkia VSTAR",
+      "rarity": "hyper-rare",
+      "type": "pokemon"
+    },
+    "193": {
+      "name": "Hisuian Typhlosion VSTAR",
+      "rarity": "hyper-rare",
+      "type": "pokemon"
+    },
+    "194": {
+      "name": "Machamp VMAX",
+      "rarity": "hyper-rare",
+      "type": "pokemon"
+    },
+    "195": {
+      "name": "Hisuian Decidueye VSTAR",
+      "rarity": "hyper-rare",
+      "type": "pokemon"
+    },
+    "196": {
+      "name": "Kleavor VSTAR",
+      "rarity": "hyper-rare",
+      "type": "pokemon"
+    },
+    "197": {
+      "name": "Hisuian Samurott VSTAR",
+      "rarity": "hyper-rare",
+      "type": "pokemon"
+    },
+    "198": {
+      "name": "Origin Forme Dialga VSTAR",
+      "rarity": "hyper-rare",
+      "type": "pokemon"
+    },
+    "199": {
+      "name": "Adaman",
+      "rarity": "hyper-rare",
+      "type": "trainer"
+    },
+    "200": {
+      "name": "Choy",
+      "rarity": "hyper-rare",
+      "type": "trainer"
+    },
+    "201": {
+      "name": "Cyllene",
+      "rarity": "hyper-rare",
+      "type": "trainer"
+    },
+    "202": {
+      "name": "Gardenia's Vigor",
+      "rarity": "hyper-rare",
+      "type": "trainer"
+    },
+    "203": {
+      "name": "Grant",
+      "rarity": "hyper-rare",
+      "type": "trainer"
+    },
+    "204": {
+      "name": "Irida",
+      "rarity": "hyper-rare",
+      "type": "trainer"
+    },
+    "205": {
+      "name": "Kamado",
+      "rarity": "hyper-rare",
+      "type": "trainer"
+    },
+    "206": {
+      "name": "Roxanne",
+      "rarity": "hyper-rare",
+      "type": "trainer"
+    },
+    "207": {
+      "name": "Zisu",
+      "rarity": "hyper-rare",
+      "type": "trainer"
+    },
+    "208": {
+      "name": "Origin Forme Palkia VSTAR",
+      "rarity": "secret",
+      "type": "pokemon"
+    },
+    "209": {
+      "name": "Hisuian Samurott VSTAR",
+      "rarity": "secret",
+      "type": "pokemon"
+    },
+    "210": {
+      "name": "Origin Forme Dialga VSTAR",
+      "rarity": "secret",
+      "type": "pokemon"
+    },
+    "211": {
+      "name": "Choice Belt",
+      "rarity": "secret",
+      "type": "trainer"
+    },
+    "212": {
+      "name": "Jubilife Village",
+      "rarity": "secret",
+      "type": "trainer"
+    },
+    "213": {
+      "name": "Path to the Peak",
+      "rarity": "secret",
+      "type": "trainer"
+    },
+    "214": {
+      "name": "Temple of Sinnoh",
+      "rarity": "secret",
+      "type": "trainer"
+    },
+    "215": {
+      "name": "Trekking Shoes",
+      "rarity": "secret",
+      "type": "trainer"
+    },
+    "216": {
+      "name": "Double Turbo Energy",
+      "rarity": "secret",
+      "type": "energy"
+    }
+  }
+}

@@ -2,20 +2,100 @@
 
 // Representative set IDs for block logos (from pokemontcg.io)
 const BLOCK_LOGO_SET_IDS = {
+    'base': 'base1',
+    'gym': 'gym1',
+    'neo': 'neo1',
+    'lc': 'base6',
+    'ecard': 'ecard1',
+    'ex': 'ex1',
+    'dp': 'dp1',
+    'pl': 'pl1',
+    'hgss': 'hgss1',
+    'bw': 'bw1',
+    'xy': 'xy1',
+    'sm': 'sm1',
+    'swsh': 'swsh1',
     'sv': 'sv1',
-    'me': 'me1',
-    'swsh': 'swsh1'
+    'me': 'me1'
 };
 
 // Block theme colors for set button gradients
 const BLOCK_THEME_COLORS = {
+    'base': '#d4a017',
+    'gym': '#8b0000',
+    'neo': '#2e8b57',
+    'lc': '#9370db',
+    'ecard': '#4682b4',
+    'ex': '#b22222',
+    'dp': '#4169e1',
+    'pl': '#708090',
+    'hgss': '#daa520',
+    'bw': '#2f4f4f',
+    'xy': '#1e90ff',
+    'sm': '#ff6347',
+    'swsh': '#1e90ff',
     'sv': '#dc143c',
-    'me': '#ff8c00',
-    'swsh': '#1e90ff'
+    'me': '#ff8c00'
 };
 
 // Track current block selection
 let currentBlock = null;
+
+// Dynamically create block header/button containers (replaces hardcoded HTML)
+function initPokemonBlockContainers() {
+    const parent = document.getElementById('pokemon-block-containers');
+    if (!parent) return;
+    parent.innerHTML = '';
+
+    const blocks = getSetsByBlock();
+    Object.keys(blocks).forEach(blockCode => {
+        const header = document.createElement('div');
+        header.className = 'set-selection-header';
+        header.id = `setHeader-${blockCode}`;
+        header.setAttribute('data-block', blockCode);
+        header.innerHTML = '<div class="set-selection-title">Select a Set</div>';
+        parent.appendChild(header);
+
+        const btns = document.createElement('div');
+        btns.className = 'set-buttons';
+        btns.id = `setButtons-${blockCode}`;
+        btns.setAttribute('data-block', blockCode);
+        parent.appendChild(btns);
+    });
+}
+
+// Dynamically create set sections with controls and grids (replaces hardcoded HTML)
+function initPokemonSetGrids() {
+    const container = document.getElementById('pokemon-set-sections');
+    if (!container) return;
+
+    // Remove any existing sections (avoid duplicates on re-init)
+    container.querySelectorAll('.set-section').forEach(el => el.remove());
+
+    Object.keys(cardSets).forEach(setKey => {
+        const section = document.createElement('div');
+        section.id = setKey;
+        section.className = 'set-section';
+
+        section.innerHTML = `
+            <div class="card-controls">
+                <div class="filter-buttons">
+                    <button class="filter-btn active" onclick="filterCards('${setKey}', 'all')">All</button>
+                    <button class="filter-btn" onclick="filterCards('${setKey}', 'incomplete')">Incomplete</button>
+                    <button class="filter-btn" onclick="filterCards('${setKey}', 'complete')">Complete</button>
+                </div>
+                <div class="search-container">
+                    <input type="text" class="search-input" placeholder="Search cards..." oninput="searchCards('${setKey}', this.value)" data-set="${setKey}">
+                    <button class="search-clear" onclick="clearSearch('${setKey}')">×</button>
+                </div>
+                <div class="rarity-filters" id="${setKey}-rarity-filters"></div>
+            </div>
+            <div class="card-grid" id="${setKey}-grid"></div>
+        `;
+
+        container.appendChild(section);
+    });
+}
 
 // Group sets by block
 function getSetsByBlock() {
@@ -80,8 +160,12 @@ function renderBlockButtons() {
         const progress = getBlockProgress(blockCode);
 
         const btn = document.createElement('button');
-        btn.className = `block-btn block-${blockCode}` + (blockCode === currentBlock ? ' active' : '');
+        btn.className = 'block-btn' + (blockCode === currentBlock ? ' active' : '');
         btn.setAttribute('data-block-code', blockCode);
+
+        // Set block theme color via CSS custom property
+        const themeColor = BLOCK_THEME_COLORS[blockCode] || '#888888';
+        btn.style.setProperty('--block-color', themeColor);
 
         // Block logo from pokemontcg.io using a representative set
         const logoSetId = BLOCK_LOGO_SET_IDS[blockCode] || '';

@@ -184,14 +184,40 @@ h1 {
 
 /* Block selection buttons */
 .block-buttons {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 340px));
+    display: flex;
+    flex-wrap: wrap;
     gap: 12px;
     margin-bottom: 20px;
     justify-content: center;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x proximity;
+    scrollbar-width: thin;
+}
+
+@media (max-width: 767px) {
+    .block-buttons {
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        padding-bottom: 8px;
+    }
+    .block-btn {
+        min-width: 220px;
+        scroll-snap-align: start;
+        flex-shrink: 0;
+    }
+}
+
+@media (min-width: 768px) {
+    .block-buttons {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 340px));
+        overflow-x: visible;
+    }
 }
 
 .block-btn {
+    --block-color: #888;
     padding: 20px;
     border: 3px solid;
     border-radius: 16px;
@@ -205,58 +231,23 @@ h1 {
     overflow: hidden;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(135deg,
+        color-mix(in srgb, var(--block-color) 35%, transparent) 0%,
+        color-mix(in srgb, var(--block-color) 25%, transparent) 50%,
+        color-mix(in srgb, var(--block-color) 35%, transparent) 100%);
+    border-color: color-mix(in srgb, var(--block-color) 50%, transparent);
 }
 
-/* Scarlet & Violet - toned-down purple/scarlet */
-.block-btn.block-sv {
-    background: linear-gradient(135deg, rgba(220, 20, 60, 0.35) 0%, rgba(139, 0, 139, 0.3) 50%, rgba(75, 0, 130, 0.35) 100%);
-    border-color: rgba(255, 20, 147, 0.5);
-}
-
-.block-btn.block-sv::before {
+.block-btn::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, rgba(255, 20, 147, 0.15), rgba(138, 43, 226, 0.15));
-    opacity: 0;
-    transition: opacity 0.3s;
-}
-
-/* Mega Evolution - toned-down orange/gold */
-.block-btn.block-me {
-    background: linear-gradient(135deg, rgba(255, 140, 0, 0.35) 0%, rgba(255, 69, 0, 0.3) 50%, rgba(255, 215, 0, 0.35) 100%);
-    border-color: rgba(255, 165, 0, 0.5);
-}
-
-.block-btn.block-me::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(255, 140, 0, 0.2));
-    opacity: 0;
-    transition: opacity 0.3s;
-}
-
-/* Sword & Shield - toned-down blue/cyan */
-.block-btn.block-swsh {
-    background: linear-gradient(135deg, rgba(30, 144, 255, 0.35) 0%, rgba(65, 105, 225, 0.3) 50%, rgba(0, 191, 255, 0.35) 100%);
-    border-color: rgba(0, 212, 255, 0.5);
-}
-
-.block-btn.block-swsh::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(135deg, rgba(0, 191, 255, 0.15), rgba(30, 144, 255, 0.15));
+    background: linear-gradient(135deg,
+        color-mix(in srgb, var(--block-color) 20%, transparent),
+        color-mix(in srgb, var(--block-color) 15%, transparent));
     opacity: 0;
     transition: opacity 0.3s;
 }

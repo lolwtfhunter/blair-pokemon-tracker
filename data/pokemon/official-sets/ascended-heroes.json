@@ -1,12 +1,15 @@
 {
+  "name": "Ascended Heroes",
+  "setCode": "sv07",
+  "releaseDate": "2026-01-30",
+  "block": "Mega Evolution",
+  "blockCode": "me",
   "version": "3.0.0",
   "lastUpdated": "2025-02-15",
   "setKey": "ascended-heroes",
-  "name": "Ascended Heroes",
   "displayName": "Ascended Heroes",
   "totalCards": 295,
   "mainSet": 217,
-  "setCode": "sv07",
   "hasPokeBallVariant": false,
   "hasMasterBallVariant": false,
   "cards": {
@@ -996,7 +999,7 @@
       "type": "trainer"
     },
     "198": {
-      "name": "Pok\u00e9 Pad",
+      "name": "Poké Pad",
       "rarity": "common",
       "type": "trainer"
     },
@@ -1491,8 +1494,5 @@
     180,
     217
   ],
-  "energyCards": {},
-  "releaseDate": "2026-01-30",
-  "block": "Mega Evolution",
-  "blockCode": "me"
+  "energyCards": {}
 }

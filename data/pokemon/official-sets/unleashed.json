@@ -1,0 +1,497 @@
+{
+  "version": "3.0.0",
+  "lastUpdated": "2026-02-16",
+  "setKey": "unleashed",
+  "name": "HS—Unleashed",
+  "displayName": "HS—Unleashed",
+  "totalCards": 96,
+  "mainSet": 95,
+  "setCode": "hgss2",
+  "releaseDate": "2010-05-12",
+  "block": "HeartGold SoulSilver",
+  "blockCode": "hgss",
+  "hasPokeBallVariant": false,
+  "hasMasterBallVariant": false,
+  "cards": {
+    "1": {
+      "name": "Jirachi",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "2": {
+      "name": "Magmortar",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "3": {
+      "name": "Manaphy",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "4": {
+      "name": "Metagross",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "5": {
+      "name": "Mismagius",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "6": {
+      "name": "Octillery",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "7": {
+      "name": "Politoed",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "8": {
+      "name": "Shaymin",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "9": {
+      "name": "Sudowoodo",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "10": {
+      "name": "Torterra",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "11": {
+      "name": "Xatu",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "12": {
+      "name": "Beedrill",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "13": {
+      "name": "Blastoise",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "14": {
+      "name": "Crobat",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "15": {
+      "name": "Fearow",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "16": {
+      "name": "Floatzel",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "17": {
+      "name": "Kingdra",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "18": {
+      "name": "Lanturn",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "19": {
+      "name": "Lucario",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "20": {
+      "name": "Ninetales",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "21": {
+      "name": "Poliwrath",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "22": {
+      "name": "Primeape",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "23": {
+      "name": "Roserade",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "24": {
+      "name": "Steelix",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "25": {
+      "name": "Torkoal",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "26": {
+      "name": "Tyranitar",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "27": {
+      "name": "Ursaring",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "28": {
+      "name": "Cherrim",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "29": {
+      "name": "Dunsparce",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "30": {
+      "name": "Golbat",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "31": {
+      "name": "Grotle",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "32": {
+      "name": "Kakuna",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "33": {
+      "name": "Metang",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "34": {
+      "name": "Minun",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "35": {
+      "name": "Numel",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "36": {
+      "name": "Plusle",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "37": {
+      "name": "Poliwhirl",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "38": {
+      "name": "Pupitar",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "39": {
+      "name": "Pupitar",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "40": {
+      "name": "Seadra",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "41": {
+      "name": "Tauros",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "42": {
+      "name": "Wartortle",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "43": {
+      "name": "Aipom",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "44": {
+      "name": "Beldum",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "45": {
+      "name": "Buizel",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "46": {
+      "name": "Carnivine",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "47": {
+      "name": "Cherubi",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "48": {
+      "name": "Chinchou",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "49": {
+      "name": "Horsea",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "50": {
+      "name": "Larvitar",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "51": {
+      "name": "Larvitar",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "52": {
+      "name": "Magmar",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "53": {
+      "name": "Mankey",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "54": {
+      "name": "Misdreavus",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "55": {
+      "name": "Natu",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "56": {
+      "name": "Onix",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "57": {
+      "name": "Onix",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "58": {
+      "name": "Poliwag",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "59": {
+      "name": "Remoraid",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "60": {
+      "name": "Riolu",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "61": {
+      "name": "Roselia",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "62": {
+      "name": "Spearow",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "63": {
+      "name": "Squirtle",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "64": {
+      "name": "Stantler",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "65": {
+      "name": "Teddiursa",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "66": {
+      "name": "Tropius",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "67": {
+      "name": "Turtwig",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "68": {
+      "name": "Vulpix",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "69": {
+      "name": "Weedle",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "70": {
+      "name": "Zubat",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "71": {
+      "name": "Cheerleader's Cheer",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "72": {
+      "name": "Dual Ball",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "73": {
+      "name": "Emcee's Chatter",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "74": {
+      "name": "Energy Returner",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "75": {
+      "name": "Engineer's Adjustments",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "76": {
+      "name": "Good Rod",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "77": {
+      "name": "Interviewer's Questions",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "78": {
+      "name": "Judge",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "79": {
+      "name": "Life Herb",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "80": {
+      "name": "PlusPower",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "81": {
+      "name": "Pokémon Circulator",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "82": {
+      "name": "Rare Candy",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "83": {
+      "name": "Super Scoop Up",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "84": {
+      "name": "Crobat",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "85": {
+      "name": "Kingdra",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "86": {
+      "name": "Lanturn",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "87": {
+      "name": "Steelix",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "88": {
+      "name": "Tyranitar",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "89": {
+      "name": "Ursaring",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "90": {
+      "name": "Entei & Raikou LEGEND",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "91": {
+      "name": "Entei & Raikou LEGEND",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "92": {
+      "name": "Raikou & Suicune LEGEND",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "93": {
+      "name": "Raikou & Suicune LEGEND",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "94": {
+      "name": "Suicune & Entei LEGEND",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "95": {
+      "name": "Suicune & Entei LEGEND",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "TWO": {
+      "name": "Alph Lithograph",
+      "rarity": "secret",
+      "type": "trainer"
+    }
+  }
+}

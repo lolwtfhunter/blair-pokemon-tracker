@@ -1,0 +1,407 @@
+{
+  "version": "3.0.0",
+  "lastUpdated": "2026-02-16",
+  "setKey": "shining-legends",
+  "name": "Shining Legends",
+  "displayName": "Shining Legends",
+  "totalCards": 81,
+  "mainSet": 73,
+  "setCode": "sm35",
+  "releaseDate": "2017-10-06",
+  "block": "Sun & Moon",
+  "blockCode": "sm",
+  "hasPokeBallVariant": false,
+  "hasMasterBallVariant": false,
+  "cards": {
+    "1": {
+      "name": "Bulbasaur",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "2": {
+      "name": "Ivysaur",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "3": {
+      "name": "Venusaur",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "4": {
+      "name": "Shroomish",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "5": {
+      "name": "Breloom",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "6": {
+      "name": "Carnivine",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "7": {
+      "name": "Shaymin",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "8": {
+      "name": "Virizion",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "9": {
+      "name": "Shining Genesect",
+      "rarity": "shiny-rare",
+      "type": "pokemon"
+    },
+    "10": {
+      "name": "Entei-GX",
+      "rarity": "rare-holo-gx",
+      "type": "pokemon"
+    },
+    "11": {
+      "name": "Torkoal",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "12": {
+      "name": "Larvesta",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "13": {
+      "name": "Volcarona",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "14": {
+      "name": "Reshiram",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "15": {
+      "name": "Litten",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "16": {
+      "name": "Torracat",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "17": {
+      "name": "Incineroar",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "18": {
+      "name": "Totodile",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "19": {
+      "name": "Croconaw",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "20": {
+      "name": "Feraligatr",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "21": {
+      "name": "Qwilfish",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "22": {
+      "name": "Buizel",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "23": {
+      "name": "Floatzel",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "24": {
+      "name": "Palkia",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "25": {
+      "name": "Manaphy",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "26": {
+      "name": "Keldeo",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "27": {
+      "name": "Shining Volcanion",
+      "rarity": "shiny-rare",
+      "type": "pokemon"
+    },
+    "28": {
+      "name": "Pikachu",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "29": {
+      "name": "Raichu-GX",
+      "rarity": "rare-holo-gx",
+      "type": "pokemon"
+    },
+    "30": {
+      "name": "Voltorb",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "31": {
+      "name": "Electrode",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "32": {
+      "name": "Raikou",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "33": {
+      "name": "Plusle",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "34": {
+      "name": "Minun",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "35": {
+      "name": "Zekrom",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "36": {
+      "name": "Ekans",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "37": {
+      "name": "Arbok",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "38": {
+      "name": "Jynx",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "39": {
+      "name": "Mewtwo-GX",
+      "rarity": "rare-holo-gx",
+      "type": "pokemon"
+    },
+    "40": {
+      "name": "Shining Mew",
+      "rarity": "shiny-rare",
+      "type": "pokemon"
+    },
+    "41": {
+      "name": "Latios",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "42": {
+      "name": "Shining Jirachi",
+      "rarity": "shiny-rare",
+      "type": "pokemon"
+    },
+    "43": {
+      "name": "Golett",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "44": {
+      "name": "Golurk",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "45": {
+      "name": "Marshadow",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "46": {
+      "name": "Stunfisk",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "47": {
+      "name": "Spiritomb",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "48": {
+      "name": "Purrloin",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "49": {
+      "name": "Liepard",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "50": {
+      "name": "Scraggy",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "51": {
+      "name": "Scrafty",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "52": {
+      "name": "Zorua",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "53": {
+      "name": "Zoroark-GX",
+      "rarity": "rare-holo-gx",
+      "type": "pokemon"
+    },
+    "54": {
+      "name": "Yveltal",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "55": {
+      "name": "Hoopa",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "56": {
+      "name": "Shining Rayquaza",
+      "rarity": "shiny-rare",
+      "type": "pokemon"
+    },
+    "57": {
+      "name": "Shining Arceus",
+      "rarity": "shiny-rare",
+      "type": "pokemon"
+    },
+    "58": {
+      "name": "Damage Mover",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "59": {
+      "name": "Energy Retrieval",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "60": {
+      "name": "Great Ball",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "61": {
+      "name": "Hau",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "62": {
+      "name": "Lillie",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "63": {
+      "name": "Pokémon Breeder",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "64": {
+      "name": "Pokémon Catcher",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "65": {
+      "name": "Sophocles",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "66": {
+      "name": "Super Scoop Up",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "67": {
+      "name": "Switch",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "68": {
+      "name": "Ultra Ball",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "69": {
+      "name": "Double Colorless Energy",
+      "rarity": "uncommon",
+      "type": "energy"
+    },
+    "70": {
+      "name": "Warp Energy",
+      "rarity": "uncommon",
+      "type": "energy"
+    },
+    "71": {
+      "name": "Entei-GX",
+      "rarity": "ultra-rare",
+      "type": "pokemon"
+    },
+    "72": {
+      "name": "Mewtwo-GX",
+      "rarity": "ultra-rare",
+      "type": "pokemon"
+    },
+    "73": {
+      "name": "Pokémon Breeder",
+      "rarity": "ultra-rare",
+      "type": "trainer"
+    },
+    "74": {
+      "name": "Entei-GX",
+      "rarity": "hyper-rare",
+      "type": "pokemon"
+    },
+    "75": {
+      "name": "Raichu-GX",
+      "rarity": "hyper-rare",
+      "type": "pokemon"
+    },
+    "76": {
+      "name": "Mewtwo-GX",
+      "rarity": "hyper-rare",
+      "type": "pokemon"
+    },
+    "77": {
+      "name": "Zoroark-GX",
+      "rarity": "ultra-rare",
+      "type": "pokemon"
+    },
+    "78": {
+      "name": "Mewtwo-GX",
+      "rarity": "secret",
+      "type": "pokemon"
+    }
+  }
+}

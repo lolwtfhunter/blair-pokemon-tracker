@@ -1,0 +1,522 @@
+{
+  "version": "3.0.0",
+  "lastUpdated": "2026-02-16",
+  "setKey": "dragon-frontiers",
+  "name": "Dragon Frontiers",
+  "displayName": "Dragon Frontiers",
+  "totalCards": 101,
+  "mainSet": 101,
+  "setCode": "ex15",
+  "releaseDate": "2006-11-01",
+  "block": "EX",
+  "blockCode": "ex",
+  "hasPokeBallVariant": false,
+  "hasMasterBallVariant": false,
+  "cards": {
+    "1": {
+      "name": "Ampharos δ",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "2": {
+      "name": "Feraligatr δ",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "3": {
+      "name": "Heracross δ",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "4": {
+      "name": "Meganium δ",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "5": {
+      "name": "Milotic δ",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "6": {
+      "name": "Nidoking δ",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "7": {
+      "name": "Nidoqueen δ",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "8": {
+      "name": "Ninetales δ",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "9": {
+      "name": "Pinsir δ",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "10": {
+      "name": "Snorlax δ",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "11": {
+      "name": "Togetic δ",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "12": {
+      "name": "Typhlosion δ",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "13": {
+      "name": "Arbok δ",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "14": {
+      "name": "Cloyster δ",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "15": {
+      "name": "Dewgong δ",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "16": {
+      "name": "Gligar δ",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "17": {
+      "name": "Jynx δ",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "18": {
+      "name": "Ledian δ",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "19": {
+      "name": "Lickitung δ",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "20": {
+      "name": "Mantine δ",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "21": {
+      "name": "Quagsire δ",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "22": {
+      "name": "Seadra δ",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "23": {
+      "name": "Tropius δ",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "24": {
+      "name": "Vibrava δ",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "25": {
+      "name": "Xatu δ",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "26": {
+      "name": "Bayleef δ",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "27": {
+      "name": "Croconaw δ",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "28": {
+      "name": "Dragonair δ",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "29": {
+      "name": "Electabuzz δ",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "30": {
+      "name": "Flaaffy δ",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "31": {
+      "name": "Horsea δ",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "32": {
+      "name": "Kirlia",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "33": {
+      "name": "Kirlia δ",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "34": {
+      "name": "Nidorina δ",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "35": {
+      "name": "Nidorino δ",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "36": {
+      "name": "Quilava δ",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "37": {
+      "name": "Seadra δ",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "38": {
+      "name": "Shelgon δ",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "39": {
+      "name": "Smeargle δ",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "40": {
+      "name": "Swellow δ",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "41": {
+      "name": "Togepi δ",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "42": {
+      "name": "Vibrava δ",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "43": {
+      "name": "Bagon δ",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "44": {
+      "name": "Chikorita δ",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "45": {
+      "name": "Cyndaquil δ",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "46": {
+      "name": "Dratini δ",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "47": {
+      "name": "Ekans δ",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "48": {
+      "name": "Elekid δ",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "49": {
+      "name": "Feebas δ",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "50": {
+      "name": "Horsea δ",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "51": {
+      "name": "Larvitar",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "52": {
+      "name": "Larvitar δ",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "53": {
+      "name": "Ledyba δ",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "54": {
+      "name": "Mareep δ",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "55": {
+      "name": "Natu δ",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "56": {
+      "name": "Nidoran ♀ δ",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "57": {
+      "name": "Nidoran ♂ δ",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "58": {
+      "name": "Pupitar",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "59": {
+      "name": "Pupitar δ",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "60": {
+      "name": "Ralts",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "61": {
+      "name": "Ralts δ",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "62": {
+      "name": "Seel δ",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "63": {
+      "name": "Shellder δ",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "64": {
+      "name": "Smoochum δ",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "65": {
+      "name": "Swablu δ",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "66": {
+      "name": "Taillow δ",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "67": {
+      "name": "Totodile δ",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "68": {
+      "name": "Trapinch δ",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "69": {
+      "name": "Trapinch δ",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "70": {
+      "name": "Vulpix δ",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "71": {
+      "name": "Wooper δ",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "72": {
+      "name": "Buffer Piece",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "73": {
+      "name": "Copycat",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "74": {
+      "name": "Holon Legacy",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "75": {
+      "name": "Holon Mentor",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "76": {
+      "name": "Island Hermit",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "77": {
+      "name": "Mr. Stone's Project",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "78": {
+      "name": "Old Rod",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "79": {
+      "name": "Professor Elm's Training Method",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "80": {
+      "name": "Professor Oak's Research",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "81": {
+      "name": "Strength Charm",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "82": {
+      "name": "TV Reporter",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "83": {
+      "name": "Switch",
+      "rarity": "common",
+      "type": "trainer"
+    },
+    "84": {
+      "name": "Holon Energy FF",
+      "rarity": "rare",
+      "type": "energy"
+    },
+    "85": {
+      "name": "Holon Energy GL",
+      "rarity": "rare",
+      "type": "energy"
+    },
+    "86": {
+      "name": "Holon Energy WP",
+      "rarity": "rare",
+      "type": "energy"
+    },
+    "87": {
+      "name": "Boost Energy",
+      "rarity": "uncommon",
+      "type": "energy"
+    },
+    "88": {
+      "name": "δ Rainbow Energy",
+      "rarity": "uncommon",
+      "type": "energy"
+    },
+    "89": {
+      "name": "Scramble Energy",
+      "rarity": "uncommon",
+      "type": "energy"
+    },
+    "90": {
+      "name": "Altaria ex δ",
+      "rarity": "ex",
+      "type": "pokemon"
+    },
+    "91": {
+      "name": "Dragonite ex δ",
+      "rarity": "ex",
+      "type": "pokemon"
+    },
+    "92": {
+      "name": "Flygon ex δ",
+      "rarity": "ex",
+      "type": "pokemon"
+    },
+    "93": {
+      "name": "Gardevoir ex δ",
+      "rarity": "ex",
+      "type": "pokemon"
+    },
+    "94": {
+      "name": "Kingdra ex δ",
+      "rarity": "ex",
+      "type": "pokemon"
+    },
+    "95": {
+      "name": "Latias ex δ",
+      "rarity": "ex",
+      "type": "pokemon"
+    },
+    "96": {
+      "name": "Latios ex δ",
+      "rarity": "ex",
+      "type": "pokemon"
+    },
+    "97": {
+      "name": "Rayquaza ex δ",
+      "rarity": "ex",
+      "type": "pokemon"
+    },
+    "98": {
+      "name": "Salamence ex δ",
+      "rarity": "ex",
+      "type": "pokemon"
+    },
+    "99": {
+      "name": "Tyranitar ex δ",
+      "rarity": "ex",
+      "type": "pokemon"
+    },
+    "100": {
+      "name": "Charizard ★ δ",
+      "rarity": "rare-holo-star",
+      "type": "pokemon"
+    },
+    "101": {
+      "name": "Mew ★ δ",
+      "rarity": "rare-holo-star",
+      "type": "pokemon"
+    }
+  }
+}

@@ -1,0 +1,362 @@
+{
+  "version": "3.0.0",
+  "lastUpdated": "2026-02-16",
+  "setKey": "hidden-fates",
+  "name": "Hidden Fates",
+  "displayName": "Hidden Fates",
+  "totalCards": 69,
+  "mainSet": 68,
+  "setCode": "sm115",
+  "releaseDate": "2019-08-23",
+  "block": "Sun & Moon",
+  "blockCode": "sm",
+  "hasPokeBallVariant": false,
+  "hasMasterBallVariant": false,
+  "cards": {
+    "1": {
+      "name": "Caterpie",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "2": {
+      "name": "Metapod",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "3": {
+      "name": "Butterfree",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "4": {
+      "name": "Paras",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "5": {
+      "name": "Scyther",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "6": {
+      "name": "Pinsir-GX",
+      "rarity": "rare-holo-gx",
+      "type": "pokemon"
+    },
+    "7": {
+      "name": "Charmander",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "8": {
+      "name": "Charmeleon",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "9": {
+      "name": "Charizard-GX",
+      "rarity": "rare-holo-gx",
+      "type": "pokemon"
+    },
+    "10": {
+      "name": "Magmar",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "11": {
+      "name": "Psyduck",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "12": {
+      "name": "Slowpoke",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "13": {
+      "name": "Staryu",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "14": {
+      "name": "Starmie-GX",
+      "rarity": "rare-holo-gx",
+      "type": "pokemon"
+    },
+    "15": {
+      "name": "Magikarp",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "16": {
+      "name": "Gyarados-GX",
+      "rarity": "rare-holo-gx",
+      "type": "pokemon"
+    },
+    "17": {
+      "name": "Lapras",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "18": {
+      "name": "Vaporeon",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "19": {
+      "name": "Pikachu",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "20": {
+      "name": "Raichu-GX",
+      "rarity": "rare-holo-gx",
+      "type": "pokemon"
+    },
+    "21": {
+      "name": "Voltorb",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "22": {
+      "name": "Electrode",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "23": {
+      "name": "Jolteon",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "24": {
+      "name": "Zapdos",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "25": {
+      "name": "Ekans",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "26": {
+      "name": "Ekans",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "27": {
+      "name": "Arbok",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "28": {
+      "name": "Koffing",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "29": {
+      "name": "Weezing",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "30": {
+      "name": "Jynx",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "31": {
+      "name": "Mewtwo-GX",
+      "rarity": "rare-holo-gx",
+      "type": "pokemon"
+    },
+    "32": {
+      "name": "Mew",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "33": {
+      "name": "Geodude",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "34": {
+      "name": "Graveler",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "35": {
+      "name": "Golem",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "36": {
+      "name": "Onix-GX",
+      "rarity": "rare-holo-gx",
+      "type": "pokemon"
+    },
+    "37": {
+      "name": "Cubone",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "38": {
+      "name": "Clefairy",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "39": {
+      "name": "Clefairy",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "40": {
+      "name": "Clefable",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "41": {
+      "name": "Jigglypuff",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "42": {
+      "name": "Wigglytuff-GX",
+      "rarity": "rare-holo-gx",
+      "type": "pokemon"
+    },
+    "43": {
+      "name": "Mr. Mime",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "44": {
+      "name": "Moltres & Zapdos & Articuno-GX",
+      "rarity": "rare-holo-gx",
+      "type": "pokemon"
+    },
+    "45": {
+      "name": "Farfetch'd",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "46": {
+      "name": "Chansey",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "47": {
+      "name": "Kangaskhan",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "48": {
+      "name": "Eevee",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "49": {
+      "name": "Eevee",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "50": {
+      "name": "Snorlax",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "51": {
+      "name": "Bill's Analysis",
+      "rarity": "rare",
+      "type": "trainer"
+    },
+    "52": {
+      "name": "Blaine's Last Stand",
+      "rarity": "rare",
+      "type": "trainer"
+    },
+    "53": {
+      "name": "Brock's Grit",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "54": {
+      "name": "Brock's Pewter City Gym",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "55": {
+      "name": "Brock's Training",
+      "rarity": "rare-holo",
+      "type": "trainer"
+    },
+    "56": {
+      "name": "Erika's Hospitality",
+      "rarity": "rare",
+      "type": "trainer"
+    },
+    "57": {
+      "name": "Giovanni's Exile",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "58": {
+      "name": "Jessie & James",
+      "rarity": "rare-holo",
+      "type": "trainer"
+    },
+    "59": {
+      "name": "Koga's Trap",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "60": {
+      "name": "Lt. Surge's Strategy",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "61": {
+      "name": "Misty's Cerulean City Gym",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "62": {
+      "name": "Misty's Determination",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "63": {
+      "name": "Misty's Water Command",
+      "rarity": "rare-holo",
+      "type": "trainer"
+    },
+    "64": {
+      "name": "Pokémon Center Lady",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "65": {
+      "name": "Sabrina's Suggestion",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "66": {
+      "name": "Moltres & Zapdos & Articuno-GX",
+      "rarity": "ultra-rare",
+      "type": "pokemon"
+    },
+    "67": {
+      "name": "Giovanni's Exile",
+      "rarity": "ultra-rare",
+      "type": "trainer"
+    },
+    "68": {
+      "name": "Jessie & James",
+      "rarity": "ultra-rare",
+      "type": "trainer"
+    },
+    "69": {
+      "name": "Moltres & Zapdos & Articuno-GX",
+      "rarity": "hyper-rare",
+      "type": "pokemon"
+    }
+  }
+}

@@ -1,12 +1,15 @@
 {
+  "name": "Celebrations",
+  "setCode": "cel25",
+  "releaseDate": "2021-10-08",
+  "block": "Sword & Shield",
+  "blockCode": "swsh",
   "version": "3.0.0",
   "lastUpdated": "2025-02-15",
   "setKey": "celebrations",
-  "name": "Celebrations",
   "displayName": "Celebrations",
   "totalCards": 50,
   "mainSet": 25,
-  "setCode": "cel25",
   "hasPokeBallVariant": false,
   "hasMasterBallVariant": false,
   "singleVariantOnly": true,
@@ -215,13 +218,13 @@
       "imageId": "88_A"
     },
     "39": {
-      "name": "Gardevoir ex \u03b4",
+      "name": "Gardevoir ex δ",
       "rarity": "rare",
       "type": "pokemon",
       "imageId": "93_A"
     },
     "40": {
-      "name": "Umbreon \u2605",
+      "name": "Umbreon ★",
       "rarity": "rare",
       "type": "pokemon",
       "imageId": "17_A"
@@ -299,8 +302,5 @@
     23,
     24
   ],
-  "energyCards": {},
-  "releaseDate": "2021-10-08",
-  "block": "Sword & Shield",
-  "blockCode": "swsh"
+  "energyCards": {}
 }

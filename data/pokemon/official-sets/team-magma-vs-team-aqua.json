@@ -1,0 +1,502 @@
+{
+  "version": "3.0.0",
+  "lastUpdated": "2026-02-16",
+  "setKey": "team-magma-vs-team-aqua",
+  "name": "Team Magma vs Team Aqua",
+  "displayName": "Team Magma vs Team Aqua",
+  "totalCards": 97,
+  "mainSet": 95,
+  "setCode": "ex4",
+  "releaseDate": "2004-03-01",
+  "block": "EX",
+  "blockCode": "ex",
+  "hasPokeBallVariant": false,
+  "hasMasterBallVariant": false,
+  "cards": {
+    "1": {
+      "name": "Team Aqua's Cacturne",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "2": {
+      "name": "Team Aqua's Crawdaunt",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "3": {
+      "name": "Team Aqua's Kyogre",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "4": {
+      "name": "Team Aqua's Manectric",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "5": {
+      "name": "Team Aqua's Sharpedo",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "6": {
+      "name": "Team Aqua's Walrein",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "7": {
+      "name": "Team Magma's Aggron",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "8": {
+      "name": "Team Magma's Claydol",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "9": {
+      "name": "Team Magma's Groudon",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "10": {
+      "name": "Team Magma's Houndoom",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "11": {
+      "name": "Team Magma's Rhydon",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "12": {
+      "name": "Team Magma's Torkoal",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "13": {
+      "name": "Raichu",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "14": {
+      "name": "Team Aqua's Crawdaunt",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "15": {
+      "name": "Team Aqua's Mightyena",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "16": {
+      "name": "Team Aqua's Sealeo",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "17": {
+      "name": "Team Aqua's Seviper",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "18": {
+      "name": "Team Aqua's Sharpedo",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "19": {
+      "name": "Team Magma's Camerupt",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "20": {
+      "name": "Team Magma's Lairon",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "21": {
+      "name": "Team Magma's Mightyena",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "22": {
+      "name": "Team Magma's Rhydon",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "23": {
+      "name": "Team Magma's Zangoose",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "24": {
+      "name": "Team Aqua's Cacnea",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "25": {
+      "name": "Team Aqua's Carvanha",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "26": {
+      "name": "Team Aqua's Corphish",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "27": {
+      "name": "Team Aqua's Electrike",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "28": {
+      "name": "Team Aqua's Lanturn",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "29": {
+      "name": "Team Aqua's Manectric",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "30": {
+      "name": "Team Aqua's Mightyena",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "31": {
+      "name": "Team Aqua's Sealeo",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "32": {
+      "name": "Team Magma's Baltoy",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "33": {
+      "name": "Team Magma's Claydol",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "34": {
+      "name": "Team Magma's Houndoom",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "35": {
+      "name": "Team Magma's Houndour",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "36": {
+      "name": "Team Magma's Lairon",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "37": {
+      "name": "Team Magma's Mightyena",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "38": {
+      "name": "Team Magma's Rhyhorn",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "39": {
+      "name": "Bulbasaur",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "40": {
+      "name": "Cubone",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "41": {
+      "name": "Jigglypuff",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "42": {
+      "name": "Meowth",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "43": {
+      "name": "Pikachu",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "44": {
+      "name": "Psyduck",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "45": {
+      "name": "Slowpoke",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "46": {
+      "name": "Squirtle",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "47": {
+      "name": "Team Aqua's Carvanha",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "48": {
+      "name": "Team Aqua's Carvanha",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "49": {
+      "name": "Team Aqua's Chinchou",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "50": {
+      "name": "Team Aqua's Corphish",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "51": {
+      "name": "Team Aqua's Corphish",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "52": {
+      "name": "Team Aqua's Electrike",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "53": {
+      "name": "Team Aqua's Electrike",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "54": {
+      "name": "Team Aqua's Poochyena",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "55": {
+      "name": "Team Aqua's Poochyena",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "56": {
+      "name": "Team Aqua's Spheal",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "57": {
+      "name": "Team Aqua's Spheal",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "58": {
+      "name": "Team Magma's Aron",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "59": {
+      "name": "Team Magma's Aron",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "60": {
+      "name": "Team Magma's Baltoy",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "61": {
+      "name": "Team Magma's Baltoy",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "62": {
+      "name": "Team Magma's Houndour",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "63": {
+      "name": "Team Magma's Houndour",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "64": {
+      "name": "Team Magma's Numel",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "65": {
+      "name": "Team Magma's Poochyena",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "66": {
+      "name": "Team Magma's Poochyena",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "67": {
+      "name": "Team Magma's Rhyhorn",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "68": {
+      "name": "Team Magma's Rhyhorn",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "69": {
+      "name": "Team Aqua Schemer",
+      "rarity": "common",
+      "type": "trainer"
+    },
+    "70": {
+      "name": "Team Magma Schemer",
+      "rarity": "common",
+      "type": "trainer"
+    },
+    "71": {
+      "name": "Archie",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "72": {
+      "name": "Dual Ball",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "73": {
+      "name": "Maxie",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "74": {
+      "name": "Strength Charm",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "75": {
+      "name": "Team Aqua Ball",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "76": {
+      "name": "Team Aqua Belt",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "77": {
+      "name": "Team Aqua Conspirator",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "78": {
+      "name": "Team Aqua Hideout",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "79": {
+      "name": "Team Aqua Technical Machine 01",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "80": {
+      "name": "Team Magma Ball",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "81": {
+      "name": "Team Magma Belt",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "82": {
+      "name": "Team Magma Conspirator",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "83": {
+      "name": "Team Magma Hideout",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "84": {
+      "name": "Team Magma Technical Machine 01",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "85": {
+      "name": "Warp Point",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "86": {
+      "name": "Aqua Energy",
+      "rarity": "uncommon",
+      "type": "energy"
+    },
+    "87": {
+      "name": "Magma Energy",
+      "rarity": "uncommon",
+      "type": "energy"
+    },
+    "88": {
+      "name": "Double Rainbow Energy",
+      "rarity": "rare",
+      "type": "energy"
+    },
+    "89": {
+      "name": "Blaziken ex",
+      "rarity": "ex",
+      "type": "pokemon"
+    },
+    "90": {
+      "name": "Cradily ex",
+      "rarity": "ex",
+      "type": "pokemon"
+    },
+    "91": {
+      "name": "Entei ex",
+      "rarity": "ex",
+      "type": "pokemon"
+    },
+    "92": {
+      "name": "Raikou ex",
+      "rarity": "ex",
+      "type": "pokemon"
+    },
+    "93": {
+      "name": "Sceptile ex",
+      "rarity": "ex",
+      "type": "pokemon"
+    },
+    "94": {
+      "name": "Suicune ex",
+      "rarity": "ex",
+      "type": "pokemon"
+    },
+    "95": {
+      "name": "Swampert ex",
+      "rarity": "ex",
+      "type": "pokemon"
+    },
+    "96": {
+      "name": "Absol",
+      "rarity": "secret",
+      "type": "pokemon"
+    },
+    "97": {
+      "name": "Jirachi",
+      "rarity": "secret",
+      "type": "pokemon"
+    }
+  }
+}

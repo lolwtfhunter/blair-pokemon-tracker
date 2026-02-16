@@ -1,12 +1,15 @@
 {
+  "name": "Journey Together",
+  "setCode": "sv09",
+  "releaseDate": "2025-03-28",
+  "block": "Scarlet & Violet",
+  "blockCode": "sv",
   "version": "3.0.0",
   "lastUpdated": "2025-02-15",
   "setKey": "journey-together",
-  "name": "Journey Together",
   "displayName": "Journey Together",
   "totalCards": 190,
   "mainSet": 159,
-  "setCode": "sv09",
   "hasPokeBallVariant": false,
   "hasMasterBallVariant": false,
   "cards": {
@@ -813,8 +816,5 @@
   ],
   "energyCards": {
     "159": "Spiky Energy"
-  },
-  "releaseDate": "2025-03-28",
-  "block": "Scarlet & Violet",
-  "blockCode": "sv"
+  }
 }

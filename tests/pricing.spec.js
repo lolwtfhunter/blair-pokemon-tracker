@@ -49,13 +49,13 @@ async function setupWithMockPricing(page) {
     localStorage.removeItem('blair_price_cache');
   });
   await page.goto('/');
-  await page.waitForFunction(() => document.querySelectorAll('.tab-btn').length > 0, null, { timeout: 15000 });
+  await page.waitForFunction(() => document.querySelectorAll('.top-tab').length > 0, null, { timeout: 15000 });
 }
 
 async function navigateToCustomSet(page) {
   await setupWithMockPricing(page);
   // Switch to Custom Sets tab
-  const customTab = page.locator('.tab-btn:has-text("Custom")');
+  const customTab = page.locator('.top-tab:has-text("Custom")');
   await customTab.click();
   // Wait for custom set buttons to appear and click the first one
   await page.waitForSelector('#customSetButtons .set-btn', { timeout: 15000 });

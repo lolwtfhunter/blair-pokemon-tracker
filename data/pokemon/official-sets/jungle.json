@@ -1,0 +1,338 @@
+{
+  "version": "3.0.0",
+  "lastUpdated": "2026-02-16",
+  "setKey": "jungle",
+  "name": "Jungle",
+  "displayName": "Jungle",
+  "totalCards": 64,
+  "mainSet": 64,
+  "setCode": "base2",
+  "releaseDate": "1999-06-16",
+  "block": "Base Set",
+  "blockCode": "base",
+  "hasPokeBallVariant": false,
+  "hasMasterBallVariant": false,
+  "hasFirstEdition": true,
+  "cards": {
+    "1": {
+      "name": "Clefable",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "2": {
+      "name": "Electrode",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "3": {
+      "name": "Flareon",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "4": {
+      "name": "Jolteon",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "5": {
+      "name": "Kangaskhan",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "6": {
+      "name": "Mr. Mime",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "7": {
+      "name": "Nidoqueen",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "8": {
+      "name": "Pidgeot",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "9": {
+      "name": "Pinsir",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "10": {
+      "name": "Scyther",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "11": {
+      "name": "Snorlax",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "12": {
+      "name": "Vaporeon",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "13": {
+      "name": "Venomoth",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "14": {
+      "name": "Victreebel",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "15": {
+      "name": "Vileplume",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "16": {
+      "name": "Wigglytuff",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "17": {
+      "name": "Clefable",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "18": {
+      "name": "Electrode",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "19": {
+      "name": "Flareon",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "20": {
+      "name": "Jolteon",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "21": {
+      "name": "Kangaskhan",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "22": {
+      "name": "Mr. Mime",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "23": {
+      "name": "Nidoqueen",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "24": {
+      "name": "Pidgeot",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "25": {
+      "name": "Pinsir",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "26": {
+      "name": "Scyther",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "27": {
+      "name": "Snorlax",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "28": {
+      "name": "Vaporeon",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "29": {
+      "name": "Venomoth",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "30": {
+      "name": "Victreebel",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "31": {
+      "name": "Vileplume",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "32": {
+      "name": "Wigglytuff",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "33": {
+      "name": "Butterfree",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "34": {
+      "name": "Dodrio",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "35": {
+      "name": "Exeggutor",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "36": {
+      "name": "Fearow",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "37": {
+      "name": "Gloom",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "38": {
+      "name": "Lickitung",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "39": {
+      "name": "Marowak",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "40": {
+      "name": "Nidorina",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "41": {
+      "name": "Parasect",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "42": {
+      "name": "Persian",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "43": {
+      "name": "Primeape",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "44": {
+      "name": "Rapidash",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "45": {
+      "name": "Rhydon",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "46": {
+      "name": "Seaking",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "47": {
+      "name": "Tauros",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "48": {
+      "name": "Weepinbell",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "49": {
+      "name": "Bellsprout",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "50": {
+      "name": "Cubone",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "51": {
+      "name": "Eevee",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "52": {
+      "name": "Exeggcute",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "53": {
+      "name": "Goldeen",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "54": {
+      "name": "Jigglypuff",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "55": {
+      "name": "Mankey",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "56": {
+      "name": "Meowth",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "57": {
+      "name": "Nidoran ♀",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "58": {
+      "name": "Oddish",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "59": {
+      "name": "Paras",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "60": {
+      "name": "Pikachu",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "61": {
+      "name": "Rhyhorn",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "62": {
+      "name": "Spearow",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "63": {
+      "name": "Venonat",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "64": {
+      "name": "Poké Ball",
+      "rarity": "common",
+      "type": "trainer"
+    }
+  }
+}

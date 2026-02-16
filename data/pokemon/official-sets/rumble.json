@@ -1,0 +1,98 @@
+{
+  "version": "3.0.0",
+  "lastUpdated": "2026-02-16",
+  "setKey": "rumble",
+  "name": "Pokémon Rumble",
+  "displayName": "Pokémon Rumble",
+  "totalCards": 16,
+  "mainSet": 16,
+  "setCode": "ru1",
+  "releaseDate": "2009-12-02",
+  "block": "Platinum",
+  "blockCode": "pl",
+  "hasPokeBallVariant": false,
+  "hasMasterBallVariant": false,
+  "singleVariantOnly": true,
+  "cards": {
+    "1": {
+      "name": "Venusaur",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "2": {
+      "name": "Cherrim",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "3": {
+      "name": "Ninetales",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "4": {
+      "name": "Heatran",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "5": {
+      "name": "Starmie",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "6": {
+      "name": "Gyarados",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "7": {
+      "name": "Pikachu",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "8": {
+      "name": "Zapdos",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "9": {
+      "name": "Mewtwo",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "10": {
+      "name": "Mew",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "11": {
+      "name": "Diglett",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "12": {
+      "name": "Lucario",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "13": {
+      "name": "Skuntank",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "14": {
+      "name": "Bastiodon",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "15": {
+      "name": "Rattata",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "16": {
+      "name": "Bibarel",
+      "rarity": "common",
+      "type": "pokemon"
+    }
+  }
+}

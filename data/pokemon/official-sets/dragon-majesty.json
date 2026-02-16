@@ -1,0 +1,407 @@
+{
+  "version": "3.0.0",
+  "lastUpdated": "2026-02-16",
+  "setKey": "dragon-majesty",
+  "name": "Dragon Majesty",
+  "displayName": "Dragon Majesty",
+  "totalCards": 80,
+  "mainSet": 70,
+  "setCode": "sm75",
+  "releaseDate": "2018-09-07",
+  "block": "Sun & Moon",
+  "blockCode": "sm",
+  "hasPokeBallVariant": false,
+  "hasMasterBallVariant": false,
+  "cards": {
+    "1": {
+      "name": "Charmander",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "2": {
+      "name": "Charmeleon",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "3": {
+      "name": "Charizard",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "4": {
+      "name": "Torchic",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "5": {
+      "name": "Combusken",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "6": {
+      "name": "Blaziken",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "7": {
+      "name": "Victini ◇",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "8": {
+      "name": "Darumaka",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "9": {
+      "name": "Darmanitan",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "10": {
+      "name": "Heatmor",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "11": {
+      "name": "Reshiram-GX",
+      "rarity": "rare-holo-gx",
+      "type": "pokemon"
+    },
+    "12": {
+      "name": "Litten",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "13": {
+      "name": "Salandit",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "14": {
+      "name": "Salazzle",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "15": {
+      "name": "Horsea",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "16": {
+      "name": "Horsea",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "17": {
+      "name": "Seadra",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "18": {
+      "name": "Kingdra-GX",
+      "rarity": "rare-holo-gx",
+      "type": "pokemon"
+    },
+    "19": {
+      "name": "Magikarp",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "20": {
+      "name": "Gyarados",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "21": {
+      "name": "Lapras",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "22": {
+      "name": "Totodile",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "23": {
+      "name": "Croconaw",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "24": {
+      "name": "Feraligatr",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "25": {
+      "name": "Wooper",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "26": {
+      "name": "Quagsire",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "27": {
+      "name": "Corsola",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "28": {
+      "name": "Feebas",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "29": {
+      "name": "Milotic",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "30": {
+      "name": "Phione",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "31": {
+      "name": "Wishiwashi",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "32": {
+      "name": "Trapinch",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "33": {
+      "name": "Hydreigon",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "34": {
+      "name": "Dratini",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "35": {
+      "name": "Dratini",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "36": {
+      "name": "Dragonair",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "37": {
+      "name": "Dragonite-GX",
+      "rarity": "rare-holo-gx",
+      "type": "pokemon"
+    },
+    "38": {
+      "name": "Vibrava",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "39": {
+      "name": "Flygon",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "40": {
+      "name": "Altaria",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "41": {
+      "name": "Altaria-GX",
+      "rarity": "rare-holo-gx",
+      "type": "pokemon"
+    },
+    "42": {
+      "name": "Bagon",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "43": {
+      "name": "Shelgon",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "44": {
+      "name": "Salamence-GX",
+      "rarity": "rare-holo-gx",
+      "type": "pokemon"
+    },
+    "45": {
+      "name": "Druddigon",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "46": {
+      "name": "Zekrom",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "47": {
+      "name": "Kyurem",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "48": {
+      "name": "White Kyurem-GX",
+      "rarity": "rare-holo-gx",
+      "type": "pokemon"
+    },
+    "49": {
+      "name": "Zygarde",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "50": {
+      "name": "Turtonator",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "51": {
+      "name": "Drampa",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "52": {
+      "name": "Jangmo-o",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "53": {
+      "name": "Hakamo-o",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "54": {
+      "name": "Kommo-o",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "55": {
+      "name": "Kangaskhan",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "56": {
+      "name": "Swablu",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "57": {
+      "name": "Swablu",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "58": {
+      "name": "Blaine's Last Stand",
+      "rarity": "rare-holo",
+      "type": "trainer"
+    },
+    "59": {
+      "name": "Dragon Talon",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "60": {
+      "name": "Fiery Flint",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "61": {
+      "name": "Lance ◇",
+      "rarity": "rare",
+      "type": "trainer"
+    },
+    "62": {
+      "name": "Switch Raft",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "63": {
+      "name": "Wela Volcano Park",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "64": {
+      "name": "Zinnia",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "65": {
+      "name": "Reshiram-GX",
+      "rarity": "ultra-rare",
+      "type": "pokemon"
+    },
+    "66": {
+      "name": "Kingdra-GX",
+      "rarity": "ultra-rare",
+      "type": "pokemon"
+    },
+    "67": {
+      "name": "Dragonite-GX",
+      "rarity": "ultra-rare",
+      "type": "pokemon"
+    },
+    "68": {
+      "name": "Altaria-GX",
+      "rarity": "ultra-rare",
+      "type": "pokemon"
+    },
+    "69": {
+      "name": "Blaine's Last Stand",
+      "rarity": "ultra-rare",
+      "type": "trainer"
+    },
+    "70": {
+      "name": "Zinnia",
+      "rarity": "ultra-rare",
+      "type": "trainer"
+    },
+    "71": {
+      "name": "Reshiram-GX",
+      "rarity": "hyper-rare",
+      "type": "pokemon"
+    },
+    "72": {
+      "name": "Altaria-GX",
+      "rarity": "hyper-rare",
+      "type": "pokemon"
+    },
+    "73": {
+      "name": "Salamence-GX",
+      "rarity": "hyper-rare",
+      "type": "pokemon"
+    },
+    "74": {
+      "name": "White Kyurem-GX",
+      "rarity": "hyper-rare",
+      "type": "pokemon"
+    },
+    "75": {
+      "name": "Dragon Talon",
+      "rarity": "secret",
+      "type": "trainer"
+    },
+    "76": {
+      "name": "Fiery Flint",
+      "rarity": "secret",
+      "type": "trainer"
+    },
+    "77": {
+      "name": "Switch Raft",
+      "rarity": "secret",
+      "type": "trainer"
+    },
+    "78": {
+      "name": "Ultra Necrozma-GX",
+      "rarity": "secret",
+      "type": "pokemon"
+    }
+  }
+}

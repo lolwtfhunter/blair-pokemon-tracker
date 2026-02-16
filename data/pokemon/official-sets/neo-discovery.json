@@ -1,0 +1,393 @@
+{
+  "version": "3.0.0",
+  "lastUpdated": "2026-02-16",
+  "setKey": "neo-discovery",
+  "name": "Neo Discovery",
+  "displayName": "Neo Discovery",
+  "totalCards": 75,
+  "mainSet": 75,
+  "setCode": "neo2",
+  "releaseDate": "2001-06-01",
+  "block": "Neo",
+  "blockCode": "neo",
+  "hasPokeBallVariant": false,
+  "hasMasterBallVariant": false,
+  "hasFirstEdition": true,
+  "cards": {
+    "1": {
+      "name": "Espeon",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "2": {
+      "name": "Forretress",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "3": {
+      "name": "Hitmontop",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "4": {
+      "name": "Houndoom",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "5": {
+      "name": "Houndour",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "6": {
+      "name": "Kabutops",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "7": {
+      "name": "Magnemite",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "8": {
+      "name": "Politoed",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "9": {
+      "name": "Poliwrath",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "10": {
+      "name": "Scizor",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "11": {
+      "name": "Smeargle",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "12": {
+      "name": "Tyranitar",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "13": {
+      "name": "Umbreon",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "14": {
+      "name": "Unown [A]",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "15": {
+      "name": "Ursaring",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "16": {
+      "name": "Wobbuffet",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "17": {
+      "name": "Yanma",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "18": {
+      "name": "Beedrill",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "19": {
+      "name": "Butterfree",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "20": {
+      "name": "Espeon",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "21": {
+      "name": "Forretress",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "22": {
+      "name": "Hitmontop",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "23": {
+      "name": "Houndoom",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "24": {
+      "name": "Houndour",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "25": {
+      "name": "Kabutops",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "26": {
+      "name": "Magnemite",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "27": {
+      "name": "Politoed",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "28": {
+      "name": "Poliwrath",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "29": {
+      "name": "Scizor",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "30": {
+      "name": "Smeargle",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "31": {
+      "name": "Tyranitar",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "32": {
+      "name": "Umbreon",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "33": {
+      "name": "Unown [A]",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "34": {
+      "name": "Ursaring",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "35": {
+      "name": "Wobbuffet",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "36": {
+      "name": "Yanma",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "37": {
+      "name": "Corsola",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "38": {
+      "name": "Eevee",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "39": {
+      "name": "Houndour",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "40": {
+      "name": "Igglybuff",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "41": {
+      "name": "Kakuna",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "42": {
+      "name": "Metapod",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "43": {
+      "name": "Omastar",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "44": {
+      "name": "Poliwhirl",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "45": {
+      "name": "Pupitar",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "46": {
+      "name": "Scyther",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "47": {
+      "name": "Unown [D]",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "48": {
+      "name": "Unown [F]",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "49": {
+      "name": "Unown [M]",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "50": {
+      "name": "Unown [N]",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "51": {
+      "name": "Unown [U]",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "52": {
+      "name": "Xatu",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "53": {
+      "name": "Caterpie",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "54": {
+      "name": "Dunsparce",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "55": {
+      "name": "Hoppip",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "56": {
+      "name": "Kabuto",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "57": {
+      "name": "Larvitar",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "58": {
+      "name": "Mareep",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "59": {
+      "name": "Natu",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "60": {
+      "name": "Omanyte",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "61": {
+      "name": "Pineco",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "62": {
+      "name": "Poliwag",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "63": {
+      "name": "Sentret",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "64": {
+      "name": "Spinarak",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "65": {
+      "name": "Teddiursa",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "66": {
+      "name": "Tyrogue",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "67": {
+      "name": "Unown [E]",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "68": {
+      "name": "Unown [I]",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "69": {
+      "name": "Unown [O]",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "70": {
+      "name": "Weedle",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "71": {
+      "name": "Wooper",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "72": {
+      "name": "Fossil Egg",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "73": {
+      "name": "Hyper Devolution Spray",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "74": {
+      "name": "Ruin Wall",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "75": {
+      "name": "Energy Ark",
+      "rarity": "common",
+      "type": "trainer"
+    }
+  }
+}

@@ -1,0 +1,927 @@
+{
+  "version": "3.0.0",
+  "lastUpdated": "2026-02-16",
+  "setKey": "skyridge",
+  "name": "Skyridge",
+  "displayName": "Skyridge",
+  "totalCards": 182,
+  "mainSet": 144,
+  "setCode": "ecard3",
+  "releaseDate": "2003-05-12",
+  "block": "e-Card",
+  "blockCode": "ecard",
+  "hasPokeBallVariant": false,
+  "hasMasterBallVariant": false,
+  "cards": {
+    "1": {
+      "name": "Aerodactyl",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "2": {
+      "name": "Alakazam",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "3": {
+      "name": "Arcanine",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "4": {
+      "name": "Articuno",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "5": {
+      "name": "Beedrill",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "6": {
+      "name": "Crobat",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "7": {
+      "name": "Dewgong",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "8": {
+      "name": "Flareon",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "9": {
+      "name": "Forretress",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "10": {
+      "name": "Gengar",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "11": {
+      "name": "Gyarados",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "12": {
+      "name": "Houndoom",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "13": {
+      "name": "Jolteon",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "14": {
+      "name": "Kabutops",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "15": {
+      "name": "Ledian",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "16": {
+      "name": "Machamp",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "17": {
+      "name": "Magcargo",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "18": {
+      "name": "Magcargo",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "19": {
+      "name": "Magneton",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "20": {
+      "name": "Magneton",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "21": {
+      "name": "Moltres",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "22": {
+      "name": "Nidoqueen",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "23": {
+      "name": "Omastar",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "24": {
+      "name": "Piloswine",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "25": {
+      "name": "Politoed",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "26": {
+      "name": "Poliwrath",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "27": {
+      "name": "Raichu",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "28": {
+      "name": "Raikou",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "29": {
+      "name": "Rhydon",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "30": {
+      "name": "Starmie",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "31": {
+      "name": "Steelix",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "32": {
+      "name": "Umbreon",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "33": {
+      "name": "Vaporeon",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "34": {
+      "name": "Wigglytuff",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "35": {
+      "name": "Xatu",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "36": {
+      "name": "Electrode",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "37": {
+      "name": "Kabuto",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "38": {
+      "name": "Machoke",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "39": {
+      "name": "Misdreavus",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "40": {
+      "name": "Noctowl",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "41": {
+      "name": "Omanyte",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "42": {
+      "name": "Persian",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "43": {
+      "name": "Piloswine",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "44": {
+      "name": "Starmie",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "45": {
+      "name": "Wobbuffet",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "46": {
+      "name": "Abra",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "47": {
+      "name": "Buried Fossil",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "48": {
+      "name": "Cleffa",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "49": {
+      "name": "Delibird",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "50": {
+      "name": "Diglett",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "51": {
+      "name": "Ditto",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "52": {
+      "name": "Dugtrio",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "53": {
+      "name": "Dunsparce",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "54": {
+      "name": "Eevee",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "55": {
+      "name": "Farfetch'd",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "56": {
+      "name": "Forretress",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "57": {
+      "name": "Gastly",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "58": {
+      "name": "Girafarig",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "59": {
+      "name": "Gligar",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "60": {
+      "name": "Golbat",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "61": {
+      "name": "Granbull",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "62": {
+      "name": "Growlithe",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "63": {
+      "name": "Haunter",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "64": {
+      "name": "Heracross",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "65": {
+      "name": "Hoothoot",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "66": {
+      "name": "Houndour",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "67": {
+      "name": "Igglybuff",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "68": {
+      "name": "Jigglypuff",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "69": {
+      "name": "Kadabra",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "70": {
+      "name": "Kakuna",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "71": {
+      "name": "Lapras",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "72": {
+      "name": "Ledyba",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "73": {
+      "name": "Ledyba",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "74": {
+      "name": "Machop",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "75": {
+      "name": "Magikarp",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "76": {
+      "name": "Magnemite",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "77": {
+      "name": "Mantine",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "78": {
+      "name": "Meowth",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "79": {
+      "name": "Murkrow",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "80": {
+      "name": "Natu",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "81": {
+      "name": "Nidoran ♀",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "82": {
+      "name": "Nidoran ♀",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "83": {
+      "name": "Nidorina",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "84": {
+      "name": "Pikachu",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "85": {
+      "name": "Pineco",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "86": {
+      "name": "Pineco",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "87": {
+      "name": "Poliwag",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "88": {
+      "name": "Poliwhirl",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "89": {
+      "name": "Raticate",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "90": {
+      "name": "Rattata",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "91": {
+      "name": "Rhyhorn",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "92": {
+      "name": "Sandshrew",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "93": {
+      "name": "Sandslash",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "94": {
+      "name": "Seel",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "95": {
+      "name": "Seel",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "96": {
+      "name": "Shuckle",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "97": {
+      "name": "Skarmory",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "98": {
+      "name": "Slugma",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "99": {
+      "name": "Slugma",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "100": {
+      "name": "Snorlax",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "101": {
+      "name": "Snubbull",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "102": {
+      "name": "Stantler",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "103": {
+      "name": "Staryu",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "104": {
+      "name": "Staryu",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "105": {
+      "name": "Sunflora",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "106": {
+      "name": "Sunkern",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "107": {
+      "name": "Swinub",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "108": {
+      "name": "Swinub",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "109": {
+      "name": "Teddiursa",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "110": {
+      "name": "Ursaring",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "111": {
+      "name": "Venomoth",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "112": {
+      "name": "Venonat",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "113": {
+      "name": "Voltorb",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "114": {
+      "name": "Weedle",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "115": {
+      "name": "Weedle",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "116": {
+      "name": "Yanma",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "117": {
+      "name": "Zubat",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "118": {
+      "name": "Zubat",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "119": {
+      "name": "Ancient Ruins",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "120": {
+      "name": "Relic Hunter",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "121": {
+      "name": "Apricorn Maker",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "122": {
+      "name": "Crystal Shard",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "123": {
+      "name": "Desert Shaman",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "124": {
+      "name": "Fast Ball",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "125": {
+      "name": "Fisherman",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "126": {
+      "name": "Friend Ball",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "127": {
+      "name": "Hyper Potion",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "128": {
+      "name": "Lure Ball",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "129": {
+      "name": "Miracle Sphere α",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "130": {
+      "name": "Miracle Sphere β",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "131": {
+      "name": "Miracle Sphere γ",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "132": {
+      "name": "Mirage Stadium",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "133": {
+      "name": "Mystery Plate α",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "134": {
+      "name": "Mystery Plate β",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "135": {
+      "name": "Mystery Plate γ",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "136": {
+      "name": "Mystery Plate δ",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "137": {
+      "name": "Mystery Zone",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "138": {
+      "name": "Oracle",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "139": {
+      "name": "Star Piece",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "140": {
+      "name": "Underground Expedition",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "141": {
+      "name": "Underground Lake",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "142": {
+      "name": "Bounce Energy",
+      "rarity": "uncommon",
+      "type": "energy"
+    },
+    "143": {
+      "name": "Cyclone Energy",
+      "rarity": "uncommon",
+      "type": "energy"
+    },
+    "144": {
+      "name": "Retro Energy",
+      "rarity": "uncommon",
+      "type": "energy"
+    },
+    "145": {
+      "name": "Celebi",
+      "rarity": "secret",
+      "type": "pokemon"
+    },
+    "146": {
+      "name": "Charizard",
+      "rarity": "secret",
+      "type": "pokemon"
+    },
+    "147": {
+      "name": "Crobat",
+      "rarity": "secret",
+      "type": "pokemon"
+    },
+    "148": {
+      "name": "Golem",
+      "rarity": "secret",
+      "type": "pokemon"
+    },
+    "149": {
+      "name": "Ho-oh",
+      "rarity": "secret",
+      "type": "pokemon"
+    },
+    "150": {
+      "name": "Kabutops",
+      "rarity": "secret",
+      "type": "pokemon"
+    },
+    "H1": {
+      "name": "Alakazam",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "H2": {
+      "name": "Arcanine",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "H3": {
+      "name": "Articuno",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "H4": {
+      "name": "Beedrill",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "H5": {
+      "name": "Crobat",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "H6": {
+      "name": "Dewgong",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "H7": {
+      "name": "Flareon",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "H8": {
+      "name": "Forretress",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "H9": {
+      "name": "Gengar",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "H10": {
+      "name": "Gyarados",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "H11": {
+      "name": "Houndoom",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "H12": {
+      "name": "Jolteon",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "H13": {
+      "name": "Kabutops",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "H14": {
+      "name": "Ledian",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "H15": {
+      "name": "Machamp",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "H16": {
+      "name": "Magcargo",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "H17": {
+      "name": "Magcargo",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "H18": {
+      "name": "Magneton",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "H19": {
+      "name": "Magneton",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "H20": {
+      "name": "Moltres",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "H21": {
+      "name": "Nidoqueen",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "H22": {
+      "name": "Piloswine",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "H23": {
+      "name": "Politoed",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "H24": {
+      "name": "Poliwrath",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "H25": {
+      "name": "Raichu",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "H26": {
+      "name": "Raikou",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "H27": {
+      "name": "Rhydon",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "H28": {
+      "name": "Starmie",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "H29": {
+      "name": "Steelix",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "H30": {
+      "name": "Umbreon",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "H31": {
+      "name": "Vaporeon",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "H32": {
+      "name": "Xatu",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    }
+  }
+}

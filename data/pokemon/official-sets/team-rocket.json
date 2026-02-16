@@ -1,0 +1,433 @@
+{
+  "version": "3.0.0",
+  "lastUpdated": "2026-02-16",
+  "setKey": "team-rocket",
+  "name": "Team Rocket",
+  "displayName": "Team Rocket",
+  "totalCards": 83,
+  "mainSet": 82,
+  "setCode": "base5",
+  "releaseDate": "2000-04-24",
+  "block": "Base Set",
+  "blockCode": "base",
+  "hasPokeBallVariant": false,
+  "hasMasterBallVariant": false,
+  "hasFirstEdition": true,
+  "cards": {
+    "1": {
+      "name": "Dark Alakazam",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "2": {
+      "name": "Dark Arbok",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "3": {
+      "name": "Dark Blastoise",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "4": {
+      "name": "Dark Charizard",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "5": {
+      "name": "Dark Dragonite",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "6": {
+      "name": "Dark Dugtrio",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "7": {
+      "name": "Dark Golbat",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "8": {
+      "name": "Dark Gyarados",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "9": {
+      "name": "Dark Hypno",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "10": {
+      "name": "Dark Machamp",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "11": {
+      "name": "Dark Magneton",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "12": {
+      "name": "Dark Slowbro",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "13": {
+      "name": "Dark Vileplume",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "14": {
+      "name": "Dark Weezing",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "15": {
+      "name": "Here Comes Team Rocket!",
+      "rarity": "rare-holo",
+      "type": "trainer"
+    },
+    "16": {
+      "name": "Rocket's Sneak Attack",
+      "rarity": "rare-holo",
+      "type": "trainer"
+    },
+    "17": {
+      "name": "Rainbow Energy",
+      "rarity": "rare-holo",
+      "type": "energy"
+    },
+    "18": {
+      "name": "Dark Alakazam",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "19": {
+      "name": "Dark Arbok",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "20": {
+      "name": "Dark Blastoise",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "21": {
+      "name": "Dark Charizard",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "22": {
+      "name": "Dark Dragonite",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "23": {
+      "name": "Dark Dugtrio",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "24": {
+      "name": "Dark Golbat",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "25": {
+      "name": "Dark Gyarados",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "26": {
+      "name": "Dark Hypno",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "27": {
+      "name": "Dark Machamp",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "28": {
+      "name": "Dark Magneton",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "29": {
+      "name": "Dark Slowbro",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "30": {
+      "name": "Dark Vileplume",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "31": {
+      "name": "Dark Weezing",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "32": {
+      "name": "Dark Charmeleon",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "33": {
+      "name": "Dark Dragonair",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "34": {
+      "name": "Dark Electrode",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "35": {
+      "name": "Dark Flareon",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "36": {
+      "name": "Dark Gloom",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "37": {
+      "name": "Dark Golduck",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "38": {
+      "name": "Dark Jolteon",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "39": {
+      "name": "Dark Kadabra",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "40": {
+      "name": "Dark Machoke",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "41": {
+      "name": "Dark Muk",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "42": {
+      "name": "Dark Persian",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "43": {
+      "name": "Dark Primeape",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "44": {
+      "name": "Dark Rapidash",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "45": {
+      "name": "Dark Vaporeon",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "46": {
+      "name": "Dark Wartortle",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "47": {
+      "name": "Magikarp",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "48": {
+      "name": "Porygon",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "49": {
+      "name": "Abra",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "50": {
+      "name": "Charmander",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "51": {
+      "name": "Dark Raticate",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "52": {
+      "name": "Diglett",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "53": {
+      "name": "Dratini",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "54": {
+      "name": "Drowzee",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "55": {
+      "name": "Eevee",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "56": {
+      "name": "Ekans",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "57": {
+      "name": "Grimer",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "58": {
+      "name": "Koffing",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "59": {
+      "name": "Machop",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "60": {
+      "name": "Magnemite",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "61": {
+      "name": "Mankey",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "62": {
+      "name": "Meowth",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "63": {
+      "name": "Oddish",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "64": {
+      "name": "Ponyta",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "65": {
+      "name": "Psyduck",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "66": {
+      "name": "Rattata",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "67": {
+      "name": "Slowpoke",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "68": {
+      "name": "Squirtle",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "69": {
+      "name": "Voltorb",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "70": {
+      "name": "Zubat",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "71": {
+      "name": "Here Comes Team Rocket!",
+      "rarity": "rare",
+      "type": "trainer"
+    },
+    "72": {
+      "name": "Rocket's Sneak Attack",
+      "rarity": "rare",
+      "type": "trainer"
+    },
+    "73": {
+      "name": "The Boss's Way",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "74": {
+      "name": "Challenge!",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "75": {
+      "name": "Digger",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "76": {
+      "name": "Imposter Oak's Revenge",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "77": {
+      "name": "Nightly Garbage Run",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "78": {
+      "name": "Goop Gas Attack",
+      "rarity": "common",
+      "type": "trainer"
+    },
+    "79": {
+      "name": "Sleep!",
+      "rarity": "common",
+      "type": "trainer"
+    },
+    "80": {
+      "name": "Rainbow Energy",
+      "rarity": "rare",
+      "type": "energy"
+    },
+    "81": {
+      "name": "Full Heal Energy",
+      "rarity": "uncommon",
+      "type": "energy"
+    },
+    "82": {
+      "name": "Potion Energy",
+      "rarity": "uncommon",
+      "type": "energy"
+    },
+    "83": {
+      "name": "Dark Raichu",
+      "rarity": "secret",
+      "type": "pokemon"
+    }
+  }
+}

@@ -1,0 +1,523 @@
+{
+  "version": "3.0.0",
+  "lastUpdated": "2026-02-16",
+  "setKey": "bw-promos",
+  "name": "BW Black Star Promos",
+  "displayName": "BW Black Star Promos",
+  "totalCards": 101,
+  "mainSet": 101,
+  "setCode": "bwp",
+  "releaseDate": "2011-03-01",
+  "block": "Black & White",
+  "blockCode": "bw",
+  "hasPokeBallVariant": false,
+  "hasMasterBallVariant": false,
+  "singleVariantOnly": true,
+  "cards": {
+    "BW01": {
+      "name": "Snivy",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "BW02": {
+      "name": "Tepig",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "BW03": {
+      "name": "Oshawott",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "BW004": {
+      "name": "Reshiram",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "BW005": {
+      "name": "Zekrom",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "BW06": {
+      "name": "Snivy",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "BW07": {
+      "name": "Tepig",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "BW08": {
+      "name": "Oshawott",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "BW09": {
+      "name": "Zoroark",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "BW10": {
+      "name": "Axew",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "BW11": {
+      "name": "Pansage",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "BW12": {
+      "name": "Zorua",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "BW13": {
+      "name": "Minccino",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "BW14": {
+      "name": "Pansage",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "BW15": {
+      "name": "Pidove",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "BW16": {
+      "name": "Axew",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "BW17": {
+      "name": "Ducklett",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "BW18": {
+      "name": "Darumaka",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "BW19": {
+      "name": "Zoroark",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "BW20": {
+      "name": "Serperior",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "BW21": {
+      "name": "Emboar",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "BW22": {
+      "name": "Samurott",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "BW23": {
+      "name": "Reshiram",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "BW24": {
+      "name": "Zekrom",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "BW25": {
+      "name": "Scraggy",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "BW26": {
+      "name": "Axew",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "BW27": {
+      "name": "Litwick",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "BW28": {
+      "name": "Tropical Beach",
+      "rarity": "promo",
+      "type": "trainer"
+    },
+    "BW29": {
+      "name": "Victory Cup",
+      "rarity": "promo",
+      "type": "trainer"
+    },
+    "BW30": {
+      "name": "Victory Cup",
+      "rarity": "promo",
+      "type": "trainer"
+    },
+    "BW31": {
+      "name": "Victory Cup",
+      "rarity": "promo",
+      "type": "trainer"
+    },
+    "BW32": {
+      "name": "Victini",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "BW33": {
+      "name": "Riolu",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "BW34": {
+      "name": "Luxio",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "BW35": {
+      "name": "Meowth",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "BW36": {
+      "name": "Reshiram-EX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "BW37": {
+      "name": "Kyurem-EX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "BW38": {
+      "name": "Zekrom-EX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "BW39": {
+      "name": "Battle City",
+      "rarity": "promo",
+      "type": "trainer"
+    },
+    "BW40": {
+      "name": "Volcarona",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "BW41": {
+      "name": "Thundurus",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "BW42": {
+      "name": "Tornadus",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "BW43": {
+      "name": "Landorus",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "BW44": {
+      "name": "Kyurem",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "BW45": {
+      "name": "Mewtwo-EX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "BW46": {
+      "name": "Darkrai-EX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "BW47": {
+      "name": "Rayquaza-EX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "BW48": {
+      "name": "Altaria",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "BW49": {
+      "name": "Lilligant",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "BW50": {
+      "name": "Tropical Beach",
+      "rarity": "promo",
+      "type": "trainer"
+    },
+    "BW51": {
+      "name": "Crobat",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "BW52": {
+      "name": "Lillipup",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "BW53": {
+      "name": "Flygon",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "BW54": {
+      "name": "Pikachu",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "BW55": {
+      "name": "Elgyem",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "BW56": {
+      "name": "Empoleon",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "BW57": {
+      "name": "Haxorus",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "BW58": {
+      "name": "Black Kyurem",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "BW59": {
+      "name": "White Kyurem",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "BW60": {
+      "name": "Keldeo",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "BW61": {
+      "name": "Keldeo-EX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "BW62": {
+      "name": "Black Kyurem-EX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "BW63": {
+      "name": "White Kyurem-EX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "BW64": {
+      "name": "Drifblim",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "BW65": {
+      "name": "Jigglypuff",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "BW66": {
+      "name": "Ninetales",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "BW67": {
+      "name": "Ampharos",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "BW68": {
+      "name": "Meloetta",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "BW69": {
+      "name": "Meloetta",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "BW70": {
+      "name": "Virizion",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "BW71": {
+      "name": "Terrakion",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "BW72": {
+      "name": "Cobalion",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "BW73": {
+      "name": "Darkrai",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "BW74": {
+      "name": "Giratina",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "BW75": {
+      "name": "Metagross",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "BW76": {
+      "name": "Electrode",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "BW77": {
+      "name": "Pikachu",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "BW78": {
+      "name": "Raichu",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "BW79": {
+      "name": "Landorus",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "BW80": {
+      "name": "Druddigon",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "BW81": {
+      "name": "Thundurus-EX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "BW82": {
+      "name": "Deoxys-EX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "BW83": {
+      "name": "Lugia-EX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "BW84": {
+      "name": "Porygon-Z",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "BW85": {
+      "name": "Lucario",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "BW86": {
+      "name": "Genesect",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "BW87": {
+      "name": "Leafeon",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "BW88": {
+      "name": "Flareon",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "BW89": {
+      "name": "Vaporeon",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "BW90": {
+      "name": "Glaceon",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "BW91": {
+      "name": "Jolteon",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "BW92": {
+      "name": "Espeon",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "BW93": {
+      "name": "Umbreon",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "BW94": {
+      "name": "Eevee",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "BW95": {
+      "name": "Champions Festival",
+      "rarity": "promo",
+      "type": "trainer"
+    },
+    "BW96": {
+      "name": "Tornadus-EX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "BW97": {
+      "name": "Eevee",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "BW98": {
+      "name": "Mew",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "BW99": {
+      "name": "Genesect",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "BW100": {
+      "name": "N",
+      "rarity": "promo",
+      "type": "trainer"
+    },
+    "BW101": {
+      "name": "Genesect",
+      "rarity": "promo",
+      "type": "pokemon"
+    }
+  }
+}

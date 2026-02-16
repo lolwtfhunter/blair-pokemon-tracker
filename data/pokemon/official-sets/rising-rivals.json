@@ -1,0 +1,617 @@
+{
+  "version": "3.0.0",
+  "lastUpdated": "2026-02-16",
+  "setKey": "rising-rivals",
+  "name": "Rising Rivals",
+  "displayName": "Rising Rivals",
+  "totalCards": 120,
+  "mainSet": 111,
+  "setCode": "pl2",
+  "releaseDate": "2009-05-16",
+  "block": "Platinum",
+  "blockCode": "pl",
+  "hasPokeBallVariant": false,
+  "hasMasterBallVariant": false,
+  "cards": {
+    "1": {
+      "name": "Arcanine",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "2": {
+      "name": "Bastiodon GL",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "3": {
+      "name": "Darkrai G",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "4": {
+      "name": "Floatzel GL",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "5": {
+      "name": "Flygon",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "6": {
+      "name": "Froslass GL",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "7": {
+      "name": "Jirachi",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "8": {
+      "name": "Lucario GL",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "9": {
+      "name": "Luxray GL",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "10": {
+      "name": "Mismagius GL",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "11": {
+      "name": "Rampardos GL",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "12": {
+      "name": "Roserade GL",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "13": {
+      "name": "Shiftry",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "14": {
+      "name": "Aggron",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "15": {
+      "name": "Beedrill",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "16": {
+      "name": "Bronzong E4",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "17": {
+      "name": "Drapion E4",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "18": {
+      "name": "Espeon E4",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "19": {
+      "name": "Flareon",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "20": {
+      "name": "Gallade E4",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "21": {
+      "name": "Gastrodon East Sea",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "22": {
+      "name": "Gastrodon West Sea",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "23": {
+      "name": "Golem E4",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "24": {
+      "name": "Heracross E4",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "25": {
+      "name": "Hippowdon",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "26": {
+      "name": "Jolteon",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "27": {
+      "name": "Mamoswine GL",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "28": {
+      "name": "Mr. Mime E4",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "29": {
+      "name": "Nidoking",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "30": {
+      "name": "Nidoqueen",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "31": {
+      "name": "Raichu GL",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "32": {
+      "name": "Rhyperior E4",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "33": {
+      "name": "Snorlax",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "34": {
+      "name": "Vaporeon",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "35": {
+      "name": "Vespiquen E4",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "36": {
+      "name": "Walrein",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "37": {
+      "name": "Yanmega E4",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "38": {
+      "name": "Alakazam E4",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "39": {
+      "name": "Electrode G",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "40": {
+      "name": "Gengar GL",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "41": {
+      "name": "Glaceon",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "42": {
+      "name": "Hippowdon E4",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "43": {
+      "name": "Infernape E4",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "44": {
+      "name": "Lairon",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "45": {
+      "name": "Leafeon",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "46": {
+      "name": "Machamp GL",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "47": {
+      "name": "Rapidash E4",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "48": {
+      "name": "Scizor E4",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "49": {
+      "name": "Sharpedo",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "50": {
+      "name": "Starmie",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "51": {
+      "name": "Steelix GL",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "52": {
+      "name": "Tropius",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "53": {
+      "name": "Vibrava",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "54": {
+      "name": "Whiscash E4",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "55": {
+      "name": "Aerodactyl GL",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "56": {
+      "name": "Ambipom G",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "57": {
+      "name": "Aron",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "58": {
+      "name": "Carvanha",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "59": {
+      "name": "Eevee",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "60": {
+      "name": "Flareon E4",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "61": {
+      "name": "Forretress G",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "62": {
+      "name": "Gliscor E4",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "63": {
+      "name": "Growlithe",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "64": {
+      "name": "Hippopotas",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "65": {
+      "name": "Houndoom E4",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "66": {
+      "name": "Kakuna",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "67": {
+      "name": "Kecleon",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "68": {
+      "name": "Koffing",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "69": {
+      "name": "Munchlax",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "70": {
+      "name": "Munchlax",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "71": {
+      "name": "Nidoran ♀",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "72": {
+      "name": "Nidoran ♂",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "73": {
+      "name": "Nidorina",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "74": {
+      "name": "Nidorino",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "75": {
+      "name": "Nuzleaf",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "76": {
+      "name": "Quagsire GL",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "77": {
+      "name": "Sealeo",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "78": {
+      "name": "Seedot",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "79": {
+      "name": "Shellos East Sea",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "80": {
+      "name": "Shellos West Sea",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "81": {
+      "name": "Snorlax",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "82": {
+      "name": "Spheal",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "83": {
+      "name": "Staryu",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "84": {
+      "name": "Trapinch",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "85": {
+      "name": "Turtwig GL",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "86": {
+      "name": "Weedle",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "87": {
+      "name": "Weezing",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "88": {
+      "name": "Aaron's Collection",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "89": {
+      "name": "Bebe's Search",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "90": {
+      "name": "Bertha's Warmth",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "91": {
+      "name": "Flint's Willpower",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "92": {
+      "name": "Lucian's Assignment",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "93": {
+      "name": "Pokémon Contest Hall",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "94": {
+      "name": "Sunyshore City Gym",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "95": {
+      "name": "Team Galactic's Invention G-107 Technical Machine G",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "96": {
+      "name": "Team Galactic's Invention G-109 SP Radar",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "97": {
+      "name": "Underground Expedition",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "98": {
+      "name": "Volkner's Philosophy",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "99": {
+      "name": "Darkness Energy",
+      "rarity": "uncommon",
+      "type": "energy"
+    },
+    "100": {
+      "name": "Metal Energy",
+      "rarity": "uncommon",
+      "type": "energy"
+    },
+    "101": {
+      "name": "SP Energy",
+      "rarity": "uncommon",
+      "type": "energy"
+    },
+    "102": {
+      "name": "Upper Energy",
+      "rarity": "uncommon",
+      "type": "energy"
+    },
+    "103": {
+      "name": "Alakazam E4 LV.X",
+      "rarity": "rare-holo-lv.x",
+      "type": "pokemon"
+    },
+    "104": {
+      "name": "Floatzel GL LV.X",
+      "rarity": "rare-holo-lv.x",
+      "type": "pokemon"
+    },
+    "105": {
+      "name": "Flygon LV.X",
+      "rarity": "rare-holo-lv.x",
+      "type": "pokemon"
+    },
+    "106": {
+      "name": "Gallade E4 LV.X",
+      "rarity": "rare-holo-lv.x",
+      "type": "pokemon"
+    },
+    "107": {
+      "name": "Hippowdon LV.X",
+      "rarity": "rare-holo-lv.x",
+      "type": "pokemon"
+    },
+    "108": {
+      "name": "Infernape E4 LV.X",
+      "rarity": "rare-holo-lv.x",
+      "type": "pokemon"
+    },
+    "109": {
+      "name": "Luxray GL LV.X",
+      "rarity": "rare-holo-lv.x",
+      "type": "pokemon"
+    },
+    "110": {
+      "name": "Mismagius GL LV.X",
+      "rarity": "rare-holo-lv.x",
+      "type": "pokemon"
+    },
+    "111": {
+      "name": "Snorlax LV.X",
+      "rarity": "rare-holo-lv.x",
+      "type": "pokemon"
+    },
+    "112": {
+      "name": "Pikachu",
+      "rarity": "secret",
+      "type": "pokemon"
+    },
+    "113": {
+      "name": "Flying Pikachu",
+      "rarity": "secret",
+      "type": "pokemon"
+    },
+    "114": {
+      "name": "Surfing Pikachu",
+      "rarity": "secret",
+      "type": "pokemon"
+    },
+    "RT1": {
+      "name": "Fan Rotom",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "RT2": {
+      "name": "Frost Rotom",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "RT3": {
+      "name": "Heat Rotom",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "RT4": {
+      "name": "Mow Rotom",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "RT5": {
+      "name": "Wash Rotom",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "RT6": {
+      "name": "Charon's Choice",
+      "rarity": "rare",
+      "type": "trainer"
+    }
+  }
+}

@@ -1,0 +1,298 @@
+{
+  "version": "3.0.0",
+  "lastUpdated": "2026-02-16",
+  "setKey": "dp-promos",
+  "name": "DP Black Star Promos",
+  "displayName": "DP Black Star Promos",
+  "totalCards": 56,
+  "mainSet": 56,
+  "setCode": "dpp",
+  "releaseDate": "2007-05-01",
+  "block": "Diamond & Pearl",
+  "blockCode": "dp",
+  "hasPokeBallVariant": false,
+  "hasMasterBallVariant": false,
+  "singleVariantOnly": true,
+  "cards": {
+    "DP01": {
+      "name": "Turtwig",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "DP02": {
+      "name": "Chimchar",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "DP03": {
+      "name": "Piplup",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "DP04": {
+      "name": "Pachirisu",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "DP05": {
+      "name": "Tropical Wind",
+      "rarity": "promo",
+      "type": "trainer"
+    },
+    "DP06": {
+      "name": "Buneary",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "DP07": {
+      "name": "Cranidos",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "DP08": {
+      "name": "Shieldon",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "DP09": {
+      "name": "Torterra LV.X",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "DP10": {
+      "name": "Infernape LV.X",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "DP11": {
+      "name": "Empoleon LV.X",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "DP12": {
+      "name": "Lucario LV.X",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "DP13": {
+      "name": "Buizel",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "DP14": {
+      "name": "Chatot",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "DP15": {
+      "name": "Shinx",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "DP16": {
+      "name": "Pikachu",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "DP17": {
+      "name": "Dialga LV.X",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "DP18": {
+      "name": "Palkia LV.X",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "DP19": {
+      "name": "Darkrai LV.X",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "DP20": {
+      "name": "Magmortar",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "DP21": {
+      "name": "Raichu",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "DP22": {
+      "name": "Mime Jr.",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "DP23": {
+      "name": "Glameow",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "DP24": {
+      "name": "Darkrai",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "DP25": {
+      "name": "Tropical Wind",
+      "rarity": "promo",
+      "type": "trainer"
+    },
+    "DP26": {
+      "name": "Dialga",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "DP27": {
+      "name": "Palkia",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "DP28": {
+      "name": "Mewtwo LV.X",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "DP29": {
+      "name": "Rhyperior LV.X",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "DP30": {
+      "name": "Regigigas LV.X",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "DP31": {
+      "name": "Heatran LV.X",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "DP32": {
+      "name": "Magnezone",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "DP33": {
+      "name": "Dusknoir",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "DP34": {
+      "name": "Drifblim",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "DP35": {
+      "name": "Porygon-Z",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "DP36": {
+      "name": "Gliscor",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "DP37": {
+      "name": "Dialga LV.X",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "DP38": {
+      "name": "Giratina LV.X",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "DP39": {
+      "name": "Shaymin LV.X",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "DP40": {
+      "name": "Regigigas",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "DP41": {
+      "name": "Toxicroak G",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "DP42": {
+      "name": "Carnivine G",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "DP43": {
+      "name": "Probopass G",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "DP44": {
+      "name": "Magnezone",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "DP45": {
+      "name": "Charizard G LV.X",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "DP46": {
+      "name": "Garchomp C LV.X",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "DP47": {
+      "name": "Rayquaza C LV.X",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "DP48": {
+      "name": "Tropical Wind",
+      "rarity": "promo",
+      "type": "trainer"
+    },
+    "DP49": {
+      "name": "Dialga",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "DP50": {
+      "name": "Arceus",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "DP51": {
+      "name": "Cresselia",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "DP52": {
+      "name": "Darkrai",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "DP53": {
+      "name": "Arceus LV.X",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "DP54": {
+      "name": "Beginning Door",
+      "rarity": "promo",
+      "type": "trainer"
+    },
+    "DP55": {
+      "name": "Ultimate Zone",
+      "rarity": "promo",
+      "type": "trainer"
+    },
+    "DP56": {
+      "name": "Arceus LV.X",
+      "rarity": "promo",
+      "type": "pokemon"
+    }
+  }
+}

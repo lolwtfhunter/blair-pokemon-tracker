@@ -1,56 +1,62 @@
 // Data loading functions for official, custom, and Lorcana card sets
 
-// Load card data from modular JSON files
+// Load a single set from JSON
+async function loadSingleSet(setKey) {
+    const response = await fetch(`./data/pokemon/official-sets/${setKey}.json`);
+    if (!response.ok) {
+        console.warn(`Set ${setKey} not found, skipping`);
+        return false;
+    }
+    const setInfo = await response.json();
+    const cards = [];
+
+    // Convert cards object to array
+    if (setInfo.cards && typeof setInfo.cards === 'object') {
+        for (const [cardNum, cardData] of Object.entries(setInfo.cards)) {
+            const cardObj = {
+                number: parseInt(cardNum),
+                name: cardData.name,
+                rarity: cardData.rarity,
+                type: cardData.type || 'pokemon'
+            };
+            if (cardData.imageId) cardObj.imageId = cardData.imageId;
+            cards.push(cardObj);
+        }
+    }
+
+    cardSets[setKey] = {
+        name: setInfo.name,
+        displayName: setInfo.displayName,
+        totalCards: setInfo.totalCards,
+        mainSet: setInfo.mainSet,
+        setCode: setInfo.setCode,
+        releaseDate: setInfo.releaseDate || '',
+        block: setInfo.block || '',
+        blockCode: setInfo.blockCode || '',
+        hasPokeBallVariant: setInfo.hasPokeBallVariant,
+        hasMasterBallVariant: setInfo.hasMasterBallVariant,
+        hasFirstEdition: setInfo.hasFirstEdition || false,
+        singleVariantOnly: setInfo.singleVariantOnly || false,
+        cards: cards
+    };
+
+    console.log(`✓ ${setKey}: ${cards.length} cards`);
+    return true;
+}
+
+// Load card data from modular JSON files (batched parallel loading)
 async function loadCardData() {
     console.log('Loading official Pokemon TCG sets...');
     try {
         let loadedCount = 0;
+        const BATCH_SIZE = 10;
 
-        // Load each set individually
-        for (const setKey of OFFICIAL_SETS) {
-            try {
-                const response = await fetch(`./data/pokemon/official-sets/${setKey}.json`);
-                if (!response.ok) {
-                    console.warn(`Set ${setKey} not found, skipping`);
-                    continue;
-                }
-                const setInfo = await response.json();
-                const cards = [];
-
-                // Convert cards object to array
-                if (setInfo.cards && typeof setInfo.cards === 'object') {
-                    for (const [cardNum, cardData] of Object.entries(setInfo.cards)) {
-                        const cardObj = {
-                            number: parseInt(cardNum),
-                            name: cardData.name,
-                            rarity: cardData.rarity,
-                            type: cardData.type || 'pokemon'
-                        };
-                        if (cardData.imageId) cardObj.imageId = cardData.imageId;
-                        cards.push(cardObj);
-                    }
-                }
-
-                cardSets[setKey] = {
-                    name: setInfo.name,
-                    displayName: setInfo.displayName,
-                    totalCards: setInfo.totalCards,
-                    mainSet: setInfo.mainSet,
-                    setCode: setInfo.setCode,
-                    releaseDate: setInfo.releaseDate || '',
-                    block: setInfo.block || '',
-                    blockCode: setInfo.blockCode || '',
-                    hasPokeBallVariant: setInfo.hasPokeBallVariant,
-                    hasMasterBallVariant: setInfo.hasMasterBallVariant,
-                    singleVariantOnly: setInfo.singleVariantOnly || false,
-                    cards: cards
-                };
-
-                console.log(`✓ ${setKey}: ${cards.length} cards`);
-                loadedCount++;
-            } catch (setError) {
-                console.error(`Error loading ${setKey}:`, setError);
-            }
+        for (let i = 0; i < OFFICIAL_SETS.length; i += BATCH_SIZE) {
+            const batch = OFFICIAL_SETS.slice(i, i + BATCH_SIZE);
+            const results = await Promise.allSettled(batch.map(setKey => loadSingleSet(setKey)));
+            results.forEach(result => {
+                if (result.status === 'fulfilled' && result.value) loadedCount++;
+            });
         }
 
         console.log(`✓ Loaded ${loadedCount} official sets`);

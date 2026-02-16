@@ -1,0 +1,1273 @@
+{
+  "version": "3.0.0",
+  "lastUpdated": "2026-02-16",
+  "setKey": "sm-promos",
+  "name": "SM Black Star Promos",
+  "displayName": "SM Black Star Promos",
+  "totalCards": 250,
+  "mainSet": 248,
+  "setCode": "smp",
+  "releaseDate": "2017-02-03",
+  "block": "Sun & Moon",
+  "blockCode": "sm",
+  "hasPokeBallVariant": false,
+  "hasMasterBallVariant": false,
+  "singleVariantOnly": true,
+  "cards": {
+    "SM01": {
+      "name": "Rowlet",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM02": {
+      "name": "Litten",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM03": {
+      "name": "Popplio",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM04": {
+      "name": "Pikachu",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM05": {
+      "name": "Snorlax-GX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM06": {
+      "name": "Rockruff",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM07": {
+      "name": "Pikipek",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM08": {
+      "name": "Litten",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM09": {
+      "name": "Togedemaru",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM10": {
+      "name": "Shiinotic",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM11": {
+      "name": "Bruxish",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM12": {
+      "name": "Passimian",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM13": {
+      "name": "Oranguru",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM14": {
+      "name": "Lycanroc-GX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM15": {
+      "name": "Zygarde",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM16": {
+      "name": "Solgaleo-GX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM17": {
+      "name": "Lunala-GX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM18": {
+      "name": "Alolan Sandslash",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM19": {
+      "name": "Oricorio",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM20": {
+      "name": "Mudsdale",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM21": {
+      "name": "Drampa",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM22": {
+      "name": "Rowlet",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM23": {
+      "name": "Litten",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM24": {
+      "name": "Popplio",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM25": {
+      "name": "Lurantis",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM26": {
+      "name": "Tsareena",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM27": {
+      "name": "Turtonator",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM28": {
+      "name": "Vikavolt",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM29": {
+      "name": "Mimikyu",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM30": {
+      "name": "Tapu Koko",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM30a": {
+      "name": "Tapu Koko",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM31": {
+      "name": "Tapu Koko",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM32": {
+      "name": "Tapu Bulu-GX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM33": {
+      "name": "Tapu Koko-GX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM34": {
+      "name": "Bewear-GX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM35": {
+      "name": "Espeon-GX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM36": {
+      "name": "Umbreon-GX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM37": {
+      "name": "Decidueye-GX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM38": {
+      "name": "Incineroar-GX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM39": {
+      "name": "Primarina-GX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM40": {
+      "name": "Jangmo-o",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM41": {
+      "name": "Komala",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM42": {
+      "name": "Cosmog",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM43": {
+      "name": "Alolan Meowth",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM44": {
+      "name": "Togedemaru",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM45": {
+      "name": "Tapu Lele",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM46": {
+      "name": "Seviper",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM47": {
+      "name": "Crabominable",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM48": {
+      "name": "Zygarde",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM49": {
+      "name": "Bewear",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM50": {
+      "name": "Tapu Koko-GX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM51": {
+      "name": "Alolan Meowth",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM52": {
+      "name": "Golisopod",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM53": {
+      "name": "Dhelmise",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM54": {
+      "name": "Lucario",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM55": {
+      "name": "Decidueye",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM56": {
+      "name": "Tsareena-GX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM57": {
+      "name": "Ho-Oh-GX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM58": {
+      "name": "Necrozma-GX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM59": {
+      "name": "Marshadow-GX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM60": {
+      "name": "Charizard-GX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM61": {
+      "name": "Tapu Bulu",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM62": {
+      "name": "Golisopod-GX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM63": {
+      "name": "Salazzle-GX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM64": {
+      "name": "Silvally",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM65": {
+      "name": "Alolan Raichu",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM66": {
+      "name": "Pheromosa-GX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM67": {
+      "name": "Celesteela-GX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM68": {
+      "name": "Xurkitree-GX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM69": {
+      "name": "Buzzwole-GX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM70": {
+      "name": "Shining Ho-Oh",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM71": {
+      "name": "Kommo-o-GX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM72": {
+      "name": "Alolan Raichu",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM73": {
+      "name": "Salazzle",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM74": {
+      "name": "Regirock",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM75": {
+      "name": "Registeel",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM76": {
+      "name": "Pikachu",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM77": {
+      "name": "Mewtwo",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM78": {
+      "name": "Champions Festival",
+      "rarity": "promo",
+      "type": "trainer"
+    },
+    "SM79": {
+      "name": "Shining Celebi",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM80": {
+      "name": "Ho-Oh-GX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM81": {
+      "name": "Pikachu",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM82": {
+      "name": "Shining Lugia",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM83": {
+      "name": "Zorua",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM84": {
+      "name": "Zoroark-GX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM85": {
+      "name": "Marshadow",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM86": {
+      "name": "Pikachu",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM87": {
+      "name": "Latias",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM88": {
+      "name": "Latios",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM89": {
+      "name": "Zoroark",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM90": {
+      "name": "Raichu-GX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM91": {
+      "name": "Silvally-GX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM92": {
+      "name": "Tapu Fini",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM93": {
+      "name": "Marshadow",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM94": {
+      "name": "Wash Rotom",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM95": {
+      "name": "Lucario",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM96": {
+      "name": "Heatran",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM97": {
+      "name": "Gumshoos",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM98": {
+      "name": "Pikachu",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM99": {
+      "name": "Mimikyu",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM100": {
+      "name": "Lucario-GX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM101": {
+      "name": "Dawn Wings Necrozma-GX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM102": {
+      "name": "Dusk Mane Necrozma-GX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM103": {
+      "name": "Lunala-GX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM103a": {
+      "name": "Lunala-GX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM104": {
+      "name": "Solgaleo-GX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM104a": {
+      "name": "Solgaleo-GX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM105": {
+      "name": "Lycanroc",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM106": {
+      "name": "Dawn Wings Necrozma",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM107": {
+      "name": "Dusk Mane Necrozma",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM108": {
+      "name": "Ash's Pikachu",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM109": {
+      "name": "Ash's Pikachu",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM110": {
+      "name": "Ash's Pikachu",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM111": {
+      "name": "Ash's Pikachu",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM112": {
+      "name": "Ash's Pikachu",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM113": {
+      "name": "Ash's Pikachu",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM114": {
+      "name": "Ash's Pikachu",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM115": {
+      "name": "Pheromosa",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM116": {
+      "name": "Xurkitree",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM117": {
+      "name": "Malamar",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM118": {
+      "name": "Lycanroc",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM119": {
+      "name": "Exeggcute",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM120": {
+      "name": "Rockruff",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM121": {
+      "name": "Raikou-GX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM122": {
+      "name": "Zygarde-GX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM123": {
+      "name": "Dawn Wings Necrozma",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM124": {
+      "name": "Dusk Mane Necrozma",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM125": {
+      "name": "Naganadel-GX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM126": {
+      "name": "Ultra Necrozma-GX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM127": {
+      "name": "Alolan Sandslash",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM128": {
+      "name": "Alolan Ninetales",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM129": {
+      "name": "Kyogre",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM130": {
+      "name": "Manectric",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM131": {
+      "name": "Celesteela",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM132": {
+      "name": "Delcatty",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM133": {
+      "name": "Thundurus-GX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM134": {
+      "name": "Tornadus-GX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM135": {
+      "name": "Latias",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM136": {
+      "name": "Latios",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM137": {
+      "name": "Reshiram-GX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM138": {
+      "name": "Zekrom-GX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM139": {
+      "name": "Salamence-GX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM140": {
+      "name": "Salamence",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM141": {
+      "name": "White Kyurem-GX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM142": {
+      "name": "Kyurem",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM143": {
+      "name": "Moltres",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM144": {
+      "name": "Articuno",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM145": {
+      "name": "Zapdos",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM146": {
+      "name": "Leafeon-GX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM147": {
+      "name": "Glaceon-GX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM148": {
+      "name": "Champions Festival",
+      "rarity": "promo",
+      "type": "trainer"
+    },
+    "SM149": {
+      "name": "Suicune",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM150": {
+      "name": "Raikou",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM151": {
+      "name": "Giratina",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM152": {
+      "name": "Tapu Lele",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM153": {
+      "name": "Rowlet",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM154": {
+      "name": "Salandit",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM155": {
+      "name": "Kingdra-GX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM156": {
+      "name": "Dragonite-GX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM157": {
+      "name": "Pikachu",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM158": {
+      "name": "Charizard",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM159": {
+      "name": "Zapdos",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM160": {
+      "name": "Nidoqueen",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM161": {
+      "name": "Jirachi",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM162": {
+      "name": "Pikachu",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM163": {
+      "name": "Mimikyu",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM164": {
+      "name": "Deoxys",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM165": {
+      "name": "Ultra Necrozma",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM166": {
+      "name": "Magikarp & Wailord-GX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM167": {
+      "name": "Celebi & Venusaur-GX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM168": {
+      "name": "Pikachu & Zekrom-GX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM169": {
+      "name": "Eevee & Snorlax-GX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM170": {
+      "name": "Detective Pikachu",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM171": {
+      "name": "Flareon-GX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM172": {
+      "name": "Vaporeon-GX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM173": {
+      "name": "Jolteon-GX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM174": {
+      "name": "Eevee-GX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM175": {
+      "name": "Eevee-GX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM176": {
+      "name": "Eevee-GX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM177": {
+      "name": "Meltan",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM178": {
+      "name": "Melmetal-GX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM179": {
+      "name": "Volcanion",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM180": {
+      "name": "Stakataka",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM181": {
+      "name": "Melmetal",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM182": {
+      "name": "Persian",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM183": {
+      "name": "Pikachu",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM184": {
+      "name": "Eevee",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM185": {
+      "name": "Typhlosion",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM186": {
+      "name": "Flareon",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM187": {
+      "name": "Alolan Marowak-GX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM188": {
+      "name": "Kangaskhan-GX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM189": {
+      "name": "Blastoise-GX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM190": {
+      "name": "Detective Pikachu",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM191": {
+      "name": "Mewtwo & Mew-GX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM192": {
+      "name": "Lucario & Melmetal-GX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM193": {
+      "name": "Garchomp & Giratina-GX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM194": {
+      "name": "Detective Pikachu",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM195": {
+      "name": "Charizard-GX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM196": {
+      "name": "Mewtwo-GX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM197": {
+      "name": "Greninja-GX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM198": {
+      "name": "Bulbasaur",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM199": {
+      "name": "Psyduck",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM200": {
+      "name": "Snubbull",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM201": {
+      "name": "Reshiram & Charizard-GX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM202": {
+      "name": "Amoonguss",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM203": {
+      "name": "Tapu Fini",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM204": {
+      "name": "Necrozma",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM205": {
+      "name": "Terrakion",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM206": {
+      "name": "Pikachu",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM207": {
+      "name": "Sudowoodo",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM208": {
+      "name": "Vikavolt",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM209": {
+      "name": "Stakataka",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM210": {
+      "name": "Moltres & Zapdos & Articuno-GX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM211": {
+      "name": "Charizard-GX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM212": {
+      "name": "Gyarados-GX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM213": {
+      "name": "Raichu-GX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM214": {
+      "name": "Mewtwo",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM215": {
+      "name": "Mew",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM216": {
+      "name": "Porygon-Z-GX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM217": {
+      "name": "Trevenant & Dusknoir-GX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM218": {
+      "name": "Buzzwole",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM219": {
+      "name": "Entei",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM220": {
+      "name": "Phione",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM221": {
+      "name": "Blacephalon",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM222": {
+      "name": "Mismagius",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM223": {
+      "name": "Terrakion",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM224": {
+      "name": "Celebi",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM225": {
+      "name": "Victini",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM226": {
+      "name": "Charizard",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM227": {
+      "name": "Pikachu",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM228": {
+      "name": "Armored Mewtwo",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM229": {
+      "name": "Venusaur & Snivy-GX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM230": {
+      "name": "Charizard & Braixen-GX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM231": {
+      "name": "Champions Festival",
+      "rarity": "promo",
+      "type": "trainer"
+    },
+    "SM232": {
+      "name": "Pikachu-GX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM233": {
+      "name": "Eevee-GX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM234": {
+      "name": "Pikachu",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM235": {
+      "name": "Eevee",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM236": {
+      "name": "Alolan Sandslash-GX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM237": {
+      "name": "Leafeon",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM238": {
+      "name": "Glaceon",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM239": {
+      "name": "Carracosta-GX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM240": {
+      "name": "Espeon & Deoxys-GX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM241": {
+      "name": "Umbreon & Darkrai-GX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM242": {
+      "name": "Eevee-GX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM243": {
+      "name": "Regigigas",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM244": {
+      "name": "Aipom",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM245": {
+      "name": "Mismagius",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM246": {
+      "name": "Sabrina & Brycen",
+      "rarity": "promo",
+      "type": "trainer"
+    },
+    "SM247": {
+      "name": "Reshiram & Charizard-GX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "SM248": {
+      "name": "Pikachu & Zekrom-GX",
+      "rarity": "promo",
+      "type": "pokemon"
+    }
+  }
+}

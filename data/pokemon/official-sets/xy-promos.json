@@ -1,0 +1,1098 @@
+{
+  "version": "3.0.0",
+  "lastUpdated": "2026-02-16",
+  "setKey": "xy-promos",
+  "name": "XY Black Star Promos",
+  "displayName": "XY Black Star Promos",
+  "totalCards": 216,
+  "mainSet": 211,
+  "setCode": "xyp",
+  "releaseDate": "2013-10-12",
+  "block": "XY",
+  "blockCode": "xy",
+  "hasPokeBallVariant": false,
+  "hasMasterBallVariant": false,
+  "singleVariantOnly": true,
+  "cards": {
+    "XY01": {
+      "name": "Chespin",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY02": {
+      "name": "Fennekin",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY03": {
+      "name": "Froakie",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY04": {
+      "name": "Sylveon",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY05": {
+      "name": "Xerneas",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY06": {
+      "name": "Yveltal",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY07": {
+      "name": "Xerneas-EX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY08": {
+      "name": "Yveltal-EX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY09": {
+      "name": "Garchomp-EX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY10": {
+      "name": "Dragalge",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY11": {
+      "name": "Skiddo",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY12": {
+      "name": "Honedge",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY13": {
+      "name": "Machamp",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY14": {
+      "name": "Trevenant",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY15": {
+      "name": "Slurpuff",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY16": {
+      "name": "Gogoat",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY17": {
+      "name": "Charizard-EX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY18": {
+      "name": "Chesnaught-EX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY19": {
+      "name": "Delphox-EX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY20": {
+      "name": "Greninja-EX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY21": {
+      "name": "Bronzong",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY22": {
+      "name": "Darkrai",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY23": {
+      "name": "Shiftry",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY24": {
+      "name": "Greninja",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY25": {
+      "name": "Krookodile-EX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY26": {
+      "name": "Pyroar",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY27": {
+      "name": "Champions Festival",
+      "rarity": "promo",
+      "type": "trainer"
+    },
+    "XY28": {
+      "name": "Venusaur-EX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY29": {
+      "name": "Charizard-EX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY30": {
+      "name": "Blastoise-EX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY31": {
+      "name": "Xerneas",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY32": {
+      "name": "Yveltal",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY33": {
+      "name": "Trevor",
+      "rarity": "promo",
+      "type": "trainer"
+    },
+    "XY34": {
+      "name": "Metagross-EX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY35": {
+      "name": "M Metagross-EX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY36": {
+      "name": "Treecko",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY37": {
+      "name": "Torchic",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY38": {
+      "name": "Mudkip",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY39": {
+      "name": "Kingdra",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY40": {
+      "name": "Ditto",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY41": {
+      "name": "Kyogre-EX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY42": {
+      "name": "Groudon-EX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY43": {
+      "name": "Diancie-EX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY44": {
+      "name": "M Diancie-EX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY45": {
+      "name": "Gallade-EX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY46": {
+      "name": "Altaria",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY47": {
+      "name": "Heliolisk",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY48": {
+      "name": "Meowstic",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY49": {
+      "name": "Regirock",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY50": {
+      "name": "Pangoro",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY51": {
+      "name": "Kyogre",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY52": {
+      "name": "Groudon",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY53": {
+      "name": "Sceptile-EX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY54": {
+      "name": "Blaziken-EX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY55": {
+      "name": "Swampert-EX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY56": {
+      "name": "Blissey",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY57": {
+      "name": "Fearow",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY58": {
+      "name": "Malamar",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY59": {
+      "name": "Salamence",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY60": {
+      "name": "Gyarados",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY61": {
+      "name": "Flygon-EX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY62": {
+      "name": "Absol-EX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY63": {
+      "name": "M Absol-EX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY64": {
+      "name": "Rayquaza",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY65": {
+      "name": "Latios",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY66": {
+      "name": "Rayquaza-EX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY67": {
+      "name": "Jirachi",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY67a": {
+      "name": "Jirachi",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY68": {
+      "name": "Chesnaught",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY69": {
+      "name": "Rayquaza-EX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY70": {
+      "name": "Tyrantrum-EX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY71": {
+      "name": "Hoopa-EX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY72": {
+      "name": "Latios-EX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY73": {
+      "name": "Rayquaza-EX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY74": {
+      "name": "Reshiram",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY75": {
+      "name": "Palkia",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY76": {
+      "name": "Zekrom",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY77": {
+      "name": "Dialga",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY78": {
+      "name": "Latias",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY79": {
+      "name": "Latios",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY80": {
+      "name": "Black Kyurem",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY81": {
+      "name": "White Kyurem",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY82": {
+      "name": "Regigigas",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY83": {
+      "name": "Arceus",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY84": {
+      "name": "Pikachu-EX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY85": {
+      "name": "Hoopa-EX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY86": {
+      "name": "M Blaziken-EX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY87": {
+      "name": "M Swampert-EX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY88": {
+      "name": "Chespin",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY89": {
+      "name": "Pikachu",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY90": {
+      "name": "Hoopa",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY91": {
+      "name": "Champions Festival",
+      "rarity": "promo",
+      "type": "trainer"
+    },
+    "XY92": {
+      "name": "Sableye",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY93": {
+      "name": "Celebi",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY94": {
+      "name": "Trevenant",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY95": {
+      "name": "Pikachu",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY96": {
+      "name": "Umbreon",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY97": {
+      "name": "Aerodactyl-EX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY98": {
+      "name": "M Aerodactyl-EX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY99": {
+      "name": "Aerodactyl Spirit Link",
+      "rarity": "promo",
+      "type": "trainer"
+    },
+    "XY100": {
+      "name": "Mewtwo",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY101": {
+      "name": "Mewtwo",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY102": {
+      "name": "Aurorus-EX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY103": {
+      "name": "Mawile-EX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY104": {
+      "name": "M Mawile-EX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY105": {
+      "name": "Mawile Spirit Link",
+      "rarity": "promo",
+      "type": "trainer"
+    },
+    "XY106": {
+      "name": "Gyarados-EX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY107": {
+      "name": "Mewtwo-EX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY108": {
+      "name": "Machamp-EX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY109": {
+      "name": "Gyarados",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY110": {
+      "name": "Mew",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY111": {
+      "name": "Celebi",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY112": {
+      "name": "Jirachi",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY113": {
+      "name": "Manaphy",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY114": {
+      "name": "Darkrai",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY115": {
+      "name": "Shaymin",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY116": {
+      "name": "Arceus",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY117": {
+      "name": "Victini",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY118": {
+      "name": "Keldeo",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY119": {
+      "name": "Genesect",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY120": {
+      "name": "Meloetta",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY121": {
+      "name": "Charizard-EX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY122": {
+      "name": "Blastoise-EX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY123": {
+      "name": "Venusaur-EX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY124": {
+      "name": "Pikachu-EX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY125": {
+      "name": "Mewtwo-EX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY126": {
+      "name": "Mew-EX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY127": {
+      "name": "Moltres",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY128": {
+      "name": "White Kyurem",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY129": {
+      "name": "Zygarde",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY130": {
+      "name": "Tyranitar",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY131": {
+      "name": "Pansear",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY132": {
+      "name": "Gastly",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY133": {
+      "name": "Ash-Greninja-EX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY134": {
+      "name": "Empoleon BREAK",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY135": {
+      "name": "Beheeyem BREAK",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY136": {
+      "name": "Noctowl BREAK",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY137": {
+      "name": "Vivillon",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY138": {
+      "name": "Froakie",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY139": {
+      "name": "Floette",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY140": {
+      "name": "Lucario",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY141": {
+      "name": "Rayquaza",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY142": {
+      "name": "Azelf",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY143": {
+      "name": "Magikarp",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY144": {
+      "name": "Yanmega",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY145": {
+      "name": "Volcanion",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY146": {
+      "name": "Clawitzer",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY147": {
+      "name": "Hoopa",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY148": {
+      "name": "Shaymin-EX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY149": {
+      "name": "Xerneas-EX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY150": {
+      "name": "Yveltal-EX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY150a": {
+      "name": "Yveltal-EX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY151": {
+      "name": "Zygarde-EX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY152": {
+      "name": "Zygarde",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY153": {
+      "name": "Ho-Oh",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY154": {
+      "name": "Ho-Oh BREAK",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY155": {
+      "name": "Wobbuffet BREAK",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY156": {
+      "name": "Lugia",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY157": {
+      "name": "Beedrill-EX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY158": {
+      "name": "M Beedrill-EX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY159": {
+      "name": "Beedrill Spirit Link",
+      "rarity": "promo",
+      "type": "trainer"
+    },
+    "XY160": {
+      "name": "Black Kyurem",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY161": {
+      "name": "Braixen",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY162": {
+      "name": "Greninja",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY163": {
+      "name": "Weezing",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY164": {
+      "name": "Volcanion",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY165": {
+      "name": "Magearna",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY166": {
+      "name": "M Gengar-EX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY167": {
+      "name": "Garchomp-EX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY168": {
+      "name": "M Garchomp-EX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY169": {
+      "name": "Garchomp Spirit Link",
+      "rarity": "promo",
+      "type": "trainer"
+    },
+    "XY170": {
+      "name": "Salamence-EX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY171": {
+      "name": "M Salamence-EX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY172": {
+      "name": "Salamence Spirit Link",
+      "rarity": "promo",
+      "type": "trainer"
+    },
+    "XY173": {
+      "name": "Volcanion-EX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY174": {
+      "name": "Pikachu-EX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY175": {
+      "name": "Magearna-EX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY176": {
+      "name": "Champions Festival",
+      "rarity": "promo",
+      "type": "trainer"
+    },
+    "XY177": {
+      "name": "Karen",
+      "rarity": "promo",
+      "type": "trainer"
+    },
+    "XY177a": {
+      "name": "Karen",
+      "rarity": "promo",
+      "type": "trainer"
+    },
+    "XY178": {
+      "name": "Absol",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY179": {
+      "name": "Snorlax",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY180": {
+      "name": "Arcanine BREAK",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY181": {
+      "name": "Crobat BREAK",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY182": {
+      "name": "Mandibuzz BREAK",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY183": {
+      "name": "Mewtwo-EX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY184": {
+      "name": "Giratina",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY185": {
+      "name": "Volcanion",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY186": {
+      "name": "Magearna",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY187": {
+      "name": "Celebi",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY188": {
+      "name": "Shaymin",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY189": {
+      "name": "Victini",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY190": {
+      "name": "Manaphy",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY191": {
+      "name": "Keldeo",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY192": {
+      "name": "Mew",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY193": {
+      "name": "Meloetta",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY194": {
+      "name": "Darkrai",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY195": {
+      "name": "Jirachi",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY196": {
+      "name": "Genesect",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY197": {
+      "name": "Arceus",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY198": {
+      "name": "M Camerupt-EX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY198a": {
+      "name": "M Camerupt-EX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY199": {
+      "name": "Camerupt Spirit Link",
+      "rarity": "promo",
+      "type": "trainer"
+    },
+    "XY200": {
+      "name": "M Sharpedo-EX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY200a": {
+      "name": "M Sharpedo-EX",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY201": {
+      "name": "Sharpedo Spirit Link",
+      "rarity": "promo",
+      "type": "trainer"
+    },
+    "XY202": {
+      "name": "Pikachu",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "XY203": {
+      "name": "Gym Badge",
+      "rarity": "promo",
+      "type": "trainer"
+    },
+    "XY204": {
+      "name": "Gym Badge",
+      "rarity": "promo",
+      "type": "trainer"
+    },
+    "XY205": {
+      "name": "Gym Badge",
+      "rarity": "promo",
+      "type": "trainer"
+    },
+    "XY206": {
+      "name": "Gym Badge",
+      "rarity": "promo",
+      "type": "trainer"
+    },
+    "XY207": {
+      "name": "Gym Badge",
+      "rarity": "promo",
+      "type": "trainer"
+    },
+    "XY208": {
+      "name": "Gym Badge",
+      "rarity": "promo",
+      "type": "trainer"
+    },
+    "XY209": {
+      "name": "Gym Badge",
+      "rarity": "promo",
+      "type": "trainer"
+    },
+    "XY210": {
+      "name": "Gym Badge",
+      "rarity": "promo",
+      "type": "trainer"
+    },
+    "XY211": {
+      "name": "Lucario Spirit Link",
+      "rarity": "promo",
+      "type": "trainer"
+    }
+  }
+}

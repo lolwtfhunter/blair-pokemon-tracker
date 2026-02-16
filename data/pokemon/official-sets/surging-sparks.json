@@ -1,12 +1,15 @@
 {
+  "name": "Surging Sparks",
+  "setCode": "sv8",
+  "releaseDate": "2024-11-08",
+  "block": "Scarlet & Violet",
+  "blockCode": "sv",
   "version": "3.0.0",
   "lastUpdated": "2025-02-15",
   "setKey": "surging-sparks",
-  "name": "Surging Sparks",
   "displayName": "Surging Sparks",
   "totalCards": 252,
   "mainSet": 191,
-  "setCode": "sv8",
   "hasPokeBallVariant": false,
   "hasMasterBallVariant": false,
   "cards": {
@@ -1297,8 +1300,5 @@
   ],
   "energyCards": {
     "191": "Enriching Energy"
-  },
-  "releaseDate": "2024-11-08",
-  "block": "Scarlet & Violet",
-  "blockCode": "sv"
+  }
 }

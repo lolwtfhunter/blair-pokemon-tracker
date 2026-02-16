@@ -1,0 +1,328 @@
+{
+  "version": "3.0.0",
+  "lastUpdated": "2026-02-16",
+  "setKey": "fossil",
+  "name": "Fossil",
+  "displayName": "Fossil",
+  "totalCards": 62,
+  "mainSet": 62,
+  "setCode": "base3",
+  "releaseDate": "1999-10-10",
+  "block": "Base Set",
+  "blockCode": "base",
+  "hasPokeBallVariant": false,
+  "hasMasterBallVariant": false,
+  "hasFirstEdition": true,
+  "cards": {
+    "1": {
+      "name": "Aerodactyl",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "2": {
+      "name": "Articuno",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "3": {
+      "name": "Ditto",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "4": {
+      "name": "Dragonite",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "5": {
+      "name": "Gengar",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "6": {
+      "name": "Haunter",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "7": {
+      "name": "Hitmonlee",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "8": {
+      "name": "Hypno",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "9": {
+      "name": "Kabutops",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "10": {
+      "name": "Lapras",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "11": {
+      "name": "Magneton",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "12": {
+      "name": "Moltres",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "13": {
+      "name": "Muk",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "14": {
+      "name": "Raichu",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "15": {
+      "name": "Zapdos",
+      "rarity": "rare-holo",
+      "type": "pokemon"
+    },
+    "16": {
+      "name": "Aerodactyl",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "17": {
+      "name": "Articuno",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "18": {
+      "name": "Ditto",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "19": {
+      "name": "Dragonite",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "20": {
+      "name": "Gengar",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "21": {
+      "name": "Haunter",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "22": {
+      "name": "Hitmonlee",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "23": {
+      "name": "Hypno",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "24": {
+      "name": "Kabutops",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "25": {
+      "name": "Lapras",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "26": {
+      "name": "Magneton",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "27": {
+      "name": "Moltres",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "28": {
+      "name": "Muk",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "29": {
+      "name": "Raichu",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "30": {
+      "name": "Zapdos",
+      "rarity": "rare",
+      "type": "pokemon"
+    },
+    "31": {
+      "name": "Arbok",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "32": {
+      "name": "Cloyster",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "33": {
+      "name": "Gastly",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "34": {
+      "name": "Golbat",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "35": {
+      "name": "Golduck",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "36": {
+      "name": "Golem",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "37": {
+      "name": "Graveler",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "38": {
+      "name": "Kingler",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "39": {
+      "name": "Magmar",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "40": {
+      "name": "Omastar",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "41": {
+      "name": "Sandslash",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "42": {
+      "name": "Seadra",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "43": {
+      "name": "Slowbro",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "44": {
+      "name": "Tentacruel",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "45": {
+      "name": "Weezing",
+      "rarity": "uncommon",
+      "type": "pokemon"
+    },
+    "46": {
+      "name": "Ekans",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "47": {
+      "name": "Geodude",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "48": {
+      "name": "Grimer",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "49": {
+      "name": "Horsea",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "50": {
+      "name": "Kabuto",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "51": {
+      "name": "Krabby",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "52": {
+      "name": "Omanyte",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "53": {
+      "name": "Psyduck",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "54": {
+      "name": "Shellder",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "55": {
+      "name": "Slowpoke",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "56": {
+      "name": "Tentacool",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "57": {
+      "name": "Zubat",
+      "rarity": "common",
+      "type": "pokemon"
+    },
+    "58": {
+      "name": "Mr. Fuji",
+      "rarity": "uncommon",
+      "type": "trainer"
+    },
+    "59": {
+      "name": "Energy Search",
+      "rarity": "common",
+      "type": "trainer"
+    },
+    "60": {
+      "name": "Gambler",
+      "rarity": "common",
+      "type": "trainer"
+    },
+    "61": {
+      "name": "Recycle",
+      "rarity": "common",
+      "type": "trainer"
+    },
+    "62": {
+      "name": "Mysterious Fossil",
+      "rarity": "common",
+      "type": "trainer"
+    }
+  }
+}

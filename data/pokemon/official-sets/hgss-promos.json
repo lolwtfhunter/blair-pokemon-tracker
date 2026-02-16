@@ -1,0 +1,143 @@
+{
+  "version": "3.0.0",
+  "lastUpdated": "2026-02-16",
+  "setKey": "hgss-promos",
+  "name": "HGSS Black Star Promos",
+  "displayName": "HGSS Black Star Promos",
+  "totalCards": 25,
+  "mainSet": 25,
+  "setCode": "hsp",
+  "releaseDate": "2010-02-10",
+  "block": "HeartGold SoulSilver",
+  "blockCode": "hgss",
+  "hasPokeBallVariant": false,
+  "hasMasterBallVariant": false,
+  "singleVariantOnly": true,
+  "cards": {
+    "HGSS01": {
+      "name": "Ho-Oh",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "HGSS02": {
+      "name": "Lugia",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "HGSS03": {
+      "name": "Pikachu",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "HGSS04": {
+      "name": "Wobbuffet",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "HGSS05": {
+      "name": "Hoothoot",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "HGSS06": {
+      "name": "Noctowl",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "HGSS07": {
+      "name": "Feraligatr",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "HGSS08": {
+      "name": "Meganium",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "HGSS09": {
+      "name": "Typhlosion",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "HGSS10": {
+      "name": "Latias",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "HGSS11": {
+      "name": "Latios",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "HGSS12": {
+      "name": "Cleffa",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "HGSS13": {
+      "name": "Smoochum",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "HGSS14": {
+      "name": "Lapras",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "HGSS15": {
+      "name": "Shuckle",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "HGSS16": {
+      "name": "Plusle",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "HGSS17": {
+      "name": "Minun",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "HGSS18": {
+      "name": "Tropical Tidal Wave",
+      "rarity": "promo",
+      "type": "trainer"
+    },
+    "HGSS19": {
+      "name": "Raikou",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "HGSS20": {
+      "name": "Entei",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "HGSS21": {
+      "name": "Suicune",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "HGSS22": {
+      "name": "Porygon",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "HGSS23": {
+      "name": "Porygon2",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "HGSS24": {
+      "name": "Hitmonchan",
+      "rarity": "promo",
+      "type": "pokemon"
+    },
+    "HGSS25": {
+      "name": "Hitmonlee",
+      "rarity": "promo",
+      "type": "pokemon"
+    }
+  }
+}
