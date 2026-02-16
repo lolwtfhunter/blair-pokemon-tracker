@@ -2,49 +2,102 @@
 // Remove this file and its <script> tag from index.html when done debugging
 
 (function() {
-    var debugLog = [];
-    var maxEntries = 200;
+    // Separate logs: pinned (important) and stream (card images)
+    var pinnedLog = [];
+    var streamLog = [];
+    var maxStream = 50;
     var panel = null;
     var logEl = null;
     var btnEl = null;
     var visible = false;
     var imgStats = { total: 0, loaded: 0, failed: 0, fallback: 0 };
 
-    function addEntry(type, msg) {
+    function addPinned(type, msg) {
         var time = new Date().toLocaleTimeString();
-        var entry = '[' + time + '] ' + type + ': ' + msg;
-        debugLog.push(entry);
-        if (debugLog.length > maxEntries) debugLog.shift();
+        pinnedLog.push('[' + time + '] ' + type + ': ' + msg);
+        updatePanel();
+    }
+
+    function addStream(type, msg) {
+        var time = new Date().toLocaleTimeString();
+        streamLog.push('[' + time + '] ' + type + ': ' + msg);
+        if (streamLog.length > maxStream) streamLog.shift();
         if (type === 'FAIL') imgStats.failed++;
         if (type === 'OK') imgStats.loaded++;
-        if (type === 'FALLBACK') imgStats.fallback++;
         if (type === 'LOAD') imgStats.total++;
         updatePanel();
     }
 
+    // Global logger - logos go to pinned, cards go to stream
+    window._imgDebug = function(type, msg) {
+        if (type.indexOf('LOGO') !== -1 || type.indexOf('TEST') !== -1 || type.indexOf('INIT') !== -1 || type.indexOf('INFO') !== -1 || type.indexOf('SCAN') !== -1) {
+            addPinned(type, msg);
+        } else {
+            addStream(type, msg);
+        }
+    };
+
     function updatePanel() {
         if (!logEl || !visible) return;
-        var statsLine = 'Total: ' + imgStats.total +
-            ' | OK: ' + imgStats.loaded +
-            ' | Fallback: ' + imgStats.fallback +
-            ' | Failed: ' + imgStats.failed + '\n\n';
-        logEl.textContent = statsLine + debugLog.slice().reverse().join('\n');
-        updateBadge();
+        var statsLine = 'Cards: ' + imgStats.total +
+            ' loaded | ' + imgStats.failed + ' failed\n';
+        var pinnedSection = pinnedLog.length > 0
+            ? '=== LOGO & SYSTEM ===\n' + pinnedLog.join('\n') + '\n\n'
+            : '=== LOGO & SYSTEM ===\n(none yet)\n\n';
+        var streamSection = '=== CARD IMAGES (last ' + maxStream + ') ===\n' +
+            (streamLog.length > 0 ? streamLog.slice().reverse().join('\n') : '(none yet)');
+        logEl.textContent = statsLine + '\n' + pinnedSection + streamSection;
     }
 
-    function updateBadge() {
-        if (!btnEl) return;
-        var badge = btnEl.querySelector('.dbg-badge');
-        if (imgStats.failed > 0) {
-            badge.textContent = imgStats.failed;
-            badge.style.display = 'block';
-        }
+    function scanLogos() {
+        addPinned('SCAN', '--- Scanning all set button logos ---');
+
+        // Custom set buttons
+        var customBtns = document.querySelectorAll('#customSetButtons .set-btn');
+        addPinned('SCAN', 'Custom set buttons found: ' + customBtns.length);
+        customBtns.forEach(function(btn) {
+            var img = btn.querySelector('.set-btn-logo');
+            var fallback = btn.querySelector('.set-btn-logo-fallback');
+            var setKey = btn.getAttribute('data-custom-set-key') || '?';
+            if (img) {
+                var cs = window.getComputedStyle(img);
+                addPinned('SCAN', setKey +
+                    '\n  src: ' + (img.getAttribute('src') || '(none)') +
+                    '\n  complete: ' + img.complete +
+                    '\n  naturalW: ' + img.naturalWidth + ' naturalH: ' + img.naturalHeight +
+                    '\n  inline display: ' + img.style.display +
+                    '\n  computed display: ' + cs.display +
+                    '\n  computed visibility: ' + cs.visibility +
+                    '\n  computed opacity: ' + cs.opacity +
+                    '\n  computed position: ' + cs.position +
+                    '\n  offsetW: ' + img.offsetWidth + ' offsetH: ' + img.offsetHeight +
+                    '\n  fallback display: ' + (fallback ? fallback.style.display : 'N/A') +
+                    '\n  fallback computed: ' + (fallback ? window.getComputedStyle(fallback).display : 'N/A'));
+            } else {
+                addPinned('SCAN', setKey + ': NO img.set-btn-logo found!');
+            }
+        });
+
+        // Also check header character images for comparison
+        var headerImgs = document.querySelectorAll('.pokemon-char');
+        addPinned('SCAN', 'Header character images: ' + headerImgs.length);
+        headerImgs.forEach(function(img) {
+            var cs = window.getComputedStyle(img);
+            addPinned('SCAN', 'header: ' + img.alt +
+                '\n  src: ' + img.getAttribute('src') +
+                '\n  complete: ' + img.complete +
+                '\n  naturalW: ' + img.naturalWidth +
+                '\n  computed display: ' + cs.display +
+                '\n  offsetW: ' + img.offsetWidth);
+        });
+
+        updatePanel();
     }
 
     function createPanel() {
         // Toggle button
         btnEl = document.createElement('div');
-        btnEl.innerHTML = '<span style="font-size:20px">&#128027;</span><span class="dbg-badge" style="display:none;position:absolute;top:-4px;right:-4px;background:#ff4444;color:#fff;border-radius:50%;width:18px;height:18px;font-size:11px;line-height:18px;text-align:center;font-weight:bold"></span>';
+        btnEl.innerHTML = '<span style="font-size:20px">&#128027;</span>';
         btnEl.style.cssText = 'position:fixed;bottom:12px;right:12px;z-index:100000;width:44px;height:44px;border-radius:50%;background:#1a1a2e;border:2px solid #444;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,0.5);-webkit-tap-highlight-color:transparent';
         btnEl.onclick = function() {
             visible = !visible;
@@ -57,10 +110,17 @@
         panel = document.createElement('div');
         panel.style.cssText = 'display:none;position:fixed;bottom:64px;left:8px;right:8px;max-height:60vh;z-index:100000;background:#0d0d1a;border:1px solid #333;border-radius:10px;flex-direction:column;box-shadow:0 4px 20px rgba(0,0,0,0.7);font-family:monospace';
 
-        // Header
+        // Header with buttons
         var header = document.createElement('div');
-        header.style.cssText = 'display:flex;justify-content:space-between;align-items:center;padding:8px 12px;border-bottom:1px solid #333;flex-shrink:0';
-        header.innerHTML = '<span style="color:#4fc3f7;font-weight:bold;font-size:13px">Image Debug Log</span>';
+        header.style.cssText = 'display:flex;gap:6px;align-items:center;padding:8px 12px;border-bottom:1px solid #333;flex-shrink:0;flex-wrap:wrap';
+        header.innerHTML = '<span style="color:#4fc3f7;font-weight:bold;font-size:13px">Debug</span>';
+
+        // Scan button
+        var scanBtn = document.createElement('button');
+        scanBtn.textContent = 'Scan Logos';
+        scanBtn.style.cssText = 'background:#e65100;color:#fff;border:none;border-radius:4px;padding:4px 10px;font-size:12px;cursor:pointer;-webkit-tap-highlight-color:transparent';
+        scanBtn.onclick = scanLogos;
+        header.appendChild(scanBtn);
 
         // Copy button
         var copyBtn = document.createElement('button');
@@ -74,7 +134,6 @@
                     setTimeout(function() { copyBtn.textContent = 'Copy All'; }, 1500);
                 });
             } else {
-                // Fallback for older iOS
                 var ta = document.createElement('textarea');
                 ta.value = text;
                 ta.style.cssText = 'position:fixed;left:-9999px';
@@ -92,7 +151,7 @@
         // Log area
         logEl = document.createElement('pre');
         logEl.style.cssText = 'margin:0;padding:10px;overflow:auto;flex:1;font-size:11px;line-height:1.5;color:#ccc;white-space:pre-wrap;word-break:break-all;-webkit-overflow-scrolling:touch;user-select:text;-webkit-user-select:text';
-        logEl.textContent = 'Waiting for image events...\nSelect a custom set to see image loading.';
+        logEl.textContent = 'Tap "Scan Logos" to inspect set button images.';
         panel.appendChild(logEl);
 
         document.body.appendChild(panel);
@@ -105,63 +164,21 @@
         createPanel();
     }
 
-    // Expose logger globally
-    window._imgDebug = addEntry;
-
     // Patch handleImgError to add logging
     var _origHandleImgError = null;
     function patchHandleImgError() {
         if (typeof window.handleImgError === 'function' && !_origHandleImgError) {
             _origHandleImgError = window.handleImgError;
             window.handleImgError = function(img) {
-                var src = img.src || '(empty)';
-                var tcgdex = img.getAttribute('data-tcgdex-src') || '(none)';
-                var local = img.getAttribute('data-local-src') || '(none)';
                 var name = img.getAttribute('data-card-name') || '?';
-                addEntry('FAIL', name + '\n  src: ' + src + '\n  tcgdex: ' + tcgdex + '\n  local: ' + local);
+                var src = img.src || '(empty)';
+                addStream('FAIL', name + ' src: ' + src);
                 _origHandleImgError.call(this, img);
             };
         }
     }
 
-    // Patch getCustomCardImageUrl to log URLs
-    var _origGetUrl = null;
-    function patchGetCustomCardImageUrl() {
-        if (typeof window.getCustomCardImageUrl === 'function' && !_origGetUrl) {
-            _origGetUrl = window.getCustomCardImageUrl;
-            window.getCustomCardImageUrl = function(card) {
-                var url = _origGetUrl(card);
-                addEntry('LOAD', (card.name || '?') + ' apiId=' + (card.apiId || '(none)') + '\n  pokemontcg url: ' + (url || '(null)'));
-                return url;
-            };
-        }
-    }
-
-    // Patch renderCustomSetButtons to log logo loading
-    var _origRenderBtns = null;
-    function patchRenderCustomSetButtons() {
-        if (typeof window.renderCustomSetButtons === 'function' && !_origRenderBtns) {
-            _origRenderBtns = window.renderCustomSetButtons;
-            window.renderCustomSetButtons = function() {
-                _origRenderBtns.apply(this, arguments);
-                // Log logo image states after render
-                var btns = document.querySelectorAll('#customSetButtons .set-btn');
-                btns.forEach(function(btn) {
-                    var img = btn.querySelector('.set-btn-logo');
-                    var setKey = btn.getAttribute('data-custom-set-key');
-                    if (img) {
-                        var src = img.getAttribute('src');
-                        addEntry('LOGO', setKey + ' -> ' + src +
-                            '\n  complete=' + img.complete +
-                            ' naturalW=' + img.naturalWidth +
-                            ' display=' + img.style.display);
-                    }
-                });
-            };
-        }
-    }
-
-    // Also log when images successfully load (via MutationObserver on card grids)
+    // Observe card images via MutationObserver
     function observeImages() {
         var observer = new MutationObserver(function(mutations) {
             mutations.forEach(function(m) {
@@ -170,8 +187,9 @@
                     var imgs = node.querySelectorAll ? node.querySelectorAll('img[data-card-name]') : [];
                     imgs.forEach(function(img) {
                         var name = img.getAttribute('data-card-name');
+                        imgStats.total++;
                         img.addEventListener('load', function() {
-                            addEntry('OK', name + '\n  loaded: ' + img.src);
+                            addStream('OK', name + '\n  loaded: ' + img.src);
                         });
                     });
                 });
@@ -183,61 +201,12 @@
     // Apply patches after all scripts have loaded
     window.addEventListener('load', function() {
         patchHandleImgError();
-        patchGetCustomCardImageUrl();
-        patchRenderCustomSetButtons();
         observeImages();
-        addEntry('INIT', 'Debug panel ready. Patches applied.');
-        addEntry('INFO', 'User Agent: ' + navigator.userAgent);
-        addEntry('INFO', 'Custom sets loaded: ' + Object.keys(window.customCardSets || {}).join(', '));
+        addPinned('INIT', 'Debug panel v2 ready');
+        addPinned('INFO', 'UA: ' + navigator.userAgent);
+        addPinned('INFO', 'Custom sets: ' + Object.keys(window.customCardSets || {}).join(', '));
 
-        // Log current state of any already-rendered set button logos
-        var existingBtns = document.querySelectorAll('#customSetButtons .set-btn');
-        if (existingBtns.length > 0) {
-            existingBtns.forEach(function(btn) {
-                var img = btn.querySelector('.set-btn-logo');
-                var setKey = btn.getAttribute('data-custom-set-key');
-                if (img) {
-                    addEntry('LOGO-STATE', setKey +
-                        '\n  src: ' + (img.getAttribute('src') || '(none)') +
-                        '\n  complete: ' + img.complete +
-                        '\n  naturalWidth: ' + img.naturalWidth +
-                        '\n  display: ' + img.style.display +
-                        '\n  parentVisible: ' + (img.offsetParent !== null));
-                }
-            });
-        }
-
-        // Test a known image URL directly
-        var testImg = new Image();
-        var testUrl = 'https://images.pokemontcg.io/basep/20.png';
-        testImg.onload = function() {
-            addEntry('TEST-OK', 'pokemontcg.io CDN reachable\n  ' + testUrl + '\n  size: ' + testImg.naturalWidth + 'x' + testImg.naturalHeight);
-        };
-        testImg.onerror = function() {
-            addEntry('TEST-FAIL', 'pokemontcg.io CDN UNREACHABLE\n  ' + testUrl);
-        };
-        testImg.src = testUrl;
-
-        // Test tcgdex too
-        var testImg2 = new Image();
-        var testUrl2 = 'https://assets.tcgdex.net/en/base/basep/20/high.png';
-        testImg2.onload = function() {
-            addEntry('TEST-OK', 'tcgdex.net CDN reachable\n  ' + testUrl2 + '\n  size: ' + testImg2.naturalWidth + 'x' + testImg2.naturalHeight);
-        };
-        testImg2.onerror = function() {
-            addEntry('TEST-FAIL', 'tcgdex.net CDN UNREACHABLE\n  ' + testUrl2);
-        };
-        testImg2.src = testUrl2;
-
-        // Test local logo image
-        var testImg3 = new Image();
-        var testUrl3 = './Images/header/pikachu.png';
-        testImg3.onload = function() {
-            addEntry('TEST-OK', 'Local pikachu.png reachable\n  size: ' + testImg3.naturalWidth + 'x' + testImg3.naturalHeight);
-        };
-        testImg3.onerror = function() {
-            addEntry('TEST-FAIL', 'Local pikachu.png NOT FOUND');
-        };
-        testImg3.src = testUrl3;
+        // Auto-scan logos after a short delay to let images settle
+        setTimeout(scanLogos, 1500);
     });
 })();
