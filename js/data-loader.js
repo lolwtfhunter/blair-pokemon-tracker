@@ -138,6 +138,10 @@ function getCustomCardImageUrl(card) {
         const parts = card.apiId.split('-');
         const setId = parts.slice(0, -1).join('-');
         const num = parts[parts.length - 1];
+        // Use Scrydex for sets where pokemontcg.io serves placeholder images
+        if (typeof SCRYDEX_PRIMARY_SETS !== 'undefined' && SCRYDEX_PRIMARY_SETS.has(setId)) {
+            return `https://images.scrydex.com/pokemon/${setId}-${num}/large`;
+        }
         return `https://images.pokemontcg.io/${setId}/${num}.png`;
     }
     return null;

@@ -79,6 +79,10 @@ function getCustomCardTcgdexUrl(card) {
     return `https://assets.tcgdex.net/en/${series}/${tcgdexSetId}/${cardNum}/high.png`;
 }
 
+// Sets where pokemontcg.io returns a placeholder image (HTTP 200) instead of real cards.
+// These must use Scrydex as the primary image source since onerror won't fire.
+const SCRYDEX_PRIMARY_SETS = new Set(['me2pt5', 'mep']);
+
 // Get card image URL from Pokemon TCG API (pokemontcg.io)
 function getCardImageUrl(setKey, cardNumber, imageId) {
     // Celebrations Classic Collection cards use cel25c with original set numbering
@@ -86,10 +90,10 @@ function getCardImageUrl(setKey, cardNumber, imageId) {
         return `https://images.pokemontcg.io/cel25c/${imageId}.png`;
     }
     const apiSetId = TCG_API_SET_IDS[setKey];
-    if (apiSetId) {
-        return `https://images.pokemontcg.io/${apiSetId}/${cardNumber}.png`;
-    }
-    return null;
+    if (!apiSetId) return null;
+    // Skip pokemontcg.io for sets that serve placeholder images
+    if (SCRYDEX_PRIMARY_SETS.has(apiSetId)) return null;
+    return `https://images.pokemontcg.io/${apiSetId}/${cardNumber}.png`;
 }
 
 // Get card image URL from Scrydex CDN (images.scrydex.com)
