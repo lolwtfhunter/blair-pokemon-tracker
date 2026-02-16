@@ -780,7 +780,7 @@ npm run test:ui                 # interactive Playwright UI
 npm run test:report             # open HTML report
 ```
 
-**Test suite** (`tests/` directory — 18 tests × 4 browsers = 72 runs):
+**Test suite** (`tests/` directory — 25 tests × 4 browsers = 100 runs):
 | File | Tests | Coverage |
 |------|-------|----------|
 | `navigation.spec.js` | 4 | Tab switching, block/set selection, deselect |
@@ -789,6 +789,7 @@ npm run test:report             # open HTML report
 | `modal.spec.js` | 5 | Open/close, card details, variant toggle |
 | `collection.spec.js` | 3 | Variant toggle, progress bar, soft-lock toast |
 | `persistence.spec.js` | 1 | localStorage save/restore across reload |
+| `pricing.spec.js` | 7 | Custom set price tags, alphanumeric card numbers, cache keys, modal price |
 
 **Browser/viewport matrix:**
 - Chromium (Desktop, 1280x720)

@@ -138,13 +138,14 @@ blair-pokemon-tracker/
 │           ├── whispers-in-the-well/
 │           ├── winterspell/
 │           └── logos/          Set logos (optional, CDN fallback exists)
-├── tests/                  Playwright test suite (18 tests × 4 browsers)
+├── tests/                  Playwright test suite (25 tests × 4 browsers)
 │   ├── navigation.spec.js
 │   ├── card-rendering.spec.js
 │   ├── filters.spec.js
 │   ├── modal.spec.js
 │   ├── collection.spec.js
-│   └── persistence.spec.js
+│   ├── persistence.spec.js
+│   └── pricing.spec.js
 ├── backups/                Automated Firebase backup snapshots
 ├── .github/workflows/      CI/CD (Firebase backup, Playwright test CI)
 ├── docs/                   Project documentation
@@ -278,6 +279,7 @@ Pushing to `dev` automatically runs the full Playwright test suite via GitHub Ac
 | `modal.spec.js` | 5 | Open/close modal, card details, variant toggling |
 | `collection.spec.js` | 3 | Variant toggle, progress bar update, soft-lock toast |
 | `persistence.spec.js` | 1 | localStorage save/restore across reload |
+| `pricing.spec.js` | 7 | Custom set price tags, alphanumeric card number parsing, cache keys, modal price display |
 
 ### Test Infrastructure — Production Data Safety
 
