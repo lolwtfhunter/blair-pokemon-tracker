@@ -28,6 +28,87 @@ function initializeProgress() {
 
 // ==================== LORCANA FUNCTIONS ====================
 
+// Maps set keys to their wiki-style display names for logo URL construction
+const LORCANA_SET_WIKI_NAMES = {
+    'first-chapter':         'The_First_Chapter',
+    'rise-of-the-floodborn': 'Rise_of_the_Floodborn',
+    'into-the-inklands':     'Into_the_Inklands',
+    'ursulas-return':        "Ursula's_Return",
+    'shimmering-skies':      'Shimmering_Skies',
+    'azurite-sea':           'Azurite_Sea',
+    'archazias-island':      "Archazia's_Island",
+    'fabled':                'Fabled',
+    'winterspell':           'Winterspell',
+    'whispers-in-the-well':  'Whispers_in_the_Well'
+};
+
+// Build ordered list of logo URLs to try for a Lorcana set.
+// Tries: local file -> Mushu Report wiki -> Lorcana Fandom wiki -> inline SVG
+function getLorcanaSetLogoUrls(setKey) {
+    const urls = [];
+
+    // 1. Local file (user can manually add logos)
+    urls.push(`./Images/lorcana/logos/${setKey}.png`);
+
+    // 2. Mushu Report wiki (public Lorcana wiki with set logos)
+    const wikiName = LORCANA_SET_WIKI_NAMES[setKey];
+    if (wikiName) {
+        urls.push(`https://wiki.mushureport.com/wiki/Special:FilePath/${wikiName}_logo.png`);
+    }
+
+    // 3. Lorcana Fandom wiki
+    if (wikiName) {
+        urls.push(`https://lorcana.fandom.com/wiki/Special:FilePath/${wikiName}_Logo.png`);
+    }
+
+    // 4. Inline SVG fallback (always works, no network needed)
+    urls.push(getLorcanaSetLogoSvg(setKey));
+
+    return urls;
+}
+
+// Handle Lorcana set logo loading with cascading fallback
+function tryNextLorcanaLogo(img) {
+    const setKey = img.getAttribute('data-logo-set');
+    const idx = parseInt(img.getAttribute('data-logo-idx') || '0') + 1;
+    const urls = getLorcanaSetLogoUrls(setKey);
+
+    if (idx < urls.length) {
+        img.setAttribute('data-logo-idx', idx);
+        img.src = urls[idx];
+    } else {
+        // All sources exhausted - show emoji fallback
+        img.onerror = null;
+        img.style.display = 'none';
+        if (img.nextElementSibling) img.nextElementSibling.style.display = '';
+    }
+}
+
+// Generate inline SVG data URI as last-resort fallback logo.
+// Uses a double-hexagon (Lorcana's signature shape) with set-specific colors.
+function getLorcanaSetLogoSvg(setKey) {
+    const setStyles = {
+        'first-chapter':         { color: '#c9a84c', label: 'I' },
+        'rise-of-the-floodborn': { color: '#3a7bd5', label: 'II' },
+        'into-the-inklands':     { color: '#2ecc71', label: 'III' },
+        'ursulas-return':        { color: '#9b59b6', label: 'IV' },
+        'shimmering-skies':      { color: '#00b4d8', label: 'V' },
+        'azurite-sea':           { color: '#0077b6', label: 'VI' },
+        'archazias-island':      { color: '#e67e22', label: 'VII' },
+        'fabled':                { color: '#c0392b', label: 'VIII' },
+        'winterspell':           { color: '#27ae60', label: 'IX' },
+        'whispers-in-the-well':  { color: '#7b5ea7', label: 'X' }
+    };
+    const style = setStyles[setKey] || { color: '#c9a84c', label: '?' };
+    const c = style.color;
+    const svg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">' +
+        '<polygon points="50,3 95,28 95,72 50,97 5,72 5,28" fill="none" stroke="' + c + '" stroke-width="3"/>' +
+        '<polygon points="50,15 82,34 82,66 50,85 18,66 18,34" fill="none" stroke="' + c + '" stroke-width="1.5" opacity="0.4"/>' +
+        '<text x="50" y="58" text-anchor="middle" fill="' + c + '" font-family="Georgia,serif" font-size="28" font-weight="bold">' + style.label + '</text>' +
+        '</svg>';
+    return 'data:image/svg+xml;base64,' + btoa(svg);
+}
+
 // Get image URL for Lorcana cards with multiple CDN fallbacks
 function getLorcanaCardImageUrl(card, setKey) {
     const setData = lorcanaCardSets[setKey];
@@ -146,13 +227,14 @@ function renderLorcanaSetButtons() {
         // Calculate progress
         const progress = getLorcanaSetProgress(setKey);
 
-        // Lorcana logos - use local if available, fallback to icon
-        const localLogoUrl = `./Images/lorcana/logos/${setKey}.png`;
+        // Lorcana logos - cascading fallback: local -> wiki CDNs -> inline SVG
+        const logoUrls = getLorcanaSetLogoUrls(setKey);
 
         btn.innerHTML = `
             <div class="set-btn-logo-wrapper">
-                <img src="${localLogoUrl}" alt="${setData.displayName}" class="set-btn-logo"
-                     onerror="this.style.display='none';this.nextElementSibling.style.display=''">
+                <img src="${logoUrls[0]}" alt="${setData.displayName}" class="set-btn-logo"
+                     data-logo-set="${setKey}" data-logo-idx="0"
+                     onerror="tryNextLorcanaLogo(this)">
                 <div class="set-btn-logo-fallback" style="display:none">&#127183;</div>
             </div>
             <div class="set-btn-name">${setData.displayName}</div>
