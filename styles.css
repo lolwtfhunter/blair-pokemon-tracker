@@ -1188,6 +1188,25 @@ h1 {
     background: linear-gradient(135deg, #a855f7 0%, #7c3aed 100%);
 }
 
+/* Lorcana-specific rarities */
+.rarity-super-rare {
+    background: linear-gradient(135deg, #c084fc 0%, #a855f7 100%);
+}
+.rarity-legendary {
+    background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+    color: #000;
+}
+.rarity-enchanted {
+    background: linear-gradient(135deg, #c084fc 0%, #ec4899 50%, #f59e0b 100%);
+}
+.rarity-epic {
+    background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+}
+.rarity-iconic {
+    background: linear-gradient(135deg, #fcd34d 0%, #fbbf24 30%, #ffffff 50%, #fbbf24 70%, #f59e0b 100%);
+    color: #000;
+}
+
 .region-badge {
     display: inline-block;
     background: #e74c3c;

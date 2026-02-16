@@ -432,7 +432,19 @@ async function renderLorcanaCards(setKey) {
 
         cardEl.classList.toggle('completed', allCollected);
 
-        const rarityClass = (card.rarity || 'common').replace(/_/g, '-');
+        const rarityClass = `rarity-${(card.rarity || 'common').replace(/_/g, '-')}`;
+
+        // Click-to-expand modal (same pattern as Pokemon TCG cards)
+        cardEl.style.cursor = 'pointer';
+        cardEl.onclick = function(e) {
+            if (e.target.tagName === 'INPUT' ||
+                e.target.tagName === 'LABEL' ||
+                e.target.closest('.single-variant') ||
+                e.target.closest('.tcgplayer-link')) {
+                return;
+            }
+            openCardModal(setKey, card.number);
+        };
 
         // Lorcana uses single variant for now
         const isChecked = cardProgress['single'] || false;
@@ -446,13 +458,17 @@ async function renderLorcanaCards(setKey) {
         // Get image URL with CDN fallbacks
         const imgUrl = getLorcanaCardImageUrl(card, setKey);
         const displayNumber = String(card.number).padStart(3, '0');
+        const escapedName = card.name.replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+
+        // TCGPlayer link
+        const tcgplayerUrl = getLorcanaTCGPlayerUrl(card.name, setData.name, card.number);
 
         cardEl.innerHTML = `
             <div class="card-img-wrapper">
                 <img src="${imgUrl || ''}"
-                     alt="${card.name.replace(/"/g, '&quot;')}"
+                     alt="${escapedName}"
                      loading="lazy"
-                     data-card-name="${card.name.replace(/"/g, '&quot;')}"
+                     data-card-name="${escapedName}"
                      data-card-number="${displayNumber}"
                      data-card-rarity="${card.rarity}"
                      data-lorcana-card-number="${card.number}"
@@ -464,8 +480,13 @@ async function renderLorcanaCards(setKey) {
                 <div class="card-info">
                     <div class="card-number">#${displayNumber}</div>
                     <div class="card-name">${card.name}</div>
-                    <span class="rarity-badge ${rarityClass}">${card.rarity}</span>
+                    <span class="rarity-badge ${rarityClass}">${getLorcanaRarityDisplay(card.rarity)}</span>
                 </div>
+                <a href="${tcgplayerUrl}" target="_blank" class="tcgplayer-link" title="Search on TCGPlayer" onclick="event.stopPropagation();">
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
+                        <path d="M19 19H5V5h7V3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/>
+                    </svg>
+                </a>
             </div>
             <div class="variants-section">
                 <div class="variants-title">STATUS:</div>

@@ -57,7 +57,7 @@ const SINGLE_VARIANT_RARITIES = [
     'gold-secret', 'promo'
 ];
 
-// Rarity display names
+// Rarity display names (Pokemon TCG)
 const RARITY_DISPLAY_NAMES = {
     'common': 'COMMON',
     'uncommon': 'UNCOMMON',
@@ -82,9 +82,26 @@ const RARITY_DISPLAY_NAMES = {
     'energy': 'ENERGY'
 };
 
+// Lorcana rarity display names
+const LORCANA_RARITY_DISPLAY_NAMES = {
+    'common':     'COMMON',
+    'uncommon':   'UNCOMMON',
+    'rare':       'RARE',
+    'super-rare': 'SUPER RARE',
+    'legendary':  'LEGENDARY',
+    'enchanted':  'ENCHANTED',
+    'epic':       'EPIC',
+    'iconic':     'ICONIC'
+};
+
 // Get display name for rarity
 function getRarityDisplay(rarity) {
     return RARITY_DISPLAY_NAMES[rarity] || rarity.toUpperCase();
+}
+
+// Get display name for Lorcana rarity
+function getLorcanaRarityDisplay(rarity) {
+    return LORCANA_RARITY_DISPLAY_NAMES[rarity] || rarity.toUpperCase().replace(/-/g, ' ');
 }
 
 // Determine variants for a card

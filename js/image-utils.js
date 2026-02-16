@@ -130,6 +130,17 @@ function getTCGPlayerUrl(cardName, setName, setCode, cardNumber, variantType) {
     return `https://www.tcgplayer.com/search/pokemon/product?q=${encodedQuery}&page=1`;
 }
 
+// Get TCGPlayer URL for a Lorcana card
+function getLorcanaTCGPlayerUrl(cardName, setName, cardNumber) {
+    let searchQuery = cardName.trim();
+    if (cardNumber) {
+        searchQuery += ` ${cardNumber}`;
+    }
+    searchQuery += ` ${setName.trim()}`;
+    const encodedQuery = encodeURIComponent(searchQuery);
+    return `https://www.tcgplayer.com/search/disney-lorcana/product?q=${encodedQuery}&page=1`;
+}
+
 // Handle card image load errors with cascading fallback:
 // 1. pokemontcg.io CDN -> 2. TCGdex CDN -> 3. Local image -> 4. Placeholder
 function handleImgError(img) {
