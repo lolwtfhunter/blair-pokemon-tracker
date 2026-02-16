@@ -7,7 +7,9 @@ module.exports = defineConfig({
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 1 : 0,
   workers: process.env.CI ? 1 : undefined,
-  reporter: [['html', { open: 'never' }]],
+  reporter: process.env.CI
+    ? [['html', { open: 'never' }], ['json', { outputFile: 'test-results.json' }], ['github']]
+    : [['html', { open: 'never' }]],
   use: {
     baseURL: 'http://localhost:8080',
     screenshot: 'only-on-failure',

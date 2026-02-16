@@ -29,6 +29,45 @@ jobs:
       - name: Run Playwright tests
         run: npx playwright test
 
+      - name: Test summary
+        if: always()
+        run: |
+          if [ ! -f test-results.json ]; then
+            echo "⚠️ No test results found" >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+          PASSED=$(jq '.stats.expected // 0' test-results.json)
+          FAILED=$(jq '.stats.unexpected // 0' test-results.json)
+          SKIPPED=$(jq '.stats.skipped // 0' test-results.json)
+          FLAKY=$(jq '.stats.flaky // 0' test-results.json)
+          TOTAL=$((PASSED + FAILED + SKIPPED + FLAKY))
+          DURATION=$(jq '.stats.duration // 0' test-results.json)
+          DURATION_S=$(echo "scale=1; $DURATION / 1000" | bc)
+
+          if [ "$FAILED" -eq 0 ]; then
+            echo "## ✅ All tests passed" >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "## ❌ $FAILED test(s) failed" >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo "| Status | Count |" >> "$GITHUB_STEP_SUMMARY"
+          echo "|--------|-------|" >> "$GITHUB_STEP_SUMMARY"
+          echo "| ✅ Passed | $PASSED |" >> "$GITHUB_STEP_SUMMARY"
+          [ "$FAILED" -gt 0 ] && echo "| ❌ Failed | $FAILED |" >> "$GITHUB_STEP_SUMMARY"
+          [ "$FLAKY" -gt 0 ] && echo "| ⚠️ Flaky | $FLAKY |" >> "$GITHUB_STEP_SUMMARY"
+          [ "$SKIPPED" -gt 0 ] && echo "| ⏭️ Skipped | $SKIPPED |" >> "$GITHUB_STEP_SUMMARY"
+          echo "| **Total** | **$TOTAL** |" >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo "⏱️ Duration: ${DURATION_S}s" >> "$GITHUB_STEP_SUMMARY"
+
+          # List failures if any
+          if [ "$FAILED" -gt 0 ]; then
+            echo "" >> "$GITHUB_STEP_SUMMARY"
+            echo "### Failed tests" >> "$GITHUB_STEP_SUMMARY"
+            jq -r '[.suites[] | recurse(.suites[]?) | .specs[] | . as $s | .tests[] | select(.status == "unexpected") | "- **\($s.title)** (\(.projectName))"] | unique[]' test-results.json >> "$GITHUB_STEP_SUMMARY"
+          fi
+
       - name: Upload HTML report
         uses: actions/upload-artifact@v4
         if: always()
