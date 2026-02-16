@@ -374,6 +374,27 @@ h1 {
     background: linear-gradient(135deg, #ff6b6b, #ee5a6f);
     border-left-color: transparent;
     box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+    filter: none;
+    transform: none;
+}
+
+/* Tint logo on active button so red gradient shows through opaque logos */
+.set-btn.active .set-btn-logo {
+    opacity: 0.5;
+}
+
+/* Red overlay ensures active state is visible regardless of logo backgrounds */
+.set-btn.active .set-btn-logo-wrapper::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 107, 107, 0.25);
+    border-radius: 6px;
+    z-index: 3;
+    pointer-events: none;
 }
 
 .set-btn-logo-wrapper {
