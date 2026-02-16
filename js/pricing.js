@@ -157,7 +157,7 @@ async function fetchTcgcsvPrices(setKey, categoryId, groupIdMap) {
     const products = productsData.results || productsData || [];
     (Array.isArray(products) ? products : []).forEach(product => {
         const extData = product.extendedData || [];
-        const numberEntry = extData.find(d => d.displayName === 'Number');
+        const numberEntry = extData.find(d => d.displayName === 'Number' || d.displayName === 'Card Number');
         if (numberEntry && numberEntry.value) {
             const match = numberEntry.value.match(/^(\d+)/);
             if (match) {
