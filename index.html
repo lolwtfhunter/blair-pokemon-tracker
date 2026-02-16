@@ -398,11 +398,7 @@
             opacity: 0.6;
             filter: grayscale(30%);
             z-index: 1;
-        }
-
-        /* Hide fallback when logo loads successfully */
-        .set-btn-logo:not([style*="display: none"]) ~ .set-btn-logo-fallback {
-            display: none;
+            display: block;
         }
 
         .set-btn-name {
@@ -2311,9 +2307,10 @@
 
                 const progress = getCustomSetProgress(setKey);
 
+                // Create button HTML - simplified approach
                 btn.innerHTML = `
                     <div class="set-btn-logo-wrapper">
-                        ${logoUrl ? `<img src="${logoUrl}" alt="${tcgType}" class="set-btn-logo" onerror="this.style.display='none'">` : ''}
+                        <img src="${logoUrl}" alt="${setData.displayName}" class="set-btn-logo" style="display: none;">
                         <div class="set-btn-logo-fallback">${logoIcon}</div>
                     </div>
                     <div class="set-btn-name">${setData.displayName}</div>
@@ -2323,6 +2320,23 @@
                         <div class="set-btn-progress-fill" style="width: ${progress.percentage}%"></div>
                     </div>
                 `;
+
+                // Set up reliable image loading with explicit handlers
+                const img = btn.querySelector('.set-btn-logo');
+                const fallback = btn.querySelector('.set-btn-logo-fallback');
+
+                img.onload = function() {
+                    // Image loaded successfully - show it and hide fallback
+                    this.style.display = 'block';
+                    fallback.style.display = 'none';
+                };
+
+                img.onerror = function() {
+                    // Image failed to load - keep fallback visible
+                    this.style.display = 'none';
+                    fallback.style.display = 'block';
+                };
+
                 btn.onclick = () => switchCustomSet(setKey);
                 container.appendChild(btn);
             });
@@ -2859,7 +2873,7 @@
 
                 btn.innerHTML = `
                     <div class="set-btn-logo-wrapper">
-                        <img src="${localLogoUrl}" alt="${setData.displayName}" class="set-btn-logo" onerror="this.style.display='none'">
+                        <img src="${localLogoUrl}" alt="${setData.displayName}" class="set-btn-logo" style="display: none;">
                         <div class="set-btn-logo-fallback">🃏</div>
                     </div>
                     <div class="set-btn-name">${setData.displayName}</div>
@@ -2869,6 +2883,20 @@
                         <div class="set-btn-progress-fill" style="width: ${progress.percentage}%"></div>
                     </div>
                 `;
+
+                // Set up reliable image loading
+                const img = btn.querySelector('.set-btn-logo');
+                const fallback = btn.querySelector('.set-btn-logo-fallback');
+
+                img.onload = function() {
+                    this.style.display = 'block';
+                    fallback.style.display = 'none';
+                };
+
+                img.onerror = function() {
+                    this.style.display = 'none';
+                    fallback.style.display = 'block';
+                };
 
                 btn.onclick = () => switchLorcanaSet(setKey);
                 container.appendChild(btn);
@@ -3257,7 +3285,7 @@
 
                 btn.innerHTML = `
                     <div class="set-btn-logo-wrapper">
-                        <img src="${logoUrl}" alt="${setData.displayName}" class="set-btn-logo" onerror="this.style.display='none'">
+                        <img src="${logoUrl}" alt="${setData.displayName}" class="set-btn-logo" style="display: none;">
                         <div class="set-btn-logo-fallback">⚡</div>
                     </div>
                     <div class="set-btn-name">${setData.displayName}</div>
@@ -3267,6 +3295,20 @@
                         <div class="set-btn-progress-fill" style="width: ${progress.percentage}%"></div>
                     </div>
                 `;
+
+                // Set up reliable image loading
+                const img = btn.querySelector('.set-btn-logo');
+                const fallback = btn.querySelector('.set-btn-logo-fallback');
+
+                img.onload = function() {
+                    this.style.display = 'block';
+                    fallback.style.display = 'none';
+                };
+
+                img.onerror = function() {
+                    this.style.display = 'none';
+                    fallback.style.display = 'block';
+                };
 
                 btn.onclick = () => switchSet(setKey);
                 container.appendChild(btn);
