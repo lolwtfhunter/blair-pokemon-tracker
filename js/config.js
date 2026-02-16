@@ -181,6 +181,21 @@ const LORCAST_SET_CODES = {
     'winterspell': '11'
 };
 
+// TCGCSV Lorcana group IDs (TCGPlayer category 71)
+const TCGCSV_LORCANA_GROUP_IDS = {
+    'first-chapter': 22937,
+    'rise-of-the-floodborn': 23303,
+    'into-the-inklands': 23367,
+    'ursulas-return': 23474,
+    'shimmering-skies': 23536,
+    'azurite-sea': 23746,
+    'archazias-island': 24011,
+    'reign-of-jafar': 24258,
+    'fabled': 24348,
+    'whispers-in-the-well': 24414,
+    'winterspell': 24500
+};
+
 // Lorcana sets to load
 const LORCANA_SETS = [
     'first-chapter',

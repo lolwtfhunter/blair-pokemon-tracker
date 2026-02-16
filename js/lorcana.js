@@ -321,6 +321,12 @@ function switchLorcanaSet(setKey) {
     if (setData && setData.cards) {
         renderRarityFilters(setKey, setData.cards, LORCANA_RARITY_DISPLAY_NAMES);
     }
+
+    // Load and display market prices
+    ensurePricesLoaded(setKey).then(() => {
+        fillPricesInGrid(setKey);
+        updateSetValues();
+    });
 }
 
 // Render Lorcana cards for a set
@@ -400,6 +406,7 @@ async function renderLorcanaCards(setKey) {
                     <div class="card-number">#${displayNumber}</div>
                     <div class="card-name">${card.name}</div>
                     <span class="rarity-badge ${rarityClass}">${getLorcanaRarityDisplay(card.rarity)}</span>
+                    <span class="price-tag" data-price-card="${setKey}-${card.number}"></span>
                 </div>
                 <a href="${tcgplayerUrl}" target="_blank" class="tcgplayer-link" title="Search on TCGPlayer" onclick="event.stopPropagation();">
                     <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
@@ -433,6 +440,7 @@ function toggleLorcanaVariant(setKey, cardNumber, variant) {
     saveProgress();
     renderLorcanaCards(setKey);
     updateLorcanaSetButtonProgress();
+    updateSetValues();
 }
 
 // Get Lorcana set progress
