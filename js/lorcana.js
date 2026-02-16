@@ -133,10 +133,8 @@ async function fetchLorcastImageUrls(setKey) {
     }
 
     try {
-        lorcanaDebugLog(`Lorcast: fetching images for "${setKey}" (code ${lorcastCode})...`);
         const resp = await fetch(`https://api.lorcast.com/v0/sets/${lorcastCode}/cards`);
         if (!resp.ok) {
-            lorcanaDebugLog(`Lorcast API returned ${resp.status}`);
             _lorcastImageCache[setKey] = {};
             return {};
         }
@@ -154,11 +152,8 @@ async function fetchLorcastImageUrls(setKey) {
         });
 
         _lorcastImageCache[setKey] = imageMap;
-        lorcanaDebugLog(`Lorcast: cached ${Object.keys(imageMap).length} image URLs for "${setKey}"`);
-
         return imageMap;
     } catch (e) {
-        lorcanaDebugLog(`Lorcast fetch error: ${e.message}`);
         _lorcastImageCache[setKey] = {};
         return {};
     }
@@ -202,128 +197,13 @@ function tryNextLorcanaImage(img, card, setKey, attemptIndex = 0) {
     const urls = buildLorcanaImageUrls(card.dreambornId || '', setKey, card.number);
 
     if (attemptIndex < urls.length) {
-        const url = urls[attemptIndex];
-        lorcanaDebugLog(`Card #${card.number} trying [${attemptIndex}]: ${url.substring(0, 80)}`);
-        img.src = url;
+        img.src = urls[attemptIndex];
         img.onerror = function() {
-            lorcanaDebugLog(`Card #${card.number} FAILED [${attemptIndex}]: ${url.substring(0, 80)}`);
             tryNextLorcanaImage(img, card, setKey, attemptIndex + 1);
         };
     } else {
-        lorcanaDebugLog(`Card #${card.number} ALL FAILED - showing placeholder`);
         showPlaceholder(img);
     }
-}
-
-// ==================== IMAGE DEBUG PANEL ====================
-// On-screen debug log for mobile (iOS Safari has no easy console)
-
-let _lorcanaDebugLines = [];
-let _lorcanaDebugPanel = null;
-let _lorcanaDebugEnabled = false;
-
-function lorcanaDebugLog(msg) {
-    if (!_lorcanaDebugEnabled) return;
-    const ts = new Date().toLocaleTimeString('en-US', {hour12:false, hour:'2-digit', minute:'2-digit', second:'2-digit'});
-    const line = `[${ts}] ${msg}`;
-    _lorcanaDebugLines.push(line);
-    if (_lorcanaDebugLines.length > 200) _lorcanaDebugLines.shift();
-    console.log('[LorcanaDebug]', msg);
-    if (_lorcanaDebugPanel) {
-        _lorcanaDebugPanel.querySelector('.debug-content').textContent = _lorcanaDebugLines.slice(-50).join('\n');
-        _lorcanaDebugPanel.querySelector('.debug-content').scrollTop = 999999;
-    }
-}
-
-// Run a quick CDN diagnostic and show results on screen.
-// Activated by the bug icon button in the Lorcana tab header,
-// or from console: debugLorcanaImages()
-function debugLorcanaImages() {
-    _lorcanaDebugEnabled = true;
-
-    // Create or show debug panel
-    if (!_lorcanaDebugPanel) {
-        _lorcanaDebugPanel = document.createElement('div');
-        _lorcanaDebugPanel.id = 'lorcana-debug-panel';
-        _lorcanaDebugPanel.innerHTML = `
-            <div style="position:fixed;bottom:0;left:0;right:0;z-index:99999;background:#1a1a2e;border-top:2px solid #0f3460;max-height:40vh;overflow:hidden;display:flex;flex-direction:column;font-family:monospace;font-size:11px;">
-                <div style="display:flex;justify-content:space-between;align-items:center;padding:6px 10px;background:#0f3460;color:#e0e0e0;">
-                    <span style="font-weight:bold;">Lorcana Image Debug</span>
-                    <div>
-                        <button onclick="runLorcanaCdnTest()" style="background:#16213e;color:#e94560;border:1px solid #e94560;padding:2px 8px;border-radius:4px;margin-right:4px;font-size:11px;">Test CDN</button>
-                        <button onclick="document.getElementById('lorcana-debug-panel').style.display='none'" style="background:#16213e;color:#aaa;border:1px solid #aaa;padding:2px 8px;border-radius:4px;font-size:11px;">Close</button>
-                    </div>
-                </div>
-                <pre class="debug-content" style="padding:8px 10px;margin:0;overflow-y:auto;color:#a0ffa0;white-space:pre-wrap;word-break:break-all;flex:1;">Debug panel active. Tap "Test CDN" or load a Lorcana set.\n</pre>
-            </div>`;
-        document.body.appendChild(_lorcanaDebugPanel);
-    } else {
-        _lorcanaDebugPanel.style.display = '';
-    }
-
-    lorcanaDebugLog('Debug panel activated');
-    lorcanaDebugLog(`User agent: ${navigator.userAgent.substring(0, 100)}`);
-    lorcanaDebugLog(`Current Lorcana set: ${currentLorcanaSet || 'none'}`);
-
-    // Show loaded set info
-    Object.keys(lorcanaCardSets).forEach(key => {
-        const s = lorcanaCardSets[key];
-        const firstCard = s.cards && s.cards[0];
-        lorcanaDebugLog(`Set "${key}": ${s.cards ? s.cards.length : 0} cards, first dreambornId: ${firstCard ? firstCard.dreambornId : 'N/A'}`);
-    });
-}
-
-// Test CDN sources with diagnostic image loads
-function runLorcanaCdnTest() {
-    lorcanaDebugLog('--- CDN TEST START ---');
-
-    // Test Dreamborn URLs
-    const testUrls = [
-        { label: 'Dreamborn Set 1 Card 1', url: 'https://cdn.dreamborn.ink/images/en/cards/001-001' },
-        { label: 'Dreamborn Set 10 Card 1', url: 'https://cdn.dreamborn.ink/images/en/cards/010-001' },
-    ];
-
-    testUrls.forEach(test => {
-        const img = new Image();
-        const startTime = Date.now();
-        img.onload = function() {
-            lorcanaDebugLog(`✅ ${test.label}: LOADED (${Date.now() - startTime}ms, ${img.naturalWidth}x${img.naturalHeight})`);
-        };
-        img.onerror = function() {
-            lorcanaDebugLog(`❌ ${test.label}: FAILED (${Date.now() - startTime}ms)`);
-        };
-        img.src = test.url + '?_t=' + Date.now();
-    });
-
-    // Test Lorcast API
-    lorcanaDebugLog('Testing Lorcast API...');
-    fetch('https://api.lorcast.com/v0/cards/10/1')
-        .then(r => {
-            if (!r.ok) throw new Error(`HTTP ${r.status}`);
-            return r.json();
-        })
-        .then(card => {
-            const imgUrl = card.image_uris?.digital?.normal || 'none';
-            lorcanaDebugLog(`✅ Lorcast API: card="${card.name}", img=${imgUrl.substring(0, 70)}...`);
-            // Test if the Lorcast image URL actually loads
-            if (imgUrl !== 'none') {
-                const img = new Image();
-                const t = Date.now();
-                img.onload = () => lorcanaDebugLog(`✅ Lorcast CDN image: LOADED (${Date.now() - t}ms, ${img.naturalWidth}x${img.naturalHeight})`);
-                img.onerror = () => lorcanaDebugLog(`❌ Lorcast CDN image: FAILED (${Date.now() - t}ms)`);
-                img.src = imgUrl;
-            }
-        })
-        .catch(e => {
-            lorcanaDebugLog(`❌ Lorcast API: ${e.message}`);
-        });
-
-    // Show Lorcast cache status
-    const cacheKeys = Object.keys(_lorcastImageCache);
-    lorcanaDebugLog(`Lorcast cache: ${cacheKeys.length} sets cached`);
-    cacheKeys.forEach(k => {
-        lorcanaDebugLog(`  "${k}": ${Object.keys(_lorcastImageCache[k]).length} image URLs`);
-    });
 }
 
 // Render Lorcana set buttons
