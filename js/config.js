@@ -181,6 +181,18 @@ const LORCAST_SET_CODES = {
     'winterspell': '11'
 };
 
+// TCGCSV Pokemon group IDs (TCGPlayer category 3)
+const TCGCSV_POKEMON_GROUP_IDS = {
+    'celebrations': 2867,
+    'surging-sparks': 23651,
+    'prismatic-evolutions': 23821,
+    'journey-together': 24073,
+    'destined-rivals': 24269,
+    'mega-evolution': 24380,
+    'phantasmal-flames': 24448,
+    'ascended-heroes': 24541
+};
+
 // TCGCSV Lorcana group IDs (TCGPlayer category 71)
 const TCGCSV_LORCANA_GROUP_IDS = {
     'first-chapter': 22937,
