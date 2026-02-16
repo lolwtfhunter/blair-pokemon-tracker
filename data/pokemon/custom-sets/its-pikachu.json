@@ -129,7 +129,8 @@
       "setOrigin": "Base (base1)",
       "originalNumber": "14",
       "releaseDate": "1999/01/09",
-      "apiId": "base1-14"
+      "apiId": "base1-14",
+      "variants": [{"rarity": "1st-edition"}, {"rarity": "unlimited"}]
     },
     "13": {
       "name": "Pikachu",
@@ -138,7 +139,8 @@
       "setOrigin": "Base (base1)",
       "originalNumber": "58",
       "releaseDate": "1999/01/09",
-      "apiId": "base1-58"
+      "apiId": "base1-58",
+      "variants": [{"rarity": "1st-edition"}, {"rarity": "unlimited"}]
     },
     "14": {
       "name": "Pikachu (Pok\u00e9mon Center Tokyo)",
@@ -307,7 +309,8 @@
       "setOrigin": "Team Rocket (base5)",
       "originalNumber": "83",
       "releaseDate": "2000/04/24",
-      "apiId": "base5-83"
+      "apiId": "base5-83",
+      "variants": [{"rarity": "1st-edition"}, {"rarity": "unlimited"}]
     },
     "31": {
       "name": "Pichu (Premium File 2)",
@@ -336,7 +339,8 @@
       "setOrigin": "Gym Heroes (gym1)",
       "originalNumber": "28",
       "releaseDate": "2000/08/14",
-      "apiId": "gym1-28"
+      "apiId": "gym1-28",
+      "variants": [{"rarity": "1st-edition"}, {"rarity": "unlimited"}]
     },
     "34": {
       "name": "Lt. Surge's Pikachu",
@@ -345,7 +349,8 @@
       "setOrigin": "Gym Heroes (gym1)",
       "originalNumber": "81",
       "releaseDate": "2000/08/14",
-      "apiId": "gym1-81"
+      "apiId": "gym1-81",
+      "variants": [{"rarity": "1st-edition"}, {"rarity": "unlimited"}]
     },
     "35": {
       "name": "Lt. Surge's Raichu",
@@ -354,7 +359,8 @@
       "setOrigin": "Gym Challenge (gym2)",
       "originalNumber": "11",
       "releaseDate": "2000/10/16",
-      "apiId": "gym2-11"
+      "apiId": "gym2-11",
+      "variants": [{"rarity": "1st-edition"}, {"rarity": "unlimited"}]
     },
     "36": {
       "name": "Lt. Surge's Pikachu",
@@ -363,7 +369,8 @@
       "setOrigin": "Gym Challenge (gym2)",
       "originalNumber": "84",
       "releaseDate": "2000/10/16",
-      "apiId": "gym2-84"
+      "apiId": "gym2-84",
+      "variants": [{"rarity": "1st-edition"}, {"rarity": "unlimited"}]
     },
     "37": {
       "name": "Pichu",
@@ -372,7 +379,8 @@
       "setOrigin": "Neo Genesis (neo1)",
       "originalNumber": "12",
       "releaseDate": "2000/12/16",
-      "apiId": "neo1-12"
+      "apiId": "neo1-12",
+      "variants": [{"rarity": "1st-edition"}, {"rarity": "unlimited"}]
     },
     "38": {
       "name": "Pikachu",
@@ -381,7 +389,8 @@
       "setOrigin": "Neo Genesis (neo1)",
       "originalNumber": "70",
       "releaseDate": "2000/12/16",
-      "apiId": "neo1-70"
+      "apiId": "neo1-70",
+      "variants": [{"rarity": "1st-edition"}, {"rarity": "unlimited"}]
     },
     "39": {
       "name": "Raichu",
@@ -390,7 +399,8 @@
       "setOrigin": "Neo Revelation (neo3)",
       "originalNumber": "21",
       "releaseDate": "2001/09/21",
-      "apiId": "neo3-21"
+      "apiId": "neo3-21",
+      "variants": [{"rarity": "1st-edition"}, {"rarity": "unlimited"}]
     },
     "40": {
       "name": "Pikachu (Web Series)",
@@ -419,7 +429,8 @@
       "setOrigin": "Neo Destiny (neo4)",
       "originalNumber": "111",
       "releaseDate": "2002/02/28",
-      "apiId": "neo4-111"
+      "apiId": "neo4-111",
+      "variants": [{"rarity": "1st-edition"}, {"rarity": "unlimited"}]
     },
     "43": {
       "name": "Dark Raichu",

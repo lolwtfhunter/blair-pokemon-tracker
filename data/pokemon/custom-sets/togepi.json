@@ -46,7 +46,8 @@
       "setOrigin": "Neo Genesis (neo1)",
       "originalNumber": "51",
       "releaseDate": "2000/12/16",
-      "apiId": "neo1-51"
+      "apiId": "neo1-51",
+      "variants": [{"rarity": "1st-edition"}, {"rarity": "unlimited"}]
     },
     "5": {
       "name": "Togepi",
@@ -64,7 +65,8 @@
       "setOrigin": "Neo Destiny (neo4)",
       "originalNumber": "56",
       "releaseDate": "2002/02/28",
-      "apiId": "neo4-56"
+      "apiId": "neo4-56",
+      "variants": [{"rarity": "1st-edition"}, {"rarity": "unlimited"}]
     },
     "7": {
       "name": "Togepi (McDonald's Japan)",

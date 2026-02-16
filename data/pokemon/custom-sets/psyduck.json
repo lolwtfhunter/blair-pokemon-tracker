@@ -35,7 +35,8 @@
       "setOrigin": "Team Rocket (base5)",
       "originalNumber": "65",
       "releaseDate": "2000/04/24",
-      "apiId": "base5-65"
+      "apiId": "base5-65",
+      "variants": [{"rarity": "1st-edition"}, {"rarity": "unlimited"}]
     },
     "4": {
       "name": "Misty's Psyduck",
@@ -44,7 +45,8 @@
       "setOrigin": "Gym Heroes (gym1)",
       "originalNumber": "54",
       "releaseDate": "2000/08/14",
-      "apiId": "gym1-54"
+      "apiId": "gym1-54",
+      "variants": [{"rarity": "1st-edition"}, {"rarity": "unlimited"}]
     },
     "5": {
       "name": "Misty's Psyduck",
@@ -53,7 +55,8 @@
       "setOrigin": "Gym Challenge (gym2)",
       "originalNumber": "90",
       "releaseDate": "2000/10/16",
-      "apiId": "gym2-90"
+      "apiId": "gym2-90",
+      "variants": [{"rarity": "1st-edition"}, {"rarity": "unlimited"}]
     },
     "6": {
       "name": "Sabrina's Psyduck",
@@ -62,7 +65,8 @@
       "setOrigin": "Gym Challenge (gym2)",
       "originalNumber": "99",
       "releaseDate": "2000/10/16",
-      "apiId": "gym2-99"
+      "apiId": "gym2-99",
+      "variants": [{"rarity": "1st-edition"}, {"rarity": "unlimited"}]
     },
     "7": {
       "name": "Psyduck",
@@ -71,7 +75,8 @@
       "setOrigin": "Neo Destiny (neo4)",
       "originalNumber": "79",
       "releaseDate": "2002/02/28",
-      "apiId": "neo4-79"
+      "apiId": "neo4-79",
+      "variants": [{"rarity": "1st-edition"}, {"rarity": "unlimited"}]
     },
     "8": {
       "name": "Psyduck",

@@ -1,5 +1,38 @@
 // Variant toggling and unlock confirmation
 
+// Migrate legacy 'single' variant to 'unlimited' for WotC-era edition cards
+function migrateEditionVariants() {
+    if (localStorage.getItem('edition-migration-v1')) return;
+
+    const editionCards = {
+        'custom-its-pikachu': ['12','13','30','33','34','35','36','37','38','39','42'],
+        'custom-psyduck': ['3','4','5','6','7'],
+        'custom-togepi': ['4','6']
+    };
+
+    let changed = false;
+    for (const [setKey, cardNumbers] of Object.entries(editionCards)) {
+        if (!collectionProgress[setKey]) continue;
+        for (const num of cardNumbers) {
+            const cardData = collectionProgress[setKey][num];
+            if (cardData && cardData['single'] !== undefined) {
+                cardData['unlimited'] = cardData['single'];
+                delete cardData['single'];
+                changed = true;
+            }
+        }
+    }
+
+    if (changed) {
+        localStorage.setItem('pokemonVariantProgress', JSON.stringify(collectionProgress));
+        if (firebase_ref) {
+            firebase_ref.set(collectionProgress);
+        }
+    }
+
+    localStorage.setItem('edition-migration-v1', 'done');
+}
+
 // Save progress to localStorage
 function saveProgress() {
     localStorage.setItem('pokemonVariantProgress', JSON.stringify(collectionProgress));

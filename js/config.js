@@ -47,7 +47,9 @@ const variantLabels = {
     'holo': { label: 'Holo', icon: '💎' },
     'reverse-holo': { label: 'Reverse Holo', icon: '✨' },
     'pokeball': { label: 'Poké Ball', icon: '⚾' },
-    'masterball': { label: 'Master Ball', icon: '🔮' }
+    'masterball': { label: 'Master Ball', icon: '🔮' },
+    '1st-edition': { label: '1st Edition', icon: '🥇' },
+    'unlimited': { label: 'Unlimited', icon: '♾️' }
 };
 
 // All possible rarities in Pokemon TCG (future-proof)
@@ -80,7 +82,9 @@ const RARITY_DISPLAY_NAMES = {
     'rare-holo': 'RARE HOLO',
     'rare-holo-gx': 'HOLO GX',
     'trainer': 'TRAINER',
-    'energy': 'ENERGY'
+    'energy': 'ENERGY',
+    '1st-edition': '1ST EDITION',
+    'unlimited': 'UNLIMITED'
 };
 
 // Lorcana rarity display names

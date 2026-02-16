@@ -22,6 +22,9 @@ window.addEventListener('load', async function() {
         // Initialize progress
         initializeProgress();
 
+        // Migrate legacy 'single' variants to edition variants for WotC-era cards
+        migrateEditionVariants();
+
         console.log('Rendering UI...');
 
         console.log('Calling renderSetButtons...');
