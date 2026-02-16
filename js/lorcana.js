@@ -153,6 +153,12 @@ async function fetchLorcastImageUrls(setKey) {
 
         _lorcastImageCache[setKey] = imageMap;
         lorcanaDebugLog(`Lorcast: cached ${Object.keys(imageMap).length} image URLs for "${setKey}"`);
+
+        // Also extract and cache price data from the same response
+        if (typeof cacheLorcanaPrices === 'function') {
+            cacheLorcanaPrices(setKey, cards);
+        }
+
         return imageMap;
     } catch (e) {
         lorcanaDebugLog(`Lorcast fetch error: ${e.message}`);
@@ -498,6 +504,7 @@ async function renderLorcanaCards(setKey) {
                     </svg>
                 </a>
             </div>
+            ${typeof cardPriceHTML === 'function' ? cardPriceHTML(setKey, card.number) : ''}
             <div class="variants-section">
                 <div class="variants-title">STATUS:</div>
                 ${variantHTML}

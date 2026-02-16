@@ -1325,6 +1325,91 @@ h1 {
     max-width: 100%;
 }
 
+/* Card price display between header and variants */
+.card-price {
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    letter-spacing: 0.3px;
+}
+
+.card-price.price-loading {
+    opacity: 0.3;
+    animation: pricePulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pricePulse {
+    0%, 100% { opacity: 0.2; }
+    50% { opacity: 0.5; }
+}
+
+.card-price.price-na {
+    opacity: 0.25;
+    font-weight: 400;
+}
+
+.card-price.price-low {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.card-price.price-mid {
+    color: #4fc3f7;
+}
+
+.card-price.price-high {
+    color: #ffd54f;
+}
+
+.card-price.price-premium {
+    color: #ffab40;
+    text-shadow: 0 0 8px rgba(255, 171, 64, 0.4);
+}
+
+/* Modal price section */
+.modal-price-section {
+    margin-top: 10px;
+    padding: 10px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.modal-price-title {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    opacity: 0.6;
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
+}
+
+.modal-price-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 4px 0;
+    font-size: 0.85rem;
+}
+
+.modal-price-variant {
+    opacity: 0.6;
+    min-width: 90px;
+}
+
+.modal-price-value {
+    font-weight: 700;
+}
+
+.modal-price-range {
+    font-size: 0.75rem;
+    opacity: 0.4;
+    margin-left: auto;
+}
+
+.modal-price-na {
+    font-size: 0.8rem;
+    opacity: 0.35;
+    font-style: italic;
+}
+
 .variants-section {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     padding-top: 6px;

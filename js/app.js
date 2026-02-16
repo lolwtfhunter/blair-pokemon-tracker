@@ -22,6 +22,12 @@ window.addEventListener('load', async function() {
         // Initialize progress
         initializeProgress();
 
+        // Load cached card prices from localStorage
+        if (typeof loadPriceCache === 'function') {
+            loadPriceCache();
+            console.log('✓ Price cache loaded');
+        }
+
         console.log('Rendering UI...');
 
         console.log('Calling renderSetButtons...');
