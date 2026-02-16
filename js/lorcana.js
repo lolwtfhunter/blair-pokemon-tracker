@@ -28,6 +28,32 @@ function initializeProgress() {
 
 // ==================== LORCANA FUNCTIONS ====================
 
+// Generate inline SVG data URI as fallback logo for Lorcana set buttons.
+// Uses a double-hexagon (Lorcana's signature shape) with set-specific colors
+// and Roman numeral identifiers. Local logo files take priority if they exist.
+function getLorcanaSetLogoFallback(setKey) {
+    const setStyles = {
+        'first-chapter':         { color: '#c9a84c', label: 'I' },
+        'rise-of-the-floodborn': { color: '#3a7bd5', label: 'II' },
+        'into-the-inklands':     { color: '#2ecc71', label: 'III' },
+        'ursulas-return':        { color: '#9b59b6', label: 'IV' },
+        'shimmering-skies':      { color: '#00b4d8', label: 'V' },
+        'azurite-sea':           { color: '#0077b6', label: 'VI' },
+        'archazias-island':      { color: '#e67e22', label: 'VII' },
+        'the-flood':             { color: '#c0392b', label: 'VIII' },
+        'neverland':             { color: '#27ae60', label: 'IX' },
+        'whispers-in-the-well':  { color: '#7b5ea7', label: 'X' }
+    };
+    const style = setStyles[setKey] || { color: '#c9a84c', label: '?' };
+    const c = style.color;
+    const svg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">' +
+        '<polygon points="50,3 95,28 95,72 50,97 5,72 5,28" fill="none" stroke="' + c + '" stroke-width="3"/>' +
+        '<polygon points="50,15 82,34 82,66 50,85 18,66 18,34" fill="none" stroke="' + c + '" stroke-width="1.5" opacity="0.4"/>' +
+        '<text x="50" y="58" text-anchor="middle" fill="' + c + '" font-family="Georgia,serif" font-size="28" font-weight="bold">' + style.label + '</text>' +
+        '</svg>';
+    return 'data:image/svg+xml;base64,' + btoa(svg);
+}
+
 // Get image URL for Lorcana cards with multiple CDN fallbacks
 function getLorcanaCardImageUrl(card, setKey) {
     const setData = lorcanaCardSets[setKey];
@@ -146,13 +172,15 @@ function renderLorcanaSetButtons() {
         // Calculate progress
         const progress = getLorcanaSetProgress(setKey);
 
-        // Lorcana logos - use local if available, fallback to icon
+        // Lorcana logos - try local file first, fall back to inline SVG logo
         const localLogoUrl = `./Images/lorcana/logos/${setKey}.png`;
+        const fallbackLogoUrl = getLorcanaSetLogoFallback(setKey);
 
         btn.innerHTML = `
             <div class="set-btn-logo-wrapper">
                 <img src="${localLogoUrl}" alt="${setData.displayName}" class="set-btn-logo"
-                     onerror="this.style.display='none';this.nextElementSibling.style.display=''">
+                     data-fallback-src="${fallbackLogoUrl}"
+                     onerror="this.onerror=null;this.src=this.getAttribute('data-fallback-src')">
                 <div class="set-btn-logo-fallback" style="display:none">&#127183;</div>
             </div>
             <div class="set-btn-name">${setData.displayName}</div>
