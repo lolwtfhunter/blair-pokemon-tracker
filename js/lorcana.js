@@ -109,18 +109,75 @@ function getLorcanaSetLogoSvg(setKey) {
     return 'data:image/svg+xml;base64,' + btoa(svg);
 }
 
+// ==================== LORCAST CDN INTEGRATION ====================
+// Fetches card image URLs from the Lorcast API (api.lorcast.com).
+// Dreamborn CDN may not have all sets; Lorcast provides AVIF images via
+// cards.lorcast.io with UUIDs that must be looked up via the API.
+
+// Cache: { setKey: { cardNumber: imageUrl } }
+const _lorcastImageCache = {};
+
+// Fetch image URLs from Lorcast API for a Lorcana set (cached after first call).
+async function fetchLorcastImageUrls(setKey) {
+    if (_lorcastImageCache[setKey]) return _lorcastImageCache[setKey];
+
+    const lorcastCode = typeof LORCAST_SET_CODES !== 'undefined' && LORCAST_SET_CODES[setKey];
+    if (!lorcastCode) {
+        _lorcastImageCache[setKey] = {};
+        return {};
+    }
+
+    try {
+        lorcanaDebugLog(`Lorcast: fetching images for "${setKey}" (code ${lorcastCode})...`);
+        const resp = await fetch(`https://api.lorcast.com/v0/sets/${lorcastCode}/cards`);
+        if (!resp.ok) {
+            lorcanaDebugLog(`Lorcast API returned ${resp.status}`);
+            _lorcastImageCache[setKey] = {};
+            return {};
+        }
+
+        const data = await resp.json();
+        const cards = data.results || (Array.isArray(data) ? data : []);
+
+        const imageMap = {};
+        cards.forEach(card => {
+            const num = parseInt(card.collector_number);
+            const url = card.image_uris?.digital?.normal
+                     || card.image_uris?.digital?.large
+                     || card.image_uris?.digital?.small;
+            if (num && url) imageMap[num] = url;
+        });
+
+        _lorcastImageCache[setKey] = imageMap;
+        lorcanaDebugLog(`Lorcast: cached ${Object.keys(imageMap).length} image URLs for "${setKey}"`);
+        return imageMap;
+    } catch (e) {
+        lorcanaDebugLog(`Lorcast fetch error: ${e.message}`);
+        _lorcastImageCache[setKey] = {};
+        return {};
+    }
+}
+
+// ==================== CARD IMAGE URL BUILDER ====================
+
 // Build ordered list of image URLs to try for a Lorcana card.
-// Dreamborn CDN serves images WITHOUT file extensions (returns JFIF/JPEG).
+// Tiers: Dreamborn CDN -> Lorcast CDN (cached) -> local files
 function buildLorcanaImageUrls(dreambornId, setKey, cardNumber) {
     const urls = [];
     const paddedNumber = String(cardNumber).padStart(3, '0');
 
-    // Tier 1: Dreamborn CDN (extensionless - confirmed correct format)
+    // Tier 1: Dreamborn CDN (extensionless - returns JFIF/JPEG)
     if (dreambornId) {
         urls.push(`https://cdn.dreamborn.ink/images/en/cards/${dreambornId}`);
     }
 
-    // Tier 2: Local files
+    // Tier 2: Lorcast CDN (AVIF, fetched from API and cached)
+    const lorcastUrl = _lorcastImageCache[setKey]?.[cardNumber];
+    if (lorcastUrl) {
+        urls.push(lorcastUrl);
+    }
+
+    // Tier 3: Local files
     urls.push(`./Images/lorcana/${setKey}/${paddedNumber}.jpg`);
     urls.push(`./Images/lorcana/${setKey}/${paddedNumber}.png`);
     urls.push(`./Images/lorcana/${setKey}/${paddedNumber}.webp`);
@@ -210,41 +267,57 @@ function debugLorcanaImages() {
     });
 }
 
-// Test the Dreamborn CDN with a single image load
+// Test CDN sources with diagnostic image loads
 function runLorcanaCdnTest() {
     lorcanaDebugLog('--- CDN TEST START ---');
 
-    // Test URLs to try
+    // Test Dreamborn URLs
     const testUrls = [
-        { label: 'Dreamborn extensionless (Set 1, Card 1)', url: 'https://cdn.dreamborn.ink/images/en/cards/001-001' },
-        { label: 'Dreamborn extensionless (Set 10, Card 1)', url: 'https://cdn.dreamborn.ink/images/en/cards/010-001' },
-        { label: 'Dreamborn with .webp (should fail)', url: 'https://cdn.dreamborn.ink/images/en/cards/001-001.webp' },
+        { label: 'Dreamborn Set 1 Card 1', url: 'https://cdn.dreamborn.ink/images/en/cards/001-001' },
+        { label: 'Dreamborn Set 10 Card 1', url: 'https://cdn.dreamborn.ink/images/en/cards/010-001' },
     ];
 
-    testUrls.forEach((test, i) => {
+    testUrls.forEach(test => {
         const img = new Image();
         const startTime = Date.now();
         img.onload = function() {
-            const elapsed = Date.now() - startTime;
-            lorcanaDebugLog(`✅ ${test.label}: LOADED (${elapsed}ms, ${img.naturalWidth}x${img.naturalHeight})`);
+            lorcanaDebugLog(`✅ ${test.label}: LOADED (${Date.now() - startTime}ms, ${img.naturalWidth}x${img.naturalHeight})`);
         };
         img.onerror = function() {
-            const elapsed = Date.now() - startTime;
-            lorcanaDebugLog(`❌ ${test.label}: FAILED (${elapsed}ms)`);
+            lorcanaDebugLog(`❌ ${test.label}: FAILED (${Date.now() - startTime}ms)`);
         };
-        // Add cache-busting to ensure fresh request
-        img.src = test.url + (test.url.includes('?') ? '&' : '?') + '_t=' + Date.now();
+        img.src = test.url + '?_t=' + Date.now();
     });
 
-    // Also test with fetch API for more detailed error info
-    lorcanaDebugLog('Testing with fetch API for detailed errors...');
-    fetch('https://cdn.dreamborn.ink/images/en/cards/010-001', { mode: 'no-cors' })
+    // Test Lorcast API
+    lorcanaDebugLog('Testing Lorcast API...');
+    fetch('https://api.lorcast.com/v0/cards/10/1')
         .then(r => {
-            lorcanaDebugLog(`Fetch result: type=${r.type}, status=${r.status}, ok=${r.ok}`);
+            if (!r.ok) throw new Error(`HTTP ${r.status}`);
+            return r.json();
+        })
+        .then(card => {
+            const imgUrl = card.image_uris?.digital?.normal || 'none';
+            lorcanaDebugLog(`✅ Lorcast API: card="${card.name}", img=${imgUrl.substring(0, 70)}...`);
+            // Test if the Lorcast image URL actually loads
+            if (imgUrl !== 'none') {
+                const img = new Image();
+                const t = Date.now();
+                img.onload = () => lorcanaDebugLog(`✅ Lorcast CDN image: LOADED (${Date.now() - t}ms, ${img.naturalWidth}x${img.naturalHeight})`);
+                img.onerror = () => lorcanaDebugLog(`❌ Lorcast CDN image: FAILED (${Date.now() - t}ms)`);
+                img.src = imgUrl;
+            }
         })
         .catch(e => {
-            lorcanaDebugLog(`Fetch error: ${e.message || e}`);
+            lorcanaDebugLog(`❌ Lorcast API: ${e.message}`);
         });
+
+    // Show Lorcast cache status
+    const cacheKeys = Object.keys(_lorcastImageCache);
+    lorcanaDebugLog(`Lorcast cache: ${cacheKeys.length} sets cached`);
+    cacheKeys.forEach(k => {
+        lorcanaDebugLog(`  "${k}": ${Object.keys(_lorcastImageCache[k]).length} image URLs`);
+    });
 }
 
 // Render Lorcana set buttons
@@ -338,10 +411,13 @@ function switchLorcanaSet(setKey) {
 }
 
 // Render Lorcana cards for a set
-function renderLorcanaCards(setKey) {
+async function renderLorcanaCards(setKey) {
     const setData = lorcanaCardSets[setKey];
     const grid = document.getElementById(`${setKey}-grid`);
     if (!grid) return;
+
+    // Ensure Lorcast image URLs are cached before rendering
+    await fetchLorcastImageUrls(setKey);
 
     grid.innerHTML = '';
 

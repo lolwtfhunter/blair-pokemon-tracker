@@ -143,6 +143,20 @@ const CUSTOM_SETS = [
     'togepi'
 ];
 
+// Lorcast API set codes (for card image fallback via api.lorcast.com)
+const LORCAST_SET_CODES = {
+    'first-chapter': '1',
+    'rise-of-the-floodborn': '2',
+    'into-the-inklands': '3',
+    'ursulas-return': '4',
+    'shimmering-skies': '5',
+    'azurite-sea': '6',
+    'archazias-island': '7',
+    'fabled': '9',
+    'whispers-in-the-well': '10',
+    'winterspell': '11'
+};
+
 // Lorcana sets to load
 const LORCANA_SETS = [
     'first-chapter',
