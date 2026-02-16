@@ -283,15 +283,18 @@ function renderSetButtonsForBlock(blockCode) {
         // Calculate progress
         const progress = getSetProgress(setKey);
 
-        // Get set logo URL from pokemontcg.io API with Scrydex fallback
+        // Get set logo URL — use Scrydex as primary for broken pokemontcg.io sets
         const apiSetId = TCG_API_SET_IDS[setKey] || setData.setCode;
-        const logoUrl = `https://images.pokemontcg.io/${apiSetId}/logo.png`;
         const scrydexLogoUrl = `https://images.scrydex.com/pokemon/${apiSetId}-logo/logo`;
+        const ptcgLogoUrl = `https://images.pokemontcg.io/${apiSetId}/logo.png`;
+        const useScrydexPrimary = SCRYDEX_PRIMARY_SETS.has(apiSetId);
+        const primaryLogoUrl = useScrydexPrimary ? scrydexLogoUrl : ptcgLogoUrl;
+        const fallbackLogoUrl = useScrydexPrimary ? ptcgLogoUrl : scrydexLogoUrl;
 
         btn.innerHTML = `
             <div class="set-btn-logo-wrapper">
-                <img src="${logoUrl}" alt="${setData.displayName}" class="set-btn-logo"
-                     onerror="this.onerror=function(){this.style.display='none';this.nextElementSibling.style.display=''};this.src='${scrydexLogoUrl}'">
+                <img src="${primaryLogoUrl}" alt="${setData.displayName}" class="set-btn-logo"
+                     onerror="this.onerror=function(){this.style.display='none';this.nextElementSibling.style.display=''};this.src='${fallbackLogoUrl}'">
                 <div class="set-btn-logo-fallback" style="display:none">⚡</div>
             </div>
             <div class="set-btn-name">${setData.displayName}</div>

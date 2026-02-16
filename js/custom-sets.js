@@ -248,6 +248,9 @@ function getCustomVariantImageUrl(card, variantKey) {
             const parts = variant.apiId.split('-');
             const setId = parts.slice(0, -1).join('-');
             const num = parts[parts.length - 1];
+            if (SCRYDEX_PRIMARY_SETS.has(setId)) {
+                return `https://images.scrydex.com/pokemon/${setId}-${num}/large`;
+            }
             return `https://images.pokemontcg.io/${setId}/${num}.png`;
         }
     }
