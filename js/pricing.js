@@ -127,8 +127,19 @@ async function fetchPokemonSetPrices(setKey) {
     if (!apiSetId) return;
 
     const url = `https://api.pokemontcg.io/v2/cards?q=set.id:${apiSetId}&select=number,tcgplayer&pageSize=250`;
-    const resp = await fetch(url);
-    if (!resp.ok) throw new Error(`Pokemon price API returned ${resp.status}`);
+
+    // pokemontcg.io is unreliable (~38% uptime), retry up to 3 times with backoff
+    let resp;
+    for (let attempt = 0; attempt < 3; attempt++) {
+        try {
+            resp = await fetch(url);
+            if (resp.ok) break;
+        } catch (e) {
+            resp = null;
+        }
+        if (attempt < 2) await new Promise(r => setTimeout(r, 1000 * (attempt + 1)));
+    }
+    if (!resp || !resp.ok) throw new Error(`Pokemon price API unavailable after 3 attempts`);
 
     const data = await resp.json();
     const cards = data.data || [];
