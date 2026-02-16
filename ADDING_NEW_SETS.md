@@ -322,10 +322,13 @@ Follow these steps in order to add a new official Pokemon TCG set:
                <input type="text" class="search-input" placeholder="Search cards..." oninput="searchCards('my-new-set', this.value)" data-set="my-new-set">
                <button class="search-clear" onclick="clearSearch('my-new-set')">×</button>
            </div>
+           <div class="rarity-filters" id="my-new-set-rarity-filters"></div>
        </div>
        <div class="card-grid" id="my-new-set-grid"></div>
    </div>
    ```
+
+   > **Note:** The `rarity-filters` div is required for rarity toggle buttons to appear. These buttons are dynamically generated from the set's card data when the set is selected — no manual button creation needed.
 
 3. **Add image URL mappings** (around line 1478):
 
@@ -655,6 +658,10 @@ Before committing your changes, verify:
 - [ ] Cards render with correct information
 - [ ] Images load (or placeholders show)
 - [ ] Filter buttons work (All/Incomplete/Complete)
+- [ ] Rarity filter buttons appear with correct rarities for the set
+- [ ] Clicking rarity buttons filters cards to matching rarities
+- [ ] Multiple rarity buttons can be active simultaneously
+- [ ] Rarity filter combines correctly with completion filter and search
 - [ ] Search functionality works
 - [ ] Variant checkboxes appear correctly
 - [ ] Checking variants saves progress
@@ -743,7 +750,7 @@ Before committing your changes, verify:
 | Add Lorcana set data | `data/lorcana/sets/{set-key}.json` | - |
 | Update Pokemon set list | `index.html` | OFFICIAL_SETS or CUSTOM_SETS arrays |
 | Update Lorcana set list | `index.html` | LORCANA_SETS array |
-| Add Pokemon HTML grid | `index.html` | Set sections area |
+| Add Pokemon HTML grid | `index.html` | Set sections area (include `rarity-filters` div) |
 | Add Pokemon image mappings | `index.html` | TCG_API_SET_IDS, TCGDEX_SET_IDS |
 | Add Lorcana logo wiki mapping | `js/lorcana.js` | LORCANA_SET_WIKI_NAMES |
 | Add Lorcana logo SVG fallback | `js/lorcana.js` | getLorcanaSetLogoSvg() |
@@ -903,6 +910,7 @@ This implementation demonstrates how to add a new TCG while reusing the existing
 
 ## Version History
 
+- **v2.2** (2026-02-16): Updated HTML template to include `rarity-filters` div placeholder. Updated testing checklist with rarity filter verification steps. Updated Quick Reference table.
 - **v2.1** (2026-02-16): Added Lorcana set logo CDN documentation — wiki-based fallback system using Mushu Report and Fandom wikis. Updated Quick Reference table with Lorcana-specific file locations. Added Lessons Learned entry for logo CDN pattern. Updated "Adding a New Card Game" Step 4 with logo sourcing guidance.
 - **v2.0** (2026-02-15): Added "Real-World Example: Disney Lorcana Implementation" section documenting successful addition of Lorcana as a second TCG to the tracker. Updated "Adding a New Card Game" section header to reflect that Lorcana is now implemented.
 - **v1.3** (2026-02-15): Updated hierarchical UI documentation to reflect improved user control model: removed auto-selection behavior, added block deselection capability, clarified that set buttons only appear when block is selected. Added notes about custom sets using flat list (no hierarchy).

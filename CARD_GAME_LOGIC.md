@@ -483,28 +483,60 @@ https://api.lorcast.com/v0/sets/{lorcastSetCode}/cards
 
 ### Filter Types
 
-Three filter states for each set:
+Three completion filter states for each set:
 
 1. **All** - Show all cards
 2. **Incomplete** - Show only cards with unchecked variants
 3. **Complete** - Show only cards with all variants checked
 
-**Implementation:**
-```javascript
-function filterCards(setKey, filter) {
-    const cards = document.querySelectorAll(`#${setKey}-grid .card-item`);
-    cards.forEach(card => {
-        const isComplete = card.getAttribute('data-completed') === 'true';
-        if (filter === 'all') {
-            card.style.display = '';
-        } else if (filter === 'incomplete') {
-            card.style.display = isComplete ? 'none' : '';
-        } else if (filter === 'complete') {
-            card.style.display = isComplete ? '' : 'none';
-        }
-    });
-}
+### Rarity Filter Toggles
+
+Each set displays a row of **multi-select** rarity pill buttons below the completion filter and search bar. These are dynamically generated from the rarities actually present in that set's card data.
+
+**Behavior:**
+- **Default:** No rarity buttons active = all rarities shown (no filtering)
+- **Toggle:** Click one or more rarity buttons to filter to just those rarities
+- **Multi-select:** Multiple rarities can be active simultaneously (cards matching ANY active rarity are shown)
+- **Combines with other filters:** A card must pass all three filters (completion + rarity + search) to be visible
+
+**UI Layout:**
 ```
+[All] [Incomplete] [Complete]     [Search cards...    ]
+[COMMON] [UNCOMMON] [RARE] [EX] [ILLUS RARE] [SPECIAL IR] ...
+```
+
+**Implementation (shared across all tabs):**
+
+Global state in `js/config.js`:
+```javascript
+let activeRarityFilters = {};  // Maps setKey → Set of active rarity strings
+```
+
+Shared functions in `js/pokemon-tcg.js`:
+```javascript
+// Scans card data for unique rarities and renders toggle buttons
+function renderRarityFilters(setKey, cardsData, displayNameMap) { ... }
+
+// Toggles a rarity in/out of activeRarityFilters[setKey] and reapplies filters
+window.toggleRarityFilter = function(setKey, rarity) { ... }
+```
+
+Each card element has a `data-rarity` attribute set during rendering, used by the filter logic.
+
+**Display name maps:**
+- Pokemon TCG & Custom Sets: `RARITY_DISPLAY_NAMES` (in `js/config.js`)
+- Disney Lorcana: `LORCANA_RARITY_DISPLAY_NAMES` (in `js/config.js`)
+
+**Per-tab integration:**
+- **Pokemon TCG** (`js/pokemon-tcg.js`): `applyFiltersAndSearch()` checks `activeRarityFilters[setKey]`; `switchSet()` calls `renderRarityFilters()` after building the grid
+- **Custom Sets** (`js/custom-sets.js`): Uses the same `applyFiltersAndSearch()` from pokemon-tcg.js (custom set keys are prefixed with `custom-`); `switchCustomSet()` calls `renderRarityFilters()`
+- **Lorcana** (`js/lorcana.js`): `applyLorcanaFiltersAndSearch()` checks `activeRarityFilters[setKey]`; `switchLorcanaSet()` calls `renderRarityFilters()` with `LORCANA_RARITY_DISPLAY_NAMES`
+
+**HTML structure:** Each set's `.card-controls` div contains a `<div class="rarity-filters" id="{setKey}-rarity-filters"></div>` placeholder. For Pokemon TCG sets, these are in `index.html`. For Custom Sets and Lorcana, they are generated dynamically by `initCustomSetGrids()` and `initLorcanaSetGrids()`.
+
+**CSS:** `.rarity-btn` styled as small rounded pills (20px border-radius) with `.rarity-btn.active` using a purple highlight (`rgba(102, 126, 234, 0.35)`). Mobile responsive styles reduce padding and font size.
+
+**Adding rarity filters to a new set:** No extra work needed — rarity buttons are auto-generated from the set's card data when `renderRarityFilters()` is called. Just ensure the set's `.card-controls` div includes a `<div class="rarity-filters" id="{setKey}-rarity-filters"></div>`.
 
 ### Search Functionality
 
@@ -516,25 +548,7 @@ Search matches against:
 - Search "pikachu" → matches "Pikachu", "Pikachu ex", "Flying Pikachu V"
 - Search "25" → matches card #25, #125, #252, etc.
 
-**Implementation:**
-```javascript
-function searchCards(setKey, query) {
-    const normalizedQuery = query.toLowerCase().trim();
-    const cards = document.querySelectorAll(`#${setKey}-grid .card-item`);
-
-    cards.forEach(card => {
-        const cardName = card.querySelector('.card-name').textContent.toLowerCase();
-        const cardNumber = card.querySelector('.card-number').textContent;
-
-        const matches = cardName.includes(normalizedQuery) ||
-                       cardNumber.includes(normalizedQuery);
-
-        card.style.display = matches ? '' : 'none';
-    });
-}
-```
-
-**Note:** Search and filter work together - both conditions must be met for a card to display.
+**Note:** Search, completion filter, and rarity filter all work together — all three conditions must be met for a card to display.
 
 ---
 
@@ -813,4 +827,5 @@ When adding a new block code:
 
 ## Version History
 
+- **v1.1** (2026-02-16): Added comprehensive Rarity Filter Toggles documentation to Search & Filtering section — covers multi-select rarity pill buttons, global state, per-tab integration, HTML structure, CSS, and guidance for new sets
 - **v1.0** (2026-02-15): Initial documentation created to support modular architecture and future scalability

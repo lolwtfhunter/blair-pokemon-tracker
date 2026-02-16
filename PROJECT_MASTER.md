@@ -1,7 +1,7 @@
 # Blair TCG Collection Tracker - Project Master Document
 
-**Version:** 4.0.0
-**Last Updated:** February 15, 2026
+**Version:** 4.1.0
+**Last Updated:** February 16, 2026
 **Live URL:** https://lolwtfhunter.github.io/blair-pokemon-tracker/
 **Sync Code:** Blair2024
 
@@ -30,6 +30,7 @@ A web-based multi-TCG collection tracker for tracking 4,000+ cards across **Poke
 - ✅ Progress tracking and statistics per set and per block
 - ✅ Persistent storage (survives page refresh)
 - ✅ Filter cards (All/Incomplete/Complete)
+- ✅ Rarity filter toggles — multi-select pill buttons per set to filter by rarity (dynamically generated from each set's card data)
 - ✅ Search cards by name or number
 - ✅ Card detail modal with large images
 - ✅ Lazy loading for performance
@@ -460,11 +461,12 @@ initializeFirebaseSync();
 4. **Set Selector** - Grid of set buttons within selected block, showing set logos and individual progress
 5. **Search Bar** - Filter cards by name or number
 6. **Filter Buttons** - All/Incomplete/Complete card filtering
-7. **Progress Display** - X/Y variants collected (shown at both block and set levels)
-8. **Card Grid** - Responsive grid layout
-9. **Card Items** - Card image, number, name, rarity badge, variant checkboxes
-10. **Card Detail Modal** - Full-size card view with all details and variant toggles
-11. **Export Button** - Generate progress report
+7. **Rarity Filter Toggles** - Multi-select pill buttons per set to show only selected rarities (dynamically generated from each set's cards)
+8. **Progress Display** - X/Y variants collected (shown at both block and set levels)
+9. **Card Grid** - Responsive grid layout
+10. **Card Items** - Card image, number, name, rarity badge, variant checkboxes
+11. **Card Detail Modal** - Full-size card view with all details and variant toggles
+12. **Export Button** - Generate progress report
 
 ### **Hierarchical Navigation**
 The Pokemon TCG tab uses a two-level navigation system with explicit user control:

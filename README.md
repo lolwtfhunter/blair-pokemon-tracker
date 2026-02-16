@@ -40,7 +40,7 @@ The app has three top-level tabs:
   - Custom sets display as a flat list (no hierarchy needed)
 - **Variant tracking** — Check off each variant (Regular, Holo, Reverse Holo, Poke Ball, Master Ball) independently per card. EX, Ultra Rare, and other special rarities use a single "Collected" checkbox. Custom set cards also get computed variants based on rarity, era, and set type (e.g., modern uncommons get Regular + Reverse Holo).
 - **Inline progress bars** — Each block and set button shows a progress bar and collected/total count directly inside it, so you can see completion at a glance without a separate section.
-- **Filter & search** — Filter cards by completion status (All/Incomplete/Complete) and search by card name or number. Filters and search work together for quick card location.
+- **Filter & search** — Filter cards by completion status (All/Incomplete/Complete), toggle rarity filter buttons to show specific rarities, and search by card name or number. All three filters work together for quick card location.
 - **Card detail modal** — Tap any card to open a full-detail view with a large image, complete card information, and the ability to toggle variants directly in the modal.
 - **Lazy loading** — Cards render on-demand when you select a set, improving initial page load performance.
 - **Soft-lock for completed cards** — When all variants of a card are collected, the card visually fades out (reduced opacity, desaturated image) and shows a lock icon with "Complete" label. Unchecking a variant on a completed card requires confirmation via a toast prompt, preventing accidental taps while scrolling.
@@ -70,7 +70,7 @@ The app has three top-level tabs:
 - **Simple collection tracking** — Single "Collected" checkbox per card (Lorcana uses foil/non-foil variants rather than multiple variant types like Pokemon)
 - **Set logos** — Official set logos load automatically from public wiki sources ([Mushu Report](https://wiki.mushureport.com/), [Lorcana Wiki](https://lorcana.fandom.com/)), with cascading fallback to local files and inline SVG
 - **Card images** — Artwork loads from [Dreamborn.ink](https://dreamborn.ink/) CDN, with fallback to [Lorcast API](https://api.lorcast.com/), then local images, then placeholder
-- **Filter & search** — Same powerful filtering and search as Pokemon TCG
+- **Filter & search** — Same powerful filtering as Pokemon TCG, including rarity toggle buttons with Lorcana-specific rarity names
 - **Progress tracking** — Real-time progress bars and completion statistics
 - **Cloud sync** — Shares the same Firebase sync as Pokemon, so all your TCG collections sync together
 - **Includes enchanted cards** — Secret rare cards with alternate art and special foiling (cards 205+ in each set)
@@ -160,7 +160,7 @@ blair-pokemon-tracker/
    - Set buttons display directly with release dates
    - Click a set to view cards with artwork from Dreamborn CDN
    - Single "Collected" checkbox per card
-6. **Filter or search** to quickly find specific cards
+6. **Filter, toggle rarities, or search** to quickly find specific cards
 7. **Tap a card** to view full details in a modal with a large image
 8. **Check off variants/collected status** as you collect cards — progress saves automatically
 9. Completed cards fade out with a lock icon; unchecking requires confirmation
