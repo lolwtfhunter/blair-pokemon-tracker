@@ -627,6 +627,58 @@ Before committing UI changes for a new TCG:
 
 ---
 
+## Adding Pricing for New Sets
+
+Market prices are fetched from TCGCSV (CDN-backed TCGPlayer data). Each TCG category and set needs a group ID mapping.
+
+### Finding Group IDs
+
+Visit `https://tcgcsv.com/tcgplayer/{categoryId}/groups` to browse available groups:
+- **Pokemon TCG:** Category 3 → `https://tcgcsv.com/tcgplayer/3/groups`
+- **Disney Lorcana:** Category 71 → `https://tcgcsv.com/tcgplayer/71/groups`
+
+Search for the set name in the JSON response to find its `groupId`.
+
+### Official Pokemon TCG Set
+
+Add the group ID to `TCGCSV_POKEMON_GROUP_IDS` in `js/config.js`:
+```javascript
+const TCGCSV_POKEMON_GROUP_IDS = {
+    // ... existing sets ...
+    'my-new-set': 12345  // Add group ID here
+};
+```
+
+### Disney Lorcana Set
+
+Add the group ID to `TCGCSV_LORCANA_GROUP_IDS` in `js/config.js`:
+```javascript
+const TCGCSV_LORCANA_GROUP_IDS = {
+    // ... existing sets ...
+    'my-new-set': 12345  // Add group ID here
+};
+```
+
+### Custom Set Cards
+
+Custom set cards auto-resolve prices via their `apiId` field and the `TCGCSV_SOURCE_SET_GROUP_IDS` mapping. If a custom set includes cards from a source set not yet in the mapping, add it:
+
+```javascript
+const TCGCSV_SOURCE_SET_GROUP_IDS = {
+    // ... existing 109 entries ...
+    'sv5': 23100  // Add new source set ID → group ID
+};
+```
+
+### Adding a New TCG
+
+To add pricing for an entirely new TCG:
+1. Find the TCGPlayer category ID on TCGCSV (`https://tcgcsv.com/tcgplayer/categories`)
+2. Create a new group ID mapping constant in `js/config.js`
+3. Add a branch in `ensurePricesLoaded()` in `js/pricing.js` to route the new TCG to `fetchTcgcsvPrices()` with the correct category ID and group ID map
+
+---
+
 ## Testing Checklist
 
 Before committing your changes, verify:
@@ -922,6 +974,7 @@ This implementation demonstrates how to add a new TCG while reusing the existing
 
 ## Version History
 
+- **v2.3** (2026-02-16): Added "Adding Pricing for New Sets" section covering Pokemon, Lorcana, custom set, and new TCG pricing setup with group ID lookup instructions.
 - **v2.2** (2026-02-16): Updated HTML template to include `rarity-filters` div placeholder. Updated testing checklist with rarity filter verification steps. Updated Quick Reference table.
 - **v2.1** (2026-02-16): Added Lorcana set logo CDN documentation — wiki-based fallback system using Mushu Report and Fandom wikis. Updated Quick Reference table with Lorcana-specific file locations. Added Lessons Learned entry for logo CDN pattern. Updated "Adding a New Card Game" Step 4 with logo sourcing guidance.
 - **v2.0** (2026-02-15): Added "Real-World Example: Disney Lorcana Implementation" section documenting successful addition of Lorcana as a second TCG to the tracker. Updated "Adding a New Card Game" section header to reflect that Lorcana is now implemented.

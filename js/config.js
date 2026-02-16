@@ -208,6 +208,41 @@ const TCGCSV_LORCANA_GROUP_IDS = {
     'winterspell': 24500
 };
 
+// TCGCSV source set group IDs for custom set cards (pokemontcg.io set ID → TCGCSV group ID)
+// Used to fetch prices for individual cards in custom sets by their source set
+const TCGCSV_SOURCE_SET_GROUP_IDS = {
+    'base1': 1548, 'base2': 1549, 'base3': 1550, 'base4': 1555,
+    'base5': 1556, 'base6': 1557, 'basep': 1418, 'gym1': 1551,
+    'gym2': 1552, 'neo1': 1553, 'neo2': 1554, 'neo3': 1558,
+    'neo4': 1559, 'ecard1': 1560, 'ecard2': 1561, 'ecard3': 1562,
+    'ex1': 1563, 'ex2': 1564, 'ex3': 1565, 'ex4': 1573,
+    'ex5': 1574, 'ex6': 1566, 'ex7': 1575, 'ex8': 1576,
+    'ex9': 1577, 'ex10': 1578, 'ex11': 1579, 'ex12': 1580,
+    'ex13': 1581, 'ex14': 1582, 'ex15': 1583, 'ex16': 1584,
+    'np': 1423, 'dp1': 1585, 'dp2': 1586, 'dp3': 1587,
+    'dp4': 1588, 'dp5': 1589, 'dp6': 1590, 'dp7': 1591,
+    'pl1': 1592, 'pl2': 1593, 'pl3': 1594, 'pl4': 1595,
+    'hgss1': 1596, 'hgss2': 1597, 'hgss3': 1598, 'hgss4': 1599,
+    'col1': 1600, 'bw1': 1601, 'bw2': 1602, 'bw3': 1603,
+    'bw4': 1604, 'bw5': 1605, 'bw6': 1606, 'bw7': 1607,
+    'bw8': 1608, 'bw9': 1609, 'bw10': 1610, 'bw11': 1611,
+    'bwp': 1425, 'xy0': 1616, 'xy1': 1612, 'xy2': 1613,
+    'xy3': 1614, 'xy4': 1615, 'xy5': 1617, 'xy6': 1618,
+    'xy7': 1619, 'xy8': 1621, 'xy9': 1622, 'xy10': 1623,
+    'xy11': 1624, 'xy12': 1625, 'xyp': 1451, 'g1': 1620,
+    'sm1': 1626, 'sm2': 1627, 'sm3': 1628, 'sm35': 1629,
+    'sm4': 1630, 'sm5': 1631, 'sm6': 1632, 'sm7': 1633,
+    'sm75': 1634, 'sm8': 1635, 'sm9': 1636, 'sm10': 1637,
+    'sm11': 1638, 'sm115': 1639, 'sm12': 1640, 'smp': 1474,
+    'det1': 1514, 'swsh1': 1641, 'swsh2': 1642, 'swsh3': 1643,
+    'swsh35': 1644, 'swsh4': 1645, 'swsh45': 1646, 'swsh5': 1647,
+    'swsh6': 1648, 'swsh7': 1649, 'swsh8': 1650, 'swsh9': 1651,
+    'swsh10': 1652, 'swsh11': 1653, 'swsh12': 1654,
+    'swsh12pt5': 1655, 'swshp': 1488, 'sv1': 2957, 'sv2': 2961,
+    'sv3': 22898, 'sv3pt5': 22950, 'sv4': 23007, 'sv4pt5': 23208,
+    'svp': 2963, 'cel25': 2867
+};
+
 // Lorcana sets to load
 const LORCANA_SETS = [
     'first-chapter',

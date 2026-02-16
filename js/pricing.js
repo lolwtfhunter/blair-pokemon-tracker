@@ -62,7 +62,28 @@ function getCollectionValue(setKey) {
     const progress = collectionProgress[setKey];
     if (!progress) return 0;
 
+    const isCustom = setKey.startsWith('custom-');
     const isLorcana = !!lorcanaCardSets[setKey];
+
+    if (isCustom) {
+        const customKey = setKey.replace('custom-', '');
+        const setData = customCardSets[customKey];
+        if (!setData || !setData.cards) return 0;
+
+        setData.cards.forEach(card => {
+            const cardProgress = progress[card.number];
+            if (!cardProgress) return;
+
+            const variants = getCustomCardVariants(card);
+            const hasCollected = variants.some(v => cardProgress[v]);
+            if (hasCollected) {
+                const price = getCustomCardPrice(card);
+                if (price) total += price;
+            }
+        });
+        return total;
+    }
+
     const setData = isLorcana ? lorcanaCardSets[setKey] : cardSets[setKey];
     if (!setData || !setData.cards) return 0;
 
@@ -87,10 +108,22 @@ function getCollectionValue(setKey) {
     return total;
 }
 
+// ==================== CUSTOM SET PRICE ACCESS ====================
+
+function getCustomCardPrice(card) {
+    if (!card.apiId) return null;
+    const sourceSetId = card.apiId.replace(/-[^-]+$/, '');
+    const cacheKey = '_src:' + sourceSetId;
+    const cardNum = parseInt(card.apiId.split('-').pop());
+    return getCardPrice(cacheKey, cardNum);
+}
+
 // ==================== FETCH ORCHESTRATION ====================
 
 async function ensurePricesLoaded(setKey) {
-    if (setKey.startsWith('custom-')) return;
+    if (setKey.startsWith('custom-')) {
+        return ensureCustomSetPricesLoaded(setKey);
+    }
     if (priceCache[setKey] && !isCacheStale(setKey)) return;
     if (_priceFetchPromises[setKey]) return _priceFetchPromises[setKey];
 
@@ -112,16 +145,65 @@ async function ensurePricesLoaded(setKey) {
     return _priceFetchPromises[setKey];
 }
 
+async function ensureCustomSetPricesLoaded(customSetKey) {
+    const customKey = customSetKey.replace('custom-', '');
+    const setData = customCardSets[customKey];
+    if (!setData || !setData.cards) return;
+
+    // Collect unique source set IDs that need fetching
+    const sourceSetIds = new Set();
+    setData.cards.forEach(card => {
+        if (!card.apiId) return;
+        const sourceSetId = card.apiId.replace(/-[^-]+$/, '');
+        if (TCGCSV_SOURCE_SET_GROUP_IDS[sourceSetId]) {
+            sourceSetIds.add(sourceSetId);
+        }
+    });
+
+    // Filter to only those needing fetch
+    const toFetch = [...sourceSetIds].filter(id => {
+        const cacheKey = '_src:' + id;
+        return !priceCache[cacheKey] || isCacheStale(cacheKey);
+    });
+
+    if (toFetch.length === 0) return;
+
+    // Fetch in batches of 5
+    const BATCH_SIZE = 5;
+    for (let i = 0; i < toFetch.length; i += BATCH_SIZE) {
+        const batch = toFetch.slice(i, i + BATCH_SIZE);
+        await Promise.all(batch.map(sourceSetId => {
+            const cacheKey = '_src:' + sourceSetId;
+            if (_priceFetchPromises[cacheKey]) return _priceFetchPromises[cacheKey];
+
+            const groupId = TCGCSV_SOURCE_SET_GROUP_IDS[sourceSetId];
+            _priceFetchPromises[cacheKey] = (async () => {
+                try {
+                    await fetchTcgcsvPricesRaw(cacheKey, 3, groupId);
+                } catch (e) {
+                    console.warn(`Price fetch failed for source set ${sourceSetId}:`, e);
+                } finally {
+                    delete _priceFetchPromises[cacheKey];
+                }
+            })();
+            return _priceFetchPromises[cacheKey];
+        }));
+    }
+}
+
 // ==================== TCGCSV PRICING (Pokemon & Lorcana) ====================
 
 // Subtype priority for price selection: Normal > Holofoil > Reverse Holofoil > any
 const SUBTYPE_PRIORITY = { 'Normal': 3, 'Holofoil': 2, 'Reverse Holofoil': 1 };
 
 async function fetchTcgcsvPrices(setKey, categoryId, groupIdMap) {
-    if (_tcgcsvCorsFailed) return;
-
     const groupId = groupIdMap && groupIdMap[setKey];
     if (!groupId) return;
+    await fetchTcgcsvPricesRaw(setKey, categoryId, groupId);
+}
+
+async function fetchTcgcsvPricesRaw(cacheKey, categoryId, groupId) {
+    if (_tcgcsvCorsFailed) return;
 
     const baseUrl = `https://tcgcsv.com/tcgplayer/${categoryId}/${groupId}`;
 
@@ -192,14 +274,38 @@ async function fetchTcgcsvPrices(setKey, categoryId, groupIdMap) {
         }
     }
 
-    priceCache[setKey] = prices;
-    priceCacheTimestamps[setKey] = Date.now();
+    priceCache[cacheKey] = prices;
+    priceCacheTimestamps[cacheKey] = Date.now();
     savePriceCache();
 }
 
 // ==================== UI HELPERS ====================
 
 function fillPricesInGrid(setKey) {
+    if (setKey.startsWith('custom-')) {
+        const customKey = setKey.replace('custom-', '');
+        const setData = customCardSets[customKey];
+        if (!setData || !setData.cards) return;
+
+        // Build apiId lookup from card data
+        const cardsByNumber = {};
+        setData.cards.forEach(card => { cardsByNumber[card.number] = card; });
+
+        const tags = document.querySelectorAll(`[data-price-card^="${setKey}-"]`);
+        tags.forEach(tag => {
+            const apiId = tag.getAttribute('data-api-id');
+            if (!apiId) return;
+            // Find the card by apiId to use getCustomCardPrice
+            const card = { apiId };
+            const price = getCustomCardPrice(card);
+            if (price) {
+                tag.textContent = '$' + price.toFixed(2);
+                tag.classList.add('loaded');
+            }
+        });
+        return;
+    }
+
     const tags = document.querySelectorAll(`[data-price-card^="${setKey}-"]`);
     tags.forEach(tag => {
         const parts = tag.getAttribute('data-price-card').split('-');
@@ -221,6 +327,11 @@ function updateSetValues() {
     document.querySelectorAll('.set-btn[data-lorcana-set-key]').forEach(btn => {
         const setKey = btn.getAttribute('data-lorcana-set-key');
         updateSetButtonValue(btn, setKey);
+    });
+
+    document.querySelectorAll('.set-btn[data-custom-set-key]').forEach(btn => {
+        const customKey = btn.getAttribute('data-custom-set-key');
+        updateSetButtonValue(btn, 'custom-' + customKey);
     });
 }
 
