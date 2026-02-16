@@ -1,0 +1,1368 @@
+{
+  "version": "1.0.0",
+  "lastUpdated": "2026-02-16",
+  "setKey": "ursulas-return",
+  "name": "Ursula's Return",
+  "displayName": "Ursula's Return",
+  "totalCards": 225,
+  "mainSet": 204,
+  "setCode": "urr",
+  "releaseDate": "2024-05-17",
+  "block": "Disney Lorcana",
+  "blockCode": "lorcana",
+  "hasPokeBallVariant": false,
+  "hasMasterBallVariant": false,
+  "singleVariantOnly": false,
+  "cards": {
+    "1": {
+      "name": "Agustin Madrigal - Clumsy Dad",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "004-001"
+    },
+    "2": {
+      "name": "Alma Madrigal - Family Matriarch",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "004-002"
+    },
+    "3": {
+      "name": "Ariel - Singing Mermaid",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "004-003"
+    },
+    "4": {
+      "name": "Cinderella - Melody Weaver",
+      "rarity": "legendary",
+      "type": "character",
+      "dreambornId": "004-004"
+    },
+    "5": {
+      "name": "Cogsworth - Majordomo",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "004-005"
+    },
+    "6": {
+      "name": "Daisy Duck - Lovely Lady",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "004-006"
+    },
+    "7": {
+      "name": "Daisy Duck - Musketeer Spy",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "004-007"
+    },
+    "8": {
+      "name": "Donald Duck - Musketeer Soldier",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "004-008"
+    },
+    "9": {
+      "name": "Félix Madrigal - Fun-Loving Family Man",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "004-009"
+    },
+    "10": {
+      "name": "Gaston - Despicable Dealer",
+      "rarity": "super-rare",
+      "type": "character",
+      "dreambornId": "004-010"
+    },
+    "11": {
+      "name": "Golden Harp - Enchanter of the Land",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "004-011"
+    },
+    "12": {
+      "name": "Goofy - Musketeer Swordsman",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "004-012"
+    },
+    "13": {
+      "name": "Julieta Madrigal - Excellent Cook",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "004-013"
+    },
+    "14": {
+      "name": "Max - Loyal Sheepdog",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "004-014"
+    },
+    "15": {
+      "name": "Mickey Mouse - Leader of the Band",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "004-015"
+    },
+    "16": {
+      "name": "Mickey Mouse - Musketeer Captain",
+      "rarity": "legendary",
+      "type": "character",
+      "dreambornId": "004-016"
+    },
+    "17": {
+      "name": "Minnie Mouse - Musketeer Champion",
+      "rarity": "super-rare",
+      "type": "character",
+      "dreambornId": "004-017"
+    },
+    "18": {
+      "name": "Mirabel Madrigal - Gift of the Family",
+      "rarity": "super-rare",
+      "type": "character",
+      "dreambornId": "004-018"
+    },
+    "19": {
+      "name": "Mirabel Madrigal - Prophecy Finder",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "004-019"
+    },
+    "20": {
+      "name": "Pluto - Rescue Dog",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "004-020"
+    },
+    "21": {
+      "name": "Prince Eric - Seafaring Prince",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "004-021"
+    },
+    "22": {
+      "name": "Prince Eric - Ursula's Groom",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "004-022"
+    },
+    "23": {
+      "name": "Stitch - Alien Dancer",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "004-023"
+    },
+    "24": {
+      "name": "Ursula - Eric's Bride",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "004-024"
+    },
+    "25": {
+      "name": "Ursula - Vanessa",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "004-025"
+    },
+    "26": {
+      "name": "Bruno's Return",
+      "rarity": "uncommon",
+      "type": "action",
+      "dreambornId": "004-026"
+    },
+    "27": {
+      "name": "First Aid",
+      "rarity": "common",
+      "type": "action",
+      "dreambornId": "004-027"
+    },
+    "28": {
+      "name": "Look at This Family",
+      "rarity": "rare",
+      "type": "action",
+      "dreambornId": "004-028"
+    },
+    "29": {
+      "name": "Lost in the Woods",
+      "rarity": "uncommon",
+      "type": "action",
+      "dreambornId": "004-029"
+    },
+    "30": {
+      "name": "Sign the Scroll",
+      "rarity": "uncommon",
+      "type": "action",
+      "dreambornId": "004-030"
+    },
+    "31": {
+      "name": "Miracle Candle",
+      "rarity": "rare",
+      "type": "item",
+      "dreambornId": "004-031"
+    },
+    "32": {
+      "name": "Record Player",
+      "rarity": "common",
+      "type": "item",
+      "dreambornId": "004-032"
+    },
+    "33": {
+      "name": "Atlantica - Concert Hall",
+      "rarity": "common",
+      "type": "location",
+      "dreambornId": "004-033"
+    },
+    "34": {
+      "name": "The Underworld - River Styx",
+      "rarity": "rare",
+      "type": "location",
+      "dreambornId": "004-034"
+    },
+    "35": {
+      "name": "Antonio Madrigal - Animal Expert",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "004-035"
+    },
+    "36": {
+      "name": "Belle - Accomplished Mystic",
+      "rarity": "super-rare",
+      "type": "character",
+      "dreambornId": "004-036"
+    },
+    "37": {
+      "name": "Belle - Untrained Mystic",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "004-037"
+    },
+    "38": {
+      "name": "Bruno Madrigal - Out of the Shadows",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "004-038"
+    },
+    "39": {
+      "name": "Bruno Madrigal - Undetected Uncle",
+      "rarity": "super-rare",
+      "type": "character",
+      "dreambornId": "004-039"
+    },
+    "40": {
+      "name": "Camilo Madrigal - Prankster",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "004-040"
+    },
+    "41": {
+      "name": "Dolores Madrigal - Easy Listener",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "004-041"
+    },
+    "42": {
+      "name": "Elsa - Storm Chaser",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "004-042"
+    },
+    "43": {
+      "name": "Flotsam - Ursula's \"Baby\"",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "004-043"
+    },
+    "44": {
+      "name": "Flotsam & Jetsam - Entangling Eels",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "004-044"
+    },
+    "45": {
+      "name": "Isabela Madrigal - Golden Child",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "004-045"
+    },
+    "46": {
+      "name": "Jetsam - Ursula's \"Baby\"",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "004-046"
+    },
+    "47": {
+      "name": "Luisa Madrigal - Magically Strong One",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "004-047"
+    },
+    "48": {
+      "name": "Magic Broom - Illuminary Keeper",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "004-048"
+    },
+    "49": {
+      "name": "Magic Broom - Lively Sweeper",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "004-049"
+    },
+    "50": {
+      "name": "Magical Maid - Feather Duster",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "004-050"
+    },
+    "51": {
+      "name": "Marshmallow - Terrifying Snowman",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "004-051"
+    },
+    "52": {
+      "name": "Mrs. Potts - Enchanted Teapot",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "004-052"
+    },
+    "53": {
+      "name": "Pepa Madrigal - Weather Maker",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "004-053"
+    },
+    "54": {
+      "name": "Peter Pan - Shadow Finder",
+      "rarity": "super-rare",
+      "type": "character",
+      "dreambornId": "004-054"
+    },
+    "55": {
+      "name": "Pico - Helpful Toucan",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "004-055"
+    },
+    "56": {
+      "name": "Tick-Tock - Ever-Present Pursuer",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "004-056"
+    },
+    "57": {
+      "name": "Ursula - Mad Sea Witch",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "004-057"
+    },
+    "58": {
+      "name": "Ursula - Sea Witch Queen",
+      "rarity": "legendary",
+      "type": "character",
+      "dreambornId": "004-058"
+    },
+    "59": {
+      "name": "Yen Sid - Powerful Sorcerer",
+      "rarity": "legendary",
+      "type": "character",
+      "dreambornId": "004-059"
+    },
+    "60": {
+      "name": "Poor Unfortunate Souls",
+      "rarity": "common",
+      "type": "action",
+      "dreambornId": "004-060"
+    },
+    "61": {
+      "name": "Second Star to the Right",
+      "rarity": "rare",
+      "type": "action",
+      "dreambornId": "004-061"
+    },
+    "62": {
+      "name": "Swing into Action",
+      "rarity": "common",
+      "type": "action",
+      "dreambornId": "004-062"
+    },
+    "63": {
+      "name": "Ursula’s Plan",
+      "rarity": "uncommon",
+      "type": "action",
+      "dreambornId": "004-063"
+    },
+    "64": {
+      "name": "Mystical Rose",
+      "rarity": "rare",
+      "type": "item",
+      "dreambornId": "004-064"
+    },
+    "65": {
+      "name": "Rose Lantern",
+      "rarity": "common",
+      "type": "item",
+      "dreambornId": "004-065"
+    },
+    "66": {
+      "name": "Triton's Trident",
+      "rarity": "uncommon",
+      "type": "item",
+      "dreambornId": "004-066"
+    },
+    "67": {
+      "name": "Casa Madrigal - Casita",
+      "rarity": "common",
+      "type": "location",
+      "dreambornId": "004-067"
+    },
+    "68": {
+      "name": "Ursula’s Lair - Eye of the Storm",
+      "rarity": "rare",
+      "type": "location",
+      "dreambornId": "004-068"
+    },
+    "69": {
+      "name": "Cri-Kee - Lucky Cricket",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "004-069"
+    },
+    "70": {
+      "name": "Diablo - Devoted Herald",
+      "rarity": "legendary",
+      "type": "character",
+      "dreambornId": "004-070"
+    },
+    "71": {
+      "name": "Diablo - Maleficent's Spy",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "004-071"
+    },
+    "72": {
+      "name": "Gunther - Interior Designer",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "004-072"
+    },
+    "73": {
+      "name": "Gus - Champion of Cheese",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "004-073"
+    },
+    "74": {
+      "name": "Hades - Double Dealer",
+      "rarity": "legendary",
+      "type": "character",
+      "dreambornId": "004-074"
+    },
+    "75": {
+      "name": "HeiHei - Bumbling Rooster",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "004-075"
+    },
+    "76": {
+      "name": "Hera - Queen of the Gods",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "004-076"
+    },
+    "77": {
+      "name": "Jaq - Connoisseur of Climbing",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "004-077"
+    },
+    "78": {
+      "name": "Jasmine - Desert Warrior",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "004-078"
+    },
+    "79": {
+      "name": "Megara - Captivating Cynic",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "004-079"
+    },
+    "80": {
+      "name": "Megara - Liberated One",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "004-080"
+    },
+    "81": {
+      "name": "Pain - Immortal Sidekick",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "004-081"
+    },
+    "82": {
+      "name": "Panic - Immortal Sidekick",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "004-082"
+    },
+    "83": {
+      "name": "Pegasus - Cloud Racer",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "004-083"
+    },
+    "84": {
+      "name": "Pegasus - Gift for Hercules",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "004-084"
+    },
+    "85": {
+      "name": "Pete - Born to Cheat",
+      "rarity": "super-rare",
+      "type": "character",
+      "dreambornId": "004-085"
+    },
+    "86": {
+      "name": "Pete - Rotten Guy",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "004-086"
+    },
+    "87": {
+      "name": "Prince Phillip - Vanquisher of Foes",
+      "rarity": "super-rare",
+      "type": "character",
+      "dreambornId": "004-087"
+    },
+    "88": {
+      "name": "Prince Phillip - Warden of the Woods",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "004-088"
+    },
+    "89": {
+      "name": "The Fates - Only One Eye",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "004-089"
+    },
+    "90": {
+      "name": "The Muses - Proclaimers of Heroes",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "004-090"
+    },
+    "91": {
+      "name": "Tor - Florist",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "004-091"
+    },
+    "92": {
+      "name": "Zeus - Mr. Lightning Bolts",
+      "rarity": "super-rare",
+      "type": "character",
+      "dreambornId": "004-092"
+    },
+    "93": {
+      "name": "Dodge!",
+      "rarity": "common",
+      "type": "action",
+      "dreambornId": "004-093"
+    },
+    "94": {
+      "name": "Make the Potion",
+      "rarity": "common",
+      "type": "action",
+      "dreambornId": "004-094"
+    },
+    "95": {
+      "name": "Under the Sea",
+      "rarity": "rare",
+      "type": "action",
+      "dreambornId": "004-095"
+    },
+    "96": {
+      "name": "Ursula’s Trickery",
+      "rarity": "uncommon",
+      "type": "action",
+      "dreambornId": "004-096"
+    },
+    "97": {
+      "name": "We Don’t Talk About Bruno",
+      "rarity": "rare",
+      "type": "action",
+      "dreambornId": "004-097"
+    },
+    "98": {
+      "name": "Hidden Inkcaster",
+      "rarity": "common",
+      "type": "item",
+      "dreambornId": "004-098"
+    },
+    "99": {
+      "name": "Signed Contract",
+      "rarity": "uncommon",
+      "type": "item",
+      "dreambornId": "004-099"
+    },
+    "100": {
+      "name": "Vision Slab",
+      "rarity": "uncommon",
+      "type": "item",
+      "dreambornId": "004-100"
+    },
+    "101": {
+      "name": "Hidden Cove - Tranquil Haven",
+      "rarity": "common",
+      "type": "location",
+      "dreambornId": "004-101"
+    },
+    "102": {
+      "name": "Ursula’s Garden - Full of the Unfortunate",
+      "rarity": "rare",
+      "type": "location",
+      "dreambornId": "004-102"
+    },
+    "103": {
+      "name": "Beast - Wounded",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "004-103"
+    },
+    "104": {
+      "name": "Benja - Bold Uniter",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "004-104"
+    },
+    "105": {
+      "name": "Fa Zhou - Mulan's Father",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "004-105"
+    },
+    "106": {
+      "name": "Flynn Rider - Frenemy",
+      "rarity": "super-rare",
+      "type": "character",
+      "dreambornId": "004-106"
+    },
+    "107": {
+      "name": "Goofy - Super Goof",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "004-107"
+    },
+    "108": {
+      "name": "Hercules - Clumsy Kid",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "004-108"
+    },
+    "109": {
+      "name": "Hercules - Daring Demigod",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "004-109"
+    },
+    "110": {
+      "name": "Khan - Beloved Steed",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "004-110"
+    },
+    "111": {
+      "name": "Li Shang - General’s Son",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "004-111"
+    },
+    "112": {
+      "name": "Li Shang - Valorous General",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "004-112"
+    },
+    "113": {
+      "name": "Lumiere - Fiery Friend",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "004-113"
+    },
+    "114": {
+      "name": "Mulan - Elite Archer",
+      "rarity": "legendary",
+      "type": "character",
+      "dreambornId": "004-114"
+    },
+    "115": {
+      "name": "Mulan - Enemy of Entanglement",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "004-115"
+    },
+    "116": {
+      "name": "Mulan - Injured Soldier",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "004-116"
+    },
+    "117": {
+      "name": "Namaari - Heir of Fang",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "004-117"
+    },
+    "118": {
+      "name": "Nessus - River Guardian",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "004-118"
+    },
+    "119": {
+      "name": "Noi - Acrobatic Baby",
+      "rarity": "super-rare",
+      "type": "character",
+      "dreambornId": "004-119"
+    },
+    "120": {
+      "name": "Pegasus - Flying Steed",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "004-120"
+    },
+    "121": {
+      "name": "Raya - Fierce Protector",
+      "rarity": "super-rare",
+      "type": "character",
+      "dreambornId": "004-121"
+    },
+    "122": {
+      "name": "Raya - Guardian of the Dragon Gem",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "004-122"
+    },
+    "123": {
+      "name": "Sisu - Daring Visitor",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "004-123"
+    },
+    "124": {
+      "name": "Sisu - Emboldened Warrior",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "004-124"
+    },
+    "125": {
+      "name": "Sisu - Empowered Sibling",
+      "rarity": "legendary",
+      "type": "character",
+      "dreambornId": "004-125"
+    },
+    "126": {
+      "name": "Tong - Survivor",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "004-126"
+    },
+    "127": {
+      "name": "Tuk Tuk - Lively Partner",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "004-127"
+    },
+    "128": {
+      "name": "A Pirate’s Life",
+      "rarity": "uncommon",
+      "type": "action",
+      "dreambornId": "004-128"
+    },
+    "129": {
+      "name": "Be King Undisputed",
+      "rarity": "rare",
+      "type": "action",
+      "dreambornId": "004-129"
+    },
+    "130": {
+      "name": "Brawl",
+      "rarity": "common",
+      "type": "action",
+      "dreambornId": "004-130"
+    },
+    "131": {
+      "name": "Imperial Proclamation",
+      "rarity": "rare",
+      "type": "item",
+      "dreambornId": "004-131"
+    },
+    "132": {
+      "name": "Medallion Weights",
+      "rarity": "uncommon",
+      "type": "item",
+      "dreambornId": "004-132"
+    },
+    "133": {
+      "name": "The Plank",
+      "rarity": "common",
+      "type": "item",
+      "dreambornId": "004-133"
+    },
+    "134": {
+      "name": "Vitalisphere",
+      "rarity": "common",
+      "type": "item",
+      "dreambornId": "004-134"
+    },
+    "135": {
+      "name": "Snuggly Duckling - Disreputable Pub",
+      "rarity": "rare",
+      "type": "location",
+      "dreambornId": "004-135"
+    },
+    "136": {
+      "name": "Training Grounds - Impossible Pillar",
+      "rarity": "common",
+      "type": "location",
+      "dreambornId": "004-136"
+    },
+    "137": {
+      "name": "Anna - Braving the Storm",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "004-137"
+    },
+    "138": {
+      "name": "Anna - True-Hearted",
+      "rarity": "super-rare",
+      "type": "character",
+      "dreambornId": "004-138"
+    },
+    "139": {
+      "name": "Ariel - Treasure Collector",
+      "rarity": "super-rare",
+      "type": "character",
+      "dreambornId": "004-139"
+    },
+    "140": {
+      "name": "Aurora - Lore Guardian",
+      "rarity": "super-rare",
+      "type": "character",
+      "dreambornId": "004-140"
+    },
+    "141": {
+      "name": "Aurora - Tranquil Princess",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "004-141"
+    },
+    "142": {
+      "name": "Dang Hu - Talon Chief",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "004-142"
+    },
+    "143": {
+      "name": "Fa Li - Mulan’s Mother",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "004-143"
+    },
+    "144": {
+      "name": "Flounder - Collector’s Companion",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "004-144"
+    },
+    "145": {
+      "name": "Hades - Meticulous Plotter",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "004-145"
+    },
+    "146": {
+      "name": "Hans - Noble Scoundrel",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "004-146"
+    },
+    "147": {
+      "name": "Iduna - Caring Mother",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "004-147"
+    },
+    "148": {
+      "name": "John Silver - Terror of the Realm",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "004-148"
+    },
+    "149": {
+      "name": "Olaf - Carrot Enthusiast",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "004-149"
+    },
+    "150": {
+      "name": "Olaf - Trusting Companion",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "004-150"
+    },
+    "151": {
+      "name": "Pascal - Inquisitive Pet",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "004-151"
+    },
+    "152": {
+      "name": "Prince Phillip - Gallant Defender",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "004-152"
+    },
+    "153": {
+      "name": "Rapunzel - Appreciative Artist",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "004-153"
+    },
+    "154": {
+      "name": "Scuttle - Expert on Humans",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "004-154"
+    },
+    "155": {
+      "name": "Sisu - Wise Friend",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "004-155"
+    },
+    "156": {
+      "name": "The Queen - Diviner",
+      "rarity": "legendary",
+      "type": "character",
+      "dreambornId": "004-156"
+    },
+    "157": {
+      "name": "Transformed Chef - Castle Stove",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "004-157"
+    },
+    "158": {
+      "name": "Triton - Champion of Atlantica",
+      "rarity": "legendary",
+      "type": "character",
+      "dreambornId": "004-158"
+    },
+    "159": {
+      "name": "Triton - Discerning King",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "004-159"
+    },
+    "160": {
+      "name": "Triton - Young Prince",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "004-160"
+    },
+    "161": {
+      "name": "Tuk Tuk - Curious Partner",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "004-161"
+    },
+    "162": {
+      "name": "Dig a Little Deeper",
+      "rarity": "uncommon",
+      "type": "action",
+      "dreambornId": "004-162"
+    },
+    "163": {
+      "name": "Glean",
+      "rarity": "common",
+      "type": "action",
+      "dreambornId": "004-163"
+    },
+    "164": {
+      "name": "Seldom All They Seem",
+      "rarity": "common",
+      "type": "action",
+      "dreambornId": "004-164"
+    },
+    "165": {
+      "name": "Treasures Untold",
+      "rarity": "rare",
+      "type": "action",
+      "dreambornId": "004-165"
+    },
+    "166": {
+      "name": "Field of Ice",
+      "rarity": "rare",
+      "type": "item",
+      "dreambornId": "004-166"
+    },
+    "167": {
+      "name": "Great Stone Dragon",
+      "rarity": "uncommon",
+      "type": "item",
+      "dreambornId": "004-167"
+    },
+    "168": {
+      "name": "Ice Block",
+      "rarity": "common",
+      "type": "item",
+      "dreambornId": "004-168"
+    },
+    "169": {
+      "name": "Ariel’s Grotto - A Secret Place",
+      "rarity": "rare",
+      "type": "location",
+      "dreambornId": "004-169"
+    },
+    "170": {
+      "name": "Winter Camp - Medical Tent",
+      "rarity": "common",
+      "type": "location",
+      "dreambornId": "004-170"
+    },
+    "171": {
+      "name": "Aladdin - Brave Rescuer",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "004-171"
+    },
+    "172": {
+      "name": "Aladdin - Resolute Swordsman",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "004-172"
+    },
+    "173": {
+      "name": "Arges - The Cyclops",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "004-173"
+    },
+    "174": {
+      "name": "Ariel - Determined Mermaid",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "004-174"
+    },
+    "175": {
+      "name": "Ariel - Sonic Warrior",
+      "rarity": "super-rare",
+      "type": "character",
+      "dreambornId": "004-175"
+    },
+    "176": {
+      "name": "Beast - Thick-Skinned",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "004-176"
+    },
+    "177": {
+      "name": "Chi-Fu - Imperial Advisor",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "004-177"
+    },
+    "178": {
+      "name": "Chien-Po - Imperial Soldier",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "004-178"
+    },
+    "179": {
+      "name": "Donald Duck - Buccaneer",
+      "rarity": "legendary",
+      "type": "character",
+      "dreambornId": "004-179"
+    },
+    "180": {
+      "name": "Hercules - Beloved Hero",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "004-180"
+    },
+    "181": {
+      "name": "LeFou - Opportunistic Flunky",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "004-181"
+    },
+    "182": {
+      "name": "Li Shang - Imperial Captain",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "004-182"
+    },
+    "183": {
+      "name": "Ling - Imperial Soldier",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "004-183"
+    },
+    "184": {
+      "name": "Luisa Madrigal - Rock of the Family",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "004-184"
+    },
+    "185": {
+      "name": "Magic Broom - Aerial Cleaner",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "004-185"
+    },
+    "186": {
+      "name": "Magic Broom - Brigade Commander",
+      "rarity": "super-rare",
+      "type": "character",
+      "dreambornId": "004-186"
+    },
+    "187": {
+      "name": "Mickey Mouse - Playful Sorcerer",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "004-187"
+    },
+    "188": {
+      "name": "Mickey Mouse - Standard Bearer",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "004-188"
+    },
+    "189": {
+      "name": "Mulan - Armored Fighter",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "004-189"
+    },
+    "190": {
+      "name": "Philoctetes - No-Nonsense Instructor",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "004-190"
+    },
+    "191": {
+      "name": "Piglet - Sturdy Swordsman",
+      "rarity": "legendary",
+      "type": "character",
+      "dreambornId": "004-191"
+    },
+    "192": {
+      "name": "Rajah - Royal Protector",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "004-192"
+    },
+    "193": {
+      "name": "Raya - Unstoppable Force",
+      "rarity": "super-rare",
+      "type": "character",
+      "dreambornId": "004-193"
+    },
+    "194": {
+      "name": "Yao - Imperial Soldier",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "004-194"
+    },
+    "195": {
+      "name": "Avalanche",
+      "rarity": "uncommon",
+      "type": "action",
+      "dreambornId": "004-195"
+    },
+    "196": {
+      "name": "I Find ’Em, I Flatten ’Em",
+      "rarity": "uncommon",
+      "type": "action",
+      "dreambornId": "004-196"
+    },
+    "197": {
+      "name": "One Last Hope",
+      "rarity": "rare",
+      "type": "action",
+      "dreambornId": "004-197"
+    },
+    "198": {
+      "name": "The Mob Song",
+      "rarity": "uncommon",
+      "type": "action",
+      "dreambornId": "004-198"
+    },
+    "199": {
+      "name": "Triton's Decree",
+      "rarity": "common",
+      "type": "action",
+      "dreambornId": "004-199"
+    },
+    "200": {
+      "name": "Fortisphere",
+      "rarity": "common",
+      "type": "item",
+      "dreambornId": "004-200"
+    },
+    "201": {
+      "name": "Imperial Bow",
+      "rarity": "uncommon",
+      "type": "item",
+      "dreambornId": "004-201"
+    },
+    "202": {
+      "name": "RLS Legacy's Cannon",
+      "rarity": "rare",
+      "type": "item",
+      "dreambornId": "004-202"
+    },
+    "203": {
+      "name": "The Wall - Border Fortress",
+      "rarity": "rare",
+      "type": "location",
+      "dreambornId": "004-203"
+    },
+    "204": {
+      "name": "Thebes - The Big Olive",
+      "rarity": "common",
+      "type": "location",
+      "dreambornId": "004-204"
+    },
+    "205": {
+      "name": "Cinderella - Melody Weaver",
+      "rarity": "enchanted",
+      "type": "character",
+      "dreambornId": "004-205"
+    },
+    "206": {
+      "name": "Minnie Mouse - Musketeer Champion",
+      "rarity": "enchanted",
+      "type": "character",
+      "dreambornId": "004-206"
+    },
+    "207": {
+      "name": "Look at This Family",
+      "rarity": "enchanted",
+      "type": "action",
+      "dreambornId": "004-207"
+    },
+    "208": {
+      "name": "Ursula - Sea Witch Queen",
+      "rarity": "enchanted",
+      "type": "character",
+      "dreambornId": "004-208"
+    },
+    "209": {
+      "name": "Yen Sid - Powerful Sorcerer",
+      "rarity": "enchanted",
+      "type": "character",
+      "dreambornId": "004-209"
+    },
+    "210": {
+      "name": "Second Star to the Right",
+      "rarity": "enchanted",
+      "type": "action",
+      "dreambornId": "004-210"
+    },
+    "211": {
+      "name": "Diablo - Devoted Herald",
+      "rarity": "enchanted",
+      "type": "character",
+      "dreambornId": "004-211"
+    },
+    "212": {
+      "name": "Jasmine - Desert Warrior",
+      "rarity": "enchanted",
+      "type": "character",
+      "dreambornId": "004-212"
+    },
+    "213": {
+      "name": "We Don’t Talk About Bruno",
+      "rarity": "enchanted",
+      "type": "action",
+      "dreambornId": "004-213"
+    },
+    "214": {
+      "name": "Goofy - Super Goof",
+      "rarity": "enchanted",
+      "type": "character",
+      "dreambornId": "004-214"
+    },
+    "215": {
+      "name": "Sisu - Empowered Sibling",
+      "rarity": "enchanted",
+      "type": "character",
+      "dreambornId": "004-215"
+    },
+    "216": {
+      "name": "Snuggly Duckling - Disreputable Pub",
+      "rarity": "enchanted",
+      "type": "location",
+      "dreambornId": "004-216"
+    },
+    "217": {
+      "name": "Anna - True-Hearted",
+      "rarity": "enchanted",
+      "type": "character",
+      "dreambornId": "004-217"
+    },
+    "218": {
+      "name": "The Queen - Diviner",
+      "rarity": "enchanted",
+      "type": "character",
+      "dreambornId": "004-218"
+    },
+    "219": {
+      "name": "Ariel’s Grotto - A Secret Place",
+      "rarity": "enchanted",
+      "type": "location",
+      "dreambornId": "004-219"
+    },
+    "220": {
+      "name": "Ariel - Sonic Warrior",
+      "rarity": "enchanted",
+      "type": "character",
+      "dreambornId": "004-220"
+    },
+    "221": {
+      "name": "Piglet - Sturdy Swordsman",
+      "rarity": "enchanted",
+      "type": "character",
+      "dreambornId": "004-221"
+    },
+    "222": {
+      "name": "The Wall - Border Fortress",
+      "rarity": "enchanted",
+      "type": "location",
+      "dreambornId": "004-222"
+    },
+    "223": {
+      "name": "Yen Sid - Powerful Sorcerer",
+      "rarity": "legendary",
+      "type": "character",
+      "dreambornId": "004-223"
+    },
+    "224": {
+      "name": "Mulan - Elite Archer",
+      "rarity": "legendary",
+      "type": "character",
+      "dreambornId": "004-224"
+    },
+    "225": {
+      "name": "Mickey Mouse - Playful Sorcerer",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "004-225"
+    }
+  }
+}

@@ -1,0 +1,1356 @@
+{
+  "version": "1.0.0",
+  "lastUpdated": "2026-02-16",
+  "setKey": "reign-of-jafar",
+  "name": "Reign of Jafar",
+  "displayName": "Reign of Jafar",
+  "totalCards": 224,
+  "mainSet": 204,
+  "setCode": "roj",
+  "releaseDate": "2025-05-30",
+  "block": "Disney Lorcana",
+  "blockCode": "lorcana",
+  "hasPokeBallVariant": false,
+  "hasMasterBallVariant": false,
+  "singleVariantOnly": false,
+  "cards": {
+    "1": {
+      "name": "Louie - One Cool Duck",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "008-001"
+    },
+    "2": {
+      "name": "Dewey - Lovable Showoff",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "008-002"
+    },
+    "3": {
+      "name": "Huey - Reliable Leader",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "008-003"
+    },
+    "4": {
+      "name": "Goofy - Groundbreaking Chef",
+      "rarity": "legendary",
+      "type": "character",
+      "dreambornId": "008-004"
+    },
+    "5": {
+      "name": "Antonio Madrigal - Friend to All",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "008-005"
+    },
+    "6": {
+      "name": "Minnie Mouse - Daring Defender",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "008-006"
+    },
+    "7": {
+      "name": "Ludwig Von Drake - All-Around Expert",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "008-007"
+    },
+    "8": {
+      "name": "Charlotte La Bouff - Mardi Gras Princess",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "008-008"
+    },
+    "9": {
+      "name": "Tiana - Natural Talent",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "008-009"
+    },
+    "10": {
+      "name": "Mirabel Madrigal - Curious Child",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "008-010"
+    },
+    "11": {
+      "name": "Lady - Family Dog",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "008-011"
+    },
+    "12": {
+      "name": "Jim Dear - Beloved Husband",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "008-012"
+    },
+    "13": {
+      "name": "Gene - Niceland Resident",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "008-013"
+    },
+    "14": {
+      "name": "Perdita - On the Lookout",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "008-014"
+    },
+    "15": {
+      "name": "Rhino - One-Sixteenth Wolf",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "008-015"
+    },
+    "16": {
+      "name": "Darling Dear - Beloved Wife",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "008-016"
+    },
+    "17": {
+      "name": "The Colonel - Old Sheepdog",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "008-017"
+    },
+    "18": {
+      "name": "Chief Bogo - Commanding Officer",
+      "rarity": "legendary",
+      "type": "character",
+      "dreambornId": "008-018"
+    },
+    "19": {
+      "name": "Pua - Protective Pig",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "008-019"
+    },
+    "20": {
+      "name": "Bruno Madrigal - Singing Seer",
+      "rarity": "super-rare",
+      "type": "character",
+      "dreambornId": "008-020"
+    },
+    "21": {
+      "name": "Kaa - Hypnotizing Python",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "008-021"
+    },
+    "22": {
+      "name": "Tramp - Dapper Rascal",
+      "rarity": "super-rare",
+      "type": "character",
+      "dreambornId": "008-022"
+    },
+    "23": {
+      "name": "King Candy - Sugar Rush Nightmare",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "008-023"
+    },
+    "24": {
+      "name": "Wreck-It Ralph - Big Lug",
+      "rarity": "super-rare",
+      "type": "character",
+      "dreambornId": "008-024"
+    },
+    "25": {
+      "name": "Patch - Playful Pup",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "008-025"
+    },
+    "26": {
+      "name": "Rolly - Chubby Puppy",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "008-026"
+    },
+    "27": {
+      "name": "Perdita - Determined Mother",
+      "rarity": "super-rare",
+      "type": "character",
+      "dreambornId": "008-027"
+    },
+    "28": {
+      "name": "Pluto - Tried and True",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "008-028"
+    },
+    "29": {
+      "name": "Bolt - Down but Not Out",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "008-029"
+    },
+    "30": {
+      "name": "Rhino - Power Hamster",
+      "rarity": "super-rare",
+      "type": "character",
+      "dreambornId": "008-030"
+    },
+    "31": {
+      "name": "Antonio's Jaguar - Faithful Companion",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "008-031"
+    },
+    "32": {
+      "name": "Calhoun - Hard-Nosed Leader",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "008-032"
+    },
+    "33": {
+      "name": "Lady - Decisive Dog",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "008-033"
+    },
+    "34": {
+      "name": "Alma Madrigal - Accepting Grandmother",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "008-034"
+    },
+    "35": {
+      "name": "Clawhauser - Front Desk Officer",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "008-035"
+    },
+    "36": {
+      "name": "Joey - Blue Pigeon",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "008-036"
+    },
+    "37": {
+      "name": "Donald Duck - Coin Collector",
+      "rarity": "super-rare",
+      "type": "character",
+      "dreambornId": "008-037"
+    },
+    "38": {
+      "name": "Dalmatian Puppy - Tail Wagger",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "008-038"
+    },
+    "39": {
+      "name": "Candy Drift",
+      "rarity": "uncommon",
+      "type": "action",
+      "dreambornId": "008-039"
+    },
+    "40": {
+      "name": "She's Your Person",
+      "rarity": "uncommon",
+      "type": "action",
+      "dreambornId": "008-040"
+    },
+    "41": {
+      "name": "Only So Much Room",
+      "rarity": "uncommon",
+      "type": "action",
+      "dreambornId": "008-041"
+    },
+    "42": {
+      "name": "It Means No Worries",
+      "rarity": "rare",
+      "type": "action",
+      "dreambornId": "008-042"
+    },
+    "43": {
+      "name": "Trials and Tribulations",
+      "rarity": "uncommon",
+      "type": "action",
+      "dreambornId": "008-043"
+    },
+    "44": {
+      "name": "The Nephews' Piggy Bank",
+      "rarity": "uncommon",
+      "type": "item",
+      "dreambornId": "008-044"
+    },
+    "45": {
+      "name": "Palace Guard - Spectral Sentry",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "008-045"
+    },
+    "46": {
+      "name": "Druun - Ravenous Plague",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "008-046"
+    },
+    "47": {
+      "name": "Madame Medusa - Deceiving Partner",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "008-047"
+    },
+    "48": {
+      "name": "Hades - Ruthless Tyrant",
+      "rarity": "super-rare",
+      "type": "character",
+      "dreambornId": "008-048"
+    },
+    "49": {
+      "name": "Lena Sabrewing - Pure Energy",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "008-049"
+    },
+    "50": {
+      "name": "Abu - Illusory Pachyderm",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "008-050"
+    },
+    "51": {
+      "name": "Bruno Madrigal - Single-Minded",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "008-051"
+    },
+    "52": {
+      "name": "Royal Guard - Octopus Soldier",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "008-052"
+    },
+    "53": {
+      "name": "Kuzco - Bored Royal",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "008-053"
+    },
+    "54": {
+      "name": "Megara - Part of the Plan",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "008-054"
+    },
+    "55": {
+      "name": "Yelana - Northuldra Leader",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "008-055"
+    },
+    "56": {
+      "name": "Ryder - Fleet-Footed Infiltrator",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "008-056"
+    },
+    "57": {
+      "name": "Bambi - Prince of the Forest",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "008-057"
+    },
+    "58": {
+      "name": "Poe De Spell - Magica's Brother",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "008-058"
+    },
+    "59": {
+      "name": "Madam Mim - Up to No Good",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "008-059"
+    },
+    "60": {
+      "name": "Elsa - Fierce Protector",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "008-060"
+    },
+    "61": {
+      "name": "Pinocchio - Strings Attached",
+      "rarity": "legendary",
+      "type": "character",
+      "dreambornId": "008-061"
+    },
+    "62": {
+      "name": "Jiminy Cricket - Level-Headed and Wise",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "008-062"
+    },
+    "63": {
+      "name": "Bambi - Little Prince",
+      "rarity": "legendary",
+      "type": "character",
+      "dreambornId": "008-063"
+    },
+    "64": {
+      "name": "Monstro - Infamous Whale",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "008-064"
+    },
+    "65": {
+      "name": "Nero - Fearsome Crocodile",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "008-065"
+    },
+    "66": {
+      "name": "Magica De Spell - Shadow Form",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "008-066"
+    },
+    "67": {
+      "name": "Kuzco - Impulsive Llama",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "008-067"
+    },
+    "68": {
+      "name": "Yzma - On Edge",
+      "rarity": "super-rare",
+      "type": "character",
+      "dreambornId": "008-068"
+    },
+    "69": {
+      "name": "Madam Mim - Rhino",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "008-069"
+    },
+    "70": {
+      "name": "Mother Gothel - Knows What's Best",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "008-070"
+    },
+    "71": {
+      "name": "Blue Fairy - Guiding Light",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "008-071"
+    },
+    "72": {
+      "name": "Anna - Magical Mission",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "008-072"
+    },
+    "73": {
+      "name": "The Sultan - Royal Apparition",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "008-073"
+    },
+    "74": {
+      "name": "Jafar - High Sultan of Lorcana",
+      "rarity": "super-rare",
+      "type": "character",
+      "dreambornId": "008-074"
+    },
+    "75": {
+      "name": "Camilo Madrigal - Center Stage",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "008-075"
+    },
+    "76": {
+      "name": "Flower - Shy Skunk",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "008-076"
+    },
+    "77": {
+      "name": "Forest Duel",
+      "rarity": "uncommon",
+      "type": "action",
+      "dreambornId": "008-077"
+    },
+    "78": {
+      "name": "They Never Come Back",
+      "rarity": "uncommon",
+      "type": "action",
+      "dreambornId": "008-078"
+    },
+    "79": {
+      "name": "Fantastical and Magical",
+      "rarity": "rare",
+      "type": "action",
+      "dreambornId": "008-079"
+    },
+    "80": {
+      "name": "Pull the Lever!",
+      "rarity": "uncommon",
+      "type": "action",
+      "dreambornId": "008-080"
+    },
+    "81": {
+      "name": "Into the Unknown",
+      "rarity": "super-rare",
+      "type": "action",
+      "dreambornId": "008-081"
+    },
+    "82": {
+      "name": "Everybody's Got a Weakness",
+      "rarity": "rare",
+      "type": "action",
+      "dreambornId": "008-082"
+    },
+    "83": {
+      "name": "Scarab",
+      "rarity": "common",
+      "type": "item",
+      "dreambornId": "008-083"
+    },
+    "84": {
+      "name": "Ice Spikes",
+      "rarity": "uncommon",
+      "type": "item",
+      "dreambornId": "008-084"
+    },
+    "85": {
+      "name": "Wilhelmina Packard - The Radio Operator",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "008-085"
+    },
+    "86": {
+      "name": "Basil - Undercover Detective",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "008-086"
+    },
+    "87": {
+      "name": "Tramp - Observant Guardian",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "008-087"
+    },
+    "88": {
+      "name": "Chaca - Junior Chipmunk",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "008-088"
+    },
+    "89": {
+      "name": "Tipo - Junior Chipmunk",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "008-089"
+    },
+    "90": {
+      "name": "Bill the Lizard - Chimney Sweep",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "008-090"
+    },
+    "91": {
+      "name": "March Hare - Hare-Brained Eccentric",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "008-091"
+    },
+    "92": {
+      "name": "Fred - Major Science Enthusiast",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "008-092"
+    },
+    "93": {
+      "name": "Mad Dog - Karnage's First Mate",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "008-093"
+    },
+    "94": {
+      "name": "Dale - Bumbler",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "008-094"
+    },
+    "95": {
+      "name": "Louis - Endearing Alligator",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "008-095"
+    },
+    "96": {
+      "name": "Napoleon - Clever Bloodhound",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "008-096"
+    },
+    "97": {
+      "name": "Chip - Quick Thinker",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "008-097"
+    },
+    "98": {
+      "name": "Fred - Giant-Sized",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "008-098"
+    },
+    "99": {
+      "name": "Gadget Hackwrench - Quirky Scientist",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "008-099"
+    },
+    "100": {
+      "name": "Raya - Infiltration Expert",
+      "rarity": "legendary",
+      "type": "character",
+      "dreambornId": "008-100"
+    },
+    "101": {
+      "name": "Rapunzel - High Climber",
+      "rarity": "legendary",
+      "type": "character",
+      "dreambornId": "008-101"
+    },
+    "102": {
+      "name": "Flynn Rider - Breaking and Entering",
+      "rarity": "super-rare",
+      "type": "character",
+      "dreambornId": "008-102"
+    },
+    "103": {
+      "name": "Dormouse - Easily Agitated",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "008-103"
+    },
+    "104": {
+      "name": "Alice - Clumsy as Can Be",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "008-104"
+    },
+    "105": {
+      "name": "Queen of Hearts - Haughty Monarch",
+      "rarity": "super-rare",
+      "type": "character",
+      "dreambornId": "008-105"
+    },
+    "106": {
+      "name": "Hiro Hamada - Intuitive Thinker",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "008-106"
+    },
+    "107": {
+      "name": "Go Go Tomago - Cutting Edge",
+      "rarity": "super-rare",
+      "type": "character",
+      "dreambornId": "008-107"
+    },
+    "108": {
+      "name": "Don Karnage - Air Pirate Leader",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "008-108"
+    },
+    "109": {
+      "name": "Captain Hook - The Pirate King",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "008-109"
+    },
+    "110": {
+      "name": "Maui - Stubborn Trickster",
+      "rarity": "super-rare",
+      "type": "character",
+      "dreambornId": "008-110"
+    },
+    "111": {
+      "name": "Honey Lemon - Costumed Catalyst",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "008-111"
+    },
+    "112": {
+      "name": "Jock - Attentive Uncle",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "008-112"
+    },
+    "113": {
+      "name": "Archimedes - Resourceful Owl",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "008-113"
+    },
+    "114": {
+      "name": "He Who Steals and Runs Away",
+      "rarity": "common",
+      "type": "action",
+      "dreambornId": "008-114"
+    },
+    "115": {
+      "name": "Stopped Chaos in Its Tracks",
+      "rarity": "uncommon",
+      "type": "action",
+      "dreambornId": "008-115"
+    },
+    "116": {
+      "name": "Wrong Lever!",
+      "rarity": "rare",
+      "type": "action",
+      "dreambornId": "008-116"
+    },
+    "117": {
+      "name": "Undermine",
+      "rarity": "uncommon",
+      "type": "action",
+      "dreambornId": "008-117"
+    },
+    "118": {
+      "name": "Walk the Plank!",
+      "rarity": "uncommon",
+      "type": "action",
+      "dreambornId": "008-118"
+    },
+    "119": {
+      "name": "Chem Purse",
+      "rarity": "common",
+      "type": "item",
+      "dreambornId": "008-119"
+    },
+    "120": {
+      "name": "Jeweled Collar",
+      "rarity": "uncommon",
+      "type": "item",
+      "dreambornId": "008-120"
+    },
+    "121": {
+      "name": "Gloyd Orangeboar - Fierce Competitor",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "008-121"
+    },
+    "122": {
+      "name": "Honest John - Shameless Schemer",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "008-122"
+    },
+    "123": {
+      "name": "Gyro Gearloose - Eccentric Inventor",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "008-123"
+    },
+    "124": {
+      "name": "Vanellope Von Schweetz - Spunky Speedster",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "008-124"
+    },
+    "125": {
+      "name": "Brutus - Fearsome Crocodile",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "008-125"
+    },
+    "126": {
+      "name": "The Dodo - Outlandish Storyteller",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "008-126"
+    },
+    "127": {
+      "name": "Alice - Courageous Keyholder",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "008-127"
+    },
+    "128": {
+      "name": "Lumiere - Nimble Candelabra",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "008-128"
+    },
+    "129": {
+      "name": "Gaston - Arrogant Showoff",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "008-129"
+    },
+    "130": {
+      "name": "Mushu - Fast-Talking Dragon",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "008-130"
+    },
+    "131": {
+      "name": "Cri-Kee - Part of the Team",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "008-131"
+    },
+    "132": {
+      "name": "Lafayette - Sleepy Basset Hound",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "008-132"
+    },
+    "133": {
+      "name": "Figaro - Tuxedo Cat",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "008-133"
+    },
+    "134": {
+      "name": "Thumper - Young Bunny",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "008-134"
+    },
+    "135": {
+      "name": "Wreck-It Ralph - Back Seat Driver",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "008-135"
+    },
+    "136": {
+      "name": "Tinker Bell - Insistent Fairy",
+      "rarity": "legendary",
+      "type": "character",
+      "dreambornId": "008-136"
+    },
+    "137": {
+      "name": "Lilo - Causing an Uproar",
+      "rarity": "legendary",
+      "type": "character",
+      "dreambornId": "008-137"
+    },
+    "138": {
+      "name": "LeFou - Cake Thief",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "008-138"
+    },
+    "139": {
+      "name": "Lumiere - Fired Up",
+      "rarity": "super-rare",
+      "type": "character",
+      "dreambornId": "008-139"
+    },
+    "140": {
+      "name": "The Coachman - Greedy Deceiver",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "008-140"
+    },
+    "141": {
+      "name": "Mulan - Charging Ahead",
+      "rarity": "super-rare",
+      "type": "character",
+      "dreambornId": "008-141"
+    },
+    "142": {
+      "name": "Mushu - Your Worst Nightmare",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "008-142"
+    },
+    "143": {
+      "name": "Mr. Snoops - Betrayed Partner",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "008-143"
+    },
+    "144": {
+      "name": "Friend Owl - Cantankerous Neighbor",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "008-144"
+    },
+    "145": {
+      "name": "Faline - Playful Fawn",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "008-145"
+    },
+    "146": {
+      "name": "Prince John - Fraidy-Cat",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "008-146"
+    },
+    "147": {
+      "name": "Nothing We Won't Do",
+      "rarity": "rare",
+      "type": "action",
+      "dreambornId": "008-147"
+    },
+    "148": {
+      "name": "Get Out!",
+      "rarity": "uncommon",
+      "type": "action",
+      "dreambornId": "008-148"
+    },
+    "149": {
+      "name": "Light the Fuse",
+      "rarity": "uncommon",
+      "type": "action",
+      "dreambornId": "008-149"
+    },
+    "150": {
+      "name": "Twitterpated",
+      "rarity": "uncommon",
+      "type": "action",
+      "dreambornId": "008-150"
+    },
+    "151": {
+      "name": "Most Everyone's Mad Here",
+      "rarity": "rare",
+      "type": "action",
+      "dreambornId": "008-151"
+    },
+    "152": {
+      "name": "The Sword of Shan-Yu",
+      "rarity": "rare",
+      "type": "item",
+      "dreambornId": "008-152"
+    },
+    "153": {
+      "name": "The Mouse Queen - Ruler of Mousedom",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "008-153"
+    },
+    "154": {
+      "name": "Sir Pellinore - Seasoned Knight",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "008-154"
+    },
+    "155": {
+      "name": "Anita Radcliffe - Dog Lover",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "008-155"
+    },
+    "156": {
+      "name": "Olaf - Recapping the Story",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "008-156"
+    },
+    "157": {
+      "name": "Anna - Trusting Sister",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "008-157"
+    },
+    "158": {
+      "name": "Wasabi - Always Prepared",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "008-158"
+    },
+    "159": {
+      "name": "Go Go Tomago - Mechanical Engineer",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "008-159"
+    },
+    "160": {
+      "name": "The Wardrobe - Perceptive Friend",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "008-160"
+    },
+    "161": {
+      "name": "Mrs. Potts - Head Housekeeper",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "008-161"
+    },
+    "162": {
+      "name": "Jasmine - Resourceful Infiltrator",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "008-162"
+    },
+    "163": {
+      "name": "Little Sister - Responsible Rabbit",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "008-163"
+    },
+    "164": {
+      "name": "Adelaide Bonfamille - Patron of the Arts",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "008-164"
+    },
+    "165": {
+      "name": "Nani - Heist Mastermind",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "008-165"
+    },
+    "166": {
+      "name": "Stitch - Experiment 626",
+      "rarity": "legendary",
+      "type": "character",
+      "dreambornId": "008-166"
+    },
+    "167": {
+      "name": "Ratigan - Greedy Genius",
+      "rarity": "legendary",
+      "type": "character",
+      "dreambornId": "008-167"
+    },
+    "168": {
+      "name": "Arthur - Determined Squire",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "008-168"
+    },
+    "169": {
+      "name": "Bernard - Over-Prepared",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "008-169"
+    },
+    "170": {
+      "name": "Aladdin - Vigilant Guard",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "008-170"
+    },
+    "171": {
+      "name": "Jasmine - Steady Strategist",
+      "rarity": "super-rare",
+      "type": "character",
+      "dreambornId": "008-171"
+    },
+    "172": {
+      "name": "Roquefort - Lock Expert",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "008-172"
+    },
+    "173": {
+      "name": "Jumba Jookiba - Critical Scientist",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "008-173"
+    },
+    "174": {
+      "name": "Geppetto - Skilled Craftsman",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "008-174"
+    },
+    "175": {
+      "name": "Heads Held High",
+      "rarity": "rare",
+      "type": "action",
+      "dreambornId": "008-175"
+    },
+    "176": {
+      "name": "Pouncing Practice",
+      "rarity": "uncommon",
+      "type": "action",
+      "dreambornId": "008-176"
+    },
+    "177": {
+      "name": "Down in New Orleans",
+      "rarity": "super-rare",
+      "type": "action",
+      "dreambornId": "008-177"
+    },
+    "178": {
+      "name": "Television Set",
+      "rarity": "common",
+      "type": "item",
+      "dreambornId": "008-178"
+    },
+    "179": {
+      "name": "Belle's Favorite Book",
+      "rarity": "rare",
+      "type": "item",
+      "dreambornId": "008-179"
+    },
+    "180": {
+      "name": "Atlantean Crystal",
+      "rarity": "rare",
+      "type": "item",
+      "dreambornId": "008-180"
+    },
+    "181": {
+      "name": "Atitaya - Fang General",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "008-181"
+    },
+    "182": {
+      "name": "Bobby - Purple Pigeon",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "008-182"
+    },
+    "183": {
+      "name": "Magic Carpet - Phantom Rug",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "008-183"
+    },
+    "184": {
+      "name": "Prince Achmed - Rival Suitor",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "008-184"
+    },
+    "185": {
+      "name": "Dumptruck - Karnage's Second Mate",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "008-185"
+    },
+    "187": {
+      "name": "General Li - Head of the Imperial Army",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "008-187"
+    },
+    "188": {
+      "name": "Monterey Jack - Defiant Protector",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "008-188"
+    },
+    "189": {
+      "name": "Genie - Satisfied Dragon",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "008-189"
+    },
+    "190": {
+      "name": "Toby Turtle - Wary Friend",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "008-190"
+    },
+    "191": {
+      "name": "Arianna - Queen of Corona",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "008-191"
+    },
+    "192": {
+      "name": "Zipper - Flying Ranger",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "008-192"
+    },
+    "193": {
+      "name": "Khan - War Horse",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "008-193"
+    },
+    "194": {
+      "name": "Vinnie - Green Pigeon",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "008-194"
+    },
+    "195": {
+      "name": "Iago - Out of Reach",
+      "rarity": "special",
+      "type": "character",
+      "dreambornId": "008-D23-008"
+    },
+    "196": {
+      "name": "Nathaniel Flint - Notorious Pirate",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "008-196"
+    },
+    "197": {
+      "name": "Vincenzo Santorini - The Explosives Expert",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "008-197"
+    },
+    "198": {
+      "name": "Namaari - Single-Minded Rival",
+      "rarity": "legendary",
+      "type": "character",
+      "dreambornId": "008-198"
+    },
+    "199": {
+      "name": "Mickey Mouse - Giant Mouse",
+      "rarity": "legendary",
+      "type": "character",
+      "dreambornId": "008-199"
+    },
+    "200": {
+      "name": "Stitch - Alien Troublemaker",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "008-200"
+    },
+    "201": {
+      "name": "Desperate Plan",
+      "rarity": "rare",
+      "type": "action",
+      "dreambornId": "008-201"
+    },
+    "202": {
+      "name": "Beyond the Horizon",
+      "rarity": "uncommon",
+      "type": "action",
+      "dreambornId": "008-202"
+    },
+    "203": {
+      "name": "Quick Shot",
+      "rarity": "uncommon",
+      "type": "action",
+      "dreambornId": "008-203"
+    },
+    "204": {
+      "name": "Hamster Ball",
+      "rarity": "common",
+      "type": "item",
+      "dreambornId": "008-204"
+    },
+    "205": {
+      "name": "Lady - Decisive Dog",
+      "rarity": "enchanted",
+      "type": "character",
+      "dreambornId": "008-205"
+    },
+    "206": {
+      "name": "Wreck-It Ralph - Big Lug",
+      "rarity": "enchanted",
+      "type": "character",
+      "dreambornId": "008-206"
+    },
+    "207": {
+      "name": "Perdita - Determined Mother",
+      "rarity": "enchanted",
+      "type": "character",
+      "dreambornId": "008-207"
+    },
+    "208": {
+      "name": "It Means No Worries",
+      "rarity": "enchanted",
+      "type": "action",
+      "dreambornId": "008-208"
+    },
+    "209": {
+      "name": "Bambi - Little Prince",
+      "rarity": "enchanted",
+      "type": "character",
+      "dreambornId": "008-209"
+    },
+    "210": {
+      "name": "Kuzco - Impulsive Llama",
+      "rarity": "enchanted",
+      "type": "character",
+      "dreambornId": "008-210"
+    },
+    "211": {
+      "name": "Mother Gothel - Knows What's Best",
+      "rarity": "enchanted",
+      "type": "character",
+      "dreambornId": "008-211"
+    },
+    "212": {
+      "name": "Fantastical and Magical",
+      "rarity": "enchanted",
+      "type": "action",
+      "dreambornId": "008-212"
+    },
+    "213": {
+      "name": "Into the Unknown",
+      "rarity": "enchanted",
+      "type": "action",
+      "dreambornId": "008-213"
+    },
+    "214": {
+      "name": "Rapunzel - High Climber",
+      "rarity": "enchanted",
+      "type": "character",
+      "dreambornId": "008-214"
+    },
+    "215": {
+      "name": "Captain Hook - The Pirate King",
+      "rarity": "enchanted",
+      "type": "character",
+      "dreambornId": "008-215"
+    },
+    "216": {
+      "name": "Wrong Lever!",
+      "rarity": "enchanted",
+      "type": "action",
+      "dreambornId": "008-216"
+    },
+    "217": {
+      "name": "Lilo - Causing an Uproar",
+      "rarity": "enchanted",
+      "type": "character",
+      "dreambornId": "008-217"
+    },
+    "218": {
+      "name": "Mushu - Your Worst Nightmare",
+      "rarity": "enchanted",
+      "type": "character",
+      "dreambornId": "008-218"
+    },
+    "219": {
+      "name": "The Sword of Shan-Yu",
+      "rarity": "enchanted",
+      "type": "item",
+      "dreambornId": "008-219"
+    },
+    "220": {
+      "name": "Stitch - Experiment 626",
+      "rarity": "enchanted",
+      "type": "character",
+      "dreambornId": "008-220"
+    },
+    "221": {
+      "name": "Jasmine - Steady Strategist",
+      "rarity": "enchanted",
+      "type": "character",
+      "dreambornId": "008-221"
+    },
+    "222": {
+      "name": "Desperate Plan",
+      "rarity": "enchanted",
+      "type": "action",
+      "dreambornId": "008-222"
+    },
+    "223": {
+      "name": "Goofy - Groundbreaking Chef",
+      "rarity": "legendary",
+      "type": "character",
+      "dreambornId": "008-223"
+    },
+    "224": {
+      "name": "Pinocchio - Strings Attached",
+      "rarity": "legendary",
+      "type": "character",
+      "dreambornId": "008-224"
+    }
+  }
+}

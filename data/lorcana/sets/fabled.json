@@ -1,0 +1,342 @@
+{
+  "version": "1.0.0",
+  "lastUpdated": "2026-02-16",
+  "setKey": "fabled",
+  "name": "Fabled",
+  "displayName": "Fabled",
+  "totalCards": 242,
+  "mainSet": 204,
+  "setCode": "fab",
+  "releaseDate": "2025-08-08",
+  "block": "Disney Lorcana",
+  "blockCode": "lorcana",
+  "hasPokeBallVariant": false,
+  "hasMasterBallVariant": false,
+  "singleVariantOnly": false,
+  "cards": {
+    "1": {
+      "name": "The Queen - Conceited Ruler",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "009-001"
+    },
+    "4": {
+      "name": "Beast - Gracious Prince",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "009-004"
+    },
+    "5": {
+      "name": "Minnie Mouse - Sweetheart Princess",
+      "rarity": "super-rare",
+      "type": "character",
+      "dreambornId": "009-005"
+    },
+    "6": {
+      "name": "Aurora - Holding Court",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "009-006"
+    },
+    "26": {
+      "name": "Circle of Life",
+      "rarity": "legendary",
+      "type": "action",
+      "dreambornId": "009-026"
+    },
+    "44": {
+      "name": "Ursula - Voice Stealer",
+      "rarity": "super-rare",
+      "type": "character",
+      "dreambornId": "009-044"
+    },
+    "45": {
+      "name": "Dumbo - Ninth Wonder of the Universe",
+      "rarity": "legendary",
+      "type": "character",
+      "dreambornId": "009-045"
+    },
+    "46": {
+      "name": "Dumbo - The Flying Elephant",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "009-046"
+    },
+    "47": {
+      "name": "Timothy Q. Mouse - Flight Instructor",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "009-047"
+    },
+    "64": {
+      "name": "The Magic Feather",
+      "rarity": "rare",
+      "type": "item",
+      "dreambornId": "009-064"
+    },
+    "74": {
+      "name": "Goofy - Set for Adventure",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "009-074"
+    },
+    "75": {
+      "name": "Max Goof - Rebellious Teen",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "009-075"
+    },
+    "76": {
+      "name": "Genie - Of the Lamp",
+      "rarity": "super-rare",
+      "type": "character",
+      "dreambornId": "009-076"
+    },
+    "77": {
+      "name": "Max Goof - Chart Topper",
+      "rarity": "legendary",
+      "type": "character",
+      "dreambornId": "009-077"
+    },
+    "78": {
+      "name": "Bobby Zimuruski - Spray Cheese Kid",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "009-078"
+    },
+    "94": {
+      "name": "Stand Out",
+      "rarity": "uncommon",
+      "type": "action",
+      "dreambornId": "009-094"
+    },
+    "100": {
+      "name": "Family Fishing Pole",
+      "rarity": "rare",
+      "type": "item",
+      "dreambornId": "009-100"
+    },
+    "109": {
+      "name": "Powerline - Taking the Stage",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "009-109"
+    },
+    "110": {
+      "name": "Powerline - World's Greatest Rock Star",
+      "rarity": "super-rare",
+      "type": "character",
+      "dreambornId": "009-110"
+    },
+    "111": {
+      "name": "Mickey Mouse - Brave Little Prince",
+      "rarity": "legendary",
+      "type": "character",
+      "dreambornId": "009-111"
+    },
+    "112": {
+      "name": "Max Goof - Rockin' Teen",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "009-112"
+    },
+    "113": {
+      "name": "Roxanne - Powerline Fan",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "009-113"
+    },
+    "114": {
+      "name": "P.J. Pete - Caught Up in the Music",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "009-114"
+    },
+    "117": {
+      "name": "Powerline - Musical Superstar",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "009-117"
+    },
+    "130": {
+      "name": "I2I",
+      "rarity": "rare",
+      "type": "action",
+      "dreambornId": "009-130"
+    },
+    "141": {
+      "name": "Alice - Accidentally Adrift",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "009-141"
+    },
+    "142": {
+      "name": "Mulan - Considerate Diplomat",
+      "rarity": "super-rare",
+      "type": "character",
+      "dreambornId": "009-142"
+    },
+    "143": {
+      "name": "Cruella De Vil - Style Icon",
+      "rarity": "legendary",
+      "type": "character",
+      "dreambornId": "009-143"
+    },
+    "173": {
+      "name": "Nala - Undaunted Lioness",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "009-173"
+    },
+    "174": {
+      "name": "Lilo - Best Explorer Ever",
+      "rarity": "super-rare",
+      "type": "character",
+      "dreambornId": "009-174"
+    },
+    "175": {
+      "name": "Scar - Finally King",
+      "rarity": "legendary",
+      "type": "character",
+      "dreambornId": "009-175"
+    },
+    "176": {
+      "name": "Little John - Sir Reginald",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "009-176"
+    },
+    "178": {
+      "name": "Jasmine - Fearless Princess",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "009-178"
+    },
+    "205": {
+      "name": "The Queen - Conceited Ruler",
+      "rarity": "epic",
+      "type": "character",
+      "dreambornId": "009-205"
+    },
+    "206": {
+      "name": "Aurora - Holding Court",
+      "rarity": "epic",
+      "type": "character",
+      "dreambornId": "009-206"
+    },
+    "211": {
+      "name": "Goofy - Set for Adventure",
+      "rarity": "epic",
+      "type": "character",
+      "dreambornId": "009-211"
+    },
+    "213": {
+      "name": "Stand Out",
+      "rarity": "epic",
+      "type": "action",
+      "dreambornId": "009-213"
+    },
+    "214": {
+      "name": "Max Goof - Rockin' Teen",
+      "rarity": "epic",
+      "type": "character",
+      "dreambornId": "009-214"
+    },
+    "215": {
+      "name": "Powerline - Musical Superstar",
+      "rarity": "epic",
+      "type": "character",
+      "dreambornId": "009-215"
+    },
+    "217": {
+      "name": "Alice - Accidentally Adrift",
+      "rarity": "epic",
+      "type": "character",
+      "dreambornId": "009-217"
+    },
+    "224": {
+      "name": "Beast - Gracious Prince",
+      "rarity": "enchanted",
+      "type": "character",
+      "dreambornId": "009-224"
+    },
+    "225": {
+      "name": "Circle of Life",
+      "rarity": "enchanted",
+      "type": "action",
+      "dreambornId": "009-225"
+    },
+    "228": {
+      "name": "Dumbo - Ninth Wonder of the Universe",
+      "rarity": "enchanted",
+      "type": "character",
+      "dreambornId": "009-228"
+    },
+    "229": {
+      "name": "Genie - Of the Lamp",
+      "rarity": "enchanted",
+      "type": "character",
+      "dreambornId": "009-229"
+    },
+    "230": {
+      "name": "Max Goof - Chart Topper",
+      "rarity": "enchanted",
+      "type": "character",
+      "dreambornId": "009-230"
+    },
+    "233": {
+      "name": "Powerline - World's Greatest Rock Star",
+      "rarity": "enchanted",
+      "type": "character",
+      "dreambornId": "009-233"
+    },
+    "234": {
+      "name": "I2I",
+      "rarity": "enchanted",
+      "type": "action",
+      "dreambornId": "009-234"
+    },
+    "235": {
+      "name": "Mulan - Considerate Diplomat",
+      "rarity": "enchanted",
+      "type": "character",
+      "dreambornId": "009-235"
+    },
+    "236": {
+      "name": "Cruella De Vil - Style Icon",
+      "rarity": "enchanted",
+      "type": "character",
+      "dreambornId": "009-236"
+    },
+    "238": {
+      "name": "Lilo - Best Explorer Ever",
+      "rarity": "enchanted",
+      "type": "character",
+      "dreambornId": "009-238"
+    },
+    "239": {
+      "name": "Scar - Finally King",
+      "rarity": "enchanted",
+      "type": "character",
+      "dreambornId": "009-239"
+    },
+    "240": {
+      "name": "Jasmine - Fearless Princess",
+      "rarity": "enchanted",
+      "type": "character",
+      "dreambornId": "009-240"
+    },
+    "241": {
+      "name": "Minnie Mouse - Sweetheart Princess",
+      "rarity": "iconic",
+      "type": "character",
+      "dreambornId": "009-241"
+    },
+    "242": {
+      "name": "Mickey Mouse - Brave Little Prince",
+      "rarity": "iconic",
+      "type": "character",
+      "dreambornId": "009-242"
+    }
+  }
+}

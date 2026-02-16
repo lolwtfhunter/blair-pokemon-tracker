@@ -1,0 +1,1350 @@
+{
+  "version": "1.0.0",
+  "lastUpdated": "2026-02-16",
+  "setKey": "azurite-sea",
+  "name": "Azurite Sea",
+  "displayName": "Azurite Sea",
+  "totalCards": 222,
+  "mainSet": 204,
+  "setCode": "azu",
+  "releaseDate": "2024-11-15",
+  "block": "Disney Lorcana",
+  "blockCode": "lorcana",
+  "hasPokeBallVariant": false,
+  "hasMasterBallVariant": false,
+  "singleVariantOnly": false,
+  "cards": {
+    "1": {
+      "name": "Owl - Pirate Lookout",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "006-001"
+    },
+    "2": {
+      "name": "Lilo - Escape Artist",
+      "rarity": "super-rare",
+      "type": "character",
+      "dreambornId": "006-002"
+    },
+    "3": {
+      "name": "Winnie the Pooh - Hunny Pirate",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "006-003"
+    },
+    "4": {
+      "name": "Gopher - Ship's Carpenter",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "006-004"
+    },
+    "5": {
+      "name": "Simba - Happy-Go-Lucky",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "006-005"
+    },
+    "6": {
+      "name": "Chip - Friend Indeed",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "006-006"
+    },
+    "7": {
+      "name": "Dale - Friend in Need",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "006-007"
+    },
+    "8": {
+      "name": "David - Impressive Surfer",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "006-008"
+    },
+    "9": {
+      "name": "Prince Naveen - Vigilant First Mate",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "006-009"
+    },
+    "10": {
+      "name": "Prince Naveen - Carefree Explorer",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "006-010"
+    },
+    "11": {
+      "name": "Chief Bogo - Gazelle Fan",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "006-011"
+    },
+    "12": {
+      "name": "Chip - Ranger Leader",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "006-012"
+    },
+    "13": {
+      "name": "Monterey Jack - Good-Hearted Ranger",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "006-013"
+    },
+    "14": {
+      "name": "Chip 'n' Dale - Recovery Rangers",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "006-014"
+    },
+    "15": {
+      "name": "Judy Hopps - Resourceful Rabbit",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "006-015"
+    },
+    "16": {
+      "name": "Tiana - Restaurant Owner",
+      "rarity": "legendary",
+      "type": "character",
+      "dreambornId": "006-016"
+    },
+    "17": {
+      "name": "Grand Councilwoman - Federation Leader",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "006-017"
+    },
+    "18": {
+      "name": "Dale - Mischievous Ranger",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "006-018"
+    },
+    "19": {
+      "name": "Nani - Caring Sister",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "006-019"
+    },
+    "20": {
+      "name": "Simba - Pride Protector",
+      "rarity": "legendary",
+      "type": "character",
+      "dreambornId": "006-020"
+    },
+    "21": {
+      "name": "Kanga - Nurturing Mother",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "006-021"
+    },
+    "22": {
+      "name": "Rabbit - Indignant Pirate",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "006-022"
+    },
+    "23": {
+      "name": "Roo - Littlest Pirate",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "006-023"
+    },
+    "24": {
+      "name": "Mr. Litwak - Arcade Owner",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "006-024"
+    },
+    "25": {
+      "name": "Jim Hawkins - Honorable Pirate",
+      "rarity": "super-rare",
+      "type": "character",
+      "dreambornId": "006-025"
+    },
+    "26": {
+      "name": "Stitch - Little Trickster",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "006-026"
+    },
+    "27": {
+      "name": "Good Job!",
+      "rarity": "common",
+      "type": "action",
+      "dreambornId": "006-027"
+    },
+    "28": {
+      "name": "I Won't Give In",
+      "rarity": "common",
+      "type": "action",
+      "dreambornId": "006-028"
+    },
+    "29": {
+      "name": "Rescue Rangers Away!",
+      "rarity": "uncommon",
+      "type": "action",
+      "dreambornId": "006-029"
+    },
+    "30": {
+      "name": "Safe and Sound",
+      "rarity": "rare",
+      "type": "action",
+      "dreambornId": "006-030"
+    },
+    "31": {
+      "name": "Naveen's Ukulele",
+      "rarity": "common",
+      "type": "item",
+      "dreambornId": "006-031"
+    },
+    "32": {
+      "name": "Pooh Pirate Ship",
+      "rarity": "rare",
+      "type": "item",
+      "dreambornId": "006-032"
+    },
+    "33": {
+      "name": "Scrump",
+      "rarity": "uncommon",
+      "type": "item",
+      "dreambornId": "006-033"
+    },
+    "34": {
+      "name": "Hundred Acre Island - Pooh's Home",
+      "rarity": "common",
+      "type": "location",
+      "dreambornId": "006-034"
+    },
+    "35": {
+      "name": "Sugar Rush Speedway - Finish Line",
+      "rarity": "super-rare",
+      "type": "location",
+      "dreambornId": "006-035"
+    },
+    "36": {
+      "name": "Hades - Lord of the Dead",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "006-036"
+    },
+    "37": {
+      "name": "Madam Mim - Tiny Adversary",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "006-037"
+    },
+    "38": {
+      "name": "Genie - Excited Shipbuilder",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "006-038"
+    },
+    "39": {
+      "name": "Sisu - In Her Element",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "006-039"
+    },
+    "40": {
+      "name": "The White Rose - Jewel of the Garden",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "006-040"
+    },
+    "41": {
+      "name": "Juju - Mama Odie's Companion",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "006-041"
+    },
+    "42": {
+      "name": "Rafiki - Shaman of the Savanna",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "006-042"
+    },
+    "43": {
+      "name": "Tinker Bell - Fast Flier",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "006-043"
+    },
+    "44": {
+      "name": "The Carpenter - Dinner Companion",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "006-044"
+    },
+    "45": {
+      "name": "Iago - Reappearing Parrot",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "006-045"
+    },
+    "46": {
+      "name": "The Walrus - Greedy Gourmand",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "006-046"
+    },
+    "47": {
+      "name": "Scar - Tempestuous Lion",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "006-047"
+    },
+    "48": {
+      "name": "Tinker Bell - Queen of the Azurite Fairies",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "006-048"
+    },
+    "49": {
+      "name": "Diablo - Obedient Raven",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "006-049"
+    },
+    "50": {
+      "name": "March Hare - Absurd Host",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "006-050"
+    },
+    "51": {
+      "name": "Magic Carpet - Amazing Flier",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "006-051"
+    },
+    "52": {
+      "name": "Rafiki - Ethereal Guide",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "006-052"
+    },
+    "53": {
+      "name": "Genie - Wish Fulfilled",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "006-053"
+    },
+    "54": {
+      "name": "Sisu - Uniting Dragon",
+      "rarity": "super-rare",
+      "type": "character",
+      "dreambornId": "006-054"
+    },
+    "55": {
+      "name": "Madam Mim - Truly Marvelous",
+      "rarity": "super-rare",
+      "type": "character",
+      "dreambornId": "006-055"
+    },
+    "56": {
+      "name": "Yzma - Conniving Chemist",
+      "rarity": "legendary",
+      "type": "character",
+      "dreambornId": "006-056"
+    },
+    "57": {
+      "name": "Mama Odie - Solitary Sage",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "006-057"
+    },
+    "58": {
+      "name": "Peter Pan - Shadow Catcher",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "006-058"
+    },
+    "59": {
+      "name": "Mad Hatter - Eccentric Host",
+      "rarity": "super-rare",
+      "type": "character",
+      "dreambornId": "006-059"
+    },
+    "60": {
+      "name": "A Very Merry Unbirthday",
+      "rarity": "common",
+      "type": "action",
+      "dreambornId": "006-060"
+    },
+    "61": {
+      "name": "Genie - Wonderful Trickster",
+      "rarity": "legendary",
+      "type": "character",
+      "dreambornId": "006-061"
+    },
+    "62": {
+      "name": "Making Magic",
+      "rarity": "common",
+      "type": "action",
+      "dreambornId": "006-062"
+    },
+    "63": {
+      "name": "Lose the Way",
+      "rarity": "uncommon",
+      "type": "action",
+      "dreambornId": "006-063"
+    },
+    "64": {
+      "name": "Seeking the Half Crown",
+      "rarity": "rare",
+      "type": "action",
+      "dreambornId": "006-064"
+    },
+    "65": {
+      "name": "Maleficent's Staff",
+      "rarity": "rare",
+      "type": "item",
+      "dreambornId": "006-065"
+    },
+    "66": {
+      "name": "Mad Hatter's Teapot",
+      "rarity": "common",
+      "type": "item",
+      "dreambornId": "006-066"
+    },
+    "67": {
+      "name": "Pixie Dust",
+      "rarity": "uncommon",
+      "type": "item",
+      "dreambornId": "006-067"
+    },
+    "68": {
+      "name": "Fairy Ship - Royal Vessel",
+      "rarity": "common",
+      "type": "location",
+      "dreambornId": "006-068"
+    },
+    "69": {
+      "name": "Mystical Tree - Mama Odie's Home",
+      "rarity": "rare",
+      "type": "location",
+      "dreambornId": "006-069"
+    },
+    "70": {
+      "name": "Jasmine - Royal Seafarer",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "006-070"
+    },
+    "71": {
+      "name": "Captain Hook - Underhanded",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "006-071"
+    },
+    "72": {
+      "name": "Stitch - Alien Buccaneer",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "006-072"
+    },
+    "73": {
+      "name": "Go Go Tomago - Darting Dynamo",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "006-073"
+    },
+    "74": {
+      "name": "Honey Lemon - Chemical Genius",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "006-074"
+    },
+    "75": {
+      "name": "Fred - Mascot by Day",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "006-075"
+    },
+    "76": {
+      "name": "Tootles - Lost Boy",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "006-076"
+    },
+    "77": {
+      "name": "Dawson - Basil's Assistant",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "006-077"
+    },
+    "78": {
+      "name": "Heathcliff - Stoic Butler",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "006-078"
+    },
+    "79": {
+      "name": "Basil - Hypnotized Mouse",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "006-079"
+    },
+    "80": {
+      "name": "Donald Duck - First Mate",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "006-080"
+    },
+    "81": {
+      "name": "Daisy Duck - Pirate Captain",
+      "rarity": "super-rare",
+      "type": "character",
+      "dreambornId": "006-081"
+    },
+    "82": {
+      "name": "Mertle Edmonds - Lilo's Rival",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "006-082"
+    },
+    "83": {
+      "name": "Prince Phillip - Royal Explorer",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "006-083"
+    },
+    "84": {
+      "name": "Jasmine - Royal Commodore",
+      "rarity": "legendary",
+      "type": "character",
+      "dreambornId": "006-084"
+    },
+    "85": {
+      "name": "Peter Pan - Never Land Prankster",
+      "rarity": "super-rare",
+      "type": "character",
+      "dreambornId": "006-085"
+    },
+    "86": {
+      "name": "Hercules - Baby Demigod",
+      "rarity": "legendary",
+      "type": "character",
+      "dreambornId": "006-086"
+    },
+    "87": {
+      "name": "Alistair Krei - Ambitious Entrepreneur",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "006-087"
+    },
+    "88": {
+      "name": "Gazelle - Angel with Horns",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "006-088"
+    },
+    "89": {
+      "name": "Goofy - Expert Shipwright",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "006-089"
+    },
+    "90": {
+      "name": "Bellwether - Assistant Mayor",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "006-090"
+    },
+    "91": {
+      "name": "Basil - Disguised Detective",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "006-091"
+    },
+    "92": {
+      "name": "Olivia Flaversham - The Toymaker's Daughter",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "006-092"
+    },
+    "93": {
+      "name": "Bend to My Will",
+      "rarity": "super-rare",
+      "type": "action",
+      "dreambornId": "006-093"
+    },
+    "94": {
+      "name": "Prepare to Board!",
+      "rarity": "common",
+      "type": "action",
+      "dreambornId": "006-094"
+    },
+    "95": {
+      "name": "Heffalumps and Woozles",
+      "rarity": "common",
+      "type": "action",
+      "dreambornId": "006-095"
+    },
+    "96": {
+      "name": "Mosquito Bite",
+      "rarity": "uncommon",
+      "type": "action",
+      "dreambornId": "006-096"
+    },
+    "97": {
+      "name": "You Came Back",
+      "rarity": "rare",
+      "type": "action",
+      "dreambornId": "006-097"
+    },
+    "98": {
+      "name": "MegaBot",
+      "rarity": "uncommon",
+      "type": "item",
+      "dreambornId": "006-098"
+    },
+    "99": {
+      "name": "Galactic Communicator",
+      "rarity": "common",
+      "type": "item",
+      "dreambornId": "006-099"
+    },
+    "100": {
+      "name": "Transport Pod",
+      "rarity": "uncommon",
+      "type": "item",
+      "dreambornId": "006-100"
+    },
+    "101": {
+      "name": "Perilous Maze - Watery Labyrinth",
+      "rarity": "common",
+      "type": "location",
+      "dreambornId": "006-101"
+    },
+    "102": {
+      "name": "Owl Island - Secluded Entrance",
+      "rarity": "rare",
+      "type": "location",
+      "dreambornId": "006-102"
+    },
+    "103": {
+      "name": "Mickey Mouse - Pirate Captain",
+      "rarity": "super-rare",
+      "type": "character",
+      "dreambornId": "006-103"
+    },
+    "104": {
+      "name": "Kakamora - Boarding Party",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "006-104"
+    },
+    "105": {
+      "name": "Kakamora - Pirate Pitcher",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "006-105"
+    },
+    "106": {
+      "name": "Jasmine - Rebellious Princess",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "006-106"
+    },
+    "107": {
+      "name": "Raya - Kumandran Rider",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "006-107"
+    },
+    "108": {
+      "name": "Wendy Darling - Courageous Captain",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "006-108"
+    },
+    "109": {
+      "name": "John Silver - Ferocious Friend",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "006-109"
+    },
+    "110": {
+      "name": "Vanellope Von Schweetz - Gutsy Go-Getter",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "006-110"
+    },
+    "111": {
+      "name": "Michael Darling - Playful Swordsman",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "006-111"
+    },
+    "112": {
+      "name": "Aladdin - Fearless Navigator",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "006-112"
+    },
+    "113": {
+      "name": "Markowski - Space Trooper",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "006-113"
+    },
+    "114": {
+      "name": "Abu - Bold Helmsman",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "006-114"
+    },
+    "115": {
+      "name": "Mickey Mouse - Courageous Sailor",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "006-115"
+    },
+    "116": {
+      "name": "Adorabeezle Winterpop - Ice Rocket Racer",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "006-116"
+    },
+    "117": {
+      "name": "Moana - Self-Taught Sailor",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "006-117"
+    },
+    "118": {
+      "name": "John Darling - Sophisticated Swordsman",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "006-118"
+    },
+    "119": {
+      "name": "Aladdin - Intrepid Commander",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "006-119"
+    },
+    "120": {
+      "name": "Minnie Mouse - Pirate Lookout",
+      "rarity": "super-rare",
+      "type": "character",
+      "dreambornId": "006-120"
+    },
+    "121": {
+      "name": "Moana - Kakamora Leader",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "006-121"
+    },
+    "122": {
+      "name": "Pete - Freebooter",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "006-122"
+    },
+    "123": {
+      "name": "Goofy - Flying Goof",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "006-123"
+    },
+    "124": {
+      "name": "Maui - Half-Shark",
+      "rarity": "legendary",
+      "type": "character",
+      "dreambornId": "006-124"
+    },
+    "125": {
+      "name": "Hades - Strong Arm",
+      "rarity": "legendary",
+      "type": "character",
+      "dreambornId": "006-125"
+    },
+    "126": {
+      "name": "Tigger - In the Crow's Nest",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "006-126"
+    },
+    "127": {
+      "name": "Scar - Heartless Hunter",
+      "rarity": "super-rare",
+      "type": "character",
+      "dreambornId": "006-127"
+    },
+    "128": {
+      "name": "Thievery",
+      "rarity": "common",
+      "type": "action",
+      "dreambornId": "006-128"
+    },
+    "129": {
+      "name": "Lead the Way",
+      "rarity": "common",
+      "type": "action",
+      "dreambornId": "006-129"
+    },
+    "130": {
+      "name": "The Islands I Pulled from the Sea",
+      "rarity": "uncommon",
+      "type": "action",
+      "dreambornId": "006-130"
+    },
+    "131": {
+      "name": "Energy Blast",
+      "rarity": "rare",
+      "type": "action",
+      "dreambornId": "006-131"
+    },
+    "132": {
+      "name": "Longboat",
+      "rarity": "uncommon",
+      "type": "item",
+      "dreambornId": "006-132"
+    },
+    "133": {
+      "name": "Gold Coin",
+      "rarity": "common",
+      "type": "item",
+      "dreambornId": "006-133"
+    },
+    "134": {
+      "name": "Card Soldier's Spear",
+      "rarity": "uncommon",
+      "type": "item",
+      "dreambornId": "006-134"
+    },
+    "135": {
+      "name": "Flotilla - Coconut Armada",
+      "rarity": "rare",
+      "type": "location",
+      "dreambornId": "006-135"
+    },
+    "136": {
+      "name": "Skull Rock - Isolated Fortress",
+      "rarity": "common",
+      "type": "location",
+      "dreambornId": "006-136"
+    },
+    "137": {
+      "name": "B.E.N. - Eccentric Robot",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "006-137"
+    },
+    "138": {
+      "name": "Aunt Cass - Biggest Fan",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "006-138"
+    },
+    "139": {
+      "name": "Gadget Hackwrench - Creative Thinker",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "006-139"
+    },
+    "140": {
+      "name": "Gadget Hackwrench - Brilliant Bosun",
+      "rarity": "super-rare",
+      "type": "character",
+      "dreambornId": "006-140"
+    },
+    "141": {
+      "name": "Zipper - Astute Decoy",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "006-141"
+    },
+    "142": {
+      "name": "Oswald - The Lucky Rabbit",
+      "rarity": "legendary",
+      "type": "character",
+      "dreambornId": "006-142"
+    },
+    "143": {
+      "name": "Yokai - Enigmatic Inventor",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "006-143"
+    },
+    "144": {
+      "name": "Pleakley - Scientific Expert",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "006-144"
+    },
+    "145": {
+      "name": "Hiro Hamada - Robotics Prodigy",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "006-145"
+    },
+    "146": {
+      "name": "Heihei - Not-So-Tricky Chicken",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "006-146"
+    },
+    "147": {
+      "name": "Sour Bill - Surly Henchman",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "006-147"
+    },
+    "148": {
+      "name": "Nick Wilde - Soggy Fox",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "006-148"
+    },
+    "149": {
+      "name": "Wasabi - Methodical Engineer",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "006-149"
+    },
+    "150": {
+      "name": "Nick Wilde - Sly Fox",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "006-150"
+    },
+    "151": {
+      "name": "Gadget Hackwrench - Perceptive Mouse",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "006-151"
+    },
+    "152": {
+      "name": "Dr. Delbert Doppler - Fussy Astronomer",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "006-152"
+    },
+    "153": {
+      "name": "Tadashi Hamada - Baymax Inventor",
+      "rarity": "super-rare",
+      "type": "character",
+      "dreambornId": "006-153"
+    },
+    "154": {
+      "name": "Hiro Hamada - Team Leader",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "006-154"
+    },
+    "155": {
+      "name": "Tadashi Hamada - Gifted Roboticist",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "006-155"
+    },
+    "156": {
+      "name": "Baymax - Personal Healthcare Companion",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "006-156"
+    },
+    "157": {
+      "name": "Baymax - Armored Companion",
+      "rarity": "legendary",
+      "type": "character",
+      "dreambornId": "006-157"
+    },
+    "158": {
+      "name": "Yokai - Professor Callaghan",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "006-158"
+    },
+    "159": {
+      "name": "Hiram Flaversham - Intrigued Inventor",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "006-159"
+    },
+    "160": {
+      "name": "Yokai - Scientific Supervillain",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "006-160"
+    },
+    "161": {
+      "name": "Alice - Savvy Sailor",
+      "rarity": "super-rare",
+      "type": "character",
+      "dreambornId": "006-161"
+    },
+    "162": {
+      "name": "We Could Be Immortals",
+      "rarity": "rare",
+      "type": "action",
+      "dreambornId": "006-162"
+    },
+    "163": {
+      "name": "Sail the Azurite Sea",
+      "rarity": "common",
+      "type": "action",
+      "dreambornId": "006-163"
+    },
+    "164": {
+      "name": "Helping Hand",
+      "rarity": "common",
+      "type": "action",
+      "dreambornId": "006-164"
+    },
+    "165": {
+      "name": "Prepare Your Bot",
+      "rarity": "uncommon",
+      "type": "action",
+      "dreambornId": "006-165"
+    },
+    "166": {
+      "name": "Baymax's Healthcare Chip",
+      "rarity": "common",
+      "type": "item",
+      "dreambornId": "006-166"
+    },
+    "167": {
+      "name": "Microbots",
+      "rarity": "uncommon",
+      "type": "item",
+      "dreambornId": "006-167"
+    },
+    "168": {
+      "name": "Jumbo Pop",
+      "rarity": "common",
+      "type": "item",
+      "dreambornId": "006-168"
+    },
+    "169": {
+      "name": "Rescue Rangers Submarine - Mobile Headquarters",
+      "rarity": "rare",
+      "type": "location",
+      "dreambornId": "006-169"
+    },
+    "170": {
+      "name": "Institute of Technology - Prestigious University",
+      "rarity": "common",
+      "type": "location",
+      "dreambornId": "006-170"
+    },
+    "171": {
+      "name": "Kakamora - Long-Range Specialist",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "006-171"
+    },
+    "172": {
+      "name": "Kakamora - Pirate Chief",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "006-172"
+    },
+    "173": {
+      "name": "Jim Hawkins - Stubborn Cabin Boy",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "006-173"
+    },
+    "174": {
+      "name": "Mr. Big - Shrewd Tycoon",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "006-174"
+    },
+    "175": {
+      "name": "Mr. Smee - Steadfast Mate",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "006-175"
+    },
+    "176": {
+      "name": "Mr. Smee - Captain of the Jolly Roger",
+      "rarity": "super-rare",
+      "type": "character",
+      "dreambornId": "006-176"
+    },
+    "177": {
+      "name": "Mullins - Seasoned Shipmate",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "006-177"
+    },
+    "178": {
+      "name": "Kohut - Trusted Marine",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "006-178"
+    },
+    "179": {
+      "name": "King Hubert - Phillip's Father",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "006-179"
+    },
+    "180": {
+      "name": "Hercules - Unwavering Demigod",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "006-180"
+    },
+    "181": {
+      "name": "John Silver - Ship's Cook",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "006-181"
+    },
+    "182": {
+      "name": "Mr. Arrow - Legacy's First Mate",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "006-182"
+    },
+    "183": {
+      "name": "Jim Hawkins - Rigging Specialist",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "006-183"
+    },
+    "184": {
+      "name": "Tuk Tuk - Big Buddy",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "006-184"
+    },
+    "185": {
+      "name": "Billy Bones - Space Sailor",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "006-185"
+    },
+    "186": {
+      "name": "Pluto - Guard Dog",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "006-186"
+    },
+    "187": {
+      "name": "Mickey Mouse - Night Watch",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "006-187"
+    },
+    "188": {
+      "name": "Cobra Bubbles - Former CIA",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "006-188"
+    },
+    "189": {
+      "name": "Gantu - Captain Crankyhead",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "006-189"
+    },
+    "190": {
+      "name": "Wreck-It Ralph - Ham Hands",
+      "rarity": "legendary",
+      "type": "character",
+      "dreambornId": "006-190"
+    },
+    "191": {
+      "name": "Calhoun - Marine Sergeant",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "006-191"
+    },
+    "192": {
+      "name": "Captain Amelia - Commander of the Legacy",
+      "rarity": "super-rare",
+      "type": "character",
+      "dreambornId": "006-192"
+    },
+    "193": {
+      "name": "Jafar - Power-Hungry Vizier",
+      "rarity": "super-rare",
+      "type": "character",
+      "dreambornId": "006-193"
+    },
+    "194": {
+      "name": "John Silver - Stern Captain",
+      "rarity": "legendary",
+      "type": "character",
+      "dreambornId": "006-194"
+    },
+    "195": {
+      "name": "Hot Potato",
+      "rarity": "uncommon",
+      "type": "action",
+      "dreambornId": "006-195"
+    },
+    "196": {
+      "name": "I'm Still Here",
+      "rarity": "common",
+      "type": "action",
+      "dreambornId": "006-196"
+    },
+    "197": {
+      "name": "Twin Fire",
+      "rarity": "common",
+      "type": "action",
+      "dreambornId": "006-197"
+    },
+    "198": {
+      "name": "Ambush!",
+      "rarity": "rare",
+      "type": "action",
+      "dreambornId": "006-198"
+    },
+    "199": {
+      "name": "Unfortunate Situation",
+      "rarity": "uncommon",
+      "type": "action",
+      "dreambornId": "006-199"
+    },
+    "200": {
+      "name": "King's Sensor Core",
+      "rarity": "rare",
+      "type": "item",
+      "dreambornId": "006-200"
+    },
+    "201": {
+      "name": "Training Dummy",
+      "rarity": "uncommon",
+      "type": "item",
+      "dreambornId": "006-201"
+    },
+    "202": {
+      "name": "Sunglasses",
+      "rarity": "common",
+      "type": "item",
+      "dreambornId": "006-202"
+    },
+    "203": {
+      "name": "Treasure Mountain - Azurite Sea Island",
+      "rarity": "rare",
+      "type": "location",
+      "dreambornId": "006-203"
+    },
+    "204": {
+      "name": "Galactic Council Chamber - Courtroom",
+      "rarity": "common",
+      "type": "location",
+      "dreambornId": "006-204"
+    },
+    "205": {
+      "name": "Chip 'n' Dale - Recovery Rangers",
+      "rarity": "enchanted",
+      "type": "character",
+      "dreambornId": "006-205"
+    },
+    "206": {
+      "name": "Tiana - Restaurant Owner",
+      "rarity": "enchanted",
+      "type": "character",
+      "dreambornId": "006-206"
+    },
+    "207": {
+      "name": "Sugar Rush Speedway - Finish Line",
+      "rarity": "enchanted",
+      "type": "location",
+      "dreambornId": "006-207"
+    },
+    "208": {
+      "name": "Rafiki - Ethereal Guide",
+      "rarity": "enchanted",
+      "type": "character",
+      "dreambornId": "006-208"
+    },
+    "209": {
+      "name": "Yzma - Conniving Chemist",
+      "rarity": "enchanted",
+      "type": "character",
+      "dreambornId": "006-209"
+    },
+    "210": {
+      "name": "Maleficent's Staff",
+      "rarity": "enchanted",
+      "type": "item",
+      "dreambornId": "006-210"
+    },
+    "211": {
+      "name": "Daisy Duck - Pirate Captain",
+      "rarity": "enchanted",
+      "type": "character",
+      "dreambornId": "006-211"
+    },
+    "212": {
+      "name": "Basil - Disguised Detective",
+      "rarity": "enchanted",
+      "type": "character",
+      "dreambornId": "006-212"
+    },
+    "213": {
+      "name": "You Came Back",
+      "rarity": "enchanted",
+      "type": "action",
+      "dreambornId": "006-213"
+    },
+    "214": {
+      "name": "Raya - Kumandran Rider",
+      "rarity": "enchanted",
+      "type": "character",
+      "dreambornId": "006-214"
+    },
+    "215": {
+      "name": "Tigger - In the Crow's Nest",
+      "rarity": "enchanted",
+      "type": "character",
+      "dreambornId": "006-215"
+    },
+    "216": {
+      "name": "The Islands I Pulled from the Sea",
+      "rarity": "enchanted",
+      "type": "action",
+      "dreambornId": "006-216"
+    },
+    "217": {
+      "name": "Gadget Hackwrench - Brilliant Bosun",
+      "rarity": "enchanted",
+      "type": "character",
+      "dreambornId": "006-217"
+    },
+    "218": {
+      "name": "Baymax - Personal Healthcare Companion",
+      "rarity": "enchanted",
+      "type": "character",
+      "dreambornId": "006-218"
+    },
+    "219": {
+      "name": "We Could Be Immortals",
+      "rarity": "enchanted",
+      "type": "action",
+      "dreambornId": "006-219"
+    },
+    "220": {
+      "name": "Wreck-It Ralph - Ham Hands",
+      "rarity": "enchanted",
+      "type": "character",
+      "dreambornId": "006-220"
+    },
+    "221": {
+      "name": "Captain Amelia - Commander of the Legacy",
+      "rarity": "enchanted",
+      "type": "character",
+      "dreambornId": "006-221"
+    },
+    "222": {
+      "name": "Treasure Mountain - Azurite Sea Island",
+      "rarity": "enchanted",
+      "type": "location",
+      "dreambornId": "006-222"
+    }
+  }
+}

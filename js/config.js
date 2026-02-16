@@ -91,7 +91,8 @@ const LORCANA_RARITY_DISPLAY_NAMES = {
     'legendary':  'LEGENDARY',
     'enchanted':  'ENCHANTED',
     'epic':       'EPIC',
-    'iconic':     'ICONIC'
+    'iconic':     'ICONIC',
+    'special':    'SPECIAL'
 };
 
 // Get display name for rarity
@@ -169,6 +170,7 @@ const LORCAST_SET_CODES = {
     'shimmering-skies': '5',
     'azurite-sea': '6',
     'archazias-island': '7',
+    'reign-of-jafar': '8',
     'fabled': '9',
     'whispers-in-the-well': '10',
     'winterspell': '11'
@@ -177,5 +179,14 @@ const LORCAST_SET_CODES = {
 // Lorcana sets to load
 const LORCANA_SETS = [
     'first-chapter',
-    'whispers-in-the-well'
+    'rise-of-the-floodborn',
+    'into-the-inklands',
+    'ursulas-return',
+    'shimmering-skies',
+    'azurite-sea',
+    'archazias-island',
+    'reign-of-jafar',
+    'fabled',
+    'whispers-in-the-well',
+    'winterspell'
 ];

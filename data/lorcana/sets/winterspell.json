@@ -1,0 +1,1446 @@
+{
+  "version": "1.0.0",
+  "lastUpdated": "2026-02-16",
+  "setKey": "winterspell",
+  "name": "Winterspell",
+  "displayName": "Winterspell",
+  "totalCards": 242,
+  "mainSet": 204,
+  "setCode": "win",
+  "releaseDate": "2026-02-13",
+  "block": "Disney Lorcana",
+  "blockCode": "lorcana",
+  "hasPokeBallVariant": false,
+  "hasMasterBallVariant": false,
+  "singleVariantOnly": false,
+  "cards": {
+    "1": {
+      "name": "Thomas - Wide-Eyed Recruit",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "011-001"
+    },
+    "2": {
+      "name": "Lilo - Snow Artist",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "011-002"
+    },
+    "3": {
+      "name": "Pudge - Controls the Weather",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "011-003"
+    },
+    "4": {
+      "name": "Pumbaa - Winter Warthog",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "011-004"
+    },
+    "5": {
+      "name": "Tiana - Warm and Happy",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "011-005"
+    },
+    "6": {
+      "name": "Nakoma - Waiting Out the Storm",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "011-006"
+    },
+    "7": {
+      "name": "Stitch - Carefree Snowboarder",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "011-007"
+    },
+    "8": {
+      "name": "Pocahontas - Finding the Way",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "011-008"
+    },
+    "9": {
+      "name": "David - Protective Snowboarder",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "011-009"
+    },
+    "10": {
+      "name": "Fangmeyer - Icy Officer",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "011-010"
+    },
+    "11": {
+      "name": "Chief Powhatan - Protective Leader",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "011-011"
+    },
+    "12": {
+      "name": "Sarabi - Protecting the Pride",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "011-012"
+    },
+    "13": {
+      "name": "Grandmother Willow - Ancient Advisor",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "011-013"
+    },
+    "14": {
+      "name": "Cobra Bubbles - Dedicated Official",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "011-014"
+    },
+    "15": {
+      "name": "John Smith - Snow Tracker",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "011-015"
+    },
+    "16": {
+      "name": "Timon - Snowball Swiper",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "011-016"
+    },
+    "17": {
+      "name": "Lilo - Rock Star",
+      "rarity": "super-rare",
+      "type": "character",
+      "dreambornId": "011-017"
+    },
+    "18": {
+      "name": "Pleakley - Arctic Naturalist",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "011-018"
+    },
+    "19": {
+      "name": "Jumba Jookiba - Prolific Inventor",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "011-019"
+    },
+    "20": {
+      "name": "Nani - Stage Manager",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "011-020"
+    },
+    "21": {
+      "name": "Reuben - Sandwich Expert",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "011-021"
+    },
+    "22": {
+      "name": "Pocahontas - Peacekeeper",
+      "rarity": "legendary",
+      "type": "character",
+      "dreambornId": "011-022"
+    },
+    "23": {
+      "name": "Simba - Playful Pouncer",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "011-023"
+    },
+    "24": {
+      "name": "Bambi - Ethereal Fawn",
+      "rarity": "super-rare",
+      "type": "character",
+      "dreambornId": "011-024"
+    },
+    "25": {
+      "name": "Angel - Siren Singer",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "011-025"
+    },
+    "26": {
+      "name": "Widow Tweed - Kindly Soul",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "011-026"
+    },
+    "27": {
+      "name": "Percy - Pupsicle",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "011-027"
+    },
+    "28": {
+      "name": "Raging Storm",
+      "rarity": "super-rare",
+      "type": "action",
+      "dreambornId": "011-028"
+    },
+    "29": {
+      "name": "Akood et Emuti",
+      "rarity": "rare",
+      "type": "action",
+      "dreambornId": "011-029"
+    },
+    "30": {
+      "name": "Mother Will Protect You",
+      "rarity": "common",
+      "type": "action",
+      "dreambornId": "011-030"
+    },
+    "31": {
+      "name": "Wisdom of the Willow",
+      "rarity": "uncommon",
+      "type": "action",
+      "dreambornId": "011-031"
+    },
+    "32": {
+      "name": "Ohana Means Family",
+      "rarity": "legendary",
+      "type": "action",
+      "dreambornId": "011-032"
+    },
+    "33": {
+      "name": "John Smith's Compass",
+      "rarity": "rare",
+      "type": "item",
+      "dreambornId": "011-033"
+    },
+    "34": {
+      "name": "Zootopia - Tundratown",
+      "rarity": "common",
+      "type": "location",
+      "dreambornId": "011-034"
+    },
+    "35": {
+      "name": "Nala - Romping in the Snow",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "011-035"
+    },
+    "36": {
+      "name": "Alice - Well-Read Whisper",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "011-036"
+    },
+    "37": {
+      "name": "Tigger - Bouncing All the Way",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "011-037"
+    },
+    "38": {
+      "name": "Isis Vanderchill - Ice Queen of St. Canard",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "011-038"
+    },
+    "39": {
+      "name": "Flit - Reflective Hummingbird",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "011-039"
+    },
+    "40": {
+      "name": "Morgana Macawber - Self-Centered Spellcaster",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "011-040"
+    },
+    "41": {
+      "name": "Rabbit - Fed Up",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "011-041"
+    },
+    "42": {
+      "name": "Pocahontas - Following the Wind",
+      "rarity": "super-rare",
+      "type": "character",
+      "dreambornId": "011-042"
+    },
+    "43": {
+      "name": "Darkwing Duck - Darkwolf Dog",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "011-043"
+    },
+    "44": {
+      "name": "Taran - Magically Armed",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "011-044"
+    },
+    "45": {
+      "name": "Eeyore - In the Way",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "011-045"
+    },
+    "46": {
+      "name": "Meeko - Skittish Scrounger",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "011-046"
+    },
+    "47": {
+      "name": "Morgana Macawber - Reformed Spellcaster",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "011-047"
+    },
+    "48": {
+      "name": "Tinker Bell - Snowflake Collector",
+      "rarity": "legendary",
+      "type": "character",
+      "dreambornId": "011-048"
+    },
+    "49": {
+      "name": "Genie - Magical Researcher",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "011-049"
+    },
+    "50": {
+      "name": "Anna - Soothing Sister",
+      "rarity": "legendary",
+      "type": "character",
+      "dreambornId": "011-050"
+    },
+    "51": {
+      "name": "Kristoff - Icy Explorer",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "011-051"
+    },
+    "52": {
+      "name": "Anna - Little Sister",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "011-052"
+    },
+    "53": {
+      "name": "Marshmallow - Cranky Climber",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "011-053"
+    },
+    "54": {
+      "name": "Space Cows - Unexpected Allies",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "011-054"
+    },
+    "55": {
+      "name": "Christopher Robin - Joining the Fun",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "011-055"
+    },
+    "56": {
+      "name": "Lumpy - Playful Heffalump",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "011-056"
+    },
+    "57": {
+      "name": "Witches of Morva - Orddu, Orwen, and Orgoch",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "011-057"
+    },
+    "59": {
+      "name": "Pua - Disgruntled Pig",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "011-059"
+    },
+    "60": {
+      "name": "Sven - Leaping Reindeer",
+      "rarity": "super-rare",
+      "type": "character",
+      "dreambornId": "011-060"
+    },
+    "61": {
+      "name": "Do You Want to Build A Snowman?",
+      "rarity": "rare",
+      "type": "action",
+      "dreambornId": "011-061"
+    },
+    "62": {
+      "name": "Come Out and Fight!",
+      "rarity": "common",
+      "type": "action",
+      "dreambornId": "011-062"
+    },
+    "63": {
+      "name": "Swordplay",
+      "rarity": "common",
+      "type": "action",
+      "dreambornId": "011-063"
+    },
+    "64": {
+      "name": "Colors of the Wind",
+      "rarity": "super-rare",
+      "type": "action",
+      "dreambornId": "011-064"
+    },
+    "65": {
+      "name": "Mother's Necklace",
+      "rarity": "uncommon",
+      "type": "item",
+      "dreambornId": "011-065"
+    },
+    "66": {
+      "name": "Mystical Inkcaster",
+      "rarity": "rare",
+      "type": "item",
+      "dreambornId": "011-066"
+    },
+    "67": {
+      "name": "Pot of Honey",
+      "rarity": "common",
+      "type": "item",
+      "dreambornId": "011-067"
+    },
+    "68": {
+      "name": "The Frozen Vine - Monstrous Plant",
+      "rarity": "uncommon",
+      "type": "location",
+      "dreambornId": "011-068"
+    },
+    "69": {
+      "name": "Mulan - Resourceful Recruit",
+      "rarity": "super-rare",
+      "type": "character",
+      "dreambornId": "011-069"
+    },
+    "70": {
+      "name": "Stitch - Naughty Experiment",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "011-070"
+    },
+    "71": {
+      "name": "Big Mama - Clever and Calming",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "011-071"
+    },
+    "72": {
+      "name": "Minnie Mouse - Spinning Skater",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "011-072"
+    },
+    "73": {
+      "name": "Yao - Snow Warrior",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "011-073"
+    },
+    "74": {
+      "name": "Chien-Po - Snow Warrior",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "011-074"
+    },
+    "75": {
+      "name": "Ling - Snow Warrior",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "011-075"
+    },
+    "76": {
+      "name": "Boomer - Has the Beak",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "011-076"
+    },
+    "77": {
+      "name": "Chernabog - Unnatural Force",
+      "rarity": "super-rare",
+      "type": "character",
+      "dreambornId": "011-077"
+    },
+    "78": {
+      "name": "Dinky - Has the Brains",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "011-078"
+    },
+    "79": {
+      "name": "Stegmutt - Clumsy Dinosaur",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "011-079"
+    },
+    "80": {
+      "name": "Squeaks - Cozy Caterpillar",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "011-080"
+    },
+    "81": {
+      "name": "Aladdin - On the Edge of Adventure",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "011-081"
+    },
+    "82": {
+      "name": "Mushu - Sneaky Dragon",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "011-082"
+    },
+    "83": {
+      "name": "Goofy - Ghost of Jacob Marley",
+      "rarity": "super-rare",
+      "type": "character",
+      "dreambornId": "011-083"
+    },
+    "84": {
+      "name": "Copper - Champion of the Forest",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "011-084"
+    },
+    "85": {
+      "name": "Copper - Hound Pup",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "011-085"
+    },
+    "86": {
+      "name": "Vixey - Forest Friend",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "011-086"
+    },
+    "87": {
+      "name": "Tod - All Alone",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "011-087"
+    },
+    "88": {
+      "name": "Minnie Mouse - Mrs. Cratchit",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "011-088"
+    },
+    "89": {
+      "name": "White Rabbit - Late Again",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "011-089"
+    },
+    "90": {
+      "name": "Tod - Playful Kit",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "011-090"
+    },
+    "91": {
+      "name": "Mickey Mouse - Snowboard Ace",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "011-091"
+    },
+    "92": {
+      "name": "Tod - Knows All the Tricks",
+      "rarity": "legendary",
+      "type": "character",
+      "dreambornId": "011-092"
+    },
+    "93": {
+      "name": "Donald Duck - Fred Honeywell",
+      "rarity": "legendary",
+      "type": "character",
+      "dreambornId": "011-093"
+    },
+    "95": {
+      "name": "Snowball Fight",
+      "rarity": "common",
+      "type": "action",
+      "dreambornId": "011-095"
+    },
+    "96": {
+      "name": "Freeze the Vine",
+      "rarity": "rare",
+      "type": "action",
+      "dreambornId": "011-096"
+    },
+    "97": {
+      "name": "Education or Elimination",
+      "rarity": "uncommon",
+      "type": "action",
+      "dreambornId": "011-097"
+    },
+    "98": {
+      "name": "Snow Fort",
+      "rarity": "uncommon",
+      "type": "item",
+      "dreambornId": "011-098"
+    },
+    "99": {
+      "name": "Rafiki's Bakora Staff",
+      "rarity": "uncommon",
+      "type": "item",
+      "dreambornId": "011-099"
+    },
+    "100": {
+      "name": "Retro Evolution Device",
+      "rarity": "rare",
+      "type": "item",
+      "dreambornId": "011-100"
+    },
+    "101": {
+      "name": "Battering Ram",
+      "rarity": "rare",
+      "type": "item",
+      "dreambornId": "011-101"
+    },
+    "102": {
+      "name": "Game Preserve - Protected Land",
+      "rarity": "common",
+      "type": "location",
+      "dreambornId": "011-102"
+    },
+    "103": {
+      "name": "Wreck-it Ralph - Raging Wrecker",
+      "rarity": "legendary",
+      "type": "character",
+      "dreambornId": "011-103"
+    },
+    "104": {
+      "name": "Scrooge McDuck - Ghostly Ebenezer",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "011-104"
+    },
+    "105": {
+      "name": "Donald Duck - Nephew Fred",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "011-105"
+    },
+    "106": {
+      "name": "Taurus Bulba - Steerminator",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "011-106"
+    },
+    "107": {
+      "name": "Copper - On the Scent",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "011-107"
+    },
+    "108": {
+      "name": "Mulan - Ready for Battle",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "011-108"
+    },
+    "109": {
+      "name": "Maui - Snow Slider",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "011-109"
+    },
+    "110": {
+      "name": "Fa Zhou - Honorable Warrior",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "011-110"
+    },
+    "111": {
+      "name": "Liquidator - Iced Over",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "011-111"
+    },
+    "112": {
+      "name": "Elisa Maza - Transformed Gargoyle",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "011-112"
+    },
+    "113": {
+      "name": "Iduna - Alarmed Queen",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "011-113"
+    },
+    "114": {
+      "name": "Agnarr - King of Arendelle",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "011-114"
+    },
+    "115": {
+      "name": "Negaduck - Evil Doppelganger",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "011-115"
+    },
+    "116": {
+      "name": "Negaduck - Public Enemy Number One",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "011-116"
+    },
+    "117": {
+      "name": "Hercules - Spectral Demigod",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "011-117"
+    },
+    "118": {
+      "name": "Beast - Snowfield Troublemaker",
+      "rarity": "super-rare",
+      "type": "character",
+      "dreambornId": "011-118"
+    },
+    "119": {
+      "name": "Slushy - Glacial Guster",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "011-119"
+    },
+    "120": {
+      "name": "Goofy - Marley's Clumsy Spirit",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "011-120"
+    },
+    "121": {
+      "name": "Goofy - Klutzy Skier",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "011-121"
+    },
+    "122": {
+      "name": "Olaf - Snowman of Action",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "011-122"
+    },
+    "123": {
+      "name": "Elsa - Ice Artisan",
+      "rarity": "legendary",
+      "type": "character",
+      "dreambornId": "011-123"
+    },
+    "124": {
+      "name": "Scrooge McDuck - Ebenezer Scrooge",
+      "rarity": "super-rare",
+      "type": "character",
+      "dreambornId": "011-124"
+    },
+    "125": {
+      "name": "Elsa - Concerned Sister",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "011-125"
+    },
+    "126": {
+      "name": "Willie the Giant - Ghost of Christmas Present",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "011-126"
+    },
+    "127": {
+      "name": "Nani's Payback",
+      "rarity": "super-rare",
+      "type": "action",
+      "dreambornId": "011-127"
+    },
+    "128": {
+      "name": "Force of a Great Typhoon",
+      "rarity": "common",
+      "type": "action",
+      "dreambornId": "011-128"
+    },
+    "129": {
+      "name": "Marching Off to Battle",
+      "rarity": "common",
+      "type": "action",
+      "dreambornId": "011-129"
+    },
+    "130": {
+      "name": "The Cold Never Bothered Me",
+      "rarity": "rare",
+      "type": "action",
+      "dreambornId": "011-130"
+    },
+    "131": {
+      "name": "Grab Your Bow",
+      "rarity": "uncommon",
+      "type": "action",
+      "dreambornId": "011-131"
+    },
+    "132": {
+      "name": "Lonely Grave",
+      "rarity": "uncommon",
+      "type": "item",
+      "dreambornId": "011-132"
+    },
+    "133": {
+      "name": "Kristoff's Lute",
+      "rarity": "rare",
+      "type": "item",
+      "dreambornId": "011-133"
+    },
+    "134": {
+      "name": "Scrooge's Counting House - Ebenezer's Office",
+      "rarity": "uncommon",
+      "type": "location",
+      "dreambornId": "011-134"
+    },
+    "135": {
+      "name": "Graveyard of Christmas Future - Lonely Resting Place",
+      "rarity": "rare",
+      "type": "location",
+      "dreambornId": "011-135"
+    },
+    "136": {
+      "name": "Beast's Castle - Winter Gardens",
+      "rarity": "common",
+      "type": "location",
+      "dreambornId": "011-136"
+    },
+    "137": {
+      "name": "Roo - Little Helper",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "011-137"
+    },
+    "138": {
+      "name": "Kanga - Peaceful Gatherer",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "011-138"
+    },
+    "139": {
+      "name": "Piglet - Entranced by Snow",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "011-139"
+    },
+    "140": {
+      "name": "Mickey Mouse - Tiny Tim's Father",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "011-140"
+    },
+    "141": {
+      "name": "Minnie Mouse - Tiny Tim's Mother",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "011-141"
+    },
+    "142": {
+      "name": "Sina - Vigilant Parent",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "011-142"
+    },
+    "143": {
+      "name": "Honker Muddlefoot - Timid Genius",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "011-143"
+    },
+    "144": {
+      "name": "Daisy Duck - Isabel",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "011-144"
+    },
+    "145": {
+      "name": "Darkwing Duck - Drake Mallard",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "011-145"
+    },
+    "146": {
+      "name": "Jiminy Cricket - Ghost of Christmas Past",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "011-146"
+    },
+    "147": {
+      "name": "Piglet - Cocoa Maker",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "011-147"
+    },
+    "148": {
+      "name": "Gramma Tala - Connected to Nature",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "011-148"
+    },
+    "149": {
+      "name": "Gosalyn Mallard - Curious Child",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "011-149"
+    },
+    "150": {
+      "name": "Darkwing Duck - Dashing Gadgeteer",
+      "rarity": "super-rare",
+      "type": "character",
+      "dreambornId": "011-150"
+    },
+    "151": {
+      "name": "Winnie the Pooh - Hungry Bear",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "011-151"
+    },
+    "152": {
+      "name": "Scrooge McDuck - Reformed Ebenezer",
+      "rarity": "legendary",
+      "type": "character",
+      "dreambornId": "011-152"
+    },
+    "153": {
+      "name": "Splatter Phoenix - Rejected Artist",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "011-153"
+    },
+    "154": {
+      "name": "Pete - Ghost of Christmas Future",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "011-154"
+    },
+    "155": {
+      "name": "Moana - Curious Explorer",
+      "rarity": "legendary",
+      "type": "character",
+      "dreambornId": "011-155"
+    },
+    "156": {
+      "name": "Tamatoa - Seeker of Shine",
+      "rarity": "super-rare",
+      "type": "character",
+      "dreambornId": "011-156"
+    },
+    "157": {
+      "name": "Morty Fieldmouse - Tiny Tim",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "011-157"
+    },
+    "158": {
+      "name": "Belle - Snowfield Strategist",
+      "rarity": "super-rare",
+      "type": "character",
+      "dreambornId": "011-158"
+    },
+    "159": {
+      "name": "Mickey Mouse - Bob Cratchit",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "011-159"
+    },
+    "160": {
+      "name": "Scrooge McDuck - Miserly Ebenezer",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "011-160"
+    },
+    "161": {
+      "name": "Chief Tui - Weaving a Tale",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "011-161"
+    },
+    "162": {
+      "name": "Visiting Christmas Past",
+      "rarity": "rare",
+      "type": "action",
+      "dreambornId": "011-162"
+    },
+    "165": {
+      "name": "Wipe Out!",
+      "rarity": "uncommon",
+      "type": "action",
+      "dreambornId": "011-165"
+    },
+    "166": {
+      "name": "Blue Smoke",
+      "rarity": "common",
+      "type": "item",
+      "dreambornId": "011-166"
+    },
+    "167": {
+      "name": "Tiny Tim's Crutch",
+      "rarity": "common",
+      "type": "item",
+      "dreambornId": "011-167"
+    },
+    "168": {
+      "name": "Darkwing's Chair Set",
+      "rarity": "rare",
+      "type": "item",
+      "dreambornId": "011-168"
+    },
+    "169": {
+      "name": "Darkwing's Gas Device",
+      "rarity": "uncommon",
+      "type": "item",
+      "dreambornId": "011-169"
+    },
+    "170": {
+      "name": "Hidden Trap",
+      "rarity": "uncommon",
+      "type": "item",
+      "dreambornId": "011-170"
+    },
+    "171": {
+      "name": "Rapunzel - Ethereal Protector",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "011-171"
+    },
+    "172": {
+      "name": "Launchpad - Hideout Defender",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "011-172"
+    },
+    "173": {
+      "name": "Prince Naveen - Bundled Up",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "011-173"
+    },
+    "174": {
+      "name": "Darkwing Duck - Crime Fighter",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "011-174"
+    },
+    "175": {
+      "name": "Li Shang - Solemn Son",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "011-175"
+    },
+    "176": {
+      "name": "Gantu - Hamsterviel's Accomplice",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "011-176"
+    },
+    "177": {
+      "name": "Launchpad - Trusty Sidekick",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "011-177"
+    },
+    "178": {
+      "name": "Donald Duck - Along for the Ride",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "011-178"
+    },
+    "179": {
+      "name": "Chief - Seasoned Tracker",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "011-179"
+    },
+    "180": {
+      "name": "Amos Slade - Tenacious Tracker",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "011-180"
+    },
+    "181": {
+      "name": "McHorn - Ice-Cold Officer",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "011-181"
+    },
+    "182": {
+      "name": "Duke Weaselton - Surly Crook",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "011-182"
+    },
+    "183": {
+      "name": "Li Shang - Valiant Leader",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "011-183"
+    },
+    "184": {
+      "name": "Nani - No Worries",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "011-184"
+    },
+    "185": {
+      "name": "Stitch - High Badness Level",
+      "rarity": "common",
+      "type": "character",
+      "dreambornId": "011-185"
+    },
+    "186": {
+      "name": "Dr. Hamsterviel - Infamous Scientist",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "011-186"
+    },
+    "187": {
+      "name": "Angela - Night Warrior",
+      "rarity": "super-rare",
+      "type": "character",
+      "dreambornId": "011-187"
+    },
+    "188": {
+      "name": "Darkwing Duck - Darkwarrior",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "011-188"
+    },
+    "189": {
+      "name": "Gigi - Best in Snow",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "011-189"
+    },
+    "190": {
+      "name": "Grand Councilwoman - Galactic Authority",
+      "rarity": "rare",
+      "type": "character",
+      "dreambornId": "011-190"
+    },
+    "191": {
+      "name": "Angel - Experiment 624",
+      "rarity": "legendary",
+      "type": "character",
+      "dreambornId": "011-191"
+    },
+    "192": {
+      "name": "Darkwing Duck - Cool Under Pressure",
+      "rarity": "legendary",
+      "type": "character",
+      "dreambornId": "011-192"
+    },
+    "193": {
+      "name": "John Smith - Undaunted Protector",
+      "rarity": "super-rare",
+      "type": "character",
+      "dreambornId": "011-193"
+    },
+    "194": {
+      "name": "Judy Hopps - Snowball Patrol",
+      "rarity": "uncommon",
+      "type": "character",
+      "dreambornId": "011-194"
+    },
+    "195": {
+      "name": "Lilo - Bundled Up",
+      "rarity": "super-rare",
+      "type": "character",
+      "dreambornId": "011-195"
+    },
+    "196": {
+      "name": "Keep the Ancient Ways",
+      "rarity": "uncommon",
+      "type": "action",
+      "dreambornId": "011-196"
+    },
+    "197": {
+      "name": "The Terror That Flaps in the Night",
+      "rarity": "common",
+      "type": "action",
+      "dreambornId": "011-197"
+    },
+    "198": {
+      "name": "Let's Get Dangerous",
+      "rarity": "rare",
+      "type": "action",
+      "dreambornId": "011-198"
+    },
+    "199": {
+      "name": "Winterspell",
+      "rarity": "uncommon",
+      "type": "action",
+      "dreambornId": "011-199"
+    },
+    "200": {
+      "name": "Nearly Indestructible",
+      "rarity": "common",
+      "type": "action",
+      "dreambornId": "011-200"
+    },
+    "201": {
+      "name": "Infra-Pink Ultra Scan Specs",
+      "rarity": "common",
+      "type": "item",
+      "dreambornId": "011-201"
+    },
+    "202": {
+      "name": "The Thunderquack",
+      "rarity": "rare",
+      "type": "item",
+      "dreambornId": "011-202"
+    },
+    "203": {
+      "name": "Containment Unit",
+      "rarity": "rare",
+      "type": "item",
+      "dreambornId": "011-203"
+    },
+    "204": {
+      "name": "Darkwing Tower - Icy Headquarters",
+      "rarity": "uncommon",
+      "type": "location",
+      "dreambornId": "011-204"
+    },
+    "205": {
+      "name": "Tiana - Warm and Happy",
+      "rarity": "epic",
+      "type": "character",
+      "dreambornId": "011-205"
+    },
+    "206": {
+      "name": "Grandmother Willow - Ancient Advisor",
+      "rarity": "epic",
+      "type": "character",
+      "dreambornId": "011-206"
+    },
+    "207": {
+      "name": "Stitch - Carefree Snowboarder",
+      "rarity": "epic",
+      "type": "character",
+      "dreambornId": "011-207"
+    },
+    "208": {
+      "name": "Tigger - Bouncing All the Way",
+      "rarity": "epic",
+      "type": "character",
+      "dreambornId": "011-208"
+    },
+    "209": {
+      "name": "Anna - Little Sister",
+      "rarity": "epic",
+      "type": "character",
+      "dreambornId": "011-209"
+    },
+    "210": {
+      "name": "Genie - Magical Researcher",
+      "rarity": "epic",
+      "type": "character",
+      "dreambornId": "011-210"
+    },
+    "211": {
+      "name": "Aladdin - On the Edge of Adventure",
+      "rarity": "epic",
+      "type": "character",
+      "dreambornId": "011-211"
+    },
+    "212": {
+      "name": "Mushu - Sneaky Dragon",
+      "rarity": "epic",
+      "type": "character",
+      "dreambornId": "011-212"
+    },
+    "213": {
+      "name": "Minnie Mouse - Mrs. Cratchit",
+      "rarity": "epic",
+      "type": "character",
+      "dreambornId": "011-213"
+    },
+    "214": {
+      "name": "Hercules - Spectral Demigod",
+      "rarity": "epic",
+      "type": "character",
+      "dreambornId": "011-214"
+    },
+    "215": {
+      "name": "Elsa - Concerned Sister",
+      "rarity": "epic",
+      "type": "character",
+      "dreambornId": "011-215"
+    },
+    "216": {
+      "name": "Goofy - Klutzy Skier",
+      "rarity": "epic",
+      "type": "character",
+      "dreambornId": "011-216"
+    },
+    "217": {
+      "name": "Winnie the Pooh - Hungry Bear",
+      "rarity": "epic",
+      "type": "character",
+      "dreambornId": "011-217"
+    },
+    "218": {
+      "name": "Willie the Giant - Ghost of Christmas Present",
+      "rarity": "epic",
+      "type": "character",
+      "dreambornId": "011-218"
+    },
+    "219": {
+      "name": "Mickey Mouse - Bob Cratchit",
+      "rarity": "epic",
+      "type": "character",
+      "dreambornId": "011-219"
+    },
+    "220": {
+      "name": "Donald Duck - Along for the Ride",
+      "rarity": "epic",
+      "type": "character",
+      "dreambornId": "011-220"
+    },
+    "221": {
+      "name": "Judy Hopps - Snowball Patrol",
+      "rarity": "epic",
+      "type": "character",
+      "dreambornId": "011-221"
+    },
+    "222": {
+      "name": "Rapunzel - Ethereal Protector",
+      "rarity": "epic",
+      "type": "character",
+      "dreambornId": "011-222"
+    },
+    "223": {
+      "name": "Lilo - Rock Star",
+      "rarity": "enchanted",
+      "type": "character",
+      "dreambornId": "011-223"
+    },
+    "224": {
+      "name": "Ohana Means Family",
+      "rarity": "enchanted",
+      "type": "action",
+      "dreambornId": "011-224"
+    },
+    "225": {
+      "name": "Raging Storm",
+      "rarity": "enchanted",
+      "type": "action",
+      "dreambornId": "011-225"
+    },
+    "226": {
+      "name": "Eeyore - In the Way",
+      "rarity": "enchanted",
+      "type": "character",
+      "dreambornId": "011-226"
+    },
+    "227": {
+      "name": "Anna - Soothing Sister",
+      "rarity": "enchanted",
+      "type": "character",
+      "dreambornId": "011-227"
+    },
+    "228": {
+      "name": "Colors of the Wind",
+      "rarity": "enchanted",
+      "type": "action",
+      "dreambornId": "011-228"
+    },
+    "229": {
+      "name": "Mulan - Resourceful Recruit",
+      "rarity": "enchanted",
+      "type": "character",
+      "dreambornId": "011-229"
+    },
+    "230": {
+      "name": "Tod - Knows All the Tricks",
+      "rarity": "enchanted",
+      "type": "character",
+      "dreambornId": "011-230"
+    },
+    "231": {
+      "name": "Freeze the Vine",
+      "rarity": "enchanted",
+      "type": "action",
+      "dreambornId": "011-231"
+    },
+    "232": {
+      "name": "Negaduck - Public Enemy Number One",
+      "rarity": "enchanted",
+      "type": "character",
+      "dreambornId": "011-232"
+    },
+    "233": {
+      "name": "Elsa - Ice Artisan",
+      "rarity": "enchanted",
+      "type": "character",
+      "dreambornId": "011-233"
+    },
+    "234": {
+      "name": "The Cold Never Bothered Me",
+      "rarity": "enchanted",
+      "type": "action",
+      "dreambornId": "011-234"
+    },
+    "235": {
+      "name": "Scrooge McDuck - Reformed Ebenezer",
+      "rarity": "enchanted",
+      "type": "character",
+      "dreambornId": "011-235"
+    },
+    "236": {
+      "name": "Belle - Snowfield Strategist",
+      "rarity": "enchanted",
+      "type": "character",
+      "dreambornId": "011-236"
+    },
+    "237": {
+      "name": "Tamatoa - Seeker of Shine",
+      "rarity": "enchanted",
+      "type": "character",
+      "dreambornId": "011-237"
+    },
+    "238": {
+      "name": "Angel - Experiment 624",
+      "rarity": "enchanted",
+      "type": "character",
+      "dreambornId": "011-238"
+    },
+    "239": {
+      "name": "Darkwing Duck - Cool Under Pressure",
+      "rarity": "enchanted",
+      "type": "character",
+      "dreambornId": "011-239"
+    },
+    "240": {
+      "name": "Let's Get Dangerous",
+      "rarity": "enchanted",
+      "type": "action",
+      "dreambornId": "011-240"
+    },
+    "241": {
+      "name": "Pocahontas - Peacekeeper",
+      "rarity": "iconic",
+      "type": "character",
+      "dreambornId": "011-241"
+    },
+    "242": {
+      "name": "Moana - Curious Explorer",
+      "rarity": "iconic",
+      "type": "character",
+      "dreambornId": "011-242"
+    }
+  }
+}

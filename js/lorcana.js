@@ -37,9 +37,10 @@ const LORCANA_SET_WIKI_NAMES = {
     'shimmering-skies':      'Shimmering_Skies',
     'azurite-sea':           'Azurite_Sea',
     'archazias-island':      "Archazia's_Island",
+    'reign-of-jafar':        'Reign_of_Jafar',
     'fabled':                'Fabled',
-    'winterspell':           'Winterspell',
-    'whispers-in-the-well':  'Whispers_in_the_Well'
+    'whispers-in-the-well':  'Whispers_in_the_Well',
+    'winterspell':           'Winterspell'
 };
 
 // Build ordered list of logo URLs to try for a Lorcana set.
@@ -93,9 +94,10 @@ const LORCANA_SET_STYLES = {
     'shimmering-skies':      { color: '#00b4d8', label: 'V' },
     'azurite-sea':           { color: '#0077b6', label: 'VI' },
     'archazias-island':      { color: '#e67e22', label: 'VII' },
-    'fabled':                { color: '#c0392b', label: 'VIII' },
-    'winterspell':           { color: '#27ae60', label: 'IX' },
-    'whispers-in-the-well':  { color: '#7b5ea7', label: 'X' }
+    'reign-of-jafar':        { color: '#d4a017', label: 'VIII' },
+    'fabled':                { color: '#c0392b', label: 'F' },
+    'whispers-in-the-well':  { color: '#7b5ea7', label: 'IX' },
+    'winterspell':           { color: '#27ae60', label: 'X' }
 };
 
 // Generate inline SVG data URI as last-resort fallback logo.
