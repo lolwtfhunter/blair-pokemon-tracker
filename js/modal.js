@@ -31,20 +31,34 @@ window.openCardModal = function(setKey, cardNumber) {
     const modalVariantsTitle = document.getElementById('modalVariantsTitle');
     const modalVariantList = document.getElementById('modalVariantList');
 
-    // Set card image
+    // Set card image with proper fallback chain
     let primarySrc;
     if (setKey.startsWith('custom-')) {
-        // For custom sets, use the custom card image URL function
+        // For custom sets, use pokemontcg.io primary with TCGdex fallback
         primarySrc = getCustomCardImageUrl(card);
+        const tcgdexUrl = getCustomCardTcgdexUrl(card);
+        if (tcgdexUrl) {
+            modalImage.setAttribute('data-tcgdex-src', tcgdexUrl);
+        } else {
+            modalImage.removeAttribute('data-tcgdex-src');
+        }
+        modalImage.removeAttribute('data-local-src');
     } else {
         // For regular sets, use the standard image URL logic
         const apiImgUrl = getCardImageUrl(setKey, card.number, card.imageId);
         const tcgdexImgUrl = getTcgdexImageUrl(setKey, card.number, card.imageId);
         const localImgUrl = `Images/cards/${setKey}/${String(card.number).padStart(3, '0')}.png`;
         primarySrc = apiImgUrl || tcgdexImgUrl || localImgUrl;
+        if (tcgdexImgUrl) {
+            modalImage.setAttribute('data-tcgdex-src', tcgdexImgUrl);
+        }
+        modalImage.setAttribute('data-local-src', localImgUrl);
     }
     modalImage.src = primarySrc || '';
     modalImage.alt = card.name;
+    modalImage.setAttribute('data-card-name', card.name);
+    modalImage.setAttribute('data-card-rarity', card.rarity);
+    modalImage.onerror = function() { handleImgError(this); };
 
     // Set card details
     modalName.textContent = card.name;

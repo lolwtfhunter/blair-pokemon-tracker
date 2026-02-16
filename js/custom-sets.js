@@ -356,7 +356,7 @@ function renderCustomCards(setKey) {
         }
 
         const imgUrl = getCustomCardImageUrl(card);
-        const placeholderFallback = `onerror="showPlaceholder(this)"`;
+        const tcgdexUrl = getCustomCardTcgdexUrl(card);
 
         // Display originalNumber from the set instead of the sequential custom set number
         const displayNumber = card.originalNumber ? card.originalNumber : String(card.number).padStart(3, '0');
@@ -370,10 +370,11 @@ function renderCustomCards(setKey) {
                 <img src="${imgUrl || ''}"
                      alt="${card.name.replace(/"/g, '&quot;')}"
                      loading="lazy"
+                     ${tcgdexUrl ? `data-tcgdex-src="${tcgdexUrl}"` : ''}
                      data-card-name="${card.name.replace(/"/g, '&quot;')}"
                      data-card-number="${displayNumber}"
                      data-card-rarity="${card.rarity}"
-                     ${placeholderFallback}>
+                     onerror="handleImgError(this)">
             </div>
             <div class="card-header">
                 <div class="card-info">
