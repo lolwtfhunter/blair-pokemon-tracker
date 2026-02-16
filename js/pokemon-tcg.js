@@ -125,8 +125,8 @@ function switchBlock(blockCode) {
             header.classList.remove('active');
         });
 
-        // Hide all set sections
-        document.querySelectorAll('.set-section').forEach(section => {
+        // Hide all Pokemon set sections (scoped to avoid affecting other tabs)
+        document.querySelectorAll('#pokemon-tcg-content .set-section').forEach(section => {
             section.classList.remove('active');
         });
 
@@ -150,8 +150,8 @@ function switchBlock(blockCode) {
         header.classList.toggle('active', header.getAttribute('data-block') === blockCode);
     });
 
-    // Hide all set sections (user must click a set to see cards)
-    document.querySelectorAll('.set-section').forEach(section => {
+    // Hide all Pokemon set sections (scoped to avoid affecting other tabs)
+    document.querySelectorAll('#pokemon-tcg-content .set-section').forEach(section => {
         section.classList.remove('active');
     });
     currentSet = null;

@@ -429,8 +429,10 @@ async function renderLorcanaCards(setKey) {
     const grid = document.getElementById(`${setKey}-grid`);
     if (!grid) return;
 
-    // Ensure Lorcast image URLs are cached before rendering
-    await fetchLorcastImageUrls(setKey);
+    // Fetch Lorcast image URLs in background (non-blocking).
+    // Cards render immediately with Dreamborn CDN; Lorcast URLs
+    // become available as fallbacks if Dreamborn images fail.
+    fetchLorcastImageUrls(setKey);
 
     grid.innerHTML = '';
 
