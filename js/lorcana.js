@@ -111,12 +111,11 @@ function getLorcanaSetLogoSvg(setKey) {
 
 // Build ordered list of image URLs to try for a Lorcana card.
 // Dreamborn CDN serves images WITHOUT file extensions (returns JFIF/JPEG).
-// Lorcania uses complex slug-based URLs that can't be constructed from card number alone.
 function buildLorcanaImageUrls(dreambornId, setKey, cardNumber) {
     const urls = [];
     const paddedNumber = String(cardNumber).padStart(3, '0');
 
-    // Tier 1: Dreamborn CDN (extensionless - this is the correct format)
+    // Tier 1: Dreamborn CDN (extensionless - confirmed correct format)
     if (dreambornId) {
         urls.push(`https://cdn.dreamborn.ink/images/en/cards/${dreambornId}`);
     }
@@ -140,15 +139,129 @@ function tryNextLorcanaImage(img, card, setKey, attemptIndex = 0) {
     const urls = buildLorcanaImageUrls(card.dreambornId || '', setKey, card.number);
 
     if (attemptIndex < urls.length) {
-        img.src = urls[attemptIndex];
+        const url = urls[attemptIndex];
+        lorcanaDebugLog(`Card #${card.number} trying [${attemptIndex}]: ${url.substring(0, 80)}`);
+        img.src = url;
         img.onerror = function() {
+            lorcanaDebugLog(`Card #${card.number} FAILED [${attemptIndex}]: ${url.substring(0, 80)}`);
             tryNextLorcanaImage(img, card, setKey, attemptIndex + 1);
         };
     } else {
-        // All URLs failed, show placeholder
+        lorcanaDebugLog(`Card #${card.number} ALL FAILED - showing placeholder`);
         showPlaceholder(img);
     }
 }
+
+// ==================== IMAGE DEBUG PANEL ====================
+// On-screen debug log for mobile (iOS Safari has no easy console)
+
+let _lorcanaDebugLines = [];
+let _lorcanaDebugPanel = null;
+let _lorcanaDebugEnabled = false;
+
+function lorcanaDebugLog(msg) {
+    if (!_lorcanaDebugEnabled) return;
+    const ts = new Date().toLocaleTimeString('en-US', {hour12:false, hour:'2-digit', minute:'2-digit', second:'2-digit'});
+    const line = `[${ts}] ${msg}`;
+    _lorcanaDebugLines.push(line);
+    if (_lorcanaDebugLines.length > 200) _lorcanaDebugLines.shift();
+    console.log('[LorcanaDebug]', msg);
+    if (_lorcanaDebugPanel) {
+        _lorcanaDebugPanel.querySelector('.debug-content').textContent = _lorcanaDebugLines.slice(-50).join('\n');
+        _lorcanaDebugPanel.querySelector('.debug-content').scrollTop = 999999;
+    }
+}
+
+// Run a quick CDN diagnostic and show results on screen.
+// Call from console: debugLorcanaImages()
+// Or tap the Lorcana tab title 5 times rapidly to activate.
+function debugLorcanaImages() {
+    _lorcanaDebugEnabled = true;
+
+    // Create or show debug panel
+    if (!_lorcanaDebugPanel) {
+        _lorcanaDebugPanel = document.createElement('div');
+        _lorcanaDebugPanel.id = 'lorcana-debug-panel';
+        _lorcanaDebugPanel.innerHTML = `
+            <div style="position:fixed;bottom:0;left:0;right:0;z-index:99999;background:#1a1a2e;border-top:2px solid #0f3460;max-height:40vh;overflow:hidden;display:flex;flex-direction:column;font-family:monospace;font-size:11px;">
+                <div style="display:flex;justify-content:space-between;align-items:center;padding:6px 10px;background:#0f3460;color:#e0e0e0;">
+                    <span style="font-weight:bold;">Lorcana Image Debug</span>
+                    <div>
+                        <button onclick="runLorcanaCdnTest()" style="background:#16213e;color:#e94560;border:1px solid #e94560;padding:2px 8px;border-radius:4px;margin-right:4px;font-size:11px;">Test CDN</button>
+                        <button onclick="document.getElementById('lorcana-debug-panel').style.display='none'" style="background:#16213e;color:#aaa;border:1px solid #aaa;padding:2px 8px;border-radius:4px;font-size:11px;">Close</button>
+                    </div>
+                </div>
+                <pre class="debug-content" style="padding:8px 10px;margin:0;overflow-y:auto;color:#a0ffa0;white-space:pre-wrap;word-break:break-all;flex:1;">Debug panel active. Tap "Test CDN" or load a Lorcana set.\n</pre>
+            </div>`;
+        document.body.appendChild(_lorcanaDebugPanel);
+    } else {
+        _lorcanaDebugPanel.style.display = '';
+    }
+
+    lorcanaDebugLog('Debug panel activated');
+    lorcanaDebugLog(`User agent: ${navigator.userAgent.substring(0, 100)}`);
+    lorcanaDebugLog(`Current Lorcana set: ${currentLorcanaSet || 'none'}`);
+
+    // Show loaded set info
+    Object.keys(lorcanaCardSets).forEach(key => {
+        const s = lorcanaCardSets[key];
+        const firstCard = s.cards && s.cards[0];
+        lorcanaDebugLog(`Set "${key}": ${s.cards ? s.cards.length : 0} cards, first dreambornId: ${firstCard ? firstCard.dreambornId : 'N/A'}`);
+    });
+}
+
+// Test the Dreamborn CDN with a single image load
+function runLorcanaCdnTest() {
+    lorcanaDebugLog('--- CDN TEST START ---');
+
+    // Test URLs to try
+    const testUrls = [
+        { label: 'Dreamborn extensionless (Set 1, Card 1)', url: 'https://cdn.dreamborn.ink/images/en/cards/001-001' },
+        { label: 'Dreamborn extensionless (Set 10, Card 1)', url: 'https://cdn.dreamborn.ink/images/en/cards/010-001' },
+        { label: 'Dreamborn with .webp (should fail)', url: 'https://cdn.dreamborn.ink/images/en/cards/001-001.webp' },
+    ];
+
+    testUrls.forEach((test, i) => {
+        const img = new Image();
+        const startTime = Date.now();
+        img.onload = function() {
+            const elapsed = Date.now() - startTime;
+            lorcanaDebugLog(`✅ ${test.label}: LOADED (${elapsed}ms, ${img.naturalWidth}x${img.naturalHeight})`);
+        };
+        img.onerror = function() {
+            const elapsed = Date.now() - startTime;
+            lorcanaDebugLog(`❌ ${test.label}: FAILED (${elapsed}ms)`);
+        };
+        // Add cache-busting to ensure fresh request
+        img.src = test.url + (test.url.includes('?') ? '&' : '?') + '_t=' + Date.now();
+    });
+
+    // Also test with fetch API for more detailed error info
+    lorcanaDebugLog('Testing with fetch API for detailed errors...');
+    fetch('https://cdn.dreamborn.ink/images/en/cards/010-001', { mode: 'no-cors' })
+        .then(r => {
+            lorcanaDebugLog(`Fetch result: type=${r.type}, status=${r.status}, ok=${r.ok}`);
+        })
+        .catch(e => {
+            lorcanaDebugLog(`Fetch error: ${e.message || e}`);
+        });
+}
+
+// Secret activation: tap Lorcana tab 5 times rapidly to open debug panel
+let _lorcanaDebugTaps = 0;
+let _lorcanaDebugTapTimer = null;
+document.addEventListener('click', function(e) {
+    const btn = e.target.closest('.top-tab');
+    if (btn && btn.textContent.includes('Lorcana')) {
+        _lorcanaDebugTaps++;
+        clearTimeout(_lorcanaDebugTapTimer);
+        _lorcanaDebugTapTimer = setTimeout(() => { _lorcanaDebugTaps = 0; }, 2000);
+        if (_lorcanaDebugTaps >= 5) {
+            _lorcanaDebugTaps = 0;
+            debugLorcanaImages();
+        }
+    }
+});
 
 // Render Lorcana set buttons
 function renderLorcanaSetButtons() {
