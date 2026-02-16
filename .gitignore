@@ -28,3 +28,8 @@ Thumbs.db
 # Temporary files
 *.tmp
 *.log
+
+# Playwright test artifacts
+test-results/
+test-results.json
+playwright-report/

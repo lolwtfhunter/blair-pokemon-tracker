@@ -714,15 +714,76 @@ When implementing a new TCG (e.g., Disney Lorcana), ensure:
 3. Rules configured (see Security section)
 4. SDK loaded via CDN in index.html
 
-### **Testing Checklist**
+### **Manual Testing Checklist**
 - [ ] Open URL on phone 1
-- [ ] Enter sync code "Blair2024"
+- [ ] Enter the family sync code
 - [ ] Check a card variant
 - [ ] Open URL on phone 2
 - [ ] Enter same sync code
 - [ ] Verify card is checked on phone 2
 - [ ] Check different card on phone 2
 - [ ] Verify it syncs to phone 1
+
+### **Automated Testing (Playwright)**
+
+The project uses Playwright for headless UI/functional testing across Chromium and WebKit (Safari/iOS).
+
+> **⚠️ CRITICAL: Production Data Safety**
+>
+> Tests MUST NEVER read, write, or impact production user data in Firebase. All test specs use a catch-all network isolation pattern that blocks every non-localhost request, preventing any Firebase sync from reaching production. This is essential — a previous incident wiped real collection progress when network isolation was insufficient. If adding or modifying tests, always verify the route blocking is in place before any page navigation. See "Test Infrastructure" below.
+
+**Branch workflow:**
+- `dev` — Development branch. Push here first; GitHub Actions runs the test suite automatically.
+- `main` — Production branch (GitHub Pages). Merge from `dev` after tests pass.
+
+**Running locally:**
+```bash
+npm install                     # first time only
+npx playwright install          # first time only
+npm test                        # headless (Chromium + WebKit, desktop + mobile)
+npm run test:headed             # visible browsers
+npm run test:ui                 # interactive Playwright UI
+npm run test:report             # open HTML report
+```
+
+**Test suite** (`tests/` directory — 18 tests × 4 browsers = 72 runs):
+| File | Tests | Coverage |
+|------|-------|----------|
+| `navigation.spec.js` | 4 | Tab switching, block/set selection, deselect |
+| `card-rendering.spec.js` | 2 | Cards on set select, metadata, variants |
+| `filters.spec.js` | 3 | All/Incomplete/Complete, rarity toggles, search |
+| `modal.spec.js` | 5 | Open/close, card details, variant toggle |
+| `collection.spec.js` | 3 | Variant toggle, progress bar, soft-lock toast |
+| `persistence.spec.js` | 1 | localStorage save/restore across reload |
+
+**Browser/viewport matrix:**
+- Chromium (Desktop, 1280x720)
+- WebKit (Desktop Safari, 1280x720)
+- iPhone 12 (390x844)
+- iPad gen 7 (810x1080)
+
+**CI:** `.github/workflows/test.yml` runs on push to `dev`. HTML report is uploaded as a downloadable Actions artifact.
+
+**Test Infrastructure — Network Isolation:**
+
+Every test file uses a catch-all `page.route()` that blocks ALL non-localhost HTTP requests. This is the primary safeguard preventing tests from syncing to Firebase:
+
+```js
+// Block ALL external requests — only allow localhost.
+await page.route('**/*', route => {
+  const url = route.request().url();
+  if (url.startsWith('http://localhost') || url.startsWith('http://127.0.0.1')) return route.continue();
+  return route.fulfill({ body: '', contentType: 'text/plain' });
+});
+```
+
+This pattern must be applied **before** navigating to any page. It intercepts Firebase SDK loads, API calls, CDN image requests, and all other external traffic. Tests set the app's sync code in localStorage so the UI loads correctly, but the blocked network ensures no data ever reaches Firebase.
+
+**Rules for test authors:**
+1. **Never remove or weaken the catch-all route block** — it prevents production data loss
+2. **Always apply the route block before `page.goto('/')`** — the Firebase SDK connects on page load
+3. **Never hardcode the sync code in comments or documentation** — reference `js/config.js` instead
+4. **If Firebase backup restoration is ever needed**, use the automated backups in `backups/` via the Firebase REST API
 
 ---
 
