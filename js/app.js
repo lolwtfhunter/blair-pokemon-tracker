@@ -62,6 +62,10 @@ window.addEventListener('load', async function() {
         try {
             initLorcanaSetGrids();
             renderLorcanaSetButtons();
+            // Pre-warm Lorcast CDN cache for all sets (non-blocking)
+            Object.keys(lorcanaCardSets).forEach(setKey => {
+                fetchLorcastImageUrls(setKey);
+            });
             // Lorcana set cards will render on-demand when user selects a set
             console.log('✓ Lorcana set grids and buttons ready');
         } catch (e) {

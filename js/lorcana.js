@@ -122,9 +122,16 @@ function getLorcanaSetLogoSvg(setKey) {
 // Cache: { setKey: { cardNumber: imageUrl } }
 const _lorcastImageCache = {};
 
+// In-flight promise deduplication: { setKey: Promise }
+const _lorcastFetchPromises = {};
+
 // Fetch image URLs from Lorcast API for a Lorcana set (cached after first call).
+// Concurrent calls for the same set share one in-flight request.
 async function fetchLorcastImageUrls(setKey) {
     if (_lorcastImageCache[setKey]) return _lorcastImageCache[setKey];
+
+    // Return existing in-flight promise if one exists for this set
+    if (_lorcastFetchPromises[setKey]) return _lorcastFetchPromises[setKey];
 
     const lorcastCode = typeof LORCAST_SET_CODES !== 'undefined' && LORCAST_SET_CODES[setKey];
     if (!lorcastCode) {
@@ -132,31 +139,37 @@ async function fetchLorcastImageUrls(setKey) {
         return {};
     }
 
-    try {
-        const resp = await fetch(`https://api.lorcast.com/v0/sets/${lorcastCode}/cards`);
-        if (!resp.ok) {
+    _lorcastFetchPromises[setKey] = (async () => {
+        try {
+            const resp = await fetch(`https://api.lorcast.com/v0/sets/${lorcastCode}/cards`);
+            if (!resp.ok) {
+                _lorcastImageCache[setKey] = {};
+                return {};
+            }
+
+            const data = await resp.json();
+            const cards = data.results || (Array.isArray(data) ? data : []);
+
+            const imageMap = {};
+            cards.forEach(card => {
+                const num = parseInt(card.collector_number);
+                const url = card.image_uris?.digital?.normal
+                         || card.image_uris?.digital?.large
+                         || card.image_uris?.digital?.small;
+                if (num && url) imageMap[num] = url;
+            });
+
+            _lorcastImageCache[setKey] = imageMap;
+            return imageMap;
+        } catch (e) {
             _lorcastImageCache[setKey] = {};
             return {};
+        } finally {
+            delete _lorcastFetchPromises[setKey];
         }
+    })();
 
-        const data = await resp.json();
-        const cards = data.results || (Array.isArray(data) ? data : []);
-
-        const imageMap = {};
-        cards.forEach(card => {
-            const num = parseInt(card.collector_number);
-            const url = card.image_uris?.digital?.normal
-                     || card.image_uris?.digital?.large
-                     || card.image_uris?.digital?.small;
-            if (num && url) imageMap[num] = url;
-        });
-
-        _lorcastImageCache[setKey] = imageMap;
-        return imageMap;
-    } catch (e) {
-        _lorcastImageCache[setKey] = {};
-        return {};
-    }
+    return _lorcastFetchPromises[setKey];
 }
 
 // ==================== CARD IMAGE URL BUILDER ====================
@@ -192,16 +205,17 @@ function getLorcanaCardImageUrl(card, setKey) {
     return urls.length > 0 ? urls[0] : null;
 }
 
-// Handle Lorcana image loading with cascading fallback
-function tryNextLorcanaImage(img, card, setKey, attemptIndex = 0) {
-    const urls = buildLorcanaImageUrls(card.dreambornId || '', setKey, card.number);
+// Handle Lorcana image loading from pre-baked data attributes.
+// Reads fallback URLs from data-lorcana-fallbacks JSON attribute.
+function tryNextLorcanaImageFromData(img) {
+    const fallbacks = JSON.parse(img.getAttribute('data-lorcana-fallbacks') || '[]');
+    const idx = parseInt(img.getAttribute('data-lorcana-fallback-idx') || '0') + 1;
 
-    if (attemptIndex < urls.length) {
-        img.src = urls[attemptIndex];
-        img.onerror = function() {
-            tryNextLorcanaImage(img, card, setKey, attemptIndex + 1);
-        };
+    if (idx < fallbacks.length) {
+        img.setAttribute('data-lorcana-fallback-idx', idx);
+        img.src = fallbacks[idx];
     } else {
+        img.onerror = null;
         showPlaceholder(img);
     }
 }
@@ -315,10 +329,9 @@ async function renderLorcanaCards(setKey) {
     const grid = document.getElementById(`${setKey}-grid`);
     if (!grid) return;
 
-    // Fetch Lorcast image URLs in background (non-blocking).
-    // Cards render immediately with Dreamborn CDN; Lorcast URLs
-    // become available as fallbacks if Dreamborn images fail.
-    fetchLorcastImageUrls(setKey);
+    // Await Lorcast image URLs so they're in cache when building fallback chains.
+    // Fast on subsequent renders (cached) or if pre-warm completed.
+    await fetchLorcastImageUrls(setKey);
 
     grid.innerHTML = '';
 
@@ -357,17 +370,19 @@ async function renderLorcanaCards(setKey) {
             </div>
         `;
 
-        // Get image URL with CDN fallbacks
-        const imgUrl = getLorcanaCardImageUrl(card, setKey);
+        // Build full fallback URL list and pre-bake into data attributes
+        const fallbackUrls = buildLorcanaImageUrls(card.dreambornId || '', setKey, card.number);
+        const imgUrl = fallbackUrls[0] || '';
         const displayNumber = String(card.number).padStart(3, '0');
         const escapedName = card.name.replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+        const fallbacksJson = JSON.stringify(fallbackUrls).replace(/"/g, '&quot;');
 
         // TCGPlayer link
         const tcgplayerUrl = getLorcanaTCGPlayerUrl(card.name, setData.name, card.number);
 
         cardEl.innerHTML = `
             <div class="card-img-wrapper">
-                <img src="${imgUrl || ''}"
+                <img src="${imgUrl}"
                      alt="${escapedName}"
                      loading="lazy"
                      data-card-name="${escapedName}"
@@ -376,7 +391,9 @@ async function renderLorcanaCards(setKey) {
                      data-lorcana-card-number="${card.number}"
                      data-lorcana-dreamborn-id="${card.dreambornId || ''}"
                      data-lorcana-set-key="${setKey}"
-                     onerror="tryNextLorcanaImage(this, {number: ${card.number}, dreambornId: '${card.dreambornId || ''}'}, '${setKey}', 1)">
+                     data-lorcana-fallbacks="${fallbacksJson}"
+                     data-lorcana-fallback-idx="0"
+                     onerror="tryNextLorcanaImageFromData(this)">
             </div>
             <div class="card-header">
                 <div class="card-info">

@@ -40,17 +40,18 @@ window.openCardModal = function(setKey, cardNumber) {
     // Set card image with proper fallback chain
     let primarySrc;
     if (isLorcana) {
-        // Lorcana: use buildLorcanaImageUrls fallback chain
+        // Lorcana: pre-bake full fallback chain into data attributes
         const urls = buildLorcanaImageUrls(card.dreambornId || '', setKey, card.number);
         primarySrc = urls[0] || '';
         modalImage.removeAttribute('data-tcgdex-src');
         modalImage.removeAttribute('data-local-src');
-        // Store fallback data for Lorcana image error handling
         modalImage.setAttribute('data-lorcana-card-number', card.number);
         modalImage.setAttribute('data-lorcana-dreamborn-id', card.dreambornId || '');
         modalImage.setAttribute('data-lorcana-set-key', setKey);
+        modalImage.setAttribute('data-lorcana-fallbacks', JSON.stringify(urls));
+        modalImage.setAttribute('data-lorcana-fallback-idx', '0');
         modalImage.onerror = function() {
-            tryNextLorcanaImage(this, {number: card.number, dreambornId: card.dreambornId || ''}, setKey, 1);
+            tryNextLorcanaImageFromData(this);
         };
     } else if (setKey.startsWith('custom-')) {
         // For custom sets, use pokemontcg.io primary with TCGdex fallback
