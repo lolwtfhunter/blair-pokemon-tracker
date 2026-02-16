@@ -137,8 +137,18 @@ blair-pokemon-tracker/
 │           ├── whispers-in-the-well/
 │           ├── winterspell/
 │           └── logos/          Set logos (optional, CDN fallback exists)
+├── tests/                  Playwright test suite
+│   ├── navigation.spec.js
+│   ├── card-rendering.spec.js
+│   ├── filters.spec.js
+│   ├── modal.spec.js
+│   ├── collection.spec.js
+│   ├── persistence.spec.js
+│   └── responsive.spec.js
 ├── backups/                Automated Firebase backup snapshots
-├── .github/workflows/      CI/CD (Firebase backup workflow)
+├── .github/workflows/      CI/CD (Firebase backup, Playwright test CI)
+├── package.json            Dev dependencies (Playwright only)
+├── playwright.config.js    Test configuration
 ├── PROJECT_MASTER.md       Detailed project documentation
 └── RARITY_REFERENCE.md     Rarity types and variant rules reference
 ```
@@ -224,7 +234,53 @@ Variant eligibility is determined automatically from rarity. Custom set cards co
   - Pokemon: Pokemon TCG API CDN (pokemontcg.io), TCGdex CDN (tcgdex.net)
   - Lorcana: Dreamborn CDN (dreamborn.ink), Lorcast API (api.lorcast.com)
 - **Hosting:** GitHub Pages
-- **CI/CD:** GitHub Actions (automated Firebase backups)
+- **CI/CD:** GitHub Actions (automated Firebase backups, Playwright test CI)
+- **Testing:** Playwright (Chromium + WebKit, desktop + mobile viewports)
+
+## Development & Testing
+
+### Branch Workflow
+
+- **`dev`** — Development and staging branch. Push changes here first.
+- **`main`** — Production branch. Deployed to GitHub Pages. Merge from `dev` after tests pass.
+
+### Running Tests Locally
+
+```bash
+npm install                     # first time only — installs Playwright
+npx playwright install          # first time only — downloads browser binaries
+npm test                        # run all tests headless (Chromium + WebKit)
+npm run test:headed             # run tests with visible browser windows
+npm run test:ui                 # open interactive Playwright UI
+npm run test:report             # open the HTML test report
+```
+
+Tests auto-start a local server (`python3 -m http.server 8080`), so no manual setup is needed.
+
+### CI (GitHub Actions)
+
+Pushing to `dev` automatically runs the full Playwright test suite via GitHub Actions. The workflow:
+1. Installs Chromium + WebKit browsers
+2. Runs all tests
+3. Uploads the HTML report as a downloadable artifact
+
+### Test Coverage
+
+| Test File | Coverage |
+|-----------|----------|
+| `navigation.spec.js` | Tab switching, block/set selection, deselect behavior |
+| `card-rendering.spec.js` | Cards render on set select, images, metadata, variants |
+| `filters.spec.js` | All/Incomplete/Complete filters, rarity toggles, search |
+| `modal.spec.js` | Open/close modal, card details, variant toggling |
+| `collection.spec.js` | Variant toggle, progress bar update, soft-lock toast |
+| `persistence.spec.js` | localStorage save/restore across reload |
+| `responsive.spec.js` | Layout correctness across desktop/mobile/tablet viewports |
+
+### Promoting to Production
+
+```bash
+git checkout main && git merge dev && git push origin main
+```
 
 ## Developer Documentation
 

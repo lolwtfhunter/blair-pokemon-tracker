@@ -714,7 +714,7 @@ When implementing a new TCG (e.g., Disney Lorcana), ensure:
 3. Rules configured (see Security section)
 4. SDK loaded via CDN in index.html
 
-### **Testing Checklist**
+### **Manual Testing Checklist**
 - [ ] Open URL on phone 1
 - [ ] Enter sync code "Blair2024"
 - [ ] Check a card variant
@@ -723,6 +723,43 @@ When implementing a new TCG (e.g., Disney Lorcana), ensure:
 - [ ] Verify card is checked on phone 2
 - [ ] Check different card on phone 2
 - [ ] Verify it syncs to phone 1
+
+### **Automated Testing (Playwright)**
+
+The project uses Playwright for headless UI/functional testing across Chromium and WebKit (Safari/iOS).
+
+**Branch workflow:**
+- `dev` — Development branch. Push here first; GitHub Actions runs the test suite automatically.
+- `main` — Production branch (GitHub Pages). Merge from `dev` after tests pass.
+
+**Running locally:**
+```bash
+npm install                     # first time only
+npx playwright install          # first time only
+npm test                        # headless (Chromium + WebKit, desktop + mobile)
+npm run test:headed             # visible browsers
+npm run test:ui                 # interactive Playwright UI
+npm run test:report             # open HTML report
+```
+
+**Test suite** (`tests/` directory):
+| File | Coverage |
+|------|----------|
+| `navigation.spec.js` | Tab switching, block/set selection, deselect |
+| `card-rendering.spec.js` | Cards on set select, images, metadata, variants |
+| `filters.spec.js` | All/Incomplete/Complete, rarity toggles, search |
+| `modal.spec.js` | Open/close, card details, variant toggle |
+| `collection.spec.js` | Variant toggle, progress bar, soft-lock toast |
+| `persistence.spec.js` | localStorage save/restore across reload |
+| `responsive.spec.js` | Desktop/mobile/tablet layouts |
+
+**Browser/viewport matrix:**
+- Chromium (Desktop, 1280x720)
+- WebKit (Desktop Safari, 1280x720)
+- iPhone 12 (390x844)
+- iPad gen 7 (810x1080)
+
+**CI:** `.github/workflows/test.yml` runs on push to `dev`. HTML report is uploaded as a downloadable Actions artifact.
 
 ---
 
