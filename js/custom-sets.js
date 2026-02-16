@@ -18,35 +18,19 @@ function renderCustomSetButtons() {
         btn.className = 'set-btn' + (setKey === currentCustomSet ? ' active' : '');
         btn.setAttribute('data-custom-set-key', setKey);
 
-        // Determine TCG type from first card's setOrigin
-        let tcgType = 'Pokemon'; // default
-        let logoUrl = null;
-        let logoIcon = '🎴'; // Default card icon
-        if (setData.cards && setData.cards.length > 0) {
-            tcgType = setData.cards[0].setOrigin || 'Pokemon';
-
-            // Use TCG-specific logo and icon
-            if (tcgType.toLowerCase().includes('pokemon')) {
-                // Use character-specific logos for custom Pokemon sets
-                const characterLogoMap = {
-                    'its-pikachu': './Images/header/pikachu.png',
-                    'psyduck': './Images/header/psyduck.png',
-                    'togepi': './Images/header/togepi.png'
-                };
-                logoUrl = characterLogoMap[setKey] || './Images/header/pokeball.png';
-
-                // Use character-specific emoji icons
-                const characterIconMap = {
-                    'its-pikachu': '⚡',
-                    'psyduck': '🦆',
-                    'togepi': '🥚'
-                };
-                logoIcon = characterIconMap[setKey] || '⚡'; // Default Pokemon lightning bolt
-            } else if (tcgType.toLowerCase().includes('lorcana')) {
-                logoUrl = './Images/lorcana/logos/lorcana.png';
-                logoIcon = '🃏'; // Lorcana playing card
-            }
-        }
+        // Determine logo and icon from the set key
+        const characterLogoMap = {
+            'its-pikachu': './Images/header/pikachu.png',
+            'psyduck': './Images/header/psyduck.png',
+            'togepi': './Images/header/togepi.png'
+        };
+        const characterIconMap = {
+            'its-pikachu': '⚡',
+            'psyduck': '🦆',
+            'togepi': '🥚'
+        };
+        let logoUrl = characterLogoMap[setKey] || './Images/header/pokeball.png';
+        let logoIcon = characterIconMap[setKey] || '🎴';
 
         // Find earliest card date from cards if available
         let earliestDate = null;
