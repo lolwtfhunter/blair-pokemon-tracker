@@ -167,15 +167,16 @@ function renderBlockButtons() {
         const themeColor = BLOCK_THEME_COLORS[blockCode] || '#888888';
         btn.style.setProperty('--block-color', themeColor);
 
-        // Block logo from pokemontcg.io using a representative set
+        // Block logo from pokemontcg.io using a representative set, with Scrydex fallback
         const logoSetId = BLOCK_LOGO_SET_IDS[blockCode] || '';
         const logoUrl = logoSetId ? `https://images.pokemontcg.io/${logoSetId}/logo.png` : '';
+        const scrydexBlockLogoUrl = logoSetId ? `https://images.scrydex.com/pokemon/${logoSetId}-logo/logo` : '';
 
         btn.innerHTML = `
             <div class="block-btn-content">
                 ${logoUrl ? `<div class="block-btn-logo-wrapper">
                     <img src="${logoUrl}" alt="${block.name}" class="block-btn-logo"
-                         onerror="this.parentElement.style.display='none'">
+                         onerror="${scrydexBlockLogoUrl ? `this.onerror=function(){this.parentElement.style.display='none'};this.src='${scrydexBlockLogoUrl}'` : `this.parentElement.style.display='none'`}">
                 </div>` : ''}
                 <div class="block-btn-name">${block.name}</div>
                 <div class="block-btn-stats">${block.sets.length} set${block.sets.length !== 1 ? 's' : ''} · ${progress.collected}/${progress.total} variants</div>
@@ -282,14 +283,15 @@ function renderSetButtonsForBlock(blockCode) {
         // Calculate progress
         const progress = getSetProgress(setKey);
 
-        // Get set logo URL from pokemontcg.io API
+        // Get set logo URL from pokemontcg.io API with Scrydex fallback
         const apiSetId = TCG_API_SET_IDS[setKey] || setData.setCode;
         const logoUrl = `https://images.pokemontcg.io/${apiSetId}/logo.png`;
+        const scrydexLogoUrl = `https://images.scrydex.com/pokemon/${apiSetId}-logo/logo`;
 
         btn.innerHTML = `
             <div class="set-btn-logo-wrapper">
                 <img src="${logoUrl}" alt="${setData.displayName}" class="set-btn-logo"
-                     onerror="this.style.display='none';this.nextElementSibling.style.display=''">
+                     onerror="this.onerror=function(){this.style.display='none';this.nextElementSibling.style.display=''};this.src='${scrydexLogoUrl}'">
                 <div class="set-btn-logo-fallback" style="display:none">⚡</div>
             </div>
             <div class="set-btn-name">${setData.displayName}</div>
@@ -507,9 +509,10 @@ function renderCards(setKey) {
         }
 
         const apiImgUrl = getCardImageUrl(setKey, card.number, card.imageId);
+        const scrydexImgUrl = getScrydexImageUrl(setKey, card.number);
         const tcgdexImgUrl = getTcgdexImageUrl(setKey, card.number, card.imageId);
         const localImgUrl = `Images/cards/${setKey}/${String(card.number).padStart(3, '0')}.png`;
-        const primarySrc = apiImgUrl || tcgdexImgUrl || localImgUrl;
+        const primarySrc = apiImgUrl || scrydexImgUrl || tcgdexImgUrl || localImgUrl;
         const tcgplayerUrl = getTCGPlayerUrl(card.name, setData.name, setData.setCode, formattedCardNumber);
 
         cardEl.innerHTML = `
@@ -517,6 +520,7 @@ function renderCards(setKey) {
                 <img src="${primarySrc}"
                      alt="${card.name.replace(/"/g, '&quot;')}"
                      loading="lazy"
+                     ${scrydexImgUrl ? `data-scrydex-src="${scrydexImgUrl}"` : ''}
                      ${tcgdexImgUrl ? `data-tcgdex-src="${tcgdexImgUrl}"` : ''}
                      data-local-src="${localImgUrl}"
                      data-card-name="${card.name.replace(/"/g, '&quot;')}"

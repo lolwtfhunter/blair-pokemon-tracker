@@ -92,6 +92,27 @@ function getCardImageUrl(setKey, cardNumber, imageId) {
     return null;
 }
 
+// Get card image URL from Scrydex CDN (images.scrydex.com)
+// Some newer sets (e.g. me2pt5) have migrated to this CDN from pokemontcg.io
+function getScrydexImageUrl(setKey, cardNumber) {
+    const apiSetId = TCG_API_SET_IDS[setKey];
+    if (apiSetId) {
+        return `https://images.scrydex.com/pokemon/${apiSetId}-${cardNumber}/large`;
+    }
+    return null;
+}
+
+// Get Scrydex fallback image URL for a custom card using its apiId
+function getCustomCardScrydexUrl(card) {
+    if (!card.apiId) return null;
+
+    const parts = card.apiId.split('-');
+    const setId = parts.slice(0, -1).join('-');
+    const num = parts[parts.length - 1];
+
+    return `https://images.scrydex.com/pokemon/${setId}-${num}/large`;
+}
+
 // Get card image URL from TCGdex API (assets.tcgdex.net)
 function getTcgdexImageUrl(setKey, cardNumber, imageId) {
     // Celebrations Classic Collection uses cel25c with original numbering
@@ -142,34 +163,62 @@ function getLorcanaTCGPlayerUrl(cardName, setName, cardNumber) {
 }
 
 // Handle card image load errors with cascading fallback:
-// 1. pokemontcg.io CDN -> 2. TCGdex CDN -> 3. Local image -> 4. Placeholder
+// 1. pokemontcg.io CDN -> 2. Scrydex CDN -> 3. TCGdex CDN -> 4. Local image -> 5. Placeholder
 function handleImgError(img) {
+    const scrydexSrc = img.getAttribute('data-scrydex-src');
     const tcgdexSrc = img.getAttribute('data-tcgdex-src');
     const localSrc = img.getAttribute('data-local-src');
 
-    if (tcgdexSrc && img.src.indexOf('images.pokemontcg.io') !== -1) {
-        // pokemontcg.io failed, try TCGdex
-        img.onerror = function() {
-            // TCGdex also failed, try local
-            if (localSrc) {
-                img.onerror = function() {
-                    // All sources failed, show placeholder
-                    showPlaceholder(img);
-                };
-                img.src = localSrc;
-            } else {
-                showPlaceholder(img);
-            }
-        };
-        img.src = tcgdexSrc;
-    } else if (localSrc && img.src.indexOf('assets.tcgdex.net') !== -1) {
-        // TCGdex failed, try local
-        img.onerror = function() {
+    if (img.src.indexOf('images.pokemontcg.io') !== -1) {
+        // pokemontcg.io failed, try Scrydex first
+        if (scrydexSrc) {
+            img.onerror = function() {
+                // Scrydex failed, try TCGdex
+                handleFallbackFromScrydex(img, tcgdexSrc, localSrc);
+            };
+            img.src = scrydexSrc;
+        } else if (tcgdexSrc) {
+            img.onerror = function() {
+                handleFallbackFromTcgdex(img, localSrc);
+            };
+            img.src = tcgdexSrc;
+        } else if (localSrc) {
+            img.onerror = function() { showPlaceholder(img); };
+            img.src = localSrc;
+        } else {
             showPlaceholder(img);
-        };
-        img.src = localSrc;
+        }
+    } else if (img.src.indexOf('images.scrydex.com') !== -1) {
+        // Scrydex failed, try TCGdex
+        handleFallbackFromScrydex(img, tcgdexSrc, localSrc);
+    } else if (img.src.indexOf('assets.tcgdex.net') !== -1) {
+        // TCGdex failed, try local
+        handleFallbackFromTcgdex(img, localSrc);
     } else {
         // Local or unknown source failed, show placeholder
+        showPlaceholder(img);
+    }
+}
+
+function handleFallbackFromScrydex(img, tcgdexSrc, localSrc) {
+    if (tcgdexSrc) {
+        img.onerror = function() {
+            handleFallbackFromTcgdex(img, localSrc);
+        };
+        img.src = tcgdexSrc;
+    } else if (localSrc) {
+        img.onerror = function() { showPlaceholder(img); };
+        img.src = localSrc;
+    } else {
+        showPlaceholder(img);
+    }
+}
+
+function handleFallbackFromTcgdex(img, localSrc) {
+    if (localSrc) {
+        img.onerror = function() { showPlaceholder(img); };
+        img.src = localSrc;
+    } else {
         showPlaceholder(img);
     }
 }

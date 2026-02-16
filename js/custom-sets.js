@@ -354,6 +354,7 @@ function renderCustomCards(setKey) {
         }
 
         const imgUrl = getCustomCardImageUrl(card);
+        const scrydexUrl = getCustomCardScrydexUrl(card);
         const tcgdexUrl = getCustomCardTcgdexUrl(card);
 
         // Display originalNumber from the set instead of the sequential custom set number
@@ -368,6 +369,7 @@ function renderCustomCards(setKey) {
                 <img src="${imgUrl || ''}"
                      alt="${card.name.replace(/"/g, '&quot;')}"
                      loading="lazy"
+                     ${scrydexUrl ? `data-scrydex-src="${scrydexUrl}"` : ''}
                      ${tcgdexUrl ? `data-tcgdex-src="${tcgdexUrl}"` : ''}
                      data-card-name="${card.name.replace(/"/g, '&quot;')}"
                      data-card-number="${displayNumber}"
