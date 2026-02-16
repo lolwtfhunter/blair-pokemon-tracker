@@ -785,6 +785,13 @@ This pattern must be applied **before** navigating to any page. It intercepts Fi
 3. **Never hardcode the sync code in comments or documentation** — reference `js/config.js` instead
 4. **If Firebase backup restoration is ever needed**, use the automated backups in `backups/` via the Firebase REST API
 
+**When to create/update/remove tests:**
+- **New set added to existing TCG** — No test changes needed; existing tests cover sets generically
+- **New TCG, tab, filter type, or interactive feature** — Add new tests or extend existing spec files
+- **Changed selectors, navigation flow, or UI structure** — Update affected test selectors and assertions
+- **Removed a feature** — Remove or update the corresponding tests
+- **Always** run `npm test` after changes and update the test count tables in README.md and this file if tests were added or removed
+
 ---
 
 ## 🔄 UPDATING THE TRACKER

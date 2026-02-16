@@ -278,6 +278,17 @@ Pushing to `dev` automatically runs the full Playwright test suite via GitHub Ac
 
 > **Tests MUST NEVER read, write, or impact production user data.** Every test file uses a catch-all `page.route()` that blocks ALL non-localhost HTTP requests, preventing Firebase sync from reaching production. This route block must be applied before any page navigation. See `PROJECT_MASTER.md` for full details and rules for test authors.
 
+### Maintaining Tests
+
+When making changes to the app, keep the test suite up to date:
+
+- **Adding a new set** to an existing TCG — no test changes needed (existing tests cover sets generically)
+- **Adding a new TCG, tab, filter, or interactive feature** — add or update tests in `tests/`
+- **Changing selectors or navigation flow** — update affected test selectors/assertions
+- **Removing a feature** — remove or update the corresponding tests
+
+All new/modified test files must include the catch-all network isolation pattern before any `page.goto()`. See existing specs for the template. After changes, run `npm test` to verify all tests pass, and update the test count tables in this file and `PROJECT_MASTER.md` if tests were added or removed.
+
 ### Promoting to Production
 
 ```bash

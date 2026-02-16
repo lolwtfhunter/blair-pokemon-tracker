@@ -669,10 +669,20 @@ Before committing your changes, verify:
 - [ ] Card modal opens when clicking cards
 - [ ] TCGPlayer links work
 
+### Automated Tests (Playwright)
+- [ ] Run `npm test` — all existing tests still pass after your changes
+- [ ] If you added new UI behavior (new tab, new filter, new modal feature, etc.), add or update tests in `tests/`
+- [ ] If you changed existing behavior (renamed selectors, changed navigation flow, etc.), update affected test selectors/assertions
+- [ ] New test files must include the catch-all network isolation pattern before any `page.goto()` — see existing specs for the template
+- [ ] Tests must NEVER read, write, or impact production user data (see `PROJECT_MASTER.md` for details)
+
+> **When to add tests:** Adding a new set to an existing TCG generally does NOT require new tests — the existing suite covers set rendering generically. But adding a new TCG, new tab, new filter type, or new interactive feature DOES require new or updated tests.
+
 ### Documentation
 - [ ] README.md updated with new set info
 - [ ] PROJECT_MASTER.md updated
 - [ ] Card counts in docs match actual counts
+- [ ] If tests were added/removed, update test count tables in README.md and PROJECT_MASTER.md
 
 ---
 
