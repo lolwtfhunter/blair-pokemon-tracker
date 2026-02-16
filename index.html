@@ -2849,7 +2849,12 @@
             if (!container) return;
             container.innerHTML = '';
 
-            const setKeys = Object.keys(lorcanaCardSets);
+            // Sort sets by release date (newest first)
+            const setKeys = Object.keys(lorcanaCardSets).sort((a, b) => {
+                const aDate = lorcanaCardSets[a].releaseDate ? new Date(lorcanaCardSets[a].releaseDate + 'T00:00:00').getTime() : 0;
+                const bDate = lorcanaCardSets[b].releaseDate ? new Date(lorcanaCardSets[b].releaseDate + 'T00:00:00').getTime() : 0;
+                return bDate - aDate;
+            });
             if (setKeys.length === 0) return;
 
             setKeys.forEach(setKey => {
@@ -3165,7 +3170,18 @@
             container.innerHTML = '';
 
             const blocks = getSetsByBlock();
-            const blockOrder = ['sv', 'me', 'swsh']; // Ordered by recency
+            // Sort blocks by most recent release date (newest block first)
+            const blockOrder = Object.keys(blocks).sort((a, b) => {
+                const aMaxDate = Math.max(...blocks[a].sets.map(setKey => {
+                    const rd = cardSets[setKey].releaseDate;
+                    return rd ? new Date(rd + 'T00:00:00').getTime() : 0;
+                }));
+                const bMaxDate = Math.max(...blocks[b].sets.map(setKey => {
+                    const rd = cardSets[setKey].releaseDate;
+                    return rd ? new Date(rd + 'T00:00:00').getTime() : 0;
+                }));
+                return bMaxDate - aMaxDate;
+            });
 
             blockOrder.forEach(blockCode => {
                 if (!blocks[blockCode]) return;
