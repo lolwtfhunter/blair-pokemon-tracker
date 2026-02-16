@@ -550,6 +550,36 @@ h1 {
     font-style: italic;
 }
 
+/* Lorcana header row with debug button */
+.lorcana-header-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.lorcana-header-row .helper-text {
+    margin-bottom: 0;
+}
+
+.debug-bug-btn {
+    position: absolute;
+    right: 0;
+    background: none;
+    border: none;
+    font-size: 1.1rem;
+    cursor: pointer;
+    opacity: 0.35;
+    padding: 4px 6px;
+    line-height: 1;
+    transition: opacity 0.2s;
+}
+
+.debug-bug-btn:hover,
+.debug-bug-btn:active {
+    opacity: 0.8;
+}
+
 /* Set selection section header */
 .set-selection-header {
     display: none;

@@ -173,8 +173,8 @@ function lorcanaDebugLog(msg) {
 }
 
 // Run a quick CDN diagnostic and show results on screen.
-// Call from console: debugLorcanaImages()
-// Or tap the Lorcana tab title 5 times rapidly to activate.
+// Activated by the bug icon button in the Lorcana tab header,
+// or from console: debugLorcanaImages()
 function debugLorcanaImages() {
     _lorcanaDebugEnabled = true;
 
@@ -246,22 +246,6 @@ function runLorcanaCdnTest() {
             lorcanaDebugLog(`Fetch error: ${e.message || e}`);
         });
 }
-
-// Secret activation: tap Lorcana tab 5 times rapidly to open debug panel
-let _lorcanaDebugTaps = 0;
-let _lorcanaDebugTapTimer = null;
-document.addEventListener('click', function(e) {
-    const btn = e.target.closest('.top-tab');
-    if (btn && btn.textContent.includes('Lorcana')) {
-        _lorcanaDebugTaps++;
-        clearTimeout(_lorcanaDebugTapTimer);
-        _lorcanaDebugTapTimer = setTimeout(() => { _lorcanaDebugTaps = 0; }, 2000);
-        if (_lorcanaDebugTaps >= 5) {
-            _lorcanaDebugTaps = 0;
-            debugLorcanaImages();
-        }
-    }
-});
 
 // Render Lorcana set buttons
 function renderLorcanaSetButtons() {
