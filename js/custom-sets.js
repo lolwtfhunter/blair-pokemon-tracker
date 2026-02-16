@@ -18,7 +18,7 @@ function renderCustomSetButtons() {
         btn.className = 'set-btn' + (setKey === currentCustomSet ? ' active' : '');
         btn.setAttribute('data-custom-set-key', setKey);
 
-        // Determine logo and icon from the set key
+        // Character-specific logos for known sets
         const characterLogoMap = {
             'its-pikachu': './Images/header/pikachu.png',
             'psyduck': './Images/header/psyduck.png',
@@ -29,8 +29,17 @@ function renderCustomSetButtons() {
             'psyduck': '🦆',
             'togepi': '🥚'
         };
+
+        // For unknown sets, use a generic TCG logo based on card type
         let logoUrl = characterLogoMap[setKey] || './Images/header/pokeball.png';
-        let logoIcon = characterIconMap[setKey] || '🎴';
+        let logoIcon = characterIconMap[setKey] || '⚡';
+        if (!characterLogoMap[setKey] && setData.cards && setData.cards.length > 0) {
+            const origin = (setData.cards[0].setOrigin || '').toLowerCase();
+            if (origin.includes('lorcana') || origin.includes('disney')) {
+                logoUrl = './Images/lorcana/logos/lorcana.png';
+                logoIcon = '🃏';
+            }
+        }
 
         // Find earliest card date from cards if available
         let earliestDate = null;
@@ -56,12 +65,10 @@ function renderCustomSetButtons() {
 
         const progress = getCustomSetProgress(setKey);
 
-        // Image visible by default, fallback hidden. onerror swaps them.
         btn.innerHTML = `
             <div class="set-btn-logo-wrapper">
                 <img src="${logoUrl}" alt="${setData.displayName}" class="set-btn-logo"
-                     onerror="this.style.display='none';this.nextElementSibling.style.display='';if(window._imgDebug)window._imgDebug('LOGO-ERR','${setKey}: '+this.src)"
-                     onload="if(window._imgDebug)window._imgDebug('LOGO-OK','${setKey}: '+this.src+' w='+this.naturalWidth)">
+                     onerror="this.style.display='none';this.nextElementSibling.style.display=''">
                 <div class="set-btn-logo-fallback" style="display:none">${logoIcon}</div>
             </div>
             <div class="set-btn-name">${setData.displayName}</div>
