@@ -640,12 +640,14 @@ h1 {
     gap: 12px;
     margin-bottom: 16px;
     align-items: center;
+    justify-content: center;
 }
 
 .filter-buttons {
     display: flex;
     gap: 6px;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .filter-btn {
@@ -734,6 +736,7 @@ h1 {
     flex-wrap: wrap;
     gap: 6px;
     width: 100%;
+    justify-content: center;
 }
 
 .rarity-btn {
