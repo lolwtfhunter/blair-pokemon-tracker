@@ -107,6 +107,11 @@ function applyVariantToggle(setKey, cardNumber, variant) {
         renderCards(setKey);
         updateSetButtonProgress();
     }
+
+    // Update collection values
+    if (typeof updateSetValues === 'function') {
+        updateSetValues();
+    }
 }
 
 // Show unlock confirmation toast

@@ -329,6 +329,12 @@ function switchSet(setKey) {
     if (setData && setData.cards) {
         renderRarityFilters(setKey, setData.cards, RARITY_DISPLAY_NAMES);
     }
+
+    // Load and display market prices
+    ensurePricesLoaded(setKey).then(() => {
+        fillPricesInGrid(setKey);
+        updateSetValues();
+    });
 }
 
 
@@ -439,6 +445,7 @@ function renderCards(setKey) {
                     <div class="card-number">#${String(card.number).padStart(3, '0')}${isSecret ? ` / ${setData.mainSet}` : ''}</div>
                     <div class="card-name">${card.name}</div>
                     <span class="rarity-badge ${rarityClass}">${card.type === 'trainer' ? 'TRAINER' : getRarityDisplay(card.rarity)}</span>
+                    <span class="price-tag" data-price-card="${setKey}-${card.number}"></span>
                 </div>
                 <a href="${tcgplayerUrl}" target="_blank" class="tcgplayer-link" title="View on TCGPlayer" onclick="event.stopPropagation();">
                     <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">

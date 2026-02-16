@@ -22,6 +22,9 @@ window.addEventListener('load', async function() {
         // Initialize progress
         initializeProgress();
 
+        // Load cached market prices
+        loadPriceCache();
+
         // Migrate legacy 'single' variants to edition variants for WotC-era cards
         migrateEditionVariants();
 

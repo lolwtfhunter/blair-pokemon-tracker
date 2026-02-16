@@ -112,6 +112,18 @@ window.openCardModal = function(setKey, cardNumber) {
         modalRarity.textContent = card.type === 'trainer' ? 'TRAINER' : getRarityDisplay(card.rarity);
     }
 
+    // Set market price
+    const modalPriceEl = document.getElementById('modalCardPrice');
+    if (modalPriceEl && typeof getCardPrice === 'function') {
+        const price = getCardPrice(setKey, cardNumber);
+        if (price) {
+            modalPriceEl.querySelector('.modal-price-value').textContent = '$' + price.toFixed(2);
+            modalPriceEl.style.display = '';
+        } else {
+            modalPriceEl.style.display = 'none';
+        }
+    }
+
     // Set TCGPlayer link
     if (isLorcana) {
         const tcgplayerUrl = getLorcanaTCGPlayerUrl(card.name, setName, card.number);
