@@ -41,6 +41,7 @@ The app has three top-level tabs:
 - **Variant tracking** — Check off each variant (Regular, Holo, Reverse Holo, Poke Ball, Master Ball) independently per card. EX, Ultra Rare, and other special rarities use a single "Collected" checkbox. Custom set cards also get computed variants based on rarity, era, and set type (e.g., modern uncommons get Regular + Reverse Holo).
 - **Inline progress bars** — Each block and set button shows a progress bar and collected/total count directly inside it, so you can see completion at a glance without a separate section.
 - **Filter & search** — Filter cards by completion status (All/Incomplete/Complete), toggle rarity filter buttons to show specific rarities, and search by card name or number. All three filters work together for quick card location.
+- **Market prices** — Real-time market prices from TCGPlayer (via TCGCSV) for all cards including custom set cards, with estimated collection values shown on set buttons.
 - **Card detail modal** — Tap any card to open a full-detail view with a large image, complete card information, and the ability to toggle variants directly in the modal.
 - **Lazy loading** — Cards render on-demand when you select a set, improving initial page load performance.
 - **Soft-lock for completed cards** — When all variants of a card are collected, the card visually fades out (reduced opacity, desaturated image) and shows a lock icon with "Complete" label. Unchecking a variant on a completed card requires confirmation via a toast prompt, preventing accidental taps while scrolling.

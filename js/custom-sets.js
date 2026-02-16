@@ -133,6 +133,14 @@ function switchCustomSet(setKey) {
     if (setData && setData.cards) {
         renderRarityFilters('custom-' + setKey, setData.cards, RARITY_DISPLAY_NAMES);
     }
+
+    // Fetch and display prices
+    if (typeof ensurePricesLoaded === 'function') {
+        ensurePricesLoaded('custom-' + setKey).then(() => {
+            fillPricesInGrid('custom-' + setKey);
+            updateSetValues();
+        });
+    }
 }
 
 // Calculate progress for a custom set (respects language filter if set has mixed regions)
@@ -371,6 +379,7 @@ function renderCustomCards(setKey) {
                     <div class="card-number">#${displayNumber}${card.region === 'JP' ? ' <span class="region-badge">JP</span>' : ''}</div>
                     <div class="card-name">${card.name}</div>
                     <span class="rarity-badge ${rarityClass}">${getRarityDisplay(card.rarity)}</span>
+                    <span class="price-tag" data-price-card="custom-${setKey}-${card.number}" data-api-id="${card.apiId || ''}"></span>
                 </div>
                 <a href="${tcgplayerUrl}" target="_blank" class="tcgplayer-link" title="View on TCGPlayer" onclick="event.stopPropagation();">
                     <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">

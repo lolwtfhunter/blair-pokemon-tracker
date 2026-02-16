@@ -115,7 +115,12 @@ window.openCardModal = function(setKey, cardNumber) {
     // Set market price
     const modalPriceEl = document.getElementById('modalCardPrice');
     if (modalPriceEl && typeof getCardPrice === 'function') {
-        const price = getCardPrice(setKey, cardNumber);
+        let price;
+        if (setKey.startsWith('custom-') && typeof getCustomCardPrice === 'function') {
+            price = getCustomCardPrice(card);
+        } else {
+            price = getCardPrice(setKey, cardNumber);
+        }
         if (price) {
             modalPriceEl.querySelector('.modal-price-value').textContent = '$' + price.toFixed(2);
             modalPriceEl.style.display = '';

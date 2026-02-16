@@ -826,7 +826,45 @@ When adding a new block code:
 
 ---
 
+## Pricing Logic
+
+### Data Source
+Market prices are fetched from [TCGCSV](https://tcgcsv.com/) — a CDN-backed mirror of TCGPlayer pricing data. The same source serves both Pokemon TCG (category 3) and Disney Lorcana (category 71).
+
+### Subtype Priority
+When a card has multiple price entries (Normal, Holofoil, Reverse Holofoil), the system selects the best price using this priority:
+
+| Priority | Subtype | Score |
+|----------|---------|-------|
+| Highest | Normal | 3 |
+| Medium | Holofoil | 2 |
+| Lowest | Reverse Holofoil | 1 |
+
+### Collection Value Calculation
+For each collected card in a set:
+1. Check if any variant is collected (`cardProgress[variant] === true`)
+2. Look up the card's market price
+3. Sum all collected card prices → "Est. Value: $X.XX" on set button
+
+### Custom Set Cross-Set Lookups
+Custom set cards span 109+ source sets. Price resolution uses the card's `apiId`:
+
+```
+apiId: "base1-58"
+  → sourceSetId: "base1"
+  → cacheKey: "_src:base1"
+  → cardNumber: 58
+  → lookup: priceCache["_src:base1"][58]
+```
+
+Source set prices are cached independently, so if two custom sets share cards from the same source set (e.g., Base Set), the prices are fetched only once.
+
+Cards without an `apiId` or from unmapped source sets (e.g., McDonald's promos) show no price.
+
+---
+
 ## Version History
 
+- **v1.2** (2026-02-16): Added Pricing Logic section documenting TCGCSV as unified price source, subtype priority, collection value calculation, and custom set cross-set price lookups via apiId.
 - **v1.1** (2026-02-16): Added comprehensive Rarity Filter Toggles documentation to Search & Filtering section — covers multi-select rarity pill buttons, global state, per-tab integration, HTML structure, CSS, and guidance for new sets
 - **v1.0** (2026-02-15): Initial documentation created to support modular architecture and future scalability

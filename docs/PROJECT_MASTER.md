@@ -1,6 +1,6 @@
 # Blair TCG Collection Tracker - Project Master Document
 
-**Version:** 4.1.0
+**Version:** 4.2.0
 **Last Updated:** February 16, 2026
 **Live URL:** https://lolwtfhunter.github.io/blair-pokemon-tracker/
 **Sync Code:** Blair2024
@@ -34,9 +34,43 @@ A web-based multi-TCG collection tracker for tracking 4,000+ cards across **Poke
 - ✅ Search cards by name or number
 - ✅ Card detail modal with large images
 - ✅ Lazy loading for performance
+- ✅ Market pricing via TCGCSV (CDN-backed TCGPlayer data) with 6hr TTL localStorage cache
 - ✅ Multi-CDN image sources with automatic fallback:
   - Pokemon: Pokemon TCG API → TCGdex → Local → Placeholder
   - Lorcana: Dreamborn → Lorcast API → Local → Placeholder
+
+---
+
+## 💰 MARKET PRICING
+
+### Overview
+Market prices are fetched from [TCGCSV](https://tcgcsv.com/) — a CDN-backed mirror of TCGPlayer pricing data. Prices are displayed inline on card grids and in the card detail modal.
+
+### Architecture
+- **Source:** TCGCSV API (`https://tcgcsv.com/tcgplayer/{categoryId}/{groupId}/prices`)
+- **Cache:** localStorage with 6-hour TTL (`blair_price_cache`)
+- **Fallback:** CORS proxy (`corsproxy.io`) if direct fetch fails; stale cache preserved on fetch failure
+- **Subtype Priority:** Normal > Holofoil > Reverse Holofoil (selects best price per card)
+
+### TCG Category IDs
+| TCG | Category ID | Group ID Map |
+|-----|-------------|--------------|
+| Pokemon TCG | 3 | `TCGCSV_POKEMON_GROUP_IDS` |
+| Disney Lorcana | 71 | `TCGCSV_LORCANA_GROUP_IDS` |
+
+### Custom Set Pricing
+Custom set cards originate from 109 unique Pokemon TCG source sets. Each card's `apiId` (e.g., `"base1-58"`) identifies its source set and card number.
+
+- **Mapping:** `TCGCSV_SOURCE_SET_GROUP_IDS` in `js/config.js` maps pokemontcg.io set IDs → TCGCSV group IDs
+- **Cache keys:** `_src:{sourceSetId}` (e.g., `_src:base1`) — source sets are cached independently and shared across custom sets
+- **Batching:** Source sets are fetched in batches of 5 concurrent requests
+- **Unmapped sets:** 8 McDonald's promo cards have no TCGCSV mapping and show no price
+
+### Files
+| File | Responsibility |
+|------|---------------|
+| `js/pricing.js` | Price fetching, caching, and UI integration |
+| `js/config.js` | Group ID mappings (`TCGCSV_POKEMON_GROUP_IDS`, `TCGCSV_LORCANA_GROUP_IDS`, `TCGCSV_SOURCE_SET_GROUP_IDS`) |
 
 ---
 
