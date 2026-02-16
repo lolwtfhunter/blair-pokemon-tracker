@@ -343,11 +343,11 @@ function renderLorcanaSetButtons() {
         btn.className = 'set-btn' + (setKey === currentLorcanaSet ? ' active' : '');
         btn.setAttribute('data-lorcana-set-key', setKey);
 
-        // Subtle gradient background from set theme color
+        // Theme gradient via CSS custom properties (consistent with all tabs)
         const setStyle = LORCANA_SET_STYLES[setKey];
-        if (setStyle && setKey !== currentLorcanaSet) {
-            btn.style.background = `linear-gradient(135deg, rgba(255,255,255,0.08) 0%, ${setStyle.color}22 50%, ${setStyle.color}33 100%)`;
-            btn.style.borderLeft = `3px solid ${setStyle.color}55`;
+        if (setStyle) {
+            btn.style.setProperty('--set-accent', setStyle.color + '25');
+            btn.style.setProperty('--set-border', setStyle.color + '55');
         }
 
         // Format release date

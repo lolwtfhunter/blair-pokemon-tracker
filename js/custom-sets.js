@@ -18,7 +18,16 @@ function renderCustomSetButtons() {
         btn.className = 'set-btn' + (setKey === currentCustomSet ? ' active' : '');
         btn.setAttribute('data-custom-set-key', setKey);
 
-        // Character-specific logos for known sets
+        // Character-specific theme colors and logos for known sets
+        const characterColorMap = {
+            'its-pikachu': '#ffd700',
+            'psyduck': '#4fc3f7',
+            'togepi': '#ef9a9a'
+        };
+        const themeColor = characterColorMap[setKey] || '#ff9500';
+        btn.style.setProperty('--set-accent', themeColor + '25');
+        btn.style.setProperty('--set-border', themeColor + '55');
+
         const characterLogoMap = {
             'its-pikachu': './Images/header/pikachu.png',
             'psyduck': './Images/header/psyduck.png',

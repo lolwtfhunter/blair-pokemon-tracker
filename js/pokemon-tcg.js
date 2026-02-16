@@ -7,6 +7,13 @@ const BLOCK_LOGO_SET_IDS = {
     'swsh': 'swsh1'
 };
 
+// Block theme colors for set button gradients
+const BLOCK_THEME_COLORS = {
+    'sv': '#dc143c',
+    'me': '#ff8c00',
+    'swsh': '#1e90ff'
+};
+
 // Track current block selection
 let currentBlock = null;
 
@@ -149,8 +156,8 @@ function switchBlock(blockCode) {
     });
     currentSet = null;
 
-    // Deactivate all set buttons
-    document.querySelectorAll('.set-btn').forEach(btn => {
+    // Deactivate all Pokemon set buttons (scoped to avoid affecting other tabs)
+    document.querySelectorAll('.set-btn[data-set-key]').forEach(btn => {
         btn.classList.remove('active');
     });
 
@@ -175,6 +182,11 @@ function renderSetButtonsForBlock(blockCode) {
         const btn = document.createElement('button');
         btn.className = 'set-btn' + (setKey === currentSet ? ' active' : '');
         btn.setAttribute('data-set-key', setKey);
+
+        // Set theme gradient via CSS custom properties (block color)
+        const themeColor = BLOCK_THEME_COLORS[blockCode] || '#ffffff';
+        btn.style.setProperty('--set-accent', themeColor + '25');
+        btn.style.setProperty('--set-border', themeColor + '55');
 
         // Format release date
         let dateStr = '';
@@ -295,13 +307,13 @@ function switchSet(setKey) {
     // Select the new set
     currentSet = setKey;
 
-    // Update all set buttons across all block containers
-    document.querySelectorAll('.set-btn').forEach(btn => {
+    // Update Pokemon set buttons only (scoped to avoid affecting other tabs)
+    document.querySelectorAll('.set-btn[data-set-key]').forEach(btn => {
         btn.classList.toggle('active', btn.getAttribute('data-set-key') === setKey);
     });
 
-    // Update sections
-    document.querySelectorAll('.set-section').forEach(section => {
+    // Update sections within Pokemon TCG content only
+    document.querySelectorAll('#pokemon-tcg-content .set-section').forEach(section => {
         section.classList.remove('active');
     });
     document.getElementById(setKey).classList.add('active');
