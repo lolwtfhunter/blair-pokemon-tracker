@@ -155,8 +155,12 @@ async function fetchLorcastImageUrls(setKey) {
         lorcanaDebugLog(`Lorcast: cached ${Object.keys(imageMap).length} image URLs for "${setKey}"`);
 
         // Also extract and cache price data from the same response
-        if (typeof cacheLorcanaPrices === 'function') {
-            cacheLorcanaPrices(setKey, cards);
+        try {
+            if (typeof cacheLorcanaPrices === 'function') {
+                cacheLorcanaPrices(setKey, cards);
+            }
+        } catch (priceErr) {
+            console.warn('Failed to cache Lorcana prices:', priceErr);
         }
 
         return imageMap;
@@ -479,6 +483,10 @@ async function renderLorcanaCards(setKey) {
         // TCGPlayer link
         const tcgplayerUrl = getLorcanaTCGPlayerUrl(card.name, setData.name, card.number);
 
+        // Price display (safe — never blocks card rendering)
+        let priceHtml = '';
+        try { if (typeof cardPriceHTML === 'function') priceHtml = cardPriceHTML(setKey, card.number); } catch(e) {}
+
         cardEl.innerHTML = `
             <div class="card-img-wrapper">
                 <img src="${imgUrl || ''}"
@@ -504,7 +512,7 @@ async function renderLorcanaCards(setKey) {
                     </svg>
                 </a>
             </div>
-            ${typeof cardPriceHTML === 'function' ? cardPriceHTML(setKey, card.number) : ''}
+            ${priceHtml}
             <div class="variants-section">
                 <div class="variants-title">STATUS:</div>
                 ${variantHTML}

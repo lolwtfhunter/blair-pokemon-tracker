@@ -415,6 +415,10 @@ function renderCards(setKey) {
         const primarySrc = apiImgUrl || tcgdexImgUrl || localImgUrl;
         const tcgplayerUrl = getTCGPlayerUrl(card.name, setData.name, setData.setCode, formattedCardNumber);
 
+        // Price display (safe — never blocks card rendering)
+        let priceHtml = '';
+        try { if (typeof cardPriceLoadingHTML === 'function') priceHtml = cardPriceLoadingHTML(setKey, card.number); } catch(e) {}
+
         cardEl.innerHTML = `
             <div class="card-img-wrapper">
                 <img src="${primarySrc}"
@@ -439,7 +443,7 @@ function renderCards(setKey) {
                     </svg>
                 </a>
             </div>
-            ${typeof cardPriceLoadingHTML === 'function' ? cardPriceLoadingHTML(setKey, card.number) : ''}
+            ${priceHtml}
             <div class="variants-section">
                 <div class="variants-title">${isSingleVariant ? 'STATUS:' : 'VARIANTS:'}</div>
                 ${variantHTML}
