@@ -5,8 +5,8 @@ function migrateEditionVariants() {
     if (localStorage.getItem('edition-migration-v1')) return;
 
     const editionCards = {
-        'custom-its-pikachu': ['12','13','30','33','34','35','36','37','38','39','42'],
-        'custom-psyduck': ['3','4','5','6','7'],
+        'custom-its-pikachu': ['12','13','15','30','33','34','35','36','37','38','39','42'],
+        'custom-psyduck': ['2','3','4','5','6','7'],
         'custom-togepi': ['4','6']
     };
 

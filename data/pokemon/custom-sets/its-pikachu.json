@@ -159,7 +159,8 @@
       "setOrigin": "Jungle (base2)",
       "originalNumber": "60",
       "releaseDate": "1999/06/16",
-      "apiId": "base2-60"
+      "apiId": "base2-60",
+      "variants": [{"rarity": "1st-edition"}, {"rarity": "unlimited"}]
     },
     "16": {
       "name": "Pikachu (Pok\u00e9mon Stamp Rally)",

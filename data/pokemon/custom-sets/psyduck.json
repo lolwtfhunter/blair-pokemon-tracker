@@ -26,7 +26,8 @@
       "setOrigin": "Fossil (base3)",
       "originalNumber": "53",
       "releaseDate": "1999/10/10",
-      "apiId": "base3-53"
+      "apiId": "base3-53",
+      "variants": [{"rarity": "1st-edition"}, {"rarity": "unlimited"}]
     },
     "3": {
       "name": "Psyduck",
