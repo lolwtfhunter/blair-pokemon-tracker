@@ -25,19 +25,21 @@ module.exports = defineConfig({
         viewport: { width: 1280, height: 720 },
       },
     },
-    // webkit-desktop omitted — iphone-12 and ipad already cover WebKit
-    {
-      name: 'iphone-12',
-      use: {
-        ...devices['iPhone 12'],
+    // WebKit projects run locally only — too slow/flaky on Linux CI runners
+    ...(!process.env.CI ? [
+      {
+        name: 'iphone-12',
+        use: {
+          ...devices['iPhone 12'],
+        },
       },
-    },
-    {
-      name: 'ipad',
-      use: {
-        ...devices['iPad (gen 7)'],
+      {
+        name: 'ipad',
+        use: {
+          ...devices['iPad (gen 7)'],
+        },
       },
-    },
+    ] : []),
   ],
   webServer: {
     command: 'python3 -m http.server 8080',
