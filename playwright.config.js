@@ -25,6 +25,12 @@ module.exports = defineConfig({
         viewport: { width: 1280, height: 720 },
       },
     },
+    {
+      name: 'chromium-mobile',
+      use: {
+        ...devices['Pixel 7'],
+      },
+    },
     // WebKit projects run locally only — too slow/flaky on Linux CI runners
     ...(!process.env.CI ? [
       {
