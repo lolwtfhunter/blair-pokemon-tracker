@@ -100,6 +100,7 @@ function switchCustomSet(setKey) {
         document.querySelectorAll('#customSetButtons .set-btn').forEach(btn => {
             btn.classList.remove('active');
         });
+        document.getElementById('customSetButtons').classList.remove('has-selection');
 
         // Hide all custom set sections
         document.querySelectorAll('#custom-sets-grids .set-section').forEach(section => {
@@ -115,6 +116,7 @@ function switchCustomSet(setKey) {
     document.querySelectorAll('#customSetButtons .set-btn').forEach(btn => {
         btn.classList.toggle('active', btn.getAttribute('data-custom-set-key') === setKey);
     });
+    document.getElementById('customSetButtons').classList.add('has-selection');
 
     document.querySelectorAll('#custom-sets-grids .set-section').forEach(section => {
         section.classList.remove('active');

@@ -201,10 +201,12 @@ function switchBlock(blockCode) {
         document.querySelectorAll('.block-btn').forEach(btn => {
             btn.classList.remove('active');
         });
+        document.getElementById('blockButtons').classList.remove('has-selection');
 
         // Hide all set button containers and headers
         document.querySelectorAll('#pokemon-tcg-content .set-buttons').forEach(container => {
             container.classList.remove('active');
+            container.classList.remove('has-selection');
         });
         document.querySelectorAll('.set-selection-header').forEach(header => {
             header.classList.remove('active');
@@ -226,10 +228,12 @@ function switchBlock(blockCode) {
     document.querySelectorAll('.block-btn').forEach(btn => {
         btn.classList.toggle('active', btn.getAttribute('data-block-code') === blockCode);
     });
+    document.getElementById('blockButtons').classList.add('has-selection');
 
     // Show/hide set button containers and headers for this block only
     document.querySelectorAll('#pokemon-tcg-content .set-buttons').forEach(container => {
         container.classList.toggle('active', container.getAttribute('data-block') === blockCode);
+        container.classList.remove('has-selection');
     });
     document.querySelectorAll('.set-selection-header').forEach(header => {
         header.classList.toggle('active', header.getAttribute('data-block') === blockCode);
@@ -384,6 +388,7 @@ function switchSet(setKey) {
         document.querySelectorAll('.set-btn[data-set-key]').forEach(btn => {
             btn.classList.remove('active');
         });
+        document.getElementById(`setButtons-${currentBlock}`).classList.remove('has-selection');
 
         // Hide all set sections
         document.querySelectorAll('#pokemon-tcg-content .set-section').forEach(section => {
@@ -400,6 +405,7 @@ function switchSet(setKey) {
     document.querySelectorAll('.set-btn[data-set-key]').forEach(btn => {
         btn.classList.toggle('active', btn.getAttribute('data-set-key') === setKey);
     });
+    document.getElementById(`setButtons-${currentBlock}`).classList.add('has-selection');
 
     // Update sections within Pokemon TCG content only
     document.querySelectorAll('#pokemon-tcg-content .set-section').forEach(section => {

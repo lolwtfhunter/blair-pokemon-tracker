@@ -211,6 +211,14 @@ h1 {
     .block-btn-name { font-size: 0.8rem; margin-bottom: 4px; }
     .block-btn-stats { font-size: 0.65rem; }
     .block-btn-progress { margin-top: 6px; }
+    .block-buttons.has-selection .block-btn:not(.active),
+    .set-buttons.has-selection .set-btn:not(.active) {
+        display: none;
+    }
+    .block-buttons.has-selection,
+    .set-buttons.has-selection {
+        grid-template-columns: 1fr;
+    }
 }
 
 @media (min-width: 768px) {

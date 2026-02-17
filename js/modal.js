@@ -28,7 +28,15 @@ window.openCardModal = function(setKey, cardNumber) {
 
     // Get modal elements
     const modal = document.getElementById('cardModal');
-    const modalImage = document.getElementById('modalCardImage');
+    const imageContainer = document.querySelector('.card-modal-image');
+    let modalImage = document.getElementById('modalCardImage');
+
+    // Restore <img> if showPlaceholder replaced it with a placeholder div
+    if (!modalImage && imageContainer) {
+        imageContainer.innerHTML = '<img id="modalCardImage">';
+        modalImage = document.getElementById('modalCardImage');
+    }
+
     const modalName = document.getElementById('modalCardName');
     const modalNumber = document.getElementById('modalCardNumber');
     const modalSet = document.getElementById('modalCardSet');
@@ -37,14 +45,23 @@ window.openCardModal = function(setKey, cardNumber) {
     const modalVariantsTitle = document.getElementById('modalVariantsTitle');
     const modalVariantList = document.getElementById('modalVariantList');
 
+    // Clear all stale image attributes from previous modal opens
+    modalImage.onerror = null;
+    modalImage.removeAttribute('data-scrydex-src');
+    modalImage.removeAttribute('data-tcgdex-src');
+    modalImage.removeAttribute('data-local-src');
+    modalImage.removeAttribute('data-lorcana-fallbacks');
+    modalImage.removeAttribute('data-lorcana-fallback-idx');
+    modalImage.removeAttribute('data-lorcana-card-number');
+    modalImage.removeAttribute('data-lorcana-dreamborn-id');
+    modalImage.removeAttribute('data-lorcana-set-key');
+
     // Set card image with proper fallback chain
     let primarySrc;
     if (isLorcana) {
         // Lorcana: pre-bake full fallback chain into data attributes
         const urls = buildLorcanaImageUrls(card.dreambornId || '', setKey, card.number);
         primarySrc = urls[0] || '';
-        modalImage.removeAttribute('data-tcgdex-src');
-        modalImage.removeAttribute('data-local-src');
         modalImage.setAttribute('data-lorcana-card-number', card.number);
         modalImage.setAttribute('data-lorcana-dreamborn-id', card.dreambornId || '');
         modalImage.setAttribute('data-lorcana-set-key', setKey);
@@ -54,31 +71,29 @@ window.openCardModal = function(setKey, cardNumber) {
             tryNextLorcanaImageFromData(this);
         };
     } else if (setKey.startsWith('custom-')) {
-        // For custom sets, use pokemontcg.io primary with TCGdex fallback
+        // For custom sets, use pokemontcg.io primary with Scrydex/TCGdex fallback
         primarySrc = getCustomCardImageUrl(card);
+        const scrydexUrl = getCustomCardScrydexUrl(card);
         const tcgdexUrl = getCustomCardTcgdexUrl(card);
-        if (tcgdexUrl) {
-            modalImage.setAttribute('data-tcgdex-src', tcgdexUrl);
-        } else {
-            modalImage.removeAttribute('data-tcgdex-src');
-        }
-        modalImage.removeAttribute('data-local-src');
+        if (scrydexUrl) modalImage.setAttribute('data-scrydex-src', scrydexUrl);
+        if (tcgdexUrl) modalImage.setAttribute('data-tcgdex-src', tcgdexUrl);
         modalImage.onerror = function() { handleImgError(this); };
     } else {
-        // For regular sets, use the standard image URL logic
+        // For regular sets, use the standard image URL logic with full fallback chain
         const apiImgUrl = getCardImageUrl(setKey, card.number, card.imageId);
+        const scrydexImgUrl = getScrydexImageUrl(setKey, card.number);
         const tcgdexImgUrl = getTcgdexImageUrl(setKey, card.number, card.imageId);
         const localImgUrl = `Images/cards/${setKey}/${String(card.number).padStart(3, '0')}.png`;
-        primarySrc = apiImgUrl || tcgdexImgUrl || localImgUrl;
-        if (tcgdexImgUrl) {
-            modalImage.setAttribute('data-tcgdex-src', tcgdexImgUrl);
-        }
+        primarySrc = apiImgUrl || scrydexImgUrl || tcgdexImgUrl || localImgUrl;
+        if (scrydexImgUrl) modalImage.setAttribute('data-scrydex-src', scrydexImgUrl);
+        if (tcgdexImgUrl) modalImage.setAttribute('data-tcgdex-src', tcgdexImgUrl);
         modalImage.setAttribute('data-local-src', localImgUrl);
         modalImage.onerror = function() { handleImgError(this); };
     }
     modalImage.src = primarySrc || '';
     modalImage.alt = card.name;
     modalImage.setAttribute('data-card-name', card.name);
+    modalImage.setAttribute('data-card-number', card.number);
     modalImage.setAttribute('data-card-rarity', card.rarity);
 
     // Set card details

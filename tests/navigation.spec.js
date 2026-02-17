@@ -106,6 +106,135 @@ test.describe('Navigation', () => {
     expect(transform === 'none' || transform === 'matrix(1, 0, 0, 1, 0, 0)').toBe(true);
   });
 
+  test('mobile: selecting block hides other blocks', async ({ page }) => {
+    const viewport = page.viewportSize();
+    if (!viewport || viewport.width > 767) return;
+
+    const blockContainer = page.locator('#blockButtons');
+    const blockButtons = page.locator('.block-btn');
+    const count = await blockButtons.count();
+    expect(count).toBeGreaterThan(1);
+
+    // Select first block
+    await blockButtons.first().click();
+    await expect(blockContainer).toHaveClass(/has-selection/);
+
+    // Only the active block should be visible
+    for (let i = 0; i < count; i++) {
+      if (i === 0) {
+        await expect(blockButtons.nth(i)).toBeVisible();
+      } else {
+        await expect(blockButtons.nth(i)).not.toBeVisible();
+      }
+    }
+  });
+
+  test('mobile: deselecting block shows all blocks', async ({ page }) => {
+    const viewport = page.viewportSize();
+    if (!viewport || viewport.width > 767) return;
+
+    const blockContainer = page.locator('#blockButtons');
+    const blockButtons = page.locator('.block-btn');
+
+    // Select then deselect
+    await blockButtons.first().click();
+    await expect(blockContainer).toHaveClass(/has-selection/);
+    await blockButtons.first().click();
+    await expect(blockContainer).not.toHaveClass(/has-selection/);
+
+    // All blocks should be visible again
+    const count = await blockButtons.count();
+    for (let i = 0; i < count; i++) {
+      await expect(blockButtons.nth(i)).toBeVisible();
+    }
+  });
+
+  test('mobile: deselect then select different block works', async ({ page }) => {
+    const viewport = page.viewportSize();
+    if (!viewport || viewport.width > 767) return;
+
+    const blockButtons = page.locator('.block-btn');
+    const count = await blockButtons.count();
+    if (count < 2) return;
+
+    // Select first block
+    await blockButtons.first().click();
+    await expect(blockButtons.first()).toHaveClass(/active/);
+    await expect(blockButtons.nth(1)).not.toBeVisible();
+
+    // Deselect first block — all blocks reappear
+    await blockButtons.first().click();
+    await expect(blockButtons.nth(1)).toBeVisible();
+
+    // Select second block
+    await blockButtons.nth(1).click();
+    await expect(blockButtons.nth(1)).toHaveClass(/active/);
+    await expect(blockButtons.first()).not.toBeVisible();
+    await expect(blockButtons.nth(1)).toBeVisible();
+  });
+
+  test('mobile: selecting set hides other sets', async ({ page }) => {
+    const viewport = page.viewportSize();
+    if (!viewport || viewport.width > 767) return;
+
+    // Select a block first
+    await page.locator('.block-btn').first().click();
+    const activeSetContainer = page.locator('#pokemon-tcg-content .set-buttons.active');
+    await expect(activeSetContainer).toHaveCount(1);
+
+    const setButtons = activeSetContainer.locator('.set-btn');
+    const count = await setButtons.count();
+    expect(count).toBeGreaterThan(1);
+
+    // Select first set
+    await setButtons.first().click();
+    await expect(activeSetContainer).toHaveClass(/has-selection/);
+
+    // Only active set should be visible
+    await expect(setButtons.first()).toBeVisible();
+    for (let i = 1; i < count; i++) {
+      await expect(setButtons.nth(i)).not.toBeVisible();
+    }
+  });
+
+  test('mobile: deselecting set shows all sets', async ({ page }) => {
+    const viewport = page.viewportSize();
+    if (!viewport || viewport.width > 767) return;
+
+    await page.locator('.block-btn').first().click();
+    const activeSetContainer = page.locator('#pokemon-tcg-content .set-buttons.active');
+    const setButtons = activeSetContainer.locator('.set-btn');
+
+    // Select then deselect
+    await setButtons.first().click();
+    await expect(activeSetContainer).toHaveClass(/has-selection/);
+    await setButtons.first().click();
+    await expect(activeSetContainer).not.toHaveClass(/has-selection/);
+
+    // All sets visible again
+    const count = await setButtons.count();
+    for (let i = 0; i < count; i++) {
+      await expect(setButtons.nth(i)).toBeVisible();
+    }
+  });
+
+  test('desktop: selection does not hide siblings', async ({ page }) => {
+    const viewport = page.viewportSize();
+    if (!viewport || viewport.width <= 767) return;
+
+    const blockButtons = page.locator('.block-btn');
+    const count = await blockButtons.count();
+
+    // Select first block
+    await blockButtons.first().click();
+    await expect(page.locator('#blockButtons')).toHaveClass(/has-selection/);
+
+    // All blocks should still be visible on desktop
+    for (let i = 0; i < count; i++) {
+      await expect(blockButtons.nth(i)).toBeVisible();
+    }
+  });
+
   test('custom sets buttons are centered', async ({ page }) => {
     await page.locator('.top-tab', { hasText: 'Custom Sets' }).click();
     await expect(page.locator('#custom-sets-content')).toHaveClass(/active/);

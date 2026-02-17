@@ -87,4 +87,31 @@ test.describe('Card Modal', () => {
     await modal.click({ position: { x: 10, y: 10 } });
     await expect(modal).not.toHaveClass(/visible/);
   });
+
+  test('open second card after closing first', async ({ page }) => {
+    const cards = page.locator('#pokemon-tcg-content .set-section.active .card-item');
+    const count = await cards.count();
+    if (count < 2) return;
+
+    const modal = page.locator('#cardModal');
+
+    // Open first card modal
+    await cards.first().locator('.card-img-wrapper').click();
+    await expect(modal).toHaveClass(/visible/);
+    const firstName = await page.locator('#modalCardName').textContent();
+
+    // Close via close button
+    await page.locator('.card-modal-close').click();
+    await expect(modal).not.toHaveClass(/visible/);
+
+    // Open second card modal — this failed before fix because img element was destroyed
+    await cards.nth(1).locator('.card-img-wrapper').click();
+    await expect(modal).toHaveClass(/visible/);
+    const secondName = await page.locator('#modalCardName').textContent();
+    expect(secondName).not.toBe(firstName);
+
+    // Verify the modal image element still exists
+    const imgExists = await page.locator('#modalCardImage').count();
+    expect(imgExists).toBe(1);
+  });
 });

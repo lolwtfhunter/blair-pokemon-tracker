@@ -290,6 +290,7 @@ function switchLorcanaSet(setKey) {
         document.querySelectorAll('.set-btn[data-lorcana-set-key]').forEach(btn => {
             btn.classList.remove('active');
         });
+        document.getElementById('lorcanaSetButtons').classList.remove('has-selection');
 
         // Hide all Lorcana set sections
         document.querySelectorAll('#lorcana-content .set-section').forEach(section => {
@@ -306,6 +307,7 @@ function switchLorcanaSet(setKey) {
     document.querySelectorAll('.set-btn[data-lorcana-set-key]').forEach(btn => {
         btn.classList.toggle('active', btn.getAttribute('data-lorcana-set-key') === setKey);
     });
+    document.getElementById('lorcanaSetButtons').classList.add('has-selection');
 
     // Update sections
     document.querySelectorAll('#lorcana-content .set-section').forEach(section => {
