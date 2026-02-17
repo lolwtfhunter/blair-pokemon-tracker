@@ -5,7 +5,7 @@
   "block": "Mega Evolution",
   "blockCode": "me",
   "version": "3.0.0",
-  "lastUpdated": "2025-02-15",
+  "lastUpdated": "2026-02-16",
   "setKey": "ascended-heroes",
   "displayName": "Ascended Heroes",
   "totalCards": 295,
@@ -1254,207 +1254,207 @@
       "type": "pokemon"
     },
     "249": {
-      "name": "Larry's Dunsparce",
+      "name": "Larry's Staraptor",
       "rarity": "illustration-rare",
       "type": "pokemon"
     },
     "250": {
-      "name": "Delcatty",
+      "name": "Fan Rotom",
       "rarity": "illustration-rare",
       "type": "pokemon"
     },
     "251": {
-      "name": "Mega Meganium ex",
+      "name": "Sprigatito ex",
       "rarity": "ultra-rare",
       "type": "pokemon"
     },
     "252": {
-      "name": "Mega Charizard Y ex",
+      "name": "Stunfisk ex",
       "rarity": "ultra-rare",
       "type": "pokemon"
     },
     "253": {
-      "name": "Mega Feraligatr ex",
+      "name": "Mega Audino ex",
       "rarity": "ultra-rare",
       "type": "pokemon"
     },
     "254": {
-      "name": "Mega Gardevoir ex",
+      "name": "Anthea & Concordia",
       "rarity": "ultra-rare",
-      "type": "pokemon"
+      "type": "trainer"
     },
     "255": {
-      "name": "Mega Lucario ex",
+      "name": "Black Belt's Training",
       "rarity": "ultra-rare",
-      "type": "pokemon"
+      "type": "trainer"
     },
     "256": {
-      "name": "Mega Dragonite ex",
+      "name": "Boss's Orders",
       "rarity": "ultra-rare",
-      "type": "pokemon"
+      "type": "trainer"
     },
     "257": {
-      "name": "Erika's Vileplume ex",
+      "name": "Canari",
       "rarity": "ultra-rare",
-      "type": "pokemon"
+      "type": "trainer"
     },
     "258": {
-      "name": "Pikachu ex",
+      "name": "Cheren",
       "rarity": "ultra-rare",
-      "type": "pokemon"
+      "type": "trainer"
     },
     "259": {
-      "name": "Cynthia's Garchomp ex",
+      "name": "Counter Gain",
       "rarity": "ultra-rare",
-      "type": "pokemon"
+      "type": "trainer"
     },
     "260": {
-      "name": "Team Rocket's Mewtwo ex",
+      "name": "Glass Trumpet",
       "rarity": "ultra-rare",
-      "type": "pokemon"
+      "type": "trainer"
     },
     "261": {
-      "name": "Erika",
+      "name": "Jamming Tower",
       "rarity": "ultra-rare",
       "type": "trainer"
     },
     "262": {
-      "name": "Iris's Fighting Spirit",
+      "name": "N's PP Up",
       "rarity": "ultra-rare",
       "type": "trainer"
     },
     "263": {
-      "name": "Lillie's Determination",
+      "name": "Team Rocket's Transceiver",
       "rarity": "ultra-rare",
       "type": "trainer"
     },
     "264": {
-      "name": "N",
+      "name": "Ultra Ball",
       "rarity": "ultra-rare",
       "type": "trainer"
     },
     "265": {
-      "name": "Mega Meganium ex",
-      "rarity": "mega-attack-rare",
+      "name": "Mega Froslass ex",
+      "rarity": "ultra-rare",
       "type": "pokemon"
     },
     "266": {
-      "name": "Mega Emboar ex",
-      "rarity": "mega-attack-rare",
+      "name": "Mega Eelektross ex",
+      "rarity": "ultra-rare",
       "type": "pokemon"
     },
     "267": {
-      "name": "Mega Feraligatr ex",
-      "rarity": "mega-attack-rare",
+      "name": "Mega Diancie ex",
+      "rarity": "ultra-rare",
       "type": "pokemon"
     },
     "268": {
-      "name": "Mega Gardevoir ex",
-      "rarity": "mega-attack-rare",
+      "name": "Mega Hawlucha ex",
+      "rarity": "ultra-rare",
       "type": "pokemon"
     },
     "269": {
-      "name": "Mega Lucario ex",
-      "rarity": "mega-attack-rare",
+      "name": "Mega Gengar ex",
+      "rarity": "ultra-rare",
       "type": "pokemon"
     },
     "270": {
-      "name": "Mega Gengar ex",
-      "rarity": "mega-attack-rare",
+      "name": "Mega Scrafty ex",
+      "rarity": "ultra-rare",
       "type": "pokemon"
     },
     "271": {
       "name": "Mega Dragonite ex",
-      "rarity": "mega-attack-rare",
+      "rarity": "ultra-rare",
       "type": "pokemon"
     },
     "272": {
-      "name": "Erika's Vileplume ex",
-      "rarity": "special-illustration-rare",
-      "type": "pokemon"
-    },
-    "273": {
       "name": "Mega Meganium ex",
       "rarity": "special-illustration-rare",
       "type": "pokemon"
     },
+    "273": {
+      "name": "Mega Emboar ex",
+      "rarity": "special-illustration-rare",
+      "type": "pokemon"
+    },
     "274": {
-      "name": "Mega Charizard Y ex",
-      "rarity": "special-illustration-rare",
-      "type": "pokemon"
-    },
-    "275": {
-      "name": "Ethan's Ho-Oh ex",
-      "rarity": "special-illustration-rare",
-      "type": "pokemon"
-    },
-    "276": {
       "name": "Mega Feraligatr ex",
       "rarity": "special-illustration-rare",
       "type": "pokemon"
     },
-    "277": {
+    "275": {
       "name": "Mega Froslass ex",
       "rarity": "special-illustration-rare",
       "type": "pokemon"
     },
-    "278": {
-      "name": "Regice ex",
-      "rarity": "special-illustration-rare",
-      "type": "pokemon"
-    },
-    "279": {
+    "276": {
       "name": "Pikachu ex",
       "rarity": "special-illustration-rare",
       "type": "pokemon"
     },
-    "280": {
-      "name": "Miraidon ex",
+    "277": {
+      "name": "Pikachu ex",
       "rarity": "special-illustration-rare",
       "type": "pokemon"
     },
-    "281": {
+    "278": {
+      "name": "Mega Eelektross ex",
+      "rarity": "special-illustration-rare",
+      "type": "pokemon"
+    },
+    "279": {
+      "name": "Iono's Bellibolt ex",
+      "rarity": "special-illustration-rare",
+      "type": "pokemon"
+    },
+    "280": {
       "name": "Lillie's Clefairy ex",
       "rarity": "special-illustration-rare",
       "type": "pokemon"
     },
-    "282": {
+    "281": {
       "name": "Team Rocket's Mewtwo ex",
       "rarity": "special-illustration-rare",
       "type": "pokemon"
     },
+    "282": {
+      "name": "Mega Diancie ex",
+      "rarity": "special-illustration-rare",
+      "type": "pokemon"
+    },
     "283": {
-      "name": "Mega Gardevoir ex",
+      "name": "Mega Hawlucha ex",
       "rarity": "special-illustration-rare",
       "type": "pokemon"
     },
     "284": {
-      "name": "Regirock ex",
-      "rarity": "special-illustration-rare",
-      "type": "pokemon"
-    },
-    "285": {
-      "name": "Cynthia's Garchomp ex",
-      "rarity": "special-illustration-rare",
-      "type": "pokemon"
-    },
-    "286": {
-      "name": "Mega Lucario ex",
-      "rarity": "special-illustration-rare",
-      "type": "pokemon"
-    },
-    "287": {
-      "name": "Koraidon ex",
-      "rarity": "special-illustration-rare",
-      "type": "pokemon"
-    },
-    "288": {
       "name": "Mega Gengar ex",
       "rarity": "special-illustration-rare",
       "type": "pokemon"
     },
-    "289": {
+    "285": {
+      "name": "Mega Scrafty ex",
+      "rarity": "special-illustration-rare",
+      "type": "pokemon"
+    },
+    "286": {
       "name": "N's Zoroark ex",
+      "rarity": "special-illustration-rare",
+      "type": "pokemon"
+    },
+    "287": {
+      "name": "Marnie's Grimmsnarl ex",
+      "rarity": "special-illustration-rare",
+      "type": "pokemon"
+    },
+    "288": {
+      "name": "Fezandipiti ex",
+      "rarity": "special-illustration-rare",
+      "type": "pokemon"
+    },
+    "289": {
+      "name": "Steven's Metagross ex",
       "rarity": "special-illustration-rare",
       "type": "pokemon"
     },
