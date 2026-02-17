@@ -1,3 +1,6 @@
+// Flag to skip redundant Firebase re-render after local writes
+let _skipNextFirebaseRender = false;
+
 // Variant toggling and unlock confirmation
 
 // Migrate legacy 'single' variant to 'unlimited' for WotC-era edition cards
@@ -125,6 +128,7 @@ async function migrateCustomSetDefinitions(collectionId) {
 function saveProgress() {
     localStorage.setItem('pokemonVariantProgress', JSON.stringify(collectionProgress));
     if (firebase_ref) {
+        _skipNextFirebaseRender = true;
         firebase_ref.set(collectionProgress);
     }
 }
@@ -183,6 +187,7 @@ function applyVariantToggle(setKey, cardNumber, variant) {
 
     // Save to Firebase
     if (firebase_ref) {
+        _skipNextFirebaseRender = true;
         firebase_ref.set(collectionProgress);
     }
 

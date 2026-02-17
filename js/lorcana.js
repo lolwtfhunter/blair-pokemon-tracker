@@ -425,6 +425,8 @@ async function renderLorcanaCards(setKey) {
 
         grid.appendChild(cardEl);
     });
+
+    applyLorcanaFiltersAndSearch(setKey);
 }
 
 // Toggle Lorcana variant

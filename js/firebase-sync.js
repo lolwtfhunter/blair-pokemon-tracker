@@ -104,6 +104,13 @@ function initializeFirebase(collectionId) {
                 collectionProgress = data;
                 localStorage.setItem('pokemonVariantProgress', JSON.stringify(data));
 
+                // Skip redundant re-render if this callback was triggered by our own write
+                if (typeof _skipNextFirebaseRender !== 'undefined' && _skipNextFirebaseRender) {
+                    _skipNextFirebaseRender = false;
+                    updateSyncStatus('Synced', 'synced');
+                    return;
+                }
+
                 // Re-render all sets with synced data
                 Object.keys(cardSets).forEach(setKey => {
                     renderCards(setKey);
@@ -113,12 +120,23 @@ function initializeFirebase(collectionId) {
                     renderCustomCards(setKey);
                 });
                 updateCustomSetButtonProgress();
+                Object.keys(lorcanaCardSets).forEach(setKey => {
+                    renderLorcanaCards(setKey);
+                });
+                updateLorcanaSetButtonProgress();
 
                 updateSyncStatus('Synced', 'synced');
             } else {
                 // New collection with no data — start fresh (do NOT upload stale localStorage)
                 collectionProgress = {};
                 localStorage.setItem('pokemonVariantProgress', JSON.stringify(collectionProgress));
+
+                // Skip redundant re-render if this callback was triggered by our own write
+                if (typeof _skipNextFirebaseRender !== 'undefined' && _skipNextFirebaseRender) {
+                    _skipNextFirebaseRender = false;
+                    updateSyncStatus('Synced', 'synced');
+                    return;
+                }
 
                 // Ensure cards are rendered even if no Firebase data
                 Object.keys(cardSets).forEach(setKey => {
@@ -129,6 +147,10 @@ function initializeFirebase(collectionId) {
                     renderCustomCards(setKey);
                 });
                 updateCustomSetButtonProgress();
+                Object.keys(lorcanaCardSets).forEach(setKey => {
+                    renderLorcanaCards(setKey);
+                });
+                updateLorcanaSetButtonProgress();
 
                 updateSyncStatus('Synced', 'synced');
             }
