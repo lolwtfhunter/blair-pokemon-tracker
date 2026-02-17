@@ -2,13 +2,10 @@ name: Tests
 
 on:
   push:
-    branches: [main, dev, claude/**]
+    branches: [dev, claude/**]
+  pull_request:
+    branches: [main]
   workflow_dispatch:
-    inputs:
-      branch:
-        description: 'Branch to test'
-        required: false
-        default: 'main'
 
 jobs:
   test:
