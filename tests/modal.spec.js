@@ -114,4 +114,80 @@ test.describe('Card Modal', () => {
     const imgExists = await page.locator('#modalCardImage').count();
     expect(imgExists).toBe(1);
   });
+
+  test('arrow right navigates to next card', async ({ page }) => {
+    const cards = page.locator('#pokemon-tcg-content .set-section.active .card-item');
+    const count = await cards.count();
+    if (count < 2) return;
+
+    await cards.first().locator('.card-img-wrapper').click();
+    const modal = page.locator('#cardModal');
+    await expect(modal).toHaveClass(/visible/);
+    const firstName = await page.locator('#modalCardName').textContent();
+
+    await page.keyboard.press('ArrowRight');
+    await expect(modal).toHaveClass(/visible/);
+    const secondName = await page.locator('#modalCardName').textContent();
+    expect(secondName).not.toBe(firstName);
+  });
+
+  test('arrow left navigates to previous card', async ({ page }) => {
+    const cards = page.locator('#pokemon-tcg-content .set-section.active .card-item');
+    const count = await cards.count();
+    if (count < 2) return;
+
+    // Open first card, go right, then go left — should return to first
+    await cards.first().locator('.card-img-wrapper').click();
+    const modal = page.locator('#cardModal');
+    await expect(modal).toHaveClass(/visible/);
+    const firstName = await page.locator('#modalCardName').textContent();
+
+    await page.keyboard.press('ArrowRight');
+    const secondName = await page.locator('#modalCardName').textContent();
+    expect(secondName).not.toBe(firstName);
+
+    await page.keyboard.press('ArrowLeft');
+    await expect(page.locator('#modalCardName')).toHaveText(firstName);
+  });
+
+  test('navigation stops at first card', async ({ page }) => {
+    await page.locator('#pokemon-tcg-content .set-section.active .card-item').first().locator('.card-img-wrapper').click();
+    const modal = page.locator('#cardModal');
+    await expect(modal).toHaveClass(/visible/);
+    const firstName = await page.locator('#modalCardName').textContent();
+
+    await page.keyboard.press('ArrowLeft');
+    await expect(page.locator('#modalCardName')).toHaveText(firstName);
+  });
+
+  test('navigation stops at last card', async ({ page }) => {
+    const cards = page.locator('#pokemon-tcg-content .set-section.active .card-item');
+    const count = await cards.count();
+    if (count < 2) return;
+
+    // Open last card
+    await cards.last().locator('.card-img-wrapper').click();
+    const modal = page.locator('#cardModal');
+    await expect(modal).toHaveClass(/visible/);
+    const lastName = await page.locator('#modalCardName').textContent();
+
+    await page.keyboard.press('ArrowRight');
+    await expect(page.locator('#modalCardName')).toHaveText(lastName);
+  });
+
+  test('navigateModal function advances to next card', async ({ page }) => {
+    const cards = page.locator('#pokemon-tcg-content .set-section.active .card-item');
+    const count = await cards.count();
+    if (count < 2) return;
+
+    await cards.first().locator('.card-img-wrapper').click();
+    const modal = page.locator('#cardModal');
+    await expect(modal).toHaveClass(/visible/);
+    const firstName = await page.locator('#modalCardName').textContent();
+
+    // Call navigateModal(1) directly — same function swipe handler invokes
+    await page.evaluate(() => window.navigateModal(1));
+    const secondName = await page.locator('#modalCardName').textContent();
+    expect(secondName).not.toBe(firstName);
+  });
 });

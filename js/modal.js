@@ -1,5 +1,9 @@
 // Card detail modal functions
 
+// Modal navigation state
+let modalSetKey = null;
+let modalCardNumber = null;
+
 // Card Detail Modal Functions
 window.openCardModal = function(setKey, cardNumber) {
     let setData, card, variants, setName, isLorcana = false;
@@ -25,6 +29,9 @@ window.openCardModal = function(setKey, cardNumber) {
     }
 
     if (!card) return;
+
+    modalSetKey = setKey;
+    modalCardNumber = cardNumber;
 
     // Get modal elements
     const modal = document.getElementById('cardModal');
@@ -231,6 +238,8 @@ window.openCardModal = function(setKey, cardNumber) {
 window.closeCardModal = function() {
     const modal = document.getElementById('cardModal');
     modal.classList.remove('visible');
+    modalSetKey = null;
+    modalCardNumber = null;
 };
 
 // Toggle variant from modal (Pokemon/Custom)
@@ -253,9 +262,52 @@ document.addEventListener('click', function(e) {
     }
 });
 
-// Close modal with ESC key
+// Navigate to adjacent card in the current set
+window.navigateModal = function navigateModal(direction) {
+    if (!modalSetKey || modalCardNumber == null) return;
+
+    let cards;
+    if (lorcanaCardSets[modalSetKey]) {
+        cards = lorcanaCardSets[modalSetKey].cards;
+    } else if (modalSetKey.startsWith('custom-')) {
+        const customKey = modalSetKey.replace('custom-', '');
+        cards = customCardSets[customKey] ? customCardSets[customKey].cards : null;
+    } else {
+        cards = cardSets[modalSetKey] ? cardSets[modalSetKey].cards : null;
+    }
+    if (!cards) return;
+
+    const currentIndex = cards.findIndex(c => c.number === modalCardNumber);
+    if (currentIndex === -1) return;
+
+    const newIndex = currentIndex + direction;
+    if (newIndex < 0 || newIndex >= cards.length) return;
+
+    openCardModal(modalSetKey, cards[newIndex].number);
+};
+
+// Touch swipe navigation on modal content
+let touchStartX = 0;
+const modalContent = document.querySelector('.card-modal-content');
+if (modalContent) {
+    modalContent.addEventListener('touchstart', function(e) {
+        touchStartX = e.changedTouches[0].clientX;
+    }, { passive: true });
+    modalContent.addEventListener('touchend', function(e) {
+        const dx = e.changedTouches[0].clientX - touchStartX;
+        if (Math.abs(dx) < 50) return;
+        navigateModal(dx < 0 ? 1 : -1);
+    });
+}
+
+// Close modal with ESC key, navigate with arrow keys
 document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
         closeCardModal();
+    }
+    const modal = document.getElementById('cardModal');
+    if (modal && modal.classList.contains('visible')) {
+        if (e.key === 'ArrowLeft') navigateModal(-1);
+        if (e.key === 'ArrowRight') navigateModal(1);
     }
 });
