@@ -33,7 +33,18 @@ function initAuth() {
     auth.onAuthStateChanged(async (user) => {
         if (user) {
             currentUser = user;
-            await handleAuthenticatedUser(user);
+            try {
+                await handleAuthenticatedUser(user);
+            } catch (err) {
+                console.error('Auth setup error:', err);
+                // Still hide modal and render cards so user isn't stuck
+                hideAuthModal();
+                showUserHeader(user.displayName || user.email || 'Trainer');
+                Object.keys(cardSets).forEach(setKey => renderCards(setKey));
+                updateSetButtonProgress();
+                Object.keys(customCardSets).forEach(setKey => renderCustomCards(setKey));
+                updateCustomSetButtonProgress();
+            }
         } else {
             currentUser = null;
             showAuthModal();
@@ -241,11 +252,13 @@ async function handleAuthSubmit() {
     try {
         if (currentAuthView === 'login') {
             await firebase.auth().signInWithEmailAndPassword(email, password);
+            submitBtn.textContent = 'Signing in...';
         } else if (currentAuthView === 'register') {
             const name = document.getElementById('authName').value.trim();
             if (!name) { errorEl.textContent = 'Please enter a display name.'; submitBtn.disabled = false; return; }
             const cred = await firebase.auth().createUserWithEmailAndPassword(email, password);
             await cred.user.updateProfile({ displayName: name });
+            submitBtn.textContent = 'Setting up...';
         } else if (currentAuthView === 'forgot') {
             await firebase.auth().sendPasswordResetEmail(email);
             errorEl.style.color = '#00ff88';
@@ -253,10 +266,14 @@ async function handleAuthSubmit() {
             submitBtn.disabled = false;
             return;
         }
+        // Auth succeeded — onAuthStateChanged will dismiss the modal
     } catch (err) {
         errorEl.style.color = '';
         errorEl.textContent = friendlyAuthError(err.code);
         submitBtn.disabled = false;
+        // Restore original button text
+        if (currentAuthView === 'login') submitBtn.textContent = 'Sign In';
+        else if (currentAuthView === 'register') submitBtn.textContent = 'Create Account';
     }
 }
 
