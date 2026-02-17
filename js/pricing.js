@@ -115,7 +115,20 @@ function getCustomCardPrice(card) {
     const sourceSetId = card.apiId.replace(/-[^-]+$/, '');
     const cacheKey = '_src:' + sourceSetId;
     const cardId = card.apiId.split('-').pop();
-    return getCardPrice(cacheKey, cardId);
+    const price = getCardPrice(cacheKey, cardId);
+    if (price) return price;
+
+    // Suffix-stripping fallback: try without _A/_B suffixes and trailing lowercase letters
+    const stripped = cardId.replace(/_[A-Za-z]+$/, '').replace(/[a-z]+$/, '');
+    if (stripped && stripped !== cardId) {
+        const p = getCardPrice(cacheKey, stripped);
+        if (p) return p;
+        const intVal = parseInt(stripped);
+        if (!isNaN(intVal) && String(intVal) !== stripped) {
+            return getCardPrice(cacheKey, intVal);
+        }
+    }
+    return null;
 }
 
 // ==================== FETCH ORCHESTRATION ====================
@@ -176,10 +189,13 @@ async function ensureCustomSetPricesLoaded(customSetKey) {
             const cacheKey = '_src:' + sourceSetId;
             if (_priceFetchPromises[cacheKey]) return _priceFetchPromises[cacheKey];
 
-            const groupId = TCGCSV_SOURCE_SET_GROUP_IDS[sourceSetId];
+            const groupIdOrIds = TCGCSV_SOURCE_SET_GROUP_IDS[sourceSetId];
+            const groupIds = Array.isArray(groupIdOrIds) ? groupIdOrIds : [groupIdOrIds];
             _priceFetchPromises[cacheKey] = (async () => {
                 try {
-                    await fetchTcgcsvPricesRaw(cacheKey, 3, groupId);
+                    for (const gid of groupIds) {
+                        await fetchTcgcsvPricesRaw(cacheKey, 3, gid);
+                    }
                 } catch (e) {
                     console.warn(`Price fetch failed for source set ${sourceSetId}:`, e);
                 } finally {
@@ -250,6 +266,14 @@ async function fetchTcgcsvPricesRaw(cacheKey, categoryId, groupId) {
             if (intMatch) {
                 keys.push(parseInt(intMatch[1]));
             }
+            // Store prefix before slash for non-numeric prefixed numbers (e.g., "H25/H32" → "H25", "TG05/TG30" → "TG05")
+            const slashIdx = raw.indexOf('/');
+            if (slashIdx > 0) {
+                const prefix = raw.substring(0, slashIdx);
+                if (!/^\d/.test(prefix) && !keys.includes(prefix)) {
+                    keys.push(prefix);
+                }
+            }
             productToCardKeys[product.productId] = keys;
         }
     });
@@ -280,7 +304,7 @@ async function fetchTcgcsvPricesRaw(cacheKey, categoryId, groupId) {
         }
     }
 
-    priceCache[cacheKey] = prices;
+    priceCache[cacheKey] = Object.assign(priceCache[cacheKey] || {}, prices);
     priceCacheTimestamps[cacheKey] = Date.now();
     savePriceCache();
 }
