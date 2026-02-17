@@ -1,4 +1,8 @@
 // @ts-check
+const fs = require('fs');
+const path = require('path');
+
+const PROJECT_ROOT = path.join(__dirname, '..');
 
 // 1x1 transparent PNG (68 bytes) — used to stub image requests and avoid 404s on CI
 const TRANSPARENT_PIXEL = Buffer.from(
@@ -6,14 +10,44 @@ const TRANSPARENT_PIXEL = Buffer.from(
   'Nl7BcQAAAABJRU5ErkJggg==', 'base64'
 );
 
-// Module-level response cache shared across all tests in the same worker.
-// Static files (JS, CSS, JSON) never change during a test run, so caching them
-// eliminates ~18,000 HTTP round-trips to the Python dev server on CI.
-const _responseCache = new Map();
+const MIME_TYPES = {
+  '.html': 'text/html',
+  '.js': 'application/javascript',
+  '.css': 'text/css',
+  '.json': 'application/json',
+  '.png': 'image/png',
+  '.jpg': 'image/jpeg',
+  '.svg': 'image/svg+xml',
+  '.ico': 'image/x-icon',
+};
+
+// In-memory file cache — avoids repeated fs.readFileSync for the same path within a worker
+const _fileCache = new Map();
 
 /**
- * Route handler that blocks external requests, stubs images, and caches
- * localhost responses so each unique URL only hits the web server once per worker.
+ * Read a static file from disk and return a route.fulfill-compatible object.
+ * Returns null if the file doesn't exist.
+ */
+function readStaticFile(pathname) {
+  if (_fileCache.has(pathname)) return _fileCache.get(pathname);
+
+  const filePath = path.join(PROJECT_ROOT, pathname === '/' ? 'index.html' : pathname);
+  try {
+    const body = fs.readFileSync(filePath);
+    const ext = path.extname(filePath);
+    const contentType = MIME_TYPES[ext] || 'application/octet-stream';
+    const entry = { body, headers: { 'content-type': contentType }, status: 200 };
+    _fileCache.set(pathname, entry);
+    return entry;
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * Route handler that blocks external requests, stubs images, and serves
+ * localhost static files directly from disk — bypassing HTTP entirely.
+ * This eliminates ~18,000+ HTTP round-trips to the Python dev server on CI.
  *
  * @param {import('@playwright/test').Page} page
  * @param {function} [middleware] — optional handler for custom responses (e.g. mock APIs).
@@ -39,26 +73,15 @@ async function blockExternalRequests(page, middleware) {
       return route.fulfill({ body: TRANSPARENT_PIXEL, contentType: 'image/png' });
     }
 
-    // Serve cached response if available (same static file across all tests)
+    // Serve static files directly from disk, bypassing HTTP entirely
     const pathname = new URL(url).pathname;
-    if (_responseCache.has(pathname)) {
-      const cached = _responseCache.get(pathname);
+    const cached = readStaticFile(pathname);
+    if (cached) {
       return route.fulfill(cached);
     }
 
-    // First request for this URL — fetch from server, cache, and fulfill
-    try {
-      const response = await route.fetch();
-      const body = await response.body();
-      const status = response.status();
-      const headers = response.headers();
-      const entry = { body, headers, status };
-      _responseCache.set(pathname, entry);
-      return route.fulfill(entry);
-    } catch {
-      // Fallback if fetch fails
-      return route.continue();
-    }
+    // File not on disk — let the web server handle it
+    return route.continue();
   });
 }
 
