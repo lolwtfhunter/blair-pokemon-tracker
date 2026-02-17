@@ -22,6 +22,9 @@ function initAuth() {
         return;
     }
 
+    // Ensure Firebase app is initialized before auth
+    ensureFirebaseApp();
+
     const auth = firebase.auth();
 
     // Enable Google provider

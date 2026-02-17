@@ -1,5 +1,22 @@
 // Firebase initialization and real-time sync
 
+const FIREBASE_CONFIG = {
+    apiKey: "AIzaSyDUZwwGKYfRzvj13bKTkYecIH19ge8oWZw",
+    authDomain: "blair-pokemon-tracker.firebaseapp.com",
+    databaseURL: "https://blair-pokemon-tracker-default-rtdb.firebaseio.com",
+    projectId: "blair-pokemon-tracker",
+    storageBucket: "blair-pokemon-tracker.firebasestorage.app",
+    messagingSenderId: "169585887164",
+    appId: "1:169585887164:web:16d3ff0705153848df8db9"
+};
+
+// Initialize Firebase app (safe to call multiple times)
+function ensureFirebaseApp() {
+    if (!firebase.apps.length) {
+        firebase.initializeApp(FIREBASE_CONFIG);
+    }
+}
+
 // Update sync status
 function updateSyncStatus(text, status) {
     document.getElementById('syncStatus').textContent = text;
@@ -18,20 +35,7 @@ function detachFirebaseListener() {
 // Initialize Firebase and set up real-time sync on a collection
 function initializeFirebase(collectionId) {
     try {
-        const config = {
-            apiKey: "AIzaSyDUZwwGKYfRzvj13bKTkYecIH19ge8oWZw",
-            authDomain: "blair-pokemon-tracker.firebaseapp.com",
-            databaseURL: "https://blair-pokemon-tracker-default-rtdb.firebaseio.com",
-            projectId: "blair-pokemon-tracker",
-            storageBucket: "blair-pokemon-tracker.firebasestorage.app",
-            messagingSenderId: "169585887164",
-            appId: "1:169585887164:web:16d3ff0705153848df8db9"
-        };
-
-        if (!firebase.apps.length) {
-            firebase.initializeApp(config);
-        }
-
+        ensureFirebaseApp();
         firebase_db = firebase.database();
 
         // Detach any existing listener before attaching new one
