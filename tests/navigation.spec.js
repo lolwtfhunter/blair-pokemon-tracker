@@ -20,10 +20,11 @@ test.describe('Navigation', () => {
 
   test('app loads with tabs, block buttons, and Pokemon tab active', async ({ page }) => {
     const tabs = page.locator('.top-tab');
-    await expect(tabs).toHaveCount(3);
+    await expect(tabs).toHaveCount(4);
     await expect(tabs.nth(0)).toHaveText('Pokemon');
     await expect(tabs.nth(1)).toHaveText('Custom Sets');
     await expect(tabs.nth(2)).toHaveText('Disney Lorcana');
+    await expect(tabs.nth(3)).toHaveText('Store Finder');
 
     await expect(page.locator('.top-tab').first()).toHaveClass(/active/);
     await expect(page.locator('#pokemon-tcg-content')).toHaveClass(/active/);
@@ -233,6 +234,13 @@ test.describe('Navigation', () => {
     for (let i = 0; i < count; i++) {
       await expect(blockButtons.nth(i)).toBeVisible();
     }
+  });
+
+  test('Store Finder tab switches and shows content', async ({ page }) => {
+    await page.locator('.top-tab', { hasText: 'Store Finder' }).click();
+    await expect(page.locator('#store-finder-content')).toHaveClass(/active/);
+    await expect(page.locator('#pokemon-tcg-content')).not.toHaveClass(/active/);
+    await expect(page.locator('#sfMap')).toBeVisible();
   });
 
   test('custom sets buttons are centered', async ({ page }) => {

@@ -371,7 +371,7 @@ function updateSetButtonProgress() {
 function switchTopTab(tabId) {
     // Update tab buttons
     document.querySelectorAll('.top-tab').forEach(tab => tab.classList.remove('active'));
-    document.querySelector(`.top-tab[onclick="switchTopTab('${tabId}')"]`).classList.add('active');
+    document.querySelector(`.top-tab[data-tab="${tabId}"]`).classList.add('active');
 
     // Update tab content
     document.querySelectorAll('.top-tab-content').forEach(content => content.classList.remove('active'));
