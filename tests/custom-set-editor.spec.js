@@ -1,36 +1,20 @@
 // @ts-check
 const { test, expect } = require('@playwright/test');
+const { setupPage } = require('./helpers');
 
 test.describe('Custom Set Editor', () => {
   test.beforeEach(async ({ page }) => {
-    // Block ALL external requests — only allow localhost
-    await page.route('**/*', route => {
-      const url = route.request().url();
-      if (url.startsWith('http://localhost') || url.startsWith('http://127.0.0.1')) return route.continue();
-      return route.fulfill({ body: '', contentType: 'text/plain' });
-    });
-    await page.addInitScript(() => {
-      window.__TEST_AUTH_USER = { uid: 'test-123', email: 'test@test.com', displayName: 'Test' };
-    });
-    await page.goto('/about.html');
-    await page.evaluate(() => {
-      localStorage.removeItem('pokemonVariantProgress');
-    });
-    await page.goto('/');
-    await page.waitForFunction(() => document.querySelectorAll('.block-btn').length > 0, null, { timeout: 15000 });
-  });
-
-  test('custom sets tab shows set buttons after loading', async ({ page }) => {
+    await setupPage(page);
     await page.locator('.top-tab', { hasText: 'Custom Sets' }).click();
-    await expect(page.locator('#custom-sets-content')).toHaveClass(/active/);
-
-    // Wait for custom sets to load from JSON (test mode)
     await page.waitForFunction(
       () => document.querySelectorAll('#customSetButtons .set-btn').length > 0,
       null,
       { timeout: 10000 }
     );
+  });
 
+  test('custom sets tab shows set buttons after loading', async ({ page }) => {
+    await expect(page.locator('#custom-sets-content')).toHaveClass(/active/);
     const setButtons = page.locator('#customSetButtons .set-btn');
     const count = await setButtons.count();
     // Should have at least 3 legacy sets + 1 "New Set" button
@@ -38,26 +22,12 @@ test.describe('Custom Set Editor', () => {
   });
 
   test('new set button exists when logged in', async ({ page }) => {
-    await page.locator('.top-tab', { hasText: 'Custom Sets' }).click();
-    await page.waitForFunction(
-      () => document.querySelectorAll('#customSetButtons .set-btn').length > 0,
-      null,
-      { timeout: 10000 }
-    );
-
     const newSetBtn = page.locator('.new-set-btn');
     await expect(newSetBtn).toBeVisible();
     await expect(newSetBtn).toContainText('New Set');
   });
 
   test('clicking new set opens editor modal', async ({ page }) => {
-    await page.locator('.top-tab', { hasText: 'Custom Sets' }).click();
-    await page.waitForFunction(
-      () => document.querySelectorAll('#customSetButtons .set-btn').length > 0,
-      null,
-      { timeout: 10000 }
-    );
-
     await page.locator('.new-set-btn').click();
     await expect(page.locator('#customSetEditorModal')).toBeVisible();
     await expect(page.locator('#cseSetName')).toBeVisible();
@@ -65,13 +35,6 @@ test.describe('Custom Set Editor', () => {
   });
 
   test('editor navigates between meta and card picker steps', async ({ page }) => {
-    await page.locator('.top-tab', { hasText: 'Custom Sets' }).click();
-    await page.waitForFunction(
-      () => document.querySelectorAll('#customSetButtons .set-btn').length > 0,
-      null,
-      { timeout: 10000 }
-    );
-
     await page.locator('.new-set-btn').click();
     await expect(page.locator('#cseStepMeta')).toHaveClass(/active/);
 
@@ -88,13 +51,6 @@ test.describe('Custom Set Editor', () => {
   });
 
   test('editor requires name before proceeding', async ({ page }) => {
-    await page.locator('.top-tab', { hasText: 'Custom Sets' }).click();
-    await page.waitForFunction(
-      () => document.querySelectorAll('#customSetButtons .set-btn').length > 0,
-      null,
-      { timeout: 10000 }
-    );
-
     await page.locator('.new-set-btn').click();
     // Don't fill name, try to proceed
     await page.locator('.cse-btn.primary', { hasText: 'Next: Add Cards' }).click();
@@ -105,29 +61,14 @@ test.describe('Custom Set Editor', () => {
   });
 
   test('close button closes editor modal', async ({ page }) => {
-    await page.locator('.top-tab', { hasText: 'Custom Sets' }).click();
-    await page.waitForFunction(
-      () => document.querySelectorAll('#customSetButtons .set-btn').length > 0,
-      null,
-      { timeout: 10000 }
-    );
-
     await page.locator('.new-set-btn').click();
     await expect(page.locator('#customSetEditorModal')).toBeVisible();
 
     await page.locator('.cse-close').click();
-    await page.waitForTimeout(300);
     await expect(page.locator('#customSetEditorModal')).toHaveCount(0);
   });
 
   test('edit and delete buttons appear on set buttons', async ({ page }) => {
-    await page.locator('.top-tab', { hasText: 'Custom Sets' }).click();
-    await page.waitForFunction(
-      () => document.querySelectorAll('#customSetButtons .set-btn[data-custom-set-key]').length > 0,
-      null,
-      { timeout: 10000 }
-    );
-
     const editBtns = page.locator('.custom-set-action-btn.edit');
     const deleteBtns = page.locator('.custom-set-action-btn.delete');
     expect(await editBtns.count()).toBeGreaterThanOrEqual(1);
@@ -135,13 +76,6 @@ test.describe('Custom Set Editor', () => {
   });
 
   test('set picker dropdown is populated with official sets', async ({ page }) => {
-    await page.locator('.top-tab', { hasText: 'Custom Sets' }).click();
-    await page.waitForFunction(
-      () => document.querySelectorAll('#customSetButtons .set-btn').length > 0,
-      null,
-      { timeout: 10000 }
-    );
-
     await page.locator('.new-set-btn').click();
     await page.fill('#cseSetName', 'Test');
     await page.locator('.cse-btn.primary', { hasText: 'Next: Add Cards' }).click();

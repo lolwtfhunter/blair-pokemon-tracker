@@ -1,14 +1,10 @@
 // @ts-check
 const { test, expect } = require('@playwright/test');
+const { blockExternalRequests } = require('./helpers');
 
 test.describe('Auth Modal', () => {
   test.beforeEach(async ({ page }) => {
-    // Block ALL external requests — only allow localhost
-    await page.route('**/*', route => {
-      const url = route.request().url();
-      if (url.startsWith('http://localhost') || url.startsWith('http://127.0.0.1')) return route.continue();
-      return route.fulfill({ body: '', contentType: 'text/plain' });
-    });
+    await blockExternalRequests(page);
     // Force auth modal to show by setting a test flag that bypasses Firebase auth
     // and directly calls showAuthModal()
     await page.addInitScript(() => {
@@ -16,25 +12,15 @@ test.describe('Auth Modal', () => {
     });
   });
 
-  test('auth modal renders with sign-in form', async ({ page }) => {
+  test('auth modal renders with correct structure', async ({ page }) => {
     await page.goto('/');
     await page.waitForSelector('.auth-modal', { timeout: 15000 });
     const modal = page.locator('.auth-modal');
     await expect(modal).toBeVisible();
     await expect(modal.locator('.auth-modal-title')).toHaveText('Sign In');
-  });
-
-  test('auth modal has email, password, and submit', async ({ page }) => {
-    await page.goto('/');
-    await page.waitForSelector('.auth-modal', { timeout: 15000 });
     await expect(page.locator('#authEmail')).toBeVisible();
     await expect(page.locator('#authPassword')).toBeVisible();
     await expect(page.locator('#authSubmitBtn')).toBeVisible();
-  });
-
-  test('auth modal has Google sign-in button', async ({ page }) => {
-    await page.goto('/');
-    await page.waitForSelector('.auth-modal', { timeout: 15000 });
     await expect(page.locator('#authGoogleBtn')).toBeVisible();
     await expect(page.locator('#authGoogleBtn')).toContainText('Google');
   });

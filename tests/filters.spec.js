@@ -1,26 +1,6 @@
 // @ts-check
 const { test, expect } = require('@playwright/test');
-
-async function navigateToFirstSet(page) {
-  // Block ALL external requests — only allow localhost. Prevents Firebase sync from ever touching production data.
-  await page.route('**/*', route => {
-    const url = route.request().url();
-    if (url.startsWith('http://localhost') || url.startsWith('http://127.0.0.1')) return route.continue();
-    return route.fulfill({ body: '', contentType: 'text/plain' });
-  });
-  await page.addInitScript(() => {
-    window.__TEST_AUTH_USER = { uid: 'test-123', email: 'test@test.com', displayName: 'Test' };
-  });
-  await page.goto('/about.html');
-  await page.evaluate(() => {
-    localStorage.removeItem('pokemonVariantProgress');
-  });
-  await page.goto('/');
-  await page.waitForFunction(() => document.querySelectorAll('.block-btn').length > 0, null, { timeout: 15000 });
-  await page.locator('.block-btn').first().click();
-  await page.locator('#pokemon-tcg-content .set-buttons.active .set-btn').first().click();
-  await page.waitForSelector('#pokemon-tcg-content .set-section.active .card-item');
-}
+const { navigateToFirstSet } = require('./helpers');
 
 test.describe('Filters', () => {
   test.beforeEach(async ({ page }) => {
@@ -61,20 +41,22 @@ test.describe('Filters', () => {
     const searchInput = page.locator(`${section} .search-input`);
     const clearBtn = page.locator(`${section} .search-clear`);
 
-    // Type to filter
+    // Type to filter — wait for visible count to change
     await searchInput.fill('a');
-    await page.waitForTimeout(200);
-    const visibleAfterSearch = await page.locator(`${section} .card-item:not([style*="display: none"])`).count();
-    expect(visibleAfterSearch).toBeLessThanOrEqual(totalCards);
+    await expect(async () => {
+      const visible = await page.locator(`${section} .card-item:not([style*="display: none"])`).count();
+      expect(visible).toBeLessThanOrEqual(totalCards);
+    }).toPass({ timeout: 3000 });
 
     // Clear button should be visible
     await expect(clearBtn).toHaveClass(/visible/);
 
     // Clear restores all cards
     await clearBtn.click();
-    await page.waitForTimeout(200);
-    const visibleAfterClear = await page.locator(`${section} .card-item:not([style*="display: none"])`).count();
-    expect(visibleAfterClear).toBe(totalCards);
+    await expect(async () => {
+      const visible = await page.locator(`${section} .card-item:not([style*="display: none"])`).count();
+      expect(visible).toBe(totalCards);
+    }).toPass({ timeout: 3000 });
   });
 
   test('rarity pill toggle', async ({ page }) => {

@@ -1,20 +1,17 @@
 // @ts-check
 const { test, expect } = require('@playwright/test');
+const { blockExternalRequests } = require('./helpers');
 
 test.describe('Persistence', () => {
   test('toggle, reload, verify checkbox and progress persist', async ({ page }) => {
-    // Block ALL external requests — only allow localhost. Prevents Firebase sync from ever touching production data.
-    await page.route('**/*', route => {
-      const url = route.request().url();
-      if (url.startsWith('http://localhost') || url.startsWith('http://127.0.0.1')) return route.continue();
-      return route.fulfill({ body: '', contentType: 'text/plain' });
-    });
+    await blockExternalRequests(page);
     await page.addInitScript(() => {
       window.__TEST_AUTH_USER = { uid: 'test-123', email: 'test@test.com', displayName: 'Test' };
-    });
-    await page.goto('/about.html');
-    await page.evaluate(() => {
-      localStorage.clear();
+      // Only clear on first load, not on reload — sessionStorage persists within tab session
+      if (!sessionStorage.getItem('__test_cleared')) {
+        sessionStorage.setItem('__test_cleared', '1');
+        localStorage.clear();
+      }
     });
     await page.goto('/');
     await page.waitForFunction(() => document.querySelectorAll('.block-btn').length > 0, null, { timeout: 15000 });
@@ -28,9 +25,10 @@ test.describe('Persistence', () => {
 
     // Toggle a variant
     const firstCard = page.locator('#pokemon-tcg-content .set-section.active .card-item').first();
-    const variantContainer = firstCard.locator('input[type="checkbox"]').first().locator('..');
+    const checkbox = firstCard.locator('input[type="checkbox"]').first();
+    const variantContainer = checkbox.locator('..');
     await variantContainer.click();
-    await page.waitForTimeout(300);
+    await expect(checkbox).toBeChecked();
 
     // Read progress from the block button
     const blockBtnStats = await page.locator('.block-btn.active .block-btn-stats').textContent();

@@ -1,26 +1,6 @@
 // @ts-check
 const { test, expect } = require('@playwright/test');
-
-async function navigateToFirstSet(page) {
-  // Block ALL external requests — only allow localhost. Prevents Firebase sync from ever touching production data.
-  await page.route('**/*', route => {
-    const url = route.request().url();
-    if (url.startsWith('http://localhost') || url.startsWith('http://127.0.0.1')) return route.continue();
-    return route.fulfill({ body: '', contentType: 'text/plain' });
-  });
-  await page.addInitScript(() => {
-    window.__TEST_AUTH_USER = { uid: 'test-123', email: 'test@test.com', displayName: 'Test' };
-  });
-  await page.goto('/about.html');
-  await page.evaluate(() => {
-    localStorage.removeItem('pokemonVariantProgress');
-  });
-  await page.goto('/');
-  await page.waitForFunction(() => document.querySelectorAll('.block-btn').length > 0, null, { timeout: 15000 });
-  await page.locator('.block-btn').first().click();
-  await page.locator('#pokemon-tcg-content .set-buttons.active .set-btn').first().click();
-  await page.waitForSelector('#pokemon-tcg-content .set-section.active .card-item');
-}
+const { navigateToFirstSet } = require('./helpers');
 
 test.describe('Card Modal', () => {
   test.beforeEach(async ({ page }) => {
@@ -52,12 +32,14 @@ test.describe('Card Modal', () => {
     const wasChecked = await checkbox.isChecked();
 
     await checkbox.click();
-    await page.waitForTimeout(500);
     await expect(page.locator('#cardModal')).toHaveClass(/visible/);
 
     const updatedCheckbox = page.locator('#modalVariantList input[type="checkbox"]').first();
-    const isNowChecked = await updatedCheckbox.isChecked();
-    expect(isNowChecked).not.toBe(wasChecked);
+    if (wasChecked) {
+      await expect(updatedCheckbox).not.toBeChecked();
+    } else {
+      await expect(updatedCheckbox).toBeChecked();
+    }
   });
 
   test('close via close button', async ({ page }) => {

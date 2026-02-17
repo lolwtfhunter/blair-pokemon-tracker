@@ -1,5 +1,6 @@
 // @ts-check
 const { test, expect } = require('@playwright/test');
+const { blockExternalRequests, navigateToCustomSet, TRANSPARENT_PIXEL } = require('./helpers');
 
 // Mock TCGCSV response for a source set with both numeric and alphanumeric card numbers
 const MOCK_PRODUCTS = {
@@ -27,12 +28,18 @@ const MOCK_PRICES = {
 };
 
 /**
- * Set up page with network isolation and mock TCGCSV responses for any source set.
+ * Set up mock TCGCSV route handler that intercepts pricing API calls.
  */
-async function setupWithMockPricing(page) {
-  await page.route('**/*', route => {
+function setupMockPricingRoutes(page) {
+  return page.route('**/*', route => {
     const url = route.request().url();
-    if (url.startsWith('http://localhost') || url.startsWith('http://127.0.0.1')) return route.continue();
+    if (url.startsWith('http://localhost') || url.startsWith('http://127.0.0.1')) {
+      // Stub image requests to avoid 404s
+      if (url.includes('/Images/')) {
+        return route.fulfill({ body: TRANSPARENT_PIXEL, contentType: 'image/png' });
+      }
+      return route.continue();
+    }
     // Mock TCGCSV product/price endpoints
     if (url.includes('tcgcsv.com') && url.includes('/products')) {
       return route.fulfill({ body: JSON.stringify(MOCK_PRODUCTS), contentType: 'application/json' });
@@ -42,11 +49,15 @@ async function setupWithMockPricing(page) {
     }
     return route.fulfill({ body: '', contentType: 'text/plain' });
   });
+}
+
+/**
+ * Setup page with mock pricing routes, test auth, and clear localStorage.
+ */
+async function setupWithMockPricing(page) {
+  await setupMockPricingRoutes(page);
   await page.addInitScript(() => {
     window.__TEST_AUTH_USER = { uid: 'test-123', email: 'test@test.com', displayName: 'Test' };
-  });
-  await page.goto('/about.html');
-  await page.evaluate(() => {
     localStorage.removeItem('pokemonVariantProgress');
     localStorage.removeItem('blair_price_cache');
   });
@@ -54,20 +65,13 @@ async function setupWithMockPricing(page) {
   await page.waitForFunction(() => document.querySelectorAll('.top-tab').length > 0, null, { timeout: 15000 });
 }
 
-async function navigateToCustomSet(page) {
-  await setupWithMockPricing(page);
-  // Switch to Custom Sets tab
-  const customTab = page.locator('.top-tab:has-text("Custom")');
-  await customTab.click();
-  // Wait for custom set buttons to appear and click the first one
-  await page.waitForSelector('#customSetButtons .set-btn', { timeout: 15000 });
-  await page.locator('#customSetButtons .set-btn').first().click();
-  await page.waitForSelector('#custom-sets-grids .set-section.active .card-item', { timeout: 15000 });
+async function navigateToCustomSetWithMockPricing(page) {
+  await navigateToCustomSet(page, setupMockPricingRoutes);
 }
 
 test.describe('Pricing', () => {
   test('custom set cards have price tag elements with data-api-id', async ({ page }) => {
-    await navigateToCustomSet(page);
+    await navigateToCustomSetWithMockPricing(page);
 
     const priceTags = page.locator('#custom-sets-grids .set-section.active .price-tag');
     const count = await priceTags.count();
@@ -80,7 +84,7 @@ test.describe('Pricing', () => {
   });
 
   test('price cache stores both string and integer keys for card numbers', async ({ page }) => {
-    await navigateToCustomSet(page);
+    await navigateToCustomSetWithMockPricing(page);
 
     // Wait for price fetching to complete — poll until cache has _src: entries
     await page.waitForFunction(() => {
@@ -113,7 +117,7 @@ test.describe('Pricing', () => {
   });
 
   test('getCustomCardPrice resolves numeric apiId correctly', async ({ page }) => {
-    await navigateToCustomSet(page);
+    await navigateToCustomSetWithMockPricing(page);
     // Wait for price cache to be populated
     await page.waitForFunction(() => {
       const cache = JSON.parse(localStorage.getItem('blair_price_cache') || '{}');
@@ -134,7 +138,7 @@ test.describe('Pricing', () => {
   });
 
   test('getCustomCardPrice resolves alphanumeric apiId without error', async ({ page }) => {
-    await navigateToCustomSet(page);
+    await navigateToCustomSetWithMockPricing(page);
     // Wait for price cache to be populated
     await page.waitForFunction(() => {
       const cache = JSON.parse(localStorage.getItem('blair_price_cache') || '{}');
@@ -169,7 +173,7 @@ test.describe('Pricing', () => {
   });
 
   test('custom set card modal displays price when available', async ({ page }) => {
-    await navigateToCustomSet(page);
+    await navigateToCustomSetWithMockPricing(page);
 
     // Wait for at least one price tag to become loaded (or timeout gracefully)
     try {

@@ -1,23 +1,10 @@
 // @ts-check
 const { test, expect } = require('@playwright/test');
+const { setupPage } = require('./helpers');
 
 test.describe('Card Rendering', () => {
   test.beforeEach(async ({ page }) => {
-    // Block ALL external requests — only allow localhost. Prevents Firebase sync from ever touching production data.
-    await page.route('**/*', route => {
-      const url = route.request().url();
-      if (url.startsWith('http://localhost') || url.startsWith('http://127.0.0.1')) return route.continue();
-      return route.fulfill({ body: '', contentType: 'text/plain' });
-    });
-    await page.addInitScript(() => {
-      window.__TEST_AUTH_USER = { uid: 'test-123', email: 'test@test.com', displayName: 'Test' };
-    });
-    await page.goto('/about.html');
-    await page.evaluate(() => {
-      localStorage.removeItem('pokemonVariantProgress');
-    });
-    await page.goto('/');
-    await page.waitForFunction(() => document.querySelectorAll('.block-btn').length > 0, null, { timeout: 15000 });
+    await setupPage(page);
   });
 
   test('no cards visible before selecting a set', async ({ page }) => {

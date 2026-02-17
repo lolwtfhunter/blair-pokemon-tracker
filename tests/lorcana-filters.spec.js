@@ -1,31 +1,6 @@
 // @ts-check
 const { test, expect } = require('@playwright/test');
-
-async function navigateToLorcanaSet(page) {
-  // Block ALL external requests — only allow localhost
-  await page.route('**/*', route => {
-    const url = route.request().url();
-    if (url.startsWith('http://localhost') || url.startsWith('http://127.0.0.1')) return route.continue();
-    return route.fulfill({ body: '', contentType: 'text/plain' });
-  });
-  await page.addInitScript(() => {
-    window.__TEST_AUTH_USER = { uid: 'test-123', email: 'test@test.com', displayName: 'Test' };
-  });
-  await page.goto('/about.html');
-  await page.evaluate(() => {
-    localStorage.removeItem('pokemonVariantProgress');
-  });
-  await page.goto('/');
-  await page.waitForFunction(() => document.querySelectorAll('.block-btn').length > 0, null, { timeout: 15000 });
-
-  // Switch to Lorcana tab
-  await page.locator('.top-tab', { hasText: 'Disney Lorcana' }).click();
-  await expect(page.locator('#lorcana-content')).toHaveClass(/active/);
-
-  // Click first Lorcana set button
-  await page.locator('#lorcanaSetButtons .set-btn').first().click();
-  await page.waitForSelector('#lorcana-content .set-section.active .card');
-}
+const { navigateToLorcanaSet } = require('./helpers');
 
 test.describe('Lorcana Filters', () => {
   test.beforeEach(async ({ page }) => {
@@ -49,9 +24,6 @@ test.describe('Lorcana Filters', () => {
     const cardNumber = await firstCard.getAttribute('data-card-number');
     await firstCard.locator('.single-variant').click();
 
-    // Wait for re-render
-    await page.waitForTimeout(300);
-
     // The toggled card should now be hidden (it's complete, filter is Incomplete)
     const toggledCard = page.locator(`${section} .card[data-card-number="${cardNumber}"]`);
     await expect(toggledCard).toHaveCSS('display', 'none');
@@ -74,12 +46,13 @@ test.describe('Lorcana Filters', () => {
     await filterBtns.nth(0).click(); // "All"
     const firstCard = page.locator(`${section} .card`).first();
     await firstCard.locator('.single-variant').click();
-    await page.waitForTimeout(300);
+
+    // Wait for the card to get the completed class
+    await expect(firstCard).toHaveClass(/completed/);
 
     // Now switch to Complete — should show exactly 1 card
     await filterBtns.nth(2).click(); // "Complete"
-    await page.waitForTimeout(200);
-    const visibleComplete = await page.locator(`${section} .card:not([style*="display: none"])`).count();
-    expect(visibleComplete).toBe(1);
+    await expect(filterBtns.nth(2)).toHaveClass(/active/);
+    await expect(page.locator(`${section} .card:not([style*="display: none"])`)).toHaveCount(1);
   });
 });

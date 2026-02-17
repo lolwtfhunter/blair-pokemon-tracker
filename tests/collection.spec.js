@@ -1,26 +1,6 @@
 // @ts-check
 const { test, expect } = require('@playwright/test');
-
-async function navigateToFirstSet(page) {
-  // Block ALL external requests — only allow localhost. Prevents Firebase sync from ever touching production data.
-  await page.route('**/*', route => {
-    const url = route.request().url();
-    if (url.startsWith('http://localhost') || url.startsWith('http://127.0.0.1')) return route.continue();
-    return route.fulfill({ body: '', contentType: 'text/plain' });
-  });
-  await page.addInitScript(() => {
-    window.__TEST_AUTH_USER = { uid: 'test-123', email: 'test@test.com', displayName: 'Test' };
-  });
-  await page.goto('/about.html');
-  await page.evaluate(() => {
-    localStorage.removeItem('pokemonVariantProgress');
-  });
-  await page.goto('/');
-  await page.waitForFunction(() => document.querySelectorAll('.block-btn').length > 0, null, { timeout: 15000 });
-  await page.locator('.block-btn').first().click();
-  await page.locator('#pokemon-tcg-content .set-buttons.active .set-btn').first().click();
-  await page.waitForSelector('#pokemon-tcg-content .set-section.active .card-item');
-}
+const { navigateToFirstSet } = require('./helpers');
 
 test.describe('Collection Management', () => {
   test.beforeEach(async ({ page }) => {
@@ -37,10 +17,8 @@ test.describe('Collection Management', () => {
 
     const variantContainer = checkbox.locator('..');
     await variantContainer.click();
-    await page.waitForTimeout(300);
 
-    const updatedCheckbox = page.locator('#pokemon-tcg-content .set-section.active .card-item').first().locator('input[type="checkbox"]').first();
-    await expect(updatedCheckbox).toBeChecked();
+    await expect(checkbox).toBeChecked();
 
     const updatedStats = await activeSetBtn.locator('.set-btn-stats').textContent();
     expect(updatedStats).not.toBe(initialStats);
@@ -52,9 +30,10 @@ test.describe('Collection Management', () => {
 
     for (let i = 0; i < checkboxCount; i++) {
       const card = page.locator('#pokemon-tcg-content .set-section.active .card-item').first();
-      const container = card.locator('input[type="checkbox"]').nth(i).locator('..');
+      const cb = card.locator('input[type="checkbox"]').nth(i);
+      const container = cb.locator('..');
       await container.click();
-      await page.waitForTimeout(300);
+      await expect(cb).toBeChecked();
     }
 
     const completedCard = page.locator('#pokemon-tcg-content .set-section.active .card-item').first();
@@ -67,9 +46,10 @@ test.describe('Collection Management', () => {
 
     for (let i = 0; i < checkboxCount; i++) {
       const card = page.locator('#pokemon-tcg-content .set-section.active .card-item').first();
-      const container = card.locator('input[type="checkbox"]').nth(i).locator('..');
+      const cb = card.locator('input[type="checkbox"]').nth(i);
+      const container = cb.locator('..');
       await container.click();
-      await page.waitForTimeout(300);
+      await expect(cb).toBeChecked();
     }
 
     const completedCard = page.locator('#pokemon-tcg-content .set-section.active .card-item').first();
