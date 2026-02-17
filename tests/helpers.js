@@ -80,8 +80,8 @@ async function blockExternalRequests(page, middleware) {
       return route.fulfill(cached);
     }
 
-    // File not on disk — let the web server handle it
-    return route.continue();
+    // File not on disk — return 404 (never fall through to Python webserver)
+    return route.fulfill({ status: 404, body: 'Not Found', contentType: 'text/plain' });
   });
 }
 

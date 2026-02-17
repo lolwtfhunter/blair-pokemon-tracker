@@ -5,16 +5,17 @@ module.exports = defineConfig({
   testDir: './tests',
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
-  retries: process.env.CI ? 1 : 0,
+  retries: 0,
   workers: process.env.CI ? 4 : undefined,
   reporter: process.env.CI
     ? [['html', { open: 'never' }], ['json', { outputFile: 'test-results.json' }], ['github']]
     : [['html', { open: 'never' }]],
   timeout: process.env.CI ? 60000 : 30000,
+  globalTimeout: process.env.CI ? 20 * 60 * 1000 : undefined,
   use: {
     baseURL: 'http://localhost:8080',
     screenshot: 'only-on-failure',
-    trace: 'on-first-retry',
+    trace: 'off',
   },
   projects: [
     {
