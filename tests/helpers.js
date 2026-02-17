@@ -1,27 +1,64 @@
 // @ts-check
 
-// 1x1 transparent PNG (68 bytes) — used to stub image requests and avoid 8000+ 404s on CI
+// 1x1 transparent PNG (68 bytes) — used to stub image requests and avoid 404s on CI
 const TRANSPARENT_PIXEL = Buffer.from(
   'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAC0lEQVQI12NgAAIABQAB' +
   'Nl7BcQAAAABJRU5ErkJggg==', 'base64'
 );
 
+// Module-level response cache shared across all tests in the same worker.
+// Static files (JS, CSS, JSON) never change during a test run, so caching them
+// eliminates ~18,000 HTTP round-trips to the Python dev server on CI.
+const _responseCache = new Map();
+
 /**
- * Block all external requests — only allow localhost.
- * Stub local image requests with a transparent pixel to avoid thousands of 404s.
- * Prevents Firebase sync from ever touching production data.
+ * Route handler that blocks external requests, stubs images, and caches
+ * localhost responses so each unique URL only hits the web server once per worker.
+ *
+ * @param {import('@playwright/test').Page} page
+ * @param {function} [middleware] — optional handler for custom responses (e.g. mock APIs).
+ *   Receives (route, url) and should return true if it handled the route, or falsy to continue.
  */
-async function blockExternalRequests(page) {
-  await page.route('**/*', route => {
+async function blockExternalRequests(page, middleware) {
+  await page.route('**/*', async (route) => {
     const url = route.request().url();
-    if (url.startsWith('http://localhost') || url.startsWith('http://127.0.0.1')) {
-      // Stub image requests to /Images/ — these files don't exist in the repo
-      if (url.includes('/Images/')) {
-        return route.fulfill({ body: TRANSPARENT_PIXEL, contentType: 'image/png' });
-      }
+
+    // Custom middleware gets first crack (e.g. TCGCSV mock pricing)
+    if (middleware) {
+      const handled = await middleware(route, url);
+      if (handled) return;
+    }
+
+    // Block all external requests
+    if (!url.startsWith('http://localhost') && !url.startsWith('http://127.0.0.1')) {
+      return route.fulfill({ body: '', contentType: 'text/plain' });
+    }
+
+    // Stub image requests — these files don't exist in the repo
+    if (url.includes('/Images/')) {
+      return route.fulfill({ body: TRANSPARENT_PIXEL, contentType: 'image/png' });
+    }
+
+    // Serve cached response if available (same static file across all tests)
+    const pathname = new URL(url).pathname;
+    if (_responseCache.has(pathname)) {
+      const cached = _responseCache.get(pathname);
+      return route.fulfill(cached);
+    }
+
+    // First request for this URL — fetch from server, cache, and fulfill
+    try {
+      const response = await route.fetch();
+      const body = await response.body();
+      const status = response.status();
+      const headers = response.headers();
+      const entry = { body, headers, status };
+      _responseCache.set(pathname, entry);
+      return route.fulfill(entry);
+    } catch {
+      // Fallback if fetch fails
       return route.continue();
     }
-    return route.fulfill({ body: '', contentType: 'text/plain' });
   });
 }
 
@@ -29,8 +66,8 @@ async function blockExternalRequests(page) {
  * Standard page setup: block external requests, set test auth user,
  * clear localStorage via addInitScript (avoids double-navigation), load app.
  */
-async function setupPage(page) {
-  await blockExternalRequests(page);
+async function setupPage(page, middleware) {
+  await blockExternalRequests(page, middleware);
   await page.addInitScript(() => {
     window.__TEST_AUTH_USER = { uid: 'test-123', email: 'test@test.com', displayName: 'Test' };
     localStorage.removeItem('pokemonVariantProgress');
@@ -63,14 +100,9 @@ async function navigateToLorcanaSet(page) {
 
 /**
  * Setup + navigate to first Custom Set with cards visible.
- * Uses provided route handler (for mock pricing) or default blockExternalRequests.
  */
-async function navigateToCustomSet(page, customRouteSetup) {
-  if (customRouteSetup) {
-    await customRouteSetup(page);
-  } else {
-    await blockExternalRequests(page);
-  }
+async function navigateToCustomSet(page, middleware) {
+  await blockExternalRequests(page, middleware);
   await page.addInitScript(() => {
     window.__TEST_AUTH_USER = { uid: 'test-123', email: 'test@test.com', displayName: 'Test' };
     localStorage.removeItem('pokemonVariantProgress');

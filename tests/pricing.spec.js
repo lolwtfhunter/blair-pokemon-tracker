@@ -1,6 +1,6 @@
 // @ts-check
 const { test, expect } = require('@playwright/test');
-const { blockExternalRequests, navigateToCustomSet, TRANSPARENT_PIXEL } = require('./helpers');
+const { blockExternalRequests, navigateToCustomSet } = require('./helpers');
 
 // Mock TCGCSV response for a source set with both numeric and alphanumeric card numbers
 const MOCK_PRODUCTS = {
@@ -28,34 +28,25 @@ const MOCK_PRICES = {
 };
 
 /**
- * Set up mock TCGCSV route handler that intercepts pricing API calls.
+ * Middleware that intercepts TCGCSV API calls and returns mock data.
+ * Returns true if handled, falsy otherwise so the default handler continues.
  */
-function setupMockPricingRoutes(page) {
-  return page.route('**/*', route => {
-    const url = route.request().url();
-    if (url.startsWith('http://localhost') || url.startsWith('http://127.0.0.1')) {
-      // Stub image requests to avoid 404s
-      if (url.includes('/Images/')) {
-        return route.fulfill({ body: TRANSPARENT_PIXEL, contentType: 'image/png' });
-      }
-      return route.continue();
-    }
-    // Mock TCGCSV product/price endpoints
-    if (url.includes('tcgcsv.com') && url.includes('/products')) {
-      return route.fulfill({ body: JSON.stringify(MOCK_PRODUCTS), contentType: 'application/json' });
-    }
-    if (url.includes('tcgcsv.com') && url.includes('/prices')) {
-      return route.fulfill({ body: JSON.stringify(MOCK_PRICES), contentType: 'application/json' });
-    }
-    return route.fulfill({ body: '', contentType: 'text/plain' });
-  });
+function tcgcsvMiddleware(route, url) {
+  if (url.includes('tcgcsv.com') && url.includes('/products')) {
+    route.fulfill({ body: JSON.stringify(MOCK_PRODUCTS), contentType: 'application/json' });
+    return true;
+  }
+  if (url.includes('tcgcsv.com') && url.includes('/prices')) {
+    route.fulfill({ body: JSON.stringify(MOCK_PRICES), contentType: 'application/json' });
+    return true;
+  }
 }
 
 /**
- * Setup page with mock pricing routes, test auth, and clear localStorage.
+ * Setup page with mock pricing middleware, test auth, and clear localStorage.
  */
 async function setupWithMockPricing(page) {
-  await setupMockPricingRoutes(page);
+  await blockExternalRequests(page, tcgcsvMiddleware);
   await page.addInitScript(() => {
     window.__TEST_AUTH_USER = { uid: 'test-123', email: 'test@test.com', displayName: 'Test' };
     localStorage.removeItem('pokemonVariantProgress');
@@ -66,7 +57,7 @@ async function setupWithMockPricing(page) {
 }
 
 async function navigateToCustomSetWithMockPricing(page) {
-  await navigateToCustomSet(page, setupMockPricingRoutes);
+  await navigateToCustomSet(page, tcgcsvMiddleware);
 }
 
 test.describe('Pricing', () => {
