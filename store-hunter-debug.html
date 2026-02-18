@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Store Hunter Debug</title>
+<style>
+body { font-family: monospace; background: #1a1a2e; color: #e0e0e0; padding: 20px; max-width: 900px; margin: 0 auto; }
+h1 { color: #4cc9f0; }
+.section { background: #16213e; border: 1px solid #333; padding: 15px; margin: 10px 0; border-radius: 8px; }
+.ok { color: #4ade80; } .fail { color: #f87171; } .warn { color: #fbbf24; }
+pre { white-space: pre-wrap; word-break: break-all; background: #0f0f23; padding: 10px; border-radius: 4px; max-height: 400px; overflow-y: auto; }
+button { background: #4cc9f0; color: #000; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; font-size: 16px; margin: 5px; }
+button:hover { background: #7dd3fc; }
+#log { white-space: pre-wrap; }
+</style></head>
+<body>
+<h1>Store Hunter API Diagnostic</h1>
+<p>This page tests the exact same API calls the Store Hunter makes. Open your browser DevTools Console for additional details.</p>
+
+<div class="section">
+<button onclick="runAll()">Run Full Diagnostic (NYC)</button>
+<button onclick="runCustom()">Test Custom Location</button>
+<br><br>
+<label>Address/Zip: <input type="text" id="customAddr" value="10001" style="width:200px; padding:5px;"></label>
+</div>
+
+<div class="section"><div id="log"></div></div>
+
+<script>
+const LOG = document.getElementById('log');
+function log(msg, cls) {
+    const span = document.createElement('span');
+    span.className = cls || '';
+    span.textContent = msg + '\n';
+    LOG.appendChild(span);
+    LOG.scrollTop = LOG.scrollHeight;
+}
+
+const ENDPOINTS = [
+    'https://overpass-api.de/api/interpreter',
+    'https://overpass.kumi.systems/api/interpreter',
+];
+
+function buildQuery(lat, lng, radiusMiles) {
+    const r = Math.round(radiusMiles * 1.60934 * 1000);
+    const types = ['node', 'way', 'rel'];
+    const primaryTags = ['games', 'comic'];
+    const secondaryTags = ['hobby', 'toys', 'anime', 'video_games'];
+    const nameRe = 'card|game|tcg|comic|collect|manga|anime|hobby|pokemon|magic|yugioh|lorcana|digimon';
+
+    const primary = primaryTags.flatMap(t =>
+        types.map(type => `${type}["shop"="${t}"](around:${r},${lat},${lng});`)
+    ).join('');
+    const secondary = secondaryTags.flatMap(t =>
+        types.map(type => `${type}["shop"="${t}"]["name"~"${nameRe}",i](around:${r},${lat},${lng});`)
+    ).join('');
+    return `[out:json][timeout:25];(${primary}${secondary});out center;`;
+}
+
+async function testNominatim(query) {
+    log('\n=== STEP 1: Geocoding "' + query + '" via Nominatim ===');
+    const url = 'https://nominatim.openstreetmap.org/search?q=' + encodeURIComponent(query) + '&format=json&limit=1';
+    log('URL: ' + url);
+    try {
+        const resp = await fetch(url, { headers: { 'Accept': 'application/json' } });
+        log('HTTP Status: ' + resp.status, resp.ok ? 'ok' : 'fail');
+        log('CORS: ' + (resp.headers.get('access-control-allow-origin') || 'not readable'));
+        const data = await resp.json();
+        if (data.length > 0) {
+            log('Result: ' + data[0].display_name, 'ok');
+            log('Coordinates: lat=' + data[0].lat + ' lon=' + data[0].lon, 'ok');
+            return { lat: parseFloat(data[0].lat), lon: parseFloat(data[0].lon) };
+        } else {
+            log('No geocoding results!', 'fail');
+            return null;
+        }
+    } catch (e) {
+        log('GEOCODING ERROR: ' + e.message, 'fail');
+        log('This could be a CORS or network issue.', 'warn');
+        return null;
+    }
+}
+
+async function testOverpassEndpoint(endpoint, query) {
+    log('\n--- Testing endpoint: ' + endpoint + ' ---');
+    const postBody = 'data=' + encodeURIComponent(query);
+    log('POST body size: ' + postBody.length + ' bytes');
+
+    try {
+        const startTime = Date.now();
+        const resp = await fetch(endpoint, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: postBody,
+        });
+        const elapsed = Date.now() - startTime;
+        log('HTTP Status: ' + resp.status + ' (' + elapsed + 'ms)', resp.ok ? 'ok' : 'fail');
+
+        const text = await resp.text();
+        log('Response size: ' + text.length + ' bytes');
+
+        if (!resp.ok) {
+            log('Error response: ' + text.substring(0, 500), 'fail');
+            return null;
+        }
+
+        let data;
+        try {
+            data = JSON.parse(text);
+        } catch (e) {
+            log('JSON PARSE FAILED!', 'fail');
+            log('Raw response (first 500 chars): ' + text.substring(0, 500), 'fail');
+            return null;
+        }
+
+        const elements = data.elements || [];
+        log('Elements returned: ' + elements.length, elements.length > 0 ? 'ok' : 'warn');
+
+        if (elements.length === 0) {
+            log('*** API RETURNED ZERO ELEMENTS ***', 'fail');
+            log('Remark field: ' + (data.remark || 'none'), data.remark ? 'warn' : '');
+            log('Full response: ' + JSON.stringify(data).substring(0, 500));
+            return data;
+        }
+
+        // Breakdown
+        const typeCounts = {};
+        elements.forEach(el => { typeCounts[el.type] = (typeCounts[el.type] || 0) + 1; });
+        log('By type: ' + JSON.stringify(typeCounts));
+
+        let namedCount = 0, hasCoords = 0;
+        elements.forEach(el => {
+            if (el.tags && el.tags.name) namedCount++;
+            if (el.lat != null || (el.center && el.center.lat != null)) hasCoords++;
+        });
+        log('With name: ' + namedCount + '/' + elements.length);
+        log('With coordinates: ' + hasCoords + '/' + elements.length);
+
+        log('\nFirst 10 elements:');
+        elements.slice(0, 10).forEach((el, i) => {
+            const name = (el.tags && el.tags.name) || '[no name]';
+            const shop = (el.tags && el.tags.shop) || '?';
+            const lat = el.lat != null ? el.lat : (el.center ? el.center.lat : '?');
+            const lon = el.lon != null ? el.lon : (el.center ? el.center.lon : '?');
+            log('  [' + i + '] ' + el.type + ' #' + el.id + ': "' + name + '" shop=' + shop + ' at ' + lat + ',' + lon);
+        });
+
+        return data;
+    } catch (e) {
+        log('FETCH ERROR: ' + e.message, 'fail');
+        log('Error type: ' + e.constructor.name, 'fail');
+        if (e.message.includes('CORS') || e.message.includes('NetworkError') || e.message === 'Failed to fetch') {
+            log('>>> This looks like a CORS or network error. <<<', 'warn');
+            log('The Overpass API server may be blocking cross-origin requests,', 'warn');
+            log('or you may be rate-limited (rate-limit responses often lack CORS headers).', 'warn');
+        }
+        return null;
+    }
+}
+
+async function runDiagnostic(lat, lng) {
+    log('\n=== STEP 2: Building Overpass query ===');
+    log('Coordinates: ' + lat + ', ' + lng);
+    log('Radius: 15 miles (24140 meters)');
+
+    const fullQuery = buildQuery(lat, lng, 15);
+    log('Full query length: ' + fullQuery.length + ' chars');
+    log('Query:\n' + fullQuery);
+
+    // Test minimal query first
+    log('\n=== STEP 3A: Minimal query (just node + shop=games) ===');
+    const minQuery = '[out:json][timeout:10];node["shop"="games"](around:24140,' + lat + ',' + lng + ');out;';
+    log('Query: ' + minQuery);
+    for (const ep of ENDPOINTS) {
+        const result = await testOverpassEndpoint(ep, minQuery);
+        if (result && (result.elements || []).length > 0) {
+            log('Minimal query succeeded!', 'ok');
+            break;
+        }
+    }
+
+    // Test full query
+    log('\n=== STEP 3B: Full query (all types) ===');
+    for (const ep of ENDPOINTS) {
+        const result = await testOverpassEndpoint(ep, fullQuery);
+        if (result && (result.elements || []).length > 0) {
+            log('\n*** FULL QUERY SUCCEEDED ***', 'ok');
+            log('The Overpass API IS returning results. If the main app shows nothing,', 'ok');
+            log('the issue is in the JS filtering/display code, not the API.', 'ok');
+            return;
+        }
+    }
+    log('\n*** ALL QUERIES RETURNED 0 RESULTS OR FAILED ***', 'fail');
+    log('Check the errors above to determine the root cause.', 'fail');
+}
+
+async function runAll() {
+    LOG.innerHTML = '';
+    log('=== Store Hunter API Diagnostic ===');
+    log('Date: ' + new Date().toISOString());
+    log('Origin: ' + window.location.origin);
+    log('User-Agent: ' + navigator.userAgent);
+    await runDiagnostic(40.7128, -74.006);
+}
+
+async function runCustom() {
+    LOG.innerHTML = '';
+    log('=== Store Hunter API Diagnostic (Custom Location) ===');
+    const addr = document.getElementById('customAddr').value.trim();
+    if (!addr) { log('Enter an address first!', 'fail'); return; }
+
+    const geo = await testNominatim(addr);
+    if (!geo) {
+        log('\nFalling back to NYC coordinates...', 'warn');
+        await runDiagnostic(40.7128, -74.006);
+    } else {
+        await runDiagnostic(geo.lat, geo.lon);
+    }
+}
+</script>
+</body></html>

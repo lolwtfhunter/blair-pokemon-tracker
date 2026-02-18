@@ -3,7 +3,8 @@ const SF_CONFIG = {
     GOOGLE_API_KEY: '',  // Set to enable Google Places (restrict to your domain in Cloud Console)
     OVERPASS_ENDPOINTS: [
         'https://overpass-api.de/api/interpreter',
-        'https://overpass.kumi.systems/api/interpreter',
+        'https://z.overpass-api.de/api/interpreter',
+        'https://lz4.overpass-api.de/api/interpreter',
     ],
     TILE_URL: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
     TILE_ATTRIBUTION: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
