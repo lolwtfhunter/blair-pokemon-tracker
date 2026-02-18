@@ -1,7 +1,10 @@
 // Store Hunter — find local TCG retailers via Google Places or Overpass/OSM fallback
 const SF_CONFIG = {
     GOOGLE_API_KEY: '',  // Set to enable Google Places (restrict to your domain in Cloud Console)
-    OVERPASS_ENDPOINT: 'https://overpass-api.de/api/interpreter',
+    OVERPASS_ENDPOINTS: [
+        'https://overpass-api.de/api/interpreter',
+        'https://overpass.kumi.systems/api/interpreter',
+    ],
     TILE_URL: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
     TILE_ATTRIBUTION: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
     DEFAULT_CENTER: [39.5, -98.35],  // Continental US center
@@ -255,7 +258,7 @@ function sfSearchGooglePlaces(lat, lng, radiusMeters, onSuccess, onError) {
 
 // --- Overpass / OpenStreetMap ---
 
-function sfSearchOverpass(lat, lng, radiusKm, onSuccess, onError) {
+function sfBuildOverpassQuery(lat, lng, radiusKm) {
     const r = radiusKm * 1000;
     // Primary tags: include all results (high confidence for TCG)
     // Use nwr (node/way/relation) to catch stores mapped as building outlines
@@ -268,52 +271,81 @@ function sfSearchOverpass(lat, lng, radiusKm, onSuccess, onError) {
         `nwr["shop"="${t}"]["name"~"${nameRe}",i](around:${r},${lat},${lng});`
     ).join('');
     // out center provides lat/lng for way and relation elements
-    const query = `[out:json][timeout:15];(${primary}${secondary});out center;`;
+    return `[out:json][timeout:25];(${primary}${secondary});out center;`;
+}
 
-    fetch(SF_CONFIG.OVERPASS_ENDPOINT, {
+function sfParseOverpassResults(data, lat, lng) {
+    const seen = new Set();
+    const stores = [];
+    (data.elements || []).forEach(el => {
+        const name = (el.tags && el.tags.name) || '';
+        if (!name) return;
+        // Exclude obvious non-TCG businesses
+        if (SF_CONFIG.EXCLUDE_NAME_PATTERNS.test(name)) return;
+        // For way/relation elements, coordinates are in el.center; for nodes, directly on el
+        const elLat = el.lat != null ? el.lat : (el.center && el.center.lat);
+        const elLon = el.lon != null ? el.lon : (el.center && el.center.lon);
+        if (elLat == null || elLon == null) return;
+        // Deduplicate by name + rounded coords
+        const dedupeKey = name.toLowerCase() + '|' + elLat.toFixed(3) + '|' + elLon.toFixed(3);
+        if (seen.has(dedupeKey)) return;
+        seen.add(dedupeKey);
+
+        const addr = [el.tags['addr:street'], el.tags['addr:city'], el.tags['addr:state']].filter(Boolean).join(', ');
+        stores.push({
+            id: 'osm-' + el.id,
+            name: name,
+            address: addr || '',
+            lat: elLat,
+            lng: elLon,
+            distance: sfHaversineKm(lat, lng, elLat, elLon),
+            hours: (el.tags && el.tags.opening_hours) || '',
+            website: (el.tags && el.tags.website) || '',
+            source: 'osm',
+        });
+    });
+    return stores;
+}
+
+function sfFetchOverpassEndpoint(endpoint, query) {
+    return fetch(endpoint, {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: 'data=' + encodeURIComponent(query),
-    })
-    .then(resp => {
-        if (!resp.ok) throw new Error('HTTP ' + resp.status);
+    }).then(resp => {
+        if (!resp.ok) throw new Error('Overpass HTTP ' + resp.status + ' from ' + endpoint);
         return resp.json();
-    })
-    .then(data => {
-        const seen = new Set();
-        const stores = [];
-        (data.elements || []).forEach(el => {
-            const name = (el.tags && el.tags.name) || '';
-            if (!name) return;
-            // Exclude obvious non-TCG businesses
-            if (SF_CONFIG.EXCLUDE_NAME_PATTERNS.test(name)) return;
-            // For way/relation elements, coordinates are in el.center; for nodes, directly on el
-            const elLat = el.lat != null ? el.lat : (el.center && el.center.lat);
-            const elLon = el.lon != null ? el.lon : (el.center && el.center.lon);
-            if (elLat == null || elLon == null) return;
-            // Deduplicate by name + rounded coords
-            const dedupeKey = name.toLowerCase() + '|' + elLat.toFixed(3) + '|' + elLon.toFixed(3);
-            if (seen.has(dedupeKey)) return;
-            seen.add(dedupeKey);
-
-            const addr = [el.tags['addr:street'], el.tags['addr:city'], el.tags['addr:state']].filter(Boolean).join(', ');
-            stores.push({
-                id: 'osm-' + el.id,
-                name: name,
-                address: addr || '',
-                lat: elLat,
-                lng: elLon,
-                distance: sfHaversineKm(lat, lng, elLat, elLon),
-                hours: (el.tags && el.tags.opening_hours) || '',
-                website: (el.tags && el.tags.website) || '',
-                source: 'osm',
-            });
-        });
-        onSuccess(stores);
-    })
-    .catch(() => {
-        onError();
     });
+}
+
+function sfSearchOverpass(lat, lng, radiusKm, onSuccess, onError) {
+    const query = sfBuildOverpassQuery(lat, lng, radiusKm);
+    const endpoints = SF_CONFIG.OVERPASS_ENDPOINTS;
+
+    // Try each endpoint in order; on failure, fall through to the next
+    let attempt = 0;
+    function tryNext(lastError) {
+        if (attempt >= endpoints.length) {
+            console.error('[Store Hunter] All Overpass endpoints failed. Last error:', lastError);
+            sfShowStatus('Store search service is temporarily unavailable. Please try again in a moment.', 'error');
+            onError();
+            return;
+        }
+        const endpoint = endpoints[attempt++];
+        console.log('[Store Hunter] Querying', endpoint);
+        sfFetchOverpassEndpoint(endpoint, query)
+            .then(data => {
+                console.log('[Store Hunter] Got', (data.elements || []).length, 'raw elements from', endpoint);
+                const stores = sfParseOverpassResults(data, lat, lng);
+                console.log('[Store Hunter]', stores.length, 'stores after filtering');
+                onSuccess(stores);
+            })
+            .catch(err => {
+                console.warn('[Store Hunter] Endpoint failed:', endpoint, err.message || err);
+                tryNext(err);
+            });
+    }
+    tryNext(null);
 }
 
 // --- Display results ---
