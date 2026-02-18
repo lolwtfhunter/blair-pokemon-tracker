@@ -13,7 +13,7 @@ const SF_CONFIG = {
     // High-confidence shop types (almost always sell TCGs)
     OVERPASS_PRIMARY_TAGS: ['games', 'comic'],
     // Broad shop types — only included when name matches TCG keywords
-    OVERPASS_SECONDARY_TAGS: ['hobby', 'toys', 'anime'],
+    OVERPASS_SECONDARY_TAGS: ['hobby', 'toys', 'anime', 'video_games'],
     // Regex for name filtering on secondary tags (case-insensitive in Overpass)
     OVERPASS_NAME_REGEX: 'card|game|tcg|comic|collect|manga|anime|hobby|pokemon|magic|yugioh|lorcana|digimon',
     // Post-filter: exclude stores whose names strongly indicate non-TCG businesses
@@ -259,16 +259,17 @@ function sfSearchGooglePlaces(lat, lng, radiusMeters, onSuccess, onError) {
 // --- Overpass / OpenStreetMap ---
 
 function sfBuildOverpassQuery(lat, lng, radiusKm) {
-    const r = radiusKm * 1000;
+    const r = Math.round(radiusKm * 1000);
+    // Use explicit node/way/rel (not nwr shorthand) for maximum API compatibility
+    const types = ['node', 'way', 'rel'];
     // Primary tags: include all results (high confidence for TCG)
-    // Use nwr (node/way/relation) to catch stores mapped as building outlines
-    const primary = SF_CONFIG.OVERPASS_PRIMARY_TAGS.map(t =>
-        `nwr["shop"="${t}"](around:${r},${lat},${lng});`
+    const primary = SF_CONFIG.OVERPASS_PRIMARY_TAGS.flatMap(t =>
+        types.map(type => `${type}["shop"="${t}"](around:${r},${lat},${lng});`)
     ).join('');
     // Secondary tags: only include if name matches TCG-related keywords
     const nameRe = SF_CONFIG.OVERPASS_NAME_REGEX;
-    const secondary = SF_CONFIG.OVERPASS_SECONDARY_TAGS.map(t =>
-        `nwr["shop"="${t}"]["name"~"${nameRe}",i](around:${r},${lat},${lng});`
+    const secondary = SF_CONFIG.OVERPASS_SECONDARY_TAGS.flatMap(t =>
+        types.map(type => `${type}["shop"="${t}"]["name"~"${nameRe}",i](around:${r},${lat},${lng});`)
     ).join('');
     // out center provides lat/lng for way and relation elements
     return `[out:json][timeout:25];(${primary}${secondary});out center;`;
@@ -313,8 +314,14 @@ function sfFetchOverpassEndpoint(endpoint, query) {
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: 'data=' + encodeURIComponent(query),
     }).then(resp => {
-        if (!resp.ok) throw new Error('Overpass HTTP ' + resp.status + ' from ' + endpoint);
-        return resp.json();
+        if (!resp.ok) throw new Error('Overpass HTTP ' + resp.status);
+        return resp.text().then(text => {
+            try {
+                return JSON.parse(text);
+            } catch (e) {
+                throw new Error('Invalid JSON response: ' + text.substring(0, 200));
+            }
+        });
     });
 }
 
