@@ -258,15 +258,17 @@ function sfSearchGooglePlaces(lat, lng, radiusMeters, onSuccess, onError) {
 function sfSearchOverpass(lat, lng, radiusKm, onSuccess, onError) {
     const r = radiusKm * 1000;
     // Primary tags: include all results (high confidence for TCG)
+    // Use nwr (node/way/relation) to catch stores mapped as building outlines
     const primary = SF_CONFIG.OVERPASS_PRIMARY_TAGS.map(t =>
-        `node["shop"="${t}"](around:${r},${lat},${lng});`
+        `nwr["shop"="${t}"](around:${r},${lat},${lng});`
     ).join('');
     // Secondary tags: only include if name matches TCG-related keywords
     const nameRe = SF_CONFIG.OVERPASS_NAME_REGEX;
     const secondary = SF_CONFIG.OVERPASS_SECONDARY_TAGS.map(t =>
-        `node["shop"="${t}"]["name"~"${nameRe}",i](around:${r},${lat},${lng});`
+        `nwr["shop"="${t}"]["name"~"${nameRe}",i](around:${r},${lat},${lng});`
     ).join('');
-    const query = `[out:json][timeout:15];(${primary}${secondary});out body;`;
+    // out center provides lat/lng for way and relation elements
+    const query = `[out:json][timeout:15];(${primary}${secondary});out center;`;
 
     fetch(SF_CONFIG.OVERPASS_ENDPOINT, {
         method: 'POST',
@@ -285,8 +287,12 @@ function sfSearchOverpass(lat, lng, radiusKm, onSuccess, onError) {
             if (!name) return;
             // Exclude obvious non-TCG businesses
             if (SF_CONFIG.EXCLUDE_NAME_PATTERNS.test(name)) return;
+            // For way/relation elements, coordinates are in el.center; for nodes, directly on el
+            const elLat = el.lat != null ? el.lat : (el.center && el.center.lat);
+            const elLon = el.lon != null ? el.lon : (el.center && el.center.lon);
+            if (elLat == null || elLon == null) return;
             // Deduplicate by name + rounded coords
-            const dedupeKey = name.toLowerCase() + '|' + el.lat.toFixed(3) + '|' + el.lon.toFixed(3);
+            const dedupeKey = name.toLowerCase() + '|' + elLat.toFixed(3) + '|' + elLon.toFixed(3);
             if (seen.has(dedupeKey)) return;
             seen.add(dedupeKey);
 
@@ -295,9 +301,9 @@ function sfSearchOverpass(lat, lng, radiusKm, onSuccess, onError) {
                 id: 'osm-' + el.id,
                 name: name,
                 address: addr || '',
-                lat: el.lat,
-                lng: el.lon,
-                distance: sfHaversineKm(lat, lng, el.lat, el.lon),
+                lat: elLat,
+                lng: elLon,
+                distance: sfHaversineKm(lat, lng, elLat, elLon),
                 hours: (el.tags && el.tags.opening_hours) || '',
                 website: (el.tags && el.tags.website) || '',
                 source: 'osm',
