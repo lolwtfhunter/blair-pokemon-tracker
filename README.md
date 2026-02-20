@@ -71,8 +71,8 @@ The First Chapter, Rise of the Floodborn, Into the Inklands, Ursula's Return, Sh
 - **Images:** pokemontcg.io, Scrydex, TCGdex, Dreamborn, Lorcast
 - **Pricing:** TCGCSV (CDN-backed TCGPlayer data)
 - **Hosting:** GitHub Pages
-- **Testing:** Playwright (Chromium + WebKit, desktop + mobile)
-- **CI/CD:** GitHub Actions
+- **Testing:** Playwright (Chromium desktop + mobile locally; WebKit iphone/iPad locally)
+- **CI/CD:** GitHub Actions (chromium-only for speed; full browser matrix runs locally)
 
 ## Project Structure
 
@@ -94,7 +94,7 @@ blair-tcg-tracker/
 │   │   └── custom-sets/       3 curated cross-era sets
 │   └── lorcana/
 │       └── sets/              11 Lorcana set JSON files
-├── tests/                     Playwright test suite (100 tests)
+├── tests/                     Playwright test suite (58 tests × 4 browser projects)
 ├── docs/                      Reference documentation
 │   ├── ADDING_NEW_SETS.md     Guide for adding new sets or TCGs
 │   ├── CARD_GAME_LOGIC.md     Rarity, variant, and image URL reference
@@ -115,24 +115,40 @@ blair-tcg-tracker/
 ```bash
 npm install                     # first time — installs Playwright
 npx playwright install          # first time — downloads browsers
-npm test                        # run all 100 tests headless
+npm test                        # run all tests headless (232 locally, 116 on CI)
 npm run test:headed             # run with visible browser
 npm run test:ui                 # interactive Playwright UI
 ```
 
-Tests auto-start a local server. All tests block external network requests to protect production data.
+Tests auto-start a local server. All tests block external network requests and serve static files directly from disk (bypassing HTTP) for fast, isolated execution.
 
-### Test Coverage (100 tests)
+### Test Coverage (58 tests × 4 browser projects = 232 locally)
 
 | File | Tests | Covers |
 |------|-------|--------|
-| `navigation.spec.js` | 4 | Tab switching, block/set selection |
+| `auth.spec.js` | 5 | Auth modal, login/logout UI |
+| `navigation.spec.js` | 14 | Tab switching, block/set selection, mobile hide/show |
 | `card-rendering.spec.js` | 2 | Card rendering, metadata, variants |
 | `filters.spec.js` | 3 | Completion filters, rarity toggles, search |
-| `modal.spec.js` | 5 | Card detail modal |
+| `modal.spec.js` | 11 | Card detail modal, navigation, variant toggle |
 | `collection.spec.js` | 3 | Variant toggle, progress, soft-lock |
 | `persistence.spec.js` | 1 | localStorage across reload |
 | `pricing.spec.js` | 7 | Price tags, caching, modal prices |
+| `lorcana-filters.spec.js` | 2 | Lorcana card toggle, filters |
+| `custom-set-editor.spec.js` | 10 | Custom set CRUD, editor modal |
+
+Shared test utilities live in `tests/helpers.js` (route handling, page setup, navigation).
+
+### Browser Matrix
+
+| Project | Engine | Viewport | Runs on CI | Runs locally |
+|---------|--------|----------|------------|--------------|
+| chromium-desktop | Chromium | 1280×720 | Yes | Yes |
+| chromium-mobile | Chromium | 412×839 (Pixel 7) | Yes | Yes |
+| iphone-12 | WebKit | 390×844 | No (too slow) | Yes |
+| ipad | WebKit | 810×1080 | No (too slow) | Yes |
+
+CI runs 116 tests (chromium desktop + mobile) in ~6 minutes. Locally, all 232 tests (including WebKit) run in ~1 minute.
 
 ### Adding New Sets
 

@@ -774,45 +774,57 @@ The project uses Playwright for headless UI/functional testing across Chromium a
 ```bash
 npm install                     # first time only
 npx playwright install          # first time only
-npm test                        # headless (Chromium + WebKit, desktop + mobile)
+npm test                        # headless (232 tests locally, 116 on CI)
 npm run test:headed             # visible browsers
 npm run test:ui                 # interactive Playwright UI
 npm run test:report             # open HTML report
 ```
 
-**Test suite** (`tests/` directory — 25 tests × 4 browsers = 100 runs):
+**Test suite** (`tests/` directory — 58 tests × 4 browser projects = 232 runs locally):
 | File | Tests | Coverage |
 |------|-------|----------|
-| `navigation.spec.js` | 4 | Tab switching, block/set selection, deselect |
+| `auth.spec.js` | 5 | Auth modal, login/logout UI |
+| `navigation.spec.js` | 14 | Tab switching, block/set selection, mobile hide/show |
 | `card-rendering.spec.js` | 2 | Cards on set select, metadata, variants |
 | `filters.spec.js` | 3 | All/Incomplete/Complete, rarity toggles, search |
-| `modal.spec.js` | 5 | Open/close, card details, variant toggle |
+| `modal.spec.js` | 11 | Open/close, card details, navigation, variant toggle |
 | `collection.spec.js` | 3 | Variant toggle, progress bar, soft-lock toast |
 | `persistence.spec.js` | 1 | localStorage save/restore across reload |
 | `pricing.spec.js` | 7 | Custom set price tags, alphanumeric card numbers, cache keys, modal price |
+| `lorcana-filters.spec.js` | 2 | Lorcana card toggle, filters |
+| `custom-set-editor.spec.js` | 10 | Custom set CRUD, editor modal |
 
 **Browser/viewport matrix:**
-- Chromium (Desktop, 1280x720)
-- WebKit (Desktop Safari, 1280x720)
-- iPhone 12 (390x844)
-- iPad gen 7 (810x1080)
+- Chromium Desktop (1280×720) — CI + local
+- Chromium Mobile / Pixel 7 (412×839) — CI + local
+- iPhone 12 / WebKit (390×844) — local only
+- iPad gen 7 / WebKit (810×1080) — local only
 
-**CI:** `.github/workflows/test.yml` runs on push to `dev`. HTML report is uploaded as a downloadable Actions artifact.
+WebKit projects are excluded from CI because WebKit on Linux runners is too slow and flaky. All WebKit-specific bugs are caught during local development (224 tests in ~1 minute).
 
-**Test Infrastructure — Network Isolation:**
+**CI:** `.github/workflows/test.yml` runs on push to `dev` and `claude/**` branches (not `main`). Can also be triggered manually via `workflow_dispatch`. HTML report is uploaded as a downloadable Actions artifact. Circuit breaker stops CI after 3 consecutive failures on the same branch.
 
-Every test file uses a catch-all `page.route()` that blocks ALL non-localhost HTTP requests. This is the primary safeguard preventing tests from syncing to Firebase:
+**Test Infrastructure — Network Isolation & Static Serving:**
+
+All test files use shared helpers from `tests/helpers.js`. The `blockExternalRequests()` function sets up a catch-all `page.route()` that:
+
+1. **Blocks all external requests** — prevents Firebase sync, CDN image loads, and any other external traffic
+2. **Stubs image requests** — returns a 1×1 transparent PNG for `/Images/` paths (card images that don't exist in the repo)
+3. **Serves static files from disk** — uses `fs.readFileSync` to serve HTML, JS, CSS, and JSON files directly, bypassing the Python HTTP server entirely. This eliminates ~18,000+ HTTP round-trips per test run.
+4. **Returns 404 for missing files** — never falls through to the Python webserver, preventing potential hangs on CI
 
 ```js
-// Block ALL external requests — only allow localhost.
-await page.route('**/*', route => {
-  const url = route.request().url();
-  if (url.startsWith('http://localhost') || url.startsWith('http://127.0.0.1')) return route.continue();
-  return route.fulfill({ body: '', contentType: 'text/plain' });
+// Simplified flow inside blockExternalRequests():
+await page.route('**/*', async (route) => {
+  // 1. Custom middleware (e.g. mock pricing API)
+  // 2. Block external requests
+  // 3. Stub /Images/ paths with transparent PNG
+  // 4. Serve static files from disk via readStaticFile()
+  // 5. Return 404 for anything not found
 });
 ```
 
-This pattern must be applied **before** navigating to any page. It intercepts Firebase SDK loads, API calls, CDN image requests, and all other external traffic. Tests set the app's sync code in localStorage so the UI loads correctly, but the blocked network ensures no data ever reaches Firebase.
+This pattern is applied **before** navigating to any page via `setupPage()` or `navigateToFirstSet()` etc. The helpers also support middleware for custom responses (e.g., mock TCGCSV pricing data in `pricing.spec.js`).
 
 **Rules for test authors:**
 1. **Never remove or weaken the catch-all route block** — it prevents production data loss
