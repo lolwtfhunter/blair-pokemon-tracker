@@ -205,12 +205,14 @@ window.openCardModal = function(setKey, cardNumber) {
             card.variants.forEach(v => {
                 const isChecked = cardProgress[v.rarity] || false;
                 const displayNum = v.originalNumber ? ` #${v.originalNumber}` : '';
+                const vInfo = variantLabels[v.rarity];
+                const displayLabel = vInfo ? `${vInfo.icon} ${vInfo.label}` : getRarityDisplay(v.rarity);
                 const variantItem = document.createElement('div');
                 variantItem.className = 'card-modal-variant-item' + (isChecked ? ' collected' : '');
                 variantItem.innerHTML = `
                     <input type="checkbox" class="card-modal-variant-checkbox" ${isChecked ? 'checked' : ''}
                            onchange="toggleVariantFromModal('${setKey}', ${cardNumber}, '${v.rarity}')">
-                    <label>${getRarityDisplay(v.rarity)}${displayNum}</label>
+                    <label>${displayLabel}${displayNum}</label>
                 `;
                 modalVariantList.appendChild(variantItem);
             });

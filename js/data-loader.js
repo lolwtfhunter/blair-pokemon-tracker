@@ -20,6 +20,7 @@ async function loadSingleSet(setKey) {
                 type: cardData.type || 'pokemon'
             };
             if (cardData.imageId) cardObj.imageId = cardData.imageId;
+            if (cardData.ballPattern) cardObj.ballPattern = cardData.ballPattern;
             cards.push(cardObj);
         }
     }

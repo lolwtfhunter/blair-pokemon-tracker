@@ -16,12 +16,14 @@
     "1": {
       "name": "Erika's Oddish",
       "rarity": "common",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "pokeball-pattern"
     },
     "2": {
       "name": "Erika's Gloom",
       "rarity": "uncommon",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "pokeball-pattern"
     },
     "3": {
       "name": "Erika's Vileplume ex",
@@ -31,32 +33,38 @@
     "4": {
       "name": "Erika's Bellsprout",
       "rarity": "common",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "pokeball-pattern"
     },
     "5": {
       "name": "Erika's Weepinbell",
       "rarity": "uncommon",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "pokeball-pattern"
     },
     "6": {
       "name": "Erika's Victreebel",
       "rarity": "rare",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "pokeball-pattern"
     },
     "7": {
       "name": "Erika's Tangela",
       "rarity": "common",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "pokeball-pattern"
     },
     "8": {
       "name": "Chikorita",
       "rarity": "common",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "friend-ball"
     },
     "9": {
       "name": "Bayleef",
       "rarity": "uncommon",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "friend-ball"
     },
     "10": {
       "name": "Mega Meganium ex",
@@ -66,57 +74,68 @@
     "11": {
       "name": "Wurmple",
       "rarity": "common",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "love-ball"
     },
     "12": {
       "name": "Silcoon",
       "rarity": "common",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "love-ball"
     },
     "13": {
       "name": "Beautifly",
       "rarity": "uncommon",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "love-ball"
     },
     "14": {
       "name": "Cascoon",
       "rarity": "common",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "love-ball"
     },
     "15": {
       "name": "Dustox",
       "rarity": "uncommon",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "love-ball"
     },
     "16": {
       "name": "Budew",
       "rarity": "common",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "friend-ball"
     },
     "17": {
       "name": "Grubbin",
       "rarity": "common",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "quick-ball"
     },
     "18": {
       "name": "Team Rocket's Tarountula",
       "rarity": "common",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "team-rocket-r"
     },
     "19": {
       "name": "Team Rocket's Spidops",
       "rarity": "rare",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "team-rocket-r"
     },
     "20": {
       "name": "Charmander",
       "rarity": "common",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "friend-ball"
     },
     "21": {
       "name": "Charmeleon",
       "rarity": "uncommon",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "friend-ball"
     },
     "22": {
       "name": "Mega Charizard Y ex",
@@ -126,17 +145,20 @@
     "23": {
       "name": "Ethan's Slugma",
       "rarity": "common",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "pokeball-pattern"
     },
     "24": {
       "name": "Ethan's Magcargo",
       "rarity": "rare",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "pokeball-pattern"
     },
     "25": {
       "name": "Entei",
       "rarity": "rare",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "quick-ball"
     },
     "26": {
       "name": "Ethan's Ho-Oh ex",
@@ -146,22 +168,26 @@
     "27": {
       "name": "Numel",
       "rarity": "common",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "quick-ball"
     },
     "28": {
       "name": "Camerupt",
       "rarity": "uncommon",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "quick-ball"
     },
     "29": {
       "name": "Tepig",
       "rarity": "common",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "friend-ball"
     },
     "30": {
       "name": "Pignite",
       "rarity": "uncommon",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "friend-ball"
     },
     "31": {
       "name": "Mega Emboar ex",
@@ -171,32 +197,38 @@
     "32": {
       "name": "N's Darumaka",
       "rarity": "common",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "pokeball-pattern"
     },
     "33": {
       "name": "N's Darmanitan",
       "rarity": "uncommon",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "pokeball-pattern"
     },
     "34": {
       "name": "Salandit",
       "rarity": "common",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "quick-ball"
     },
     "35": {
       "name": "Salazzle",
       "rarity": "uncommon",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "quick-ball"
     },
     "36": {
       "name": "Scorbunny",
       "rarity": "common",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "friend-ball"
     },
     "37": {
       "name": "Raboot",
       "rarity": "common",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "friend-ball"
     },
     "38": {
       "name": "Cinderace ex",
@@ -206,22 +238,26 @@
     "39": {
       "name": "Psyduck",
       "rarity": "common",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "love-ball"
     },
     "40": {
       "name": "Golduck",
       "rarity": "uncommon",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "love-ball"
     },
     "41": {
       "name": "Totodile",
       "rarity": "common",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "friend-ball"
     },
     "42": {
       "name": "Croconaw",
       "rarity": "uncommon",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "friend-ball"
     },
     "43": {
       "name": "Mega Feraligatr ex",
@@ -231,17 +267,20 @@
     "44": {
       "name": "Sneasel",
       "rarity": "common",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "dusk-ball"
     },
     "45": {
       "name": "Weavile",
       "rarity": "uncommon",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "dusk-ball"
     },
     "46": {
       "name": "Snorunt",
       "rarity": "common",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "dusk-ball"
     },
     "47": {
       "name": "Mega Froslass ex",
@@ -256,42 +295,50 @@
     "49": {
       "name": "N's Vanillite",
       "rarity": "common",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "pokeball-pattern"
     },
     "50": {
       "name": "N's Vanillish",
       "rarity": "common",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "pokeball-pattern"
     },
     "51": {
       "name": "N's Vanilluxe",
       "rarity": "uncommon",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "pokeball-pattern"
     },
     "52": {
       "name": "Snom",
       "rarity": "common",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "love-ball"
     },
     "53": {
       "name": "Frosmoth",
       "rarity": "uncommon",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "love-ball"
     },
     "54": {
       "name": "Glastrier",
       "rarity": "uncommon",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "quick-ball"
     },
     "55": {
       "name": "Pikachu",
       "rarity": "common",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "friend-ball"
     },
     "56": {
       "name": "Raichu",
       "rarity": "uncommon",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "friend-ball"
     },
     "57": {
       "name": "Pikachu ex",
@@ -306,12 +353,14 @@
     "59": {
       "name": "Tynamo",
       "rarity": "common",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "quick-ball"
     },
     "60": {
       "name": "Eelektrik",
       "rarity": "uncommon",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "quick-ball"
     },
     "61": {
       "name": "Mega Eelektross ex",
@@ -321,32 +370,38 @@
     "62": {
       "name": "Stunfisk",
       "rarity": "common",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "quick-ball"
     },
     "63": {
       "name": "Helioptile",
       "rarity": "common",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "quick-ball"
     },
     "64": {
       "name": "Heliolisk",
       "rarity": "uncommon",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "quick-ball"
     },
     "65": {
       "name": "Charjabug",
       "rarity": "common",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "quick-ball"
     },
     "66": {
       "name": "Vikavolt",
       "rarity": "uncommon",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "quick-ball"
     },
     "67": {
       "name": "Tapu Koko",
       "rarity": "rare",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "quick-ball"
     },
     "68": {
       "name": "Hop's Pincurchin ex",
@@ -356,7 +411,8 @@
     "69": {
       "name": "Iono's Tadbulb",
       "rarity": "common",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "pokeball-pattern"
     },
     "70": {
       "name": "Iono's Bellibolt ex",
@@ -366,12 +422,14 @@
     "71": {
       "name": "Iono's Wattrel",
       "rarity": "common",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "pokeball-pattern"
     },
     "72": {
       "name": "Iono's Kilowattrel",
       "rarity": "rare",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "pokeball-pattern"
     },
     "73": {
       "name": "Miraidon ex",
@@ -381,12 +439,14 @@
     "74": {
       "name": "Clefairy",
       "rarity": "common",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "love-ball"
     },
     "75": {
       "name": "Clefable",
       "rarity": "uncommon",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "love-ball"
     },
     "76": {
       "name": "Lillie's Clefairy ex",
@@ -396,12 +456,14 @@
     "77": {
       "name": "Team Rocket's Exeggcute",
       "rarity": "common",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "team-rocket-r"
     },
     "78": {
       "name": "Team Rocket's Exeggutor",
       "rarity": "rare",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "team-rocket-r"
     },
     "79": {
       "name": "Team Rocket's Mewtwo ex",
@@ -411,22 +473,26 @@
     "80": {
       "name": "Togepi",
       "rarity": "common",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "love-ball"
     },
     "81": {
       "name": "Togetic",
       "rarity": "common",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "love-ball"
     },
     "82": {
       "name": "Togekiss",
       "rarity": "rare",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "love-ball"
     },
     "83": {
       "name": "Marill",
       "rarity": "common",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "love-ball"
     },
     "84": {
       "name": "Azumarill ex",
@@ -436,22 +502,26 @@
     "85": {
       "name": "Misdreavus",
       "rarity": "common",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "dusk-ball"
     },
     "86": {
       "name": "Mismagius",
       "rarity": "rare",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "dusk-ball"
     },
     "87": {
       "name": "Ralts",
       "rarity": "common",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "love-ball"
     },
     "88": {
       "name": "Kirlia",
       "rarity": "common",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "love-ball"
     },
     "89": {
       "name": "Mega Gardevoir ex",
@@ -461,87 +531,104 @@
     "90": {
       "name": "Shuppet",
       "rarity": "common",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "dusk-ball"
     },
     "91": {
       "name": "Banette",
       "rarity": "uncommon",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "dusk-ball"
     },
     "92": {
       "name": "Rotom",
       "rarity": "common",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "quick-ball"
     },
     "93": {
       "name": "Swirlix",
       "rarity": "common",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "love-ball"
     },
     "94": {
       "name": "Slurpuff",
       "rarity": "uncommon",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "love-ball"
     },
     "95": {
       "name": "Hop's Phantump",
       "rarity": "common",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "pokeball-pattern"
     },
     "96": {
       "name": "Hop's Trevenant",
       "rarity": "rare",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "pokeball-pattern"
     },
     "97": {
       "name": "Team Rocket's Mimikyu",
       "rarity": "uncommon",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "team-rocket-r"
     },
     "98": {
       "name": "Spectrier",
       "rarity": "rare",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "dusk-ball"
     },
     "99": {
       "name": "Munkidori",
       "rarity": "rare",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "dusk-ball"
     },
     "100": {
       "name": "Team Rocket's Diglett",
       "rarity": "common",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "team-rocket-r"
     },
     "101": {
       "name": "Team Rocket's Dugtrio",
       "rarity": "uncommon",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "team-rocket-r"
     },
     "102": {
       "name": "Hitmontop",
       "rarity": "common",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "quick-ball"
     },
     "103": {
       "name": "Meditite",
       "rarity": "common",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "quick-ball"
     },
     "104": {
       "name": "Medicham",
       "rarity": "common",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "quick-ball"
     },
     "105": {
       "name": "Lunatone",
       "rarity": "rare",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "quick-ball"
     },
     "106": {
       "name": "Solrock",
       "rarity": "uncommon",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "quick-ball"
     },
     "107": {
       "name": "Regirock ex",
@@ -551,17 +638,20 @@
     "108": {
       "name": "Groudon",
       "rarity": "rare",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "quick-ball"
     },
     "109": {
       "name": "Cynthia's Gible",
       "rarity": "common",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "pokeball-pattern"
     },
     "110": {
       "name": "Cynthia's Gabite",
       "rarity": "uncommon",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "pokeball-pattern"
     },
     "111": {
       "name": "Cynthia's Garchomp ex",
@@ -571,7 +661,8 @@
     "112": {
       "name": "Riolu",
       "rarity": "common",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "quick-ball"
     },
     "113": {
       "name": "Mega Lucario ex",
@@ -586,7 +677,8 @@
     "115": {
       "name": "Pancham",
       "rarity": "common",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "quick-ball"
     },
     "116": {
       "name": "Mega Hawlucha ex",
@@ -596,22 +688,26 @@
     "117": {
       "name": "Carbink",
       "rarity": "uncommon",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "quick-ball"
     },
     "118": {
       "name": "Rolycoly",
       "rarity": "common",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "quick-ball"
     },
     "119": {
       "name": "Carkol",
       "rarity": "common",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "quick-ball"
     },
     "120": {
       "name": "Coalossal",
       "rarity": "rare",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "quick-ball"
     },
     "121": {
       "name": "Koraidon ex",
@@ -621,17 +717,20 @@
     "122": {
       "name": "Okidogi",
       "rarity": "rare",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "dusk-ball"
     },
     "123": {
       "name": "Gastly",
       "rarity": "common",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "dusk-ball"
     },
     "124": {
       "name": "Haunter",
       "rarity": "uncommon",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "dusk-ball"
     },
     "125": {
       "name": "Mega Gengar ex",
@@ -641,47 +740,56 @@
     "126": {
       "name": "Team Rocket's Murkrow",
       "rarity": "common",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "team-rocket-r"
     },
     "127": {
       "name": "Team Rocket's Honchkrow",
       "rarity": "rare",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "team-rocket-r"
     },
     "128": {
       "name": "Poochyena",
       "rarity": "common",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "dusk-ball"
     },
     "129": {
       "name": "Mightyena",
       "rarity": "uncommon",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "dusk-ball"
     },
     "130": {
       "name": "Galarian Zigzagoon",
       "rarity": "common",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "dusk-ball"
     },
     "131": {
       "name": "Galarian Linoone",
       "rarity": "common",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "dusk-ball"
     },
     "132": {
       "name": "Galarian Obstagoon",
       "rarity": "uncommon",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "dusk-ball"
     },
     "133": {
       "name": "Cynthia's Spiritomb",
       "rarity": "uncommon",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "pokeball-pattern"
     },
     "134": {
       "name": "Scraggy",
       "rarity": "common",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "dusk-ball"
     },
     "135": {
       "name": "Mega Scrafty ex",
@@ -691,7 +799,8 @@
     "136": {
       "name": "N's Zorua",
       "rarity": "common",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "pokeball-pattern"
     },
     "137": {
       "name": "N's Zoroark ex",
@@ -701,7 +810,8 @@
     "138": {
       "name": "Vullaby",
       "rarity": "common",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "dusk-ball"
     },
     "139": {
       "name": "Mandibuzz ex",
@@ -711,12 +821,14 @@
     "140": {
       "name": "Pangoro",
       "rarity": "uncommon",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "dusk-ball"
     },
     "141": {
       "name": "Hoopa",
       "rarity": "rare",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "pokeball-pattern"
     },
     "142": {
       "name": "Fezandipiti ex",
@@ -726,12 +838,14 @@
     "143": {
       "name": "Pecharunt",
       "rarity": "rare",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "pokeball-pattern"
     },
     "144": {
       "name": "Mawile",
       "rarity": "uncommon",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "quick-ball"
     },
     "145": {
       "name": "Registeel ex",
@@ -741,17 +855,20 @@
     "146": {
       "name": "Pawniard",
       "rarity": "common",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "quick-ball"
     },
     "147": {
       "name": "Bisharp",
       "rarity": "common",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "quick-ball"
     },
     "148": {
       "name": "Kingambit",
       "rarity": "rare",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "quick-ball"
     },
     "149": {
       "name": "Togedemaru ex",
@@ -761,12 +878,14 @@
     "150": {
       "name": "Dratini",
       "rarity": "common",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "friend-ball"
     },
     "151": {
       "name": "Dragonair",
       "rarity": "uncommon",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "friend-ball"
     },
     "152": {
       "name": "Mega Dragonite ex",
@@ -776,37 +895,44 @@
     "153": {
       "name": "Rayquaza",
       "rarity": "rare",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "friend-ball"
     },
     "154": {
       "name": "N's Reshiram",
       "rarity": "rare",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "pokeball-pattern"
     },
     "155": {
       "name": "N's Zekrom",
       "rarity": "rare",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "pokeball-pattern"
     },
     "156": {
       "name": "Noibat",
       "rarity": "common",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "dusk-ball"
     },
     "157": {
       "name": "Noivern",
       "rarity": "uncommon",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "dusk-ball"
     },
     "158": {
       "name": "Dreepy",
       "rarity": "common",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "dusk-ball"
     },
     "159": {
       "name": "Drakloak",
       "rarity": "common",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "dusk-ball"
     },
     "160": {
       "name": "Dragapult ex",
@@ -816,7 +942,8 @@
     "161": {
       "name": "Team Rocket's Meowth",
       "rarity": "common",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "team-rocket-r"
     },
     "162": {
       "name": "Team Rocket's Kangaskhan ex",
@@ -826,7 +953,8 @@
     "163": {
       "name": "Larry's Dunsparce",
       "rarity": "common",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "pokeball-pattern"
     },
     "164": {
       "name": "Larry's Dudunsparce ex",
@@ -836,12 +964,14 @@
     "165": {
       "name": "Skitty",
       "rarity": "common",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "love-ball"
     },
     "166": {
       "name": "Delcatty",
       "rarity": "uncommon",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "love-ball"
     },
     "167": {
       "name": "Zangoose ex",
@@ -851,22 +981,26 @@
     "168": {
       "name": "Larry's Starly",
       "rarity": "common",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "pokeball-pattern"
     },
     "169": {
       "name": "Larry's Staravia",
       "rarity": "uncommon",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "pokeball-pattern"
     },
     "170": {
       "name": "Larry's Staraptor",
       "rarity": "rare",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "pokeball-pattern"
     },
     "171": {
       "name": "Fan Rotom",
       "rarity": "common",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "quick-ball"
     },
     "172": {
       "name": "Mega Audino ex",
@@ -876,32 +1010,38 @@
     "173": {
       "name": "Larry's Rufflet",
       "rarity": "common",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "pokeball-pattern"
     },
     "174": {
       "name": "Larry's Braviary",
       "rarity": "uncommon",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "pokeball-pattern"
     },
     "175": {
       "name": "Larry's Komala",
       "rarity": "common",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "pokeball-pattern"
     },
     "176": {
       "name": "Drampa",
       "rarity": "uncommon",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "friend-ball"
     },
     "177": {
       "name": "Hop's Cramorant",
       "rarity": "uncommon",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "pokeball-pattern"
     },
     "178": {
       "name": "Terapagos",
       "rarity": "rare",
-      "type": "pokemon"
+      "type": "pokemon",
+      "ballPattern": "friend-ball"
     },
     "179": {
       "name": "Terapagos ex",
