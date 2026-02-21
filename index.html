@@ -84,7 +84,7 @@
             <button class="top-tab" data-tab="lorcana" onclick="switchTopTab('lorcana')">Disney Lorcana</button>
             <button class="top-tab" data-tab="custom-sets" onclick="switchTopTab('custom-sets')">Custom Sets</button>
             <div class="top-tab-divider"></div>
-            <button class="top-tab top-tab-utility" data-tab="store-finder" onclick="switchTopTab('store-finder'); sfActivate();">Store Hunter</button>
+            <button class="top-tab top-tab-utility" data-tab="store-finder" onclick="switchTopTab('store-finder'); sfSubViewActivate();">Store Hunter</button>
         </div>
 
         <!-- Pokemon TCG tab content -->
@@ -115,41 +115,61 @@
 
         <!-- Store Hunter tab content -->
         <div id="store-finder-content" class="top-tab-content">
-            <div class="sf-search-bar">
-                <button class="sf-locate-btn" id="sfLocateBtn" onclick="sfUseGeolocation()" title="Use my location">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
-                    Use My Location
-                </button>
-                <div class="sf-address-wrap">
-                    <input type="text" id="sfAddressInput" class="sf-address-input"
-                           placeholder="Enter zip code or address..."
-                           onkeydown="if(event.key==='Enter') sfSearchAddress()">
-                    <button class="sf-address-search-btn" onclick="sfSearchAddress()">Search</button>
-                </div>
-                <div class="sf-radius-wrap">
-                    <label for="sfRadiusSelect">Radius:</label>
-                    <select id="sfRadiusSelect" class="sf-radius-select" onchange="sfRadiusChanged()">
-                        <option value="5">5 mi</option>
-                        <option value="15" selected>15 mi</option>
-                        <option value="30">30 mi</option>
-                        <option value="50">50 mi</option>
-                    </select>
-                </div>
+            <!-- Sub-navigation within Store Hunter -->
+            <div class="sf-sub-tabs">
+                <button class="sf-sub-tab active" data-view="store-finder" onclick="switchStoreView('store-finder')">Store Finder</button>
+                <button class="sf-sub-tab" data-view="symbol-id" onclick="switchStoreView('symbol-id')">Pokemon Symbol Identifier</button>
             </div>
-            <div id="sfStatusMsg" class="sf-status-msg" style="display:none;"></div>
-            <div class="sf-map-wrap">
-                <div id="sfMap" class="sf-map"></div>
-                <div id="sfLoadingOverlay" class="sf-loading-overlay" style="display:none;">
-                    <div class="sf-spinner"></div><span>Finding stores...</span>
+
+            <!-- Store Finder sub-view -->
+            <div id="store-finder-view" class="sf-sub-view active">
+                <div class="sf-search-bar">
+                    <button class="sf-locate-btn" id="sfLocateBtn" onclick="sfUseGeolocation()" title="Use my location">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+                        Use My Location
+                    </button>
+                    <div class="sf-address-wrap">
+                        <input type="text" id="sfAddressInput" class="sf-address-input"
+                               placeholder="Enter zip code or address..."
+                               onkeydown="if(event.key==='Enter') sfSearchAddress()">
+                        <button class="sf-address-search-btn" onclick="sfSearchAddress()">Search</button>
+                    </div>
+                    <div class="sf-radius-wrap">
+                        <label for="sfRadiusSelect">Radius:</label>
+                        <select id="sfRadiusSelect" class="sf-radius-select" onchange="sfRadiusChanged()">
+                            <option value="5">5 mi</option>
+                            <option value="15" selected>15 mi</option>
+                            <option value="30">30 mi</option>
+                            <option value="50">50 mi</option>
+                        </select>
+                    </div>
                 </div>
-            </div>
-            <div class="sf-list-panel">
-                <div class="sf-list-header" id="sfListHeader">
-                    Use your location or enter an address to find nearby TCG retailers.
+                <div id="sfStatusMsg" class="sf-status-msg" style="display:none;"></div>
+                <div class="sf-map-wrap">
+                    <div id="sfMap" class="sf-map"></div>
+                    <div id="sfLoadingOverlay" class="sf-loading-overlay" style="display:none;">
+                        <div class="sf-spinner"></div><span>Finding stores...</span>
+                    </div>
                 </div>
-                <div class="sf-store-list" id="sfStoreList"></div>
+                <div class="sf-list-panel">
+                    <div class="sf-list-header" id="sfListHeader">
+                        Use your location or enter an address to find nearby TCG retailers.
+                    </div>
+                    <div class="sf-store-list" id="sfStoreList"></div>
+                </div>
+                <div class="sf-disclaimer">Results are best estimates based on available map data. Please verify store details, hours, and inventory before visiting.</div>
             </div>
-            <div class="sf-disclaimer">Results are best estimates based on available map data. Please verify store details, hours, and inventory before visiting.</div>
+
+            <!-- Pokemon Symbol Identifier sub-view -->
+            <div id="symbol-id-view" class="sf-sub-view">
+                <div class="si-search-bar">
+                    <input type="text" id="siSearchInput" class="si-search-input"
+                           placeholder="Search by set name or series..."
+                           oninput="siFilter()">
+                </div>
+                <div class="si-description">Identify Pokemon TCG set symbols found on the bottom-left corner of cards. Match the symbol on your card to find its set.</div>
+                <div id="siContent"></div>
+            </div>
         </div>
 
     </div>
@@ -163,6 +183,7 @@
     <script src="js/lorcana.js"></script>
     <script src="js/pricing.js"></script>
     <script src="js/store-finder.js"></script>
+    <script src="js/symbol-identifier.js"></script>
     <script src="js/pokemon-tcg.js"></script>
     <script src="js/modal.js"></script>
     <script src="js/firebase-sync.js"></script>

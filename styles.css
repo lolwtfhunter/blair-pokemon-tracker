@@ -2332,6 +2332,180 @@ h1 {
     margin-top: 2px;
 }
 
+/* --- Store Hunter sub-tabs --- */
+
+.sf-sub-tabs {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 14px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    padding: 4px;
+}
+
+.sf-sub-tab {
+    flex: 1;
+    padding: 10px 16px;
+    background: transparent;
+    border: none;
+    border-radius: 8px;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.sf-sub-tab:hover {
+    color: rgba(255, 255, 255, 0.75);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.sf-sub-tab.active {
+    color: #fff;
+    background: rgba(37, 99, 235, 0.35);
+}
+
+.sf-sub-view {
+    display: none;
+}
+
+.sf-sub-view.active {
+    display: block;
+}
+
+/* ===== Pokemon Symbol Identifier ===== */
+
+.si-search-bar {
+    margin-bottom: 10px;
+}
+
+.si-search-input {
+    width: 100%;
+    padding: 10px 14px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+    color: #f1f1f1;
+    font-size: 0.85rem;
+    box-sizing: border-box;
+    transition: all 0.2s;
+}
+
+.si-search-input::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.si-search-input:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(37, 99, 235, 0.5);
+}
+
+.si-description {
+    font-size: 0.78rem;
+    color: rgba(255, 255, 255, 0.45);
+    margin-bottom: 16px;
+    font-style: italic;
+}
+
+/* Loading / error / empty states */
+.si-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 48px 16px;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9rem;
+}
+
+.si-error,
+.si-empty {
+    text-align: center;
+    padding: 48px 16px;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.9rem;
+}
+
+.si-error {
+    color: #ff8888;
+}
+
+/* Series group */
+.si-series-group {
+    margin-bottom: 18px;
+}
+
+.si-series-header {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.6);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 6px 10px;
+    margin-bottom: 8px;
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 6px;
+    border-left: 3px solid #2563eb;
+}
+
+/* Symbol grid */
+.si-symbol-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 8px;
+}
+
+.si-symbol-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 6px 8px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 8px;
+    transition: all 0.15s;
+    cursor: default;
+}
+
+.si-symbol-item:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.12);
+    transform: translateY(-1px);
+}
+
+.si-symbol-img-wrap {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 6px;
+}
+
+.si-symbol-img {
+    max-width: 40px;
+    max-height: 40px;
+    object-fit: contain;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.4));
+}
+
+.si-symbol-name {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.85);
+    text-align: center;
+    line-height: 1.2;
+    word-break: break-word;
+}
+
+.si-symbol-year {
+    font-size: 0.62rem;
+    color: rgba(255, 255, 255, 0.35);
+    margin-top: 2px;
+}
+
 /* Mobile overrides */
 @media (max-width: 767px) {
     .sf-search-bar {
@@ -2349,6 +2523,34 @@ h1 {
 
     .sf-map {
         height: 300px;
+    }
+
+    .sf-sub-tabs {
+        flex-direction: row;
+    }
+
+    .sf-sub-tab {
+        font-size: 0.78rem;
+        padding: 8px 10px;
+    }
+
+    .si-symbol-grid {
+        grid-template-columns: repeat(auto-fill, minmax(85px, 1fr));
+        gap: 6px;
+    }
+
+    .si-symbol-img-wrap {
+        width: 34px;
+        height: 34px;
+    }
+
+    .si-symbol-img {
+        max-width: 34px;
+        max-height: 34px;
+    }
+
+    .si-symbol-name {
+        font-size: 0.65rem;
     }
 }
 
