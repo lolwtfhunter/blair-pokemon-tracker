@@ -327,15 +327,23 @@ const variantLabels = {
     'pokeball': { label: 'Poké Ball', icon: '⚾' },
     'masterball': { label: 'Master Ball', icon: '🔮' },
     '1st-edition': { label: '1st Edition', icon: '🥇' },
-    'unlimited': { label: 'Unlimited', icon: '♾️' }
+    'unlimited': { label: 'Unlimited', icon: '♾️' },
+    // Ascended Heroes parallel foil patterns
+    'energy-pattern': { label: 'Energy Pattern', icon: '⚡' },
+    'pokeball-pattern': { label: 'Poké Ball Pattern', icon: '🔴' },
+    'friend-ball': { label: 'Friend Ball', icon: '💚' },
+    'love-ball': { label: 'Love Ball', icon: '💖' },
+    'quick-ball': { label: 'Quick Ball', icon: '💙' },
+    'dusk-ball': { label: 'Dusk Ball', icon: '🌑' },
+    'team-rocket-r': { label: 'Team Rocket', icon: '🚀' }
 };
 
 // All possible rarities in Pokemon TCG (future-proof)
 const SINGLE_VARIANT_RARITIES = [
-    'ex', 'secret', 'illustration-rare', 'special-illustration-rare',
+    'ex', 'mega-ex', 'secret', 'illustration-rare', 'special-illustration-rare',
     'ultra-rare', 'hyper-rare', 'double-rare', 'ace-spec',
     'radiant', 'amazing-rare', 'shiny-rare', 'trainer-ultra-rare',
-    'gold-secret', 'promo', 'rare-holo-gx'
+    'gold-secret', 'promo', 'rare-holo-gx', 'mega-attack-rare'
 ];
 
 // Rarity display names (Pokemon TCG)
@@ -359,6 +367,8 @@ const RARITY_DISPLAY_NAMES = {
     'promo': 'PROMO',
     'rare-holo': 'RARE HOLO',
     'rare-holo-gx': 'HOLO GX',
+    'mega-ex': 'MEGA EX',
+    'mega-attack-rare': 'MEGA ATTACK',
     'trainer': 'TRAINER',
     'energy': 'ENERGY',
     '1st-edition': '1ST EDITION',
@@ -407,9 +417,21 @@ function getVariants(card, setKey) {
         return ['1st-edition', 'unlimited'];
     }
 
-    // Single checkbox rarities (EX, Ultra Rares, Illustration Rares, etc.)
+    // Single checkbox rarities (EX, Mega EX, Ultra Rares, Illustration Rares, etc.)
     if (SINGLE_VARIANT_RARITIES.includes(rarity)) {
         return ['single'];
+    }
+
+    // Ascended Heroes parallel foil patterns (replaces standard reverse holo for Pokemon)
+    if (setKey === 'ascended-heroes') {
+        if (card.type === 'pokemon' && card.ballPattern) {
+            if (rarity === 'rare') {
+                return ['holo', 'energy-pattern', card.ballPattern];
+            }
+            return ['regular', 'energy-pattern', card.ballPattern];
+        }
+        // Trainers and energy: standard regular + reverse-holo
+        return ['regular', 'reverse-holo'];
     }
 
     // Rare/Rare Holo cards get Holo + Reverse Holo (no regular)
