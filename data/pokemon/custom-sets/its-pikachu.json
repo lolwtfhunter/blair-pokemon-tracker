@@ -3485,7 +3485,8 @@
       "setOrigin": "Ascended Heroes (me2pt5)",
       "originalNumber": "55",
       "releaseDate": "2026/01/30",
-      "apiId": "me2pt5-55"
+      "apiId": "me2pt5-55",
+      "variants": [{"rarity": "regular"}, {"rarity": "energy-pattern"}, {"rarity": "friend-ball"}]
     },
     "368": {
       "name": "Raichu",
@@ -3494,7 +3495,8 @@
       "setOrigin": "Ascended Heroes (me2pt5)",
       "originalNumber": "56",
       "releaseDate": "2026/01/30",
-      "apiId": "me2pt5-56"
+      "apiId": "me2pt5-56",
+      "variants": [{"rarity": "regular"}, {"rarity": "energy-pattern"}, {"rarity": "friend-ball"}]
     },
     "369": {
       "name": "Pikachu ex",

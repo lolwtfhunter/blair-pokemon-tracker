@@ -323,11 +323,13 @@ function renderCustomCards(setKey) {
                 variantHTML = card.variants.map(v => {
                     const isChecked = cardProgress[v.rarity] || false;
                     const displayNum = v.originalNumber ? ` #${v.originalNumber}` : '';
+                    const vInfo = variantLabels[v.rarity];
+                    const displayLabel = vInfo ? `${vInfo.icon} ${vInfo.label}` : getRarityDisplay(v.rarity);
                     const variantTCGUrl = getTCGPlayerUrl(card.name, card.setOrigin || 'Pokemon', '', v.originalNumber || customCardNumber);
                     return `
                         <div class="variant-checkbox ${isChecked ? 'checked' : ''}" onclick="toggleVariant('${csKey}', ${card.number}, '${v.rarity}')">
                             <input type="checkbox" ${isChecked ? 'checked' : ''} onchange="event.stopPropagation(); toggleVariant('${csKey}', ${card.number}, '${v.rarity}')">
-                            <label>${getRarityDisplay(v.rarity)}${displayNum}</label>
+                            <label>${displayLabel}${displayNum}</label>
                             <a href="${variantTCGUrl}" target="_blank" class="variant-tcgplayer-link" title="Search on TCGPlayer" onclick="event.stopPropagation();">
                                 <svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor">
                                     <path d="M19 19H5V5h7V3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/>
