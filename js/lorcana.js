@@ -235,15 +235,15 @@ function getLorcanaRemoteLogoUrls(setKey) {
 // ==================== LOGO UPGRADE (SEQUENTIAL) ====================
 
 // Try to upgrade one SVG logo to a real image by testing URLs sequentially.
-// Sets img.src directly on the page element (not a detached test Image)
-// to avoid hotlink protection discrepancies between in-memory and DOM images.
+// Uses fetch() → blob URL approach to bypass CDN hotlink/referrer issues.
+// Falls back to direct img.src if fetch fails (e.g. CORS).
 function tryUpgradeLorcanaLogo(img) {
     var setKey = img.getAttribute('data-logo-set');
     if (!setKey) return;
 
     var urls = getLorcanaRemoteLogoUrls(setKey);
     var svgSrc = img.src; // Save SVG fallback for revert
-    _logoDebug(setKey + ': trying ' + urls.length + ' URLs');
+    _logoDebug(setKey + ': trying ' + urls.length + ' URLs (v3-blob)');
     var idx = 0;
 
     function tryNext() {
@@ -257,21 +257,53 @@ function tryUpgradeLorcanaLogo(img) {
         var url = urls[idx++];
         var shortUrl = url.length > 70 ? url.substring(0, 67) + '...' : url;
         _logoDebug(setKey + ': [' + idx + '/' + urls.length + '] trying ' + shortUrl);
-        img.onload = function() {
-            if (img.naturalWidth > 10 && img.naturalHeight > 10) {
-                _logoDebug(setKey + ': SUCCESS (' + img.naturalWidth + 'x' + img.naturalHeight + ') ' + shortUrl);
-                img.onload = null;
-                img.onerror = null;
-            } else {
-                _logoDebug(setKey + ': too small (' + img.naturalWidth + 'x' + img.naturalHeight + ') ' + shortUrl);
-                tryNext();
-            }
-        };
-        img.onerror = function() {
-            _logoDebug(setKey + ': FAILED ' + shortUrl);
-            tryNext();
-        };
-        img.src = url;
+
+        // Try fetch → blob URL first (completely bypasses CDN display issues)
+        fetch(url, { referrerPolicy: 'no-referrer' })
+            .then(function(resp) {
+                if (!resp.ok) throw new Error('HTTP ' + resp.status);
+                return resp.blob();
+            })
+            .then(function(blob) {
+                if (blob.size < 100) throw new Error('blob too small (' + blob.size + 'B)');
+                var blobUrl = URL.createObjectURL(blob);
+                img.onload = function() {
+                    if (img.naturalWidth > 10 && img.naturalHeight > 10) {
+                        _logoDebug(setKey + ': SUCCESS blob (' + img.naturalWidth + 'x' + img.naturalHeight + ', ' + Math.round(blob.size/1024) + 'KB)');
+                        img.onload = null;
+                        img.onerror = null;
+                    } else {
+                        URL.revokeObjectURL(blobUrl);
+                        _logoDebug(setKey + ': blob image too small visually, trying next');
+                        tryNext();
+                    }
+                };
+                img.onerror = function() {
+                    URL.revokeObjectURL(blobUrl);
+                    _logoDebug(setKey + ': blob render FAILED, trying next');
+                    tryNext();
+                };
+                img.src = blobUrl;
+            })
+            .catch(function(err) {
+                _logoDebug(setKey + ': fetch failed (' + err.message + '), trying direct img.src');
+                // Fallback: set img.src directly
+                img.onload = function() {
+                    if (img.naturalWidth > 10 && img.naturalHeight > 10) {
+                        _logoDebug(setKey + ': SUCCESS direct (' + img.naturalWidth + 'x' + img.naturalHeight + ') ' + shortUrl);
+                        img.onload = null;
+                        img.onerror = null;
+                    } else {
+                        _logoDebug(setKey + ': direct too small, trying next');
+                        tryNext();
+                    }
+                };
+                img.onerror = function() {
+                    _logoDebug(setKey + ': direct FAILED ' + shortUrl);
+                    tryNext();
+                };
+                img.src = url;
+            });
     }
 
     tryNext();
