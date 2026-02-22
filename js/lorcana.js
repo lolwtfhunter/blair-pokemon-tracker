@@ -44,21 +44,66 @@ const LORCANA_SET_WIKI_NAMES = {
 };
 
 // ==================== LORCANA LOGO CDN PRE-FETCH ====================
-// Resolves direct CDN URLs for set logos via wiki APIs.
-// MediaWiki Special:FilePath returns 302 redirects, which can fail in <img>
-// tags on some browsers/wiki configurations. The imageinfo API returns the
-// actual static CDN URL directly, bypassing redirect issues.
+// Resolves direct CDN URLs for set logos via multiple APIs.
+// Priority: Lorcast API (most reliable) → Fandom wiki → Mushu Report → Disney wiki.
 
 // Cache: { setKey: directCdnUrl }
 const _lorcanaLogoUrlCache = {};
 let _lorcanaLogosFetched = false;
 
+// Fetch set logo URLs from the Lorcast API (api.lorcast.com).
+// This is the most reliable source: CORS-friendly, no hotlink blocking.
+async function fetchLorcastSetLogos() {
+    _logoDebug('Lorcast sets API: starting');
+    try {
+        // Build reverse map: lorcast code/id → our set key
+        var codeToKey = {};
+        if (typeof LORCAST_SET_CODES !== 'undefined') {
+            Object.keys(LORCAST_SET_CODES).forEach(function(key) {
+                var code = LORCAST_SET_CODES[key];
+                codeToKey[code] = key;
+                codeToKey[String(code)] = key;
+            });
+        }
+
+        var resp = await fetch('https://api.lorcast.com/v0/sets');
+        if (!resp.ok) {
+            _logoDebug('Lorcast sets API: HTTP ' + resp.status);
+            return;
+        }
+        var data = await resp.json();
+        var sets = data.results || (Array.isArray(data) ? data : []);
+        _logoDebug('Lorcast sets API: got ' + sets.length + ' sets');
+
+        sets.forEach(function(set) {
+            // Match by numeric ID or string code
+            var setKey = codeToKey[set.id] || codeToKey[String(set.id)]
+                      || codeToKey[set.code] || codeToKey[String(set.code)];
+            if (!setKey) return;
+
+            // Try multiple possible image fields from the API response
+            var logoUrl = (set.image_uris && (set.image_uris.logo || set.image_uris.symbol))
+                       || set.image_uri || set.logo_url || set.image || null;
+            if (logoUrl && !_lorcanaLogoUrlCache[setKey]) {
+                _lorcanaLogoUrlCache[setKey] = logoUrl;
+                _logoDebug('Lorcast logo: ' + setKey + ' → ' + (logoUrl.length > 60 ? logoUrl.substring(0, 57) + '...' : logoUrl));
+            }
+        });
+    } catch (e) {
+        _logoDebug('Lorcast sets API error: ' + e.message);
+    }
+    _logoDebug('After Lorcast API: ' + Object.keys(_lorcanaLogoUrlCache).length + ' cached');
+}
+
 // Fetch direct CDN URLs for Lorcana set logos from wiki APIs.
-// Tries Fandom wiki first (CORS-enabled), then Mushu Report, then Disney wiki.
+// Tries Lorcast first, then Fandom wiki, Mushu Report, Disney wiki.
 async function fetchLorcanaSetLogos() {
     if (_lorcanaLogosFetched) return;
     _lorcanaLogosFetched = true;
     _logoDebug('fetchLorcanaSetLogos: starting API calls');
+
+    // --- Lorcast API (most reliable, CORS-friendly) ---
+    await fetchLorcastSetLogos();
 
     const wikiNames = LORCANA_SET_WIKI_NAMES;
     const setEntries = Object.entries(wikiNames);
@@ -233,58 +278,148 @@ const LORCANA_FANDOM_CDN_LOGOS = {
 };
 
 // ==================== LOGO DEBUG PANEL ====================
-// Activate by adding ?logodebug to the URL (e.g. mysite.com/?logodebug)
-const _logoDebugEnabled = (typeof location !== 'undefined') && location.search.indexOf('logodebug') !== -1;
+// Activate by adding ?logodebug to the URL OR by tapping the debug toggle in the UI.
+const _logoDebugFromUrl = (typeof location !== 'undefined') && location.search.indexOf('logodebug') !== -1;
+var _logoDebugForced = false;
 const _logoDebugLog = [];
 
+function _isLogoDebugActive() {
+    return _logoDebugFromUrl || _logoDebugForced;
+}
+
 function _logoDebug(msg) {
-    const ts = new Date().toISOString().substr(11, 12);
-    const line = '[' + ts + '] ' + msg;
+    var ts = new Date().toISOString().substr(11, 12);
+    var line = '[' + ts + '] ' + msg;
     _logoDebugLog.push(line);
-    if (_logoDebugEnabled) {
+    if (_isLogoDebugActive()) {
         console.log('[logo] ' + msg);
-        var panel = document.getElementById('logo-debug-panel');
-        if (panel) {
-            var pre = panel.querySelector('pre');
-            if (pre) {
-                pre.textContent = _logoDebugLog.join('\n');
-                pre.scrollTop = pre.scrollHeight;
-            }
+        _updateDebugPanelContent();
+    }
+}
+
+function _updateDebugPanelContent() {
+    var panel = document.getElementById('logo-debug-panel');
+    if (panel) {
+        var pre = panel.querySelector('pre');
+        if (pre) {
+            pre.textContent = _logoDebugLog.join('\n');
+            pre.scrollTop = pre.scrollHeight;
         }
     }
 }
 
+// iOS-compatible copy function (navigator.clipboard may not work on iOS Safari)
+function _copyDebugLog() {
+    var text = _logoDebugLog.join('\n');
+    // Try modern clipboard API first
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(function() {
+            alert('Debug log copied! (' + _logoDebugLog.length + ' lines)');
+        }).catch(function() {
+            _fallbackCopyText(text);
+        });
+    } else {
+        _fallbackCopyText(text);
+    }
+}
+
+// Fallback copy using textarea + execCommand (works on iOS Safari)
+function _fallbackCopyText(text) {
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    ta.setAttribute('readonly', '');
+    ta.style.cssText = 'position:fixed;top:0;left:0;width:1px;height:1px;opacity:0.01;';
+    document.body.appendChild(ta);
+    ta.focus();
+    ta.select();
+    // iOS Safari requires setSelectionRange
+    ta.setSelectionRange(0, ta.value.length);
+    try {
+        document.execCommand('copy');
+        alert('Debug log copied! (' + _logoDebugLog.length + ' lines)');
+    } catch (e) {
+        // Last resort: show the text for manual copy
+        prompt('Copy this debug log:', text);
+    }
+    document.body.removeChild(ta);
+}
+
 function _initLogoDebugPanel() {
-    if (!_logoDebugEnabled) return;
+    if (!_isLogoDebugActive()) return;
+    if (document.getElementById('logo-debug-panel')) return; // already exists
     var panel = document.createElement('div');
     panel.id = 'logo-debug-panel';
-    panel.innerHTML = '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">' +
-        '<b>Logo Debug</b>' +
-        '<button onclick="navigator.clipboard.writeText(document.querySelector(\'#logo-debug-panel pre\').textContent).then(function(){alert(\'Copied!\')})" ' +
-        'style="font-size:12px;padding:2px 8px;cursor:pointer">Copy</button></div>' +
-        '<pre style="margin:0;white-space:pre-wrap;word-break:break-all;max-height:300px;overflow:auto;font-size:11px;line-height:1.3"></pre>';
+    panel.innerHTML = '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;gap:8px;">' +
+        '<b style="flex-shrink:0;">Logo Debug</b>' +
+        '<div style="display:flex;gap:6px;">' +
+        '<button onclick="_copyDebugLog()" ' +
+        'style="font-size:13px;padding:6px 14px;cursor:pointer;background:#0f0;color:#111;border:none;border-radius:4px;font-weight:bold;min-height:36px;">Copy Log</button>' +
+        '<button onclick="_closeDebugPanel()" ' +
+        'style="font-size:13px;padding:6px 10px;cursor:pointer;background:#333;color:#0f0;border:1px solid #0f0;border-radius:4px;min-height:36px;">Close</button>' +
+        '</div></div>' +
+        '<pre style="margin:0;white-space:pre-wrap;word-break:break-all;max-height:250px;overflow:auto;font-size:11px;line-height:1.3;-webkit-overflow-scrolling:touch;"></pre>';
     panel.style.cssText = 'position:fixed;bottom:0;left:0;right:0;z-index:99999;background:#111;color:#0f0;' +
-        'padding:8px;font-family:monospace;font-size:12px;max-height:350px;border-top:2px solid #0f0;';
+        'padding:10px;font-family:monospace;font-size:12px;max-height:350px;border-top:2px solid #0f0;';
     document.body.appendChild(panel);
+    // Replay existing log entries into the panel
+    _updateDebugPanelContent();
     _logoDebug('Debug panel initialized');
+}
+
+function _closeDebugPanel() {
+    _logoDebugForced = false;
+    var panel = document.getElementById('logo-debug-panel');
+    if (panel) panel.remove();
+    // Update toggle button text
+    var toggle = document.getElementById('logo-debug-toggle');
+    if (toggle) toggle.textContent = 'Debug Logos';
+}
+
+// Toggle debug panel on/off from the UI button
+function toggleLogoDebug() {
+    _logoDebugForced = !_logoDebugForced;
+    var toggle = document.getElementById('logo-debug-toggle');
+    if (_logoDebugForced) {
+        _initLogoDebugPanel();
+        if (toggle) toggle.textContent = 'Hide Debug';
+    } else {
+        _closeDebugPanel();
+    }
+}
+
+// Create the visible debug toggle button in the Lorcana tab
+function _addDebugToggleButton() {
+    var container = document.getElementById('lorcanaSetButtons');
+    if (!container) return;
+    // Don't add twice
+    if (document.getElementById('logo-debug-toggle')) return;
+    var btn = document.createElement('button');
+    btn.id = 'logo-debug-toggle';
+    btn.textContent = _isLogoDebugActive() ? 'Hide Debug' : 'Debug Logos';
+    btn.onclick = toggleLogoDebug;
+    btn.style.cssText = 'display:block;margin:8px auto 0;padding:4px 12px;font-size:11px;' +
+        'background:transparent;color:#666;border:1px solid #444;border-radius:12px;cursor:pointer;' +
+        'font-family:monospace;';
+    container.parentNode.insertBefore(btn, container.nextSibling);
 }
 
 // ==================== LOGO URL BUILDING ====================
 
 // Build ordered list of candidate logo URLs for a set.
+// Order: API-resolved CDN → local file → pre-computed CDN → wiki FilePath redirects.
 function getLorcanaRemoteLogoUrls(setKey) {
     var urls = [];
     var wikiName = LORCANA_SET_WIKI_NAMES[setKey];
 
-    // 1. Local file
-    urls.push('./Images/lorcana/logos/' + setKey + '.png');
-
-    // 2. Wiki API-resolved CDN URL (populated by fetchLorcanaSetLogos)
+    // 1. API-resolved CDN URL (from Lorcast or wiki APIs — most reliable)
     if (_lorcanaLogoUrlCache[setKey]) {
         urls.push(_lorcanaLogoUrlCache[setKey]);
     }
 
-    // 3. Pre-computed Fandom CDN URLs
+    // 2. Local file (if user has downloaded logos)
+    urls.push('./Images/lorcana/logos/' + setKey + '.png');
+
+    // 3. Pre-computed Fandom CDN URLs (static paths, may be blocked by hotlink policy)
     var cdnPaths = LORCANA_FANDOM_CDN_LOGOS[setKey];
     if (cdnPaths) {
         cdnPaths.forEach(function(p) {
@@ -292,10 +427,10 @@ function getLorcanaRemoteLogoUrls(setKey) {
         });
     }
 
-    // 4. Mushu Report Special:FilePath
+    // 4. Mushu Report Special:FilePath (302 redirect — may fail on some browsers)
     if (wikiName) {
-        urls.push('https://wiki.mushureport.com/wiki/Special:FilePath/' + wikiName + '_logo.png');
         urls.push('https://wiki.mushureport.com/wiki/Special:FilePath/' + wikiName + '_Logo.png');
+        urls.push('https://wiki.mushureport.com/wiki/Special:FilePath/' + wikiName + '_logo.png');
     }
 
     // 5. Lorcana Fandom Special:FilePath
@@ -304,7 +439,7 @@ function getLorcanaRemoteLogoUrls(setKey) {
         urls.push('https://lorcana.fandom.com/wiki/Special:FilePath/' + wikiName + '_logo.png');
     }
 
-    // Disney Fandom wiki (has Lorcana images in their Disney Lorcana category)
+    // 6. Disney Fandom wiki
     if (wikiName) {
         urls.push('https://disney.fandom.com/wiki/Special:FilePath/' + wikiName + '_logo.png');
     }
@@ -489,13 +624,19 @@ function getLorcanaCardImageUrl(card, setKey) {
 // Handle Lorcana image loading from pre-baked data attributes.
 // Reads fallback URLs from data-lorcana-fallbacks JSON attribute.
 function tryNextLorcanaImageFromData(img) {
-    const fallbacks = JSON.parse(img.getAttribute('data-lorcana-fallbacks') || '[]');
-    const idx = parseInt(img.getAttribute('data-lorcana-fallback-idx') || '0') + 1;
+    var fallbacks = JSON.parse(img.getAttribute('data-lorcana-fallbacks') || '[]');
+    var idx = parseInt(img.getAttribute('data-lorcana-fallback-idx') || '0') + 1;
+    var cardNum = img.getAttribute('data-lorcana-card-number') || '?';
+    var setKey = img.getAttribute('data-lorcana-set-key') || '?';
 
     if (idx < fallbacks.length) {
         img.setAttribute('data-lorcana-fallback-idx', idx);
-        img.src = fallbacks[idx];
+        var url = fallbacks[idx];
+        _logoDebug('card ' + setKey + '#' + cardNum + ': fallback [' + idx + '/' + fallbacks.length + '] ' +
+            (url.length > 50 ? url.substring(0, 47) + '...' : url));
+        img.src = url;
     } else {
+        _logoDebug('card ' + setKey + '#' + cardNum + ': ALL ' + fallbacks.length + ' URLs failed — showing placeholder');
         img.onerror = null;
         showPlaceholder(img);
     }
@@ -503,7 +644,8 @@ function tryNextLorcanaImageFromData(img) {
 
 // Render Lorcana set buttons
 function renderLorcanaSetButtons() {
-    _initLogoDebugPanel();
+    // Auto-activate debug panel if ?logodebug is in URL
+    if (_logoDebugFromUrl) _initLogoDebugPanel();
     _logoDebug('renderLorcanaSetButtons called');
     const container = document.getElementById('lorcanaSetButtons');
     if (!container) return;
@@ -563,6 +705,9 @@ function renderLorcanaSetButtons() {
         const logoImg = btn.querySelector('.set-btn-logo');
         if (logoImg) tryUpgradeLorcanaLogo(logoImg);
     });
+
+    // Add visible debug toggle button below set buttons
+    _addDebugToggleButton();
 }
 
 // Switch active Lorcana set
