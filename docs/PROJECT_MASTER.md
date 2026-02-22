@@ -78,9 +78,10 @@ Custom set cards originate from 109 unique Pokemon TCG source sets. Each card's 
 
 ### **Required Files (Must Upload to GitHub)**
 1. **index.html** (~140KB) - Main application
-2. **data/pokemon/official-sets/** - Modular card data for 132 official Pokemon TCG sets
-3. **data/pokemon/custom-sets/** - Modular custom curated sets (Pikachu, Psyduck, Togepi)
-4. **data/lorcana/sets/** - Modular card data for Disney Lorcana sets
+2. **Images/header/logo.svg** - SVG site logo (must be SVG 1.1 compatible — see `Images/README.md` for constraints)
+3. **data/pokemon/official-sets/** - Modular card data for 132 official Pokemon TCG sets
+4. **data/pokemon/custom-sets/** - Modular custom curated sets (Pikachu, Psyduck, Togepi)
+5. **data/lorcana/sets/** - Modular card data for Disney Lorcana sets
 
 ### **File Locations**
 - Repository: https://github.com/lolwtfhunter/blair-tcg-tracker

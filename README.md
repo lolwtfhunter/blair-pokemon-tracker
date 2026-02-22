@@ -101,7 +101,8 @@ blair-tcg-tracker/
 │   ├── PROJECT_MASTER.md      Detailed architecture and history
 │   ├── RARITY_REFERENCE.md    Rarity types and variant rules
 │   └── LORCANA_VARIANTS.md    Lorcana variant reference
-├── Images/                    Local card images and logos (optional)
+├── Images/                    Local card images and logos
+│   ├── header/logo.svg        Site logo (SVG 1.1 — see Images/README.md)
 ├── backups/                   Automated Firebase backup snapshots
 ├── .github/workflows/         CI/CD (backups, test runner)
 ├── playwright.config.js       Test configuration

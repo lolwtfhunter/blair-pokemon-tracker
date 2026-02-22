@@ -1,47 +1,65 @@
 # Images Directory
 
-This folder stores all image assets for the Blair Pokémon TCG Tracker.
+This folder stores all image assets for the Blair TCG Tracker.
 
 ## Structure
 
 ```
 Images/
-├── header/          ← Header banner decoration images
-│   ├── pikachu.png
-│   ├── psyduck.png
-│   ├── togepi.png
-│   └── pokeball.png
+├── header/          ← Header assets
+│   └── logo.svg     ← Main site logo (SVG, rendered via <img> tag)
 │
-└── cards/           ← Card artwork organized by set (create folders as needed)
+├── lorcana/         ← Local Lorcana card images (fallback)
+│   └── {set-key}/
+│       ├── 001.jpg
+│       └── ...
+│
+└── cards/           ← Local Pokemon card images (fallback)
     └── {set-key}/
         ├── 001.png
         ├── 002.png
         └── ...
 ```
 
+## Header Logo (`header/logo.svg`)
+
+The logo is rendered as an `<img>` tag in `index.html`, which means the SVG runs in a restricted context. When editing the logo, it **must** stay SVG 1.1 compatible:
+
+| Do | Don't |
+|----|-------|
+| `xlink:href` on `<use>` | `href` (SVG 2 only) |
+| Hex colors + `opacity` attribute | `rgba()` colors |
+| `feFlood`+`feComposite`+`feOffset`+`feGaussianBlur`+`feMerge` | `feDropShadow` (SVG 2 only) |
+| `&#x2022;` (XML numeric entity) | `&bull;` (HTML entity) |
+| Static elements only | `<animate>` elements |
+| Inline styles | CSS custom properties (`var(--x)`) |
+
+The logo link uses `href="."` (not `href="/"`) so it reloads the home page correctly on GitHub Pages subpath deployments.
+
 ## Card Image Naming Convention
 
 Card images must follow this naming pattern:
 
-- **Format:** `{3-digit zero-padded number}.png`
+- **Format:** `{3-digit zero-padded number}.png` (Pokemon) or `.jpg` (Lorcana)
 - **Examples:** `001.png`, `025.png`, `175.png`
 
 The app automatically looks for card images at:
 ```
-images/cards/{set-key}/{card-number}.png
+Images/cards/{set-key}/{card-number}.png     (Pokemon)
+Images/lorcana/{set-key}/{card-number}.jpg   (Lorcana)
 ```
 
-If an image is not found, a "No Image" placeholder is shown gracefully.
+Local images are a fallback — the app tries multiple CDN sources first (see README.md for the full fallback chain).
 
 ## Adding Card Images
 
-1. Get the card artwork as a `.png` file
+1. Get the card artwork as a `.png` or `.jpg` file
 2. Name it with the 3-digit card number (e.g., `001.png`)
-3. Place it in the correct set folder (e.g., `images/cards/prismatic-evolutions/`)
+3. Place it in the correct set folder (e.g., `Images/cards/prismatic-evolutions/`)
 4. The app will pick it up automatically — no code changes needed
 
 ## Recommended Image Size
 
 - **Card images:** 400×560px (3:4 aspect ratio) works well
 - **Smaller is fine** — 200×280px keeps file sizes small for mobile
-- PNG with transparency or JPG both work, but name them `.png`
+- PNG with transparency or JPG both work
