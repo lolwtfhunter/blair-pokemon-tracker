@@ -52,107 +52,88 @@ const LORCANA_SET_ARTICLE_NAMES = {
 const _lorcanaLogoUrlCache = {};
 let _lorcanaLogosFetched = false;
 
-// Normalize a string for fuzzy matching: strip apostrophes/quotes, underscores→spaces, lowercase.
-function _normForMatch(s) {
-    return s.replace(/_/g, ' ').replace(/['''\u2018\u2019\u0027]/g, '').toLowerCase().trim();
-}
-
-// Query Fandom article pages for logo images, then resolve CDN URLs.
-// Only uses images with "logo" in the filename to avoid product photos.
-// Handles apostrophe variations (Ursula's Return, Archazia's Island).
+// Directly query the Fandom wiki API for known logo filenames.
+// Tries multiple filename variations per set (Logo.png, logo.png, .png).
+// Falls back to Mushu Report wiki if Fandom doesn't have a file.
+// Single API call — no article page scraping needed.
 async function fetchLorcanaSetLogos() {
     if (_lorcanaLogosFetched) return;
     _lorcanaLogosFetched = true;
 
     var setKeys = Object.keys(LORCANA_SET_ARTICLE_NAMES);
-    var fandomApi = 'https://lorcana.fandom.com/api.php';
 
-    try {
-        // Step 1: Query images on all set article pages (one API call)
-        var articleTitles = setKeys.map(function(k) { return LORCANA_SET_ARTICLE_NAMES[k]; }).join('|');
-        var artResp = await fetch(fandomApi + '?action=query&titles=' + encodeURIComponent(articleTitles) +
-            '&prop=images&imlimit=500&format=json&origin=*', { referrerPolicy: 'no-referrer' });
-        if (!artResp.ok) return;
+    // Build candidate filenames for each set.
+    // fileToSet maps "File:X" → { setKey, priority } for result mapping.
+    var allFiles = [];
+    var fileToSet = {};
 
-        var artData = await artResp.json();
-        var artPages = artData && artData.query && artData.query.pages;
-        if (!artPages) return;
-
-        // Step 2: For each set's article page, find the best logo image.
-        // Build a reverse map: normalized article title → setKey
-        var titleToSet = {};
-        setKeys.forEach(function(k) {
-            titleToSet[_normForMatch(LORCANA_SET_ARTICLE_NAMES[k])] = k;
+    setKeys.forEach(function(k) {
+        var name = LORCANA_SET_ARTICLE_NAMES[k];
+        // Try common wiki naming conventions (ordered by likelihood)
+        var variants = [
+            'File:' + name + '_Logo.png',
+            'File:' + name + '_logo.png',
+            'File:' + name + '.png'
+        ];
+        // For apostrophe sets, also try without the apostrophe
+        if (name.indexOf("'") !== -1) {
+            var clean = name.replace(/'/g, '');
+            variants.push('File:' + clean + '_Logo.png');
+            variants.push('File:' + clean + '_logo.png');
+            variants.push('File:' + clean + '.png');
+        }
+        variants.forEach(function(f, i) {
+            allFiles.push(f);
+            // MediaWiki API returns titles with spaces, not underscores.
+            // Normalize to spaces so lookups match API response titles.
+            var normalized = f.replace(/_/g, ' ');
+            if (!fileToSet[normalized] || i < fileToSet[normalized].priority) {
+                fileToSet[normalized] = { setKey: k, priority: i };
+            }
         });
+    });
 
-        var bestMatches = {}; // setKey → File:title
-        Object.keys(artPages).forEach(function(pid) {
-            var page = artPages[pid];
-            if (!page.title || !page.images) return;
-            var setKey = titleToSet[_normForMatch(page.title)];
-            if (!setKey) return;
+    // Try Fandom wiki first, then Mushu Report as fallback
+    var sources = [
+        { api: 'https://lorcana.fandom.com/api.php', name: 'Fandom' },
+        { api: 'https://wiki.mushureport.com/api.php', name: 'MushuReport' }
+    ];
 
-            var setNameNorm = _normForMatch(LORCANA_SET_ARTICLE_NAMES[setKey]);
-            var logoMatch = null;
-            var nameMatch = null;
-
-            page.images.forEach(function(img) {
-                var t = (img.title || '').replace(/^File:/i, '');
-                var tNorm = _normForMatch(t);
-
-                // Skip obvious non-logo files (products, merchandise, etc.)
-                if (tNorm.indexOf('deck box') !== -1 || tNorm.indexOf('sleeves') !== -1 ||
-                    tNorm.indexOf('playmat') !== -1 || tNorm.indexOf('portfolio') !== -1 ||
-                    tNorm.indexOf('booster') !== -1 || tNorm.indexOf('trove') !== -1 ||
-                    tNorm.indexOf('starter') !== -1 || tNorm.indexOf('blister') !== -1 ||
-                    tNorm.indexOf('gift set') !== -1 || tNorm.indexOf('display') !== -1 ||
-                    tNorm.indexOf('pack art') !== -1 || tNorm.indexOf('bundle') !== -1 ||
-                    tNorm.indexOf('kit') !== -1 || tNorm.indexOf('exclusive') !== -1 ||
-                    tNorm.indexOf('card back') !== -1 || tNorm.indexOf('site-logo') !== -1) return;
-
-                // Priority 1: file has "logo" AND set name
-                if (tNorm.indexOf('logo') !== -1 && tNorm.indexOf(setNameNorm) !== -1) {
-                    if (!logoMatch || t.toLowerCase().indexOf('.png') !== -1) {
-                        logoMatch = img.title;
-                    }
-                }
-                // Priority 2: filename matches set name (fallback)
-                if (!nameMatch && tNorm.indexOf(setNameNorm) !== -1) {
-                    nameMatch = img.title;
-                }
-            });
-
-            bestMatches[setKey] = logoMatch || nameMatch;
+    for (var si = 0; si < sources.length; si++) {
+        var api = sources[si].api;
+        // Check which sets still need logos
+        var needed = allFiles.filter(function(f) {
+            var entry = fileToSet[f.replace(/_/g, ' ')];
+            return entry && !_lorcanaLogoUrlCache[entry.setKey];
         });
+        if (needed.length === 0) break;
 
-        // Step 3: Fetch CDN URLs for discovered logo files (one API call)
-        var fileTitles = [];
-        setKeys.forEach(function(k) {
-            if (bestMatches[k]) fileTitles.push(bestMatches[k]);
-        });
-        if (fileTitles.length === 0) return;
+        try {
+            var resp = await fetch(api + '?action=query&titles=' +
+                encodeURIComponent(needed.join('|')) +
+                '&prop=imageinfo&iiprop=url&format=json&origin=*',
+                { referrerPolicy: 'no-referrer' });
+            if (!resp.ok) continue;
 
-        var infoResp = await fetch(fandomApi + '?action=query&titles=' +
-            encodeURIComponent(fileTitles.join('|')) +
-            '&prop=imageinfo&iiprop=url&format=json&origin=*', { referrerPolicy: 'no-referrer' });
-        if (!infoResp.ok) return;
+            var data = await resp.json();
+            var pages = data && data.query && data.query.pages;
+            if (!pages) continue;
 
-        var infoData = await infoResp.json();
-        var infoPages = infoData && infoData.query && infoData.query.pages;
-        if (!infoPages) return;
+            // Map results: for each found file, store its CDN URL for the set
+            Object.keys(pages).forEach(function(pid) {
+                var page = pages[pid];
+                if (!page.imageinfo || !page.imageinfo[0] || !page.imageinfo[0].url) return;
+                var url = page.imageinfo[0].url;
 
-        // Step 4: Map resolved URLs back to set keys
-        Object.keys(infoPages).forEach(function(pid) {
-            var page = infoPages[pid];
-            if (!page.imageinfo || !page.imageinfo[0] || !page.imageinfo[0].url) return;
-            var title = (page.title || '').replace(/^File:/i, '');
-            setKeys.forEach(function(k) {
-                if (bestMatches[k] && bestMatches[k].replace(/^File:/i, '') === title) {
-                    _lorcanaLogoUrlCache[k] = page.imageinfo[0].url;
+                // Find which set this file belongs to via the title
+                var title = page.title || '';
+                var entry = fileToSet[title];
+                if (entry && !_lorcanaLogoUrlCache[entry.setKey]) {
+                    _lorcanaLogoUrlCache[entry.setKey] = url;
                 }
             });
-        });
-    } catch (e) { /* discovery failed — SVGs will be used */ }
+        } catch (e) { /* this source failed, try next */ }
+    }
 }
 
 // Upgrade one SVG logo to a real image via fetch→blob.
