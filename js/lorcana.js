@@ -44,21 +44,89 @@ const LORCANA_SET_WIKI_NAMES = {
 };
 
 // ==================== LORCANA LOGO CDN PRE-FETCH ====================
-// Set logos are resolved from pre-computed Fandom CDN paths (most reliable).
+// Resolves actual CDN URLs for set logos via MediaWiki APIs at runtime.
+// Both Fandom and MushuReport are MediaWiki wikis — the imageinfo API returns
+// the real serving URL which may bypass hotlink protection that blocks static paths.
 // The Lorcast API (/v0/sets) does NOT provide set logo images — only card images.
-// Wiki APIs (Fandom, Mushu Report, Disney) are unreliable for logo resolution.
 
 // Cache: { setKey: directCdnUrl }
 const _lorcanaLogoUrlCache = {};
 let _lorcanaLogosFetched = false;
 
-// No-op: kept for backward compatibility with app.js init flow.
-// The Lorcast /v0/sets endpoint does not return logo image URLs —
-// set objects only contain id, name, code, released_at, prereleased_at.
+// Resolve actual CDN URLs via MediaWiki imageinfo API.
+// Tries MushuReport first (self-hosted, no Fandom anti-hotlink), then Fandom.
+// Uses origin=* for CORS support. Results cached in _lorcanaLogoUrlCache.
 async function fetchLorcanaSetLogos() {
     if (_lorcanaLogosFetched) return;
     _lorcanaLogosFetched = true;
-    _logoDebug('fetchLorcanaSetLogos: using pre-computed CDN paths (API has no set logos)');
+    _logoDebug('fetchLorcanaSetLogos: resolving CDN URLs via wiki APIs (v5-wikiapi)');
+
+    var wikiNames = LORCANA_SET_WIKI_NAMES;
+
+    // Build lookup from normalized file title → setKey
+    var setKeyByTitle = {};
+    Object.keys(wikiNames).forEach(function(setKey) {
+        var name = wikiNames[setKey];
+        setKeyByTitle['file:' + name.toLowerCase() + '_logo.png'] = setKey;
+    });
+
+    // Wiki APIs to try (MushuReport first — self-hosted, less blocking)
+    var apis = [
+        {
+            name: 'MushuReport',
+            base: 'https://wiki.mushureport.com/api.php',
+            suffix: '_logo.png'
+        },
+        {
+            name: 'Fandom',
+            base: 'https://lorcana.fandom.com/api.php',
+            suffix: '_Logo.png'
+        }
+    ];
+
+    for (var i = 0; i < apis.length; i++) {
+        var api = apis[i];
+        // Build batch file titles (MediaWiki supports pipe-separated titles)
+        var titles = Object.keys(wikiNames).map(function(setKey) {
+            return 'File:' + wikiNames[setKey] + api.suffix;
+        }).join('|');
+
+        var url = api.base + '?action=query&titles=' + encodeURIComponent(titles) +
+            '&prop=imageinfo&iiprop=url&format=json&origin=*';
+
+        try {
+            var resp = await fetch(url, { referrerPolicy: 'no-referrer' });
+            if (!resp.ok) {
+                _logoDebug('fetchLorcanaSetLogos: ' + api.name + ' returned HTTP ' + resp.status);
+                continue;
+            }
+            var data = await resp.json();
+            var pages = data && data.query && data.query.pages;
+            if (!pages) {
+                _logoDebug('fetchLorcanaSetLogos: ' + api.name + ' returned no pages');
+                continue;
+            }
+
+            var resolved = 0;
+            Object.keys(pages).forEach(function(pageId) {
+                var page = pages[pageId];
+                if (!page.imageinfo || !page.imageinfo[0] || !page.imageinfo[0].url) return;
+                var title = (page.title || '').toLowerCase();
+                var setKey = setKeyByTitle[title];
+                if (setKey && !_lorcanaLogoUrlCache[setKey]) {
+                    _lorcanaLogoUrlCache[setKey] = page.imageinfo[0].url;
+                    resolved++;
+                }
+            });
+
+            _logoDebug('fetchLorcanaSetLogos: ' + api.name + ' resolved ' + resolved + '/' + Object.keys(wikiNames).length + ' logos');
+            if (resolved > 0) return; // Use first successful source
+        } catch (err) {
+            _logoDebug('fetchLorcanaSetLogos: ' + api.name + ' failed: ' + err.message);
+        }
+    }
+
+    _logoDebug('fetchLorcanaSetLogos: no wiki API returned logo URLs');
 }
 
 // Pre-computed Fandom CDN URLs (MD5-hashed paths).
@@ -208,12 +276,20 @@ function _addDebugToggleButton() {
 // ==================== LOGO URL BUILDING ====================
 
 // Build ordered list of candidate logo URLs for a set.
-// Order: pre-computed Fandom CDN (fastest, most reliable) → local file → wiki redirects.
+// Order: wiki API resolved → local file → Fandom CDN → wiki redirects.
 function getLorcanaRemoteLogoUrls(setKey) {
     var urls = [];
     var wikiName = LORCANA_SET_WIKI_NAMES[setKey];
 
-    // 1. Pre-computed Fandom CDN URLs (static paths — most reliable, all 11 sets verified)
+    // 1. Wiki API-resolved CDN URL (most reliable — actual serving URL from MediaWiki API)
+    if (_lorcanaLogoUrlCache[setKey]) {
+        urls.push(_lorcanaLogoUrlCache[setKey]);
+    }
+
+    // 2. Local file (if user has downloaded logos)
+    urls.push('./Images/lorcana/logos/' + setKey + '.png');
+
+    // 3. Pre-computed Fandom CDN URLs (static paths — may return 404 due to anti-hotlink)
     var cdnPaths = LORCANA_FANDOM_CDN_LOGOS[setKey];
     if (cdnPaths) {
         cdnPaths.forEach(function(p) {
@@ -221,10 +297,7 @@ function getLorcanaRemoteLogoUrls(setKey) {
         });
     }
 
-    // 2. Local file (if user has downloaded logos)
-    urls.push('./Images/lorcana/logos/' + setKey + '.png');
-
-    // 3. Lorcana Fandom Special:FilePath (302 redirect — fallback for new sets)
+    // 4. Lorcana Fandom Special:FilePath (302 redirect — fallback for new sets)
     if (wikiName) {
         urls.push('https://lorcana.fandom.com/wiki/Special:FilePath/' + wikiName + '_Logo.png');
     }
@@ -243,7 +316,7 @@ function tryUpgradeLorcanaLogo(img) {
 
     var urls = getLorcanaRemoteLogoUrls(setKey);
     var svgSrc = img.src; // Save SVG fallback for revert
-    _logoDebug(setKey + ': trying ' + urls.length + ' URLs (v4-skip404)');
+    _logoDebug(setKey + ': trying ' + urls.length + ' URLs (v5-wikiapi)');
     var idx = 0;
 
     function tryNext() {
@@ -557,14 +630,23 @@ function renderLorcanaSetButtons() {
 
         btn.onclick = () => switchLorcanaSet(setKey);
         container.appendChild(btn);
-
-        // Try to upgrade SVG to real logo in background
-        const logoImg = btn.querySelector('.set-btn-logo');
-        if (logoImg) tryUpgradeLorcanaLogo(logoImg);
     });
 
     // Add visible debug toggle button below set buttons
     _addDebugToggleButton();
+
+    // Upgrade logos: resolve wiki API URLs first, then try all sources.
+    // Buttons render instantly with SVGs; logos upgrade in background.
+    // Race the API call against a 4s timeout so logos still try if API is slow.
+    var apiWithTimeout = Promise.race([
+        fetchLorcanaSetLogos().catch(function() {}),
+        new Promise(function(resolve) { setTimeout(resolve, 4000); })
+    ]);
+    apiWithTimeout.then(function() {
+        container.querySelectorAll('.set-btn-logo[data-logo-set]').forEach(function(img) {
+            tryUpgradeLorcanaLogo(img);
+        });
+    });
 }
 
 // Switch active Lorcana set
