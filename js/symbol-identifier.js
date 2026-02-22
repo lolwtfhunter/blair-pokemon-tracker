@@ -3,6 +3,13 @@
 let siSets = null;
 let siInitialized = false;
 
+// Sets where pokemontcg.io returns a card image instead of the real set symbol.
+// Map from API set ID to a short code to display as a styled text fallback.
+const SI_BROKEN_SYMBOL_SETS = {
+    'me2pt5': 'ASC',
+    'mep': 'MEP'
+};
+
 // --- Activation (called when Symbol ID tab is clicked) ---
 
 function siActivate() {
@@ -23,7 +30,14 @@ function siFetchSets() {
             return r.json();
         })
         .then(data => {
-            siSets = data.data || [];
+            siSets = (data.data || []).map(s => {
+                if (SI_BROKEN_SYMBOL_SETS[s.id]) {
+                    s.images = s.images || {};
+                    s.images.symbol = '';
+                    s._symbolCode = SI_BROKEN_SYMBOL_SETS[s.id];
+                }
+                return s;
+            });
             siRender(siSets);
         })
         .catch(() => {
@@ -68,14 +82,16 @@ function siBuildLocalSets() {
     for (const [setKey, apiId] of Object.entries(TCG_API_SET_IDS)) {
         const eraKey = getEra(apiId);
         const displayName = setKey.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+        const isBroken = SI_BROKEN_SYMBOL_SETS[apiId];
         sets.push({
             id: apiId,
             name: displayName,
             series: ERA_MAP[eraKey] || 'Other',
             releaseDate: '',
             images: {
-                symbol: 'https://images.pokemontcg.io/' + apiId + '/symbol.png'
-            }
+                symbol: isBroken ? '' : 'https://images.pokemontcg.io/' + apiId + '/symbol.png'
+            },
+            _symbolCode: isBroken || ''
         });
     }
     return sets;
@@ -105,9 +121,15 @@ function siRender(sets) {
         html += '<div class="si-symbol-grid">';
         seriesSets.forEach(s => {
             const year = s.releaseDate ? s.releaseDate.substring(0, 4) : '';
+            const symbolCode = s._symbolCode || '';
+            const symbolContent = symbolCode
+                ? '<div class="si-symbol-code">' + siEscape(symbolCode) + '</div>'
+                : '<img class="si-symbol-img" src="' + siEscape(s.images.symbol) + '" alt="' + siEscape(s.name) + '" loading="lazy"'
+                  + ' onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'\'">'
+                  + '<div class="si-symbol-code" style="display:none">' + siEscape(s.id.toUpperCase()) + '</div>';
             html += '<div class="si-symbol-item" title="' + siEscape(s.name) + (year ? ' (' + year + ')' : '') + '">'
                 + '<div class="si-symbol-img-wrap">'
-                + '<img class="si-symbol-img" src="' + siEscape(s.images.symbol) + '" alt="' + siEscape(s.name) + '" loading="lazy">'
+                + symbolContent
                 + '</div>'
                 + '<div class="si-symbol-name">' + siEscape(s.name) + '</div>'
                 + (year ? '<div class="si-symbol-year">' + year + '</div>' : '')
