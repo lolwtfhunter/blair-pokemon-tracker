@@ -28,440 +28,44 @@ function initializeProgress() {
 
 // ==================== LORCANA FUNCTIONS ====================
 
-// Maps set keys to their wiki-style display names for logo URL construction
-const LORCANA_SET_WIKI_NAMES = {
-    'first-chapter':         'The_First_Chapter',
-    'rise-of-the-floodborn': 'Rise_of_the_Floodborn',
-    'into-the-inklands':     'Into_the_Inklands',
-    'ursulas-return':        "Ursula's_Return",
-    'shimmering-skies':      'Shimmering_Skies',
-    'azurite-sea':           'Azurite_Sea',
-    'archazias-island':      "Archazia's_Island",
-    'reign-of-jafar':        'Reign_of_Jafar',
-    'fabled':                'Fabled',
-    'whispers-in-the-well':  'Whispers_in_the_Well',
-    'winterspell':           'Winterspell'
-};
-
-// ==================== LORCANA LOGO CDN PRE-FETCH ====================
-// Resolves actual CDN URLs for set logos via MediaWiki APIs at runtime.
-// Both Fandom and MushuReport are MediaWiki wikis — the imageinfo API returns
-// the real serving URL which may bypass hotlink protection that blocks static paths.
-// The Lorcast API (/v0/sets) does NOT provide set logo images — only card images.
-
-// Cache: { setKey: directCdnUrl }
-const _lorcanaLogoUrlCache = {};
-let _lorcanaLogosFetched = false;
-
-// Resolve actual CDN URLs via MediaWiki imageinfo API.
-// Tries MushuReport first (self-hosted, no Fandom anti-hotlink), then Fandom.
-// Uses origin=* for CORS support. Results cached in _lorcanaLogoUrlCache.
-async function fetchLorcanaSetLogos() {
-    if (_lorcanaLogosFetched) return;
-    _lorcanaLogosFetched = true;
-    _logoDebug('fetchLorcanaSetLogos: discovering logo URLs (v10-article-images)');
-
-    var wikiNames = LORCANA_SET_WIKI_NAMES;
-    var setKeys = Object.keys(wikiNames);
-    var fandomApi = 'https://lorcana.fandom.com/api.php';
-
-    // Helper: given imageinfo pages, match to sets and cache URLs
-    function resolvePages(pages) {
-        var resolved = 0;
-        Object.keys(pages).forEach(function(pageId) {
-            var page = pages[pageId];
-            if (!page.imageinfo || !page.imageinfo[0] || !page.imageinfo[0].url) return;
-            var title = (page.title || '').replace(/^File:/i, '').replace(/_/g, ' ').toLowerCase();
-            // Only match files that look like logos (not card images, icons, etc.)
-            if (title.indexOf('logo') === -1) return;
-            setKeys.forEach(function(setKey) {
-                var setName = wikiNames[setKey].replace(/_/g, ' ').toLowerCase();
-                if (title.indexOf(setName) !== -1 && !_lorcanaLogoUrlCache[setKey]) {
-                    _lorcanaLogoUrlCache[setKey] = page.imageinfo[0].url;
-                    _logoDebug('  resolved: ' + setKey + ' → ' + page.imageinfo[0].url.substring(0, 80) + '...');
-                    resolved++;
-                }
-            });
-        });
-        return resolved;
-    }
-
-    function countResolved() {
-        return setKeys.filter(function(k) { return !!_lorcanaLogoUrlCache[k]; }).length;
-    }
-
-    // Strategy 1: Query images on set article pages (discovers ALL images each article uses)
-    _logoDebug('fetchLorcanaSetLogos: querying images on set article pages...');
-    try {
-        var articleTitles = setKeys.map(function(k) { return wikiNames[k]; }).join('|');
-        var artUrl = fandomApi + '?action=query&titles=' + encodeURIComponent(articleTitles) +
-            '&prop=images&imlimit=500&format=json&origin=*';
-        var artResp = await fetch(artUrl, { referrerPolicy: 'no-referrer' });
-        if (artResp.ok) {
-            var artData = await artResp.json();
-            var artPages = artData && artData.query && artData.query.pages;
-            if (artPages) {
-                // Collect all image titles from all set pages, filtering for logo-related ones
-                var logoFiles = [];
-                Object.keys(artPages).forEach(function(pid) {
-                    var page = artPages[pid];
-                    var images = page.images || [];
-                    images.forEach(function(img) {
-                        var t = (img.title || '').toLowerCase();
-                        _logoDebug('  article image: ' + img.title);
-                        if (t.indexOf('logo') !== -1 || t.indexOf('set') !== -1) {
-                            logoFiles.push(img.title);
-                        }
-                    });
-                });
-                _logoDebug('fetchLorcanaSetLogos: found ' + logoFiles.length + ' logo-related images on article pages');
-
-                // Fetch imageinfo (CDN URLs) for discovered logo files
-                if (logoFiles.length > 0) {
-                    var infoUrl = fandomApi + '?action=query&titles=' +
-                        encodeURIComponent(logoFiles.join('|')) +
-                        '&prop=imageinfo&iiprop=url&format=json&origin=*';
-                    var infoResp = await fetch(infoUrl, { referrerPolicy: 'no-referrer' });
-                    if (infoResp.ok) {
-                        var infoData = await infoResp.json();
-                        var infoPages = infoData && infoData.query && infoData.query.pages;
-                        if (infoPages) {
-                            var n = resolvePages(infoPages);
-                            _logoDebug('fetchLorcanaSetLogos: article strategy resolved ' + n + ' logos');
-                        }
-                    }
-                }
-            }
-        }
-    } catch (e) {
-        _logoDebug('fetchLorcanaSetLogos: article strategy failed: ' + e.message);
-    }
-    if (countResolved() >= setKeys.length) return;
-
-    // Strategy 2: Batch lookup with guessed filenames
-    var suffixes = ['_Logo.png', '_logo.png', '_Set_Logo.png', '_set_logo.png'];
-    for (var si = 0; si < suffixes.length; si++) {
-        var suffix = suffixes[si];
-        var titles = setKeys.map(function(k) { return 'File:' + wikiNames[k] + suffix; }).join('|');
-        try {
-            var resp = await fetch(fandomApi + '?action=query&titles=' + encodeURIComponent(titles) +
-                '&prop=imageinfo&iiprop=url&format=json&origin=*', { referrerPolicy: 'no-referrer' });
-            if (resp.ok) {
-                var data = await resp.json();
-                var pages = data && data.query && data.query.pages;
-                if (pages) {
-                    var n = resolvePages(pages);
-                    _logoDebug('fetchLorcanaSetLogos: batch ' + suffix + ' resolved ' + n);
-                    if (countResolved() >= setKeys.length) return;
-                }
-            }
-        } catch (e) {
-            _logoDebug('fetchLorcanaSetLogos: batch ' + suffix + ' failed: ' + e.message);
-        }
-    }
-
-    // Strategy 3: Search File namespace for "logo"
-    _logoDebug('fetchLorcanaSetLogos: searching for logo files...');
-    try {
-        var searchUrl = fandomApi + '?action=query&list=search&srsearch=logo&srnamespace=6&srlimit=50&format=json&origin=*';
-        var searchResp = await fetch(searchUrl, { referrerPolicy: 'no-referrer' });
-        if (searchResp.ok) {
-            var searchData = await searchResp.json();
-            var results = searchData && searchData.query && searchData.query.search;
-            if (results && results.length > 0) {
-                _logoDebug('fetchLorcanaSetLogos: search found ' + results.length + ' files');
-                var fileTitles = results.map(function(r) {
-                    _logoDebug('  found: ' + r.title);
-                    return r.title;
-                });
-                var infoUrl2 = fandomApi + '?action=query&titles=' + encodeURIComponent(fileTitles.join('|')) +
-                    '&prop=imageinfo&iiprop=url&format=json&origin=*';
-                var infoResp2 = await fetch(infoUrl2, { referrerPolicy: 'no-referrer' });
-                if (infoResp2.ok) {
-                    var infoData2 = await infoResp2.json();
-                    var infoPages2 = infoData2 && infoData2.query && infoData2.query.pages;
-                    if (infoPages2) {
-                        var n2 = resolvePages(infoPages2);
-                        _logoDebug('fetchLorcanaSetLogos: search resolved ' + n2 + ' new logos');
-                    }
-                }
-            } else {
-                _logoDebug('fetchLorcanaSetLogos: search returned 0 files');
-            }
-        }
-    } catch (e) {
-        _logoDebug('fetchLorcanaSetLogos: search failed: ' + e.message);
-    }
-
-    var total = countResolved();
-    _logoDebug('fetchLorcanaSetLogos: final — ' + total + '/' + setKeys.length + ' logos resolved');
-}
-
-// Pre-computed Fandom CDN URLs (MD5-hashed paths).
-// These bypass both the API call and Special:FilePath redirects.
-// Constructed from: MD5(filename) → /images/{hash[0]}/{hash[0:2]}/{filename}/revision/latest
-// Two patterns per set: _Logo.png (uppercase) and _logo.png (lowercase).
-const LORCANA_FANDOM_CDN_LOGOS = {
-    'first-chapter':         ['d/db/The_First_Chapter_Logo.png', 'f/fd/The_First_Chapter_logo.png'],
-    'rise-of-the-floodborn': ['5/5b/Rise_of_the_Floodborn_Logo.png', '3/39/Rise_of_the_Floodborn_logo.png'],
-    'into-the-inklands':     ['6/6d/Into_the_Inklands_Logo.png', '5/59/Into_the_Inklands_logo.png'],
-    'ursulas-return':        ["3/3b/Ursula%27s_Return_Logo.png", "7/7a/Ursula%27s_Return_logo.png"],
-    'shimmering-skies':      ['b/bf/Shimmering_Skies_Logo.png', 'a/ad/Shimmering_Skies_logo.png'],
-    'azurite-sea':           ['6/6c/Azurite_Sea_Logo.png', '9/98/Azurite_Sea_logo.png'],
-    'archazias-island':      ["3/38/Archazia%27s_Island_Logo.png", "3/38/Archazia%27s_Island_logo.png"],
-    'reign-of-jafar':        ['e/e0/Reign_of_Jafar_Logo.png', '1/1c/Reign_of_Jafar_logo.png'],
-    'fabled':                ['c/c4/Fabled_Logo.png', '7/76/Fabled_logo.png'],
-    'whispers-in-the-well':  ['4/4d/Whispers_in_the_Well_Logo.png', '1/1c/Whispers_in_the_Well_logo.png'],
-    'winterspell':           ['8/84/Winterspell_Logo.png', 'f/f7/Winterspell_logo.png']
-};
-
-// ==================== LOGO DEBUG PANEL ====================
-// Activate by adding ?logodebug to the URL OR by tapping the debug toggle in the UI.
-const _logoDebugFromUrl = (typeof location !== 'undefined') && location.search.indexOf('logodebug') !== -1;
-var _logoDebugForced = false;
-const _logoDebugLog = [];
-
-function _isLogoDebugActive() {
-    return _logoDebugFromUrl || _logoDebugForced;
-}
-
-function _logoDebug(msg) {
-    var ts = new Date().toISOString().substr(11, 12);
-    var line = '[' + ts + '] ' + msg;
-    _logoDebugLog.push(line);
-    if (_isLogoDebugActive()) {
-        console.log('[logo] ' + msg);
-        _updateDebugPanelContent();
-    }
-}
-
-function _updateDebugPanelContent() {
-    var panel = document.getElementById('logo-debug-panel');
-    if (panel) {
-        var pre = panel.querySelector('pre');
-        if (pre) {
-            pre.textContent = _logoDebugLog.join('\n');
-            pre.scrollTop = pre.scrollHeight;
-        }
-    }
-}
-
-// iOS-compatible copy function (navigator.clipboard may not work on iOS Safari)
-function _copyDebugLog() {
-    var text = _logoDebugLog.join('\n');
-    // Try modern clipboard API first
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(text).then(function() {
-            alert('Debug log copied! (' + _logoDebugLog.length + ' lines)');
-        }).catch(function() {
-            _fallbackCopyText(text);
-        });
-    } else {
-        _fallbackCopyText(text);
-    }
-}
-
-// Fallback copy using textarea + execCommand (works on iOS Safari)
-function _fallbackCopyText(text) {
-    var ta = document.createElement('textarea');
-    ta.value = text;
-    ta.setAttribute('readonly', '');
-    ta.style.cssText = 'position:fixed;top:0;left:0;width:1px;height:1px;opacity:0.01;';
-    document.body.appendChild(ta);
-    ta.focus();
-    ta.select();
-    // iOS Safari requires setSelectionRange
-    ta.setSelectionRange(0, ta.value.length);
-    try {
-        document.execCommand('copy');
-        alert('Debug log copied! (' + _logoDebugLog.length + ' lines)');
-    } catch (e) {
-        // Last resort: show the text for manual copy
-        prompt('Copy this debug log:', text);
-    }
-    document.body.removeChild(ta);
-}
-
-function _initLogoDebugPanel() {
-    if (!_isLogoDebugActive()) return;
-    if (document.getElementById('logo-debug-panel')) return; // already exists
-    var panel = document.createElement('div');
-    panel.id = 'logo-debug-panel';
-    panel.innerHTML = '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;gap:8px;">' +
-        '<b style="flex-shrink:0;">Logo Debug</b>' +
-        '<div style="display:flex;gap:6px;">' +
-        '<button onclick="_copyDebugLog()" ' +
-        'style="font-size:13px;padding:6px 14px;cursor:pointer;background:#0f0;color:#111;border:none;border-radius:4px;font-weight:bold;min-height:36px;">Copy Log</button>' +
-        '<button onclick="_closeDebugPanel()" ' +
-        'style="font-size:13px;padding:6px 10px;cursor:pointer;background:#333;color:#0f0;border:1px solid #0f0;border-radius:4px;min-height:36px;">Close</button>' +
-        '</div></div>' +
-        '<pre style="margin:0;white-space:pre-wrap;word-break:break-all;max-height:250px;overflow:auto;font-size:11px;line-height:1.3;-webkit-overflow-scrolling:touch;"></pre>';
-    panel.style.cssText = 'position:fixed;bottom:0;left:0;right:0;z-index:99999;background:#111;color:#0f0;' +
-        'padding:10px;font-family:monospace;font-size:12px;max-height:350px;border-top:2px solid #0f0;';
-    document.body.appendChild(panel);
-    // Replay existing log entries into the panel
-    _updateDebugPanelContent();
-    _logoDebug('Debug panel initialized');
-}
-
-function _closeDebugPanel() {
-    _logoDebugForced = false;
-    var panel = document.getElementById('logo-debug-panel');
-    if (panel) panel.remove();
-    // Update toggle button text
-    var toggle = document.getElementById('logo-debug-toggle');
-    if (toggle) toggle.textContent = 'Debug Logos';
-}
-
-// Toggle debug panel on/off from the UI button
-function toggleLogoDebug() {
-    _logoDebugForced = !_logoDebugForced;
-    var toggle = document.getElementById('logo-debug-toggle');
-    if (_logoDebugForced) {
-        _initLogoDebugPanel();
-        if (toggle) toggle.textContent = 'Hide Debug';
-    } else {
-        _closeDebugPanel();
-    }
-}
-
-// Create the visible debug toggle button in the Lorcana tab
-function _addDebugToggleButton() {
-    var container = document.getElementById('lorcanaSetButtons');
-    if (!container) return;
-    // Don't add twice
-    if (document.getElementById('logo-debug-toggle')) return;
-    var btn = document.createElement('button');
-    btn.id = 'logo-debug-toggle';
-    btn.textContent = _isLogoDebugActive() ? 'Hide Debug' : 'Debug Logos';
-    btn.onclick = toggleLogoDebug;
-    btn.style.cssText = 'display:block;margin:8px auto 0;padding:4px 12px;font-size:11px;' +
-        'background:transparent;color:#666;border:1px solid #444;border-radius:12px;cursor:pointer;' +
-        'font-family:monospace;';
-    container.parentNode.insertBefore(btn, container.nextSibling);
-}
-
-// ==================== LOGO URL BUILDING ====================
-
-// Build ordered list of candidate logo URLs for a set.
-// Priority: API-discovered URLs (from fetchLorcanaSetLogos) > proxied guesses > local > direct.
-function getLorcanaRemoteLogoUrls(setKey) {
-    var urls = [];
-    var wikiName = LORCANA_SET_WIKI_NAMES[setKey];
-
-    // 1. Wiki API-resolved URL (discovered by article/search/batch — most reliable)
-    var cached = _lorcanaLogoUrlCache[setKey];
-    if (cached) {
-        urls.push(cached);
-        // 1b. Also try proxied version in case CDN blocks direct browser access
-        urls.push('https://wsrv.nl/?url=' + encodeURIComponent(cached).replace(/'/g, '%27') + '&w=600');
-    }
-
-    // 2. Local file (if user has downloaded logos)
-    urls.push('./Images/lorcana/logos/' + setKey + '.png');
-
-    return urls;
-}
-
-// ==================== LOGO UPGRADE (SEQUENTIAL) ====================
-
-// Try to upgrade one SVG logo to a real image by testing URLs sequentially.
-// Uses fetch() → blob URL approach to bypass CDN hotlink/referrer issues.
-// Falls back to direct img.src if fetch fails (e.g. CORS).
-function tryUpgradeLorcanaLogo(img) {
+// Optional local logo upgrade: if user has placed logo PNGs in ./Images/lorcana/logos/,
+// the SVG placeholder is replaced with the real image. No external fetching is done —
+// every external CDN (Fandom, MushuReport, wsrv.nl) proved unreliable due to
+// CORS, hotlink protection, or incorrect filenames.
+function tryUpgradeLocalLogo(img) {
     var setKey = img.getAttribute('data-logo-set');
     if (!setKey) return;
-
-    var urls = getLorcanaRemoteLogoUrls(setKey);
-    var svgSrc = img.src; // Save SVG fallback for revert
-    _logoDebug(setKey + ': trying ' + urls.length + ' URLs (v10-article-images)');
-    var idx = 0;
-
-    function tryNext() {
-        if (idx >= urls.length) {
-            _logoDebug(setKey + ': ALL FAILED — reverting to SVG');
-            img.onload = null;
-            img.onerror = null;
-            img.src = svgSrc;
-            return;
-        }
-        var url = urls[idx++];
-        var shortUrl = url.length > 70 ? url.substring(0, 67) + '...' : url;
-        _logoDebug(setKey + ': [' + idx + '/' + urls.length + '] trying ' + shortUrl);
-
-        // Try fetch → blob URL first (completely bypasses CDN display issues)
-        fetch(url, { referrerPolicy: 'no-referrer' })
-            .then(function(resp) {
-                if (!resp.ok) throw new Error('HTTP ' + resp.status);
-                return resp.blob();
-            })
-            .then(function(blob) {
-                if (blob.size < 100) throw new Error('blob too small (' + blob.size + 'B)');
-                var blobUrl = URL.createObjectURL(blob);
-                img.onload = function() {
-                    if (img.naturalWidth > 10 && img.naturalHeight > 10) {
-                        _logoDebug(setKey + ': SUCCESS blob (' + img.naturalWidth + 'x' + img.naturalHeight + ', ' + Math.round(blob.size/1024) + 'KB)');
-                        img.onload = null;
-                        img.onerror = null;
-                    } else {
-                        URL.revokeObjectURL(blobUrl);
-                        _logoDebug(setKey + ': blob image too small visually, trying next');
-                        tryNext();
-                    }
-                };
-                img.onerror = function() {
-                    URL.revokeObjectURL(blobUrl);
-                    _logoDebug(setKey + ': blob render FAILED, trying next');
-                    tryNext();
-                };
-                img.src = blobUrl;
-            })
-            .catch(function(err) {
-                // Fandom domains: always skip — they serve transparent placeholders
-                // to external img.src, so neither fetch nor img.src works.
-                if (url.indexOf('wikia.nocookie.net') !== -1 || url.indexOf('fandom.com') !== -1) {
-                    _logoDebug(setKey + ': Fandom fail (' + err.message + '), skipping');
-                    tryNext();
-                    return;
-                }
-                // Non-Fandom URLs: try direct img.src as fallback.
-                // img.src follows 302 redirects and has no CORS restrictions,
-                // so it works for Special:FilePath even when fetch() is blocked.
-                _logoDebug(setKey + ': fetch fail (' + err.message + '), trying direct img.src');
-                img.onload = function() {
-                    if (img.naturalWidth > 10 && img.naturalHeight > 10) {
-                        _logoDebug(setKey + ': SUCCESS direct (' + img.naturalWidth + 'x' + img.naturalHeight + ') ' + shortUrl);
-                        img.onload = null;
-                        img.onerror = null;
-                    } else {
-                        _logoDebug(setKey + ': direct too small, trying next');
-                        tryNext();
-                    }
-                };
-                img.onerror = function() {
-                    _logoDebug(setKey + ': direct FAILED ' + shortUrl);
-                    tryNext();
-                };
-                img.src = url;
-            });
-    }
-
-    tryNext();
+    var svgSrc = img.src;
+    var localUrl = './Images/lorcana/logos/' + setKey + '.png';
+    var testImg = new Image();
+    testImg.onload = function() {
+        if (testImg.naturalWidth > 10) img.src = localUrl;
+    };
+    testImg.onerror = function() { /* keep SVG */ };
+    testImg.src = localUrl;
 }
 
+
+// ==================== LORCANA SET STYLES & SVG LOGOS ====================
+// REMOVED: fetchLorcanaSetLogos, tryUpgradeLorcanaLogo, debug panel, wiki name maps,
+// CDN pre-computed URLs, and getLorcanaRemoteLogoUrls — all external logo sources
+// (Fandom, MushuReport, wsrv.nl) proved unreliable. SVG logos are now the primary
+// display, with optional local PNG upgrade via tryUpgradeLocalLogo().
+
 // Set-specific theme colors used for SVG logos and button gradients
+// Each set has a primary color, a secondary/accent, and a roman numeral label
 const LORCANA_SET_STYLES = {
-    'first-chapter':         { color: '#c9a84c', label: 'I' },
-    'rise-of-the-floodborn': { color: '#3a7bd5', label: 'II' },
-    'into-the-inklands':     { color: '#2ecc71', label: 'III' },
-    'ursulas-return':        { color: '#9b59b6', label: 'IV' },
-    'shimmering-skies':      { color: '#00b4d8', label: 'V' },
-    'azurite-sea':           { color: '#0077b6', label: 'VI' },
-    'archazias-island':      { color: '#e67e22', label: 'VII' },
-    'reign-of-jafar':        { color: '#d4a017', label: 'VIII' },
-    'fabled':                { color: '#c0392b', label: 'F' },
-    'whispers-in-the-well':  { color: '#7b5ea7', label: 'IX' },
-    'winterspell':           { color: '#27ae60', label: 'X' }
+    'first-chapter':         { color: '#c9a84c', color2: '#8b6914', label: 'I' },
+    'rise-of-the-floodborn': { color: '#3a7bd5', color2: '#1a4f9e', label: 'II' },
+    'into-the-inklands':     { color: '#2ecc71', color2: '#1a8a4a', label: 'III' },
+    'ursulas-return':        { color: '#9b59b6', color2: '#6c3483', label: 'IV' },
+    'shimmering-skies':      { color: '#00b4d8', color2: '#006d8a', label: 'V' },
+    'azurite-sea':           { color: '#0077b6', color2: '#004a73', label: 'VI' },
+    'archazias-island':      { color: '#e67e22', color2: '#a55a0a', label: 'VII' },
+    'reign-of-jafar':        { color: '#d4a017', color2: '#8b6914', label: 'VIII' },
+    'fabled':                { color: '#c0392b', color2: '#7b241c', label: 'F' },
+    'whispers-in-the-well':  { color: '#7b5ea7', color2: '#4a3366', label: 'IX' },
+    'winterspell':           { color: '#27ae60', color2: '#1a7a42', label: 'X' }
 };
 
 // Display names for SVG fallback logos (shorter versions for clean rendering)
@@ -479,35 +83,59 @@ const LORCANA_SET_SHORT_NAMES = {
     'winterspell':           'Winterspell'
 };
 
-// Generate inline SVG data URI as last-resort fallback logo.
-// Creates a styled banner with set name, roman numeral, and decorative borders.
+// Generate inline SVG data URI for set logo.
+// Creates a polished emblem with gradient shield, set name, and roman numeral.
 function getLorcanaSetLogoSvg(setKey) {
-    const setStyles = LORCANA_SET_STYLES;
-    const style = setStyles[setKey] || { color: '#c9a84c', label: '?' };
-    const c = style.color;
+    const style = LORCANA_SET_STYLES[setKey] || { color: '#c9a84c', color2: '#8b6914', label: '?' };
+    const c1 = style.color;
+    const c2 = style.color2 || c1;
+    const lbl = style.label;
     const nameLines = (LORCANA_SET_SHORT_NAMES[setKey] || setKey).split('\n');
+    var id = setKey.replace(/[^a-z]/g, '');
+
+    // Build set name text elements
     var nameText = '';
     if (nameLines.length === 1) {
-        nameText = '<text x="150" y="50" text-anchor="middle" fill="' + c + '" font-family="Georgia,serif" font-size="22" font-weight="bold">' + nameLines[0] + '</text>';
+        nameText = '<text x="150" y="47" text-anchor="middle" fill="#fff" font-family="Georgia,Times,serif" font-size="20" font-weight="bold" letter-spacing="1">' + nameLines[0] + '</text>';
     } else {
-        nameText = '<text x="150" y="40" text-anchor="middle" fill="' + c + '" font-family="Georgia,serif" font-size="18" font-weight="bold">' + nameLines[0] + '</text>' +
-            '<text x="150" y="62" text-anchor="middle" fill="' + c + '" font-family="Georgia,serif" font-size="18" font-weight="bold">' + nameLines[1] + '</text>';
+        nameText = '<text x="150" y="36" text-anchor="middle" fill="#fff" font-family="Georgia,Times,serif" font-size="16" font-weight="bold" letter-spacing="1">' + nameLines[0] + '</text>' +
+            '<text x="150" y="56" text-anchor="middle" fill="#fff" font-family="Georgia,Times,serif" font-size="16" font-weight="bold" letter-spacing="1">' + nameLines[1] + '</text>';
     }
+
     const svg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 80">' +
-        // Background glow
-        '<rect x="20" y="5" width="260" height="70" rx="8" fill="' + c + '" opacity="0.08"/>' +
-        // Decorative border
-        '<rect x="20" y="5" width="260" height="70" rx="8" fill="none" stroke="' + c + '" stroke-width="1.5" opacity="0.5"/>' +
-        // Corner diamonds
-        '<polygon points="30,40 37,33 44,40 37,47" fill="' + c + '" opacity="0.4"/>' +
-        '<polygon points="256,40 263,33 270,40 263,47" fill="' + c + '" opacity="0.4"/>' +
-        // Horizontal accent lines
-        '<line x1="50" y1="40" x2="80" y2="40" stroke="' + c + '" stroke-width="1" opacity="0.3"/>' +
-        '<line x1="220" y1="40" x2="250" y2="40" stroke="' + c + '" stroke-width="1" opacity="0.3"/>' +
-        // Set name
+        '<defs>' +
+        // Main gradient for shield background
+        '<linearGradient id="g' + id + '" x1="0" y1="0" x2="1" y2="1">' +
+        '<stop offset="0%" stop-color="' + c1 + '" stop-opacity="0.9"/>' +
+        '<stop offset="100%" stop-color="' + c2 + '" stop-opacity="0.95"/>' +
+        '</linearGradient>' +
+        // Shine overlay
+        '<linearGradient id="s' + id + '" x1="0" y1="0" x2="0" y2="1">' +
+        '<stop offset="0%" stop-color="#fff" stop-opacity="0.15"/>' +
+        '<stop offset="50%" stop-color="#fff" stop-opacity="0.02"/>' +
+        '<stop offset="100%" stop-color="#000" stop-opacity="0.1"/>' +
+        '</linearGradient>' +
+        '</defs>' +
+        // Outer glow
+        '<rect x="14" y="3" width="272" height="74" rx="12" fill="' + c1 + '" opacity="0.15"/>' +
+        // Main shield shape
+        '<rect x="18" y="5" width="264" height="70" rx="10" fill="url(#g' + id + ')"/>' +
+        // Shine overlay
+        '<rect x="18" y="5" width="264" height="70" rx="10" fill="url(#s' + id + ')"/>' +
+        // Inner border
+        '<rect x="24" y="9" width="252" height="62" rx="7" fill="none" stroke="#fff" stroke-width="0.8" opacity="0.3"/>' +
+        // Left decorative line
+        '<line x1="40" y1="40" x2="65" y2="40" stroke="#fff" stroke-width="1" opacity="0.4"/>' +
+        // Right decorative line
+        '<line x1="235" y1="40" x2="260" y2="40" stroke="#fff" stroke-width="1" opacity="0.4"/>' +
+        // Left diamond
+        '<polygon points="35,40 40,35 45,40 40,45" fill="#fff" opacity="0.35"/>' +
+        // Right diamond
+        '<polygon points="255,40 260,35 265,40 260,45" fill="#fff" opacity="0.35"/>' +
+        // Set name (white on colored shield)
         nameText +
-        // Roman numeral badge
-        '<text x="150" y="77" text-anchor="middle" fill="' + c + '" font-family="Georgia,serif" font-size="9" opacity="0.5">' + style.label + '</text>' +
+        // Roman numeral at bottom
+        '<text x="150" y="73" text-anchor="middle" fill="#fff" font-family="Georgia,Times,serif" font-size="8" opacity="0.5" letter-spacing="2">' + lbl + '</text>' +
         '</svg>';
     return 'data:image/svg+xml;base64,' + btoa(svg);
 }
@@ -614,11 +242,8 @@ function tryNextLorcanaImageFromData(img) {
     if (idx < fallbacks.length) {
         img.setAttribute('data-lorcana-fallback-idx', idx);
         var url = fallbacks[idx];
-        _logoDebug('card ' + setKey + '#' + cardNum + ': fallback [' + idx + '/' + fallbacks.length + '] ' +
-            (url.length > 50 ? url.substring(0, 47) + '...' : url));
         img.src = url;
     } else {
-        _logoDebug('card ' + setKey + '#' + cardNum + ': ALL ' + fallbacks.length + ' URLs failed — showing placeholder');
         img.onerror = null;
         showPlaceholder(img);
     }
@@ -626,9 +251,6 @@ function tryNextLorcanaImageFromData(img) {
 
 // Render Lorcana set buttons
 function renderLorcanaSetButtons() {
-    // Auto-activate debug panel if ?logodebug is in URL
-    if (_logoDebugFromUrl) _initLogoDebugPanel();
-    _logoDebug('renderLorcanaSetButtons called');
     const container = document.getElementById('lorcanaSetButtons');
     if (!container) return;
     container.innerHTML = '';
@@ -684,21 +306,9 @@ function renderLorcanaSetButtons() {
         container.appendChild(btn);
     });
 
-    // Add visible debug toggle button below set buttons
-    _addDebugToggleButton();
-
-    // Upgrade logos: resolve wiki API URLs first, then try all sources.
-    // Buttons render instantly with SVGs; logos upgrade in background.
-    // Race the API discovery against an 8s timeout so logos still try if API is slow.
-    // Discovery does multiple API calls (article images + batch + search) so needs time.
-    var apiWithTimeout = Promise.race([
-        fetchLorcanaSetLogos().catch(function() {}),
-        new Promise(function(resolve) { setTimeout(resolve, 8000); })
-    ]);
-    apiWithTimeout.then(function() {
-        container.querySelectorAll('.set-btn-logo[data-logo-set]').forEach(function(img) {
-            tryUpgradeLorcanaLogo(img);
-        });
+    // Try upgrading SVG logos to local PNGs if they exist
+    container.querySelectorAll('.set-btn-logo[data-logo-set]').forEach(function(img) {
+        tryUpgradeLocalLogo(img);
     });
 }
 
