@@ -424,7 +424,7 @@ h1 {
 .set-btn-logo-wrapper {
     position: relative;
     width: 100%;
-    height: 80px;
+    height: 100px;
     margin-bottom: 8px;
     display: flex;
     align-items: center;
@@ -433,14 +433,15 @@ h1 {
 
 .set-btn-logo {
     width: 100%;
-    height: 80px;
+    height: 100px;
     object-fit: contain;
-    border-radius: 6px;
-    /* No background or padding - cleaner appearance */
+    /* No border-radius — transparent logos blend naturally with background */
     position: absolute;
     top: 0;
     left: 0;
     z-index: 2;
+    /* Smooth transition when upgrading from SVG to real logo */
+    transition: opacity 0.3s ease;
 }
 
 .set-btn-logo-fallback {
@@ -1138,8 +1139,8 @@ h1 {
         gap: 8px;
     }
     .set-btn { padding: 10px 8px; }
-    .set-btn-logo-wrapper { height: 45px; }
-    .set-btn-logo { height: 45px; }
+    .set-btn-logo-wrapper { height: 60px; }
+    .set-btn-logo { height: 60px; }
     .set-btn-name { font-size: 0.8rem; }
 }
 
