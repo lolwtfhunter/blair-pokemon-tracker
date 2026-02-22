@@ -276,27 +276,33 @@ function _addDebugToggleButton() {
 // ==================== LOGO URL BUILDING ====================
 
 // Build ordered list of candidate logo URLs for a set.
-// Order: wiki API resolved → MushuReport redirect → local file → Fandom CDN → Fandom redirect.
+// Order: proxied MushuReport → wiki API cache → direct MushuReport → local → Fandom.
 function getLorcanaRemoteLogoUrls(setKey) {
     var urls = [];
     var wikiName = LORCANA_SET_WIKI_NAMES[setKey];
 
-    // 1. Wiki API-resolved CDN URL (direct serving URL from MediaWiki imageinfo API)
+    // 1. MushuReport via wsrv.nl image proxy (handles CORS + redirects server-side).
+    // Both MushuReport and Fandom block direct browser requests (CORS + hotlink).
+    // wsrv.nl fetches server-to-server, caches, and serves with CORS headers.
+    if (wikiName) {
+        var mrFileUrl = 'https://wiki.mushureport.com/wiki/Special:FilePath/' + wikiName + '_logo.png';
+        urls.push('https://wsrv.nl/?url=' + encodeURIComponent(mrFileUrl).replace(/'/g, '%27') + '&w=600');
+    }
+
+    // 2. Wiki API-resolved CDN URL (if pre-fetch succeeded — direct serving URL)
     if (_lorcanaLogoUrlCache[setKey]) {
         urls.push(_lorcanaLogoUrlCache[setKey]);
     }
 
-    // 2. MushuReport wiki Special:FilePath (302 redirect → actual image)
-    // Self-hosted MediaWiki without Fandom's anti-hotlink protection.
-    // fetch() may fail on CORS but img.src follows redirects freely.
+    // 3. MushuReport Special:FilePath direct (img.src fallback if proxy is blocked)
     if (wikiName) {
         urls.push('https://wiki.mushureport.com/wiki/Special:FilePath/' + wikiName + '_logo.png');
     }
 
-    // 3. Local file (if user has downloaded logos)
+    // 4. Local file (if user has downloaded logos)
     urls.push('./Images/lorcana/logos/' + setKey + '.png');
 
-    // 4. Pre-computed Fandom CDN URLs (static paths — often return 404 due to anti-hotlink)
+    // 5. Fandom CDN pre-computed paths (often 404 due to anti-hotlink)
     var cdnPaths = LORCANA_FANDOM_CDN_LOGOS[setKey];
     if (cdnPaths) {
         cdnPaths.forEach(function(p) {
@@ -304,7 +310,7 @@ function getLorcanaRemoteLogoUrls(setKey) {
         });
     }
 
-    // 5. Lorcana Fandom Special:FilePath (302 redirect — last resort)
+    // 6. Fandom Special:FilePath (last resort)
     if (wikiName) {
         urls.push('https://lorcana.fandom.com/wiki/Special:FilePath/' + wikiName + '_Logo.png');
     }
@@ -323,7 +329,7 @@ function tryUpgradeLorcanaLogo(img) {
 
     var urls = getLorcanaRemoteLogoUrls(setKey);
     var svgSrc = img.src; // Save SVG fallback for revert
-    _logoDebug(setKey + ': trying ' + urls.length + ' URLs (v6-mushureport)');
+    _logoDebug(setKey + ': trying ' + urls.length + ' URLs (v7-proxy)');
     var idx = 0;
 
     function tryNext() {
