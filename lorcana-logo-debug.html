@@ -111,68 +111,117 @@ async function queryWiki(apiUrl, sourceName, titles) {
     return results;
 }
 
-// Phase 2: search File namespace for sets that direct guessing missed
-async function searchWiki(missingKeys, foundUrls) {
-    if (missingKeys.length === 0) return;
+var SKIP_PATTERN = /gift.set|booster|starter|deck|pack|sleeve|promo|box|trove|kit|bundle|blister|display|card|puzzle|concept.art|key.art|product.line|portfolio|contents|sealed|back\)|side.view|top|bottom|page.\d|in.stock|fanart|reprint|comparison/i;
 
-    var searchQuery = missingKeys.map(function(k) {
-        return '"' + SET_NAMES[k].replace(/_/g, ' ') + '"';
-    }).join(' OR ');
+// Score a filename match: lower = better
+function scoreMatch(filename, setName) {
+    var baseName = filename.replace(/\.\w+$/, '');
+    if (baseName.toLowerCase() === setName.toLowerCase()) return 0; // exact
+    if (/logo|image/i.test(baseName)) return 10;
+    return 50 + baseName.length;
+}
 
-    log('\n--- Fandom (search fallback) ---');
-    log('Searching File namespace for: ' + missingKeys.join(', '));
-    log('Query: ' + searchQuery, 'dim');
-
-    var url = 'https://lorcana.fandom.com/api.php?action=query' +
-        '&generator=search&gsrnamespace=6&gsrsearch=' + encodeURIComponent(searchQuery) +
-        '&gsrlimit=50&prop=imageinfo&iiprop=url&format=json&origin=*';
-
-    var resp = await fetch(url, { referrerPolicy: 'no-referrer' });
-    log('HTTP ' + resp.status, resp.ok ? 'ok' : 'fail');
-    if (!resp.ok) throw new Error('HTTP ' + resp.status);
-
-    var data = await resp.json();
-    var pages = data && data.query && data.query.pages;
-    if (!pages) {
-        log('No search results!', 'fail');
-        if (data && data.query) log('Raw query keys: ' + Object.keys(data.query).join(', '), 'dim');
-        return;
-    }
-
+// Match search result pages to missing sets with scoring
+function matchSearchResults(pages, missingKeys, foundUrls, label) {
+    var candidates = {}; // setKey → [{url, score, filename}]
     var pageList = Object.keys(pages).map(function(pid) { return pages[pid]; });
-    log('Search returned ' + pageList.length + ' files:', 'ok');
+    log(label + ' returned ' + pageList.length + ' files');
 
-    // Show all results for debugging
-    pageList.forEach(function(page) {
-        var title = page.title || '';
-        var hasUrl = page.imageinfo && page.imageinfo[0] && page.imageinfo[0].url;
-        log('  ' + title + (hasUrl ? '' : ' (no imageinfo)'), hasUrl ? 'ok' : 'dim');
-    });
-
-    // Match results to missing sets
-    var skipPattern = /card|booster|pack|sleeve|promo|box|starter|deck|illumineer/i;
-    var matched = 0;
     pageList.forEach(function(page) {
         if (!page.imageinfo || !page.imageinfo[0] || !page.imageinfo[0].url) return;
         var filename = (page.title || '').replace(/^File:/, '');
 
-        if (skipPattern.test(filename)) {
-            log('  SKIP (non-logo): ' + filename, 'dim');
+        if (SKIP_PATTERN.test(filename)) {
+            log('  SKIP: ' + filename, 'dim');
             return;
         }
 
         missingKeys.forEach(function(k) {
             if (foundUrls[k]) return;
             var setName = SET_NAMES[k].replace(/_/g, ' ');
-            if (filename.toLowerCase().indexOf(setName.toLowerCase()) !== -1) {
-                foundUrls[k] = page.imageinfo[0].url;
-                matched++;
-                log('  MATCHED: ' + k + ' → ' + filename, 'ok');
-                log('    → ' + page.imageinfo[0].url.substring(0, 100) + '...', 'dim');
-            }
+            if (filename.toLowerCase().indexOf(setName.toLowerCase()) === -1) return;
+
+            var score = scoreMatch(filename, setName);
+            log('  CANDIDATE: ' + k + ' → ' + filename + ' (score=' + score + ')', score === 0 ? 'ok' : 'warn');
+            if (!candidates[k]) candidates[k] = [];
+            candidates[k].push({ url: page.imageinfo[0].url, score: score, filename: filename });
         });
     });
-    log('Search matched ' + matched + ' additional sets', matched > 0 ? 'ok' : 'warn');
+
+    var matched = 0;
+    Object.keys(candidates).forEach(function(k) {
+        if (foundUrls[k]) return;
+        candidates[k].sort(function(a, b) { return a.score - b.score; });
+        var best = candidates[k][0];
+        foundUrls[k] = best.url;
+        matched++;
+        log('  BEST: ' + k + ' → ' + best.filename + ' (score=' + best.score + ')', 'ok');
+        log('    → ' + best.url.substring(0, 100) + '...', 'dim');
+    });
+    log(label + ' matched ' + matched + ' sets', matched > 0 ? 'ok' : 'warn');
+}
+
+// Phase 2: batch search for missing sets
+async function searchWikiBatch(missingKeys, foundUrls) {
+    if (missingKeys.length === 0) return;
+
+    // Include apostrophe-stripped variants
+    var terms = [];
+    missingKeys.forEach(function(k) {
+        var name = SET_NAMES[k].replace(/_/g, ' ');
+        terms.push('"' + name + '"');
+        if (name.indexOf("'") !== -1) terms.push('"' + name.replace(/'/g, '') + '"');
+    });
+    var searchQuery = terms.join(' OR ');
+
+    log('\n--- Fandom (batch search) ---');
+    log('Searching for: ' + missingKeys.join(', '));
+    log('Query: ' + searchQuery, 'dim');
+
+    var resp = await fetch('https://lorcana.fandom.com/api.php?action=query' +
+        '&generator=search&gsrnamespace=6&gsrsearch=' + encodeURIComponent(searchQuery) +
+        '&gsrlimit=50&prop=imageinfo&iiprop=url&format=json&origin=*',
+        { referrerPolicy: 'no-referrer' });
+    log('HTTP ' + resp.status, resp.ok ? 'ok' : 'fail');
+    if (!resp.ok) throw new Error('HTTP ' + resp.status);
+
+    var data = await resp.json();
+    var pages = data && data.query && data.query.pages;
+    if (!pages) { log('No results!', 'fail'); return; }
+    matchSearchResults(pages, missingKeys, foundUrls, 'Batch search');
+}
+
+// Phase 3: individual searches for sets still missing after batch
+async function searchWikiIndividual(missingKeys, foundUrls) {
+    for (var i = 0; i < missingKeys.length; i++) {
+        var k = missingKeys[i];
+        if (foundUrls[k]) continue;
+
+        var name = SET_NAMES[k].replace(/_/g, ' ');
+        var searchNames = [name];
+        if (name.indexOf("'") !== -1) searchNames.push(name.replace(/'/g, ''));
+
+        for (var ni = 0; ni < searchNames.length; ni++) {
+            if (foundUrls[k]) break;
+            log('\n--- Fandom (individual: "' + searchNames[ni] + '") ---');
+
+            try {
+                var resp = await fetch('https://lorcana.fandom.com/api.php?action=query' +
+                    '&generator=search&gsrnamespace=6&gsrsearch=' + encodeURIComponent('"' + searchNames[ni] + '"') +
+                    '&gsrlimit=10&prop=imageinfo&iiprop=url&format=json&origin=*',
+                    { referrerPolicy: 'no-referrer' });
+                log('HTTP ' + resp.status, resp.ok ? 'ok' : 'fail');
+                if (!resp.ok) continue;
+
+                var data = await resp.json();
+                var pages = data && data.query && data.query.pages;
+                if (!pages) { log('No results', 'warn'); continue; }
+                matchSearchResults(pages, [k], foundUrls, 'Individual search');
+            } catch (e) {
+                log('Error: ' + e.message, 'fail');
+            }
+        }
+    }
 }
 
 async function testBlobFetch(url, label) {
@@ -241,14 +290,25 @@ async function runDiagnostic() {
         log('Fandom direct query ERROR: ' + e.message, 'fail');
     }
 
-    // Phase 2: Search fallback for missing sets
+    // Phase 2: Batch search fallback for missing sets
     var missingKeys = setKeys.filter(function(k) { return !foundUrls[k]; });
     if (missingKeys.length > 0) {
         log('\n' + missingKeys.length + ' sets still missing after direct query: ' + missingKeys.join(', '), 'warn');
         try {
-            await searchWiki(missingKeys, foundUrls);
+            await searchWikiBatch(missingKeys, foundUrls);
         } catch (e) {
-            log('Search ERROR: ' + e.message, 'fail');
+            log('Batch search ERROR: ' + e.message, 'fail');
+        }
+    }
+
+    // Phase 3: Individual searches for sets still missing
+    var stillMissing = setKeys.filter(function(k) { return !foundUrls[k]; });
+    if (stillMissing.length > 0) {
+        log('\n' + stillMissing.length + ' sets still missing after batch search: ' + stillMissing.join(', '), 'warn');
+        try {
+            await searchWikiIndividual(stillMissing, foundUrls);
+        } catch (e) {
+            log('Individual search ERROR: ' + e.message, 'fail');
         }
     }
 

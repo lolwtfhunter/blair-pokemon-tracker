@@ -122,11 +122,22 @@ async function fetchLorcanaSetLogos() {
 
     // Phase 2: Search-based discovery for sets still missing.
     // Uses generator=search in File namespace to find images with different naming.
+    // Scores candidates to prefer exact set-name matches over product images.
+    var SKIP_PATTERN = /gift.set|booster|starter|deck|pack|sleeve|promo|box|trove|kit|bundle|blister|display|card|puzzle|concept.art|key.art|product.line|portfolio|contents|sealed|back\)|side.view|top|bottom|page.\d|in.stock|fanart|reprint|comparison/i;
+
     var missingKeys = setKeys.filter(function(k) { return !_lorcanaLogoUrlCache[k]; });
     if (missingKeys.length > 0) {
-        var searchQuery = missingKeys.map(function(k) {
-            return '"' + LORCANA_SET_ARTICLE_NAMES[k].replace(/_/g, ' ') + '"';
-        }).join(' OR ');
+        // Batch search: OR all missing set names together.
+        // Also include apostrophe-stripped variants for sets like Ursula's Return.
+        var terms = [];
+        missingKeys.forEach(function(k) {
+            var name = LORCANA_SET_ARTICLE_NAMES[k].replace(/_/g, ' ');
+            terms.push('"' + name + '"');
+            if (name.indexOf("'") !== -1) {
+                terms.push('"' + name.replace(/'/g, '') + '"');
+            }
+        });
+        var searchQuery = terms.join(' OR ');
 
         try {
             var resp2 = await fetch('https://lorcana.fandom.com/api.php?action=query' +
@@ -137,25 +148,80 @@ async function fetchLorcanaSetLogos() {
                 var data2 = await resp2.json();
                 var pages2 = data2 && data2.query && data2.query.pages;
                 if (pages2) {
-                    Object.keys(pages2).forEach(function(pid) {
-                        var page = pages2[pid];
-                        if (!page.imageinfo || !page.imageinfo[0] || !page.imageinfo[0].url) return;
-                        var filename = (page.title || '').replace(/^File:/, '').toLowerCase();
-                        // Skip card images, booster packs, etc.
-                        if (/card|booster|pack|sleeve|promo|box|starter|deck/.test(filename)) return;
-
-                        missingKeys.forEach(function(k) {
-                            if (_lorcanaLogoUrlCache[k]) return;
-                            var setName = LORCANA_SET_ARTICLE_NAMES[k].replace(/_/g, ' ').toLowerCase();
-                            if (filename.indexOf(setName) !== -1) {
-                                _lorcanaLogoUrlCache[k] = page.imageinfo[0].url;
-                            }
-                        });
-                    });
+                    _matchSearchResults(pages2, missingKeys, SKIP_PATTERN);
                 }
             }
-        } catch (e) { /* search failed, keep SVG fallbacks */ }
+        } catch (e) { /* search failed */ }
     }
+
+    // Phase 3: Individual searches for any sets still missing after batch search.
+    // Handles cases where batch OR query hit the 50-result limit or apostrophe issues.
+    var stillMissing = setKeys.filter(function(k) { return !_lorcanaLogoUrlCache[k]; });
+    for (var mi = 0; mi < stillMissing.length; mi++) {
+        var mk = stillMissing[mi];
+        var name = LORCANA_SET_ARTICLE_NAMES[mk].replace(/_/g, ' ');
+        // Try with and without apostrophe
+        var searchNames = [name];
+        if (name.indexOf("'") !== -1) searchNames.push(name.replace(/'/g, ''));
+
+        for (var ni = 0; ni < searchNames.length; ni++) {
+            if (_lorcanaLogoUrlCache[mk]) break;
+            try {
+                var resp3 = await fetch('https://lorcana.fandom.com/api.php?action=query' +
+                    '&generator=search&gsrnamespace=6&gsrsearch=' + encodeURIComponent('"' + searchNames[ni] + '"') +
+                    '&gsrlimit=10&prop=imageinfo&iiprop=url&format=json&origin=*',
+                    { referrerPolicy: 'no-referrer' });
+                if (resp3.ok) {
+                    var data3 = await resp3.json();
+                    var pages3 = data3 && data3.query && data3.query.pages;
+                    if (pages3) {
+                        _matchSearchResults(pages3, [mk], SKIP_PATTERN);
+                    }
+                }
+            } catch (e) { /* continue */ }
+        }
+    }
+}
+
+// Score and match search result pages to missing set keys.
+// Prefers exact "{SetName}.ext" matches, then "{SetName} Image/Logo.ext", then any containing match.
+function _matchSearchResults(pages, missingKeys, skipPattern) {
+    // Collect candidates per set: { setKey: [{url, score}] }
+    var candidates = {};
+    Object.keys(pages).forEach(function(pid) {
+        var page = pages[pid];
+        if (!page.imageinfo || !page.imageinfo[0] || !page.imageinfo[0].url) return;
+        var filename = (page.title || '').replace(/^File:/, '');
+
+        if (skipPattern.test(filename)) return;
+
+        missingKeys.forEach(function(k) {
+            if (_lorcanaLogoUrlCache[k]) return;
+            var setName = LORCANA_SET_ARTICLE_NAMES[k].replace(/_/g, ' ');
+            if (filename.toLowerCase().indexOf(setName.toLowerCase()) === -1) return;
+
+            // Score: lower is better
+            var baseName = filename.replace(/\.\w+$/, ''); // strip extension
+            var score = 100;
+            if (baseName.toLowerCase() === setName.toLowerCase()) {
+                score = 0; // exact match: "Reign of Jafar.jpeg"
+            } else if (/logo|image/i.test(baseName)) {
+                score = 10; // has "logo" or "image": "Rise of the Floodborn Image.webp"
+            } else {
+                score = 50 + baseName.length; // longer name = worse match
+            }
+
+            if (!candidates[k]) candidates[k] = [];
+            candidates[k].push({ url: page.imageinfo[0].url, score: score });
+        });
+    });
+
+    // Pick best candidate per set
+    Object.keys(candidates).forEach(function(k) {
+        if (_lorcanaLogoUrlCache[k]) return;
+        candidates[k].sort(function(a, b) { return a.score - b.score; });
+        _lorcanaLogoUrlCache[k] = candidates[k][0].url;
+    });
 }
 
 // Upgrade one SVG logo to a real image via fetch→blob.
