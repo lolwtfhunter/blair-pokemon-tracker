@@ -28,29 +28,163 @@ function initializeProgress() {
 
 // ==================== LORCANA FUNCTIONS ====================
 
-// Optional local logo upgrade: if user has placed logo PNGs in ./Images/lorcana/logos/,
-// the SVG placeholder is replaced with the real image. No external fetching is done —
-// every external CDN (Fandom, MushuReport, wsrv.nl) proved unreliable due to
-// CORS, hotlink protection, or incorrect filenames.
-function tryUpgradeLocalLogo(img) {
-    var setKey = img.getAttribute('data-logo-set');
-    if (!setKey) return;
-    var svgSrc = img.src;
-    var localUrl = './Images/lorcana/logos/' + setKey + '.png';
-    var testImg = new Image();
-    testImg.onload = function() {
-        if (testImg.naturalWidth > 10) img.src = localUrl;
-    };
-    testImg.onerror = function() { /* keep SVG */ };
-    testImg.src = localUrl;
+// ==================== LORCANA LOGO DISCOVERY ====================
+// Discovers set images from Fandom wiki article pages via MediaWiki API,
+// then loads them as blobs to bypass CDN hotlink protection.
+// Falls back to polished SVG logos if discovery or loading fails.
+
+// Maps set keys to Fandom article titles for image discovery
+const LORCANA_SET_ARTICLE_NAMES = {
+    'first-chapter':         'The_First_Chapter',
+    'rise-of-the-floodborn': 'Rise_of_the_Floodborn',
+    'into-the-inklands':     'Into_the_Inklands',
+    'ursulas-return':        "Ursula's_Return",
+    'shimmering-skies':      'Shimmering_Skies',
+    'azurite-sea':           'Azurite_Sea',
+    'archazias-island':      "Archazia's_Island",
+    'reign-of-jafar':        'Reign_of_Jafar',
+    'fabled':                'Fabled',
+    'whispers-in-the-well':  'Whispers_in_the_Well',
+    'winterspell':           'Winterspell'
+};
+
+// Cache of discovered CDN URLs: { setKey: url }
+const _lorcanaLogoUrlCache = {};
+let _lorcanaLogosFetched = false;
+
+// Query Fandom article pages for their images, then resolve CDN URLs.
+// Matches images to sets by set name appearing in the filename.
+// Prefers files with "logo" in the name, falls back to set-name matches.
+async function fetchLorcanaSetLogos() {
+    if (_lorcanaLogosFetched) return;
+    _lorcanaLogosFetched = true;
+
+    var setKeys = Object.keys(LORCANA_SET_ARTICLE_NAMES);
+    var fandomApi = 'https://lorcana.fandom.com/api.php';
+
+    try {
+        // Step 1: Query images on all set article pages (one API call)
+        var articleTitles = setKeys.map(function(k) { return LORCANA_SET_ARTICLE_NAMES[k]; }).join('|');
+        var artResp = await fetch(fandomApi + '?action=query&titles=' + encodeURIComponent(articleTitles) +
+            '&prop=images&imlimit=500&format=json&origin=*', { referrerPolicy: 'no-referrer' });
+        if (!artResp.ok) return;
+
+        var artData = await artResp.json();
+        var artPages = artData && artData.query && artData.query.pages;
+        if (!artPages) return;
+
+        // Step 2: For each set's article page, find the best image match
+        // Build a reverse map: article title → setKey
+        var titleToSet = {};
+        setKeys.forEach(function(k) {
+            titleToSet[LORCANA_SET_ARTICLE_NAMES[k].replace(/_/g, ' ').toLowerCase()] = k;
+        });
+
+        var bestMatches = {}; // setKey → File:title
+        Object.keys(artPages).forEach(function(pid) {
+            var page = artPages[pid];
+            if (!page.title || !page.images) return;
+            var pageTitle = page.title.replace(/_/g, ' ').toLowerCase();
+            var setKey = titleToSet[pageTitle];
+            if (!setKey) return;
+
+            var setName = LORCANA_SET_ARTICLE_NAMES[setKey].replace(/_/g, ' ').toLowerCase();
+            var logoMatch = null;
+            var nameMatch = null;
+
+            page.images.forEach(function(img) {
+                var t = (img.title || '').replace(/^File:/i, '').toLowerCase();
+                // Skip obvious non-logo files (products, cards, sleeves, etc.)
+                if (t.indexOf('deck box') !== -1 || t.indexOf('sleeves') !== -1 ||
+                    t.indexOf('playmat') !== -1 || t.indexOf('portfolio') !== -1 ||
+                    t.indexOf('booster') !== -1 || t.indexOf('trove') !== -1 ||
+                    t.indexOf('starter') !== -1 || t.indexOf('blister') !== -1 ||
+                    t.indexOf('gift set') !== -1 || t.indexOf('display') !== -1 ||
+                    t.indexOf('pack art') !== -1 || t.indexOf('bundle') !== -1 ||
+                    t.indexOf('kit') !== -1 || t.indexOf('exclusive') !== -1 ||
+                    t.indexOf('card back') !== -1 || t.indexOf('site-logo') !== -1) return;
+
+                // Priority 1: file has "logo" AND set name
+                if (t.indexOf('logo') !== -1 && t.indexOf(setName) !== -1) {
+                    logoMatch = img.title;
+                }
+                // Priority 2: filename starts with or closely matches set name
+                if (!nameMatch && t.indexOf(setName) !== -1) {
+                    nameMatch = img.title;
+                }
+            });
+
+            bestMatches[setKey] = logoMatch || nameMatch;
+        });
+
+        // Step 3: Fetch CDN URLs for discovered files (one API call)
+        var fileTitles = [];
+        setKeys.forEach(function(k) {
+            if (bestMatches[k]) fileTitles.push(bestMatches[k]);
+        });
+        if (fileTitles.length === 0) return;
+
+        var infoResp = await fetch(fandomApi + '?action=query&titles=' +
+            encodeURIComponent(fileTitles.join('|')) +
+            '&prop=imageinfo&iiprop=url&format=json&origin=*', { referrerPolicy: 'no-referrer' });
+        if (!infoResp.ok) return;
+
+        var infoData = await infoResp.json();
+        var infoPages = infoData && infoData.query && infoData.query.pages;
+        if (!infoPages) return;
+
+        // Step 4: Map resolved URLs back to set keys
+        Object.keys(infoPages).forEach(function(pid) {
+            var page = infoPages[pid];
+            if (!page.imageinfo || !page.imageinfo[0] || !page.imageinfo[0].url) return;
+            var title = (page.title || '').replace(/^File:/i, '');
+            // Find which set this file belongs to
+            setKeys.forEach(function(k) {
+                if (bestMatches[k] && bestMatches[k].replace(/^File:/i, '') === title) {
+                    _lorcanaLogoUrlCache[k] = page.imageinfo[0].url;
+                }
+            });
+        });
+    } catch (e) { /* discovery failed — SVGs will be used */ }
 }
 
+// Upgrade one SVG logo to a real image via fetch→blob.
+// Blob approach bypasses CDN hotlink/referrer restrictions.
+function tryUpgradeLorcanaLogo(img) {
+    var setKey = img.getAttribute('data-logo-set');
+    if (!setKey) return;
+
+    var url = _lorcanaLogoUrlCache[setKey];
+    if (!url) return; // No discovered URL — keep SVG
+
+    var svgSrc = img.src;
+    fetch(url, { referrerPolicy: 'no-referrer' })
+        .then(function(resp) {
+            if (!resp.ok) throw new Error('HTTP ' + resp.status);
+            return resp.blob();
+        })
+        .then(function(blob) {
+            if (blob.size < 200) throw new Error('too small');
+            var blobUrl = URL.createObjectURL(blob);
+            img.onload = function() {
+                if (img.naturalWidth > 10 && img.naturalHeight > 10) {
+                    img.onload = null;
+                    img.onerror = null;
+                } else {
+                    URL.revokeObjectURL(blobUrl);
+                    img.src = svgSrc;
+                }
+            };
+            img.onerror = function() {
+                URL.revokeObjectURL(blobUrl);
+                img.src = svgSrc;
+            };
+            img.src = blobUrl;
+        })
+        .catch(function() { /* keep SVG */ });
+}
 
 // ==================== LORCANA SET STYLES & SVG LOGOS ====================
-// REMOVED: fetchLorcanaSetLogos, tryUpgradeLorcanaLogo, debug panel, wiki name maps,
-// CDN pre-computed URLs, and getLorcanaRemoteLogoUrls — all external logo sources
-// (Fandom, MushuReport, wsrv.nl) proved unreliable. SVG logos are now the primary
-// display, with optional local PNG upgrade via tryUpgradeLocalLogo().
 
 // Set-specific theme colors used for SVG logos and button gradients
 // Each set has a primary color, a secondary/accent, and a roman numeral label
@@ -306,9 +440,12 @@ function renderLorcanaSetButtons() {
         container.appendChild(btn);
     });
 
-    // Try upgrading SVG logos to local PNGs if they exist
-    container.querySelectorAll('.set-btn-logo[data-logo-set]').forEach(function(img) {
-        tryUpgradeLocalLogo(img);
+    // Discover set images from Fandom wiki, then upgrade SVGs to real images.
+    // Buttons render instantly with SVGs; real images replace them in background.
+    fetchLorcanaSetLogos().catch(function() {}).then(function() {
+        container.querySelectorAll('.set-btn-logo[data-logo-set]').forEach(function(img) {
+            tryUpgradeLorcanaLogo(img);
+        });
     });
 }
 
