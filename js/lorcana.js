@@ -59,20 +59,22 @@ let _lorcanaLogosFetched = false;
 async function fetchLorcanaSetLogos() {
     if (_lorcanaLogosFetched) return;
     _lorcanaLogosFetched = true;
-    _logoDebug('fetchLorcanaSetLogos: resolving CDN URLs via wiki APIs (v9-discovery)');
+    _logoDebug('fetchLorcanaSetLogos: discovering logo URLs (v10-article-images)');
 
     var wikiNames = LORCANA_SET_WIKI_NAMES;
+    var setKeys = Object.keys(wikiNames);
     var fandomApi = 'https://lorcana.fandom.com/api.php';
 
-    // Helper: resolve imageinfo pages into _lorcanaLogoUrlCache
+    // Helper: given imageinfo pages, match to sets and cache URLs
     function resolvePages(pages) {
         var resolved = 0;
         Object.keys(pages).forEach(function(pageId) {
             var page = pages[pageId];
             if (!page.imageinfo || !page.imageinfo[0] || !page.imageinfo[0].url) return;
             var title = (page.title || '').replace(/^File:/i, '').replace(/_/g, ' ').toLowerCase();
-            // Match title to a set by checking if set name appears in the file title
-            Object.keys(wikiNames).forEach(function(setKey) {
+            // Only match files that look like logos (not card images, icons, etc.)
+            if (title.indexOf('logo') === -1) return;
+            setKeys.forEach(function(setKey) {
                 var setName = wikiNames[setKey].replace(/_/g, ' ').toLowerCase();
                 if (title.indexOf(setName) !== -1 && !_lorcanaLogoUrlCache[setKey]) {
                     _lorcanaLogoUrlCache[setKey] = page.imageinfo[0].url;
@@ -84,13 +86,63 @@ async function fetchLorcanaSetLogos() {
         return resolved;
     }
 
-    // Strategy 1: Batch lookup with guessed filenames (_Logo.png and _logo.png)
-    var suffixes = ['_Logo.png', '_logo.png', '_logo.webp', '_Logo.webp'];
+    function countResolved() {
+        return setKeys.filter(function(k) { return !!_lorcanaLogoUrlCache[k]; }).length;
+    }
+
+    // Strategy 1: Query images on set article pages (discovers ALL images each article uses)
+    _logoDebug('fetchLorcanaSetLogos: querying images on set article pages...');
+    try {
+        var articleTitles = setKeys.map(function(k) { return wikiNames[k]; }).join('|');
+        var artUrl = fandomApi + '?action=query&titles=' + encodeURIComponent(articleTitles) +
+            '&prop=images&imlimit=500&format=json&origin=*';
+        var artResp = await fetch(artUrl, { referrerPolicy: 'no-referrer' });
+        if (artResp.ok) {
+            var artData = await artResp.json();
+            var artPages = artData && artData.query && artData.query.pages;
+            if (artPages) {
+                // Collect all image titles from all set pages, filtering for logo-related ones
+                var logoFiles = [];
+                Object.keys(artPages).forEach(function(pid) {
+                    var page = artPages[pid];
+                    var images = page.images || [];
+                    images.forEach(function(img) {
+                        var t = (img.title || '').toLowerCase();
+                        _logoDebug('  article image: ' + img.title);
+                        if (t.indexOf('logo') !== -1 || t.indexOf('set') !== -1) {
+                            logoFiles.push(img.title);
+                        }
+                    });
+                });
+                _logoDebug('fetchLorcanaSetLogos: found ' + logoFiles.length + ' logo-related images on article pages');
+
+                // Fetch imageinfo (CDN URLs) for discovered logo files
+                if (logoFiles.length > 0) {
+                    var infoUrl = fandomApi + '?action=query&titles=' +
+                        encodeURIComponent(logoFiles.join('|')) +
+                        '&prop=imageinfo&iiprop=url&format=json&origin=*';
+                    var infoResp = await fetch(infoUrl, { referrerPolicy: 'no-referrer' });
+                    if (infoResp.ok) {
+                        var infoData = await infoResp.json();
+                        var infoPages = infoData && infoData.query && infoData.query.pages;
+                        if (infoPages) {
+                            var n = resolvePages(infoPages);
+                            _logoDebug('fetchLorcanaSetLogos: article strategy resolved ' + n + ' logos');
+                        }
+                    }
+                }
+            }
+        }
+    } catch (e) {
+        _logoDebug('fetchLorcanaSetLogos: article strategy failed: ' + e.message);
+    }
+    if (countResolved() >= setKeys.length) return;
+
+    // Strategy 2: Batch lookup with guessed filenames
+    var suffixes = ['_Logo.png', '_logo.png', '_Set_Logo.png', '_set_logo.png'];
     for (var si = 0; si < suffixes.length; si++) {
         var suffix = suffixes[si];
-        var titles = Object.keys(wikiNames).map(function(setKey) {
-            return 'File:' + wikiNames[setKey] + suffix;
-        }).join('|');
+        var titles = setKeys.map(function(k) { return 'File:' + wikiNames[k] + suffix; }).join('|');
         try {
             var resp = await fetch(fandomApi + '?action=query&titles=' + encodeURIComponent(titles) +
                 '&prop=imageinfo&iiprop=url&format=json&origin=*', { referrerPolicy: 'no-referrer' });
@@ -99,8 +151,8 @@ async function fetchLorcanaSetLogos() {
                 var pages = data && data.query && data.query.pages;
                 if (pages) {
                     var n = resolvePages(pages);
-                    _logoDebug('fetchLorcanaSetLogos: batch ' + suffix + ' resolved ' + n + '/' + Object.keys(wikiNames).length);
-                    if (n >= Object.keys(wikiNames).length) return;
+                    _logoDebug('fetchLorcanaSetLogos: batch ' + suffix + ' resolved ' + n);
+                    if (countResolved() >= setKeys.length) return;
                 }
             }
         } catch (e) {
@@ -108,10 +160,8 @@ async function fetchLorcanaSetLogos() {
         }
     }
 
-    // If we got some but not all, that's partial success — still continue searching
-
-    // Strategy 2: Search Fandom File namespace for "logo" to discover actual filenames
-    _logoDebug('fetchLorcanaSetLogos: searching Fandom for logo files...');
+    // Strategy 3: Search File namespace for "logo"
+    _logoDebug('fetchLorcanaSetLogos: searching for logo files...');
     try {
         var searchUrl = fandomApi + '?action=query&list=search&srsearch=logo&srnamespace=6&srlimit=50&format=json&origin=*';
         var searchResp = await fetch(searchUrl, { referrerPolicy: 'no-referrer' });
@@ -120,21 +170,18 @@ async function fetchLorcanaSetLogos() {
             var results = searchData && searchData.query && searchData.query.search;
             if (results && results.length > 0) {
                 _logoDebug('fetchLorcanaSetLogos: search found ' + results.length + ' files');
-                var fileTitles = [];
-                results.forEach(function(r) {
+                var fileTitles = results.map(function(r) {
                     _logoDebug('  found: ' + r.title);
-                    fileTitles.push(r.title);
+                    return r.title;
                 });
-
-                // Batch fetch imageinfo for all discovered files
-                var infoUrl = fandomApi + '?action=query&titles=' + encodeURIComponent(fileTitles.join('|')) +
+                var infoUrl2 = fandomApi + '?action=query&titles=' + encodeURIComponent(fileTitles.join('|')) +
                     '&prop=imageinfo&iiprop=url&format=json&origin=*';
-                var infoResp = await fetch(infoUrl, { referrerPolicy: 'no-referrer' });
-                if (infoResp.ok) {
-                    var infoData = await infoResp.json();
-                    var infoPages = infoData && infoData.query && infoData.query.pages;
-                    if (infoPages) {
-                        var n2 = resolvePages(infoPages);
+                var infoResp2 = await fetch(infoUrl2, { referrerPolicy: 'no-referrer' });
+                if (infoResp2.ok) {
+                    var infoData2 = await infoResp2.json();
+                    var infoPages2 = infoData2 && infoData2.query && infoData2.query.pages;
+                    if (infoPages2) {
+                        var n2 = resolvePages(infoPages2);
                         _logoDebug('fetchLorcanaSetLogos: search resolved ' + n2 + ' new logos');
                     }
                 }
@@ -146,36 +193,8 @@ async function fetchLorcanaSetLogos() {
         _logoDebug('fetchLorcanaSetLogos: search failed: ' + e.message);
     }
 
-    // Strategy 3: List all images with prefix for each unresolved set
-    var unresolved = Object.keys(wikiNames).filter(function(k) { return !_lorcanaLogoUrlCache[k]; });
-    if (unresolved.length > 0) {
-        _logoDebug('fetchLorcanaSetLogos: prefix-searching ' + unresolved.length + ' unresolved sets...');
-        for (var ui = 0; ui < unresolved.length; ui++) {
-            var setKey = unresolved[ui];
-            var prefix = wikiNames[setKey]; // e.g. "The_First_Chapter"
-            try {
-                var prefixUrl = fandomApi + '?action=query&list=allimages&aiprefix=' +
-                    encodeURIComponent(prefix.replace(/_/g, ' ')) +
-                    '&ailimit=10&format=json&origin=*';
-                var prefixResp = await fetch(prefixUrl, { referrerPolicy: 'no-referrer' });
-                if (prefixResp.ok) {
-                    var prefixData = await prefixResp.json();
-                    var images = prefixData && prefixData.query && prefixData.query.allimages;
-                    if (images && images.length > 0) {
-                        images.forEach(function(img) {
-                            _logoDebug('  prefix found: ' + img.name + ' → ' + (img.url || '').substring(0, 80));
-                            if (img.url && !_lorcanaLogoUrlCache[setKey]) {
-                                _lorcanaLogoUrlCache[setKey] = img.url;
-                            }
-                        });
-                    }
-                }
-            } catch (e) { /* skip */ }
-        }
-    }
-
-    var totalResolved = Object.keys(wikiNames).filter(function(k) { return !!_lorcanaLogoUrlCache[k]; }).length;
-    _logoDebug('fetchLorcanaSetLogos: final result — ' + totalResolved + '/' + Object.keys(wikiNames).length + ' logos resolved');
+    var total = countResolved();
+    _logoDebug('fetchLorcanaSetLogos: final — ' + total + '/' + setKeys.length + ' logos resolved');
 }
 
 // Pre-computed Fandom CDN URLs (MD5-hashed paths).
@@ -330,18 +349,16 @@ function getLorcanaRemoteLogoUrls(setKey) {
     var urls = [];
     var wikiName = LORCANA_SET_WIKI_NAMES[setKey];
 
-    // 1. Wiki API-resolved URL (discovered by search/batch — most reliable)
-    if (_lorcanaLogoUrlCache[setKey]) {
-        urls.push(_lorcanaLogoUrlCache[setKey]);
+    // 1. Wiki API-resolved URL (discovered by article/search/batch — most reliable)
+    var cached = _lorcanaLogoUrlCache[setKey];
+    if (cached) {
+        urls.push(cached);
+        // 1b. Also try proxied version in case CDN blocks direct browser access
+        urls.push('https://wsrv.nl/?url=' + encodeURIComponent(cached).replace(/'/g, '%27') + '&w=600');
     }
 
     // 2. Local file (if user has downloaded logos)
     urls.push('./Images/lorcana/logos/' + setKey + '.png');
-
-    // 3. Direct Fandom Special:FilePath (last resort — likely blocked but free attempt)
-    if (wikiName) {
-        urls.push('https://lorcana.fandom.com/wiki/Special:FilePath/' + wikiName + '_Logo.png');
-    }
 
     return urls;
 }
@@ -357,7 +374,7 @@ function tryUpgradeLorcanaLogo(img) {
 
     var urls = getLorcanaRemoteLogoUrls(setKey);
     var svgSrc = img.src; // Save SVG fallback for revert
-    _logoDebug(setKey + ': trying ' + urls.length + ' URLs (v9-discovery)');
+    _logoDebug(setKey + ': trying ' + urls.length + ' URLs (v10-article-images)');
     var idx = 0;
 
     function tryNext() {
@@ -672,11 +689,11 @@ function renderLorcanaSetButtons() {
 
     // Upgrade logos: resolve wiki API URLs first, then try all sources.
     // Buttons render instantly with SVGs; logos upgrade in background.
-    // Race the API discovery against a 6s timeout so logos still try if API is slow.
-    // Discovery does multiple API calls (batch + search + prefix) so needs more time.
+    // Race the API discovery against an 8s timeout so logos still try if API is slow.
+    // Discovery does multiple API calls (article images + batch + search) so needs time.
     var apiWithTimeout = Promise.race([
         fetchLorcanaSetLogos().catch(function() {}),
-        new Promise(function(resolve) { setTimeout(resolve, 6000); })
+        new Promise(function(resolve) { setTimeout(resolve, 8000); })
     ]);
     apiWithTimeout.then(function() {
         container.querySelectorAll('.set-btn-logo[data-logo-set]').forEach(function(img) {
