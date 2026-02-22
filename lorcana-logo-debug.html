@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lorcana Logo Debug</title>
+<style>
+body { font-family: monospace; background: #1a1a2e; color: #e0e0e0; padding: 12px; margin: 0 auto; max-width: 900px; font-size: 13px; }
+h1 { color: #4cc9f0; font-size: 18px; margin: 8px 0; }
+.section { background: #16213e; border: 1px solid #333; padding: 12px; margin: 8px 0; border-radius: 8px; }
+.ok { color: #4ade80; } .fail { color: #f87171; } .warn { color: #fbbf24; } .dim { color: #888; }
+#log { white-space: pre-wrap; word-break: break-all; max-height: 60vh; overflow-y: auto; line-height: 1.4; }
+button { background: #4cc9f0; color: #000; border: none; padding: 10px 16px; border-radius: 6px; cursor: pointer; font-size: 15px; margin: 4px; font-weight: bold; }
+button:hover { background: #7dd3fc; }
+.logo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 8px; margin-top: 8px; }
+.logo-cell { background: #0f0f23; border-radius: 6px; padding: 8px; text-align: center; }
+.logo-cell img { max-width: 100%; max-height: 60px; display: block; margin: 0 auto 4px; }
+.logo-cell .name { font-size: 11px; color: #aaa; }
+.logo-cell .status { font-size: 11px; margin-top: 2px; }
+</style></head>
+<body>
+<h1>Lorcana Logo Debug</h1>
+<p style="color:#888; margin:4px 0;">Runs the same wiki API calls &amp; blob fetches the tracker uses. Works on mobile — no console needed.</p>
+
+<div class="section">
+<button onclick="runDiagnostic()">Run Full Diagnostic</button>
+<button onclick="clearLog()">Clear</button>
+</div>
+
+<div class="section" id="grid-section" style="display:none">
+<b>Logo Results:</b>
+<div class="logo-grid" id="logo-grid"></div>
+</div>
+
+<div class="section"><div id="log"></div></div>
+
+<script>
+var LOG = document.getElementById('log');
+function log(msg, cls) {
+    var span = document.createElement('span');
+    span.className = cls || '';
+    span.textContent = msg + '\n';
+    LOG.appendChild(span);
+    LOG.scrollTop = LOG.scrollHeight;
+}
+function clearLog() { LOG.innerHTML = ''; document.getElementById('grid-section').style.display = 'none'; }
+
+// Same set mapping as the tracker
+var SET_NAMES = {
+    'first-chapter':         'The_First_Chapter',
+    'rise-of-the-floodborn': 'Rise_of_the_Floodborn',
+    'into-the-inklands':     'Into_the_Inklands',
+    'ursulas-return':        "Ursula's_Return",
+    'shimmering-skies':      'Shimmering_Skies',
+    'azurite-sea':           'Azurite_Sea',
+    'archazias-island':      "Archazia's_Island",
+    'reign-of-jafar':        'Reign_of_Jafar',
+    'fabled':                'Fabled',
+    'whispers-in-the-well':  'Whispers_in_the_Well',
+    'winterspell':           'Winterspell'
+};
+
+function buildVariants(name) {
+    var variants = [
+        'File:' + name + '_Logo.png',
+        'File:' + name + '_logo.png',
+        'File:' + name + '.png'
+    ];
+    if (name.indexOf("'") !== -1) {
+        var clean = name.replace(/'/g, '');
+        variants.push('File:' + clean + '_Logo.png');
+        variants.push('File:' + clean + '_logo.png');
+        variants.push('File:' + clean + '.png');
+    }
+    return variants;
+}
+
+async function queryWiki(apiUrl, sourceName, titles) {
+    var titleParam = titles.map(function(t) { return t.replace(/ /g, '_'); }).join('|');
+    var fullUrl = apiUrl + '?action=query&titles=' + titleParam + '&prop=imageinfo&iiprop=url&format=json&origin=*';
+
+    log('\n--- ' + sourceName + ' ---');
+    log('URL: ' + fullUrl.substring(0, 120) + '...', 'dim');
+    log('Querying ' + titles.length + ' file titles...');
+
+    var resp = await fetch(fullUrl, { referrerPolicy: 'no-referrer' });
+    log('HTTP ' + resp.status, resp.ok ? 'ok' : 'fail');
+    if (!resp.ok) throw new Error('HTTP ' + resp.status);
+
+    var data = await resp.json();
+    var pages = data && data.query && data.query.pages;
+    if (!pages) {
+        log('No pages in response!', 'fail');
+        log('Raw: ' + JSON.stringify(data).substring(0, 300), 'dim');
+        return {};
+    }
+
+    // Check for normalized titles
+    if (data.query.normalized) {
+        log('Title normalizations:', 'dim');
+        data.query.normalized.forEach(function(n) {
+            log('  ' + n.from + ' → ' + n.to, 'dim');
+        });
+    }
+
+    var results = {};
+    var found = 0, missing = 0;
+    Object.keys(pages).forEach(function(pid) {
+        var page = pages[pid];
+        var title = page.title || '';
+        if (page.imageinfo && page.imageinfo[0] && page.imageinfo[0].url) {
+            found++;
+            results[title] = page.imageinfo[0].url;
+            log('FOUND: ' + title, 'ok');
+            log('  → ' + page.imageinfo[0].url.substring(0, 100) + '...', 'dim');
+        } else {
+            missing++;
+            log('MISS:  ' + title, 'fail');
+        }
+    });
+    log(sourceName + ' totals: ' + found + ' found, ' + missing + ' missing', found > 0 ? 'ok' : 'warn');
+    return results;
+}
+
+async function testBlobFetch(url, label) {
+    log('  Blob fetch: ' + url.substring(0, 80) + '...');
+    try {
+        var resp = await fetch(url, { referrerPolicy: 'no-referrer' });
+        if (!resp.ok) {
+            log('  HTTP ' + resp.status, 'fail');
+            return null;
+        }
+        var blob = await resp.blob();
+        log('  Blob: size=' + blob.size + ' type=' + blob.type, blob.size > 200 ? 'ok' : 'fail');
+        if (blob.size < 200) {
+            log('  Too small — likely an error page, not an image', 'fail');
+            return null;
+        }
+        return URL.createObjectURL(blob);
+    } catch (e) {
+        log('  Blob error: ' + e.message, 'fail');
+        return null;
+    }
+}
+
+async function runDiagnostic() {
+    clearLog();
+    log('=== Lorcana Logo Diagnostic ===');
+    log('Date: ' + new Date().toISOString());
+    log('UA: ' + navigator.userAgent);
+    log('Origin: ' + location.origin);
+
+    var setKeys = Object.keys(SET_NAMES);
+    var allFiles = [];
+    var fileToSet = {};
+
+    setKeys.forEach(function(k) {
+        var variants = buildVariants(SET_NAMES[k]);
+        variants.forEach(function(f, i) {
+            allFiles.push(f);
+            var normalized = f.replace(/_/g, ' ');
+            if (!fileToSet[normalized] || i < fileToSet[normalized].priority) {
+                fileToSet[normalized] = { setKey: k, priority: i };
+            }
+        });
+    });
+
+    log('\nTotal candidate filenames: ' + allFiles.length);
+    log('Sets: ' + setKeys.join(', '));
+
+    var foundUrls = {}; // setKey → cdnUrl
+
+    // Source 1: Fandom
+    var sources = [
+        { api: 'https://lorcana.fandom.com/api.php', name: 'Fandom' },
+        { api: 'https://wiki.mushureport.com/api.php', name: 'MushuReport' }
+    ];
+
+    for (var si = 0; si < sources.length; si++) {
+        var src = sources[si];
+        var needed = allFiles.filter(function(f) {
+            var entry = fileToSet[f.replace(/_/g, ' ')];
+            return entry && !foundUrls[entry.setKey];
+        });
+        if (needed.length === 0) { log('\nAll sets resolved — skipping ' + src.name, 'ok'); break; }
+
+        try {
+            var results = await queryWiki(src.api, src.name, needed);
+            Object.keys(results).forEach(function(title) {
+                var entry = fileToSet[title];
+                if (entry && !foundUrls[entry.setKey]) {
+                    foundUrls[entry.setKey] = results[title];
+                }
+            });
+        } catch (e) {
+            log(src.name + ' ERROR: ' + e.message, 'fail');
+        }
+    }
+
+    // Summary
+    log('\n=== SUMMARY ===');
+    var foundCount = 0;
+    setKeys.forEach(function(k) {
+        if (foundUrls[k]) {
+            foundCount++;
+            log(k + ': URL found', 'ok');
+        } else {
+            log(k + ': NO URL', 'fail');
+        }
+    });
+    log(foundCount + '/' + setKeys.length + ' sets have CDN URLs', foundCount === setKeys.length ? 'ok' : 'warn');
+
+    // Blob fetch test
+    log('\n=== BLOB FETCH TEST ===');
+    log('Testing if CDN URLs actually return image data...');
+
+    var grid = document.getElementById('logo-grid');
+    var gridSection = document.getElementById('grid-section');
+    grid.innerHTML = '';
+    gridSection.style.display = 'block';
+
+    for (var i = 0; i < setKeys.length; i++) {
+        var sk = setKeys[i];
+        var cell = document.createElement('div');
+        cell.className = 'logo-cell';
+
+        var nameEl = document.createElement('div');
+        nameEl.className = 'name';
+        nameEl.textContent = sk;
+
+        var statusEl = document.createElement('div');
+        statusEl.className = 'status';
+
+        var imgEl = document.createElement('img');
+
+        if (!foundUrls[sk]) {
+            statusEl.textContent = 'No URL';
+            statusEl.className = 'status fail';
+            imgEl.style.display = 'none';
+        } else {
+            log('\n' + sk + ':');
+            var blobUrl = await testBlobFetch(foundUrls[sk], sk);
+            if (blobUrl) {
+                imgEl.src = blobUrl;
+                statusEl.textContent = 'OK';
+                statusEl.className = 'status ok';
+            } else {
+                statusEl.textContent = 'Blob failed';
+                statusEl.className = 'status fail';
+                imgEl.style.display = 'none';
+            }
+        }
+
+        cell.appendChild(imgEl);
+        cell.appendChild(nameEl);
+        cell.appendChild(statusEl);
+        grid.appendChild(cell);
+    }
+
+    log('\n=== DONE ===', 'ok');
+}
+</script>
+</body></html>
