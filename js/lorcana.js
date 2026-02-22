@@ -295,11 +295,18 @@ function getLorcanaRemoteLogoUrls(setKey) {
     // 4. Mushu Report Special:FilePath
     if (wikiName) {
         urls.push('https://wiki.mushureport.com/wiki/Special:FilePath/' + wikiName + '_logo.png');
+        urls.push('https://wiki.mushureport.com/wiki/Special:FilePath/' + wikiName + '_Logo.png');
     }
 
     // 5. Lorcana Fandom Special:FilePath
     if (wikiName) {
         urls.push('https://lorcana.fandom.com/wiki/Special:FilePath/' + wikiName + '_Logo.png');
+        urls.push('https://lorcana.fandom.com/wiki/Special:FilePath/' + wikiName + '_logo.png');
+    }
+
+    // Disney Fandom wiki (has Lorcana images in their Disney Lorcana category)
+    if (wikiName) {
+        urls.push('https://disney.fandom.com/wiki/Special:FilePath/' + wikiName + '_logo.png');
     }
 
     return urls;
