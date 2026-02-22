@@ -52,9 +52,14 @@ const LORCANA_SET_ARTICLE_NAMES = {
 const _lorcanaLogoUrlCache = {};
 let _lorcanaLogosFetched = false;
 
-// Query Fandom article pages for their images, then resolve CDN URLs.
-// Matches images to sets by set name appearing in the filename.
-// Prefers files with "logo" in the name, falls back to set-name matches.
+// Normalize a string for fuzzy matching: strip apostrophes/quotes, underscores→spaces, lowercase.
+function _normForMatch(s) {
+    return s.replace(/_/g, ' ').replace(/['''\u2018\u2019\u0027]/g, '').toLowerCase().trim();
+}
+
+// Query Fandom article pages for logo images, then resolve CDN URLs.
+// Only uses images with "logo" in the filename to avoid product photos.
+// Handles apostrophe variations (Ursula's Return, Archazia's Island).
 async function fetchLorcanaSetLogos() {
     if (_lorcanaLogosFetched) return;
     _lorcanaLogosFetched = true;
@@ -73,51 +78,38 @@ async function fetchLorcanaSetLogos() {
         var artPages = artData && artData.query && artData.query.pages;
         if (!artPages) return;
 
-        // Step 2: For each set's article page, find the best image match
-        // Build a reverse map: article title → setKey
+        // Step 2: For each set's article page, find the best logo image.
+        // Build a reverse map: normalized article title → setKey
         var titleToSet = {};
         setKeys.forEach(function(k) {
-            titleToSet[LORCANA_SET_ARTICLE_NAMES[k].replace(/_/g, ' ').toLowerCase()] = k;
+            titleToSet[_normForMatch(LORCANA_SET_ARTICLE_NAMES[k])] = k;
         });
 
         var bestMatches = {}; // setKey → File:title
         Object.keys(artPages).forEach(function(pid) {
             var page = artPages[pid];
             if (!page.title || !page.images) return;
-            var pageTitle = page.title.replace(/_/g, ' ').toLowerCase();
-            var setKey = titleToSet[pageTitle];
+            var setKey = titleToSet[_normForMatch(page.title)];
             if (!setKey) return;
 
-            var setName = LORCANA_SET_ARTICLE_NAMES[setKey].replace(/_/g, ' ').toLowerCase();
-            var logoMatch = null;
-            var nameMatch = null;
+            var setNameNorm = _normForMatch(LORCANA_SET_ARTICLE_NAMES[setKey]);
 
             page.images.forEach(function(img) {
-                var t = (img.title || '').replace(/^File:/i, '').toLowerCase();
-                // Skip obvious non-logo files (products, cards, sleeves, etc.)
-                if (t.indexOf('deck box') !== -1 || t.indexOf('sleeves') !== -1 ||
-                    t.indexOf('playmat') !== -1 || t.indexOf('portfolio') !== -1 ||
-                    t.indexOf('booster') !== -1 || t.indexOf('trove') !== -1 ||
-                    t.indexOf('starter') !== -1 || t.indexOf('blister') !== -1 ||
-                    t.indexOf('gift set') !== -1 || t.indexOf('display') !== -1 ||
-                    t.indexOf('pack art') !== -1 || t.indexOf('bundle') !== -1 ||
-                    t.indexOf('kit') !== -1 || t.indexOf('exclusive') !== -1 ||
-                    t.indexOf('card back') !== -1 || t.indexOf('site-logo') !== -1) return;
+                var t = (img.title || '').replace(/^File:/i, '');
+                var tNorm = _normForMatch(t);
 
-                // Priority 1: file has "logo" AND set name
-                if (t.indexOf('logo') !== -1 && t.indexOf(setName) !== -1) {
-                    logoMatch = img.title;
-                }
-                // Priority 2: filename starts with or closely matches set name
-                if (!nameMatch && t.indexOf(setName) !== -1) {
-                    nameMatch = img.title;
+                // Only match files that have BOTH "logo" and the set name.
+                // This filters out product images, card images, merchandise, etc.
+                if (tNorm.indexOf('logo') !== -1 && tNorm.indexOf(setNameNorm) !== -1) {
+                    // Prefer PNG over other formats
+                    if (!bestMatches[setKey] || t.toLowerCase().indexOf('.png') !== -1) {
+                        bestMatches[setKey] = img.title;
+                    }
                 }
             });
-
-            bestMatches[setKey] = logoMatch || nameMatch;
         });
 
-        // Step 3: Fetch CDN URLs for discovered files (one API call)
+        // Step 3: Fetch CDN URLs for discovered logo files (one API call)
         var fileTitles = [];
         setKeys.forEach(function(k) {
             if (bestMatches[k]) fileTitles.push(bestMatches[k]);
@@ -138,7 +130,6 @@ async function fetchLorcanaSetLogos() {
             var page = infoPages[pid];
             if (!page.imageinfo || !page.imageinfo[0] || !page.imageinfo[0].url) return;
             var title = (page.title || '').replace(/^File:/i, '');
-            // Find which set this file belongs to
             setKeys.forEach(function(k) {
                 if (bestMatches[k] && bestMatches[k].replace(/^File:/i, '') === title) {
                     _lorcanaLogoUrlCache[k] = page.imageinfo[0].url;
@@ -218,7 +209,8 @@ const LORCANA_SET_SHORT_NAMES = {
 };
 
 // Generate inline SVG data URI for set logo.
-// Creates a polished emblem with gradient shield, set name, and roman numeral.
+// Creates a transparent-background title card with ornamental styling.
+// Blends seamlessly with any background color.
 function getLorcanaSetLogoSvg(setKey) {
     const style = LORCANA_SET_STYLES[setKey] || { color: '#c9a84c', color2: '#8b6914', label: '?' };
     const c1 = style.color;
@@ -227,49 +219,44 @@ function getLorcanaSetLogoSvg(setKey) {
     const nameLines = (LORCANA_SET_SHORT_NAMES[setKey] || setKey).split('\n');
     var id = setKey.replace(/[^a-z]/g, '');
 
-    // Build set name text elements
+    // Build set name text elements (centered in viewBox)
     var nameText = '';
     if (nameLines.length === 1) {
-        nameText = '<text x="150" y="47" text-anchor="middle" fill="#fff" font-family="Georgia,Times,serif" font-size="20" font-weight="bold" letter-spacing="1">' + nameLines[0] + '</text>';
+        nameText = '<text x="150" y="52" text-anchor="middle" fill="' + c1 + '" font-family="Georgia,Times,serif" font-size="22" font-weight="bold" letter-spacing="2">' + nameLines[0] + '</text>';
     } else {
-        nameText = '<text x="150" y="36" text-anchor="middle" fill="#fff" font-family="Georgia,Times,serif" font-size="16" font-weight="bold" letter-spacing="1">' + nameLines[0] + '</text>' +
-            '<text x="150" y="56" text-anchor="middle" fill="#fff" font-family="Georgia,Times,serif" font-size="16" font-weight="bold" letter-spacing="1">' + nameLines[1] + '</text>';
+        nameText = '<text x="150" y="40" text-anchor="middle" fill="' + c1 + '" font-family="Georgia,Times,serif" font-size="18" font-weight="bold" letter-spacing="2">' + nameLines[0] + '</text>' +
+            '<text x="150" y="62" text-anchor="middle" fill="' + c1 + '" font-family="Georgia,Times,serif" font-size="18" font-weight="bold" letter-spacing="2">' + nameLines[1] + '</text>';
     }
 
-    const svg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 80">' +
+    var centerY = nameLines.length === 1 ? 52 : 51;
+    var ornY = nameLines.length === 1 ? 65 : 77;
+
+    const svg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 100">' +
         '<defs>' +
-        // Main gradient for shield background
-        '<linearGradient id="g' + id + '" x1="0" y1="0" x2="1" y2="1">' +
-        '<stop offset="0%" stop-color="' + c1 + '" stop-opacity="0.9"/>' +
-        '<stop offset="100%" stop-color="' + c2 + '" stop-opacity="0.95"/>' +
-        '</linearGradient>' +
-        // Shine overlay
-        '<linearGradient id="s' + id + '" x1="0" y1="0" x2="0" y2="1">' +
-        '<stop offset="0%" stop-color="#fff" stop-opacity="0.15"/>' +
-        '<stop offset="50%" stop-color="#fff" stop-opacity="0.02"/>' +
-        '<stop offset="100%" stop-color="#000" stop-opacity="0.1"/>' +
+        '<linearGradient id="tg' + id + '" x1="0" y1="0" x2="1" y2="0">' +
+        '<stop offset="0%" stop-color="' + c1 + '" stop-opacity="0"/>' +
+        '<stop offset="30%" stop-color="' + c1 + '" stop-opacity="0.6"/>' +
+        '<stop offset="50%" stop-color="' + c1 + '" stop-opacity="0.8"/>' +
+        '<stop offset="70%" stop-color="' + c1 + '" stop-opacity="0.6"/>' +
+        '<stop offset="100%" stop-color="' + c1 + '" stop-opacity="0"/>' +
         '</linearGradient>' +
         '</defs>' +
-        // Outer glow
-        '<rect x="14" y="3" width="272" height="74" rx="12" fill="' + c1 + '" opacity="0.15"/>' +
-        // Main shield shape
-        '<rect x="18" y="5" width="264" height="70" rx="10" fill="url(#g' + id + ')"/>' +
-        // Shine overlay
-        '<rect x="18" y="5" width="264" height="70" rx="10" fill="url(#s' + id + ')"/>' +
-        // Inner border
-        '<rect x="24" y="9" width="252" height="62" rx="7" fill="none" stroke="#fff" stroke-width="0.8" opacity="0.3"/>' +
-        // Left decorative line
-        '<line x1="40" y1="40" x2="65" y2="40" stroke="#fff" stroke-width="1" opacity="0.4"/>' +
-        // Right decorative line
-        '<line x1="235" y1="40" x2="260" y2="40" stroke="#fff" stroke-width="1" opacity="0.4"/>' +
-        // Left diamond
-        '<polygon points="35,40 40,35 45,40 40,45" fill="#fff" opacity="0.35"/>' +
-        // Right diamond
-        '<polygon points="255,40 260,35 265,40 260,45" fill="#fff" opacity="0.35"/>' +
-        // Set name (white on colored shield)
+        // Top ornamental line (fades at edges)
+        '<line x1="30" y1="18" x2="270" y2="18" stroke="url(#tg' + id + ')" stroke-width="1"/>' +
+        // Roman numeral at top
+        '<text x="150" y="14" text-anchor="middle" fill="' + c1 + '" font-family="Georgia,Times,serif" font-size="9" letter-spacing="3" opacity="0.7">' + lbl + '</text>' +
+        // Left ornamental diamond
+        '<polygon points="42,' + centerY + ' 48,' + (centerY - 5) + ' 54,' + centerY + ' 48,' + (centerY + 5) + '" fill="' + c1 + '" opacity="0.5"/>' +
+        // Right ornamental diamond
+        '<polygon points="246,' + centerY + ' 252,' + (centerY - 5) + ' 258,' + centerY + ' 252,' + (centerY + 5) + '" fill="' + c1 + '" opacity="0.5"/>' +
+        // Set name text
         nameText +
-        // Roman numeral at bottom
-        '<text x="150" y="73" text-anchor="middle" fill="#fff" font-family="Georgia,Times,serif" font-size="8" opacity="0.5" letter-spacing="2">' + lbl + '</text>' +
+        // Bottom ornamental line (fades at edges)
+        '<line x1="60" y1="' + ornY + '" x2="240" y2="' + ornY + '" stroke="url(#tg' + id + ')" stroke-width="1"/>' +
+        // Bottom center diamond accent
+        '<polygon points="147,' + ornY + ' 150,' + (ornY - 3) + ' 153,' + ornY + ' 150,' + (ornY + 3) + '" fill="' + c1 + '" opacity="0.6"/>' +
+        // Disney Lorcana subtitle
+        '<text x="150" y="' + (ornY + 12) + '" text-anchor="middle" fill="' + c2 + '" font-family="Georgia,Times,serif" font-size="7" letter-spacing="4" opacity="0.5">DISNEY LORCANA</text>' +
         '</svg>';
     return 'data:image/svg+xml;base64,' + btoa(svg);
 }
