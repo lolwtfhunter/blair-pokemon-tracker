@@ -121,27 +121,15 @@ async function fetchLorcanaSetLogos() {
             var resp = await fetch(source.api + '?action=query&titles=' + titleParam +
                 '&prop=imageinfo&iiprop=url&format=json&origin=*',
                 { referrerPolicy: 'no-referrer' });
-            if (!resp.ok) {
-                console.log('fetchLorcanaSetLogos: ' + source.name + ' HTTP ' + resp.status);
-                continue;
-            }
+            if (!resp.ok) continue;
 
             var data = await resp.json();
             var pages = data && data.query && data.query.pages;
-            if (!pages) {
-                console.log('fetchLorcanaSetLogos: ' + source.name + ' no pages in response');
-                continue;
-            }
+            if (!pages) continue;
 
-            // Log what the API returned for debugging
-            var found = 0, missing = 0;
             Object.keys(pages).forEach(function(pid) {
                 var page = pages[pid];
-                if (!page.imageinfo || !page.imageinfo[0] || !page.imageinfo[0].url) {
-                    missing++;
-                    return;
-                }
-                found++;
+                if (!page.imageinfo || !page.imageinfo[0] || !page.imageinfo[0].url) return;
                 var url = page.imageinfo[0].url;
 
                 // Find which set this file belongs to via the normalized title
@@ -149,18 +137,11 @@ async function fetchLorcanaSetLogos() {
                 var entry = fileToSet[title];
                 if (entry && !_lorcanaLogoUrlCache[entry.setKey]) {
                     _lorcanaLogoUrlCache[entry.setKey] = url;
-                    console.log('fetchLorcanaSetLogos: ' + source.name + ' found ' + entry.setKey + ' → ' + title);
                 }
             });
-            console.log('fetchLorcanaSetLogos: ' + source.name + ' results: ' + found + ' found, ' + missing + ' missing');
-        } catch (e) {
-            console.log('fetchLorcanaSetLogos: ' + source.name + ' error: ' + e.message);
-        }
+        } catch (e) { /* this source failed, try next */ }
     }
 
-    // Log final state
-    var cached = Object.keys(_lorcanaLogoUrlCache);
-    console.log('fetchLorcanaSetLogos: ' + cached.length + '/11 sets have logos: ' + cached.join(', '));
 }
 
 // Upgrade one SVG logo to a real image via fetch→blob.
@@ -170,12 +151,8 @@ function tryUpgradeLorcanaLogo(img) {
     if (!setKey) return;
 
     var url = _lorcanaLogoUrlCache[setKey];
-    if (!url) {
-        console.log('tryUpgradeLorcanaLogo: no URL for ' + setKey + ' — keeping SVG');
-        return;
-    }
+    if (!url) return; // No discovered URL — keep SVG
 
-    console.log('tryUpgradeLorcanaLogo: fetching blob for ' + setKey + ' from ' + url.substring(0, 80) + '...');
     var svgSrc = img.src;
     fetch(url, { referrerPolicy: 'no-referrer' })
         .then(function(resp) {
@@ -183,7 +160,6 @@ function tryUpgradeLorcanaLogo(img) {
             return resp.blob();
         })
         .then(function(blob) {
-            console.log('tryUpgradeLorcanaLogo: ' + setKey + ' blob size=' + blob.size + ' type=' + blob.type);
             if (blob.size < 200) throw new Error('too small');
             var blobUrl = URL.createObjectURL(blob);
             img.onload = function() {
