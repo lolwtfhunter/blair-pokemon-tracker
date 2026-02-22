@@ -63,17 +63,17 @@ window.addEventListener('load', async function() {
         console.log('Initializing Lorcana sets...');
         try {
             initLorcanaSetGrids();
-            // Pre-fetch logo CDN URLs before rendering buttons (max 4s wait)
-            await Promise.race([
-                fetchLorcanaSetLogos(),
-                new Promise(resolve => setTimeout(resolve, 4000))
-            ]);
+            // Render buttons immediately with SVG fallbacks (no blocking wait)
             renderLorcanaSetButtons();
+            console.log('✓ Lorcana set buttons rendered (SVG logos)');
+            // Fetch logo CDN URLs in background, then upgrade SVGs to real images
+            fetchLorcanaSetLogos().finally(function() {
+                upgradeLorcanaLogos();
+            });
             // Pre-warm Lorcast CDN cache for all sets (non-blocking)
             Object.keys(lorcanaCardSets).forEach(setKey => {
                 fetchLorcastImageUrls(setKey);
             });
-            // Lorcana set cards will render on-demand when user selects a set
             console.log('✓ Lorcana set grids and buttons ready');
         } catch (e) {
             console.log('ERROR in Lorcana sets: ' + e.message);

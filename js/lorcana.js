@@ -54,10 +54,11 @@ const _lorcanaLogoUrlCache = {};
 let _lorcanaLogosFetched = false;
 
 // Fetch direct CDN URLs for Lorcana set logos from wiki APIs.
-// Tries Fandom wiki first (CORS-enabled), then Mushu Report for any gaps.
+// Tries Fandom wiki first (CORS-enabled), then Mushu Report, then Disney wiki.
 async function fetchLorcanaSetLogos() {
     if (_lorcanaLogosFetched) return;
     _lorcanaLogosFetched = true;
+    _logoDebug('fetchLorcanaSetLogos: starting API calls');
 
     const wikiNames = LORCANA_SET_WIKI_NAMES;
     const setEntries = Object.entries(wikiNames);
@@ -104,8 +105,9 @@ async function fetchLorcanaSetLogos() {
             }
         }
     } catch (e) {
-        // Fandom API unavailable — will try Mushu Report next
+        _logoDebug('Fandom API error: ' + e.message);
     }
+    _logoDebug('After Fandom API: ' + Object.keys(_lorcanaLogoUrlCache).length + ' cached');
 
     // --- Mushu Report wiki API (for any sets not resolved above) ---
     const missing = setEntries.filter(([k]) => !_lorcanaLogoUrlCache[k]);
@@ -152,8 +154,9 @@ async function fetchLorcanaSetLogos() {
             }
         }
     } catch (e) {
-        // Mushu Report API unavailable — will try Disney wiki next
+        _logoDebug('Mushu Report API error: ' + e.message);
     }
+    _logoDebug('After Mushu Report API: ' + Object.keys(_lorcanaLogoUrlCache).length + ' cached');
 
     // --- Disney Fandom wiki API (has Lorcana images in their Category:Disney_Lorcana_images) ---
     const missing2 = setEntries.filter(([k]) => !_lorcanaLogoUrlCache[k]);
@@ -198,7 +201,16 @@ async function fetchLorcanaSetLogos() {
             }
         }
     } catch (e) {
-        // Disney wiki API unavailable — will use Special:FilePath fallbacks
+        _logoDebug('Disney wiki API error: ' + e.message);
+    }
+    _logoDebug('After Disney wiki API: ' + Object.keys(_lorcanaLogoUrlCache).length + ' cached');
+    // Log which sets got CDN URLs
+    var cachedSets = Object.keys(_lorcanaLogoUrlCache);
+    if (cachedSets.length > 0) {
+        cachedSets.forEach(function(k) {
+            var u = _lorcanaLogoUrlCache[k];
+            _logoDebug('  cached: ' + k + ' -> ' + (u.length > 60 ? u.substring(0, 57) + '...' : u));
+        });
     }
 }
 
@@ -220,71 +232,130 @@ const LORCANA_FANDOM_CDN_LOGOS = {
     'winterspell':           ['8/84/Winterspell_Logo.png', 'f/f7/Winterspell_logo.png']
 };
 
-// Build list of candidate logo URLs to try (all raced in parallel).
-// Sources: local file, wiki API cache, Fandom CDN, Mushu Report, Disney wiki.
-function getLorcanaRemoteLogoUrls(setKey) {
-    const urls = [];
-    const wikiName = LORCANA_SET_WIKI_NAMES[setKey];
+// ==================== LOGO DEBUG PANEL ====================
+// Activate by adding ?logodebug to the URL (e.g. mysite.com/?logodebug)
+const _logoDebugEnabled = (typeof location !== 'undefined') && location.search.indexOf('logodebug') !== -1;
+const _logoDebugLog = [];
 
-    // Local file (if user has downloaded logos via scripts/download-lorcana-logos.sh)
+function _logoDebug(msg) {
+    const ts = new Date().toISOString().substr(11, 12);
+    const line = '[' + ts + '] ' + msg;
+    _logoDebugLog.push(line);
+    if (_logoDebugEnabled) {
+        console.log('[logo] ' + msg);
+        var panel = document.getElementById('logo-debug-panel');
+        if (panel) {
+            var pre = panel.querySelector('pre');
+            if (pre) {
+                pre.textContent = _logoDebugLog.join('\n');
+                pre.scrollTop = pre.scrollHeight;
+            }
+        }
+    }
+}
+
+function _initLogoDebugPanel() {
+    if (!_logoDebugEnabled) return;
+    var panel = document.createElement('div');
+    panel.id = 'logo-debug-panel';
+    panel.innerHTML = '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">' +
+        '<b>Logo Debug</b>' +
+        '<button onclick="navigator.clipboard.writeText(document.querySelector(\'#logo-debug-panel pre\').textContent).then(function(){alert(\'Copied!\')})" ' +
+        'style="font-size:12px;padding:2px 8px;cursor:pointer">Copy</button></div>' +
+        '<pre style="margin:0;white-space:pre-wrap;word-break:break-all;max-height:300px;overflow:auto;font-size:11px;line-height:1.3"></pre>';
+    panel.style.cssText = 'position:fixed;bottom:0;left:0;right:0;z-index:99999;background:#111;color:#0f0;' +
+        'padding:8px;font-family:monospace;font-size:12px;max-height:350px;border-top:2px solid #0f0;';
+    document.body.appendChild(panel);
+    _logoDebug('Debug panel initialized');
+}
+
+// ==================== LOGO URL BUILDING ====================
+
+// Build ordered list of candidate logo URLs for a set.
+function getLorcanaRemoteLogoUrls(setKey) {
+    var urls = [];
+    var wikiName = LORCANA_SET_WIKI_NAMES[setKey];
+
+    // 1. Local file
     urls.push('./Images/lorcana/logos/' + setKey + '.png');
 
-    // Wiki API-resolved CDN URL (most reliable when available — direct static URL)
+    // 2. Wiki API-resolved CDN URL (populated by fetchLorcanaSetLogos)
     if (_lorcanaLogoUrlCache[setKey]) {
         urls.push(_lorcanaLogoUrlCache[setKey]);
     }
 
-    // Pre-computed Fandom CDN URLs (no API/redirect needed, just needs no-referrer)
-    const cdnPaths = LORCANA_FANDOM_CDN_LOGOS[setKey];
+    // 3. Pre-computed Fandom CDN URLs
+    var cdnPaths = LORCANA_FANDOM_CDN_LOGOS[setKey];
     if (cdnPaths) {
-        cdnPaths.forEach(p => {
+        cdnPaths.forEach(function(p) {
             urls.push('https://static.wikia.nocookie.net/lorcana/images/' + p + '/revision/latest');
         });
     }
 
-    // Mushu Report wiki Special:FilePath (both capitalizations)
+    // 4. Mushu Report Special:FilePath
     if (wikiName) {
         urls.push('https://wiki.mushureport.com/wiki/Special:FilePath/' + wikiName + '_logo.png');
-        urls.push('https://wiki.mushureport.com/wiki/Special:FilePath/' + wikiName + '_Logo.png');
     }
 
-    // Lorcana Fandom wiki Special:FilePath (both capitalizations)
+    // 5. Lorcana Fandom Special:FilePath
     if (wikiName) {
         urls.push('https://lorcana.fandom.com/wiki/Special:FilePath/' + wikiName + '_Logo.png');
-        urls.push('https://lorcana.fandom.com/wiki/Special:FilePath/' + wikiName + '_logo.png');
-    }
-
-    // Disney Fandom wiki (has Lorcana images in their Disney Lorcana category)
-    if (wikiName) {
-        urls.push('https://disney.fandom.com/wiki/Special:FilePath/' + wikiName + '_logo.png');
     }
 
     return urls;
 }
 
-// Try to upgrade an SVG logo to a real image by testing remote URLs.
-// Races all candidate URLs in parallel; the first to load a real image wins.
-// Uses referrerPolicy 'no-referrer' to bypass CDN hotlinking restrictions.
+// ==================== LOGO UPGRADE (SEQUENTIAL) ====================
+
+// Try to upgrade one SVG logo to a real image by testing URLs sequentially.
+// Sequential avoids flooding mobile browsers with dozens of parallel requests.
 function tryUpgradeLorcanaLogo(img) {
-    const setKey = img.getAttribute('data-logo-set');
+    var setKey = img.getAttribute('data-logo-set');
     if (!setKey) return;
 
-    const urls = getLorcanaRemoteLogoUrls(setKey);
-    let upgraded = false;
+    var urls = getLorcanaRemoteLogoUrls(setKey);
+    _logoDebug(setKey + ': trying ' + urls.length + ' URLs');
+    var idx = 0;
 
-    urls.forEach(function(url) {
-        const testImg = new Image();
+    function tryNext() {
+        if (idx >= urls.length) {
+            _logoDebug(setKey + ': ALL FAILED — keeping SVG');
+            return;
+        }
+        var url = urls[idx++];
+        var shortUrl = url.length > 70 ? url.substring(0, 67) + '...' : url;
+        _logoDebug(setKey + ': [' + idx + '/' + urls.length + '] trying ' + shortUrl);
+        var testImg = new Image();
         testImg.referrerPolicy = 'no-referrer';
         testImg.onload = function() {
-            if (upgraded) return;
             if (testImg.naturalWidth > 10 && testImg.naturalHeight > 10) {
-                upgraded = true;
+                _logoDebug(setKey + ': SUCCESS (' + testImg.naturalWidth + 'x' + testImg.naturalHeight + ') ' + shortUrl);
                 img.src = url;
                 img.referrerPolicy = 'no-referrer';
+            } else {
+                _logoDebug(setKey + ': too small (' + testImg.naturalWidth + 'x' + testImg.naturalHeight + ') ' + shortUrl);
+                tryNext();
             }
         };
-        testImg.onerror = function() { /* ignore, other URLs may succeed */ };
+        testImg.onerror = function() {
+            _logoDebug(setKey + ': FAILED ' + shortUrl);
+            tryNext();
+        };
         testImg.src = url;
+    }
+
+    tryNext();
+}
+
+// Re-trigger logo upgrade for all visible SVG logos (called after API fetch completes).
+function upgradeLorcanaLogos() {
+    var cached = Object.keys(_lorcanaLogoUrlCache).length;
+    _logoDebug('API fetch done — ' + cached + ' CDN URLs cached. Re-checking logos...');
+    document.querySelectorAll('.set-btn-logo[data-logo-set]').forEach(function(img) {
+        // Only re-try if still showing the SVG fallback
+        if (img.src && img.src.indexOf('data:image/svg') === 0) {
+            tryUpgradeLorcanaLogo(img);
+        }
     });
 }
 
@@ -425,6 +496,8 @@ function tryNextLorcanaImageFromData(img) {
 
 // Render Lorcana set buttons
 function renderLorcanaSetButtons() {
+    _initLogoDebugPanel();
+    _logoDebug('renderLorcanaSetButtons called');
     const container = document.getElementById('lorcanaSetButtons');
     if (!container) return;
     container.innerHTML = '';
