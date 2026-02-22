@@ -3,10 +3,13 @@
 let siSets = null;
 let siInitialized = false;
 
-// Sets where pokemontcg.io returns incorrect images instead of the real set symbol.
-// Map from API set ID to the correct Scrydex symbol URL.
-const SI_SYMBOL_OVERRIDES = {
-    'me2pt5': 'https://images.scrydex.com/pokemon/me2pt5-symbol/symbol'
+// Sets where pokemontcg.io returns incorrect symbol images (e.g. card art instead of set symbol).
+// For these, try Scrydex first, then pokemontcg.io as fallback, then styled text.
+const SI_DUAL_CDN_SETS = {
+    'me2pt5': {
+        scrydex: 'https://images.scrydex.com/pokemon/me2pt5-symbol/symbol',
+        ptcg: 'https://images.pokemontcg.io/me2pt5/symbol.png'
+    }
 };
 
 // Sets not available on any image CDN — display PTCGO code as text fallback.
@@ -36,8 +39,9 @@ function siFetchSets() {
         .then(data => {
             siSets = (data.data || []).map(s => {
                 s.images = s.images || {};
-                if (SI_SYMBOL_OVERRIDES[s.id]) {
-                    s.images.symbol = SI_SYMBOL_OVERRIDES[s.id];
+                if (SI_DUAL_CDN_SETS[s.id]) {
+                    s._dualCdn = SI_DUAL_CDN_SETS[s.id];
+                    s.images.symbol = s._dualCdn.scrydex;
                 } else if (SI_TEXT_FALLBACK_SETS[s.id]) {
                     s.images.symbol = '';
                     s._symbolCode = SI_TEXT_FALLBACK_SETS[s.id];
@@ -88,7 +92,7 @@ function siBuildLocalSets() {
     for (const [setKey, apiId] of Object.entries(TCG_API_SET_IDS)) {
         const eraKey = getEra(apiId);
         const displayName = setKey.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
-        const overrideUrl = SI_SYMBOL_OVERRIDES[apiId];
+        const dualCdn = SI_DUAL_CDN_SETS[apiId];
         const textFallback = SI_TEXT_FALLBACK_SETS[apiId];
         sets.push({
             id: apiId,
@@ -96,8 +100,9 @@ function siBuildLocalSets() {
             series: ERA_MAP[eraKey] || 'Other',
             releaseDate: '',
             images: {
-                symbol: overrideUrl || (textFallback ? '' : 'https://images.pokemontcg.io/' + apiId + '/symbol.png')
+                symbol: dualCdn ? dualCdn.scrydex : (textFallback ? '' : 'https://images.pokemontcg.io/' + apiId + '/symbol.png')
             },
+            _dualCdn: dualCdn || null,
             _symbolCode: textFallback || ''
         });
     }
@@ -129,11 +134,22 @@ function siRender(sets) {
         seriesSets.forEach(s => {
             const year = s.releaseDate ? s.releaseDate.substring(0, 4) : '';
             const symbolCode = s._symbolCode || '';
-            const symbolContent = symbolCode
-                ? '<div class="si-symbol-code">' + siEscape(symbolCode) + '</div>'
-                : '<img class="si-symbol-img" src="' + siEscape(s.images.symbol) + '" alt="' + siEscape(s.name) + '" loading="lazy"'
-                  + ' onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'\'">'
-                  + '<div class="si-symbol-code" style="display:none">' + siEscape(s.id.toUpperCase()) + '</div>';
+            let symbolContent;
+            if (symbolCode) {
+                // Text-only fallback for sets with no CDN image
+                symbolContent = '<div class="si-symbol-code">' + siEscape(symbolCode) + '</div>';
+            } else if (s._dualCdn) {
+                // Dual-CDN fallback: Scrydex -> pokemontcg.io -> text
+                const fallbackUrl = siEscape(s._dualCdn.ptcg);
+                symbolContent = '<img class="si-symbol-img" src="' + siEscape(s.images.symbol) + '" alt="' + siEscape(s.name) + '" loading="lazy"'
+                    + ' onerror="this.onerror=function(){this.style.display=\'none\';this.nextElementSibling.style.display=\'\'};this.src=\'' + fallbackUrl + '\'">'
+                    + '<div class="si-symbol-code" style="display:none">' + siEscape(s.id.toUpperCase()) + '</div>';
+            } else {
+                // Standard: pokemontcg.io -> text
+                symbolContent = '<img class="si-symbol-img" src="' + siEscape(s.images.symbol) + '" alt="' + siEscape(s.name) + '" loading="lazy"'
+                    + ' onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'\'">'
+                    + '<div class="si-symbol-code" style="display:none">' + siEscape(s.id.toUpperCase()) + '</div>';
+            }
             html += '<div class="si-symbol-item" title="' + siEscape(s.name) + (year ? ' (' + year + ')' : '') + '">'
                 + '<div class="si-symbol-img-wrap">'
                 + symbolContent

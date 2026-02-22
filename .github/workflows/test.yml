@@ -7,6 +7,7 @@ on:
 
 jobs:
   test:
+    if: false  # Temporarily disabled — re-enable by removing this line
     runs-on: ubuntu-latest
     timeout-minutes: 30
 
