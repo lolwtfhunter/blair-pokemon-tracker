@@ -243,7 +243,7 @@ function tryUpgradeLorcanaLogo(img) {
 
     var urls = getLorcanaRemoteLogoUrls(setKey);
     var svgSrc = img.src; // Save SVG fallback for revert
-    _logoDebug(setKey + ': trying ' + urls.length + ' URLs (v3-blob)');
+    _logoDebug(setKey + ': trying ' + urls.length + ' URLs (v4-skip404)');
     var idx = 0;
 
     function tryNext() {
@@ -286,8 +286,23 @@ function tryUpgradeLorcanaLogo(img) {
                 img.src = blobUrl;
             })
             .catch(function(err) {
+                // If server explicitly returned an HTTP error (404, 403, etc.),
+                // skip this URL entirely. Direct img.src for the same URL would
+                // either fail or load a transparent placeholder (Fandom anti-hotlink).
+                if (err.message && err.message.indexOf('HTTP ') === 0) {
+                    _logoDebug(setKey + ': ' + err.message + ', skipping URL');
+                    tryNext();
+                    return;
+                }
+                // For network/CORS errors on Fandom CDN, also skip — img.src would
+                // load a transparent placeholder from their anti-hotlink protection.
+                if (url.indexOf('wikia.nocookie.net') !== -1 || url.indexOf('fandom.com') !== -1) {
+                    _logoDebug(setKey + ': Fandom CDN unreachable (' + err.message + '), skipping');
+                    tryNext();
+                    return;
+                }
+                // For non-CDN URLs (local files, etc.), try direct img.src as fallback
                 _logoDebug(setKey + ': fetch failed (' + err.message + '), trying direct img.src');
-                // Fallback: set img.src directly
                 img.onload = function() {
                     if (img.naturalWidth > 10 && img.naturalHeight > 10) {
                         _logoDebug(setKey + ': SUCCESS direct (' + img.naturalWidth + 'x' + img.naturalHeight + ') ' + shortUrl);
@@ -324,16 +339,50 @@ const LORCANA_SET_STYLES = {
     'winterspell':           { color: '#27ae60', label: 'X' }
 };
 
+// Display names for SVG fallback logos (shorter versions for clean rendering)
+const LORCANA_SET_SHORT_NAMES = {
+    'first-chapter':         'The First\nChapter',
+    'rise-of-the-floodborn': 'Rise of the\nFloodborn',
+    'into-the-inklands':     'Into the\nInklands',
+    'ursulas-return':        "Ursula's\nReturn",
+    'shimmering-skies':      'Shimmering\nSkies',
+    'azurite-sea':           'Azurite\nSea',
+    'archazias-island':      "Archazia's\nIsland",
+    'reign-of-jafar':        'Reign of\nJafar',
+    'fabled':                'Fabled',
+    'whispers-in-the-well':  'Whispers in\nthe Well',
+    'winterspell':           'Winterspell'
+};
+
 // Generate inline SVG data URI as last-resort fallback logo.
-// Uses a double-hexagon (Lorcana's signature shape) with set-specific colors.
+// Creates a styled banner with set name, roman numeral, and decorative borders.
 function getLorcanaSetLogoSvg(setKey) {
     const setStyles = LORCANA_SET_STYLES;
     const style = setStyles[setKey] || { color: '#c9a84c', label: '?' };
     const c = style.color;
-    const svg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">' +
-        '<polygon points="50,3 95,28 95,72 50,97 5,72 5,28" fill="none" stroke="' + c + '" stroke-width="3"/>' +
-        '<polygon points="50,15 82,34 82,66 50,85 18,66 18,34" fill="none" stroke="' + c + '" stroke-width="1.5" opacity="0.4"/>' +
-        '<text x="50" y="58" text-anchor="middle" fill="' + c + '" font-family="Georgia,serif" font-size="28" font-weight="bold">' + style.label + '</text>' +
+    const nameLines = (LORCANA_SET_SHORT_NAMES[setKey] || setKey).split('\n');
+    var nameText = '';
+    if (nameLines.length === 1) {
+        nameText = '<text x="150" y="50" text-anchor="middle" fill="' + c + '" font-family="Georgia,serif" font-size="22" font-weight="bold">' + nameLines[0] + '</text>';
+    } else {
+        nameText = '<text x="150" y="40" text-anchor="middle" fill="' + c + '" font-family="Georgia,serif" font-size="18" font-weight="bold">' + nameLines[0] + '</text>' +
+            '<text x="150" y="62" text-anchor="middle" fill="' + c + '" font-family="Georgia,serif" font-size="18" font-weight="bold">' + nameLines[1] + '</text>';
+    }
+    const svg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 80">' +
+        // Background glow
+        '<rect x="20" y="5" width="260" height="70" rx="8" fill="' + c + '" opacity="0.08"/>' +
+        // Decorative border
+        '<rect x="20" y="5" width="260" height="70" rx="8" fill="none" stroke="' + c + '" stroke-width="1.5" opacity="0.5"/>' +
+        // Corner diamonds
+        '<polygon points="30,40 37,33 44,40 37,47" fill="' + c + '" opacity="0.4"/>' +
+        '<polygon points="256,40 263,33 270,40 263,47" fill="' + c + '" opacity="0.4"/>' +
+        // Horizontal accent lines
+        '<line x1="50" y1="40" x2="80" y2="40" stroke="' + c + '" stroke-width="1" opacity="0.3"/>' +
+        '<line x1="220" y1="40" x2="250" y2="40" stroke="' + c + '" stroke-width="1" opacity="0.3"/>' +
+        // Set name
+        nameText +
+        // Roman numeral badge
+        '<text x="150" y="77" text-anchor="middle" fill="' + c + '" font-family="Georgia,serif" font-size="9" opacity="0.5">' + style.label + '</text>' +
         '</svg>';
     return 'data:image/svg+xml;base64,' + btoa(svg);
 }
