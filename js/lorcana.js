@@ -235,40 +235,43 @@ function getLorcanaRemoteLogoUrls(setKey) {
 // ==================== LOGO UPGRADE (SEQUENTIAL) ====================
 
 // Try to upgrade one SVG logo to a real image by testing URLs sequentially.
-// Sequential avoids flooding mobile browsers with dozens of parallel requests.
+// Sets img.src directly on the page element (not a detached test Image)
+// to avoid hotlink protection discrepancies between in-memory and DOM images.
 function tryUpgradeLorcanaLogo(img) {
     var setKey = img.getAttribute('data-logo-set');
     if (!setKey) return;
 
     var urls = getLorcanaRemoteLogoUrls(setKey);
+    var svgSrc = img.src; // Save SVG fallback for revert
     _logoDebug(setKey + ': trying ' + urls.length + ' URLs');
     var idx = 0;
 
     function tryNext() {
         if (idx >= urls.length) {
-            _logoDebug(setKey + ': ALL FAILED — keeping SVG');
+            _logoDebug(setKey + ': ALL FAILED — reverting to SVG');
+            img.onload = null;
+            img.onerror = null;
+            img.src = svgSrc;
             return;
         }
         var url = urls[idx++];
         var shortUrl = url.length > 70 ? url.substring(0, 67) + '...' : url;
         _logoDebug(setKey + ': [' + idx + '/' + urls.length + '] trying ' + shortUrl);
-        var testImg = new Image();
-        testImg.referrerPolicy = 'no-referrer';
-        testImg.onload = function() {
-            if (testImg.naturalWidth > 10 && testImg.naturalHeight > 10) {
-                _logoDebug(setKey + ': SUCCESS (' + testImg.naturalWidth + 'x' + testImg.naturalHeight + ') ' + shortUrl);
-                img.src = url;
-                img.referrerPolicy = 'no-referrer';
+        img.onload = function() {
+            if (img.naturalWidth > 10 && img.naturalHeight > 10) {
+                _logoDebug(setKey + ': SUCCESS (' + img.naturalWidth + 'x' + img.naturalHeight + ') ' + shortUrl);
+                img.onload = null;
+                img.onerror = null;
             } else {
-                _logoDebug(setKey + ': too small (' + testImg.naturalWidth + 'x' + testImg.naturalHeight + ') ' + shortUrl);
+                _logoDebug(setKey + ': too small (' + img.naturalWidth + 'x' + img.naturalHeight + ') ' + shortUrl);
                 tryNext();
             }
         };
-        testImg.onerror = function() {
+        img.onerror = function() {
             _logoDebug(setKey + ': FAILED ' + shortUrl);
             tryNext();
         };
-        testImg.src = url;
+        img.src = url;
     }
 
     tryNext();
