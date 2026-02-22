@@ -80,7 +80,7 @@ async function fetchLorcanaSetLogos() {
             + '&titles=' + encodeURIComponent(titles.join('|'))
             + '&prop=imageinfo&iiprop=url&format=json&origin=*';
 
-        const resp = await fetch(apiUrl);
+        const resp = await fetch(apiUrl, { referrerPolicy: 'no-referrer' });
         if (resp.ok) {
             const data = await resp.json();
             const pages = data?.query?.pages || {};
@@ -116,9 +116,12 @@ async function fetchLorcanaSetLogos() {
         const setKeysByTitle = {};
 
         missing.forEach(([setKey, wikiName]) => {
-            const t = 'File:' + wikiName + '_logo.png';
-            titles.push(t);
-            setKeysByTitle[t] = setKey;
+            // Try both capitalization patterns (like the Fandom API call)
+            const t1 = 'File:' + wikiName + '_Logo.png';
+            const t2 = 'File:' + wikiName + '_logo.png';
+            titles.push(t1, t2);
+            setKeysByTitle[t1] = setKey;
+            setKeysByTitle[t2] = setKey;
         });
 
         // Standard MediaWiki API path when wiki is at /wiki/
@@ -126,7 +129,7 @@ async function fetchLorcanaSetLogos() {
             + '&titles=' + encodeURIComponent(titles.join('|'))
             + '&prop=imageinfo&iiprop=url&format=json&origin=*';
 
-        const resp = await fetch(apiUrl);
+        const resp = await fetch(apiUrl, { referrerPolicy: 'no-referrer' });
         if (resp.ok) {
             const data = await resp.json();
             const pages = data?.query?.pages || {};
@@ -149,7 +152,53 @@ async function fetchLorcanaSetLogos() {
             }
         }
     } catch (e) {
-        // Mushu Report API unavailable — will use Special:FilePath fallbacks
+        // Mushu Report API unavailable — will try Disney wiki next
+    }
+
+    // --- Disney Fandom wiki API (has Lorcana images in their Category:Disney_Lorcana_images) ---
+    const missing2 = setEntries.filter(([k]) => !_lorcanaLogoUrlCache[k]);
+    if (missing2.length === 0) return;
+
+    try {
+        const titles = [];
+        const setKeysByTitle = {};
+
+        missing2.forEach(([setKey, wikiName]) => {
+            const t1 = 'File:' + wikiName + '_Logo.png';
+            const t2 = 'File:' + wikiName + '_logo.png';
+            titles.push(t1, t2);
+            setKeysByTitle[t1] = setKey;
+            setKeysByTitle[t2] = setKey;
+        });
+
+        const apiUrl = 'https://disney.fandom.com/api.php?action=query'
+            + '&titles=' + encodeURIComponent(titles.join('|'))
+            + '&prop=imageinfo&iiprop=url&format=json&origin=*';
+
+        const resp = await fetch(apiUrl, { referrerPolicy: 'no-referrer' });
+        if (resp.ok) {
+            const data = await resp.json();
+            const pages = data?.query?.pages || {};
+
+            const normalizedMap = {};
+            if (data?.query?.normalized) {
+                data.query.normalized.forEach(n => { normalizedMap[n.to] = n.from; });
+            }
+
+            for (const pageId in pages) {
+                const page = pages[pageId];
+                if (page.imageinfo?.[0]?.url) {
+                    const normalizedTitle = page.title;
+                    const originalTitle = normalizedMap[normalizedTitle] || normalizedTitle;
+                    const setKey = setKeysByTitle[originalTitle] || setKeysByTitle[normalizedTitle];
+                    if (setKey && !_lorcanaLogoUrlCache[setKey]) {
+                        _lorcanaLogoUrlCache[setKey] = page.imageinfo[0].url;
+                    }
+                }
+            }
+        }
+    } catch (e) {
+        // Disney wiki API unavailable — will use Special:FilePath fallbacks
     }
 }
 
@@ -171,20 +220,21 @@ const LORCANA_FANDOM_CDN_LOGOS = {
     'winterspell':           ['8/84/Winterspell_Logo.png', 'f/f7/Winterspell_logo.png']
 };
 
-// Build ordered list of remote logo URLs to try for upgrading from SVG.
+// Build list of candidate logo URLs to try (all raced in parallel).
+// Sources: local file, wiki API cache, Fandom CDN, Mushu Report, Disney wiki.
 function getLorcanaRemoteLogoUrls(setKey) {
     const urls = [];
     const wikiName = LORCANA_SET_WIKI_NAMES[setKey];
 
-    // Local file (if user has downloaded logos)
+    // Local file (if user has downloaded logos via scripts/download-lorcana-logos.sh)
     urls.push('./Images/lorcana/logos/' + setKey + '.png');
 
-    // Wiki API-resolved CDN URL
+    // Wiki API-resolved CDN URL (most reliable when available — direct static URL)
     if (_lorcanaLogoUrlCache[setKey]) {
         urls.push(_lorcanaLogoUrlCache[setKey]);
     }
 
-    // Pre-computed Fandom CDN URLs
+    // Pre-computed Fandom CDN URLs (no API/redirect needed, just needs no-referrer)
     const cdnPaths = LORCANA_FANDOM_CDN_LOGOS[setKey];
     if (cdnPaths) {
         cdnPaths.forEach(p => {
@@ -192,43 +242,50 @@ function getLorcanaRemoteLogoUrls(setKey) {
         });
     }
 
-    // Mushu Report wiki Special:FilePath
+    // Mushu Report wiki Special:FilePath (both capitalizations)
     if (wikiName) {
         urls.push('https://wiki.mushureport.com/wiki/Special:FilePath/' + wikiName + '_logo.png');
+        urls.push('https://wiki.mushureport.com/wiki/Special:FilePath/' + wikiName + '_Logo.png');
     }
 
-    // Lorcana Fandom wiki Special:FilePath
+    // Lorcana Fandom wiki Special:FilePath (both capitalizations)
     if (wikiName) {
         urls.push('https://lorcana.fandom.com/wiki/Special:FilePath/' + wikiName + '_Logo.png');
+        urls.push('https://lorcana.fandom.com/wiki/Special:FilePath/' + wikiName + '_logo.png');
+    }
+
+    // Disney Fandom wiki (has Lorcana images in their Disney Lorcana category)
+    if (wikiName) {
+        urls.push('https://disney.fandom.com/wiki/Special:FilePath/' + wikiName + '_logo.png');
     }
 
     return urls;
 }
 
 // Try to upgrade an SVG logo to a real image by testing remote URLs.
-// Loads each URL in a hidden Image(); if one succeeds, swaps the visible img src.
+// Races all candidate URLs in parallel; the first to load a real image wins.
+// Uses referrerPolicy 'no-referrer' to bypass CDN hotlinking restrictions.
 function tryUpgradeLorcanaLogo(img) {
     const setKey = img.getAttribute('data-logo-set');
     if (!setKey) return;
 
     const urls = getLorcanaRemoteLogoUrls(setKey);
-    let idx = 0;
+    let upgraded = false;
 
-    function tryNext() {
-        if (idx >= urls.length) return; // All failed, SVG stays
+    urls.forEach(function(url) {
         const testImg = new Image();
-        const url = urls[idx++];
+        testImg.referrerPolicy = 'no-referrer';
         testImg.onload = function() {
-            // Verify it's a real image (not a 1x1 placeholder)
+            if (upgraded) return;
             if (testImg.naturalWidth > 10 && testImg.naturalHeight > 10) {
+                upgraded = true;
                 img.src = url;
+                img.referrerPolicy = 'no-referrer';
             }
         };
-        testImg.onerror = tryNext;
+        testImg.onerror = function() { /* ignore, other URLs may succeed */ };
         testImg.src = url;
-    }
-
-    tryNext();
+    });
 }
 
 // Set-specific theme colors used for SVG logos and button gradients
@@ -409,7 +466,7 @@ function renderLorcanaSetButtons() {
         btn.innerHTML = `
             <div class="set-btn-logo-wrapper">
                 <img src="${svgFallback}" alt="${setData.displayName}" class="set-btn-logo"
-                     data-logo-set="${setKey}">
+                     data-logo-set="${setKey}" referrerpolicy="no-referrer">
             </div>
             <div class="set-btn-name">${setData.displayName}</div>
             ${dateStr ? `<div class="set-release-date">${dateStr}</div>` : ''}

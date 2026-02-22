@@ -63,10 +63,10 @@ window.addEventListener('load', async function() {
         console.log('Initializing Lorcana sets...');
         try {
             initLorcanaSetGrids();
-            // Pre-fetch logo CDN URLs before rendering buttons (max 2s wait)
+            // Pre-fetch logo CDN URLs before rendering buttons (max 4s wait)
             await Promise.race([
                 fetchLorcanaSetLogos(),
-                new Promise(resolve => setTimeout(resolve, 2000))
+                new Promise(resolve => setTimeout(resolve, 4000))
             ]);
             renderLorcanaSetButtons();
             // Pre-warm Lorcast CDN cache for all sets (non-blocking)
