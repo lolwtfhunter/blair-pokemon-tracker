@@ -34,7 +34,7 @@ The logo is rendered as an `<img>` tag in `index.html`, which means the SVG runs
 | Static elements only | `<animate>` elements |
 | Inline styles | CSS custom properties (`var(--x)`) |
 
-The logo link uses `href="."` (not `href="/"`) so it reloads the home page correctly on GitHub Pages subpath deployments.
+The logo link uses `href="./"` (not `href="."` or `href="/"`). The trailing slash matters — without it, browsers resolve `"."` relative to the parent path segment, which breaks on GitHub Pages subpath deployments (e.g., navigates to `lolwtfhunter.github.io` instead of `lolwtfhunter.github.io/blair-tcg-tracker/`).
 
 ## Card Image Naming Convention
 
