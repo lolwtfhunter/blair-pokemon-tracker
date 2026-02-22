@@ -63,14 +63,10 @@ window.addEventListener('load', async function() {
         console.log('Initializing Lorcana sets...');
         try {
             initLorcanaSetGrids();
-            // Render buttons immediately with SVG fallbacks (no blocking wait)
+            // Render buttons with SVG fallbacks, then upgrade to Fandom CDN logos
             renderLorcanaSetButtons();
-            console.log('✓ Lorcana set buttons rendered (SVG logos)');
-            // Fetch logo CDN URLs in background, then upgrade SVGs to real images
-            fetchLorcanaSetLogos().finally(function() {
-                upgradeLorcanaLogos();
-            });
-            // Pre-warm Lorcast CDN cache for all sets (non-blocking)
+            console.log('✓ Lorcana set buttons rendered');
+            // Pre-warm Lorcast CDN cache for card images (non-blocking)
             Object.keys(lorcanaCardSets).forEach(setKey => {
                 fetchLorcastImageUrls(setKey);
             });
