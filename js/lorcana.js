@@ -63,7 +63,7 @@ async function fetchLorcanaSetLogos() {
     var setKeys = Object.keys(LORCANA_SET_ARTICLE_NAMES);
 
     // Build candidate filenames for each set.
-    // fileToSet maps "File:X" → { setKey, priority } for result mapping.
+    // fileToSet maps normalized "File:X" (spaces) → { setKey, priority }.
     var allFiles = [];
     var fileToSet = {};
 
@@ -100,7 +100,7 @@ async function fetchLorcanaSetLogos() {
     ];
 
     for (var si = 0; si < sources.length; si++) {
-        var api = sources[si].api;
+        var source = sources[si];
         // Check which sets still need logos
         var needed = allFiles.filter(function(f) {
             var entry = fileToSet[f.replace(/_/g, ' ')];
@@ -109,31 +109,58 @@ async function fetchLorcanaSetLogos() {
         if (needed.length === 0) break;
 
         try {
-            var resp = await fetch(api + '?action=query&titles=' +
-                encodeURIComponent(needed.join('|')) +
+            // Encode each title individually, join with raw | for MediaWiki API.
+            // encodeURIComponent on the whole string encodes | as %7C and : as %3A,
+            // which some wiki servers may not handle correctly.
+            var titleParam = needed.map(function(t) {
+                // Only encode characters that are problematic in URLs.
+                // Keep : and | unencoded since MediaWiki expects them raw.
+                return t.replace(/ /g, '_');
+            }).join('|');
+
+            var resp = await fetch(source.api + '?action=query&titles=' + titleParam +
                 '&prop=imageinfo&iiprop=url&format=json&origin=*',
                 { referrerPolicy: 'no-referrer' });
-            if (!resp.ok) continue;
+            if (!resp.ok) {
+                console.log('fetchLorcanaSetLogos: ' + source.name + ' HTTP ' + resp.status);
+                continue;
+            }
 
             var data = await resp.json();
             var pages = data && data.query && data.query.pages;
-            if (!pages) continue;
+            if (!pages) {
+                console.log('fetchLorcanaSetLogos: ' + source.name + ' no pages in response');
+                continue;
+            }
 
-            // Map results: for each found file, store its CDN URL for the set
+            // Log what the API returned for debugging
+            var found = 0, missing = 0;
             Object.keys(pages).forEach(function(pid) {
                 var page = pages[pid];
-                if (!page.imageinfo || !page.imageinfo[0] || !page.imageinfo[0].url) return;
+                if (!page.imageinfo || !page.imageinfo[0] || !page.imageinfo[0].url) {
+                    missing++;
+                    return;
+                }
+                found++;
                 var url = page.imageinfo[0].url;
 
-                // Find which set this file belongs to via the title
+                // Find which set this file belongs to via the normalized title
                 var title = page.title || '';
                 var entry = fileToSet[title];
                 if (entry && !_lorcanaLogoUrlCache[entry.setKey]) {
                     _lorcanaLogoUrlCache[entry.setKey] = url;
+                    console.log('fetchLorcanaSetLogos: ' + source.name + ' found ' + entry.setKey + ' → ' + title);
                 }
             });
-        } catch (e) { /* this source failed, try next */ }
+            console.log('fetchLorcanaSetLogos: ' + source.name + ' results: ' + found + ' found, ' + missing + ' missing');
+        } catch (e) {
+            console.log('fetchLorcanaSetLogos: ' + source.name + ' error: ' + e.message);
+        }
     }
+
+    // Log final state
+    var cached = Object.keys(_lorcanaLogoUrlCache);
+    console.log('fetchLorcanaSetLogos: ' + cached.length + '/11 sets have logos: ' + cached.join(', '));
 }
 
 // Upgrade one SVG logo to a real image via fetch→blob.
@@ -143,8 +170,12 @@ function tryUpgradeLorcanaLogo(img) {
     if (!setKey) return;
 
     var url = _lorcanaLogoUrlCache[setKey];
-    if (!url) return; // No discovered URL — keep SVG
+    if (!url) {
+        console.log('tryUpgradeLorcanaLogo: no URL for ' + setKey + ' — keeping SVG');
+        return;
+    }
 
+    console.log('tryUpgradeLorcanaLogo: fetching blob for ' + setKey + ' from ' + url.substring(0, 80) + '...');
     var svgSrc = img.src;
     fetch(url, { referrerPolicy: 'no-referrer' })
         .then(function(resp) {
@@ -152,6 +183,7 @@ function tryUpgradeLorcanaLogo(img) {
             return resp.blob();
         })
         .then(function(blob) {
+            console.log('tryUpgradeLorcanaLogo: ' + setKey + ' blob size=' + blob.size + ' type=' + blob.type);
             if (blob.size < 200) throw new Error('too small');
             var blobUrl = URL.createObjectURL(blob);
             img.onload = function() {
