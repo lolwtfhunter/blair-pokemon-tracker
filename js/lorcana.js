@@ -276,20 +276,27 @@ function _addDebugToggleButton() {
 // ==================== LOGO URL BUILDING ====================
 
 // Build ordered list of candidate logo URLs for a set.
-// Order: wiki API resolved → local file → Fandom CDN → wiki redirects.
+// Order: wiki API resolved → MushuReport redirect → local file → Fandom CDN → Fandom redirect.
 function getLorcanaRemoteLogoUrls(setKey) {
     var urls = [];
     var wikiName = LORCANA_SET_WIKI_NAMES[setKey];
 
-    // 1. Wiki API-resolved CDN URL (most reliable — actual serving URL from MediaWiki API)
+    // 1. Wiki API-resolved CDN URL (direct serving URL from MediaWiki imageinfo API)
     if (_lorcanaLogoUrlCache[setKey]) {
         urls.push(_lorcanaLogoUrlCache[setKey]);
     }
 
-    // 2. Local file (if user has downloaded logos)
+    // 2. MushuReport wiki Special:FilePath (302 redirect → actual image)
+    // Self-hosted MediaWiki without Fandom's anti-hotlink protection.
+    // fetch() may fail on CORS but img.src follows redirects freely.
+    if (wikiName) {
+        urls.push('https://wiki.mushureport.com/wiki/Special:FilePath/' + wikiName + '_logo.png');
+    }
+
+    // 3. Local file (if user has downloaded logos)
     urls.push('./Images/lorcana/logos/' + setKey + '.png');
 
-    // 3. Pre-computed Fandom CDN URLs (static paths — may return 404 due to anti-hotlink)
+    // 4. Pre-computed Fandom CDN URLs (static paths — often return 404 due to anti-hotlink)
     var cdnPaths = LORCANA_FANDOM_CDN_LOGOS[setKey];
     if (cdnPaths) {
         cdnPaths.forEach(function(p) {
@@ -297,7 +304,7 @@ function getLorcanaRemoteLogoUrls(setKey) {
         });
     }
 
-    // 4. Lorcana Fandom Special:FilePath (302 redirect — fallback for new sets)
+    // 5. Lorcana Fandom Special:FilePath (302 redirect — last resort)
     if (wikiName) {
         urls.push('https://lorcana.fandom.com/wiki/Special:FilePath/' + wikiName + '_Logo.png');
     }
@@ -316,7 +323,7 @@ function tryUpgradeLorcanaLogo(img) {
 
     var urls = getLorcanaRemoteLogoUrls(setKey);
     var svgSrc = img.src; // Save SVG fallback for revert
-    _logoDebug(setKey + ': trying ' + urls.length + ' URLs (v5-wikiapi)');
+    _logoDebug(setKey + ': trying ' + urls.length + ' URLs (v6-mushureport)');
     var idx = 0;
 
     function tryNext() {
@@ -359,23 +366,17 @@ function tryUpgradeLorcanaLogo(img) {
                 img.src = blobUrl;
             })
             .catch(function(err) {
-                // If server explicitly returned an HTTP error (404, 403, etc.),
-                // skip this URL entirely. Direct img.src for the same URL would
-                // either fail or load a transparent placeholder (Fandom anti-hotlink).
-                if (err.message && err.message.indexOf('HTTP ') === 0) {
-                    _logoDebug(setKey + ': ' + err.message + ', skipping URL');
-                    tryNext();
-                    return;
-                }
-                // For network/CORS errors on Fandom CDN, also skip — img.src would
-                // load a transparent placeholder from their anti-hotlink protection.
+                // Fandom domains: always skip — they serve transparent placeholders
+                // to external img.src, so neither fetch nor img.src works.
                 if (url.indexOf('wikia.nocookie.net') !== -1 || url.indexOf('fandom.com') !== -1) {
-                    _logoDebug(setKey + ': Fandom CDN unreachable (' + err.message + '), skipping');
+                    _logoDebug(setKey + ': Fandom fail (' + err.message + '), skipping');
                     tryNext();
                     return;
                 }
-                // For non-CDN URLs (local files, etc.), try direct img.src as fallback
-                _logoDebug(setKey + ': fetch failed (' + err.message + '), trying direct img.src');
+                // Non-Fandom URLs: try direct img.src as fallback.
+                // img.src follows 302 redirects and has no CORS restrictions,
+                // so it works for Special:FilePath even when fetch() is blocked.
+                _logoDebug(setKey + ': fetch fail (' + err.message + '), trying direct img.src');
                 img.onload = function() {
                     if (img.naturalWidth > 10 && img.naturalHeight > 10) {
                         _logoDebug(setKey + ': SUCCESS direct (' + img.naturalWidth + 'x' + img.naturalHeight + ') ' + shortUrl);
