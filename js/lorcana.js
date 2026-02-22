@@ -93,20 +93,36 @@ async function fetchLorcanaSetLogos() {
             if (!setKey) return;
 
             var setNameNorm = _normForMatch(LORCANA_SET_ARTICLE_NAMES[setKey]);
+            var logoMatch = null;
+            var nameMatch = null;
 
             page.images.forEach(function(img) {
                 var t = (img.title || '').replace(/^File:/i, '');
                 var tNorm = _normForMatch(t);
 
-                // Only match files that have BOTH "logo" and the set name.
-                // This filters out product images, card images, merchandise, etc.
+                // Skip obvious non-logo files (products, merchandise, etc.)
+                if (tNorm.indexOf('deck box') !== -1 || tNorm.indexOf('sleeves') !== -1 ||
+                    tNorm.indexOf('playmat') !== -1 || tNorm.indexOf('portfolio') !== -1 ||
+                    tNorm.indexOf('booster') !== -1 || tNorm.indexOf('trove') !== -1 ||
+                    tNorm.indexOf('starter') !== -1 || tNorm.indexOf('blister') !== -1 ||
+                    tNorm.indexOf('gift set') !== -1 || tNorm.indexOf('display') !== -1 ||
+                    tNorm.indexOf('pack art') !== -1 || tNorm.indexOf('bundle') !== -1 ||
+                    tNorm.indexOf('kit') !== -1 || tNorm.indexOf('exclusive') !== -1 ||
+                    tNorm.indexOf('card back') !== -1 || tNorm.indexOf('site-logo') !== -1) return;
+
+                // Priority 1: file has "logo" AND set name
                 if (tNorm.indexOf('logo') !== -1 && tNorm.indexOf(setNameNorm) !== -1) {
-                    // Prefer PNG over other formats
-                    if (!bestMatches[setKey] || t.toLowerCase().indexOf('.png') !== -1) {
-                        bestMatches[setKey] = img.title;
+                    if (!logoMatch || t.toLowerCase().indexOf('.png') !== -1) {
+                        logoMatch = img.title;
                     }
                 }
+                // Priority 2: filename matches set name (fallback)
+                if (!nameMatch && tNorm.indexOf(setNameNorm) !== -1) {
+                    nameMatch = img.title;
+                }
             });
+
+            bestMatches[setKey] = logoMatch || nameMatch;
         });
 
         // Step 3: Fetch CDN URLs for discovered logo files (one API call)
@@ -161,6 +177,7 @@ function tryUpgradeLorcanaLogo(img) {
                 if (img.naturalWidth > 10 && img.naturalHeight > 10) {
                     img.onload = null;
                     img.onerror = null;
+                    img.classList.add('logo-loaded');
                 } else {
                     URL.revokeObjectURL(blobUrl);
                     img.src = svgSrc;
@@ -169,6 +186,7 @@ function tryUpgradeLorcanaLogo(img) {
             img.onerror = function() {
                 URL.revokeObjectURL(blobUrl);
                 img.src = svgSrc;
+                img.classList.remove('logo-loaded');
             };
             img.src = blobUrl;
         })

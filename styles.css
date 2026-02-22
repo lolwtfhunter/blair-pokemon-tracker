@@ -435,13 +435,17 @@ h1 {
     width: 100%;
     height: 100px;
     object-fit: contain;
-    /* No border-radius — transparent logos blend naturally with background */
     position: absolute;
     top: 0;
     left: 0;
     z-index: 2;
-    /* Smooth transition when upgrading from SVG to real logo */
     transition: opacity 0.3s ease;
+}
+
+/* When a real image replaces the SVG, blend it with the dark background
+   so rectangular product images don't look like hard-edged boxes */
+.set-btn-logo.logo-loaded {
+    mix-blend-mode: lighten;
 }
 
 .set-btn-logo-fallback {
