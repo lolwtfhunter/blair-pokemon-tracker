@@ -68,17 +68,28 @@ async function fetchLorcanaSetLogos() {
     var fileToSet = {};
     setKeys.forEach(function(k) {
         var name = LORCANA_SET_ARTICLE_NAMES[k];
+        // Priority order: lower index = preferred. PNG first for transparency.
         var variants = [
             'File:' + name + '.png',
             'File:' + name + '_Logo.png',
             'File:' + name + '_logo.png',
+            'File:' + name + '_Logo.jpg',
+            'File:' + name + '_logo.jpg',
+            'File:' + name + '_Image.webp',
+            'File:' + name + '_Image.png',
+            'File:' + name + '.webp',
             'File:' + name + '.jpeg',
             'File:' + name + '.jpg'
         ];
         if (name.indexOf("'") !== -1) {
             var clean = name.replace(/'/g, '');
-            variants.push('File:' + clean + '.png', 'File:' + clean + '_Logo.png',
-                'File:' + clean + '.jpeg', 'File:' + clean + '.jpg');
+            // Also try Unicode right single quote (U+2019) used on some wiki pages
+            var unicode = name.replace(/'/g, '\u2019');
+            variants.push(
+                'File:' + clean + '.png', 'File:' + clean + '_Logo.png',
+                'File:' + clean + '.webp', 'File:' + clean + '.jpeg', 'File:' + clean + '.jpg',
+                'File:' + unicode + '.png', 'File:' + unicode + '_Logo.png',
+                'File:' + unicode + '.webp', 'File:' + unicode + '.jpeg', 'File:' + unicode + '.jpg');
         }
         variants.forEach(function(f, i) {
             allFiles.push(f);
@@ -90,6 +101,8 @@ async function fetchLorcanaSetLogos() {
     });
 
     // Batch requests to stay under MediaWiki 50-title API limit.
+    // Track best priority per set so PNG wins over JPG when both exist.
+    var _phase1Best = {}; // setKey → { priority, url }
     try {
         for (var batchStart = 0; batchStart < allFiles.length; batchStart += 50) {
             var batch = allFiles.slice(batchStart, batchStart + 50);
@@ -105,14 +118,20 @@ async function fetchLorcanaSetLogos() {
                         var page = pages[pid];
                         if (!page.imageinfo || !page.imageinfo[0] || !page.imageinfo[0].url) return;
                         var entry = fileToSet[page.title];
-                        if (entry && !_lorcanaLogoUrlCache[entry.setKey]) {
-                            _lorcanaLogoUrlCache[entry.setKey] = page.imageinfo[0].url;
+                        if (!entry) return;
+                        var sk = entry.setKey;
+                        if (!_phase1Best[sk] || entry.priority < _phase1Best[sk].priority) {
+                            _phase1Best[sk] = { priority: entry.priority, url: page.imageinfo[0].url };
                         }
                     });
                 }
             }
         }
     } catch (e) { /* continue to Phase 2 */ }
+    // Commit best matches to cache
+    Object.keys(_phase1Best).forEach(function(sk) {
+        _lorcanaLogoUrlCache[sk] = _phase1Best[sk].url;
+    });
 
     // Phase 2: Article page parsing — parse each set's article to find the infobox image.
     var missingKeys = setKeys.filter(function(k) { return !_lorcanaLogoUrlCache[k]; });

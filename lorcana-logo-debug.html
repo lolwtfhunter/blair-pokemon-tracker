@@ -84,13 +84,22 @@ function buildVariants(name) {
         'File:' + name + '.png',
         'File:' + name + '_Logo.png',
         'File:' + name + '_logo.png',
+        'File:' + name + '_Logo.jpg',
+        'File:' + name + '_logo.jpg',
+        'File:' + name + '_Image.webp',
+        'File:' + name + '_Image.png',
+        'File:' + name + '.webp',
         'File:' + name + '.jpeg',
         'File:' + name + '.jpg'
     ];
     if (name.indexOf("'") !== -1) {
         var clean = name.replace(/'/g, '');
-        variants.push('File:' + clean + '.png', 'File:' + clean + '_Logo.png',
-            'File:' + clean + '.jpeg', 'File:' + clean + '.jpg');
+        var unicode = name.replace(/'/g, '\u2019');
+        variants.push(
+            'File:' + clean + '.png', 'File:' + clean + '_Logo.png',
+            'File:' + clean + '.webp', 'File:' + clean + '.jpeg', 'File:' + clean + '.jpg',
+            'File:' + unicode + '.png', 'File:' + unicode + '_Logo.png',
+            'File:' + unicode + '.webp', 'File:' + unicode + '.jpeg', 'File:' + unicode + '.jpg');
     }
     return variants;
 }
@@ -274,6 +283,7 @@ async function runDiagnostic() {
     });
 
     log('Querying ' + allFiles.length + ' filename variants (batched to 50)...');
+    var phase1Best = {}; // setKey → { priority, url, title }
     try {
         for (var batchStart = 0; batchStart < allFiles.length; batchStart += 50) {
             var batch = allFiles.slice(batchStart, batchStart + 50);
@@ -298,12 +308,16 @@ async function runDiagnostic() {
                         var page = pages[pid];
                         if (!page.imageinfo || !page.imageinfo[0] || !page.imageinfo[0].url) return;
                         var entry = fileToSet[page.title];
-                        if (entry && !foundUrls[entry.setKey]) {
-                            foundUrls[entry.setKey] = page.imageinfo[0].url;
-                            log('  ' + entry.setKey + ': found via ' + page.title, 'ok');
-                            log('    → ' + page.imageinfo[0].url.substring(0, 100) + '...', 'dim');
-                        } else if (!entry) {
+                        if (!entry) {
                             log('  UNMATCHED page.title: "' + page.title + '" (has imageinfo but no fileToSet entry)', 'warn');
+                            return;
+                        }
+                        var sk = entry.setKey;
+                        if (!phase1Best[sk] || entry.priority < phase1Best[sk].priority) {
+                            if (phase1Best[sk]) {
+                                log('  ' + sk + ': upgrading from priority ' + phase1Best[sk].priority + ' → ' + entry.priority + ' (' + page.title + ')', 'ok');
+                            }
+                            phase1Best[sk] = { priority: entry.priority, url: page.imageinfo[0].url, title: page.title };
                         }
                     });
                 }
@@ -312,6 +326,12 @@ async function runDiagnostic() {
     } catch (e) {
         log('Filename guessing ERROR: ' + e.message, 'fail');
     }
+    // Commit best matches
+    Object.keys(phase1Best).forEach(function(sk) {
+        foundUrls[sk] = phase1Best[sk].url;
+        log('  ' + sk + ': found via ' + phase1Best[sk].title + ' (priority=' + phase1Best[sk].priority + ')', 'ok');
+        log('    → ' + phase1Best[sk].url.substring(0, 100) + '...', 'dim');
+    });
 
     var phase1Found = Object.keys(foundUrls).length;
     log('\nFilename guessing found ' + phase1Found + '/' + setKeys.length + ' sets', phase1Found === setKeys.length ? 'ok' : 'warn');
