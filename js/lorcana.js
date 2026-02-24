@@ -53,92 +53,104 @@ const _lorcanaLogoUrlCache = {};
 let _lorcanaLogosFetched = false;
 
 // Discover set logo URLs from the Lorcana Fandom wiki.
-// Primary: parse each set's article page to find the infobox image (like Fabled.png).
-// Fallback: search File namespace for sets where article parsing fails.
+// Phase 1: Try pageimages API (returns representative/infobox image per article).
+// Phase 2: Direct filename guessing ({SetName}.png, .jpeg, .jpg, _Logo.png).
+// Phase 3: Search File namespace for remaining sets.
 async function fetchLorcanaSetLogos() {
     if (_lorcanaLogosFetched) return;
     _lorcanaLogosFetched = true;
 
     var setKeys = Object.keys(LORCANA_SET_ARTICLE_NAMES);
 
-    // Primary approach: Parse each set's article page to find the infobox image.
-    // This is the same image the wiki displays as the set logo — works like Fabled.png.
-    // Batch all set article pages in one API call using action=query&prop=images.
+    // Phase 1: pageimages API — returns the main/representative image per article.
+    // This is the image shown in the infobox, exactly what we want.
     var articleTitles = setKeys.map(function(k) {
         return LORCANA_SET_ARTICLE_NAMES[k];
     }).join('|');
 
-    // Build reverse map: article title → set key
     var titleToKey = {};
     setKeys.forEach(function(k) {
         titleToKey[LORCANA_SET_ARTICLE_NAMES[k].replace(/_/g, ' ')] = k;
     });
 
     try {
-        // Use imlimit=1 — we only need the first (infobox) image per article.
-        // Loop with continue token to handle MediaWiki pagination across pages.
-        var imageFiles = []; // [{setKey, filename}]
-        var imcontinue = '';
-        for (var attempt = 0; attempt < 3; attempt++) {
-            var apiUrl = 'https://lorcana.fandom.com/api.php?action=query&titles=' +
-                encodeURIComponent(articleTitles) + '&prop=images&imlimit=50&format=json&origin=*';
-            if (imcontinue) apiUrl += '&imcontinue=' + encodeURIComponent(imcontinue);
-
-            var resp = await fetch(apiUrl, { referrerPolicy: 'no-referrer' });
-            if (!resp.ok) break;
+        var resp = await fetch('https://lorcana.fandom.com/api.php?action=query&titles=' +
+            encodeURIComponent(articleTitles) + '&prop=pageimages&piprop=original&format=json&origin=*',
+            { referrerPolicy: 'no-referrer' });
+        if (resp.ok) {
             var data = await resp.json();
             var pages = data && data.query && data.query.pages;
             if (pages) {
                 Object.keys(pages).forEach(function(pid) {
                     var page = pages[pid];
                     var sk = titleToKey[page.title];
-                    if (!sk || !page.images || page.images.length === 0) return;
-                    // Only take first image if we haven't seen this set yet
-                    var already = imageFiles.some(function(f) { return f.setKey === sk; });
-                    if (!already) {
-                        imageFiles.push({ setKey: sk, filename: page.images[0].title });
+                    if (!sk) return;
+                    var orig = page.original;
+                    if (orig && orig.source) {
+                        _lorcanaLogoUrlCache[sk] = orig.source;
                     }
                 });
             }
-            // Check if all sets found or no more pages
-            if (!data['continue'] || !data['continue'].imcontinue) break;
-            if (imageFiles.length >= setKeys.length) break;
-            imcontinue = data['continue'].imcontinue;
         }
+    } catch (e) { /* continue to Phase 2 */ }
 
-        // Resolve image filenames to CDN URLs in a single batch query
-        if (imageFiles.length > 0) {
-            var fileTitles = imageFiles.map(function(f) { return f.filename; }).join('|');
+    // Phase 2: Direct filename guessing — try common naming patterns.
+    // Covers .png, .jpeg, .jpg, _Logo.png and apostrophe-stripped variants.
+    var missingKeys = setKeys.filter(function(k) { return !_lorcanaLogoUrlCache[k]; });
+    if (missingKeys.length > 0) {
+        var allFiles = [];
+        var fileToSet = {};
+        missingKeys.forEach(function(k) {
+            var name = LORCANA_SET_ARTICLE_NAMES[k];
+            var variants = [
+                'File:' + name + '.png',
+                'File:' + name + '.jpeg',
+                'File:' + name + '.jpg',
+                'File:' + name + '_Logo.png',
+                'File:' + name + '_logo.png'
+            ];
+            if (name.indexOf("'") !== -1) {
+                var clean = name.replace(/'/g, '');
+                variants.push('File:' + clean + '.png', 'File:' + clean + '.jpeg',
+                    'File:' + clean + '.jpg');
+            }
+            variants.forEach(function(f, i) {
+                allFiles.push(f);
+                var normalized = f.replace(/_/g, ' ');
+                if (!fileToSet[normalized] || i < fileToSet[normalized].priority) {
+                    fileToSet[normalized] = { setKey: k, priority: i };
+                }
+            });
+        });
+
+        try {
+            var titleParam = allFiles.map(function(t) { return t.replace(/ /g, '_'); }).join('|');
             var resp2 = await fetch('https://lorcana.fandom.com/api.php?action=query&titles=' +
-                encodeURIComponent(fileTitles) + '&prop=imageinfo&iiprop=url&format=json&origin=*',
+                titleParam + '&prop=imageinfo&iiprop=url&format=json&origin=*',
                 { referrerPolicy: 'no-referrer' });
             if (resp2.ok) {
                 var data2 = await resp2.json();
-                var filePages = data2 && data2.query && data2.query.pages;
-                var fileUrlMap = {};
-                if (filePages) {
-                    Object.keys(filePages).forEach(function(pid) {
-                        var fp = filePages[pid];
-                        if (fp.imageinfo && fp.imageinfo[0] && fp.imageinfo[0].url) {
-                            fileUrlMap[fp.title] = fp.imageinfo[0].url;
+                var pages2 = data2 && data2.query && data2.query.pages;
+                if (pages2) {
+                    Object.keys(pages2).forEach(function(pid) {
+                        var page = pages2[pid];
+                        if (!page.imageinfo || !page.imageinfo[0] || !page.imageinfo[0].url) return;
+                        var entry = fileToSet[page.title];
+                        if (entry && !_lorcanaLogoUrlCache[entry.setKey]) {
+                            _lorcanaLogoUrlCache[entry.setKey] = page.imageinfo[0].url;
                         }
                     });
                 }
-                imageFiles.forEach(function(f) {
-                    if (_lorcanaLogoUrlCache[f.setKey]) return;
-                    var url = fileUrlMap[f.filename] || fileUrlMap[f.filename.replace(/_/g, ' ')];
-                    if (url) _lorcanaLogoUrlCache[f.setKey] = url;
-                });
             }
-        }
-    } catch (e) { /* continue to fallback */ }
+        } catch (e) { /* continue to Phase 3 */ }
+    }
 
-    // Fallback: search File namespace for any sets still missing.
-    var SKIP_PATTERN = /gift.set|booster|starter|deck|pack|sleeve|promo|box|trove|kit|bundle|blister|display|card|puzzle|concept.art|key.art|product.line|portfolio|contents|sealed|back\)|side.view|top|bottom|page.\d|in.stock|fanart|reprint|comparison/i;
+    // Phase 3: Search File namespace for any sets still missing.
+    var SKIP_PATTERN = /gift.set|booster|starter|deck|pack|sleeve|promo|box|trove|kit|bundle|blister|display|card|puzzle|concept.art|key.art|product.line|portfolio|contents|sealed|back\)|side.view|top|bottom|page.\d|in.stock|fanart|reprint|comparison|trailer|screenshot|collection|master.set|banner|texture|organized.play/i;
 
-    var missingKeys = setKeys.filter(function(k) { return !_lorcanaLogoUrlCache[k]; });
-    for (var mi = 0; mi < missingKeys.length; mi++) {
-        var mk = missingKeys[mi];
+    var stillMissing = setKeys.filter(function(k) { return !_lorcanaLogoUrlCache[k]; });
+    for (var mi = 0; mi < stillMissing.length; mi++) {
+        var mk = stillMissing[mi];
         var name = LORCANA_SET_ARTICLE_NAMES[mk].replace(/_/g, ' ');
         var searchNames = [name];
         if (name.indexOf("'") !== -1) searchNames.push(name.replace(/'/g, ''));
@@ -148,7 +160,7 @@ async function fetchLorcanaSetLogos() {
             try {
                 var resp3 = await fetch('https://lorcana.fandom.com/api.php?action=query' +
                     '&generator=search&gsrnamespace=6&gsrsearch=' + encodeURIComponent('"' + searchNames[ni] + '"') +
-                    '&gsrlimit=10&prop=imageinfo&iiprop=url&format=json&origin=*',
+                    '&gsrlimit=20&prop=imageinfo&iiprop=url&format=json&origin=*',
                     { referrerPolicy: 'no-referrer' });
                 if (resp3.ok) {
                     var data3 = await resp3.json();
