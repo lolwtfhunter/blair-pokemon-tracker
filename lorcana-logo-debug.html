@@ -296,6 +296,7 @@ async function runDiagnostic() {
 
             if (resp.ok) {
                 var data = await resp.json();
+                // Log any API warnings (e.g., title limits)
                 if (data.warnings) log('  API warnings: ' + JSON.stringify(data.warnings), 'warn');
                 var pages = data && data.query && data.query.pages;
                 if (pages) {
