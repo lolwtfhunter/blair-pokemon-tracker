@@ -115,7 +115,6 @@ async function fetchLorcanaSetLogos() {
     } catch (e) { /* continue to Phase 2 */ }
 
     // Phase 2: Article page parsing — parse each set's article to find the infobox image.
-    // The first image on the article page is typically the set logo (like Fabled.png).
     var missingKeys = setKeys.filter(function(k) { return !_lorcanaLogoUrlCache[k]; });
     if (missingKeys.length > 0) {
         var articleTitles = missingKeys.map(function(k) {
