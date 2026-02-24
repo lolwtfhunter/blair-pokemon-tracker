@@ -81,60 +81,21 @@ var SET_NAMES = {
 
 function buildVariants(name) {
     var variants = [
+        'File:' + name + '.png',
+        'File:' + name + '.jpeg',
+        'File:' + name + '.jpg',
         'File:' + name + '_Logo.png',
-        'File:' + name + '_logo.png',
-        'File:' + name + '.png'
+        'File:' + name + '_logo.png'
     ];
     if (name.indexOf("'") !== -1) {
         var clean = name.replace(/'/g, '');
-        variants.push('File:' + clean + '_Logo.png');
-        variants.push('File:' + clean + '_logo.png');
-        variants.push('File:' + clean + '.png');
+        variants.push('File:' + clean + '.png', 'File:' + clean + '.jpeg',
+            'File:' + clean + '.jpg');
     }
     return variants;
 }
 
-async function queryWiki(apiUrl, sourceName, titles) {
-    var titleParam = titles.map(function(t) { return t.replace(/ /g, '_'); }).join('|');
-    var fullUrl = apiUrl + '?action=query&titles=' + titleParam + '&prop=imageinfo&iiprop=url&format=json&origin=*';
-
-    log('\n--- ' + sourceName + ' (direct filename) ---');
-    log('Querying ' + titles.length + ' file titles...');
-
-    var resp = await fetch(fullUrl, { referrerPolicy: 'no-referrer' });
-    log('HTTP ' + resp.status, resp.ok ? 'ok' : 'fail');
-    if (!resp.ok) throw new Error('HTTP ' + resp.status);
-
-    var data = await resp.json();
-    var pages = data && data.query && data.query.pages;
-    if (!pages) {
-        log('No pages in response!', 'fail');
-        return {};
-    }
-
-    if (data.query.normalized) {
-        log('Normalizations: ' + data.query.normalized.length + ' titles', 'dim');
-    }
-
-    var results = {};
-    var found = 0, missing = 0;
-    Object.keys(pages).forEach(function(pid) {
-        var page = pages[pid];
-        var title = page.title || '';
-        if (page.imageinfo && page.imageinfo[0] && page.imageinfo[0].url) {
-            found++;
-            results[title] = page.imageinfo[0].url;
-            log('FOUND: ' + title, 'ok');
-            log('  → ' + page.imageinfo[0].url.substring(0, 100) + '...', 'dim');
-        } else {
-            missing++;
-        }
-    });
-    log(found + ' found, ' + missing + ' missing', found > 0 ? 'ok' : 'warn');
-    return results;
-}
-
-var SKIP_PATTERN = /gift.set|booster|starter|deck|pack|sleeve|promo|box|trove|kit|bundle|blister|display|card|puzzle|concept.art|key.art|product.line|portfolio|contents|sealed|back\)|side.view|top|bottom|page.\d|in.stock|fanart|reprint|comparison/i;
+var SKIP_PATTERN = /gift.set|booster|starter|deck|pack|sleeve|promo|box|trove|kit|bundle|blister|display|card|puzzle|concept.art|key.art|product.line|portfolio|contents|sealed|back\)|side.view|top|bottom|page.\d|in.stock|fanart|reprint|comparison|trailer|screenshot|collection|master.set|banner|texture|organized.play/i;
 
 // Score a filename match: lower = better
 function scoreMatch(filename, setName) {
@@ -231,7 +192,7 @@ async function searchWikiIndividual(missingKeys, foundUrls) {
             try {
                 var resp = await fetch('https://lorcana.fandom.com/api.php?action=query' +
                     '&generator=search&gsrnamespace=6&gsrsearch=' + encodeURIComponent('"' + searchNames[ni] + '"') +
-                    '&gsrlimit=10&prop=imageinfo&iiprop=url&format=json&origin=*',
+                    '&gsrlimit=20&prop=imageinfo&iiprop=url&format=json&origin=*',
                     { referrerPolicy: 'no-referrer' });
                 log('HTTP ' + resp.status, resp.ok ? 'ok' : 'fail');
                 if (!resp.ok) continue;
@@ -285,91 +246,107 @@ async function runDiagnostic() {
 
     var foundUrls = {};
 
-    // Phase 1: Article page parsing (primary — same approach as Fabled)
-    // Fetches each set's wiki article to find the infobox image
-    log('\n--- Phase 1: Article Page Parsing ---');
-    log('Fetching article pages to find infobox images...');
+    // Phase 1: pageimages API — returns the main/representative image per article.
+    // This is the image shown in the infobox, exactly what we want.
+    log('\n--- Phase 1: pageimages API ---');
+    log('Querying representative images for all set articles...');
 
     var articleTitles = setKeys.map(function(k) { return SET_NAMES[k]; }).join('|');
+    var titleToKey = {};
+    setKeys.forEach(function(k) {
+        titleToKey[SET_NAMES[k].replace(/_/g, ' ')] = k;
+    });
+
     try {
         var resp = await fetch('https://lorcana.fandom.com/api.php?action=query&titles=' +
-            encodeURIComponent(articleTitles) + '&prop=images&imlimit=5&format=json&origin=*',
+            encodeURIComponent(articleTitles) + '&prop=pageimages&piprop=original&format=json&origin=*',
             { referrerPolicy: 'no-referrer' });
         log('HTTP ' + resp.status, resp.ok ? 'ok' : 'fail');
 
         if (resp.ok) {
             var data = await resp.json();
             var pages = data && data.query && data.query.pages;
-            var titleToKey = {};
-            setKeys.forEach(function(k) {
-                titleToKey[SET_NAMES[k].replace(/_/g, ' ')] = k;
-            });
-
-            var imageFiles = [];
             if (pages) {
                 Object.keys(pages).forEach(function(pid) {
                     var page = pages[pid];
                     var sk = titleToKey[page.title];
                     if (!sk) { log('  Unknown page: ' + page.title, 'warn'); return; }
-                    if (!page.images || page.images.length === 0) {
-                        log('  ' + sk + ': no images on article page', 'fail');
-                        return;
+                    var orig = page.original;
+                    if (orig && orig.source) {
+                        foundUrls[sk] = orig.source;
+                        log('  ' + sk + ': found', 'ok');
+                        log('    → ' + orig.source.substring(0, 100) + '...', 'dim');
+                    } else {
+                        log('  ' + sk + ': no pageimage', 'fail');
                     }
-                    log('  ' + sk + ' article images: ' + page.images.map(function(im) { return im.title.replace('File:', ''); }).join(', '), 'dim');
-                    var firstImage = page.images[0].title;
-                    log('  ' + sk + ' → using first: ' + firstImage, 'ok');
-                    imageFiles.push({ setKey: sk, filename: firstImage });
                 });
             }
+        }
+    } catch (e) {
+        log('pageimages ERROR: ' + e.message, 'fail');
+    }
 
-            // Resolve image filenames to CDN URLs
-            if (imageFiles.length > 0) {
-                log('\nResolving ' + imageFiles.length + ' image filenames to CDN URLs...');
-                var fileTitles = imageFiles.map(function(f) { return f.filename; }).join('|');
-                var resp2 = await fetch('https://lorcana.fandom.com/api.php?action=query&titles=' +
-                    encodeURIComponent(fileTitles) + '&prop=imageinfo&iiprop=url&format=json&origin=*',
-                    { referrerPolicy: 'no-referrer' });
-                log('HTTP ' + resp2.status, resp2.ok ? 'ok' : 'fail');
+    var phase1Found = Object.keys(foundUrls).length;
+    log('\npageimages found ' + phase1Found + '/' + setKeys.length + ' sets', phase1Found === setKeys.length ? 'ok' : 'warn');
 
-                if (resp2.ok) {
-                    var data2 = await resp2.json();
-                    var filePages = data2 && data2.query && data2.query.pages;
-                    var fileUrlMap = {};
-                    if (filePages) {
-                        Object.keys(filePages).forEach(function(pid) {
-                            var fp = filePages[pid];
-                            if (fp.imageinfo && fp.imageinfo[0] && fp.imageinfo[0].url) {
-                                fileUrlMap[fp.title] = fp.imageinfo[0].url;
-                            }
-                        });
-                    }
-                    imageFiles.forEach(function(f) {
-                        var url = fileUrlMap[f.filename] || fileUrlMap[f.filename.replace(/_/g, ' ')];
-                        if (url) {
-                            foundUrls[f.setKey] = url;
-                            log('  ' + f.setKey + ': resolved', 'ok');
-                            log('    → ' + url.substring(0, 100) + '...', 'dim');
-                        } else {
-                            log('  ' + f.setKey + ': could not resolve ' + f.filename, 'fail');
+    // Phase 2: Direct filename guessing — try common naming patterns.
+    var missingKeys = setKeys.filter(function(k) { return !foundUrls[k]; });
+    if (missingKeys.length > 0) {
+        log('\n--- Phase 2: Direct Filename Guessing ---');
+        log(missingKeys.length + ' sets still missing: ' + missingKeys.join(', '), 'warn');
+
+        var allFiles = [];
+        var fileToSet = {};
+        missingKeys.forEach(function(k) {
+            var variants = buildVariants(SET_NAMES[k]);
+            variants.forEach(function(f, i) {
+                allFiles.push(f);
+                var normalized = f.replace(/_/g, ' ');
+                if (!fileToSet[normalized] || i < fileToSet[normalized].priority) {
+                    fileToSet[normalized] = { setKey: k, priority: i };
+                }
+            });
+        });
+
+        log('Querying ' + allFiles.length + ' filename variants...');
+        try {
+            var titleParam = allFiles.map(function(t) { return t.replace(/ /g, '_'); }).join('|');
+            var resp2 = await fetch('https://lorcana.fandom.com/api.php?action=query&titles=' +
+                titleParam + '&prop=imageinfo&iiprop=url&format=json&origin=*',
+                { referrerPolicy: 'no-referrer' });
+            log('HTTP ' + resp2.status, resp2.ok ? 'ok' : 'fail');
+
+            if (resp2.ok) {
+                var data2 = await resp2.json();
+                var pages2 = data2 && data2.query && data2.query.pages;
+                if (pages2) {
+                    Object.keys(pages2).forEach(function(pid) {
+                        var page = pages2[pid];
+                        if (!page.imageinfo || !page.imageinfo[0] || !page.imageinfo[0].url) return;
+                        var entry = fileToSet[page.title];
+                        if (entry && !foundUrls[entry.setKey]) {
+                            foundUrls[entry.setKey] = page.imageinfo[0].url;
+                            log('  ' + entry.setKey + ': found via ' + page.title, 'ok');
+                            log('    → ' + page.imageinfo[0].url.substring(0, 100) + '...', 'dim');
                         }
                     });
                 }
             }
+        } catch (e) {
+            log('Filename guessing ERROR: ' + e.message, 'fail');
         }
-    } catch (e) {
-        log('Article parsing ERROR: ' + e.message, 'fail');
+
+        var phase2Found = Object.keys(foundUrls).length;
+        log('\nAfter filename guessing: ' + phase2Found + '/' + setKeys.length + ' sets', phase2Found === setKeys.length ? 'ok' : 'warn');
     }
 
-    var articleFound = Object.keys(foundUrls).length;
-    log('\nArticle parsing found ' + articleFound + '/' + setKeys.length + ' sets', articleFound === setKeys.length ? 'ok' : 'warn');
-
-    // Phase 2: Search fallback for any sets still missing
-    var missingKeys = setKeys.filter(function(k) { return !foundUrls[k]; });
-    if (missingKeys.length > 0) {
-        log('\n--- Phase 2: Search Fallback ---');
-        log(missingKeys.length + ' sets still missing: ' + missingKeys.join(', '), 'warn');
+    // Phase 3: Search fallback for any sets still missing
+    var stillMissing = setKeys.filter(function(k) { return !foundUrls[k]; });
+    if (stillMissing.length > 0) {
+        log('\n--- Phase 3: Search Fallback ---');
+        log(stillMissing.length + ' sets still missing: ' + stillMissing.join(', '), 'warn');
         try {
-            await searchWikiIndividual(missingKeys, foundUrls);
+            await searchWikiIndividual(stillMissing, foundUrls);
         } catch (e) {
             log('Search ERROR: ' + e.message, 'fail');
         }
