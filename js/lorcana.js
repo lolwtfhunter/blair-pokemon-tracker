@@ -52,110 +52,146 @@ const LORCANA_SET_ARTICLE_NAMES = {
 const _lorcanaLogoUrlCache = {};
 let _lorcanaLogosFetched = false;
 
-// Directly query the Fandom wiki API for known logo filenames.
-// Tries multiple filename variations per set (Logo.png, logo.png, .png).
-// Falls back to Mushu Report wiki if Fandom doesn't have a file.
-// Single API call — no article page scraping needed.
+// Discover set logo URLs from the Lorcana Fandom wiki.
+// Primary: parse each set's article page to find the infobox image (like Fabled.png).
+// Fallback: search File namespace for sets where article parsing fails.
 async function fetchLorcanaSetLogos() {
     if (_lorcanaLogosFetched) return;
     _lorcanaLogosFetched = true;
 
     var setKeys = Object.keys(LORCANA_SET_ARTICLE_NAMES);
 
-    // Build candidate filenames for each set.
-    // fileToSet maps normalized "File:X" (spaces) → { setKey, priority }.
-    var allFiles = [];
-    var fileToSet = {};
+    // Primary approach: Parse each set's article page to find the infobox image.
+    // This is the same image the wiki displays as the set logo — works like Fabled.png.
+    // Batch all set article pages in one API call using action=query&prop=images.
+    var articleTitles = setKeys.map(function(k) {
+        return LORCANA_SET_ARTICLE_NAMES[k];
+    }).join('|');
 
+    // Build reverse map: article title → set key
+    var titleToKey = {};
     setKeys.forEach(function(k) {
-        var name = LORCANA_SET_ARTICLE_NAMES[k];
-        // Try common wiki naming conventions (ordered by likelihood)
-        var variants = [
-            'File:' + name + '_Logo.png',
-            'File:' + name + '_logo.png',
-            'File:' + name + '.png'
-        ];
-        // For apostrophe sets, also try without the apostrophe
-        if (name.indexOf("'") !== -1) {
-            var clean = name.replace(/'/g, '');
-            variants.push('File:' + clean + '_Logo.png');
-            variants.push('File:' + clean + '_logo.png');
-            variants.push('File:' + clean + '.png');
-        }
-        variants.forEach(function(f, i) {
-            allFiles.push(f);
-            // MediaWiki API returns titles with spaces, not underscores.
-            // Normalize to spaces so lookups match API response titles.
-            var normalized = f.replace(/_/g, ' ');
-            if (!fileToSet[normalized] || i < fileToSet[normalized].priority) {
-                fileToSet[normalized] = { setKey: k, priority: i };
-            }
-        });
+        titleToKey[LORCANA_SET_ARTICLE_NAMES[k].replace(/_/g, ' ')] = k;
     });
 
-    // Phase 1: Direct filename guessing against Fandom wiki.
-    // MushuReport removed — CORS-blocked from browser.
     try {
-        var titleParam = allFiles.map(function(t) {
-            return t.replace(/ /g, '_');
-        }).join('|');
+        // Use imlimit=1 — we only need the first (infobox) image per article.
+        // Loop with continue token to handle MediaWiki pagination across pages.
+        var imageFiles = []; // [{setKey, filename}]
+        var imcontinue = '';
+        for (var attempt = 0; attempt < 3; attempt++) {
+            var apiUrl = 'https://lorcana.fandom.com/api.php?action=query&titles=' +
+                encodeURIComponent(articleTitles) + '&prop=images&imlimit=50&format=json&origin=*';
+            if (imcontinue) apiUrl += '&imcontinue=' + encodeURIComponent(imcontinue);
 
-        var resp = await fetch('https://lorcana.fandom.com/api.php?action=query&titles=' +
-            titleParam + '&prop=imageinfo&iiprop=url&format=json&origin=*',
-            { referrerPolicy: 'no-referrer' });
-        if (resp.ok) {
+            var resp = await fetch(apiUrl, { referrerPolicy: 'no-referrer' });
+            if (!resp.ok) break;
             var data = await resp.json();
             var pages = data && data.query && data.query.pages;
             if (pages) {
                 Object.keys(pages).forEach(function(pid) {
                     var page = pages[pid];
-                    if (!page.imageinfo || !page.imageinfo[0] || !page.imageinfo[0].url) return;
-                    var title = page.title || '';
-                    var entry = fileToSet[title];
-                    if (entry && !_lorcanaLogoUrlCache[entry.setKey]) {
-                        _lorcanaLogoUrlCache[entry.setKey] = page.imageinfo[0].url;
+                    var sk = titleToKey[page.title];
+                    if (!sk || !page.images || page.images.length === 0) return;
+                    // Only take first image if we haven't seen this set yet
+                    var already = imageFiles.some(function(f) { return f.setKey === sk; });
+                    if (!already) {
+                        imageFiles.push({ setKey: sk, filename: page.images[0].title });
                     }
                 });
             }
+            // Check if all sets found or no more pages
+            if (!data['continue'] || !data['continue'].imcontinue) break;
+            if (imageFiles.length >= setKeys.length) break;
+            imcontinue = data['continue'].imcontinue;
         }
-    } catch (e) { /* continue to search fallback */ }
 
-    // Phase 2: Search-based discovery for sets still missing.
-    // Uses generator=search in File namespace to find images with different naming.
-    var missingKeys = setKeys.filter(function(k) { return !_lorcanaLogoUrlCache[k]; });
-    if (missingKeys.length > 0) {
-        var searchQuery = missingKeys.map(function(k) {
-            return '"' + LORCANA_SET_ARTICLE_NAMES[k].replace(/_/g, ' ') + '"';
-        }).join(' OR ');
-
-        try {
-            var resp2 = await fetch('https://lorcana.fandom.com/api.php?action=query' +
-                '&generator=search&gsrnamespace=6&gsrsearch=' + encodeURIComponent(searchQuery) +
-                '&gsrlimit=50&prop=imageinfo&iiprop=url&format=json&origin=*',
+        // Resolve image filenames to CDN URLs in a single batch query
+        if (imageFiles.length > 0) {
+            var fileTitles = imageFiles.map(function(f) { return f.filename; }).join('|');
+            var resp2 = await fetch('https://lorcana.fandom.com/api.php?action=query&titles=' +
+                encodeURIComponent(fileTitles) + '&prop=imageinfo&iiprop=url&format=json&origin=*',
                 { referrerPolicy: 'no-referrer' });
             if (resp2.ok) {
                 var data2 = await resp2.json();
-                var pages2 = data2 && data2.query && data2.query.pages;
-                if (pages2) {
-                    Object.keys(pages2).forEach(function(pid) {
-                        var page = pages2[pid];
-                        if (!page.imageinfo || !page.imageinfo[0] || !page.imageinfo[0].url) return;
-                        var filename = (page.title || '').replace(/^File:/, '').toLowerCase();
-                        // Skip card images, booster packs, etc.
-                        if (/card|booster|pack|sleeve|promo|box|starter|deck/.test(filename)) return;
-
-                        missingKeys.forEach(function(k) {
-                            if (_lorcanaLogoUrlCache[k]) return;
-                            var setName = LORCANA_SET_ARTICLE_NAMES[k].replace(/_/g, ' ').toLowerCase();
-                            if (filename.indexOf(setName) !== -1) {
-                                _lorcanaLogoUrlCache[k] = page.imageinfo[0].url;
-                            }
-                        });
+                var filePages = data2 && data2.query && data2.query.pages;
+                var fileUrlMap = {};
+                if (filePages) {
+                    Object.keys(filePages).forEach(function(pid) {
+                        var fp = filePages[pid];
+                        if (fp.imageinfo && fp.imageinfo[0] && fp.imageinfo[0].url) {
+                            fileUrlMap[fp.title] = fp.imageinfo[0].url;
+                        }
                     });
                 }
+                imageFiles.forEach(function(f) {
+                    if (_lorcanaLogoUrlCache[f.setKey]) return;
+                    var url = fileUrlMap[f.filename] || fileUrlMap[f.filename.replace(/_/g, ' ')];
+                    if (url) _lorcanaLogoUrlCache[f.setKey] = url;
+                });
             }
-        } catch (e) { /* search failed, keep SVG fallbacks */ }
+        }
+    } catch (e) { /* continue to fallback */ }
+
+    // Fallback: search File namespace for any sets still missing.
+    var SKIP_PATTERN = /gift.set|booster|starter|deck|pack|sleeve|promo|box|trove|kit|bundle|blister|display|card|puzzle|concept.art|key.art|product.line|portfolio|contents|sealed|back\)|side.view|top|bottom|page.\d|in.stock|fanart|reprint|comparison/i;
+
+    var missingKeys = setKeys.filter(function(k) { return !_lorcanaLogoUrlCache[k]; });
+    for (var mi = 0; mi < missingKeys.length; mi++) {
+        var mk = missingKeys[mi];
+        var name = LORCANA_SET_ARTICLE_NAMES[mk].replace(/_/g, ' ');
+        var searchNames = [name];
+        if (name.indexOf("'") !== -1) searchNames.push(name.replace(/'/g, ''));
+
+        for (var ni = 0; ni < searchNames.length; ni++) {
+            if (_lorcanaLogoUrlCache[mk]) break;
+            try {
+                var resp3 = await fetch('https://lorcana.fandom.com/api.php?action=query' +
+                    '&generator=search&gsrnamespace=6&gsrsearch=' + encodeURIComponent('"' + searchNames[ni] + '"') +
+                    '&gsrlimit=10&prop=imageinfo&iiprop=url&format=json&origin=*',
+                    { referrerPolicy: 'no-referrer' });
+                if (resp3.ok) {
+                    var data3 = await resp3.json();
+                    var pages3 = data3 && data3.query && data3.query.pages;
+                    if (pages3) {
+                        _matchSearchResults(pages3, [mk], SKIP_PATTERN);
+                    }
+                }
+            } catch (e) { /* continue */ }
+        }
     }
+}
+
+// Score and match search result pages to missing set keys.
+function _matchSearchResults(pages, missingKeys, skipPattern) {
+    var candidates = {};
+    Object.keys(pages).forEach(function(pid) {
+        var page = pages[pid];
+        if (!page.imageinfo || !page.imageinfo[0] || !page.imageinfo[0].url) return;
+        var filename = (page.title || '').replace(/^File:/, '');
+        if (skipPattern.test(filename)) return;
+
+        missingKeys.forEach(function(k) {
+            if (_lorcanaLogoUrlCache[k]) return;
+            var setName = LORCANA_SET_ARTICLE_NAMES[k].replace(/_/g, ' ');
+            if (filename.toLowerCase().indexOf(setName.toLowerCase()) === -1) return;
+
+            var baseName = filename.replace(/\.\w+$/, '');
+            var score = 100;
+            if (baseName.toLowerCase() === setName.toLowerCase()) score = 0;
+            else if (/logo|image/i.test(baseName)) score = 10;
+            else score = 50 + baseName.length;
+
+            if (!candidates[k]) candidates[k] = [];
+            candidates[k].push({ url: page.imageinfo[0].url, score: score });
+        });
+    });
+
+    Object.keys(candidates).forEach(function(k) {
+        if (_lorcanaLogoUrlCache[k]) return;
+        candidates[k].sort(function(a, b) { return a.score - b.score; });
+        _lorcanaLogoUrlCache[k] = candidates[k][0].url;
+    });
 }
 
 // Upgrade one SVG logo to a real image via fetch→blob.
