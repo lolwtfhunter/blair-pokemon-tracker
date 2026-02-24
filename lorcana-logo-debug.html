@@ -22,6 +22,7 @@ button:hover { background: #7dd3fc; }
 <div class="section">
 <button onclick="runDiagnostic()">Run Full Diagnostic</button>
 <button onclick="clearLog()">Clear</button>
+<button onclick="copyLog()" id="copy-btn">Copy Log</button>
 </div>
 
 <div class="section" id="grid-section" style="display:none">
@@ -41,6 +42,28 @@ function log(msg, cls) {
     LOG.scrollTop = LOG.scrollHeight;
 }
 function clearLog() { LOG.innerHTML = ''; document.getElementById('grid-section').style.display = 'none'; }
+function copyLog() {
+    var text = LOG.innerText || LOG.textContent;
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(function() {
+            var btn = document.getElementById('copy-btn');
+            btn.textContent = 'Copied!';
+            setTimeout(function() { btn.textContent = 'Copy Log'; }, 2000);
+        }, function() { fallbackCopy(text); });
+    } else {
+        fallbackCopy(text);
+    }
+}
+function fallbackCopy(text) {
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.cssText = 'position:fixed;left:-9999px';
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand('copy'); var btn = document.getElementById('copy-btn'); btn.textContent = 'Copied!'; setTimeout(function() { btn.textContent = 'Copy Log'; }, 2000); }
+    catch(e) { alert('Copy failed — please select log text manually'); }
+    document.body.removeChild(ta);
+}
 
 var SET_NAMES = {
     'first-chapter':         'The_First_Chapter',
@@ -258,57 +281,97 @@ async function runDiagnostic() {
     log('Origin: ' + location.origin);
 
     var setKeys = Object.keys(SET_NAMES);
-    var allFiles = [];
-    var fileToSet = {};
-
-    setKeys.forEach(function(k) {
-        var variants = buildVariants(SET_NAMES[k]);
-        variants.forEach(function(f, i) {
-            allFiles.push(f);
-            var normalized = f.replace(/_/g, ' ');
-            if (!fileToSet[normalized] || i < fileToSet[normalized].priority) {
-                fileToSet[normalized] = { setKey: k, priority: i };
-            }
-        });
-    });
-
-    log('\nCandidate filenames: ' + allFiles.length);
-    log('Sets: ' + setKeys.join(', '));
+    log('\nSets: ' + setKeys.join(', '));
 
     var foundUrls = {};
 
-    // Phase 1: Direct filename guessing
+    // Phase 1: Article page parsing (primary — same approach as Fabled)
+    // Fetches each set's wiki article to find the infobox image
+    log('\n--- Phase 1: Article Page Parsing ---');
+    log('Fetching article pages to find infobox images...');
+
+    var articleTitles = setKeys.map(function(k) { return SET_NAMES[k]; }).join('|');
     try {
-        var results = await queryWiki('https://lorcana.fandom.com/api.php', 'Fandom', allFiles);
-        Object.keys(results).forEach(function(title) {
-            var entry = fileToSet[title];
-            if (entry && !foundUrls[entry.setKey]) {
-                foundUrls[entry.setKey] = results[title];
+        var resp = await fetch('https://lorcana.fandom.com/api.php?action=query&titles=' +
+            encodeURIComponent(articleTitles) + '&prop=images&imlimit=5&format=json&origin=*',
+            { referrerPolicy: 'no-referrer' });
+        log('HTTP ' + resp.status, resp.ok ? 'ok' : 'fail');
+
+        if (resp.ok) {
+            var data = await resp.json();
+            var pages = data && data.query && data.query.pages;
+            var titleToKey = {};
+            setKeys.forEach(function(k) {
+                titleToKey[SET_NAMES[k].replace(/_/g, ' ')] = k;
+            });
+
+            var imageFiles = [];
+            if (pages) {
+                Object.keys(pages).forEach(function(pid) {
+                    var page = pages[pid];
+                    var sk = titleToKey[page.title];
+                    if (!sk) { log('  Unknown page: ' + page.title, 'warn'); return; }
+                    if (!page.images || page.images.length === 0) {
+                        log('  ' + sk + ': no images on article page', 'fail');
+                        return;
+                    }
+                    log('  ' + sk + ' article images: ' + page.images.map(function(im) { return im.title.replace('File:', ''); }).join(', '), 'dim');
+                    var firstImage = page.images[0].title;
+                    log('  ' + sk + ' → using first: ' + firstImage, 'ok');
+                    imageFiles.push({ setKey: sk, filename: firstImage });
+                });
             }
-        });
+
+            // Resolve image filenames to CDN URLs
+            if (imageFiles.length > 0) {
+                log('\nResolving ' + imageFiles.length + ' image filenames to CDN URLs...');
+                var fileTitles = imageFiles.map(function(f) { return f.filename; }).join('|');
+                var resp2 = await fetch('https://lorcana.fandom.com/api.php?action=query&titles=' +
+                    encodeURIComponent(fileTitles) + '&prop=imageinfo&iiprop=url&format=json&origin=*',
+                    { referrerPolicy: 'no-referrer' });
+                log('HTTP ' + resp2.status, resp2.ok ? 'ok' : 'fail');
+
+                if (resp2.ok) {
+                    var data2 = await resp2.json();
+                    var filePages = data2 && data2.query && data2.query.pages;
+                    var fileUrlMap = {};
+                    if (filePages) {
+                        Object.keys(filePages).forEach(function(pid) {
+                            var fp = filePages[pid];
+                            if (fp.imageinfo && fp.imageinfo[0] && fp.imageinfo[0].url) {
+                                fileUrlMap[fp.title] = fp.imageinfo[0].url;
+                            }
+                        });
+                    }
+                    imageFiles.forEach(function(f) {
+                        var url = fileUrlMap[f.filename] || fileUrlMap[f.filename.replace(/_/g, ' ')];
+                        if (url) {
+                            foundUrls[f.setKey] = url;
+                            log('  ' + f.setKey + ': resolved', 'ok');
+                            log('    → ' + url.substring(0, 100) + '...', 'dim');
+                        } else {
+                            log('  ' + f.setKey + ': could not resolve ' + f.filename, 'fail');
+                        }
+                    });
+                }
+            }
+        }
     } catch (e) {
-        log('Fandom direct query ERROR: ' + e.message, 'fail');
+        log('Article parsing ERROR: ' + e.message, 'fail');
     }
 
-    // Phase 2: Batch search fallback for missing sets
+    var articleFound = Object.keys(foundUrls).length;
+    log('\nArticle parsing found ' + articleFound + '/' + setKeys.length + ' sets', articleFound === setKeys.length ? 'ok' : 'warn');
+
+    // Phase 2: Search fallback for any sets still missing
     var missingKeys = setKeys.filter(function(k) { return !foundUrls[k]; });
     if (missingKeys.length > 0) {
-        log('\n' + missingKeys.length + ' sets still missing after direct query: ' + missingKeys.join(', '), 'warn');
+        log('\n--- Phase 2: Search Fallback ---');
+        log(missingKeys.length + ' sets still missing: ' + missingKeys.join(', '), 'warn');
         try {
-            await searchWikiBatch(missingKeys, foundUrls);
+            await searchWikiIndividual(missingKeys, foundUrls);
         } catch (e) {
-            log('Batch search ERROR: ' + e.message, 'fail');
-        }
-    }
-
-    // Phase 3: Individual searches for sets still missing
-    var stillMissing = setKeys.filter(function(k) { return !foundUrls[k]; });
-    if (stillMissing.length > 0) {
-        log('\n' + stillMissing.length + ' sets still missing after batch search: ' + stillMissing.join(', '), 'warn');
-        try {
-            await searchWikiIndividual(stillMissing, foundUrls);
-        } catch (e) {
-            log('Individual search ERROR: ' + e.message, 'fail');
+            log('Search ERROR: ' + e.message, 'fail');
         }
     }
 
